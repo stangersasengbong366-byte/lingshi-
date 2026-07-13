@@ -1,0 +1,1913 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>各家高中产品性价比分析</title>
+  <style>
+    :root {
+      --blue: #1765f5;
+      --blue-dark: #092858;
+      --blue-mid: #2c7cf6;
+      --blue-soft: #e9f3ff;
+      --orange: #ff6b00;
+      --orange-dark: #f04d00;
+      --orange-soft: #fff1da;
+      --gold: #ffe7a5;
+      --line: #cfe0ff;
+      --text: #081a38;
+      --muted: #5f6f8c;
+      --card: rgba(255, 255, 255, 0.92);
+      --shadow: 0 12px 32px rgba(16, 78, 170, 0.14);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 0%, rgba(69, 153, 255, 0.28), transparent 30%),
+        radial-gradient(circle at 88% 6%, rgba(65, 141, 255, 0.25), transparent 28%),
+        linear-gradient(180deg, #eef7ff 0%, #ffffff 48%, #f7fbff 100%);
+    }
+
+    .page {
+      width: 100%;
+      min-height: 100vh;
+      padding: 22px 22px 28px;
+    }
+
+    .poster {
+      width: min(1880px, 100%);
+      margin: 0 auto;
+      position: relative;
+    }
+
+    header {
+      text-align: center;
+      padding: 0 180px 12px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(32px, 3.4vw, 56px);
+      line-height: 1.08;
+      color: var(--blue-dark);
+      font-weight: 950;
+      letter-spacing: 1px;
+      text-shadow: 0 3px 0 rgba(255,255,255,.9);
+    }
+
+    h1 .grade {
+      color: #075ff0;
+    }
+
+    .subtitle {
+      margin-top: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+      color: var(--blue-dark);
+      font-size: clamp(16px, 1.35vw, 25px);
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .subtitle::before,
+    .subtitle::after {
+      content: "";
+      display: block;
+      width: 120px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #1d66e8);
+      position: relative;
+    }
+    .subtitle::after { background: linear-gradient(90deg, #1d66e8, transparent); }
+
+    .subtitle .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #1d66e8;
+      margin-left: -14px;
+      margin-right: -14px;
+    }
+
+    .grade-switch {
+      width: fit-content;
+      max-width: 100%;
+      margin: 0 auto 12px;
+      display: inline-grid;
+      grid-template-columns: repeat(3, minmax(82px, 1fr));
+      gap: 6px;
+      padding: 5px;
+      border: 1px solid #d8e7ff;
+      border-radius: 999px;
+      background: rgba(255,255,255,.84);
+      box-shadow: 0 8px 18px rgba(16, 78, 170, .10);
+    }
+
+    .grade-switch button {
+      border: 0;
+      border-radius: 999px;
+      min-height: 34px;
+      padding: 0 16px;
+      color: #24436f;
+      background: transparent;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .grade-switch button.active {
+      color: #fff;
+      background: linear-gradient(180deg, #ff8b17, #ff6500);
+      box-shadow: 0 6px 14px rgba(255, 92, 0, .18);
+    }
+
+    .page-tools {
+      display: flex;
+      justify-content: center;
+      margin: 0 0 12px;
+    }
+
+    .download-btn {
+      border: 0;
+      border-radius: 999px;
+      min-height: 38px;
+      padding: 0 18px;
+      color: #fff;
+      background: linear-gradient(180deg, #2d83ff, #1665ea);
+      box-shadow: 0 8px 18px rgba(18, 98, 228, .18);
+      font: inherit;
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 0;
+      cursor: pointer;
+      transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease;
+    }
+
+    .download-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px rgba(18, 98, 228, .22);
+    }
+
+    .download-btn:disabled {
+      cursor: wait;
+      opacity: .7;
+      transform: none;
+      box-shadow: 0 8px 18px rgba(18, 98, 228, .14);
+    }
+
+    .comparison-card {
+      background: rgba(255,255,255,.82);
+      border: 1px solid #d8e7ff;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      min-width: 1540px;
+      table-layout: auto;
+      font-size: clamp(13px, .98vw, 18px);
+    }
+
+    th, td {
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      text-align: center;
+      vertical-align: middle;
+      padding: 10px 14px;
+      line-height: 1.35;
+      font-weight: 650;
+      white-space: pre-line;
+    }
+
+    .product-content-row td {
+      padding-top: 14px;
+      padding-bottom: 14px;
+    }
+
+    .product-content-row .row-title {
+      vertical-align: middle;
+    }
+
+    .product-content-cell {
+      font-size: clamp(14px, .95vw, 17px);
+      line-height: 1.6;
+      letter-spacing: 0;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+    }
+
+    th:last-child, td:last-child { border-right: none; }
+    tr:last-child td { border-bottom: none; }
+
+    thead th {
+      color: #fff;
+      font-size: clamp(15px, 1.15vw, 22px);
+      font-weight: 900;
+      background: linear-gradient(180deg, #68a7ff 0%, #1967ee 100%);
+      text-shadow: 0 1px 2px rgba(0,0,0,.12);
+    }
+
+    thead th:first-child {
+      background: linear-gradient(180deg, #2b77ff, #1250cf);
+      width: 13%;
+      min-width: 170px;
+    }
+
+    thead th.youdao-head {
+      background: linear-gradient(180deg, #ff8b17 0%, #ff6700 100%);
+      font-size: clamp(18px, 1.3vw, 25px);
+      position: relative;
+      border-left: 2px solid var(--orange);
+      border-right: 2px solid var(--orange);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 8px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: #fff;
+      color: #ff5b00;
+      font-size: .62em;
+      line-height: 1;
+      font-weight: 900;
+      vertical-align: middle;
+    }
+
+    .pill.youdao-pill {
+      padding: 5px 11px;
+      color: #ff6a00;
+      font-size: .6em;
+      font-weight: 950;
+      box-shadow: 0 3px 8px rgba(255, 255, 255, .18);
+    }
+
+    .row-title {
+      width: 13%;
+      min-width: 170px;
+      font-weight: 900;
+      background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+      color: #061a3d;
+    }
+
+    thead th:not(:first-child),
+    tbody td:not(.row-title) {
+      min-width: 165px;
+    }
+
+    .youdao-col {
+      background: linear-gradient(180deg, rgba(255, 244, 218, .92), rgba(255,255,255,.8));
+      border-left: 2px solid var(--orange) !important;
+      border-right: 2px solid var(--orange) !important;
+      color: #061a3d;
+    }
+
+    tbody tr:last-child .youdao-col {
+      border-bottom: 2px solid var(--orange) !important;
+    }
+
+    .youdao-strong {
+      color: #ff4b00;
+      font-weight: 950;
+      font-size: 1.25em;
+    }
+
+    .only-video {
+      display: inline-block;
+      margin-top: 5px;
+      padding: 2px 9px;
+      border-radius: 999px;
+      color: #fff;
+      background: linear-gradient(90deg, #ff8b17, #ff4e00);
+      font-size: .78em;
+      font-weight: 900;
+    }
+
+    .only-video::before {
+      content: "☝ ";
+      font-weight: 900;
+    }
+
+    .highlight-row td { background: #fff8e9; }
+
+    .thumb {
+      display: inline-block;
+      color: #ff5b00;
+      font-size: 1.1em;
+      margin-left: 9px;
+      filter: drop-shadow(0 2px 1px rgba(255,91,0,.1));
+    }
+
+    .note {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #1d3769;
+      font-size: clamp(12px, .82vw, 15px);
+      font-weight: 650;
+      padding: 10px 14px 0;
+    }
+
+    .note .info {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 2px solid #2d76ed;
+      color: #2d76ed;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 900;
+      flex: 0 0 auto;
+    }
+
+    .gift-summary-text {
+      display: inline-block;
+      color: #243a63;
+      font-size: clamp(12px, .86vw, 15px);
+      font-weight: 800;
+      line-height: 1.45;
+      text-wrap: balance;
+    }
+
+    .gift-summary-text.is-empty {
+      color: #7b89a4;
+      font-weight: 700;
+    }
+
+    .gift-detail-panel {
+      margin-top: 16px;
+      background: rgba(255,255,255,.92);
+      border: 1px solid #d8e6ff;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .gift-detail-panel summary {
+      list-style: none;
+    }
+
+    .gift-detail-panel summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .gift-detail-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 18px;
+      color: #fff;
+      background: linear-gradient(180deg, #4c95ff, #1364e9);
+      font-size: clamp(15px, 1vw, 20px);
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .gift-detail-head-main {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .gift-detail-head-copy {
+      font-size: clamp(12px, .84vw, 14px);
+      font-weight: 800;
+      color: rgba(255,255,255,.92);
+      line-height: 1.4;
+      text-align: right;
+    }
+
+    .gift-detail-arrow {
+      font-size: 16px;
+      line-height: 1;
+      transition: transform .2s ease;
+      flex: 0 0 auto;
+    }
+
+    .gift-detail-panel[open] .gift-detail-arrow {
+      transform: rotate(180deg);
+    }
+
+    .gift-detail-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      padding: 16px;
+      align-items: start;
+    }
+
+    .gift-brand-card {
+      background: linear-gradient(180deg, #f8fbff, #ffffff);
+      border: 1px solid #dfebff;
+      border-radius: 14px;
+      box-shadow: 0 8px 18px rgba(11, 94, 218, 0.08);
+      overflow: hidden;
+    }
+
+    .gift-brand-card.youdao {
+      border-color: #ffd8b1;
+      box-shadow: 0 10px 20px rgba(255, 106, 0, 0.10);
+    }
+
+    .gift-brand-summary {
+      padding: 14px 16px 12px;
+      border-bottom: 1px solid #eaf1ff;
+    }
+
+    .gift-brand-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 8px;
+      font-size: clamp(15px, .98vw, 18px);
+      font-weight: 900;
+      color: #0d2a57;
+    }
+
+    .gift-brand-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: #fff3e7;
+      color: #ff6a00;
+      font-size: 12px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .gift-brand-desc {
+      color: #4b5e81;
+      font-size: clamp(12px, .84vw, 14px);
+      font-weight: 700;
+      line-height: 1.55;
+    }
+
+    .gift-detail-body {
+      padding: 14px 16px 16px;
+    }
+
+    .gift-detail-raw {
+      margin: 0;
+      color: #253d68;
+      font-size: clamp(12px, .84vw, 14px);
+      font-weight: 700;
+      line-height: 1.72;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .gift-detail-list {
+      margin: 0;
+      padding-left: 18px;
+      color: #253d68;
+      font-size: clamp(12px, .84vw, 14px);
+      font-weight: 700;
+      line-height: 1.65;
+    }
+
+    .gift-detail-list li + li {
+      margin-top: 6px;
+    }
+
+    .module-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 3.45fr) minmax(320px, 1.1fr);
+      gap: 16px;
+      margin-top: 14px;
+      align-items: stretch;
+    }
+
+    .left-stack {
+      display: grid;
+      gap: 12px;
+      min-height: 100%;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .panel {
+      background: var(--card);
+      border: 1px solid #d8e6ff;
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      min-height: 184px;
+    }
+
+    .panel-title {
+      min-height: 39px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 9px;
+      padding: 9px 16px 10px;
+      color: #fff;
+      font-size: clamp(15px, 1vw, 20px);
+      font-weight: 900;
+      background: linear-gradient(180deg, #4c95ff, #1364e9);
+      letter-spacing: 0;
+      line-height: 1.25;
+      text-wrap: balance;
+      text-align: center;
+    }
+
+    .panel-title.orange {
+      background: linear-gradient(180deg, #ff8b17, #ff6500);
+    }
+
+    .label {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      background: rgba(255,255,255,.22);
+      border: 1px solid rgba(255,255,255,.55);
+      font-weight: 950;
+      flex: 0 0 auto;
+    }
+
+    .panel-body {
+      padding: 22px 24px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      text-align: center;
+    }
+
+    .composition {
+      font-size: clamp(14px, .96vw, 18px);
+      font-weight: 900;
+      color: #0e2a56;
+      margin-bottom: 22px;
+      text-align: center;
+      line-height: 1.4;
+      text-wrap: balance;
+      max-width: 92%;
+    }
+
+    .product-steps {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 14px minmax(0, 1fr) 14px minmax(0, 1fr);
+      align-items: stretch;
+      gap: 8px;
+      width: 100%;
+      grid-auto-rows: 1fr;
+      max-width: 100%;
+      margin-inline: auto;
+    }
+
+    .mini-card {
+      width: 100%;
+      min-height: 244px;
+      height: 244px;
+      border-radius: 12px;
+      background: linear-gradient(180deg, #f8fbff, #ffffff);
+      border: 1px solid #e1ebff;
+      box-shadow: 0 8px 18px rgba(11, 94, 218, 0.10);
+      display: grid;
+      grid-template-rows: 54px 72px 1fr;
+      align-items: center;
+      justify-items: center;
+      gap: 10px;
+      padding: 18px 14px 16px;
+      box-sizing: border-box;
+    }
+
+    .mini-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 23px;
+      font-weight: 900;
+      background: linear-gradient(135deg, #2378ff, #1057df);
+      box-shadow: 0 8px 16px rgba(16, 87, 223, .18);
+    }
+
+    .mini-card:nth-child(3) .mini-icon { background: linear-gradient(135deg, #ff9600, #ff6a00); }
+    .mini-card:nth-child(5) .mini-icon { background: linear-gradient(135deg, #28d37b, #05a955); }
+
+    .mini-title {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 950;
+      text-align: center;
+      line-height: 1.22;
+      text-wrap: balance;
+      width: 100%;
+    }
+    .mini-desc {
+      width: 100%;
+      color: #475b80;
+      font-size: 11px;
+      font-weight: 650;
+      text-align: center;
+      line-height: 1.42;
+      text-wrap: balance;
+      word-break: break-word;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .arrow {
+      color: #94b8ee;
+      font-size: 18px;
+      text-align: center;
+      font-weight: 900;
+      align-self: center;
+      transform: none;
+    }
+
+    .price-copy {
+      font-size: clamp(18px, 1.28vw, 26px);
+      color: #ff4d00;
+      font-weight: 950;
+      line-height: 1.55;
+      text-align: center;
+      margin: 0 0 14px;
+      white-space: pre-line;
+      text-wrap: balance;
+    }
+
+    .price-copy .num {
+      font-size: 1.45em;
+      display: inline-block;
+    }
+
+    .price-copy .num-unit {
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    .check-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 8px;
+      font-size: clamp(13px, .9vw, 16px);
+      color: #263b62;
+      font-weight: 750;
+      width: 100%;
+      max-width: 300px;
+      justify-items: center;
+    }
+
+    .check-list div {
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 8px;
+      align-items: start;
+      line-height: 1.5;
+      width: 100%;
+      text-align: left;
+    }
+
+    .check {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #ff6a00;
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 950;
+      margin-top: 2px;
+    }
+
+    .number-list {
+      display: grid;
+      gap: 8px;
+      color: #2a3e61;
+      font-size: clamp(12px, .8vw, 15px);
+      font-weight: 700;
+      line-height: 1.5;
+      width: 100%;
+      max-width: 320px;
+      justify-items: center;
+    }
+
+    .number-list .item {
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 8px;
+      width: 100%;
+      text-align: left;
+    }
+
+    .circle-no {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 1.6px solid #769bd8;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: #3763a8;
+      font-weight: 950;
+      margin-top: 1px;
+    }
+
+    .blue-badge {
+      margin: 12px auto 0;
+      width: fit-content;
+      max-width: min(100%, 260px);
+      padding: 8px 16px;
+      border-radius: 999px;
+      color: #fff;
+      background: linear-gradient(90deg, #1268ef, #2a8cff);
+      box-shadow: 0 8px 18px rgba(24, 103, 239, .22);
+      font-weight: 950;
+      font-size: clamp(13px, .94vw, 17px);
+      text-align: center;
+      white-space: normal;
+      line-height: 1.35;
+    }
+
+    .service-panel {
+      background: rgba(255,255,255,.93);
+      border: 1px solid #d8e6ff;
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      min-height: 168px;
+      position: relative;
+    }
+
+    .service-title {
+      min-height: 38px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 20px;
+      color: #fff;
+      background: linear-gradient(180deg, #4b94ff, #1565eb);
+      border-bottom-right-radius: 12px;
+      border-bottom-left-radius: 12px;
+      font-size: clamp(14px, .98vw, 19px);
+      font-weight: 950;
+      letter-spacing: 0;
+      line-height: 1.3;
+      text-wrap: balance;
+      text-align: center;
+    }
+
+    .service-flow {
+      display: grid;
+      grid-template-columns: repeat(9, 1fr);
+      gap: 12px;
+      padding: 14px 20px 6px;
+      position: relative;
+      align-items: start;
+    }
+
+    .service-flow::before {
+      content: "";
+      position: absolute;
+      left: 66px;
+      right: 66px;
+      top: 40px;
+      height: 0;
+      border-top: 3px dashed #bcd4ff;
+      z-index: 0;
+    }
+
+    .service-step {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      font-weight: 850;
+      color: #253d68;
+      font-size: clamp(11px, .78vw, 14px);
+      line-height: 1.35;
+    }
+
+    .service-icon {
+      width: 42px;
+      height: 42px;
+      margin: 0 auto 8px;
+      border-radius: 50%;
+      background: #e8f1ff;
+      border: 1px solid #d8e8ff;
+      box-shadow: 0 7px 14px rgba(24, 103, 239, .12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 21px;
+      color: #0d65eb;
+      position: relative;
+    }
+
+    .step-no {
+      position: absolute;
+      left: -4px;
+      top: -8px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #0866ed;
+      color: #fff;
+      font-size: 11px;
+      line-height: 20px;
+      font-weight: 950;
+    }
+
+    .service-desc {
+      text-align: center;
+      color: #465b7f;
+      font-size: clamp(12px, .88vw, 15px);
+      font-weight: 650;
+      padding: 2px 32px 14px;
+      margin: 0;
+      white-space: pre-line;
+      line-height: 1.55;
+      text-wrap: pretty;
+      max-width: 1100px;
+      margin-inline: auto;
+    }
+
+    .choice-panel {
+      min-height: 100%;
+      background:
+        radial-gradient(circle at 88% 10%, rgba(255,255,255,.22), transparent 22%),
+        linear-gradient(160deg, #ff9a1a 0%, #ff7a00 38%, #ff5a00 100%);
+      border-radius: 18px;
+      box-shadow: 0 16px 32px rgba(255, 92, 0, .26);
+      padding: 18px 18px 16px;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      isolation: isolate;
+    }
+
+    .choice-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.08), transparent 34%),
+        radial-gradient(circle at 10% 100%, rgba(255,255,255,.12), transparent 32%);
+      pointer-events: none;
+    }
+
+    .choice-panel::after {
+      content: "";
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      height: 92px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,.1), rgba(255,255,255,.04));
+      opacity: .5;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .crown {
+      position: absolute;
+      right: 12px;
+      top: 10px;
+      font-size: clamp(52px, 4.2vw, 76px);
+      transform: rotate(10deg);
+      filter: drop-shadow(0 10px 14px rgba(152, 72, 0, .22));
+      z-index: 2;
+    }
+
+    .choice-title {
+      position: relative;
+      z-index: 1;
+      margin: 0 58px 0 0;
+      font-size: clamp(20px, 1.45vw, 28px);
+      line-height: 1.08;
+      font-weight: 950;
+      letter-spacing: 0;
+      text-shadow: 0 2px 3px rgba(160, 63, 0, .18);
+      white-space: pre-line;
+      word-break: break-word;
+      text-wrap: balance;
+    }
+
+    .price-box {
+      position: relative;
+      z-index: 1;
+      background: rgba(255,255,255,.96);
+      border-radius: 16px;
+      overflow: hidden;
+      color: #0b1b37;
+      box-shadow: 0 14px 28px rgba(169, 58, 0, .18);
+      margin: auto 0;
+    }
+
+    .price-row {
+      display: grid;
+      grid-template-columns: .96fr 1.04fr;
+      align-items: center;
+      min-height: 108px;
+      border-bottom: 1px solid #ffd7b5;
+    }
+    .price-row:last-child { border-bottom: none; }
+
+    .price-row .name {
+      height: 100%;
+      background: linear-gradient(180deg, #fff4df, #ffedd3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: clamp(16px, 1.05vw, 19px);
+      font-weight: 900;
+      text-align: center;
+      padding: 0 12px;
+      line-height: 1.3;
+      text-wrap: balance;
+    }
+
+    .price-row .value {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: #ff4b00;
+      font-weight: 950;
+      padding: 0 12px;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+
+    .price-row .value .big {
+      font-size: clamp(62px, 5vw, 86px);
+      line-height: .9;
+      letter-spacing: -3px;
+    }
+
+    .price-row .value .yuan {
+      font-size: clamp(20px, 1.3vw, 28px);
+      margin-bottom: 10px;
+    }
+
+    .price-row .value.compound {
+      gap: 6px 8px;
+      align-content: center;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    .price-row .value .subnote {
+      flex-basis: 100%;
+      color: #ff5a00;
+      font-size: clamp(18px, 1.2vw, 26px);
+      line-height: 1.2;
+      letter-spacing: 0;
+      font-weight: 900;
+      margin-top: 2px;
+    }
+
+    .choice-slogan {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,.24);
+      border-radius: 16px;
+      padding: 16px 18px;
+      font-size: clamp(12px, .9vw, 15px);
+      font-weight: 950;
+      letter-spacing: 0;
+      color: rgba(255,255,255,.98);
+      background: linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,.08));
+      line-height: 1.65;
+      white-space: normal;
+      text-wrap: pretty;
+      margin-top: auto;
+      backdrop-filter: blur(4px);
+      max-width: none;
+      margin-inline: 0;
+      box-sizing: border-box;
+      word-break: break-word;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.16);
+    }
+
+    .choice-content {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 12px;
+      align-content: start;
+      flex: 1 1 auto;
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 18px;
+      padding: 16px;
+      backdrop-filter: blur(6px);
+    }
+
+    .choice-kicker {
+      position: relative;
+      z-index: 1;
+      width: fit-content;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.16);
+      border: 1px solid rgba(255,255,255,.26);
+      color: rgba(255,255,255,.96);
+      font-size: 12px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .state-panel {
+      margin: 42px auto 0;
+      width: min(560px, 100%);
+      min-height: 150px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: #1d3769;
+      font-size: 18px;
+      font-weight: 900;
+      background: rgba(255,255,255,.88);
+      border: 1px solid #d8e7ff;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+
+    .state-panel .state-title {
+      font-size: clamp(24px, 2.2vw, 34px);
+      line-height: 1.4;
+    }
+
+    .state-panel .state-desc {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: clamp(15px, 1.2vw, 20px);
+      font-weight: 700;
+      line-height: 1.7;
+    }
+
+    .state-panel .state-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      margin-top: 18px;
+      padding: 0 18px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #2d83ff, #1665ea);
+      box-shadow: 0 8px 18px rgba(18, 98, 228, .18);
+      color: #fff;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 900;
+    }
+
+    body.exporting {
+      background: linear-gradient(180deg, #eef7ff 0%, #ffffff 48%, #f7fbff 100%) !important;
+    }
+
+    body.exporting .poster.export-capture {
+      box-sizing: border-box;
+      padding: 28px 32px 36px;
+    }
+
+    body.exporting .grade-switch,
+    body.exporting .page-tools {
+      display: none !important;
+    }
+
+    body.exporting .comparison-card,
+    body.exporting .panel,
+    body.exporting .service-panel,
+    body.exporting .price-box {
+      background: #ffffff !important;
+      box-shadow: none !important;
+    }
+
+    body.exporting .youdao-col {
+      background: linear-gradient(180deg, #fff4da 0%, #fffdfa 100%) !important;
+    }
+
+    body.exporting .highlight-row td {
+      background: #fff8e9 !important;
+    }
+
+    body.exporting .choice-panel {
+      background: linear-gradient(160deg, #ff9a1a 0%, #ff7a00 38%, #ff5a00 100%) !important;
+      box-shadow: none !important;
+    }
+
+    body.exporting .choice-panel::before,
+    body.exporting .choice-panel::after {
+      display: none !important;
+    }
+
+    body.exporting .choice-content,
+    body.exporting .choice-slogan,
+    body.exporting .choice-kicker,
+    body.exporting .label {
+      backdrop-filter: none !important;
+    }
+
+    body.exporting .choice-content {
+      background: rgba(255,255,255,.12) !important;
+      border-color: rgba(255,255,255,.22) !important;
+    }
+
+    body.exporting .choice-slogan {
+      background: rgba(255,255,255,.14) !important;
+      box-shadow: none !important;
+    }
+
+    [hidden] { display: none !important; }
+
+    @media (max-width: 1200px) {
+      header { padding: 0 12px 12px; }
+      .gift-detail-grid { grid-template-columns: 1fr 1fr; }
+      .module-layout { grid-template-columns: 1fr; }
+      .content-grid { grid-template-columns: 1fr 1fr; }
+      .service-flow { grid-template-columns: repeat(3, 1fr); }
+      .service-flow::before { display: none; }
+      .comparison-card { overflow-x: auto; }
+      table { min-width: 1180px; }
+    }
+
+    @media (max-width: 720px) {
+      .page { padding: 12px; }
+      .gift-detail-grid { grid-template-columns: 1fr; }
+      .gift-detail-head { align-items: flex-start; }
+      .gift-detail-head-copy { text-align: left; }
+      .content-grid { grid-template-columns: 1fr; }
+      .subtitle { gap: 10px; letter-spacing: 1px; }
+      .subtitle::before, .subtitle::after { width: 40px; }
+      .grade-switch { grid-template-columns: 1fr 1fr 1fr; width: 100%; border-radius: 14px; }
+      .grade-switch button { padding: 0 8px; }
+      .product-steps { grid-template-columns: 1fr; }
+      .arrow { transform: rotate(90deg); }
+      .service-flow { grid-template-columns: repeat(2, 1fr); padding: 18px 18px 10px; gap: 12px; }
+      .choice-panel { min-height: unset; }
+      .choice-title { margin-right: 42px; }
+      .service-title { min-width: 0; width: 100%; border-bottom-right-radius: 0; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="poster">
+      <header>
+        <nav class="grade-switch" aria-label="年级切换">
+          <button type="button" data-grade="新高一">新高一</button>
+          <button type="button" data-grade="新高二">新高二</button>
+          <button type="button" data-grade="新高三">新高三</button>
+        </nav>
+        <div class="page-tools" data-download-ignore>
+          <button type="button" class="download-btn" id="downloadPosterBtn">下载本页图片</button>
+        </div>
+        <h1><span class="grade" id="pageGrade">【新高一】</span>各家高中产品性价比分析</h1>
+        <div class="subtitle"><span id="subtitleText">价格更优 · 内容更全 · 学习闭环更完整</span><span class="dot"></span></div>
+      </header>
+
+      <div id="statePanel" class="state-panel">数据加载中...</div>
+
+      <section id="contentRoot" hidden>
+        <section class="comparison-card" aria-label="各家高中产品性价比对比表">
+          <table>
+            <thead id="tableHead"></thead>
+            <tbody id="tableBody"></tbody>
+          </table>
+        </section>
+
+
+        <section class="module-layout">
+          <div class="left-stack">
+            <section class="content-grid">
+              <article class="panel">
+                <div class="panel-title"><span class="label" id="compositionLabel">A</span><span id="compositionTitle">产品组成</span></div>
+                <div class="panel-body">
+                  <div class="composition" id="compositionHeadline"></div>
+                  <div class="product-steps" id="compositionSteps"></div>
+                </div>
+              </article>
+
+              <article class="panel">
+                <div class="panel-title orange"><span class="label" id="priceLabel">B</span><span id="priceTitle">价格优势</span></div>
+                <div class="panel-body">
+                  <p class="price-copy" id="priceHeadline"></p>
+                  <div class="check-list" id="priceItems"></div>
+                </div>
+              </article>
+
+              <article class="panel">
+                <div class="panel-title"><span class="label" id="videoLabel">C</span><span id="videoTitle">知识视频</span></div>
+                <div class="panel-body">
+                  <div class="number-list" id="videoItems"></div>
+                  <div class="blue-badge" id="videoBadge" hidden></div>
+                </div>
+              </article>
+
+              <article class="panel">
+                <div class="panel-title"><span class="label" id="liveLabel">D</span><span id="liveTitle">学法直播</span></div>
+                <div class="panel-body">
+                  <div class="number-list" id="liveItems"></div>
+                </div>
+              </article>
+            </section>
+
+            <article class="service-panel">
+              <div class="service-title" id="serviceTitle"></div>
+              <div class="service-flow" id="serviceFlow"></div>
+              <p class="service-desc" id="serviceDesc"></p>
+            </article>
+          </div>
+
+          <aside class="choice-panel">
+            <div class="crown">👑</div>
+            <div class="choice-content">
+              <div class="choice-kicker">年度主推</div>
+              <h2 class="choice-title" id="choiceTitle"></h2>
+              <div class="price-box" id="choicePriceRows"></div>
+            </div>
+            <div class="choice-slogan" id="choiceSlogan"></div>
+          </aside>
+        </section>
+
+        <details class="gift-detail-panel" id="giftDetailPanel" hidden data-download-ignore>
+          <summary class="gift-detail-head">
+            <span class="gift-detail-head-main"><span class="label">赠</span><span>赠送详情</span></span>
+            <span class="gift-detail-head-copy">点击查看完整赠送内容 <span class="gift-detail-arrow">▾</span></span>
+          </summary>
+          <div class="gift-detail-grid" id="giftDetailGrid"></div>
+        </details>
+      </section>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script>
+    const gradeOptions = ["新高一", "新高二", "新高三"];
+    const CHOICE_SLOGAN = "有道领世产品，对应赠送政策解析课程、学科学情课程、教辅资料，了解详情联系学业规划师";
+    const baseTableRows = [
+      { label: "班型名称", key: "className" },
+      { label: "产品内容", key: "productContent" },
+      { label: "直播课节数", key: "liveLessonCount", strongYoudao: true },
+      { label: "直播课时长 / 节\n（2h=4课时）", key: "liveLessonDuration" },
+      { label: "视频课节数", key: "videoLessonCount", strongYoudao: true },
+      { label: "单科总课时量\n（直播加视频）", key: "totalClassHours", strongYoudao: true },
+      { label: "单科价格", key: "singleSubjectPrice", strongYoudao: true },
+      { label: "单科价格 / 每课时", key: "singleSubjectHourlyPrice", highlight: true, strongYoudao: true },
+      { label: "3科联报价格", key: "comboPrice", strongYoudao: true },
+      { label: "3科联报价格 / 每课时", key: "comboHourlyPrice", highlight: true, strongYoudao: true },
+    ];
+
+    const params = new URLSearchParams(window.location.search);
+    let currentGrade = gradeOptions.includes(params.get("grade")) ? params.get("grade") : "新高一";
+
+    document.querySelectorAll("[data-grade]").forEach((button) => {
+      button.addEventListener("click", () => {
+        currentGrade = button.dataset.grade;
+        const url = new URL(window.location.href);
+        url.searchParams.set("grade", currentGrade);
+        window.history.replaceState({}, "", url);
+        loadData();
+      });
+    });
+
+    document.getElementById("downloadPosterBtn").addEventListener("click", downloadCurrentPageImage);
+
+    loadData();
+
+    async function loadData() {
+      setLoading(currentGrade);
+      try {
+        const version = params.get("v") || String(Date.now());
+        const response = await fetch(
+          `/api/competitor?grade=${encodeURIComponent(currentGrade)}&v=${encodeURIComponent(version)}`,
+          { cache: "no-store" }
+        );
+        if (!response.ok) throw new Error("request failed");
+        const data = await response.json();
+        if (!Array.isArray(data.products) || data.products.length === 0) throw new Error("empty data");
+        renderPage(data);
+      } catch (error) {
+        console.error(error);
+        showError();
+      }
+    }
+
+    function setLoading(grade) {
+      document.getElementById("pageGrade").textContent = `【${grade}】`;
+      document.getElementById("statePanel").textContent = "数据加载中...";
+      document.getElementById("statePanel").hidden = false;
+      document.getElementById("contentRoot").hidden = true;
+      document.querySelectorAll("[data-grade]").forEach((button) => {
+        button.classList.toggle("active", button.dataset.grade === grade);
+      });
+    }
+
+    function showError() {
+      const statePanel = document.getElementById("statePanel");
+      if (window.location.protocol === "file:") {
+        const previewUrl = `http://127.0.0.1:3001/preview.html?grade=${encodeURIComponent(currentGrade)}`;
+        statePanel.innerHTML = `
+          <div>
+            <div class="state-title">你现在是直接打开了本地文件</div>
+            <div class="state-desc">
+              这种方式看不到飞书实时数据。<br>
+              请双击文件夹里的“启动本地预览.command”，<br>
+              或直接打开下面这个本地预览地址。
+            </div>
+            <a class="state-link" href="${previewUrl}" target="_blank" rel="noreferrer">打开本地预览</a>
+          </div>
+        `;
+      } else {
+        statePanel.textContent = "数据加载失败，请稍后刷新";
+      }
+      statePanel.hidden = false;
+      document.getElementById("contentRoot").hidden = true;
+    }
+
+    function renderPage(data) {
+      const products = data.products;
+      const blocks = data.advantageBlocks || {};
+      const youdao = pickPreferredYoudaoProduct(products) || products[0];
+      const giftDetails = buildGiftDetails(products);
+      const resolvedBlocks = buildResolvedBlocks(data.grade, youdao, blocks);
+
+      document.getElementById("pageGrade").textContent = `【${data.grade}】`;
+      document.getElementById("subtitleText").textContent = "价格更优 · 内容更全 · 学习闭环更完整";
+      renderTable(products, giftDetails);
+      renderGiftDetails(giftDetails);
+      renderNote(resolvedBlocks.note);
+      renderComposition(resolvedBlocks.product_composition);
+      renderPriceAdvantage(resolvedBlocks.price_advantage, youdao);
+      renderNumberPanel("video", resolvedBlocks.knowledge_video);
+      renderNumberPanel("live", resolvedBlocks.live_method);
+      renderChoicePanel(resolvedBlocks.price_card, data.grade, youdao);
+      renderService(resolvedBlocks.tutoring_service);
+
+      document.getElementById("statePanel").hidden = true;
+      document.getElementById("contentRoot").hidden = false;
+    }
+
+    function pickPreferredYoudaoProduct(products) {
+      const youdaoProducts = (Array.isArray(products) ? products : []).filter((product) => product?.isYoudao);
+      if (!youdaoProducts.length) return null;
+      if (youdaoProducts.length === 1) return youdaoProducts[0];
+
+      return youdaoProducts
+        .slice()
+        .sort((left, right) => {
+          const comboDiff = comparePriceValue(left?.comboHourlyPrice, right?.comboHourlyPrice);
+          if (comboDiff !== 0) return comboDiff;
+
+          const singleDiff = comparePriceValue(left?.singleSubjectHourlyPrice, right?.singleSubjectHourlyPrice);
+          if (singleDiff !== 0) return singleDiff;
+
+          const comboPriceDiff = comparePriceValue(left?.comboPrice, right?.comboPrice);
+          if (comboPriceDiff !== 0) return comboPriceDiff;
+
+          const singlePriceDiff = comparePriceValue(left?.singleSubjectPrice, right?.singleSubjectPrice);
+          if (singlePriceDiff !== 0) return singlePriceDiff;
+
+          return 0;
+        })[0];
+    }
+
+    function buildResolvedBlocks(grade, youdao, blocks) {
+      const videoCount = getText(youdao.videoLessonCount, "40");
+      const singlePrice = getText(youdao.singleSubjectHourlyPrice, "-");
+      const comboPrice = getText(youdao.comboHourlyPrice, "-");
+      const defaultSteps = [
+        { icon: "▶", title: "学法直播", description: "每节约2小时\n考点讲解与方法应用" },
+        { icon: "▶", title: "知识视频", description: `${videoCount}节系统视频\n补充知识体系` },
+        { icon: "♙", title: "辅导服务", description: "九步教学服务\n全程陪伴" },
+      ];
+      const defaultServiceSteps = [
+        { icon: "📋", title: "知学情" },
+        { icon: "🗓️", title: "做计划" },
+        { icon: "🎬", title: "看视频" },
+        { icon: "✎", title: "做练习" },
+        { icon: "📺", title: "观直播" },
+        { icon: "?", title: "勤答疑" },
+        { icon: "🧾", title: "温错题" },
+        { icon: "📊", title: "月反馈" },
+        { icon: "📄", title: "析试卷" },
+      ];
+
+      return {
+        note: withFallbackBlock(blocks.note, {
+          description: "价格更优，内容更全，学习闭环更完整。",
+        }),
+        product_composition: withFallbackBlock(blocks.product_composition, {
+          label: "A",
+          title: "产品组成",
+          headline: "学法直播 + 知识视频 + 辅导服务",
+          steps: defaultSteps,
+        }),
+        price_advantage: withFallbackBlock(blocks.price_advantage, {
+          label: "B",
+          title: "价格优势",
+          headline: `单科每课时 ${singlePrice} 元，\n3科联报每课时仅 ${comboPrice} 元；`,
+          items: [
+            "兼顾价格优势与内容完整度；",
+            `不仅有直播，更额外配备${videoCount}节知识视频。`,
+          ],
+        }),
+        knowledge_video: withFallbackBlock(blocks.knowledge_video, {
+          label: "C",
+          title: "知识视频",
+          items: [
+            `配备${videoCount}节系统知识视频，补充完整知识体系；`,
+            "哪里不会补哪里，帮助快速回顾重点和薄弱点；",
+            "每节约30分钟，便于碎片时间学习与复盘；",
+            "学练结合，帮助形成更完整的学习闭环。",
+          ],
+          badge: `唯一配备 ${videoCount} 节知识视频`,
+        }),
+        live_method: withFallbackBlock(blocks.live_method, {
+          label: "D",
+          title: "学法直播",
+          items: [
+            "主理人精心教研，每节约2小时；",
+            "以考点为核心，讲学习规划与大招应用；",
+            "从高考视角提炼高效解题方法；",
+            "直播安排更贴合学生作息与阶段节奏。",
+          ],
+        }),
+        tutoring_service: withFallbackBlock(blocks.tutoring_service, {
+          label: "E",
+          title: "辅导服务｜九步教学服务法",
+          steps: defaultServiceSteps,
+          description: "围绕知识视频与直播，提供课前、课中、课后三全方位辅导，帮助学生形成完整学习闭环。",
+        }),
+        price_card: withFallbackBlock(blocks.price_card, {
+          title: `有道领世\n${grade}性价比之选！`,
+          slogan: CHOICE_SLOGAN,
+          priceRows: [
+            { name: "单科每课时", value: singlePrice, unit: "元" },
+            { name: "3科联报每课时", value: comboPrice, unit: "元" },
+          ],
+        }),
+      };
+    }
+
+    function withFallbackBlock(block, fallback) {
+      const safeBlock = block && typeof block === "object" ? block : {};
+      return {
+        ...fallback,
+        ...safeBlock,
+        items: normalizeItems(safeBlock.items).length ? safeBlock.items : fallback.items,
+        steps: normalizeSteps(safeBlock.steps).length ? safeBlock.steps : fallback.steps,
+        priceRows: normalizePriceRows(safeBlock.priceRows).length ? safeBlock.priceRows : fallback.priceRows,
+      };
+    }
+
+    function renderTable(products, giftDetails) {
+      const tableRows = [...baseTableRows];
+      if (giftDetails.some((item) => item.hasGift)) {
+        tableRows.push({ label: "赠送亮点", key: "__giftSummary", dynamic: true, isGiftSummary: true });
+      }
+      tableRows.push(...buildDynamicRows(products));
+      const headCells = [
+        "<th>对比项</th>",
+        ...products.map((product) => {
+          const badge = product.isYoudao
+            ? `<span class="pill youdao-pill">高性价比</span>`
+            : "";
+          const className = product.isYoudao ? " class=\"youdao-head\"" : "";
+          return `<th${className}>${escapeHtml(product.brand)} ${badge}</th>`;
+        }),
+      ];
+      document.getElementById("tableHead").innerHTML = `<tr>${headCells.join("")}</tr>`;
+
+      document.getElementById("tableBody").innerHTML = tableRows.map((row) => {
+        const cells = products.map((product) => renderProductCell(product, row));
+        const rowClasses = [
+          row.highlight ? "highlight-row" : "",
+          row.key === "productContent" ? "product-content-row" : "",
+        ].filter(Boolean).join(" ");
+        return `<tr${rowClasses ? ` class="${rowClasses}"` : ""}><td class="row-title">${escapeHtml(row.label)}</td>${cells.join("")}</tr>`;
+      }).join("");
+    }
+
+    function buildDynamicRows(products) {
+      const seen = new Set();
+      const otherRows = [];
+
+      products.forEach((product) => {
+        const extraFields = Array.isArray(product.extraFields) ? product.extraFields : [];
+        extraFields.forEach((field) => {
+          if (!field?.key || seen.has(field.key)) {
+            return;
+          }
+
+          seen.add(field.key);
+          if (/赠|赠送|附赠|福利/.test(field.label || field.key || "")) {
+            return;
+          }
+
+          const row = {
+            label: field.label || field.key,
+            key: field.key,
+            dynamic: true,
+          };
+
+          otherRows.push(row);
+        });
+      });
+
+      return otherRows;
+    }
+
+    function renderProductCell(product, row) {
+      const value = row.isGiftSummary
+        ? getGiftSummary(product)
+        : row.dynamic
+        ? getDynamicFieldValue(product, row.key)
+        : getText(product[row.key], "/");
+      const isStrong = product.isYoudao && row.strongYoudao;
+      const classes = [
+        product.isYoudao ? "youdao-col" : "",
+        isStrong ? "youdao-strong" : "",
+        row.key === "productContent" ? "product-content-cell" : "",
+      ].filter(Boolean).join(" ");
+      const thumbsUp = product.isYoudao && row.highlight ? '<span class="thumb">👍</span>' : "";
+      const contentBadge = product.isYoudao && row.key === "productContent" && product.contentBadge
+        ? `<br><span class="only-video">唯一含知识视频</span>`
+        : "";
+      if (row.isGiftSummary) {
+        const summaryClass = value === "/" ? "gift-summary-text is-empty" : "gift-summary-text";
+        return `<td${classes ? ` class="${classes}"` : ""}><span class="${summaryClass}">${escapeHtml(value)}</span></td>`;
+      }
+      return `<td${classes ? ` class="${classes}"` : ""}>${formatTableText(value)}${contentBadge}${thumbsUp}</td>`;
+    }
+
+    function getDynamicFieldValue(product, fieldKey) {
+      const extraFields = Array.isArray(product?.extraFields) ? product.extraFields : [];
+      const matched = extraFields.find((field) => field.key === fieldKey);
+      return getText(matched?.value, "/");
+    }
+
+    function renderNote(block) {
+      const noteText = document.getElementById("noteText");
+      if (!noteText) return;
+      noteText.textContent = getText(block?.description || block?.headline, "");
+    }
+
+    function renderComposition(block = {}) {
+      setText("compositionLabel", block.label || "A");
+      setText("compositionTitle", block.title || "产品组成");
+      setText("compositionHeadline", block.headline || "");
+
+      const steps = normalizeSteps(block.steps).slice(0, 3);
+      document.getElementById("compositionSteps").innerHTML = steps.map((step, index) => {
+        const arrow = index < steps.length - 1 ? '<div class="arrow">▶</div>' : "";
+        return `
+          <div class="mini-card">
+            <div class="mini-icon">${escapeHtml(step.icon || "▶")}</div>
+            <div class="mini-title">${escapeHtml(step.title || step.text || "")}</div>
+            <div class="mini-desc">${escapeHtml(step.description || "")}</div>
+          </div>
+          ${arrow}
+        `;
+      }).join("");
+    }
+
+    function renderPriceAdvantage(block = {}, youdao) {
+      setText("priceLabel", block.label || "B");
+      setText("priceTitle", block.title || "价格优势");
+
+      const hourlyPrices = getYoudaoHourlyPrices(youdao);
+      const headline = [
+        buildPriceSentence("单科每课时", hourlyPrices.single),
+        buildPriceSentence("3科联报每课时仅", hourlyPrices.combo),
+      ].join("，\n");
+      document.getElementById("priceHeadline").innerHTML = emphasizeNumbers(headline);
+
+      document.getElementById("priceItems").innerHTML = normalizeItems(block.items).map((item) => (
+        `<div><span class="check">✓</span><span>${escapeHtml(item)}</span></div>`
+      )).join("");
+    }
+
+    function renderNumberPanel(prefix, block = {}) {
+      setText(`${prefix}Label`, block.label || (prefix === "video" ? "C" : "D"));
+      setText(`${prefix}Title`, block.title || (prefix === "video" ? "知识视频" : "学法直播"));
+
+      document.getElementById(`${prefix}Items`).innerHTML = normalizeItems(block.items).map((item, index) => (
+        `<div class="item"><span class="circle-no">${index + 1}</span><span>${escapeHtml(item)}</span></div>`
+      )).join("");
+
+      const badge = document.getElementById(`${prefix}Badge`);
+      if (badge) {
+        badge.textContent = block.badge || "";
+        badge.hidden = !block.badge;
+      }
+    }
+
+    function renderChoicePanel(block = {}, grade, youdao) {
+      const slogan = CHOICE_SLOGAN;
+      const hourlyPrices = getYoudaoHourlyPrices(youdao);
+      setText("choiceTitle", block.title || `有道领世\n${grade}性价比之选！`);
+      document.getElementById("choiceSlogan").innerHTML = formatChoiceSlogan(slogan);
+
+      const priceRows = [
+        { name: "单科每课时", value: hourlyPrices.single, unit: "元" },
+        { name: "3科联报每课时", value: hourlyPrices.combo, unit: "元" },
+      ];
+
+      document.getElementById("choicePriceRows").innerHTML = priceRows.map((row) => `
+        <div class="price-row">
+          <div class="name">${escapeHtml(row.name || "")}</div>
+          <div class="value${hasChoicePriceSubnote(row.value) ? " compound" : ""}">${formatChoicePriceValue(row.value, row.unit || "元")}</div>
+        </div>
+      `).join("");
+    }
+
+    function formatChoiceSlogan(text) {
+      return escapeHtml(text)
+        .replace("对应赠送", "<br>对应赠送")
+        .replace("、学科学情课程、", "、<br>学科学情课程、")
+        .replace("，了解详情联系学业规划师", "，<br>了解详情联系学业规划师");
+    }
+
+    function renderService(block = {}) {
+      setText("serviceTitle", `${block.label || "E"}  ${block.title || "辅导服务"}`);
+      setText("serviceDesc", block.description || "");
+
+      const rawSteps = Array.isArray(block.steps) && block.steps.length ? block.steps : block.items;
+      const steps = normalizeSteps(rawSteps);
+      document.getElementById("serviceFlow").innerHTML = steps.map((step, index) => `
+        <div class="service-step">
+          <div class="service-icon"><span class="step-no">${index + 1}</span>${escapeHtml(step.icon || "•")}</div>
+          ${escapeHtml(step.title || step.text || "")}
+        </div>
+      `).join("");
+    }
+
+    function renderGiftDetails(giftDetails) {
+      const panel = document.getElementById("giftDetailPanel");
+      const grid = document.getElementById("giftDetailGrid");
+      const visibleDetails = giftDetails.filter((item) => item.hasGift);
+
+      if (!visibleDetails.length) {
+        panel.hidden = true;
+        grid.innerHTML = "";
+        return;
+      }
+
+      grid.innerHTML = visibleDetails.map((item, index) => `
+        <article class="gift-brand-card${item.product.isYoudao ? " youdao" : ""}">
+          <div class="gift-brand-summary">
+            <h3 class="gift-brand-title">
+              <span>${escapeHtml(item.product.brand)}</span>
+              ${item.product.isYoudao ? '<span class="gift-brand-badge">重点权益</span>' : ""}
+            </h3>
+            <div class="gift-brand-desc">${escapeHtml(item.summary)}</div>
+          </div>
+          <div class="gift-detail-body">
+            <div class="gift-detail-raw">${formatMultilineText(item.rawText)}</div>
+          </div>
+        </article>
+      `).join("");
+
+      panel.open = false;
+      panel.hidden = false;
+    }
+
+    function buildGiftDetails(products) {
+      return products.map((product) => {
+        const giftFields = (Array.isArray(product.extraFields) ? product.extraFields : []).filter((field) => /赠|赠送|附赠|福利/.test(field.label || field.key || ""));
+        const rawText = giftFields
+          .map((field) => getText(field.value, "").replace(/\r/g, "\n").trim())
+          .filter(Boolean)
+          .join("\n\n");
+        const count = countGiftItems(rawText);
+
+        return {
+          product,
+          hasGift: Boolean(rawText),
+          rawText,
+          summary: buildGiftSummary(count),
+        };
+      });
+    }
+
+    function getGiftSummary(product) {
+      const detail = buildGiftDetails([product])[0];
+      return detail?.hasGift ? detail.summary : "/";
+    }
+
+    function countGiftItems(value) {
+      const text = String(value || "").replace(/\r/g, "\n");
+      const lines = text
+        .split("\n")
+        .map((line) => line.trim())
+        .filter(Boolean);
+
+      const numberedLines = lines.filter((line) => /^(?:\d+[、.．）)]|[①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮]|[-•●■◆])\s*/.test(line));
+      return numberedLines.length;
+    }
+
+    function buildGiftSummary(count) {
+      if (!count) return "/";
+      return `${count}项赠送`;
+    }
+
+    function formatMultilineText(value) {
+      return escapeHtml(value).replace(/\n/g, "<br>");
+    }
+
+    function formatTableText(value) {
+      return escapeHtml(String(value ?? ""))
+        .replace(/\\n/g, "<br>")
+        .replace(/\/n/g, "<br>")
+        .replace(/\n/g, "<br>");
+    }
+
+    function normalizeItems(items) {
+      if (!Array.isArray(items)) return [];
+      return items.map((item) => {
+        if (typeof item === "string") return item;
+        return item.text || item.title || item.description || "";
+      }).filter(Boolean);
+    }
+
+    function normalizeSteps(steps) {
+      if (!Array.isArray(steps)) return [];
+      return steps.map((step) => {
+        if (typeof step === "string") return { title: step, text: step };
+        return step || {};
+      }).filter((step) => step.title || step.text);
+    }
+
+    function normalizePriceRows(rows) {
+      if (!Array.isArray(rows)) return [];
+      return rows.map((row) => {
+        if (typeof row === "string") {
+          const [name, value] = row.split(/[:：]/);
+          return { name, value, unit: "元" };
+        }
+        return row || {};
+      }).filter((row) => row.name || row.value);
+    }
+
+    function getYoudaoHourlyPrices(youdao) {
+      return {
+        single: getText(youdao?.singleSubjectHourlyPrice, "-"),
+        combo: getText(youdao?.comboHourlyPrice, "-"),
+      };
+    }
+
+    function comparePriceValue(left, right) {
+      const leftNumber = parsePriceNumber(left);
+      const rightNumber = parsePriceNumber(right);
+
+      if (leftNumber === null && rightNumber === null) return 0;
+      if (leftNumber === null) return 1;
+      if (rightNumber === null) return -1;
+      return leftNumber - rightNumber;
+    }
+
+    function parsePriceNumber(value) {
+      const text = String(value || "").trim();
+      const match = text.match(/\d+(?:\.\d+)?/);
+      if (!match) return null;
+
+      const number = Number(match[0]);
+      return Number.isFinite(number) ? number : null;
+    }
+
+    function buildPriceSentence(prefix, value) {
+      const text = getText(value, "-");
+      return isNumericPrice(text) ? `${prefix} ${text} 元` : `${prefix} ${text}`;
+    }
+
+    function formatChoicePriceValue(value, unit) {
+      const text = getText(value, "-");
+      const compoundMatch = String(text).trim().match(/^(\d+(?:\.\d+)?)(?:\s*[（(]([^）)]+)[）)])$/);
+
+      if (compoundMatch) {
+        const [, mainValue, subnote] = compoundMatch;
+        return `<span class="big">${escapeHtml(mainValue)}</span><span class="yuan">${escapeHtml(unit)}</span><span class="subnote">（${escapeHtml(subnote)}）</span>`;
+      }
+
+      if (!isNumericPrice(text)) {
+        return `<span class="big" style="font-size: clamp(24px, 2.2vw, 36px); line-height: 1.2; letter-spacing: 0; text-align: center;">${escapeHtml(text)}</span>`;
+      }
+
+      return `<span class="big">${escapeHtml(text)}</span><span class="yuan">${escapeHtml(unit)}</span>`;
+    }
+
+    function hasChoicePriceSubnote(value) {
+      return /^(\d+(?:\.\d+)?)(?:\s*[（(][^）)]+[）)])$/.test(String(value || "").trim());
+    }
+
+    function isNumericPrice(value) {
+      return /^\d+(?:\.\d+)?$/.test(String(value || "").trim());
+    }
+
+    function emphasizeNumbers(text) {
+      return escapeHtml(text).replace(/(\d+(?:\.\d+)?)\s*元/g, '<span class="num-unit"><span class="num">$1</span>元</span>');
+    }
+
+    function getText(value, fallback) {
+      return value === undefined || value === null || value === "" ? fallback : String(value);
+    }
+
+    function setText(id, value) {
+      document.getElementById(id).textContent = value || "";
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    async function downloadCurrentPageImage() {
+      const button = document.getElementById("downloadPosterBtn");
+      const previousText = button.textContent;
+
+      if (!window.html2canvas) {
+        alert("下载组件加载失败，请稍后刷新页面重试。");
+        return;
+      }
+
+      try {
+        button.disabled = true;
+        button.textContent = "图片生成中...";
+
+        const canvas = await window.html2canvas(document.querySelector(".poster"), {
+          backgroundColor: "#eef7ff",
+          scale: Math.min(window.devicePixelRatio || 1.5, 2),
+          useCORS: true,
+          logging: false,
+          onclone: (clonedDocument) => {
+            clonedDocument.body.classList.add("exporting");
+            const poster = clonedDocument.querySelector(".poster");
+            if (poster) {
+              poster.classList.add("export-capture");
+            }
+          },
+          ignoreElements: (element) => element.hasAttribute("data-download-ignore"),
+        });
+
+        const link = document.createElement("a");
+        link.href = canvas.toDataURL("image/png");
+        link.download = `有道领世-${currentGrade}-产品性价比分析页.png`;
+        link.click();
+      } catch (error) {
+        console.error(error);
+        alert("图片生成失败，请稍后重试。");
+      } finally {
+        button.disabled = false;
+        button.textContent = previousText;
+      }
+    }
+  </script>
+</body>
+</html>

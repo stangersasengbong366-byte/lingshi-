@@ -1,0 +1,6 @@
+.env
+node_modules
+dist
+.netlify
+.pnpm-store
+.DS_Store

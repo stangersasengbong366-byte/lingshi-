@@ -1,0 +1,15 @@
+grade,brand,class_name,product_content,live_lesson_count,live_lesson_duration,video_lesson_count,total_class_hours,single_subject_price,single_subject_hourly_price,combo_price,combo_hourly_price,is_youdao,badge,content_badge,sort_order
+新高一,有道领世,新高一半年卡（赠冲刺）,"暑：10节直播
+秋：16节直播+40节视频",26,2h,40,144,3980,28,10140,23,true,高性价比,唯一含知识视频,1
+新高一,高途,高一领航班（赠冲刺）,"暑期：8节
+秋季：16节",24,2h,/,96,3600,38,10500,36,false,,,2
+新高一,猿辅导,猿梦班（赠冲刺）,"暑：8节
+秋：16节",24,2h,/,96,3880,39,11340,39,false,,,3
+新高一,希望学,希秋半年,"暑：10
+秋：18",28,2h,/,112,3800,34,10850,32,false,,,4
+新高一,名师天团,高一暑秋系统班,"暑期：11节
+秋季：16节",27,2h,/,108,3700,34,10700,33,false,,,5
+新高一,开明数学,高一暑秋班,"暑期：16
+秋季：18",34,2h,/,136,2800,21,8598,21,false,,,6
+新高一,作业帮,高一领航班（赠冲刺）,"暑：8节
+秋：17节",25节,2h,/,100,3600,36,9900,33,false,,,7
