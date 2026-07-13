@@ -89,6 +89,23 @@ button {
   color: var(--muted);
 }
 
+.cloud-status {
+  flex: 0 0 auto;
+  padding: 8px 12px;
+  border: 1px solid rgba(141, 163, 191, 0.28);
+  border-radius: 999px;
+  color: #5b6a82;
+  background: #f8fbff;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.cloud-status.enabled {
+  color: #0f5bd7;
+  background: #eaf3ff;
+  border-color: rgba(22, 119, 255, 0.22);
+}
+
 .page-tabs {
   display: flex;
   align-items: center;

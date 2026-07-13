@@ -35,6 +35,11 @@ const gradeLabels = ["高一", "高二", "高三"];
 const stageLabels = ["夏研卡", "秋实卡", "决胜卡", "直通卡", "一轮卡"];
 const humanitiesSubjects = ["生物", "历史", "地理", "政治"];
 const PRODUCTS_STORAGE_KEY = "youdao-benefits-products-v5-g1-autumn-course-refresh";
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
+const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
+const CLOUD_CONFIG_TABLE = "benefit_configs";
+const CLOUD_PRODUCTS_ID = "products";
+const cloudConfigEnabled = Boolean(SUPABASE_URL && SUPABASE_ANON_KEY);
 
 function loadStoredProducts() {
   try {
@@ -53,20 +58,88 @@ function saveStoredProducts(products) {
   window.localStorage.setItem(PRODUCTS_STORAGE_KEY, JSON.stringify(products));
 }
 
+async function loadCloudProducts() {
+  if (!cloudConfigEnabled) return null;
+  const response = await fetch(`${SUPABASE_URL}/rest/v1/${CLOUD_CONFIG_TABLE}?id=eq.${CLOUD_PRODUCTS_ID}&select=payload`, {
+    headers: getSupabaseHeaders(),
+  });
+  if (!response.ok) throw new Error("云端配置读取失败");
+  const [record] = await response.json();
+  const products = Array.isArray(record?.payload?.products) ? record.payload.products : record?.payload;
+  return Array.isArray(products) ? products : null;
+}
+
+async function saveCloudProducts(products) {
+  if (!cloudConfigEnabled) return;
+  const response = await fetch(`${SUPABASE_URL}/rest/v1/${CLOUD_CONFIG_TABLE}?on_conflict=id`, {
+    method: "POST",
+    headers: {
+      ...getSupabaseHeaders(),
+      "Content-Type": "application/json",
+      Prefer: "resolution=merge-duplicates",
+    },
+    body: JSON.stringify({
+      id: CLOUD_PRODUCTS_ID,
+      payload: { products },
+      updated_at: new Date().toISOString(),
+    }),
+  });
+  if (!response.ok) throw new Error("云端配置保存失败");
+}
+
+function getSupabaseHeaders() {
+  return {
+    apikey: SUPABASE_ANON_KEY,
+    Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+  };
+}
+
+function mergeProductsWithInitial(products) {
+  const storedMap = new Map(products.map((product) => [product.id, product]));
+  const merged = initialProducts.map((product) => ({ ...product, ...(storedMap.get(product.id) ?? {}) }));
+  const extra = products.filter((product) => !initialProducts.some((item) => item.id === product.id));
+  return [...merged, ...extra];
+}
+
 function App() {
   const shareParams = getShareParams();
   const [activePage, setActivePage] = useState("sales");
   const [products, setProducts] = useState(loadStoredProducts);
+  const [syncStatus, setSyncStatus] = useState(cloudConfigEnabled ? "正在同步云端配置" : "本地配置");
   const [selectedProductId, setSelectedProductId] = useState(() => shareParams?.productId ?? loadStoredProducts()[0]?.id ?? initialProducts[0].id);
   const [selectedSubjects, setSelectedSubjects] = useState(() => shareParams?.subjects ?? [shareParams?.subject ?? "数学"]);
   const selectedProduct = products.find((item) => item.id === selectedProductId) ?? products[0];
   const selectedCoursePlans = selectedSubjects.map((subject) => resolveCoursePlan(selectedProduct, subject));
   const selectedCoursePlan = selectedCoursePlans[0];
 
+  React.useEffect(() => {
+    if (!cloudConfigEnabled) return undefined;
+    let cancelled = false;
+    loadCloudProducts()
+      .then((cloudProducts) => {
+        if (cancelled || !cloudProducts?.length) {
+          if (!cancelled) setSyncStatus("云端暂无配置");
+          return;
+        }
+        const nextProducts = mergeProductsWithInitial(cloudProducts);
+        setProducts(nextProducts);
+        saveStoredProducts(nextProducts);
+        setSelectedProductId((current) => nextProducts.some((product) => product.id === current) ? current : nextProducts[0]?.id);
+        setSyncStatus("云端配置已同步");
+      })
+      .catch(() => setSyncStatus("云端连接失败，已使用本地配置"));
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   const updateProduct = (nextProduct) => {
     setProducts((items) => {
       const nextProducts = items.map((item) => (item.id === nextProduct.id ? nextProduct : item));
       saveStoredProducts(nextProducts);
+      saveCloudProducts(nextProducts)
+        .then(() => setSyncStatus("云端配置已保存"))
+        .catch(() => setSyncStatus("云端保存失败，已保存在本地"));
       return nextProducts;
     });
     setSelectedProductId(nextProduct.id);
@@ -84,7 +157,7 @@ function App() {
 
   return (
     <main className="app-shell">
-      <AppHeader activePage={activePage} onPageChange={setActivePage} />
+      <AppHeader activePage={activePage} onPageChange={setActivePage} syncStatus={syncStatus} />
       {activePage === "sales" && (
         <SalesPage
           products={products}
@@ -120,7 +193,7 @@ function getShareParams() {
   };
 }
 
-function AppHeader({ activePage, onPageChange }) {
+function AppHeader({ activePage, onPageChange, syncStatus }) {
   const pages = [
     { id: "sales", label: "主页面", icon: Eye },
     { id: "admin", label: "后台配置", icon: Settings },
@@ -135,6 +208,9 @@ function AppHeader({ activePage, onPageChange }) {
           <strong>产品权益清单生成工具</strong>
           <span>销售选择产品后，自动生成用户可读清单</span>
         </div>
+      </div>
+      <div className={cloudConfigEnabled ? "cloud-status enabled" : "cloud-status"}>
+        {syncStatus}
       </div>
       <nav className="page-tabs" aria-label="页面切换">
         {pages.map((page) => {
