@@ -41,6 +41,12 @@ const CLOUD_CONFIG_TABLE = "benefit_configs";
 const CLOUD_PRODUCTS_ID = "products";
 const cloudConfigEnabled = Boolean(SUPABASE_URL && SUPABASE_ANON_KEY);
 
+function assetUrl(path) {
+  if (!path) return "";
+  if (/^(https?:|data:|blob:)/.test(path)) return path;
+  return `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
+}
+
 function loadStoredProducts() {
   try {
     const stored = JSON.parse(window.localStorage.getItem(PRODUCTS_STORAGE_KEY) || "[]");
@@ -203,7 +209,7 @@ function AppHeader({ activePage, onPageChange, syncStatus }) {
   return (
     <header className="topbar">
       <div className="brand-lockup">
-        <img src="/assets/youdao-logo.png" alt="网易有道领世" />
+        <img src={assetUrl("/assets/youdao-logo.png")} alt="网易有道领世" />
         <div className="brand-title">
           <strong>产品权益清单生成工具</strong>
           <span>销售选择产品后，自动生成用户可读清单</span>
@@ -389,7 +395,7 @@ function CustomerSharePage({ product, selectedSubjects, coursePlans }) {
       <main className={isOpening ? "share-shell opening" : "share-shell"}>
         <section className="share-envelope-screen">
           <div className="share-logo-line">
-            <img src="/assets/youdao-logo.png" alt="网易有道领世" />
+            <img src={assetUrl("/assets/youdao-logo.png")} alt="网易有道领世" />
             <span>{product.term}</span>
           </div>
           <div className={isOpening ? "share-envelope opening" : "share-envelope"} onClick={openEnvelope}>
@@ -407,7 +413,7 @@ function CustomerSharePage({ product, selectedSubjects, coursePlans }) {
               }}
               aria-label="开启权益清单"
             >
-              <img src="/assets/wax-seal-cutout.png" alt="" />
+              <img src={assetUrl("/assets/wax-seal-cutout.png")} alt="" />
             </button>
           </div>
           <div className="share-opening-copy">
@@ -423,7 +429,7 @@ function CustomerSharePage({ product, selectedSubjects, coursePlans }) {
     <main className="share-shell opened">
       <section className="share-result">
         <div className="share-result-head">
-          <img src="/assets/youdao-logo.png" alt="网易有道领世" />
+          <img src={assetUrl("/assets/youdao-logo.png")} alt="网易有道领世" />
           <div>
             <span>权益清单已开启</span>
             <strong>{product.name} · {selectedSubjects.join("、")}</strong>
@@ -1020,7 +1026,7 @@ function TeachingAidImageAdmin({ stage }) {
                 {items.length ? (
                   items.slice(0, 3).map((item) => (
                     <div className="aid-admin-cover" key={`${subject}-${item.type}-${item.name}`}>
-                      {item.image ? <img src={item.image} alt={item.name} /> : <span>暂无封面</span>}
+                      {item.image ? <img src={assetUrl(item.image)} alt={item.name} /> : <span>暂无封面</span>}
                       <small>{item.name}</small>
                     </div>
                   ))
@@ -1145,7 +1151,7 @@ function BenefitSheet({ product, coursePlan, coursePlans, refNode, mode }) {
         <div className="envelope-back" />
         <div className="letter-paper">
           <div className="sheet-brand">
-            <img src="/assets/youdao-logo.png" alt="网易有道领世" />
+            <img src={assetUrl("/assets/youdao-logo.png")} alt="网易有道领世" />
             <span>{product.term}</span>
           </div>
           <div className="hero-content">
@@ -1160,11 +1166,11 @@ function BenefitSheet({ product, coursePlan, coursePlans, refNode, mode }) {
               </div>
               <p>{product.subtitle}</p>
             </div>
-            <img className="hero-symbol" src="/assets/youdao-symbol-cutout.png" alt="" />
+            <img className="hero-symbol" src={assetUrl("/assets/youdao-symbol-cutout.png")} alt="" />
           </div>
         </div>
         <div className="envelope-front" />
-        <img className="seal" src="/assets/wax-seal-cutout.png" alt="" />
+        <img className="seal" src={assetUrl("/assets/wax-seal-cutout.png")} alt="" />
       </section>
 
       <section className="letter-body">
@@ -1232,7 +1238,7 @@ function BenefitSheet({ product, coursePlan, coursePlans, refNode, mode }) {
             <li>纸质资料依据卡型加赠，具体发放规则以实际权益为准。</li>
             <li>海报信息仅用于产品权益说明，最终以系统开通页面为准。</li>
           </ol>
-          <img src="/assets/youdao-symbol-cutout.png" alt="" />
+          <img src={assetUrl("/assets/youdao-symbol-cutout.png")} alt="" />
         </section>
       </section>
     </article>
@@ -1310,7 +1316,7 @@ function TeachingAidCard({ item, index, rule }) {
     <article className="teaching-aid-card">
       <em className="aid-index">{String(index + 1).padStart(2, "0")}</em>
       <div className="aid-cover">
-        {item.image ? <img src={item.image} alt={item.name} /> : <span>暂无封面</span>}
+        {item.image ? <img src={assetUrl(item.image)} alt={item.name} /> : <span>暂无封面</span>}
       </div>
       <div className="aid-info">
         <span>{item.type}</span>
@@ -2251,7 +2257,7 @@ function SupportGiftGrid({ items }) {
     <div className="support-gift-grid">
       {items.map((item) => (
         <div className={`support-gift-card ${item.image ? "with-image" : ""}`} key={`${item.type}-${item.name}`}>
-          {item.image ? <img src={item.image} alt={item.detail} /> : null}
+          {item.image ? <img src={assetUrl(item.image)} alt={item.detail} /> : null}
           <span>{item.type}</span>
           <strong>{item.name}</strong>
           <small>{item.detail}</small>
@@ -2278,7 +2284,7 @@ function LegacyBenefitSheet({ product, refNode, mode }) {
     <article className={mode === "poster" ? "benefit-sheet poster" : "benefit-sheet"} ref={refNode}>
       <section className="sheet-hero">
         <div className="sheet-brand">
-          <img src="/assets/youdao-logo.png" alt="网易有道领世" />
+          <img src={assetUrl("/assets/youdao-logo.png")} alt="网易有道领世" />
           <span>{product.term}</span>
         </div>
         <div className="hero-content">
@@ -2287,7 +2293,7 @@ function LegacyBenefitSheet({ product, refNode, mode }) {
             <h1>{product.name}</h1>
             <p>{product.subtitle}</p>
           </div>
-          <img className="hero-symbol" src="/assets/youdao-symbol.jpg" alt="" />
+          <img className="hero-symbol" src={assetUrl("/assets/youdao-symbol.jpg")} alt="" />
         </div>
       </section>
 
