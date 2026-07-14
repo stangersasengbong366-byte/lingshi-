@@ -390,6 +390,19 @@ select {
   color: var(--blue-900);
 }
 
+.admin-publish-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.admin-publish-actions .secondary-action.small {
+  min-height: 38px;
+  padding: 0 12px;
+}
+
 .status-pill {
   display: inline-flex;
   align-items: center;
@@ -1107,17 +1120,231 @@ select {
   gap: 18px;
 }
 
-.subject-course-block {
-  display: grid;
-  gap: 12px;
-  padding-bottom: 18px;
-  border-bottom: 1px dashed #cfe2ff;
+.subject-course-details {
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #c9ddfb;
+  border-radius: 8px;
 }
 
-.subject-course-block:last-child,
+.subject-course-details > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 68px;
+  padding: 12px 16px;
+  cursor: pointer;
+  list-style: none;
+  background: linear-gradient(100deg, #edf6ff, #ffffff 70%);
+}
+
+.subject-course-details > summary::-webkit-details-marker,
+.benefit-disclosure > summary::-webkit-details-marker {
+  display: none;
+}
+
+.subject-course-details > summary > div:first-child {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.subject-course-details > summary strong {
+  color: #093579;
+  font-size: 20px;
+}
+
+.subject-course-details > summary span {
+  color: #536783;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.subject-course-summary-meta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.subject-course-summary-meta em {
+  color: #f06a18;
+  background: #fff3e8;
+  border: 1px solid #ffd4ad;
+  border-radius: 999px;
+  padding: 5px 9px;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.subject-course-summary-meta svg,
+.benefit-disclosure summary svg {
+  flex: 0 0 auto;
+  color: #1768dd;
+  transition: transform 0.2s ease;
+}
+
+.subject-course-details[open] .subject-course-summary-meta svg,
+.benefit-disclosure[open] summary svg {
+  transform: rotate(180deg);
+}
+
+.subject-course-detail-body {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+  border-top: 1px solid #d9e8fb;
+}
+
+.subject-course-details:last-child,
 .teaching-aid-subject-stack .teaching-aid-wrap:last-child {
-  padding-bottom: 0;
   border-bottom: 0;
+}
+
+.benefit-overview-panel {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 22px;
+  padding: 18px;
+  background: #ffffff;
+  border: 1px solid #b9d7fb;
+  border-radius: 8px;
+  box-shadow: 0 10px 26px rgba(20, 90, 180, 0.08);
+}
+
+.benefit-overview-panel > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.benefit-overview-panel > header div {
+  display: grid;
+  gap: 3px;
+}
+
+.benefit-overview-panel > header span {
+  color: #1768dd;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.benefit-overview-panel > header strong {
+  color: #082e70;
+  font-size: 20px;
+}
+
+.benefit-overview-panel > header em {
+  color: #5b6f8c;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 800;
+}
+
+.benefit-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 1px solid #d6e6fa;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.benefit-overview-grid > div {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 4px 8px;
+  min-width: 0;
+  padding: 13px;
+  border-right: 1px solid #d6e6fa;
+}
+
+.benefit-overview-grid > div:last-child {
+  border-right: 0;
+}
+
+.benefit-overview-grid svg {
+  grid-row: 1 / span 3;
+  color: #1768dd;
+}
+
+.benefit-overview-grid span {
+  color: #60738f;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.benefit-overview-grid strong {
+  color: #092f72;
+  font-size: 17px;
+  line-height: 1.25;
+}
+
+.benefit-overview-grid small {
+  color: #5d6f89;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.benefit-overview-subjects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.benefit-overview-subjects span {
+  color: #0d5be4;
+  background: #edf6ff;
+  border: 1px solid #cfe2ff;
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.benefit-disclosure {
+  overflow: hidden;
+  border: 1px solid #d7e5f7;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.benefit-disclosure > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 68px;
+  padding: 13px 16px;
+  cursor: pointer;
+  list-style: none;
+  background: linear-gradient(100deg, #f5f9ff, #ffffff);
+}
+
+.benefit-disclosure > summary div {
+  display: grid;
+  gap: 4px;
+}
+
+.benefit-disclosure > summary strong {
+  color: #0a3274;
+  font-size: 17px;
+}
+
+.benefit-disclosure > summary span {
+  color: #60728c;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.benefit-disclosure-body {
+  display: grid;
+  gap: 16px;
+  padding: 14px;
+  border-top: 1px solid #d9e8fb;
 }
 
 .teaching-aid-subject-stack .teaching-aid-wrap {
@@ -1131,6 +1358,10 @@ select {
   border: 1px solid #bdd8ff;
   border-radius: 8px;
   box-shadow: 0 8px 18px rgba(16, 89, 200, 0.07);
+}
+
+.outline-block.video {
+  overflow: hidden;
 }
 
 .outline-block header {
@@ -1192,6 +1423,10 @@ select {
   font-size: 12px;
 }
 
+.video-compact-table {
+  min-width: 0;
+}
+
 .compact-outline-table th,
 .compact-outline-table td {
   border-right: 1px solid #dce9fb;
@@ -1249,12 +1484,12 @@ select {
 
 .video-compact-table th:nth-child(3n + 1),
 .video-compact-table td:nth-child(3n + 1) {
-  width: 32px;
+  width: 36px;
 }
 
 .video-compact-table th:nth-child(3n),
 .video-compact-table td:nth-child(3n) {
-  width: 66px;
+  width: 58px;
 }
 
 .outline-no {
@@ -1305,7 +1540,7 @@ select {
   background: #ffffff;
   padding: 6px 4px;
   text-align: center;
-  font-size: 10px;
+  font-size: 11px;
   line-height: 1.4;
   overflow: hidden;
   white-space: nowrap;
@@ -1322,11 +1557,12 @@ select {
 }
 
 .outline-stars {
-  display: inline-block;
+  display: inline-flex;
+  justify-content: center;
   max-width: 100%;
   color: #f7b500;
-  font-size: 10px;
-  letter-spacing: -2px;
+  font-size: 9px;
+  letter-spacing: -1px;
   line-height: 1;
   white-space: nowrap;
 }

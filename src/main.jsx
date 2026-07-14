@@ -38,7 +38,9 @@ const PRODUCTS_STORAGE_KEY = "youdao-benefits-products-v5-g1-autumn-course-refre
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
 const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
 const CLOUD_CONFIG_TABLE = "benefit_configs";
-const CLOUD_PRODUCTS_ID = "products";
+const CLOUD_PRODUCTS_LEGACY_ID = "products";
+const CLOUD_PRODUCTS_DRAFT_ID = "products_draft";
+const CLOUD_PRODUCTS_PUBLISHED_ID = "products_published";
 const cloudConfigEnabled = Boolean(SUPABASE_URL && SUPABASE_ANON_KEY);
 
 function assetUrl(path) {
@@ -51,31 +53,37 @@ function loadStoredProducts() {
   try {
     const stored = JSON.parse(window.localStorage.getItem(PRODUCTS_STORAGE_KEY) || "[]");
     if (!Array.isArray(stored) || !stored.length) return initialProducts;
-    const storedMap = new Map(stored.map((product) => [product.id, product]));
-    const merged = initialProducts.map((product) => ({ ...product, ...(storedMap.get(product.id) ?? {}) }));
-    const extra = stored.filter((product) => !initialProducts.some((item) => item.id === product.id));
-    return [...merged, ...extra];
+    return stored.map(migrateStoredProduct);
   } catch {
     return initialProducts;
   }
+}
+
+function migrateStoredProduct(product) {
+  if (!(String(product.grade).includes("高一") && `${product.stage}${product.name}`.includes("秋实"))) return product;
+  return {
+    ...product,
+    videoSubjects: ["语文", "数学", "英语", "物理", "化学"],
+  };
 }
 
 function saveStoredProducts(products) {
   window.localStorage.setItem(PRODUCTS_STORAGE_KEY, JSON.stringify(products));
 }
 
-async function loadCloudProducts() {
+async function loadCloudProducts(configId, fallbackId = CLOUD_PRODUCTS_LEGACY_ID) {
   if (!cloudConfigEnabled) return null;
-  const response = await fetch(`${SUPABASE_URL}/rest/v1/${CLOUD_CONFIG_TABLE}?id=eq.${CLOUD_PRODUCTS_ID}&select=payload`, {
+  const response = await fetch(`${SUPABASE_URL}/rest/v1/${CLOUD_CONFIG_TABLE}?id=in.(${configId},${fallbackId})&select=id,payload,updated_at`, {
     headers: getSupabaseHeaders(),
   });
   if (!response.ok) throw new Error("云端配置读取失败");
-  const [record] = await response.json();
+  const records = await response.json();
+  const record = records.find((item) => item.id === configId) ?? records.find((item) => item.id === fallbackId);
   const products = Array.isArray(record?.payload?.products) ? record.payload.products : record?.payload;
-  return Array.isArray(products) ? products : null;
+  return Array.isArray(products) ? products.map(migrateStoredProduct) : null;
 }
 
-async function saveCloudProducts(products) {
+async function saveCloudProducts(products, configId = CLOUD_PRODUCTS_DRAFT_ID) {
   if (!cloudConfigEnabled) return;
   const response = await fetch(`${SUPABASE_URL}/rest/v1/${CLOUD_CONFIG_TABLE}?on_conflict=id`, {
     method: "POST",
@@ -85,8 +93,8 @@ async function saveCloudProducts(products) {
       Prefer: "resolution=merge-duplicates",
     },
     body: JSON.stringify({
-      id: CLOUD_PRODUCTS_ID,
-      payload: { products },
+      id: configId,
+      payload: { products, version: Date.now() },
       updated_at: new Date().toISOString(),
     }),
   });
@@ -100,15 +108,10 @@ function getSupabaseHeaders() {
   };
 }
 
-function mergeProductsWithInitial(products) {
-  const storedMap = new Map(products.map((product) => [product.id, product]));
-  const merged = initialProducts.map((product) => ({ ...product, ...(storedMap.get(product.id) ?? {}) }));
-  const extra = products.filter((product) => !initialProducts.some((item) => item.id === product.id));
-  return [...merged, ...extra];
-}
-
 function App() {
   const shareParams = getShareParams();
+  const salesOnly = getSalesOnlyMode();
+  const publicView = Boolean(shareParams || salesOnly);
   const [activePage, setActivePage] = useState("sales");
   const [products, setProducts] = useState(loadStoredProducts);
   const [syncStatus, setSyncStatus] = useState(cloudConfigEnabled ? "正在同步云端配置" : "本地配置");
@@ -121,39 +124,49 @@ function App() {
   React.useEffect(() => {
     if (!cloudConfigEnabled) return undefined;
     let cancelled = false;
-    loadCloudProducts()
+    const configId = publicView ? CLOUD_PRODUCTS_PUBLISHED_ID : CLOUD_PRODUCTS_DRAFT_ID;
+    loadCloudProducts(configId)
       .then((cloudProducts) => {
         if (cancelled || !cloudProducts?.length) {
           if (!cancelled) setSyncStatus("云端暂无配置");
           return;
         }
-        const nextProducts = mergeProductsWithInitial(cloudProducts);
+        const nextProducts = cloudProducts;
         setProducts(nextProducts);
         saveStoredProducts(nextProducts);
         setSelectedProductId((current) => nextProducts.some((product) => product.id === current) ? current : nextProducts[0]?.id);
-        setSyncStatus("云端配置已同步");
+        setSyncStatus(publicView ? "已同步最新发布版本" : "云端草稿已同步");
       })
       .catch(() => setSyncStatus("云端连接失败，已使用本地配置"));
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [publicView]);
 
   const updateProduct = (nextProduct) => {
     setProducts((items) => {
       const nextProducts = items.map((item) => (item.id === nextProduct.id ? nextProduct : item));
       saveStoredProducts(nextProducts);
-      saveCloudProducts(nextProducts)
-        .then(() => setSyncStatus("云端配置已保存"))
+      saveCloudProducts(nextProducts, CLOUD_PRODUCTS_DRAFT_ID)
+        .then(() => setSyncStatus("草稿已保存到云端"))
         .catch(() => setSyncStatus("云端保存失败，已保存在本地"));
       return nextProducts;
     });
     setSelectedProductId(nextProduct.id);
   };
 
+  const publishProducts = async (nextProduct) => {
+    const nextProducts = nextProduct
+      ? products.map((item) => (item.id === nextProduct.id ? nextProduct : item))
+      : products;
+    await saveCloudProducts(nextProducts, CLOUD_PRODUCTS_PUBLISHED_ID);
+    setSyncStatus("已发布，销售端将读取最新版本");
+  };
+
   if (shareParams) {
     return (
       <CustomerSharePage
+        products={products}
         product={selectedProduct}
         selectedSubjects={selectedSubjects}
         coursePlans={selectedCoursePlans}
@@ -163,7 +176,7 @@ function App() {
 
   return (
     <main className="app-shell">
-      <AppHeader activePage={activePage} onPageChange={setActivePage} syncStatus={syncStatus} />
+      <AppHeader activePage={activePage} onPageChange={setActivePage} syncStatus={syncStatus} salesOnly={salesOnly} />
       {activePage === "sales" && (
         <SalesPage
           products={products}
@@ -180,13 +193,18 @@ function App() {
           selectedProduct={selectedProduct}
           onSelect={setSelectedProductId}
           onUpdate={updateProduct}
+          onPublish={publishProducts}
         />
       )}
       {activePage === "layout" && (
-        <LayoutPage product={selectedProduct} selectedSubjects={selectedSubjects} coursePlans={selectedCoursePlans} />
+        <LayoutPage products={products} product={selectedProduct} selectedSubjects={selectedSubjects} coursePlans={selectedCoursePlans} />
       )}
     </main>
   );
+}
+
+function getSalesOnlyMode() {
+  return new URLSearchParams(window.location.search).get("sales") === "1";
 }
 
 function getShareParams() {
@@ -199,7 +217,7 @@ function getShareParams() {
   };
 }
 
-function AppHeader({ activePage, onPageChange, syncStatus }) {
+function AppHeader({ activePage, onPageChange, syncStatus, salesOnly }) {
   const pages = [
     { id: "sales", label: "主页面", icon: Eye },
     { id: "admin", label: "后台配置", icon: Settings },
@@ -218,7 +236,7 @@ function AppHeader({ activePage, onPageChange, syncStatus }) {
       <div className={cloudConfigEnabled ? "cloud-status enabled" : "cloud-status"}>
         {syncStatus}
       </div>
-      <nav className="page-tabs" aria-label="页面切换">
+      {!salesOnly ? <nav className="page-tabs" aria-label="页面切换">
         {pages.map((page) => {
           const Icon = page.icon;
           return (
@@ -234,7 +252,7 @@ function AppHeader({ activePage, onPageChange, syncStatus }) {
             </button>
           );
         })}
-      </nav>
+      </nav> : null}
     </header>
   );
 }
@@ -371,13 +389,13 @@ function SalesPage({ products, selectedProduct, selectedSubjects, coursePlans, o
           </div>
           <span className="status-pill">适合微信发送</span>
         </div>
-        <BenefitSheet product={selectedProduct} coursePlans={coursePlans} refNode={previewRef} mode="sales" />
+        <BenefitSheet products={products} product={selectedProduct} coursePlans={coursePlans} refNode={previewRef} mode="sales" />
       </section>
     </section>
   );
 }
 
-function CustomerSharePage({ product, selectedSubjects, coursePlans }) {
+function CustomerSharePage({ products, product, selectedSubjects, coursePlans }) {
   const [opened, setOpened] = useState(false);
   const [isOpening, setIsOpening] = useState(false);
 
@@ -435,22 +453,24 @@ function CustomerSharePage({ product, selectedSubjects, coursePlans }) {
             <strong>{product.name} · {selectedSubjects.join("、")}</strong>
           </div>
         </div>
-        <BenefitSheet product={product} coursePlans={coursePlans} mode="poster" />
+        <BenefitSheet products={products} product={product} coursePlans={coursePlans} mode="poster" />
       </section>
     </main>
   );
 }
 
-function AdminPage({ products, selectedProduct, onSelect, onUpdate }) {
+function AdminPage({ products, selectedProduct, onSelect, onUpdate, onPublish }) {
   const [draft, setDraft] = useState(selectedProduct);
   const [expandedGiftKey, setExpandedGiftKey] = useState("");
   const [uploadNames, setUploadNames] = useState({});
   const [parsedCourseData, setParsedCourseData] = useState({ live: {}, video: {} });
   const [parsedSubject, setParsedSubject] = useState("语文");
   const [newGift, setNewGift] = useState({ name: "", detail: "", value: "", rule: "直接赠送" });
+  const [publishState, setPublishState] = useState("idle");
+  const [salesLinkCopied, setSalesLinkCopied] = useState(false);
   const courseGiftItems = getGradeGiftCandidates(products, draft).filter((item) => item.type === "赠课");
   const defaultSelectedGiftKeys = getAdminGiftCandidates(draft).filter((item) => item.type === "赠课").map(getGiftItemKey);
-  const selectedGiftKeys = draft.giftSelections ?? defaultSelectedGiftKeys;
+  const selectedGiftKeys = normalizeSelectedGiftKeys(draft.giftSelections ?? defaultSelectedGiftKeys, courseGiftItems);
 
   React.useEffect(() => {
     setDraft(selectedProduct);
@@ -527,11 +547,32 @@ function AdminPage({ products, selectedProduct, onSelect, onUpdate }) {
   };
 
   const saveDraft = () => {
-    onUpdate({
+    const nextProduct = {
       ...draft,
       courseUploadNames: uploadNames,
       parsedCourseData,
-    });
+    };
+    onUpdate(nextProduct);
+    return nextProduct;
+  };
+
+  const publishDraft = async () => {
+    const nextProduct = saveDraft();
+    setPublishState("publishing");
+    try {
+      await onPublish(nextProduct);
+      setPublishState("published");
+      window.setTimeout(() => setPublishState("idle"), 1800);
+    } catch (error) {
+      console.error(error);
+      setPublishState("error");
+    }
+  };
+
+  const copySalesPortalLink = async () => {
+    await navigator.clipboard.writeText(buildSalesPortalUrl());
+    setSalesLinkCopied(true);
+    window.setTimeout(() => setSalesLinkCopied(false), 1600);
   };
 
   return (
@@ -554,10 +595,20 @@ function AdminPage({ products, selectedProduct, onSelect, onUpdate }) {
             <span className="eyebrow">运营配置</span>
             <h2>{draft.name}</h2>
           </div>
-          <button className="primary-action small" type="button" onClick={saveDraft}>
-            <Save size={17} />
-            <span>保存配置</span>
-          </button>
+          <div className="admin-publish-actions">
+            <button className="secondary-action small" type="button" onClick={copySalesPortalLink}>
+              <Share2 size={17} />
+              <span>{salesLinkCopied ? "销售端链接已复制" : "复制销售端链接"}</span>
+            </button>
+            <button className="secondary-action small" type="button" onClick={saveDraft}>
+              <Save size={17} />
+              <span>保存草稿</span>
+            </button>
+            <button className="primary-action small" type="button" onClick={publishDraft} disabled={publishState === "publishing"}>
+              <Upload size={17} />
+              <span>{publishState === "publishing" ? "发布中..." : publishState === "published" ? "已发布" : publishState === "error" ? "发布失败" : "发布到销售端"}</span>
+            </button>
+          </div>
         </div>
 
         <AdminPanel
@@ -1064,7 +1115,7 @@ function TeachingAidAutoSummary({ stage }) {
   );
 }
 
-function LayoutPage({ product, selectedSubjects, coursePlans }) {
+function LayoutPage({ products, product, selectedSubjects, coursePlans }) {
   const previewRef = useRef(null);
   const [exporting, setExporting] = useState(false);
 
@@ -1094,7 +1145,7 @@ function LayoutPage({ product, selectedSubjects, coursePlans }) {
           <span>{exporting ? "生成中..." : "导出长图"}</span>
         </button>
       </div>
-      <BenefitSheet product={product} coursePlans={coursePlans} refNode={previewRef} mode="poster" />
+      <BenefitSheet products={products} product={product} coursePlans={coursePlans} refNode={previewRef} mode="poster" />
     </section>
   );
 }
@@ -1139,10 +1190,10 @@ async function waitForExportAssets(element) {
   }));
 }
 
-function BenefitSheet({ product, coursePlan, coursePlans, refNode, mode }) {
+function BenefitSheet({ products = [], product, coursePlan, coursePlans, refNode, mode }) {
   const plans = coursePlans?.length ? coursePlans : coursePlan ? [coursePlan] : [];
   const subjects = plans.length ? plans.map((plan) => plan.subject) : ["数学"];
-  const giftPlan = getGiftPlanForSubjects(product, subjects);
+  const giftPlan = getGiftPlanForSubjects(product, subjects, products);
   const physicalGiftItems = getPhysicalGiftItemsForSubjects(product, subjects);
 
   return (
@@ -1174,24 +1225,49 @@ function BenefitSheet({ product, coursePlan, coursePlans, refNode, mode }) {
       </section>
 
       <section className="letter-body">
+        <BenefitOverview
+          product={product}
+          plans={plans}
+          giftPlan={giftPlan}
+          physicalGiftItems={physicalGiftItems}
+          subjects={subjects}
+        />
+
         <EnvelopeSection number="01" title="正课权益" tone="blue">
           {plans.length ? (
             <>
               <div className="multi-course-stack">
                 {plans.map((plan) => {
                   const coreLessons = plan?.lessons ?? [];
+                  const videoCount = getCourseVideoRows(plan).length || plan.videoEntitlement || 0;
                   return (
-                    <section className="subject-course-block" key={plan.subject}>
-                      <div className="course-list-header">
+                    <details
+                      className="subject-course-details"
+                      key={plan.subject}
+                    >
+                      <summary>
                         <div>
-                          <strong>{plan.subject}正课大纲</strong>
-                          <span>{plan.time || "以实际排课为准"}</span>
+                          <strong>{plan.subject}</strong>
+                          <span>学法直播 {coreLessons.length || plan.liveCount || 0}节</span>
                         </div>
-                        <em><PlayCircle size={15} />{plan.videoEntitlement ? "学法直播大纲 + 知识视频大纲" : "学法直播大纲"}</em>
+                        <div className="subject-course-summary-meta">
+                          {videoCount ? <em>知识视频 {videoCount}条</em> : <em>本阶段无知识视频</em>}
+                          <span>点击展开完整大纲</span>
+                          <ChevronDown size={18} />
+                        </div>
+                      </summary>
+                      <div className="subject-course-detail-body">
+                        <div className="course-list-header">
+                          <div>
+                            <strong>{plan.subject}正课大纲</strong>
+                            <span>{plan.time || "以实际排课为准"}</span>
+                          </div>
+                          <em><PlayCircle size={15} />{videoCount ? "学法直播大纲 + 知识视频大纲" : "学法直播大纲"}</em>
+                        </div>
+                        <CourseOutlineSplit coursePlan={plan} lessons={coreLessons} />
+                        {!coreLessons.length ? <CourseOverview product={product} coursePlan={plan} /> : null}
                       </div>
-                      <CourseOutlineSplit coursePlan={plan} lessons={coreLessons} />
-                      {!coreLessons.length ? <CourseOverview product={product} coursePlan={plan} /> : null}
-                    </section>
+                    </details>
                   );
                 })}
               </div>
@@ -1222,12 +1298,22 @@ function BenefitSheet({ product, coursePlan, coursePlans, refNode, mode }) {
         </EnvelopeSection>
 
         <EnvelopeSection number="02" title="赠课权益" tone="orange">
-          <GiftRuleList giftPlan={giftPlan} />
+          <BenefitDisclosure
+            title={`已配置 ${giftPlan.items.length} 项赠课`}
+            description="赠课名称、价值及赠送规则已汇总，点击查看完整课程明细。"
+          >
+            <GiftRuleList giftPlan={giftPlan} />
+          </BenefitDisclosure>
         </EnvelopeSection>
 
         <EnvelopeSection number="03" title="实物赠礼 / 教辅资料" tone="blue">
-          <PhysicalGiftSection items={physicalGiftItems} />
-          <TeachingAidSection subjects={subjects} stage={product.stage} />
+          <BenefitDisclosure
+            title={`已匹配 ${subjects.join("、")} 教辅资料`}
+            description="买哪科展示哪科资料，实物赠礼与教辅图片点击展开查看。"
+          >
+            <PhysicalGiftSection items={physicalGiftItems} />
+            <TeachingAidSection subjects={subjects} stage={product.stage} />
+          </BenefitDisclosure>
         </EnvelopeSection>
 
         <section className="notice-box">
@@ -1243,6 +1329,73 @@ function BenefitSheet({ product, coursePlan, coursePlans, refNode, mode }) {
       </section>
     </article>
   );
+}
+
+function BenefitOverview({ product, plans, giftPlan, physicalGiftItems, subjects }) {
+  const liveCount = plans.reduce((sum, plan) => sum + (plan.lessons?.length || plan.liveCount || 0), 0);
+  const videoCount = plans.reduce((sum, plan) => {
+    const parsedCount = getCourseVideoRows(plan).length;
+    return sum + (parsedCount || plan.videoEntitlement || 0);
+  }, 0);
+  const teachingAidCount = subjects.reduce((sum, subject) => sum + getTeachingAidItems(subject, product.stage).length, 0);
+  const giftValue = giftPlan.items.reduce((sum, item) => sum + getNumericValue(item.value), 0);
+
+  return (
+    <section className="benefit-overview-panel">
+      <header>
+        <div>
+          <span>权益总览</span>
+          <strong>{subjects.join("、")} · 一页看清全部所得</strong>
+        </div>
+        <em>详细大纲可逐项展开</em>
+      </header>
+      <div className="benefit-overview-grid">
+        <div>
+          <BookOpen size={18} />
+          <span>正课权益</span>
+          <strong>{liveCount}节直播</strong>
+          <small>{videoCount ? `另含 ${videoCount} 条知识视频` : "以学法直播课程为主"}</small>
+        </div>
+        <div>
+          <Gift size={18} />
+          <span>赠课权益</span>
+          <strong>{giftPlan.items.length}项赠课</strong>
+          <small>{giftValue ? `标注价值合计 ¥${giftValue}` : "按产品买赠规则开通"}</small>
+        </div>
+        <div>
+          <PackageCheck size={18} />
+          <span>资料权益</span>
+          <strong>{teachingAidCount}项教辅</strong>
+          <small>{physicalGiftItems.length ? `另含 ${physicalGiftItems.length} 项实物/文创` : "按所购科目自动匹配"}</small>
+        </div>
+      </div>
+      <div className="benefit-overview-subjects">
+        {plans.map((plan) => (
+          <span key={plan.subject}>{plan.subject}</span>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function BenefitDisclosure({ title, description, children }) {
+  return (
+    <details className="benefit-disclosure">
+      <summary>
+        <div>
+          <strong>{title}</strong>
+          <span>{description}</span>
+        </div>
+        <ChevronDown size={19} />
+      </summary>
+      <div className="benefit-disclosure-body">{children}</div>
+    </details>
+  );
+}
+
+function getNumericValue(value) {
+  const match = String(value ?? "").replace(/,/g, "").match(/\d+(?:\.\d+)?/);
+  return match ? Number(match[0]) : 0;
 }
 
 function TeachingAidSection({ subject, subjects, stage }) {
@@ -1661,6 +1814,10 @@ function formatExcelDate(value) {
 
 function resolveCoursePlan(product, subject, forcedPhases) {
   const profile = getSubjectProfile(product, subject);
+  const isG1Autumn = String(product.grade).includes("高一") && `${product.stage}${product.name}`.includes("秋实");
+  if (isG1Autumn && ["语文", "数学", "英语", "物理", "化学"].includes(subject)) {
+    profile.knowledgeVideos = Math.max(Number(product.core.knowledgeVideos) || 0, 40);
+  }
   const parsedPlan = resolveParsedCoursePlan(product, subject, profile, forcedPhases);
   if (parsedPlan) return parsedPlan;
 
@@ -1669,7 +1826,7 @@ function resolveCoursePlan(product, subject, forcedPhases) {
   if (basePlan) {
     const shouldClearVideos = profile.knowledgeVideos === 0;
     const coveragePhases = forcedPhases?.length ? forcedPhases : product.coveragePhases?.length ? product.coveragePhases : getDefaultCoveragePhases(product);
-    const videoPhases = product.videoPhases?.length ? product.videoPhases : coveragePhases;
+    const videoPhases = getVideoCoveragePhases(product, coveragePhases);
     const rawLessons = basePlan.lessons.filter((lesson) => phaseMatches(lesson.quarter, coveragePhases));
     const videoPool = shouldClearVideos
       ? []
@@ -1689,6 +1846,7 @@ function resolveCoursePlan(product, subject, forcedPhases) {
       videoLibraryCount: videoPool.length,
       matchedVideoCount: matchedCount,
       unmatchedVideoCount: Math.max(0, videoPool.length - matchedCount),
+      videoRows: videoPool,
       lessons,
       summary: profile.summary,
       isPlaceholder: false,
@@ -1705,6 +1863,7 @@ function resolveCoursePlan(product, subject, forcedPhases) {
     videoLibraryCount: profile.knowledgeVideos,
     matchedVideoCount: 0,
     unmatchedVideoCount: 0,
+    videoRows: [],
     time: "以实际排课为准",
     lessons: product.lessons ?? [],
     unmatchedVideos: [],
@@ -1715,12 +1874,23 @@ function resolveCoursePlan(product, subject, forcedPhases) {
 
 function resolveParsedCoursePlan(product, subject, profile, forcedPhases) {
   const liveRows = product.parsedCourseData?.live?.[subject] ?? [];
-  const videoRows = product.parsedCourseData?.video?.[subject] ?? [];
-  if (!liveRows.length && !videoRows.length) return null;
+  const uploadedVideoRows = product.parsedCourseData?.video?.[subject] ?? [];
+  const fallbackVideoRows = profile.knowledgeVideos
+    ? courseCatalog[product.grade]?.[subject]?.videoLibrary ?? []
+    : [];
+  const videoRows = uploadedVideoRows.length ? uploadedVideoRows : fallbackVideoRows;
+  if (!liveRows.length && !uploadedVideoRows.length) return null;
 
   const coveragePhases = forcedPhases?.length ? forcedPhases : product.coveragePhases?.length ? product.coveragePhases : getDefaultCoveragePhases(product);
   const filteredLive = liveRows.filter((lesson) => phaseMatches(lesson.quarter, coveragePhases));
-  const filteredVideos = videoRows.filter((video) => phaseMatches(video.quarter, product.videoPhases?.length ? product.videoPhases : coveragePhases));
+  let filteredVideos = videoRows
+    .filter((video) => phaseMatches(video.quarter, getVideoCoveragePhases(product, coveragePhases)))
+    .slice(0, profile.knowledgeVideos || undefined);
+  if (!filteredVideos.length && fallbackVideoRows.length && profile.knowledgeVideos) {
+    filteredVideos = fallbackVideoRows
+      .filter((video) => phaseMatches(video.quarter, getVideoCoveragePhases(product, coveragePhases)))
+      .slice(0, profile.knowledgeVideos);
+  }
   const assignedLessons = assignVideosToLessons(
     filteredLive.map((lesson, index) => ({
       ...lesson,
@@ -1743,6 +1913,7 @@ function resolveParsedCoursePlan(product, subject, profile, forcedPhases) {
     videoLibraryCount: filteredVideos.length,
     matchedVideoCount: matchedCount,
     unmatchedVideoCount: Math.max(0, filteredVideos.length - matchedCount),
+    videoRows: filteredVideos,
     time: lessons.find((lesson) => lesson.time)?.time ?? "以实际排课为准",
     lessons,
     unmatchedVideos: [],
@@ -1752,11 +1923,18 @@ function resolveParsedCoursePlan(product, subject, profile, forcedPhases) {
 }
 
 function phaseMatches(phase, selectedPhases) {
+  if (!String(phase || "").trim()) return true;
   if (!selectedPhases?.length) return true;
   if (selectedPhases.includes(phase)) return true;
   if (phase === "暑秋" && (selectedPhases.includes("暑期") || selectedPhases.includes("秋季"))) return true;
   if (phase === "夏季" && selectedPhases.includes("暑期")) return true;
   return false;
+}
+
+function getVideoCoveragePhases(product, coveragePhases) {
+  const isG1Autumn = String(product.grade).includes("高一") && `${product.stage}${product.name}`.includes("秋实");
+  if (isG1Autumn) return ["秋季"];
+  return product.videoPhases?.length ? product.videoPhases : coveragePhases;
 }
 
 function getDefaultCoveragePhases(product) {
@@ -1804,10 +1982,17 @@ function getLessonValue(lesson) {
 function getSubjectProfile(product, subject) {
   const group = product.humanitiesSubjects?.includes(subject) || humanitiesSubjects.includes(subject) ? "humanities" : "default";
   const profile = product.subjectProfiles?.[group] ?? product.subjectProfiles?.default;
-  const hasKnowledgeVideos = !product.videoSubjects || product.videoSubjects.includes(subject);
+  const isG1Autumn = String(product.grade).includes("高一") && `${product.stage}${product.name}`.includes("秋实");
+  const videoSubjects = isG1Autumn
+    ? ["语文", "数学", "英语", "物理", "化学"]
+    : product.videoSubjects;
+  const hasKnowledgeVideos = !videoSubjects || videoSubjects.includes(subject);
+  const knowledgeVideos = isG1Autumn && hasKnowledgeVideos
+    ? Math.max(Number(product.core.knowledgeVideos) || 0, 40)
+    : hasKnowledgeVideos ? profile?.knowledgeVideos ?? product.core.knowledgeVideos : 0;
   return {
     liveLessons: profile?.liveLessons ?? product.core.liveLessons,
-    knowledgeVideos: hasKnowledgeVideos ? profile?.knowledgeVideos ?? product.core.knowledgeVideos : 0,
+    knowledgeVideos,
     summary: profile?.summary ?? [
       `学法直播${product.core.liveLessons}节`,
       hasKnowledgeVideos && product.core.knowledgeVideos ? `知识视频${product.core.knowledgeVideos}节` : "无知识视频",
@@ -1819,18 +2004,21 @@ function getGiftPlan(product, subject) {
   const basePlan = getBaseGiftPlan(product, subject);
   const courseItems = [...(basePlan?.items ?? []), ...(product.customGiftItems ?? [])].filter((item) => item.type === "赠课");
   const selectedKeys = product.giftSelections;
-  const selectedItems = selectedKeys ? courseItems.filter((item) => selectedKeys.includes(getGiftItemKey(item))) : courseItems;
+  const selectedItems = selectedKeys ? courseItems.filter((item) => isGiftItemSelected(selectedKeys, item)) : courseItems;
   return {
     ...(basePlan ?? { title: "赠课权益", note: "赠课权益以实际开通内容为准。" }),
     items: selectedItems.map((item) => resolveSubjectGiftItem(item, subject)),
   };
 }
 
-function getGiftPlanForSubjects(product, subjects) {
+function getGiftPlanForSubjects(product, subjects, products = []) {
   const basePlan = getBaseGiftPlan(product, subjects[0]);
-  const courseItems = [...(basePlan?.items ?? []), ...(product.customGiftItems ?? [])].filter((item) => item.type === "赠课");
+  const courseItems = (products.length ? getGradeGiftCandidates(products, product) : [
+    ...(basePlan?.items ?? []),
+    ...(product.customGiftItems ?? []),
+  ]).filter((item) => item.type === "赠课");
   const selectedKeys = product.giftSelections;
-  const selectedItems = selectedKeys ? courseItems.filter((item) => selectedKeys.includes(getGiftItemKey(item))) : courseItems;
+  const selectedItems = selectedKeys ? courseItems.filter((item) => isGiftItemSelected(selectedKeys, item)) : courseItems;
   const items = selectedItems.flatMap((item) => {
     if (isSubjectMatchedGift(item)) {
       return subjects.map((subject) => resolveSubjectGiftItem(item, subject));
@@ -1888,7 +2076,7 @@ function getBaseGiftPlan(product, subject) {
 function getPhysicalGiftItems(product, subject) {
   const items = getAllPhysicalGiftItems(product, subject);
   const selectedKeys = product.physicalGiftSelections;
-  return selectedKeys ? items.filter((item) => selectedKeys.includes(getGiftItemKey(item))) : items;
+  return selectedKeys ? items.filter((item) => isGiftItemSelected(selectedKeys, item)) : items;
 }
 
 function getPhysicalGiftItemsForSubjects(product, subjects) {
@@ -1932,7 +2120,21 @@ function uniqueGiftItems(items) {
 }
 
 function getGiftItemKey(item) {
+  return `${item.type}-${item.name}`;
+}
+
+function getLegacyGiftItemKey(item) {
   return `${item.type}-${item.name}-${item.detail}`;
+}
+
+function isGiftItemSelected(selectedKeys, item) {
+  return selectedKeys.includes(getGiftItemKey(item)) || selectedKeys.includes(getLegacyGiftItemKey(item));
+}
+
+function normalizeSelectedGiftKeys(selectedKeys, items) {
+  return items
+    .filter((item) => isGiftItemSelected(selectedKeys, item))
+    .map(getGiftItemKey);
 }
 
 function CourseOverview({ product, coursePlan }) {
@@ -1984,7 +2186,7 @@ function EnvelopeSection({ number, title, tone, children }) {
 }
 
 function CourseOutlineSplit({ coursePlan, lessons }) {
-  const videoRows = flattenLessonVideos(lessons);
+  const videoRows = getCourseVideoRows(coursePlan);
   const liveRows = chunkItems(lessons, 2);
   const videoTableRows = chunkItems(videoRows, 3);
   return (
@@ -2112,6 +2314,11 @@ function flattenLessonVideos(lessons) {
     seen.add(key);
     return true;
   });
+}
+
+function getCourseVideoRows(coursePlan) {
+  if (Array.isArray(coursePlan?.videoRows)) return coursePlan.videoRows;
+  return flattenLessonVideos(coursePlan?.lessons ?? []);
 }
 
 function CourseMatrix({ lessons, showVideos }) {
@@ -2430,6 +2637,14 @@ function buildShareUrl(product, subjects) {
   url.searchParams.set("share", "1");
   url.searchParams.set("product", product.id);
   url.searchParams.set("subjects", Array.isArray(subjects) ? subjects.join(",") : subjects);
+  return url.toString();
+}
+
+function buildSalesPortalUrl() {
+  const url = new URL(window.location.href);
+  url.search = "";
+  url.hash = "";
+  url.searchParams.set("sales", "1");
   return url.toString();
 }
 
