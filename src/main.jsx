@@ -1152,17 +1152,29 @@ function LayoutPage({ products, product, selectedSubjects, coursePlans }) {
 
 async function exportElementAsPng(element, filename) {
   await waitForExportAssets(element);
-  const canvas = await html2canvas(element, {
-    backgroundColor: "#f5f9ff",
-    scale: Math.min(2, window.devicePixelRatio || 2),
-    useCORS: true,
-    imageTimeout: 15000,
-    logging: false,
-    scrollX: 0,
-    scrollY: 0,
-    windowWidth: document.documentElement.scrollWidth,
-    windowHeight: document.documentElement.scrollHeight,
-  });
+  element.classList.add("is-exporting");
+  await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+
+  let canvas;
+  try {
+    canvas = await html2canvas(element, {
+      backgroundColor: "#eaf5ff",
+      scale: 2,
+      useCORS: true,
+      allowTaint: false,
+      foreignObjectRendering: false,
+      imageTimeout: 15000,
+      logging: false,
+      scrollX: 0,
+      scrollY: 0,
+      width: element.scrollWidth,
+      height: element.scrollHeight,
+      windowWidth: element.scrollWidth,
+      windowHeight: element.scrollHeight,
+    });
+  } finally {
+    element.classList.remove("is-exporting");
+  }
   const blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/png", 1));
   if (!blob) throw new Error("Canvas export failed");
   const url = URL.createObjectURL(blob);

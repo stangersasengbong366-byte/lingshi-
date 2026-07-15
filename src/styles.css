@@ -698,9 +698,7 @@ select {
   margin: 0 auto;
   overflow: hidden;
   color: #12264a;
-  background:
-    radial-gradient(circle at 18% 8%, rgba(255, 255, 255, 0.88), transparent 28%),
-    linear-gradient(145deg, #e8f5ff 0%, #f7fbff 42%, #d8ecff 100%);
+  background: #eaf5ff;
   border: 1px solid #b9d7fb;
   border-radius: 8px;
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.8);
@@ -716,7 +714,7 @@ select {
   padding: 24px 28px 0;
   overflow: hidden;
   background:
-    radial-gradient(circle at 86% 18%, rgba(164, 204, 255, 0.5), transparent 30%),
+    radial-gradient(circle at 86% 18%, rgba(164, 204, 255, 0.5), rgba(164, 204, 255, 0) 30%),
     linear-gradient(146deg, #edf7ff 0%, #fbfdff 48%, #d9ebff 100%);
 }
 
@@ -725,8 +723,8 @@ select {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.44) 25%, transparent 25%) 0 0 / 34px 34px,
-    linear-gradient(135deg, transparent 75%, rgba(255, 255, 255, 0.34) 75%) 0 0 / 34px 34px;
+    linear-gradient(135deg, rgba(255, 255, 255, 0.44) 25%, rgba(255, 255, 255, 0) 25%) 0 0 / 34px 34px,
+    linear-gradient(135deg, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0.34) 75%) 0 0 / 34px 34px;
   opacity: 0.28;
 }
 
@@ -771,7 +769,7 @@ select {
   min-height: 326px;
   padding: 24px 34px 116px;
   background:
-    linear-gradient(rgba(25, 102, 211, 0.055) 1px, transparent 1px) 0 74px / 100% 28px,
+    linear-gradient(rgba(25, 102, 211, 0.055) 1px, rgba(255, 255, 255, 0) 1px) 0 74px / 100% 28px,
     linear-gradient(105deg, #ffffff 0%, #f8fbff 54%, #eef7ff 100%);
   border: 1px solid rgba(180, 210, 247, 0.95);
   border-radius: 8px;
@@ -916,6 +914,25 @@ select {
   display: grid;
   gap: 14px;
   padding: 12px 26px 26px;
+  background: #eaf5ff;
+}
+
+.benefit-sheet.is-exporting,
+.benefit-sheet.is-exporting .letter-body {
+  background: #eaf5ff;
+}
+
+.benefit-sheet.is-exporting .envelope-hero::before {
+  display: none;
+}
+
+.benefit-sheet.is-exporting .envelope-back,
+.benefit-sheet.is-exporting .envelope-front,
+.benefit-sheet.is-exporting .envelope-back::before,
+.benefit-sheet.is-exporting .envelope-back::after,
+.benefit-sheet.is-exporting .envelope-front::before,
+.benefit-sheet.is-exporting .envelope-front::after {
+  background-color: #8eb9f7;
 }
 
 .envelope-section {
