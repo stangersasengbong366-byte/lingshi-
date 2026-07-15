@@ -1406,24 +1406,39 @@ function SummaryBenefitLayout({ product, plans, giftPlan, physicalGiftItems, sub
   const videoCount = plans.reduce((sum, plan) => sum + (getCourseVideoRows(plan).length || plan.videoEntitlement || 0), 0);
   const pricing = getProductPricing(product, subjectCount);
   const journey = getProductJourney(product);
-  const teachingAidCount = subjects.reduce((sum, subject) => sum + getTeachingAidItems(subject, product.stage).length, 0);
+  const teachingAidItems = subjects.flatMap((subject) =>
+    getTeachingAidItems(subject, product.stage).map((item) => ({ ...item, subject, summaryType: "教辅资料" })),
+  );
+  const teachingAidCount = teachingAidItems.length;
+  const preferredGiftNames = ["暑期学法知识视频包", "高一家长成长计划·第一期", "高中升学路径全解"];
+  const featuredCourseGifts = uniqueGiftItems([
+    ...preferredGiftNames.map((name) => giftPlan.items.find((item) => item.name === name)).filter(Boolean),
+    ...giftPlan.items,
+  ]).slice(0, 3);
+  const featuredGifts = [
+    ...featuredCourseGifts.map((item) => ({ ...item, summaryType: "赠课权益" })),
+    ...teachingAidItems.slice(0, 1),
+    ...physicalGiftItems.filter((item) => item.image).slice(0, 1).map((item) => ({ ...item, summaryType: "实物赠礼" })),
+  ].slice(0, 4);
+  const featuredGiftKeys = new Set(featuredCourseGifts.map(getGiftItemKey));
+  const remainingGifts = giftPlan.items.filter((item) => !featuredGiftKeys.has(getGiftItemKey(item)));
+  const perSubjectContentCount = Math.round((liveCount + videoCount) / Math.max(subjectCount, 1));
 
   return (
     <div className="summary-layout">
       <section className="summary-stage-section">
         <header>
           <div>
-            <span>{product.term}</span>
-            <h2>{product.grade}{product.stage} · 学习阶段与作用</h2>
+            <h2>{product.stage}涵盖阶段</h2>
           </div>
-          <em>从衔接到体系，再到复盘提升</em>
+          <em>{product.term} · 提前衔接，秋季体系进阶</em>
         </header>
         <div className="summary-stage-flow">
           {journey.map((item, index) => (
             <div className={item.current ? "summary-stage-item current" : "summary-stage-item"} key={item.title}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
               <strong>{item.title}</strong>
               <em>{item.role}</em>
+              <i aria-hidden="true" />
               <p>{item.description}</p>
             </div>
           ))}
@@ -1432,22 +1447,26 @@ function SummaryBenefitLayout({ product, plans, giftPlan, physicalGiftItems, sub
 
       <div className="summary-main-grid">
         <section className="summary-core-section">
-          <header>
-            <div>
-              <span>正课内容</span>
-              <h2>{subjects.join("、")} · 学法直播与知识视频组合学习</h2>
+          <div className="summary-course-facts">
+            <div className="summary-fact-row"><strong>适合人群</strong><span>{product.grade}</span></div>
+            <div className="summary-fact-row"><strong>所购科目</strong><span>{subjects.join("　")}</span></div>
+            <div className="summary-fact-row"><strong>课程随材</strong><span>纸质版物料，含视频讲义 + 配套习题</span></div>
+            <div className="summary-fact-row content-row">
+              <strong>课程内容<br /><small>非文综科目</small></strong>
+              <div>
+                <div className="summary-course-metrics">
+                  <div><span>学法直播</span><strong>{liveCount}节</strong><small>{product.core.liveDuration}/节</small></div>
+                  <div><span>知识视频</span><strong>{videoCount}条</strong><small>{product.core.videoDuration}/节</small></div>
+                  <div><span>伴学服务</span><strong>{product.core.servicePeriod}</strong><small>按系统开通</small></div>
+                </div>
+                <div className="summary-course-explain">
+                  <p><strong>学法直播</strong><span>大招提分，清北主理人直播授解题大招，贴合考情。</span></p>
+                  <p><strong>知识视频</strong><span>查漏补缺，基础点与难题精讲随时可学，适配个性化需求。</span></p>
+                  <p><strong>学习服务</strong><span>按所购科目开通课程与资料，辅导老师伴学跟进。</span></p>
+                </div>
+              </div>
             </div>
-            <em>{subjectCount}科权益</em>
-          </header>
-          <div className="summary-course-metrics">
-            <div><span>学法直播</span><strong>{liveCount}节</strong><small>{product.core.liveDuration}/节</small></div>
-            <div><span>知识视频</span><strong>{videoCount}条</strong><small>{product.core.videoDuration}/节</small></div>
-            <div><span>服务周期</span><strong>{product.core.servicePeriod}</strong><small>以系统开通为准</small></div>
-          </div>
-          <div className="summary-course-explain">
-            <p><strong>学法直播</strong><span>大招教学与提分方法，帮助学生建立解题框架，掌握核心题型。</span></p>
-            <p><strong>知识视频</strong><span>针对直播中不熟的基础点随时补习，形成“直播提分 + 视频补基”。</span></p>
-            <p><strong>学习服务</strong><span>按所购科目开通对应课程与资料，辅导老师伴学跟进。</span></p>
+            <div className="summary-fact-row service-row"><strong>服务期<br />有效期</strong><span><b>课程服务期：</b>购买后按系统开通周期执行<br /><b>课程有效期：</b>以系统课程页面为准</span></div>
           </div>
         </section>
 
@@ -1466,6 +1485,7 @@ function SummaryBenefitLayout({ product, plans, giftPlan, physicalGiftItems, sub
                 <div><small>原价/科</small><s>¥{formatPrice(pricing.originalPerSubject)}</s></div>
                 <div><small>优惠后/科</small><strong>¥{formatPrice(tier.perSubject)}</strong></div>
                 <div><small>{tier.active ? `${subjectCount}科实付` : "套餐总价"}</small><em>¥{formatPrice(tier.total)}</em></div>
+                <footer><span>总计</span><strong>{perSubjectContentCount * tier.subjects}节内容</strong></footer>
               </div>
             ))}
           </div>
@@ -1476,21 +1496,27 @@ function SummaryBenefitLayout({ product, plans, giftPlan, physicalGiftItems, sub
       <section className="summary-gift-section">
         <header>
           <div>
-            <span>报名赠送</span>
-            <h2>本次可获得的赠课权益</h2>
+            <h2>报名赠送</h2>
           </div>
           <em>共 {giftPlan.items.length} 项赠课 · {teachingAidCount} 项教辅{physicalGiftItems.length ? ` · ${physicalGiftItems.length} 项实物/文创` : ""}</em>
         </header>
-        <div className="summary-gift-list">
-          {giftPlan.items.map((item) => (
-            <div key={getGiftItemKey(item)}>
-              <Gift size={17} />
+        <div className="summary-gift-gallery">
+          {featuredGifts.map((item, index) => (
+            <article key={`${item.summaryType}-${item.name}-${index}`}>
               <strong>{item.name}</strong>
-              <span>{item.rule || "按产品规则赠送"}</span>
-              <em>{item.value || "权益赠送"}</em>
-            </div>
+              <div className={`summary-gift-visual tone-${index + 1}`}>
+                {item.image ? <img src={assetUrl(item.image)} alt={item.name} /> : <span>{item.name.replace(/[·（）()]/g, "").slice(0, 8)}</span>}
+              </div>
+              <p>{item.rule || getTeachingAidRule(product.stage)}</p>
+            </article>
           ))}
         </div>
+        {remainingGifts.length ? (
+          <div className="summary-gift-more">
+            <strong>同时赠送</strong>
+            {remainingGifts.map((item) => <span key={getGiftItemKey(item)}>{item.name}</span>)}
+          </div>
+        ) : null}
         <p><PackageCheck size={16} />教辅资料按所购科目自动匹配，买哪科展示并赠送哪科资料。</p>
       </section>
     </div>
@@ -1500,9 +1526,8 @@ function SummaryBenefitLayout({ product, plans, giftPlan, physicalGiftItems, sub
 function getProductJourney(product) {
   if (product.stage === "秋实卡") {
     return [
-      { title: "初高衔接", role: "夯实基础", description: "回顾初高衔接知识，扫清基础障碍，为秋季学习铺平道路。" },
-      { title: "秋季体系学习", role: "构建框架", description: "学法直播讲透提分方法，知识视频及时补足基础，逐步建立高中知识体系。", current: true },
-      { title: "阶段复盘", role: "查漏提升", description: "围绕本学期重点内容查漏补缺，沉淀方法，为后续学习做好衔接。" },
+      { title: "升高一 暑假", role: "黄金窗口　提前布局", description: "系统复盘初高衔接内容，补齐薄弱环节，同时提前预习高一重点知识，为新学期的难度升级做好准备。" },
+      { title: "高一上 秋季", role: "进阶拔高　实现突破", description: "进入高中知识难度、综合性和学习强度提升阶段。学法直播讲透提分方法，知识视频及时补足基础，逐步建立知识体系。", current: true },
     ];
   }
   return [
@@ -1523,9 +1548,9 @@ function getProductPricing(product, subjectCount) {
     originalPerSubject,
     currentTotal: selectedPerSubject * subjectCount,
     tiers: [
-      { label: "单科", perSubject: singlePerSubject, total: singlePerSubject, active: subjectCount === 1 },
-      { label: "联报两科", perSubject: twoPerSubject, total: twoPerSubject * 2, active: subjectCount === 2 },
-      { label: "三科及以上", perSubject: threePlusPerSubject, total: threePlusPerSubject * Math.max(subjectCount, 3), active: subjectCount >= 3 },
+      { label: "单科", subjects: 1, perSubject: singlePerSubject, total: singlePerSubject, active: subjectCount === 1 },
+      { label: "联报两科", subjects: 2, perSubject: twoPerSubject, total: twoPerSubject * 2, active: subjectCount === 2 },
+      { label: "联报三科", subjects: 3, perSubject: threePlusPerSubject, total: threePlusPerSubject * Math.max(subjectCount, 3), active: subjectCount >= 3 },
     ],
   };
 }
