@@ -2321,6 +2321,10 @@ select {
   min-width: 0;
 }
 
+.mobile-outline-table {
+  display: none;
+}
+
 .compact-outline-table th,
 .compact-outline-table td {
   border-right: 1px solid #dce9fb;
@@ -2463,6 +2467,27 @@ select {
 
 .outline-empty {
   background: #f8fbff;
+}
+
+.outline-schedule {
+  text-align: center;
+}
+
+.outline-schedule strong,
+.outline-schedule span {
+  display: block;
+}
+
+.outline-schedule strong {
+  color: #20304c;
+  font-size: 12px;
+}
+
+.outline-schedule span {
+  margin-top: 3px;
+  color: #61718a;
+  font-size: 10px;
+  white-space: nowrap;
 }
 
 .outline-empty-state {
@@ -5217,6 +5242,99 @@ select {
   .subject-course-detail-body,
   .benefit-disclosure-body {
     padding: 9px;
+  }
+
+  .outline-block header {
+    align-items: flex-start;
+    gap: 8px;
+    padding: 11px 10px;
+  }
+
+  .outline-block header > div {
+    min-width: 0;
+    flex-wrap: wrap;
+  }
+
+  .outline-block header strong {
+    font-size: 16px;
+    white-space: normal;
+  }
+
+  .outline-block header span {
+    font-size: 11px;
+  }
+
+  .outline-block header em {
+    flex: none;
+    padding: 4px 7px;
+    font-size: 10px;
+  }
+
+  .desktop-outline-table {
+    display: none;
+  }
+
+  .mobile-outline-table {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    font-size: 11px;
+  }
+
+  .mobile-outline-table th {
+    height: 34px;
+    padding: 4px;
+    line-height: 1.25;
+    white-space: normal;
+  }
+
+  .mobile-outline-table td {
+    height: auto;
+    min-height: 0;
+    padding: 8px 6px;
+    overflow: visible;
+    line-height: 1.4;
+    word-break: break-word;
+  }
+
+  .live-mobile-table th:nth-child(1),
+  .live-mobile-table td:nth-child(1),
+  .video-mobile-table th:nth-child(1),
+  .video-mobile-table td:nth-child(1) {
+    width: 42px;
+  }
+
+  .live-mobile-table th:nth-child(2),
+  .live-mobile-table td:nth-child(2) {
+    width: 98px;
+  }
+
+  .video-mobile-table th:nth-child(3),
+  .video-mobile-table td:nth-child(3) {
+    width: 58px;
+  }
+
+  .mobile-outline-table .outline-title {
+    padding: 8px;
+    overflow: visible;
+    color: #20304c;
+    font-size: 11px;
+    line-height: 1.45;
+    text-overflow: clip;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  .mobile-outline-table .outline-difficulty {
+    padding: 6px 3px;
+    overflow: hidden;
+    background: #ffffff;
+    white-space: nowrap;
+  }
+
+  .mobile-outline-table .outline-stars {
+    font-size: 9px;
+    letter-spacing: -1px;
   }
 
   .course-tables {

@@ -2603,7 +2603,7 @@ function CourseOutlineSplit({ coursePlan, lessons }) {
           </div>
           <em><Clock size={14} />{coursePlan.time || "以实际排课为准"}</em>
         </header>
-        <table className="compact-outline-table live-compact-table">
+        <table className="compact-outline-table live-compact-table desktop-outline-table">
           <thead>
             <tr>
               <th>课次</th>
@@ -2632,6 +2632,27 @@ function CourseOutlineSplit({ coursePlan, lessons }) {
             ))}
           </tbody>
         </table>
+        <table className="compact-outline-table live-mobile-table mobile-outline-table">
+          <thead>
+            <tr>
+              <th>课次</th>
+              <th>日期与时间</th>
+              <th>学法直播主题</th>
+            </tr>
+          </thead>
+          <tbody>
+            {lessons.map((lesson, index) => (
+              <tr key={`live-mobile-${lesson.id ?? `${lesson.no}-${lesson.live}`}`}>
+                <td className="outline-no">{lesson.no ?? index + 1}</td>
+                <td className="outline-schedule">
+                  <strong>{lesson.date || "-"}</strong>
+                  <span>{lesson.time || coursePlan.time || "-"}</span>
+                </td>
+                <td className="outline-title">{lesson.live}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </section>
 
       {videoRows.length ? (
@@ -2643,7 +2664,7 @@ function CourseOutlineSplit({ coursePlan, lessons }) {
             </div>
             <em><PackageCheck size={14} />配套补基</em>
           </header>
-          <table className="compact-outline-table video-compact-table">
+          <table className="compact-outline-table video-compact-table desktop-outline-table">
             <thead>
               <tr>
                 <th>课次</th>
@@ -2670,6 +2691,26 @@ function CourseOutlineSplit({ coursePlan, lessons }) {
                     </Fragment>
                   ))}
                   {row.length < 3 ? <EmptyOutlineCells count={(3 - row.length) * 3} /> : null}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <table className="compact-outline-table video-mobile-table mobile-outline-table">
+            <thead>
+              <tr>
+                <th>课次</th>
+                <th>课程大纲</th>
+                <th>难度</th>
+              </tr>
+            </thead>
+            <tbody>
+              {videoRows.map((video, index) => (
+                <tr key={`video-mobile-${video.id ?? `${getVideoTitle(video)}-${index}`}`}>
+                  <td className="outline-no">{index + 1}</td>
+                  <td className="outline-title">{getVideoTitle(video)}</td>
+                  <td className="outline-difficulty">
+                    <span className="outline-stars">{formatDifficultyStars(getVideoDifficulty(video))}</span>
+                  </td>
                 </tr>
               ))}
             </tbody>
