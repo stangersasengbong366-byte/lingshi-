@@ -6,7 +6,6 @@ import {
   BookOpen,
   Check,
   ChevronDown,
-  Clipboard,
   Clock,
   Download,
   Eye,
@@ -170,6 +169,7 @@ function App() {
         product={selectedProduct}
         selectedSubjects={selectedSubjects}
         coursePlans={selectedCoursePlans}
+        viewMode={shareParams.viewMode}
       />
     );
   }
@@ -214,6 +214,7 @@ function getShareParams() {
     productId: params.get("product") || initialProducts[0].id,
     subject: params.get("subject") || "数学",
     subjects: (params.get("subjects") || params.get("subject") || "数学").split(",").map((item) => item.trim()).filter(Boolean),
+    viewMode: params.get("view") === "detail" ? "detail" : "summary",
   };
 }
 
@@ -259,9 +260,11 @@ function AppHeader({ activePage, onPageChange, syncStatus, salesOnly }) {
 
 function SalesPage({ products, selectedProduct, selectedSubjects, coursePlans, onSelect, onSubjectsChange }) {
   const previewRef = useRef(null);
-  const [copied, setCopied] = useState(false);
   const [linkCopied, setLinkCopied] = useState(false);
   const [exporting, setExporting] = useState(false);
+  const [viewMode, setViewMode] = useState(() => (
+    new URLSearchParams(window.location.search).get("view") === "detail" ? "detail" : "summary"
+  ));
 
   const productOptions = useMemo(() => {
     return products.filter((item) => item.status === "在售");
@@ -275,15 +278,8 @@ function SalesPage({ products, selectedProduct, selectedSubjects, coursePlans, o
   const liveTotal = coursePlans.reduce((sum, plan) => sum + (plan?.liveCount ?? 0), 0);
   const videoTotal = coursePlans.reduce((sum, plan) => sum + (plan?.videoEntitlement ?? 0), 0);
 
-  const copyText = async () => {
-    const text = buildShareText(selectedProduct);
-    await navigator.clipboard.writeText(text);
-    setCopied(true);
-    window.setTimeout(() => setCopied(false), 1600);
-  };
-
   const copyShareLink = async () => {
-    await navigator.clipboard.writeText(buildShareUrl(selectedProduct, selectedSubjects));
+    await navigator.clipboard.writeText(buildShareUrl(selectedProduct, selectedSubjects, viewMode));
     setLinkCopied(true);
     window.setTimeout(() => setLinkCopied(false), 1600);
   };
@@ -292,7 +288,8 @@ function SalesPage({ products, selectedProduct, selectedSubjects, coursePlans, o
     if (!previewRef.current || exporting) return;
     setExporting(true);
     try {
-      await exportElementAsPng(previewRef.current, `${selectedProduct.name}-权益清单.png`);
+      const versionName = viewMode === "detail" ? "明细版" : "清单版";
+      await exportElementAsPng(previewRef.current, `${selectedProduct.name}-${versionName}权益清单.png`);
     } catch (error) {
       console.error(error);
       window.alert("长图生成失败，请稍后重试。");
@@ -361,17 +358,33 @@ function SalesPage({ products, selectedProduct, selectedSubjects, coursePlans, o
             ))}
           </div>
         </Field>
+        <Field label="展示版本">
+          <div className="version-switch" role="group" aria-label="展示版本">
+            <button
+              className={viewMode === "summary" ? "active" : ""}
+              type="button"
+              onClick={() => setViewMode("summary")}
+            >
+              <span>一</span>
+              <div><strong>清单版本</strong><small>一页总览全部权益</small></div>
+            </button>
+            <button
+              className={viewMode === "detail" ? "active" : ""}
+              type="button"
+              onClick={() => setViewMode("detail")}
+            >
+              <span>二</span>
+              <div><strong>明细版本</strong><small>展开完整课程大纲</small></div>
+            </button>
+          </div>
+        </Field>
         <div className="quick-facts">
           <Metric icon={BookOpen} label={`${selectedSubjects.length}科 学法直播`} value={`${liveTotal || selectedProduct.core.liveLessons}节`} />
           <Metric icon={Layers} label={`${selectedSubjectText} 知识视频`} value={`${videoTotal}节`} />
           <Metric icon={GraduationCap} label="服务周期" value={selectedProduct.core.servicePeriod} />
         </div>
         <div className="action-stack">
-          <button className="primary-action" type="button" onClick={copyText}>
-            <Clipboard size={18} />
-            <span>{copied ? "已复制" : "复制给家长"}</span>
-          </button>
-          <button className="secondary-action" type="button" onClick={copyShareLink}>
+          <button className="primary-action" type="button" onClick={copyShareLink}>
             <Share2 size={18} />
             <span>{linkCopied ? "链接已复制" : "复制分享链接"}</span>
           </button>
@@ -389,13 +402,20 @@ function SalesPage({ products, selectedProduct, selectedSubjects, coursePlans, o
           </div>
           <span className="status-pill">适合微信发送</span>
         </div>
-        <BenefitSheet products={products} product={selectedProduct} coursePlans={coursePlans} refNode={previewRef} mode="sales" />
+        <BenefitSheet
+          products={products}
+          product={selectedProduct}
+          coursePlans={coursePlans}
+          refNode={previewRef}
+          mode="sales"
+          viewMode={viewMode}
+        />
       </section>
     </section>
   );
 }
 
-function CustomerSharePage({ products, product, selectedSubjects, coursePlans }) {
+function CustomerSharePage({ products, product, selectedSubjects, coursePlans, viewMode }) {
   const [opened, setOpened] = useState(false);
   const [isOpening, setIsOpening] = useState(false);
 
@@ -453,7 +473,7 @@ function CustomerSharePage({ products, product, selectedSubjects, coursePlans })
             <strong>{product.name} · {selectedSubjects.join("、")}</strong>
           </div>
         </div>
-        <BenefitSheet products={products} product={product} coursePlans={coursePlans} mode="poster" />
+        <BenefitSheet products={products} product={product} coursePlans={coursePlans} mode="poster" viewMode={viewMode} />
       </section>
     </main>
   );
@@ -1202,14 +1222,14 @@ async function waitForExportAssets(element) {
   }));
 }
 
-function BenefitSheet({ products = [], product, coursePlan, coursePlans, refNode, mode }) {
+function BenefitSheet({ products = [], product, coursePlan, coursePlans, refNode, mode, viewMode = "summary" }) {
   const plans = coursePlans?.length ? coursePlans : coursePlan ? [coursePlan] : [];
   const subjects = plans.length ? plans.map((plan) => plan.subject) : ["数学"];
   const giftPlan = getGiftPlanForSubjects(product, subjects, products);
   const physicalGiftItems = getPhysicalGiftItemsForSubjects(product, subjects);
 
   return (
-    <article className={mode === "poster" ? "benefit-sheet poster" : "benefit-sheet"} ref={refNode}>
+    <article className={`${mode === "poster" ? "benefit-sheet poster" : "benefit-sheet"} view-${viewMode}`} ref={refNode}>
       <section className="envelope-hero">
         <div className="envelope-back" />
         <div className="letter-paper">
@@ -1255,7 +1275,8 @@ function BenefitSheet({ products = [], product, coursePlan, coursePlans, refNode
                   return (
                     <details
                       className="subject-course-details"
-                      key={plan.subject}
+                      key={`${viewMode}-${plan.subject}`}
+                      open={viewMode === "detail" ? true : undefined}
                     >
                       <summary>
                         <div>
@@ -1313,6 +1334,7 @@ function BenefitSheet({ products = [], product, coursePlan, coursePlans, refNode
           <BenefitDisclosure
             title={`已配置 ${giftPlan.items.length} 项赠课`}
             description="赠课名称、价值及赠送规则已汇总，点击查看完整课程明细。"
+            open={viewMode === "detail"}
           >
             <GiftRuleList giftPlan={giftPlan} />
           </BenefitDisclosure>
@@ -1322,6 +1344,7 @@ function BenefitSheet({ products = [], product, coursePlan, coursePlans, refNode
           <BenefitDisclosure
             title={`已匹配 ${subjects.join("、")} 教辅资料`}
             description="买哪科展示哪科资料，实物赠礼与教辅图片点击展开查看。"
+            open={viewMode === "detail"}
           >
             <PhysicalGiftSection items={physicalGiftItems} />
             <TeachingAidSection subjects={subjects} stage={product.stage} />
@@ -1390,9 +1413,9 @@ function BenefitOverview({ product, plans, giftPlan, physicalGiftItems, subjects
   );
 }
 
-function BenefitDisclosure({ title, description, children }) {
+function BenefitDisclosure({ title, description, children, open = false }) {
   return (
-    <details className="benefit-disclosure">
+    <details className="benefit-disclosure" open={open ? true : undefined}>
       <summary>
         <div>
           <strong>{title}</strong>
@@ -2623,32 +2646,14 @@ function Metric({ icon: Icon, label, value }) {
   );
 }
 
-function buildShareText(product) {
-  const gifts = product.giftModuleIds
-    .map((id) => moduleLibrary.find((module) => module.id === id)?.title)
-    .filter(Boolean)
-    .map((title) => `✓ ${title}`)
-    .join("\n");
-
-  return `${product.name}
-${product.subtitle}
-
-产品正课：
-学法直播 ${product.core.liveLessons} 节（${product.core.liveDuration}/节） + 知识视频 ${product.core.knowledgeVideos} 节（${product.core.videoDuration}/节） + 辅导老师服务 ${product.core.servicePeriod}/科
-
-赠送内容：
-${gifts}
-
-说明：具体权益以实际开通及合同约定为准。`;
-}
-
-function buildShareUrl(product, subjects) {
+function buildShareUrl(product, subjects, viewMode = "summary") {
   const url = new URL(window.location.href);
   url.search = "";
   url.hash = "";
   url.searchParams.set("share", "1");
   url.searchParams.set("product", product.id);
   url.searchParams.set("subjects", Array.isArray(subjects) ? subjects.join(",") : subjects);
+  url.searchParams.set("view", viewMode);
   return url.toString();
 }
 
