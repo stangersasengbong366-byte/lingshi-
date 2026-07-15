@@ -23,6 +23,12 @@ export const initialProducts = [
       servicePeriod: "4个月",
     },
     priceNote: "",
+    pricing: {
+      originalPerSubject: 5400,
+      singlePerSubject: 3980,
+      twoPerSubject: 3680,
+      threePlusPerSubject: 3380,
+    },
     videoReleasePlan: "",
     subjectProfiles: {
       default: {
