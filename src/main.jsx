@@ -491,12 +491,16 @@ function AdminPage({ products, selectedProduct, onSelect, onUpdate, onPublish })
   const [uploadNames, setUploadNames] = useState({});
   const [parsedCourseData, setParsedCourseData] = useState({ live: {}, video: {} });
   const [parsedSubject, setParsedSubject] = useState("语文");
-  const [newGift, setNewGift] = useState({ name: "", detail: "", value: "", rule: "直接赠送" });
+  const [newGift, setNewGift] = useState({ name: "", detail: "", value: "", lessonCount: "", mainContent: "", rule: "直接赠送" });
+  const [newPhysicalGift, setNewPhysicalGift] = useState({ name: "", detail: "", value: "", rule: "买一科即赠" });
   const [publishState, setPublishState] = useState("idle");
   const [salesLinkCopied, setSalesLinkCopied] = useState(false);
   const courseGiftItems = getGradeGiftCandidates(products, draft).filter((item) => item.type === "赠课");
   const defaultSelectedGiftKeys = getAdminGiftCandidates(draft).filter((item) => item.type === "赠课").map(getGiftItemKey);
   const selectedGiftKeys = normalizeSelectedGiftKeys(draft.giftSelections ?? defaultSelectedGiftKeys, courseGiftItems);
+  const physicalGiftItems = getGradePhysicalGiftCandidates(products, draft);
+  const defaultPhysicalGiftKeys = physicalGiftItems.map(getGiftItemKey);
+  const selectedPhysicalGiftKeys = normalizeSelectedGiftKeys(draft.physicalGiftSelections ?? defaultPhysicalGiftKeys, physicalGiftItems);
 
   React.useEffect(() => {
     setDraft(selectedProduct);
@@ -504,7 +508,8 @@ function AdminPage({ products, selectedProduct, onSelect, onUpdate, onPublish })
     setUploadNames(selectedProduct.courseUploadNames ?? {});
     setParsedCourseData(selectedProduct.parsedCourseData ?? { live: {}, video: {} });
     setParsedSubject("语文");
-    setNewGift({ name: "", detail: "", value: "", rule: "直接赠送" });
+    setNewGift({ name: "", detail: "", value: "", lessonCount: "", mainContent: "", rule: "直接赠送" });
+    setNewPhysicalGift({ name: "", detail: "", value: "", rule: "买一科即赠" });
   }, [selectedProduct]);
 
   const updateCore = (key, value) => {
@@ -513,6 +518,17 @@ function AdminPage({ products, selectedProduct, onSelect, onUpdate, onPublish })
 
   const updatePricing = (key, value) => {
     setDraft({ ...draft, pricing: { ...draft.pricing, [key]: Number(value) || 0 } });
+  };
+
+  const updateGiftOverride = (key, field, value) => {
+    const current = draft.giftOverrides?.[key] ?? {};
+    setDraft({
+      ...draft,
+      giftOverrides: {
+        ...(draft.giftOverrides ?? {}),
+        [key]: { ...current, [field]: value },
+      },
+    });
   };
 
   const handleUploadName = async (slot, event) => {
@@ -525,11 +541,22 @@ function AdminPage({ products, selectedProduct, onSelect, onUpdate, onPublish })
     if (slot.startsWith("gift-detail-") && file) {
       const targetKey = slot.replace("gift-detail-", "");
       const parsedGift = await parseGiftWorkbook(file, draft.grade);
-      const nextCustomItems = (draft.customGiftItems ?? []).map((item) => {
-        if (getGiftItemKey(item) !== targetKey) return item;
-        return mergeGiftUploadItem(item, parsedGift);
+      const targetItem = courseGiftItems.find((item) => getGiftItemKey(item) === targetKey) ?? { type: "赠课" };
+      const merged = mergeGiftUploadItem(targetItem, parsedGift);
+      setDraft({
+        ...draft,
+        giftOverrides: {
+          ...(draft.giftOverrides ?? {}),
+          [targetKey]: {
+            ...(draft.giftOverrides?.[targetKey] ?? {}),
+            detail: merged.detail,
+            value: merged.value,
+            rule: merged.rule,
+            subjectCourses: merged.subjectCourses,
+            bullets: merged.bullets,
+          },
+        },
       });
-      setDraft({ ...draft, customGiftItems: nextCustomItems });
     }
     if (slot === "gift" && file?.name) {
       const parsedGift = await parseGiftWorkbook(file, draft.grade);
@@ -566,6 +593,8 @@ function AdminPage({ products, selectedProduct, onSelect, onUpdate, onPublish })
       name: newGift.name.trim(),
       detail: newGift.detail.trim() || "后台新增赠课明细",
       value: newGift.value.trim() || "待补充",
+      lessonCount: newGift.lessonCount.trim(),
+      mainContent: newGift.mainContent.trim(),
       rule: newGift.rule,
     };
     setDraft({
@@ -573,7 +602,31 @@ function AdminPage({ products, selectedProduct, onSelect, onUpdate, onPublish })
       customGiftItems: [...(draft.customGiftItems ?? []), item],
       giftSelections: [...selectedGiftKeys, getGiftItemKey(item)],
     });
-    setNewGift({ name: "", detail: "", value: "", rule: "直接赠送" });
+    setNewGift({ name: "", detail: "", value: "", lessonCount: "", mainContent: "", rule: "直接赠送" });
+  };
+
+  const togglePhysicalGiftSelection = (key) => {
+    const next = selectedPhysicalGiftKeys.includes(key)
+      ? selectedPhysicalGiftKeys.filter((item) => item !== key)
+      : [...selectedPhysicalGiftKeys, key];
+    setDraft({ ...draft, physicalGiftSelections: next });
+  };
+
+  const addCustomPhysicalGift = () => {
+    if (!newPhysicalGift.name.trim()) return;
+    const item = {
+      type: "实物赠礼",
+      name: newPhysicalGift.name.trim(),
+      detail: newPhysicalGift.detail.trim() || "实物赠礼明细待补充",
+      value: newPhysicalGift.value.trim() || "待补充",
+      rule: newPhysicalGift.rule,
+    };
+    setDraft({
+      ...draft,
+      customPhysicalItems: [...(draft.customPhysicalItems ?? []), item],
+      physicalGiftSelections: [...selectedPhysicalGiftKeys, getGiftItemKey(item)],
+    });
+    setNewPhysicalGift({ name: "", detail: "", value: "", rule: "买一科即赠" });
   };
 
   const saveDraft = () => {
@@ -643,8 +696,8 @@ function AdminPage({ products, selectedProduct, onSelect, onUpdate, onPublish })
 
         <AdminPanel
           number="00"
-          title="产品配置"
-          note="先确定年级、班型、状态和销售话术，再进入 01/02/03 配权益。"
+          title="产品基础信息"
+          note="配置清单首页所需的产品信息：产品、正课数量、服务期和按科目数量计算的价格。"
           icon={Settings}
         >
           <div className="form-grid">
@@ -718,8 +771,8 @@ function AdminPage({ products, selectedProduct, onSelect, onUpdate, onPublish })
 
         <AdminPanel
           number="02"
-          title="赠课权益"
-          note="顶部是当前年级已有赠课池，勾选即赠送；下方上传或新增后，会回到顶部候选池继续勾选。"
+          title="赠课课程池"
+          note="同年级重复赠课只维护一次。当前产品勾选需要赠送的课程，并配置价值、时长、明细、讲解内容和触发规则。"
           icon={Gift}
         >
           <GiftPoolSummary grade={draft.grade} total={courseGiftItems.length} selected={selectedGiftKeys.length} />
@@ -731,6 +784,7 @@ function AdminPage({ products, selectedProduct, onSelect, onUpdate, onPublish })
             onToggle={toggleGiftSelection}
             onExpand={(key) => setExpandedGiftKey(expandedGiftKey === key ? "" : key)}
             onUpload={handleUploadName}
+            onItemChange={updateGiftOverride}
           />
           <div className="gift-import-box">
             <div className="gift-import-head">
@@ -742,6 +796,8 @@ function AdminPage({ products, selectedProduct, onSelect, onUpdate, onPublish })
               <input placeholder="赠课名称" value={newGift.name} onChange={(event) => setNewGift({ ...newGift, name: event.target.value })} />
               <input placeholder="课程明细 / 节数" value={newGift.detail} onChange={(event) => setNewGift({ ...newGift, detail: event.target.value })} />
               <input placeholder="价值" value={newGift.value} onChange={(event) => setNewGift({ ...newGift, value: event.target.value })} />
+              <input placeholder="课时量，如 10节 × 30min" value={newGift.lessonCount} onChange={(event) => setNewGift({ ...newGift, lessonCount: event.target.value })} />
+              <input placeholder="主要讲解内容" value={newGift.mainContent} onChange={(event) => setNewGift({ ...newGift, mainContent: event.target.value })} />
               <select value={newGift.rule} onChange={(event) => setNewGift({ ...newGift, rule: event.target.value })}>
                 <option>直接赠送</option>
                 <option>买一科即赠</option>
@@ -757,10 +813,33 @@ function AdminPage({ products, selectedProduct, onSelect, onUpdate, onPublish })
 
         <AdminPanel
           number="03"
-          title="教辅资料"
-          note="保留教辅图片配置。销售选择/用户购买哪个科目，权益清单就展示哪个科目的教辅资料。"
+          title="实物赠礼 / 教辅资料"
+          note="勾选当前产品包含的实物，并设置买一科即赠或满三科赠送。前台会根据销售实际勾选科目数自动判断。"
           icon={PackageCheck}
         >
+          <PhysicalGiftRuleTable
+            items={physicalGiftItems}
+            selectedKeys={selectedPhysicalGiftKeys}
+            onToggle={togglePhysicalGiftSelection}
+            onItemChange={updateGiftOverride}
+          />
+          <div className="gift-import-box physical-create-box">
+            <div className="gift-import-head">
+              <strong>新增实物赠礼</strong>
+              <span>新增后进入当前年级的实物候选池，并自动勾选到当前产品。</span>
+            </div>
+            <div className="add-gift-box physical-add-grid">
+              <input placeholder="实物名称" value={newPhysicalGift.name} onChange={(event) => setNewPhysicalGift({ ...newPhysicalGift, name: event.target.value })} />
+              <input placeholder="价值" value={newPhysicalGift.value} onChange={(event) => setNewPhysicalGift({ ...newPhysicalGift, value: event.target.value })} />
+              <input placeholder="赠礼明细 / 数量" value={newPhysicalGift.detail} onChange={(event) => setNewPhysicalGift({ ...newPhysicalGift, detail: event.target.value })} />
+              <select value={newPhysicalGift.rule} onChange={(event) => setNewPhysicalGift({ ...newPhysicalGift, rule: event.target.value })}>
+                <option>买一科即赠</option>
+                <option>买两科及以上赠送</option>
+                <option>累计3科及以上可以赠</option>
+              </select>
+              <button type="button" className="secondary-action" onClick={addCustomPhysicalGift}><Plus size={16} />添加实物</button>
+            </div>
+          </div>
           <TeachingAidImageAdmin stage={draft.stage} />
         </AdminPanel>
       </section>
@@ -999,7 +1078,7 @@ function GiftPoolSummary({ grade, total, selected }) {
   );
 }
 
-function GiftOutlineTable({ items, selectedKeys, expandedKey, uploadNames, onToggle, onExpand, onUpload }) {
+function GiftOutlineTable({ items, selectedKeys, expandedKey, uploadNames, onToggle, onExpand, onUpload, onItemChange }) {
   if (!items.length) {
     return (
       <div className="admin-empty">
@@ -1040,15 +1119,23 @@ function GiftOutlineTable({ items, selectedKeys, expandedKey, uploadNames, onTog
             </div>
             {expanded ? (
               <div className="gift-outline-detail">
-                <div>
-                  <strong>上传具体课程明细</strong>
-                  <span>用于补充该赠课的讲次、课程内容、适用科目或详细发放说明。</span>
+                <div className="gift-edit-fields">
+                  <label><span>赠课名称</span><input value={item.name || ""} onChange={(event) => onItemChange(key, "name", event.target.value)} /></label>
+                  <label><span>权益价值</span><input value={item.value || ""} onChange={(event) => onItemChange(key, "value", event.target.value)} /></label>
+                  <label><span>课时量</span><input placeholder="例如：10节 × 30min" value={item.lessonCount || ""} onChange={(event) => onItemChange(key, "lessonCount", event.target.value)} /></label>
+                  <label><span>赠送规则</span><input value={item.rule || ""} onChange={(event) => onItemChange(key, "rule", event.target.value)} /></label>
+                  <label className="wide"><span>课程明细</span><textarea rows="2" value={item.detail || ""} onChange={(event) => onItemChange(key, "detail", event.target.value)} /></label>
+                  <label className="wide"><span>主要讲解内容</span><textarea rows="3" value={item.mainContent || item.bullets?.join("\n") || ""} onChange={(event) => onItemChange(key, "mainContent", event.target.value)} /></label>
                 </div>
-                <UploadSlot
-                  label="上传赠课详情"
-                  name={uploadNames[`gift-detail-${key}`]}
-                  onChange={(event) => onUpload(`gift-detail-${key}`, event)}
-                />
+                <div className="gift-detail-upload">
+                  <strong>也可上传具体课程明细</strong>
+                  <span>上传后自动解析课程明细、价值和对应学科内容。</span>
+                  <UploadSlot
+                    label="上传赠课详情"
+                    name={uploadNames[`gift-detail-${key}`]}
+                    onChange={(event) => onUpload(`gift-detail-${key}`, event)}
+                  />
+                </div>
               </div>
             ) : null}
           </article>
@@ -1099,6 +1186,41 @@ function PhysicalGiftAdmin({ items, selectedKeys, onToggle, stage }) {
       <TeachingAidAutoSummary stage={stage} />
     </div>
   );
+}
+
+function PhysicalGiftRuleTable({ items, selectedKeys, onToggle, onItemChange }) {
+  if (!items.length) {
+    return <div className="admin-empty"><PackageCheck size={20} /><strong>实物赠礼待配置</strong><span>在下方新增实物并设置触发规则。</span></div>;
+  }
+  return (
+    <div className="physical-rule-table">
+      <div className="physical-rule-head"><span /><strong>实物名称</strong><strong>价值</strong><strong>赠礼明细</strong><strong>触发规则</strong></div>
+      {items.map((item) => {
+        const key = getGiftItemKey(item);
+        const selected = selectedKeys.includes(key);
+        return (
+          <div className={selected ? "physical-rule-row selected" : "physical-rule-row"} key={key}>
+            <button type="button" className={selected ? "table-check active" : "table-check"} onClick={() => onToggle(key)}><Check size={13} /></button>
+            <input aria-label="实物名称" value={item.name || ""} onChange={(event) => onItemChange(key, "name", event.target.value)} />
+            <input aria-label="实物价值" value={item.value || ""} onChange={(event) => onItemChange(key, "value", event.target.value)} />
+            <input aria-label="赠礼明细" value={item.detail || ""} onChange={(event) => onItemChange(key, "detail", event.target.value)} />
+            <select aria-label="触发规则" value={normalizePhysicalRule(item.rule)} onChange={(event) => onItemChange(key, "rule", event.target.value)}>
+              <option>买一科即赠</option>
+              <option>买两科及以上赠送</option>
+              <option>累计3科及以上可以赠</option>
+            </select>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+function normalizePhysicalRule(rule) {
+  const text = String(rule || "");
+  if (text.includes("3科") || text.includes("三科")) return "累计3科及以上可以赠";
+  if (text.includes("2科") || text.includes("两科")) return "买两科及以上赠送";
+  return "买一科即赠";
 }
 
 function TeachingAidImageAdmin({ stage }) {
@@ -1402,27 +1524,17 @@ function BenefitSheet({ products = [], product, coursePlan, coursePlans, refNode
 
 function SummaryBenefitLayout({ product, plans, giftPlan, physicalGiftItems, subjects }) {
   const subjectCount = subjects.length;
-  const liveCount = plans.reduce((sum, plan) => sum + (plan.lessons?.length || plan.liveCount || 0), 0);
-  const videoCount = plans.reduce((sum, plan) => sum + (getCourseVideoRows(plan).length || plan.videoEntitlement || 0), 0);
   const pricing = getProductPricing(product, subjectCount);
   const journey = getProductJourney(product);
   const teachingAidItems = subjects.flatMap((subject) =>
     getTeachingAidItems(subject, product.stage).map((item) => ({ ...item, subject, summaryType: "教辅资料" })),
   );
   const teachingAidCount = teachingAidItems.length;
-  const preferredGiftNames = ["暑期学法知识视频包", "高一家长成长计划·第一期", "高中升学路径全解"];
-  const featuredCourseGifts = uniqueGiftItems([
-    ...preferredGiftNames.map((name) => giftPlan.items.find((item) => item.name === name)).filter(Boolean),
-    ...giftPlan.items,
-  ]).slice(0, 3);
-  const featuredGifts = [
-    ...featuredCourseGifts.map((item) => ({ ...item, summaryType: "赠课权益" })),
-    ...teachingAidItems.slice(0, 1),
-    ...physicalGiftItems.filter((item) => item.image).slice(0, 1).map((item) => ({ ...item, summaryType: "实物赠礼" })),
-  ].slice(0, 4);
-  const featuredGiftKeys = new Set(featuredCourseGifts.map(getGiftItemKey));
-  const remainingGifts = giftPlan.items.filter((item) => !featuredGiftKeys.has(getGiftItemKey(item)));
-  const perSubjectContentCount = Math.round((liveCount + videoCount) / Math.max(subjectCount, 1));
+  const giftAlbumItems = [
+    ...giftPlan.items.map((item) => ({ ...item, summaryType: "赠课权益" })),
+    ...teachingAidItems.map((item) => ({ ...item, rule: getTeachingAidRule(product.stage) })),
+    ...physicalGiftItems.map((item) => ({ ...item, summaryType: "实物赠礼" })),
+  ];
 
   return (
     <div className="summary-layout">
@@ -1452,18 +1564,29 @@ function SummaryBenefitLayout({ product, plans, giftPlan, physicalGiftItems, sub
             <div className="summary-fact-row"><strong>所购科目</strong><span>{subjects.join("　")}</span></div>
             <div className="summary-fact-row"><strong>课程随材</strong><span>纸质版物料，含视频讲义 + 配套习题</span></div>
             <div className="summary-fact-row content-row">
-              <strong>课程内容<br /><small>非文综科目</small></strong>
-              <div>
-                <div className="summary-course-metrics">
-                  <div><span>学法直播</span><strong>{liveCount}节</strong><small>{product.core.liveDuration}/节</small></div>
-                  <div><span>知识视频</span><strong>{videoCount}条</strong><small>{product.core.videoDuration}/节</small></div>
-                  <div><span>伴学服务</span><strong>{product.core.servicePeriod}</strong><small>按系统开通</small></div>
-                </div>
-                <div className="summary-course-explain">
-                  <p><strong>学法直播</strong><span>大招提分，清北主理人直播授解题大招，贴合考情。</span></p>
-                  <p><strong>知识视频</strong><span>查漏补缺，基础点与难题精讲随时可学，适配个性化需求。</span></p>
-                  <p><strong>学习服务</strong><span>按所购科目开通课程与资料，辅导老师伴学跟进。</span></p>
-                </div>
+              <strong>正课权益<br /><small>按所购科目</small></strong>
+              <div className="summary-subject-course-list">
+                {plans.map((plan) => {
+                  const liveTopics = (plan.lessons ?? []).map((lesson) => lesson.title || lesson.live).filter(Boolean);
+                  const videoRows = getCourseVideoRows(plan);
+                  const videoTopics = videoRows.map((row) => row.title || row.name).filter(Boolean);
+                  return (
+                    <article key={plan.subject}>
+                      <header>
+                        <strong>{plan.subject}</strong>
+                        <span>学法直播 {plan.lessons?.length || plan.liveCount || 0}节{videoRows.length ? ` · 知识视频 ${videoRows.length}条` : ""}</span>
+                      </header>
+                      <div className="summary-subject-course-detail">
+                        <p><b>学法直播</b><span>{summarizeCourseTitles(liveTopics)}</span></p>
+                        {videoRows.length ? <p><b>知识视频</b><span>{summarizeCourseTitles(videoTopics)}</span></p> : null}
+                      </div>
+                      <footer>
+                        <span><b>辅导老师</b> 专属伴学跟进、答疑与学习提醒</span>
+                        <span><b>辅导服务</b> 资料匹配、进度反馈与阶段复盘</span>
+                      </footer>
+                    </article>
+                  );
+                })}
               </div>
             </div>
             <div className="summary-fact-row service-row"><strong>服务期<br />有效期</strong><span><b>课程服务期：</b>购买后按系统开通周期执行<br /><b>课程有效期：</b>以系统课程页面为准</span></div>
@@ -1473,23 +1596,24 @@ function SummaryBenefitLayout({ product, plans, giftPlan, physicalGiftItems, sub
         <section className="summary-price-section">
           <header>
             <div>
-              <span>购买科数价格</span>
-              <h2>已选 {subjectCount} 科</h2>
+              <span>本次报名价格</span>
+              <h2>{subjects.join("、")}</h2>
             </div>
-            <em>多科联报更优惠</em>
+            <em>共 {subjectCount} 科</em>
           </header>
-          <div className="summary-price-list">
-            {pricing.tiers.map((tier) => (
-              <div className={tier.active ? "summary-price-tier active" : "summary-price-tier"} key={tier.label}>
-                <span>{tier.label}</span>
-                <div><small>原价/科</small><s>¥{formatPrice(pricing.originalPerSubject)}</s></div>
-                <div><small>优惠后/科</small><strong>¥{formatPrice(tier.perSubject)}</strong></div>
-                <div><small>{tier.active ? `${subjectCount}科实付` : "套餐总价"}</small><em>¥{formatPrice(tier.total)}</em></div>
-                <footer><span>总计</span><strong>{perSubjectContentCount * tier.subjects}节内容</strong></footer>
-              </div>
-            ))}
+          <div className="summary-selected-price">
+            <div className="summary-price-subjects">
+              {subjects.map((subject) => (
+                <div key={subject}><strong>{subject}</strong><span>原价 ¥{formatPrice(pricing.originalPerSubject)}</span><em>¥{formatPrice(pricing.selectedPerSubject)}</em></div>
+              ))}
+            </div>
+            <dl>
+              <div><dt>课程原价值</dt><dd>¥{formatPrice(pricing.originalPerSubject * subjectCount)}</dd></div>
+              <div><dt>本次优惠</dt><dd>-¥{formatPrice(pricing.originalPerSubject * subjectCount - pricing.currentTotal)}</dd></div>
+              <div className="total"><dt>预计实付</dt><dd>¥{formatPrice(pricing.currentTotal)}</dd></div>
+            </dl>
+            <p>正课、辅导服务与对应学科资料，均按本次所选科目开通。</p>
           </div>
-          <p>当前选择：{subjects.join("、")}，预计实付 <strong>¥{formatPrice(pricing.currentTotal)}</strong></p>
         </section>
       </div>
 
@@ -1500,27 +1624,44 @@ function SummaryBenefitLayout({ product, plans, giftPlan, physicalGiftItems, sub
           </div>
           <em>共 {giftPlan.items.length} 项赠课 · {teachingAidCount} 项教辅{physicalGiftItems.length ? ` · ${physicalGiftItems.length} 项实物/文创` : ""}</em>
         </header>
-        <div className="summary-gift-gallery">
-          {featuredGifts.map((item, index) => (
-            <article key={`${item.summaryType}-${item.name}-${index}`}>
-              <strong>{item.name}</strong>
-              <div className={`summary-gift-visual tone-${index + 1}`}>
-                {item.image ? <img src={assetUrl(item.image)} alt={item.name} /> : <span>{item.name.replace(/[·（）()]/g, "").slice(0, 8)}</span>}
+        <div className="summary-gift-album">
+          {giftAlbumItems.map((item, index) => (
+            <article key={item._displayKey || `${item.summaryType}-${item.name}-${index}`}>
+              <div className={`summary-album-cover tone-${(index % 5) + 1}`}>
+                {item.image ? <img src={assetUrl(item.image)} alt={item.name} /> : <><small>{item.summaryType}</small><span>{item.name.replace(/[·（）()]/g, "").slice(0, 9)}</span></>}
               </div>
-              <p>{item.rule || getTeachingAidRule(product.stage)}</p>
+              <div className="summary-album-info">
+                <header><strong>{item.name}</strong>{item.value ? <em>{item.value}</em> : null}</header>
+                <span>{getGiftLessonCount(item)}</span>
+                <p>{getGiftMainContent(item)}</p>
+                <footer>{item.rule || "按产品规则赠送"}</footer>
+              </div>
             </article>
           ))}
         </div>
-        {remainingGifts.length ? (
-          <div className="summary-gift-more">
-            <strong>同时赠送</strong>
-            {remainingGifts.map((item) => <span key={getGiftItemKey(item)}>{item.name}</span>)}
-          </div>
-        ) : null}
         <p><PackageCheck size={16} />教辅资料按所购科目自动匹配，买哪科展示并赠送哪科资料。</p>
       </section>
     </div>
   );
+}
+
+function summarizeCourseTitles(titles) {
+  if (!titles.length) return "课程大纲以后台配置与实际开通内容为准";
+  const visible = titles.slice(0, 3);
+  return `${visible.join("、")}${titles.length > visible.length ? ` 等${titles.length}项` : ""}`;
+}
+
+function getGiftLessonCount(item) {
+  if (item.lessonCount) return item.lessonCount;
+  if (item.detail) return item.detail;
+  const count = item.subjectCourses ? Math.max(0, ...Object.values(item.subjectCourses).map((items) => items.length)) : item.bullets?.length;
+  return count ? `${count}项课程内容` : "权益内容以实际开通为准";
+}
+
+function getGiftMainContent(item) {
+  if (item.mainContent) return String(item.mainContent).split(/\n+/).filter(Boolean).slice(0, 3).join("；");
+  if (item.bullets?.length) return item.bullets.slice(0, 3).join("；");
+  return item.detail || "课程内容以实际开通为准";
 }
 
 function getProductJourney(product) {
@@ -1546,6 +1687,7 @@ function getProductPricing(product, subjectCount) {
   const selectedPerSubject = subjectCount === 1 ? singlePerSubject : subjectCount === 2 ? twoPerSubject : threePlusPerSubject;
   return {
     originalPerSubject,
+    selectedPerSubject,
     currentTotal: selectedPerSubject * subjectCount,
     tiers: [
       { label: "单科", subjects: 1, perSubject: singlePerSubject, total: singlePerSubject, active: subjectCount === 1 },
@@ -2230,7 +2372,8 @@ function getSubjectProfile(product, subject) {
 
 function getGiftPlan(product, subject) {
   const basePlan = getBaseGiftPlan(product, subject);
-  const courseItems = [...(basePlan?.items ?? []), ...(product.customGiftItems ?? [])].filter((item) => item.type === "赠课");
+  const courseItems = applyGiftOverrides(product, [...(basePlan?.items ?? []), ...(product.customGiftItems ?? [])])
+    .filter((item) => item.type === "赠课");
   const selectedKeys = product.giftSelections;
   const selectedItems = selectedKeys ? courseItems.filter((item) => isGiftItemSelected(selectedKeys, item)) : courseItems;
   return {
@@ -2245,8 +2388,10 @@ function getGiftPlanForSubjects(product, subjects, products = []) {
     ...(basePlan?.items ?? []),
     ...(product.customGiftItems ?? []),
   ]).filter((item) => item.type === "赠课");
+  const configuredCourseItems = applyGiftOverrides(product, courseItems);
   const selectedKeys = product.giftSelections;
-  const selectedItems = selectedKeys ? courseItems.filter((item) => isGiftItemSelected(selectedKeys, item)) : courseItems;
+  const selectedItems = (selectedKeys ? configuredCourseItems.filter((item) => isGiftItemSelected(selectedKeys, item)) : configuredCourseItems)
+    .filter((item) => isGiftRuleEligible(item.rule, subjects.length));
   const items = selectedItems.flatMap((item) => {
     if (isSubjectMatchedGift(item)) {
       return subjects.map((subject) => resolveSubjectGiftItem(item, subject));
@@ -2273,6 +2418,7 @@ function resolveMergedSubjectGiftItem(item, subjects) {
   });
   return {
     ...item,
+    _displayKey: `${getGiftItemKey(item)}-${subjects.join("-")}`,
     detail: subjects.length > 1 ? `${subjects.join("、")}｜匹配开通` : item.detail,
     bullets: subjectBullets.length ? subjectBullets : item.bullets,
   };
@@ -2284,11 +2430,13 @@ function resolveSubjectGiftItem(item, subject) {
   if (!courses.length) {
     return {
       ...item,
+      _displayKey: `${getGiftItemKey(item)}-${subject}`,
       bullets: item.bullets?.length ? item.bullets : ["该学科具体明细以实际开通内容为准"],
     };
   }
   return {
     ...item,
+    _displayKey: `${getGiftItemKey(item)}-${subject}`,
     detail: `${subject}｜${courses.length}节`,
     bullets: courses,
   };
@@ -2308,28 +2456,30 @@ function getPhysicalGiftItems(product, subject) {
 }
 
 function getPhysicalGiftItemsForSubjects(product, subjects) {
-  return uniqueGiftItems(subjects.flatMap((subject) => getPhysicalGiftItems(product, subject)));
+  return uniqueGiftItems(subjects.flatMap((subject) => getPhysicalGiftItems(product, subject)))
+    .filter((item) => isGiftRuleEligible(item.rule, subjects.length));
 }
 
 function getAllPhysicalGiftItems(product, subject) {
   const basePlan = getBaseGiftPlan(product, subject);
-  return [...(basePlan?.items ?? []), ...(product.customPhysicalItems ?? [])].filter((item) => item.type !== "赠课");
+  return applyGiftOverrides(product, [...(basePlan?.items ?? []), ...(product.customPhysicalItems ?? [])])
+    .filter((item) => item.type !== "赠课");
 }
 
 function getAdminGiftCandidates(product) {
-  return uniqueGiftItems([
+  return uniqueGiftItems(applyGiftOverrides(product, [
     ...courseSubjects.flatMap((subject) => getBaseGiftPlan(product, subject)?.items ?? []),
     ...(product.customGiftItems ?? []),
-  ]);
+  ]));
 }
 
 function getGradeGiftCandidates(products, product) {
-  return uniqueGiftItems([
+  return uniqueGiftItems(applyGiftOverrides(product, [
     ...products
       .filter((item) => item.grade === product.grade)
       .flatMap((item) => getAdminGiftCandidates(item)),
     ...(product.customGiftItems ?? []),
-  ]);
+  ]));
 }
 
 function getAdminPhysicalGiftCandidates(product) {
@@ -2339,16 +2489,42 @@ function getAdminPhysicalGiftCandidates(product) {
   ]);
 }
 
+function getGradePhysicalGiftCandidates(products, product) {
+  return uniqueGiftItems(applyGiftOverrides(product, [
+    ...products
+      .filter((item) => item.grade === product.grade)
+      .flatMap((item) => getAdminPhysicalGiftCandidates(item)),
+    ...(product.customPhysicalItems ?? []),
+  ]));
+}
+
+function isGiftRuleEligible(rule, subjectCount) {
+  const text = String(rule || "");
+  if (text.includes("两科及以下") || text.includes("对应学科") || text.includes("买赠对应")) return subjectCount >= 1;
+  if (text.includes("3科") || text.includes("三科")) return subjectCount >= 3;
+  if (text.includes("2科") || text.includes("两科")) return subjectCount >= 2;
+  return subjectCount >= 1;
+}
+
 function uniqueGiftItems(items) {
   const map = new Map();
   items.forEach((item) => {
-    map.set(getGiftItemKey(item), item);
+    map.set(item._displayKey || getGiftItemKey(item), item);
   });
   return [...map.values()];
 }
 
+function applyGiftOverrides(product, items) {
+  const overrides = product.giftOverrides ?? {};
+  return items.map((item) => {
+    const sourceKey = item._sourceKey || `${item.type}-${item.name}`;
+    const override = overrides[sourceKey];
+    return override ? { ...item, ...override, _sourceKey: sourceKey } : { ...item, _sourceKey: sourceKey };
+  });
+}
+
 function getGiftItemKey(item) {
-  return `${item.type}-${item.name}`;
+  return item._sourceKey || `${item.type}-${item.name}`;
 }
 
 function getLegacyGiftItemKey(item) {
