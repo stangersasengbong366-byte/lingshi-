@@ -302,6 +302,13 @@ select {
   box-shadow: 0 8px 18px rgba(22, 119, 255, 0.18);
 }
 
+.field-help {
+  margin: 7px 0 0;
+  color: #6b7b94;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
 .version-switch {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

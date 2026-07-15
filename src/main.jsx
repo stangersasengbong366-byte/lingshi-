@@ -122,8 +122,9 @@ function App() {
   const [syncStatus, setSyncStatus] = useState(cloudConfigEnabled ? "正在同步云端配置" : "本地配置");
   const [selectedProductId, setSelectedProductId] = useState(() => shareParams?.productId ?? loadStoredProducts()[0]?.id ?? initialProducts[0].id);
   const [selectedSubjects, setSelectedSubjects] = useState(() => shareParams?.subjects ?? [shareParams?.subject ?? "数学"]);
+  const [selectedVideoTrack, setSelectedVideoTrack] = useState(() => shareParams?.videoTrack ?? "目标班");
   const selectedProduct = products.find((item) => item.id === selectedProductId) ?? products[0];
-  const selectedCoursePlans = selectedSubjects.map((subject) => resolveCoursePlan(selectedProduct, subject));
+  const selectedCoursePlans = selectedSubjects.map((subject) => resolveCoursePlan(selectedProduct, subject, undefined, selectedVideoTrack));
   const selectedCoursePlan = selectedCoursePlans[0];
 
   React.useEffect(() => {
@@ -174,6 +175,7 @@ function App() {
         products={products}
         product={selectedProduct}
         selectedSubjects={selectedSubjects}
+        selectedVideoTrack={selectedVideoTrack}
         coursePlans={selectedCoursePlans}
         viewMode={shareParams.viewMode}
       />
@@ -188,9 +190,11 @@ function App() {
           products={products}
           selectedProduct={selectedProduct}
           selectedSubjects={selectedSubjects}
+          selectedVideoTrack={selectedVideoTrack}
           coursePlans={selectedCoursePlans}
           onSelect={setSelectedProductId}
           onSubjectsChange={setSelectedSubjects}
+          onVideoTrackChange={setSelectedVideoTrack}
         />
       )}
       {activePage === "admin" && (
@@ -220,6 +224,7 @@ function getShareParams() {
     productId: params.get("product") || initialProducts[0].id,
     subject: params.get("subject") || "数学",
     subjects: (params.get("subjects") || params.get("subject") || "数学").split(",").map((item) => item.trim()).filter(Boolean),
+    videoTrack: params.get("track") === "精英班" ? "精英班" : "目标班",
     viewMode: params.get("view") === "detail" ? "detail" : "summary",
   };
 }
@@ -264,7 +269,7 @@ function AppHeader({ activePage, onPageChange, syncStatus, salesOnly }) {
   );
 }
 
-function SalesPage({ products, selectedProduct, selectedSubjects, coursePlans, onSelect, onSubjectsChange }) {
+function SalesPage({ products, selectedProduct, selectedSubjects, selectedVideoTrack, coursePlans, onSelect, onSubjectsChange, onVideoTrackChange }) {
   const previewRef = useRef(null);
   const [linkCopied, setLinkCopied] = useState(false);
   const [exporting, setExporting] = useState(false);
@@ -285,7 +290,7 @@ function SalesPage({ products, selectedProduct, selectedSubjects, coursePlans, o
   const videoTotal = coursePlans.reduce((sum, plan) => sum + (plan?.videoEntitlement ?? 0), 0);
 
   const copyShareLink = async () => {
-    await navigator.clipboard.writeText(buildShareUrl(selectedProduct, selectedSubjects, viewMode));
+    await navigator.clipboard.writeText(buildShareUrl(selectedProduct, selectedSubjects, viewMode, selectedVideoTrack));
     setLinkCopied(true);
     window.setTimeout(() => setLinkCopied(false), 1600);
   };
@@ -364,6 +369,14 @@ function SalesPage({ products, selectedProduct, selectedSubjects, coursePlans, o
             ))}
           </div>
         </Field>
+        <Field label="知识视频班型">
+          <SegmentedSelect
+            options={["目标班", "精英班"]}
+            value={selectedVideoTrack}
+            onChange={onVideoTrackChange}
+          />
+          <p className="field-help">知识视频按“通用课程 + 所选班型课程”组合展示。</p>
+        </Field>
         <Field label="展示版本">
           <div className="version-switch" role="group" aria-label="展示版本">
             <button
@@ -421,7 +434,7 @@ function SalesPage({ products, selectedProduct, selectedSubjects, coursePlans, o
   );
 }
 
-function CustomerSharePage({ products, product, selectedSubjects, coursePlans, viewMode }) {
+function CustomerSharePage({ products, product, selectedSubjects, selectedVideoTrack, coursePlans, viewMode }) {
   const [opened, setOpened] = useState(false);
   const [isOpening, setIsOpening] = useState(false);
 
@@ -461,7 +474,7 @@ function CustomerSharePage({ products, product, selectedSubjects, coursePlans, v
             </button>
           </div>
           <div className="share-opening-copy">
-            <span>{product.name} · {selectedSubjects.join("、")}</span>
+            <span>{product.name} · {selectedSubjects.join("、")} · {selectedVideoTrack}</span>
             <p>点击火漆章，开启你的专属权益清单。</p>
           </div>
         </section>
@@ -476,7 +489,7 @@ function CustomerSharePage({ products, product, selectedSubjects, coursePlans, v
           <img src={assetUrl("/assets/youdao-logo.png")} alt="网易有道领世" />
           <div>
             <span>权益清单已开启</span>
-            <strong>{product.name} · {selectedSubjects.join("、")}</strong>
+            <strong>{product.name} · {selectedSubjects.join("、")} · {selectedVideoTrack}</strong>
           </div>
         </div>
         <BenefitSheet products={products} product={product} coursePlans={coursePlans} mode="poster" viewMode={viewMode} />
@@ -1574,7 +1587,10 @@ function SummaryBenefitLayout({ product, plans, giftPlan, physicalGiftItems, sub
                     <article key={plan.subject}>
                       <header>
                         <strong>{plan.subject}</strong>
-                        <span>学法直播 {plan.lessons?.length || plan.liveCount || 0}节{videoRows.length ? ` · 知识视频 ${videoRows.length}条` : ""}</span>
+                        <span>
+                          学法直播 {plan.lessons?.length || plan.liveCount || 0}节
+                          {videoRows.length ? ` · 知识视频 ${videoRows.length}条（${plan.videoTrack || "目标班"}${plan.videoEntitlement > videoRows.length ? `，${plan.videoEntitlement}节权益` : ""}）` : ""}
+                        </span>
                       </header>
                       <div className="summary-subject-course-detail">
                         <p><b>学法直播</b><span>{summarizeCourseTitles(liveTopics)}</span></p>
@@ -2182,13 +2198,13 @@ function formatExcelDate(value) {
   return String(value).trim();
 }
 
-function resolveCoursePlan(product, subject, forcedPhases) {
+function resolveCoursePlan(product, subject, forcedPhases, videoTrack = "目标班") {
   const profile = getSubjectProfile(product, subject);
   const isG1Autumn = String(product.grade).includes("高一") && `${product.stage}${product.name}`.includes("秋实");
   if (isG1Autumn && ["语文", "数学", "英语", "物理", "化学"].includes(subject)) {
     profile.knowledgeVideos = Math.max(Number(product.core.knowledgeVideos) || 0, 40);
   }
-  const parsedPlan = resolveParsedCoursePlan(product, subject, profile, forcedPhases);
+  const parsedPlan = resolveParsedCoursePlan(product, subject, profile, forcedPhases, videoTrack);
   if (parsedPlan) return parsedPlan;
 
   const basePlan = courseCatalog[product.grade]?.[subject] ?? null;
@@ -2198,11 +2214,11 @@ function resolveCoursePlan(product, subject, forcedPhases) {
     const coveragePhases = forcedPhases?.length ? forcedPhases : product.coveragePhases?.length ? product.coveragePhases : getDefaultCoveragePhases(product);
     const videoPhases = getVideoCoveragePhases(product, coveragePhases);
     const rawLessons = basePlan.lessons.filter((lesson) => phaseMatches(lesson.quarter, coveragePhases));
-    const videoPool = shouldClearVideos
+    const phaseVideoRows = shouldClearVideos
       ? []
-      : basePlan.videoLibrary
-          .filter((video) => phaseMatches(video.quarter, videoPhases))
-          .slice(0, profile.knowledgeVideos || undefined);
+      : basePlan.videoLibrary.filter((video) => phaseMatches(video.quarter, videoPhases));
+    const videoPool = filterVideoRowsByTrack(phaseVideoRows, videoTrack)
+      .slice(0, profile.knowledgeVideos || undefined);
     const assignedLessons = assignVideosToLessons(rawLessons, videoPool);
     const lessons = applyCourseOverrides(assignedLessons, product, subject);
     const matchedCount = lessons.reduce((sum, lesson) => sum + (lesson.videos?.length ?? 0), 0);
@@ -2217,6 +2233,8 @@ function resolveCoursePlan(product, subject, forcedPhases) {
       matchedVideoCount: matchedCount,
       unmatchedVideoCount: Math.max(0, videoPool.length - matchedCount),
       videoRows: videoPool,
+      videoTrack,
+      videoOutlineCount: videoPool.length,
       lessons,
       summary: profile.summary,
       isPlaceholder: false,
@@ -2234,6 +2252,8 @@ function resolveCoursePlan(product, subject, forcedPhases) {
     matchedVideoCount: 0,
     unmatchedVideoCount: 0,
     videoRows: [],
+    videoTrack,
+    videoOutlineCount: 0,
     time: "以实际排课为准",
     lessons: product.lessons ?? [],
     unmatchedVideos: [],
@@ -2242,7 +2262,7 @@ function resolveCoursePlan(product, subject, forcedPhases) {
   };
 }
 
-function resolveParsedCoursePlan(product, subject, profile, forcedPhases) {
+function resolveParsedCoursePlan(product, subject, profile, forcedPhases, videoTrack = "目标班") {
   const liveRows = product.parsedCourseData?.live?.[subject] ?? [];
   const uploadedVideoRows = product.parsedCourseData?.video?.[subject] ?? [];
   const fallbackVideoRows = profile.knowledgeVideos
@@ -2253,12 +2273,16 @@ function resolveParsedCoursePlan(product, subject, profile, forcedPhases) {
 
   const coveragePhases = forcedPhases?.length ? forcedPhases : product.coveragePhases?.length ? product.coveragePhases : getDefaultCoveragePhases(product);
   const filteredLive = liveRows.filter((lesson) => phaseMatches(lesson.quarter, coveragePhases));
-  let filteredVideos = videoRows
-    .filter((video) => phaseMatches(video.quarter, getVideoCoveragePhases(product, coveragePhases)))
+  let filteredVideos = filterVideoRowsByTrack(
+    videoRows.filter((video) => phaseMatches(video.quarter, getVideoCoveragePhases(product, coveragePhases))),
+    videoTrack,
+  )
     .slice(0, profile.knowledgeVideos || undefined);
   if (!filteredVideos.length && fallbackVideoRows.length && profile.knowledgeVideos) {
-    filteredVideos = fallbackVideoRows
-      .filter((video) => phaseMatches(video.quarter, getVideoCoveragePhases(product, coveragePhases)))
+    filteredVideos = filterVideoRowsByTrack(
+      fallbackVideoRows.filter((video) => phaseMatches(video.quarter, getVideoCoveragePhases(product, coveragePhases))),
+      videoTrack,
+    )
       .slice(0, profile.knowledgeVideos);
   }
   const assignedLessons = assignVideosToLessons(
@@ -2279,17 +2303,36 @@ function resolveParsedCoursePlan(product, subject, profile, forcedPhases) {
     stage: product.stage,
     description: product.subtitle,
     liveCount: lessons.length || profile.liveLessons,
-    videoEntitlement: filteredVideos.length,
+    videoEntitlement: profile.knowledgeVideos || filteredVideos.length,
     videoLibraryCount: filteredVideos.length,
     matchedVideoCount: matchedCount,
     unmatchedVideoCount: Math.max(0, filteredVideos.length - matchedCount),
     videoRows: filteredVideos,
+    videoTrack,
+    videoOutlineCount: filteredVideos.length,
     time: lessons.find((lesson) => lesson.time)?.time ?? "以实际排课为准",
     lessons,
     unmatchedVideos: [],
     summary: [`学法直播${lessons.length}节`, filteredVideos.length ? `知识视频${filteredVideos.length}条` : "无知识视频"],
     isPlaceholder: false,
   };
+}
+
+function filterVideoRowsByTrack(rows, videoTrack) {
+  const normalizedRows = rows.map((row) => ({ ...row, normalizedTrack: normalizeVideoTrack(row.layered) }));
+  const hasExplicitTracks = normalizedRows.some((row) => row.normalizedTrack === "目标班" || row.normalizedTrack === "精英班");
+  if (!hasExplicitTracks) return rows;
+
+  return normalizedRows
+    .filter((row) => row.normalizedTrack === "通用" || row.normalizedTrack === videoTrack)
+    .map(({ normalizedTrack, ...row }) => row);
+}
+
+function normalizeVideoTrack(value) {
+  const label = String(value || "").trim();
+  if (/目标/.test(label)) return "目标班";
+  if (/菁英|精英/.test(label)) return "精英班";
+  return "通用";
 }
 
 function phaseMatches(phase, selectedPhases) {
@@ -2660,9 +2703,12 @@ function CourseOutlineSplit({ coursePlan, lessons }) {
           <header>
             <div>
               <strong>知识视频大纲</strong>
-              <span>{coursePlan.subject} ｜ {videoRows.length}条</span>
+              <span>
+                {coursePlan.subject} ｜ {coursePlan.videoTrack || "目标班"} ｜ {videoRows.length}条大纲
+                {coursePlan.videoEntitlement > videoRows.length ? ` / ${coursePlan.videoEntitlement}节权益` : ""}
+              </span>
             </div>
-            <em><PackageCheck size={14} />配套补基</em>
+            <em><PackageCheck size={14} />通用 + {coursePlan.videoTrack || "目标班"}</em>
           </header>
           <table className="compact-outline-table video-compact-table desktop-outline-table">
             <thead>
@@ -3056,13 +3102,14 @@ function Metric({ icon: Icon, label, value }) {
   );
 }
 
-function buildShareUrl(product, subjects, viewMode = "summary") {
+function buildShareUrl(product, subjects, viewMode = "summary", videoTrack = "目标班") {
   const url = new URL(window.location.href);
   url.search = "";
   url.hash = "";
   url.searchParams.set("share", "1");
   url.searchParams.set("product", product.id);
   url.searchParams.set("subjects", Array.isArray(subjects) ? subjects.join(",") : subjects);
+  url.searchParams.set("track", videoTrack);
   url.searchParams.set("view", viewMode);
   return url.toString();
 }
