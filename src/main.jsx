@@ -251,6 +251,22 @@ function App() {
     setSyncStatus("已发布，销售端将读取最新版本");
   };
 
+  const addProduct = async () => {
+    const nextProduct = createNewProduct(selectedProduct);
+    const nextProducts = [...products, nextProduct];
+    setProducts(nextProducts);
+    saveStoredProducts(nextProducts);
+    setSelectedProductId(nextProduct.id);
+    setSyncStatus("正在保存新产品");
+    try {
+      await saveCloudProducts(nextProducts, CLOUD_PRODUCTS_DRAFT_ID);
+      setSyncStatus("新产品已保存到云端草稿");
+    } catch (error) {
+      setSyncStatus(error?.isMissingTable ? "云端数据表未创建，新产品仅保存在本机" : "云端保存失败，新产品仅保存在本机");
+    }
+    return nextProduct;
+  };
+
   if (shareParams) {
     return (
       <CustomerSharePage
@@ -284,6 +300,7 @@ function App() {
           products={products}
           selectedProduct={selectedProduct}
           onSelect={setSelectedProductId}
+          onAdd={addProduct}
           onUpdate={updateProduct}
           onPublish={publishProducts}
           syncStatus={syncStatus}
@@ -291,6 +308,52 @@ function App() {
       )}
     </main>
   );
+}
+
+function createNewProduct(template) {
+  const grade = template?.grade ?? "高一";
+  const stage = grade === "高三" ? "一轮卡" : "秋实卡";
+  const coveragePhases = grade === "高三" ? ["一轮"] : ["秋季"];
+  const annualData = annualCourseLibrary[grade] ?? { live: {}, video: {} };
+  const stageCounts = getCourseStageCounts(annualData, coveragePhases);
+  return {
+    ...(template ?? initialProducts[0]),
+    id: `product-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
+    name: `${grade}新产品`,
+    grade,
+    stage,
+    courseKey: stage,
+    term: "",
+    status: "待上线",
+    coveragePhases,
+    videoPhases: coveragePhases,
+    subtitle: "",
+    salesNote: "",
+    core: {
+      ...(template?.core ?? {}),
+      liveLessons: stageCounts.live,
+      knowledgeVideos: stageCounts.video,
+      servicePeriod: "",
+    },
+    pricing: {
+      originalPerSubject: 0,
+      singlePerSubject: 0,
+      twoPerSubject: 0,
+      threePlusPerSubject: 0,
+    },
+    courseSourceMode: "grade",
+    annualCourseData: annualData,
+    parsedCourseData: annualData,
+    annualCourseOrigin: "bundled",
+    annualCourseVersion: annualCourseLibraryVersion,
+    customCourseData: { live: {}, video: {} },
+    customCourseUploadNames: {},
+    giftSelections: [],
+    physicalGiftSelections: [],
+    customGiftItems: [],
+    customPhysicalGiftItems: [],
+    giftOverrides: {},
+  };
 }
 
 function getSalesOnlyMode() {
@@ -577,7 +640,7 @@ function CustomerSharePage({ products, product, selectedSubjects, selectedVideoT
   );
 }
 
-function AdminPage({ products, selectedProduct, onSelect, onUpdate, onPublish, syncStatus }) {
+function AdminPage({ products, selectedProduct, onSelect, onAdd, onUpdate, onPublish, syncStatus }) {
   const [draft, setDraft] = useState(selectedProduct);
   const [activeAdminSection, setActiveAdminSection] = useState("basic");
   const [expandedGiftKey, setExpandedGiftKey] = useState("");
@@ -672,9 +735,21 @@ function AdminPage({ products, selectedProduct, onSelect, onUpdate, onPublish, s
 
   const changeCourseSourceMode = (mode) => {
     setCourseSourceMode(mode);
-    if (mode !== "grade") return;
-    const nextAnnualData = annualCourseLibrary[draft.grade] ?? annualCourseData;
     const coveragePhases = draft.coveragePhases?.length ? draft.coveragePhases : getDefaultCoveragePhases(draft);
+    if (mode === "custom") {
+      const stageCounts = getCourseStageCounts(customCourseData, coveragePhases);
+      setDraft({
+        ...draft,
+        courseSourceMode: "custom",
+        core: {
+          ...draft.core,
+          liveLessons: stageCounts.live,
+          knowledgeVideos: stageCounts.video,
+        },
+      });
+      return;
+    }
+    const nextAnnualData = annualCourseLibrary[draft.grade] ?? annualCourseData;
     const stageCounts = getCourseStageCounts(nextAnnualData, coveragePhases);
     setAnnualCourseData(nextAnnualData);
     setDraft({
@@ -709,7 +784,21 @@ function AdminPage({ products, selectedProduct, onSelect, onUpdate, onPublish, s
       const [, source, type] = slot.match(/^(annual|custom)-(live|video)$/);
       const parsed = await parseCourseWorkbook(file, type, draft.grade);
       const setter = source === "annual" ? setAnnualCourseData : setCustomCourseData;
-      setter((data) => ({ ...data, [type]: parsed }));
+      setter((data) => {
+        const merged = { ...data, [type]: parsed };
+        const phases = draft.coveragePhases?.length ? draft.coveragePhases : getDefaultCoveragePhases(draft);
+        const stageCounts = getCourseStageCounts(merged, phases);
+        setDraft((current) => ({
+          ...current,
+          ...(source === "custom" ? { courseSourceMode: "custom" } : {}),
+          core: {
+            ...current.core,
+            liveLessons: stageCounts.live,
+            knowledgeVideos: stageCounts.video,
+          },
+        }));
+        return merged;
+      });
       if (source === "annual") {
         setDraft((current) => ({
           ...current,
@@ -895,6 +984,11 @@ function AdminPage({ products, selectedProduct, onSelect, onUpdate, onPublish, s
     window.setTimeout(() => setSchemaCopied(false), 1800);
   };
 
+  const createProduct = async () => {
+    await onAdd();
+    setActiveAdminSection("basic");
+  };
+
   const adminSections = [
     { id: "basic", number: "01", label: "产品基础信息", description: "名称、年级、服务期与价格", icon: Settings },
     { id: "courses", number: "02", label: "正课配置", description: "全年课程库与阶段映射", icon: BookOpen },
@@ -910,6 +1004,10 @@ function AdminPage({ products, selectedProduct, onSelect, onUpdate, onPublish, s
           <span className="eyebrow">产品库</span>
           <h1>按年级管理</h1>
         </div>
+        <button className="add-product-button" type="button" onClick={createProduct}>
+          <Plus size={17} />
+          <span>新增产品</span>
+        </button>
         <GradeProductList products={products} selectedProduct={selectedProduct} onSelect={onSelect} />
         <nav className="admin-section-nav" aria-label="后台配置模块">
           <span>当前产品配置</span>
@@ -1041,8 +1139,10 @@ function AdminPage({ products, selectedProduct, onSelect, onUpdate, onPublish, s
         >
           <CourseUploadBoard
             grade={draft.grade}
-            uploadNames={activeCourseUploadNames}
-            parsedData={parsedCourseData}
+            annualUploadNames={{ live: uploadNames.annualLive ?? "", video: uploadNames.annualVideo ?? "" }}
+            annualData={annualCourseData}
+            customUploadNames={{ live: uploadNames.customLive ?? "", video: uploadNames.customVideo ?? "" }}
+            customData={customCourseData}
             selectedSubject={parsedSubject}
             onSubjectChange={setParsedSubject}
             onUpload={handleUploadName}
@@ -1193,7 +1293,149 @@ function CourseProductBrief({ product, uploadedSubjectCount }) {
   );
 }
 
-function CourseUploadBoard({ grade, uploadNames, parsedData, selectedSubject, onSubjectChange, onUpload, coveragePhases, onPhaseToggle, sourceMode, onSourceModeChange }) {
+function CourseUploadBoard({ grade, annualUploadNames, annualData, customUploadNames, customData, selectedSubject, onSubjectChange, onUpload, coveragePhases, onPhaseToggle, sourceMode, onSourceModeChange }) {
+  const [previewTrack, setPreviewTrack] = useState("目标班");
+  const allCoursePhases = getGradeCoursePhases(grade);
+  const annualLiveRows = filterCourseRowsByPhase(annualData.live?.[selectedSubject], coveragePhases);
+  const annualVideoRows = filterVideoRowsByTrack(filterCourseRowsByPhase(annualData.video?.[selectedSubject], coveragePhases), previewTrack);
+  const customLiveRows = filterCourseRowsByPhase(customData.live?.[selectedSubject], coveragePhases);
+  const customVideoRows = filterVideoRowsByTrack(filterCourseRowsByPhase(customData.video?.[selectedSubject], coveragePhases), previewTrack);
+  const annualSubjectCount = countParsedCourseSubjects(annualData);
+  const customSubjectCount = countParsedCourseSubjects(customData);
+  const customReady = customSubjectCount > 0;
+
+  return (
+    <div className="course-upload-board simplified-course-board">
+      <section className="annual-course-panel">
+        <header className="course-section-heading">
+          <div>
+            <span>全年课程库</span>
+            <strong>{grade}全年大纲</strong>
+            <small>选择阶段后，下方只展示该阶段对应的学法直播与知识视频。</small>
+          </div>
+          <button type="button" className={sourceMode === "grade" ? "source-state active" : "source-state"} onClick={() => onSourceModeChange("grade")}>
+            <Check size={15} />当前产品使用全年大纲
+          </button>
+        </header>
+
+        <div className="compact-course-files">
+          <UploadSlot label="学法直播全年大纲" name={annualUploadNames.live} onChange={(event) => onUpload("annual-live", event)} />
+          <UploadSlot label="知识视频全年大纲" name={annualUploadNames.video} onChange={(event) => onUpload("annual-video", event)} />
+        </div>
+
+        <div className="course-phase-config simplified">
+          <div>
+            <strong>筛选产品阶段</strong>
+            <span>{grade === "高三" ? "选择一轮或二轮" : "可组合多个季节"}</span>
+          </div>
+          <div className="phase-checks">
+            {allCoursePhases.map((phase) => {
+              const active = coveragePhases.includes(phase);
+              const liveCount = filterCourseRowsByPhase(annualData.live?.[selectedSubject], [phase]).length;
+              const videoCount = filterVideoRowsByTrack(filterCourseRowsByPhase(annualData.video?.[selectedSubject], [phase]), previewTrack).length;
+              return (
+                <button type="button" className={active ? "active" : ""} key={phase} onClick={() => onPhaseToggle(phase)}>
+                  <Check size={14} />
+                  <span>{phase}<small>{liveCount}直播 / {videoCount}视频</small></span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        <CoursePreviewControls selectedSubject={selectedSubject} onSubjectChange={onSubjectChange} previewTrack={previewTrack} onTrackChange={setPreviewTrack} parsedSubjectCount={annualSubjectCount} />
+        <div className="course-stage-result">
+          已筛选 <strong>{coveragePhases.join(" + ")}</strong>，当前科目匹配 <strong>{annualLiveRows.length} 节直播</strong>、<strong>{annualVideoRows.length} 条知识视频</strong>
+        </div>
+        <CourseParsedTables subject={selectedSubject} liveRows={annualLiveRows} videoRows={annualVideoRows} />
+      </section>
+
+      <section className="special-course-panel">
+        <header className="course-section-heading compact">
+          <div>
+            <span>特殊产品</span>
+            <strong>产品专属大纲</strong>
+            <small>仅直通卡等特殊产品需要上传；普通产品无需操作。</small>
+          </div>
+          {customReady ? (
+            <button type="button" className={sourceMode === "custom" ? "source-state active" : "source-state"} onClick={() => onSourceModeChange("custom")}>
+              <Check size={15} />当前产品使用专属大纲
+            </button>
+          ) : null}
+        </header>
+        <div className="compact-course-files special">
+          <UploadSlot label="上传专属学法直播" name={customUploadNames.live} onChange={(event) => onUpload("custom-live", event)} />
+          <UploadSlot label="上传专属知识视频" name={customUploadNames.video} onChange={(event) => onUpload("custom-video", event)} />
+        </div>
+        {customReady ? (
+          <div className="special-parse-result">
+            <CoursePreviewControls selectedSubject={selectedSubject} onSubjectChange={onSubjectChange} previewTrack={previewTrack} onTrackChange={setPreviewTrack} parsedSubjectCount={customSubjectCount} compact />
+            <div className="course-stage-result">
+              专属表格已解析 {customSubjectCount}/9 科，当前科目共 <strong>{customLiveRows.length} 节直播</strong>、<strong>{customVideoRows.length} 条知识视频</strong>
+            </div>
+            <CourseParsedTables subject={selectedSubject} liveRows={customLiveRows} videoRows={customVideoRows} custom />
+          </div>
+        ) : null}
+      </section>
+    </div>
+  );
+}
+
+function filterCourseRowsByPhase(rows = [], phases = []) {
+  return rows.filter((row) => phaseMatches(row.quarter, phases));
+}
+
+function countParsedCourseSubjects(data) {
+  return courseSubjects.filter((subject) => data.live?.[subject]?.length || data.video?.[subject]?.length).length;
+}
+
+function CoursePreviewControls({ selectedSubject, onSubjectChange, previewTrack, onTrackChange, parsedSubjectCount, compact = false }) {
+  return (
+    <div className={compact ? "course-parse-preview compact" : "course-parse-preview"}>
+      <div className="course-preview-toolbar">
+        <strong>查看课程大纲</strong>
+        <div className="course-preview-switches">
+          <button type="button" className={previewTrack === "目标班" ? "active" : ""} onClick={() => onTrackChange("目标班")}>目标班</button>
+          <button type="button" className={previewTrack === "精英班" ? "active" : ""} onClick={() => onTrackChange("精英班")}>精英班</button>
+        </div>
+      </div>
+      <div>
+        {courseSubjects.map((subject) => (
+          <button className={selectedSubject === subject ? "ready active" : "ready"} key={subject} type="button" onClick={() => onSubjectChange(subject)}>{subject}</button>
+        ))}
+      </div>
+      <small>已解析 {parsedSubjectCount}/9 科，当前查看：{selectedSubject}</small>
+    </div>
+  );
+}
+
+function CourseParsedTables({ subject, liveRows, videoRows, custom = false }) {
+  const prefix = custom ? "专属" : "";
+  return (
+    <div className="parsed-course-tables">
+      <ParsedCourseTable
+        title={`${subject}｜${prefix}学法直播大纲`}
+        emptyText="当前筛选范围内暂无学法直播"
+        columns={["阶段", "早鸟期", "一期", "二期", "三期", "课程大纲"]}
+        rows={liveRows}
+        renderRow={(row, index) => (
+          <tr key={`${row.title}-${index}`}><td>{row.quarter || "-"}</td><td>{row.early || "-"}</td><td>{row.phase1 || "-"}</td><td>{row.phase2 || "-"}</td><td>{row.phase3 || "-"}</td><td>{row.title}</td></tr>
+        )}
+      />
+      <ParsedCourseTable
+        title={`${subject}｜${prefix}知识视频大纲`}
+        emptyText="当前筛选范围内暂无知识视频"
+        columns={["视频大纲", "难度星级", "是否分层", "所属阶段"]}
+        rows={videoRows}
+        renderRow={(row, index) => (
+          <tr key={`${row.title}-${index}`}><td>{row.title}</td><td>{row.difficulty || "-"}</td><td>{row.layered || "-"}</td><td>{row.quarter || "-"}</td></tr>
+        )}
+      />
+    </div>
+  );
+}
+
+function LegacyCourseUploadBoard({ grade, uploadNames, parsedData, selectedSubject, onSubjectChange, onUpload, coveragePhases, onPhaseToggle, sourceMode, onSourceModeChange }) {
   const [previewScope, setPreviewScope] = useState("product");
   const [previewTrack, setPreviewTrack] = useState("目标班");
   const allCoursePhases = getGradeCoursePhases(grade);
