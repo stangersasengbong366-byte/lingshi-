@@ -8,10 +8,12 @@ import {
   ChevronDown,
   Clock,
   Download,
+  Database,
   Eye,
   FileText,
   Gift,
   GraduationCap,
+  ImagePlus,
   Layers,
   ListChecks,
   PackageCheck,
@@ -28,11 +30,20 @@ import { initialProducts, moduleLibrary } from "./data/products";
 import { courseCatalog, courseSubjects } from "./data/courseCatalog";
 import { giftCatalog } from "./data/giftCatalog";
 import { getTeachingAidItems, getTeachingAidRule } from "./data/teachingAidCatalog";
+import { annualCourseLibrary, annualCourseLibraryVersion } from "./data/annualCourseLibrary";
+import { parseCourseWorkbookSheets } from "./lib/courseWorkbookParser";
+import supabaseSchemaSql from "../supabase/schema.sql?raw";
 import "./styles.css";
 
 const gradeLabels = ["高一", "高二", "高三"];
-const stageLabels = ["夏研卡", "秋实卡", "决胜卡", "直通卡", "一轮卡"];
+const stageLabels = ["夏研卡", "秋实卡", "决胜卡", "直通卡", "一轮卡", "二轮卡"];
 const humanitiesSubjects = ["生物", "历史", "地理", "政治"];
+const courseGiftRuleOptions = [
+  "买满1科赠对应学科",
+  "买满2科赠对应学科",
+  "买满3科赠对应学科",
+];
+const physicalGiftRuleOptions = ["买满1科赠", "买满2科赠", "买满3科赠"];
 const PRODUCTS_STORAGE_KEY = "youdao-benefits-products-v5-g1-autumn-course-refresh";
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
 const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
@@ -51,24 +62,60 @@ function assetUrl(path) {
 function loadStoredProducts() {
   try {
     const stored = JSON.parse(window.localStorage.getItem(PRODUCTS_STORAGE_KEY) || "[]");
-    if (!Array.isArray(stored) || !stored.length) return initialProducts;
+    if (!Array.isArray(stored) || !stored.length) return initialProducts.map(migrateStoredProduct);
     return stored.map(migrateStoredProduct);
   } catch {
-    return initialProducts;
+    return initialProducts.map(migrateStoredProduct);
   }
 }
 
 function migrateStoredProduct(product) {
-  if (!(String(product.grade).includes("高一") && `${product.stage}${product.name}`.includes("秋实"))) return product;
-  return {
+  const migrated = String(product.grade).includes("高一") && `${product.stage}${product.name}`.includes("秋实") ? {
     ...product,
     videoSubjects: ["语文", "数学", "英语", "物理", "化学"],
+    core: {
+      ...product.core,
+      liveLessons: 16,
+      knowledgeVideos: 40,
+    },
     pricing: product.pricing ?? {
       originalPerSubject: 5400,
       singlePerSubject: 3980,
       twoPerSubject: 3680,
       threePlusPerSubject: 3380,
     },
+  } : product;
+  return hydrateAnnualCourseProduct(migrated);
+}
+
+function hydrateAnnualCourseProduct(product) {
+  const annualData = annualCourseLibrary[product.grade];
+  const uploadNames = product.annualCourseUploadNames ?? product.courseUploadNames ?? {};
+  const isLegacyProductUpload = Object.values(uploadNames).some((name) => /秋实|夏研|决胜|直通|一轮卡/.test(String(name ?? "")));
+  const currentManualVersion = `uploaded-${annualCourseLibraryVersion}`;
+  const hasCurrentAnnualUpload = product.annualCourseOrigin === "uploaded"
+    && product.annualCourseVersion === currentManualVersion
+    && !isLegacyProductUpload;
+  if (!annualData) return product;
+  if (hasCurrentAnnualUpload) return product;
+  if (product.annualCourseVersion === annualCourseLibraryVersion && !isLegacyProductUpload) return product;
+  const annualNames = {
+    live: "学法直播.xlsx",
+    video: "知识视频.xlsx",
+  };
+  const next = {
+    ...product,
+    annualCourseData: annualData,
+    annualCourseUploadNames: annualNames,
+    annualCourseOrigin: "bundled",
+    annualCourseVersion: annualCourseLibraryVersion,
+  };
+  if ((product.courseSourceMode ?? "grade") === "custom" && !isLegacyProductUpload) return next;
+  return {
+    ...next,
+    courseSourceMode: "grade",
+    courseUploadNames: annualNames,
+    parsedCourseData: annualData,
   };
 }
 
@@ -81,7 +128,7 @@ async function loadCloudProducts(configId, fallbackId = CLOUD_PRODUCTS_LEGACY_ID
   const response = await fetch(`${SUPABASE_URL}/rest/v1/${CLOUD_CONFIG_TABLE}?id=in.(${configId},${fallbackId})&select=id,payload,updated_at`, {
     headers: getSupabaseHeaders(),
   });
-  if (!response.ok) throw new Error("云端配置读取失败");
+  if (!response.ok) throw await createCloudError(response, "云端配置读取失败");
   const records = await response.json();
   const record = records.find((item) => item.id === configId) ?? records.find((item) => item.id === fallbackId);
   const products = Array.isArray(record?.payload?.products) ? record.payload.products : record?.payload;
@@ -89,7 +136,7 @@ async function loadCloudProducts(configId, fallbackId = CLOUD_PRODUCTS_LEGACY_ID
 }
 
 async function saveCloudProducts(products, configId = CLOUD_PRODUCTS_DRAFT_ID) {
-  if (!cloudConfigEnabled) return;
+  if (!cloudConfigEnabled) throw new Error("云端配置未连接");
   const response = await fetch(`${SUPABASE_URL}/rest/v1/${CLOUD_CONFIG_TABLE}?on_conflict=id`, {
     method: "POST",
     headers: {
@@ -103,7 +150,22 @@ async function saveCloudProducts(products, configId = CLOUD_PRODUCTS_DRAFT_ID) {
       updated_at: new Date().toISOString(),
     }),
   });
-  if (!response.ok) throw new Error("云端配置保存失败");
+  if (!response.ok) throw await createCloudError(response, "云端配置保存失败");
+}
+
+async function createCloudError(response, fallbackMessage) {
+  const responseText = await response.text();
+  let detail = responseText;
+  try {
+    const parsed = JSON.parse(responseText);
+    detail = [parsed.code, parsed.message, parsed.hint].filter(Boolean).join(" · ");
+  } catch {
+    // Keep the original response text when the service does not return JSON.
+  }
+  const error = new Error(detail || fallbackMessage);
+  error.status = response.status;
+  error.isMissingTable = /PGRST205|benefit_configs.*schema cache|Could not find the table/i.test(detail);
+  return error;
 }
 
 function getSupabaseHeaders() {
@@ -143,22 +205,42 @@ function App() {
         setSelectedProductId((current) => nextProducts.some((product) => product.id === current) ? current : nextProducts[0]?.id);
         setSyncStatus(publicView ? "已同步最新发布版本" : "云端草稿已同步");
       })
-      .catch(() => setSyncStatus("云端连接失败，已使用本地配置"));
+      .catch((error) => setSyncStatus(error?.isMissingTable ? "云端数据表未创建，当前使用本地配置" : "云端连接失败，已使用本地配置"));
     return () => {
       cancelled = true;
     };
   }, [publicView]);
 
-  const updateProduct = (nextProduct) => {
-    setProducts((items) => {
-      const nextProducts = items.map((item) => (item.id === nextProduct.id ? nextProduct : item));
-      saveStoredProducts(nextProducts);
-      saveCloudProducts(nextProducts, CLOUD_PRODUCTS_DRAFT_ID)
-        .then(() => setSyncStatus("草稿已保存到云端"))
-        .catch(() => setSyncStatus("云端保存失败，已保存在本地"));
-      return nextProducts;
+  const updateProduct = async (nextProduct) => {
+    const nextProducts = products.map((item) => {
+      if (item.id === nextProduct.id) return nextProduct;
+      if (item.grade !== nextProduct.grade) return item;
+      const sharedCourseLibrary = {
+        ...item,
+        annualCourseUploadNames: nextProduct.annualCourseUploadNames,
+        annualCourseData: nextProduct.annualCourseData,
+        annualCourseOrigin: nextProduct.annualCourseOrigin,
+        annualCourseVersion: nextProduct.annualCourseVersion,
+      };
+      if ((item.courseSourceMode ?? "grade") === "custom") return sharedCourseLibrary;
+      return {
+        ...sharedCourseLibrary,
+        courseUploadNames: nextProduct.annualCourseUploadNames,
+        parsedCourseData: nextProduct.annualCourseData,
+      };
     });
+    setProducts(nextProducts);
+    saveStoredProducts(nextProducts);
     setSelectedProductId(nextProduct.id);
+    setSyncStatus("正在保存云端草稿");
+    try {
+      await saveCloudProducts(nextProducts, CLOUD_PRODUCTS_DRAFT_ID);
+      setSyncStatus("草稿已保存到云端");
+      return { cloudSaved: true };
+    } catch (error) {
+      setSyncStatus(error?.isMissingTable ? "云端数据表未创建，仅保存在本机" : "云端保存失败，仅保存在本机");
+      return { cloudSaved: false, error };
+    }
   };
 
   const publishProducts = async (nextProduct) => {
@@ -204,10 +286,8 @@ function App() {
           onSelect={setSelectedProductId}
           onUpdate={updateProduct}
           onPublish={publishProducts}
+          syncStatus={syncStatus}
         />
-      )}
-      {activePage === "layout" && (
-        <LayoutPage products={products} product={selectedProduct} selectedSubjects={selectedSubjects} coursePlans={selectedCoursePlans} />
       )}
     </main>
   );
@@ -231,9 +311,8 @@ function getShareParams() {
 
 function AppHeader({ activePage, onPageChange, syncStatus, salesOnly }) {
   const pages = [
-    { id: "sales", label: "主页面", icon: Eye },
+    { id: "sales", label: "生成清单", icon: Eye },
     { id: "admin", label: "后台配置", icon: Settings },
-    { id: "layout", label: "权益清单", icon: FileText },
   ];
 
   return (
@@ -377,15 +456,15 @@ function SalesPage({ products, selectedProduct, selectedSubjects, selectedVideoT
           />
           <p className="field-help">知识视频按“通用课程 + 所选班型课程”组合展示。</p>
         </Field>
-        <Field label="展示版本">
-          <div className="version-switch" role="group" aria-label="展示版本">
+        <Field label="页面类型">
+          <div className="version-switch" role="group" aria-label="页面类型">
             <button
               className={viewMode === "summary" ? "active" : ""}
               type="button"
               onClick={() => setViewMode("summary")}
             >
               <span>一</span>
-              <div><strong>清单版本</strong><small>一页总览全部权益</small></div>
+              <div><strong>清单预览</strong><small>一页看完核心权益</small></div>
             </button>
             <button
               className={viewMode === "detail" ? "active" : ""}
@@ -393,7 +472,7 @@ function SalesPage({ products, selectedProduct, selectedSubjects, selectedVideoT
               onClick={() => setViewMode("detail")}
             >
               <span>二</span>
-              <div><strong>明细版本</strong><small>展开完整课程大纲</small></div>
+              <div><strong>详细页面</strong><small>直接展示完整大纲</small></div>
             </button>
           </div>
         </Field>
@@ -498,31 +577,63 @@ function CustomerSharePage({ products, product, selectedSubjects, selectedVideoT
   );
 }
 
-function AdminPage({ products, selectedProduct, onSelect, onUpdate, onPublish }) {
+function AdminPage({ products, selectedProduct, onSelect, onUpdate, onPublish, syncStatus }) {
   const [draft, setDraft] = useState(selectedProduct);
+  const [activeAdminSection, setActiveAdminSection] = useState("basic");
   const [expandedGiftKey, setExpandedGiftKey] = useState("");
   const [uploadNames, setUploadNames] = useState({});
-  const [parsedCourseData, setParsedCourseData] = useState({ live: {}, video: {} });
+  const [courseSourceMode, setCourseSourceMode] = useState(selectedProduct.courseSourceMode ?? "grade");
+  const [annualCourseData, setAnnualCourseData] = useState(selectedProduct.annualCourseData ?? selectedProduct.parsedCourseData ?? { live: {}, video: {} });
+  const [customCourseData, setCustomCourseData] = useState(selectedProduct.customCourseData ?? { live: {}, video: {} });
   const [parsedSubject, setParsedSubject] = useState("语文");
-  const [newGift, setNewGift] = useState({ name: "", detail: "", value: "", lessonCount: "", mainContent: "", rule: "直接赠送" });
-  const [newPhysicalGift, setNewPhysicalGift] = useState({ name: "", detail: "", value: "", rule: "买一科即赠" });
+  const [newGift, setNewGift] = useState({ name: "", detail: "", value: "", lessonCount: "", mainContent: "", rule: "买满1科赠对应学科" });
+  const [newPhysicalGift, setNewPhysicalGift] = useState({ name: "", detail: "", value: "", rule: "买满1科赠" });
+  const [lastGiftImport, setLastGiftImport] = useState(null);
   const [publishState, setPublishState] = useState("idle");
+  const [saveState, setSaveState] = useState("idle");
   const [salesLinkCopied, setSalesLinkCopied] = useState(false);
+  const [schemaCopied, setSchemaCopied] = useState(false);
   const courseGiftItems = getGradeGiftCandidates(products, draft).filter((item) => item.type === "赠课");
   const defaultSelectedGiftKeys = getAdminGiftCandidates(draft).filter((item) => item.type === "赠课").map(getGiftItemKey);
   const selectedGiftKeys = normalizeSelectedGiftKeys(draft.giftSelections ?? defaultSelectedGiftKeys, courseGiftItems);
   const physicalGiftItems = getGradePhysicalGiftCandidates(products, draft);
   const defaultPhysicalGiftKeys = physicalGiftItems.map(getGiftItemKey);
   const selectedPhysicalGiftKeys = normalizeSelectedGiftKeys(draft.physicalGiftSelections ?? defaultPhysicalGiftKeys, physicalGiftItems);
+  const parsedCourseData = courseSourceMode === "custom" ? customCourseData : annualCourseData;
+  const activeCourseUploadNames = courseSourceMode === "custom"
+    ? { live: uploadNames.customLive ?? "", video: uploadNames.customVideo ?? "" }
+    : { live: uploadNames.annualLive ?? "", video: uploadNames.annualVideo ?? "" };
+  const parsedLiveCount = Object.values(parsedCourseData.live ?? {}).reduce((total, rows) => total + (rows?.length ?? 0), 0);
+  const parsedVideoCount = Object.values(parsedCourseData.video ?? {}).reduce((total, rows) => total + (rows?.length ?? 0), 0);
+  const publishChecks = [
+    { label: "产品信息", ready: Boolean(draft.name?.trim() && draft.grade && draft.core?.servicePeriod) },
+    { label: "价格", ready: Boolean(draft.pricing?.singlePerSubject && draft.pricing?.twoPerSubject && draft.pricing?.threePlusPerSubject) },
+    { label: "学法直播", ready: Boolean(activeCourseUploadNames.live && parsedLiveCount) },
+    { label: "知识视频", ready: !Number(draft.core?.knowledgeVideos) || Boolean(activeCourseUploadNames.video && parsedVideoCount) },
+    { label: "赠送规则", ready: Boolean(selectedGiftKeys.length || selectedPhysicalGiftKeys.length) },
+  ];
+  const missingPublishItems = publishChecks.filter((item) => !item.ready);
+  const canPublish = cloudConfigEnabled && missingPublishItems.length === 0;
 
   React.useEffect(() => {
     setDraft(selectedProduct);
     setExpandedGiftKey("");
-    setUploadNames(selectedProduct.courseUploadNames ?? {});
-    setParsedCourseData(selectedProduct.parsedCourseData ?? { live: {}, video: {} });
+    const legacyNames = selectedProduct.courseUploadNames ?? {};
+    const annualNames = selectedProduct.annualCourseUploadNames ?? legacyNames;
+    const customNames = selectedProduct.customCourseUploadNames ?? {};
+    setUploadNames({
+      annualLive: annualNames.live ?? "",
+      annualVideo: annualNames.video ?? "",
+      customLive: customNames.live ?? "",
+      customVideo: customNames.video ?? "",
+    });
+    setCourseSourceMode(selectedProduct.courseSourceMode ?? "grade");
+    setAnnualCourseData(selectedProduct.annualCourseData ?? selectedProduct.parsedCourseData ?? { live: {}, video: {} });
+    setCustomCourseData(selectedProduct.customCourseData ?? { live: {}, video: {} });
     setParsedSubject("语文");
-    setNewGift({ name: "", detail: "", value: "", lessonCount: "", mainContent: "", rule: "直接赠送" });
-    setNewPhysicalGift({ name: "", detail: "", value: "", rule: "买一科即赠" });
+    setNewGift({ name: "", detail: "", value: "", lessonCount: "", mainContent: "", rule: "买满1科赠对应学科" });
+    setNewPhysicalGift({ name: "", detail: "", value: "", rule: "买满1科赠" });
+    setLastGiftImport(null);
   }, [selectedProduct]);
 
   const updateCore = (key, value) => {
@@ -531,6 +642,53 @@ function AdminPage({ products, selectedProduct, onSelect, onUpdate, onPublish })
 
   const updatePricing = (key, value) => {
     setDraft({ ...draft, pricing: { ...draft.pricing, [key]: Number(value) || 0 } });
+  };
+
+  const changeProductGrade = (grade) => {
+    if (grade === draft.grade) return;
+    const nextAnnualData = annualCourseLibrary[grade] ?? { live: {}, video: {} };
+    const nextGradeProduct = { ...draft, grade };
+    const coveragePhases = getDefaultCoveragePhases(nextGradeProduct);
+    const stageCounts = getCourseStageCounts(nextAnnualData, coveragePhases);
+    if (courseSourceMode === "grade") setAnnualCourseData(nextAnnualData);
+    setParsedSubject("语文");
+    setDraft({
+      ...draft,
+      grade,
+      coveragePhases,
+      videoPhases: coveragePhases,
+      ...(courseSourceMode === "grade" ? {
+        annualCourseData: nextAnnualData,
+        annualCourseOrigin: "bundled",
+        annualCourseVersion: annualCourseLibraryVersion,
+      } : {}),
+      core: {
+        ...draft.core,
+        liveLessons: stageCounts.live,
+        knowledgeVideos: stageCounts.video,
+      },
+    });
+  };
+
+  const changeCourseSourceMode = (mode) => {
+    setCourseSourceMode(mode);
+    if (mode !== "grade") return;
+    const nextAnnualData = annualCourseLibrary[draft.grade] ?? annualCourseData;
+    const coveragePhases = draft.coveragePhases?.length ? draft.coveragePhases : getDefaultCoveragePhases(draft);
+    const stageCounts = getCourseStageCounts(nextAnnualData, coveragePhases);
+    setAnnualCourseData(nextAnnualData);
+    setDraft({
+      ...draft,
+      courseSourceMode: "grade",
+      annualCourseData: nextAnnualData,
+      annualCourseOrigin: "bundled",
+      annualCourseVersion: annualCourseLibraryVersion,
+      core: {
+        ...draft.core,
+        liveLessons: stageCounts.live,
+        knowledgeVideos: stageCounts.video,
+      },
+    });
   };
 
   const updateGiftOverride = (key, field, value) => {
@@ -547,9 +705,18 @@ function AdminPage({ products, selectedProduct, onSelect, onUpdate, onPublish })
   const handleUploadName = async (slot, event) => {
     const file = event.target.files?.[0];
     setUploadNames((items) => ({ ...items, [slot]: file?.name ?? "" }));
-    if ((slot === "live" || slot === "video") && file) {
-      const parsed = await parseCourseWorkbook(file, slot, draft.grade);
-      setParsedCourseData((data) => ({ ...data, [slot]: parsed }));
+    if (/^(annual|custom)-(live|video)$/.test(slot) && file) {
+      const [, source, type] = slot.match(/^(annual|custom)-(live|video)$/);
+      const parsed = await parseCourseWorkbook(file, type, draft.grade);
+      const setter = source === "annual" ? setAnnualCourseData : setCustomCourseData;
+      setter((data) => ({ ...data, [type]: parsed }));
+      if (source === "annual") {
+        setDraft((current) => ({
+          ...current,
+          annualCourseOrigin: "uploaded",
+          annualCourseVersion: `uploaded-${annualCourseLibraryVersion}`,
+        }));
+      }
     }
     if (slot.startsWith("gift-detail-") && file) {
       const targetKey = slot.replace("gift-detail-", "");
@@ -573,6 +740,7 @@ function AdminPage({ products, selectedProduct, onSelect, onUpdate, onPublish })
     }
     if (slot === "gift" && file?.name) {
       const parsedGift = await parseGiftWorkbook(file, draft.grade);
+      setLastGiftImport(parsedGift);
       const item = mergeGiftUploadItem({ type: "赠课" }, parsedGift);
       const key = getGiftItemKey(item);
       const exists = courseGiftItems.some((gift) => getGiftItemKey(gift) === key);
@@ -590,6 +758,35 @@ function AdminPage({ products, selectedProduct, onSelect, onUpdate, onPublish })
         });
       }
     }
+  };
+
+  const toggleCoveragePhase = (phase) => {
+    const current = draft.coveragePhases?.length ? draft.coveragePhases : getDefaultCoveragePhases(draft);
+    if (current.length === 1 && current.includes(phase)) return;
+    const next = current.includes(phase) ? current.filter((item) => item !== phase) : [...current, phase];
+    const stageCounts = getCourseStageCounts(parsedCourseData, next);
+    setDraft({
+      ...draft,
+      coveragePhases: next,
+      videoPhases: next,
+      core: {
+        ...draft.core,
+        liveLessons: stageCounts.live,
+        knowledgeVideos: stageCounts.video,
+      },
+    });
+  };
+
+  const updatePhysicalGiftImage = async (key, file) => {
+    if (!file) return;
+    const image = await readImageFileAsDataUrl(file);
+    updateGiftOverride(key, "image", image);
+  };
+
+  const updateNewPhysicalGiftImage = async (file) => {
+    if (!file) return;
+    const image = await readImageFileAsDataUrl(file);
+    setNewPhysicalGift((current) => ({ ...current, image }));
   };
 
   const toggleGiftSelection = (key) => {
@@ -615,7 +812,7 @@ function AdminPage({ products, selectedProduct, onSelect, onUpdate, onPublish })
       customGiftItems: [...(draft.customGiftItems ?? []), item],
       giftSelections: [...selectedGiftKeys, getGiftItemKey(item)],
     });
-    setNewGift({ name: "", detail: "", value: "", lessonCount: "", mainContent: "", rule: "直接赠送" });
+    setNewGift({ name: "", detail: "", value: "", lessonCount: "", mainContent: "", rule: "买满1科赠对应学科" });
   };
 
   const togglePhysicalGiftSelection = (key) => {
@@ -633,29 +830,50 @@ function AdminPage({ products, selectedProduct, onSelect, onUpdate, onPublish })
       detail: newPhysicalGift.detail.trim() || "实物赠礼明细待补充",
       value: newPhysicalGift.value.trim() || "待补充",
       rule: newPhysicalGift.rule,
+      image: newPhysicalGift.image || "",
     };
     setDraft({
       ...draft,
       customPhysicalItems: [...(draft.customPhysicalItems ?? []), item],
       physicalGiftSelections: [...selectedPhysicalGiftKeys, getGiftItemKey(item)],
     });
-    setNewPhysicalGift({ name: "", detail: "", value: "", rule: "买一科即赠" });
+    setNewPhysicalGift({ name: "", detail: "", value: "", rule: "买满1科赠", image: "" });
   };
 
-  const saveDraft = () => {
-    const nextProduct = {
+  const buildDraftProduct = () => {
+    const annualCourseUploadNames = { live: uploadNames.annualLive ?? "", video: uploadNames.annualVideo ?? "" };
+    const customCourseUploadNames = { live: uploadNames.customLive ?? "", video: uploadNames.customVideo ?? "" };
+    const resolvedCourseData = courseSourceMode === "custom" ? customCourseData : annualCourseData;
+    const resolvedUploadNames = courseSourceMode === "custom" ? customCourseUploadNames : annualCourseUploadNames;
+    return {
       ...draft,
-      courseUploadNames: uploadNames,
-      parsedCourseData,
+      courseSourceMode,
+      annualCourseData,
+      annualCourseUploadNames,
+      customCourseData,
+      customCourseUploadNames,
+      courseUploadNames: resolvedUploadNames,
+      parsedCourseData: resolvedCourseData,
     };
-    onUpdate(nextProduct);
+  };
+
+  const saveDraft = async () => {
+    setSaveState("saving");
+    const nextProduct = buildDraftProduct();
+    const result = await onUpdate(nextProduct);
+    setSaveState(result?.cloudSaved ? "saved" : "local-only");
+    window.setTimeout(() => setSaveState("idle"), 1600);
     return nextProduct;
   };
 
   const publishDraft = async () => {
-    const nextProduct = saveDraft();
+    if (!canPublish) {
+      setPublishState("error");
+      return;
+    }
     setPublishState("publishing");
     try {
+      const nextProduct = await saveDraft();
       await onPublish(nextProduct);
       setPublishState("published");
       window.setTimeout(() => setPublishState("idle"), 1800);
@@ -671,6 +889,20 @@ function AdminPage({ products, selectedProduct, onSelect, onUpdate, onPublish })
     window.setTimeout(() => setSalesLinkCopied(false), 1600);
   };
 
+  const copySupabaseSchema = async () => {
+    await navigator.clipboard.writeText(supabaseSchemaSql.trim());
+    setSchemaCopied(true);
+    window.setTimeout(() => setSchemaCopied(false), 1800);
+  };
+
+  const adminSections = [
+    { id: "basic", number: "01", label: "产品基础信息", description: "名称、年级、服务期与价格", icon: Settings },
+    { id: "courses", number: "02", label: "正课配置", description: "全年课程库与阶段映射", icon: BookOpen },
+    { id: "gifts", number: "03", label: "赠课权益", description: "通用赠课与对应学科赠课", icon: Gift },
+    { id: "materials", number: "04", label: "教辅与实物", description: "图片、价值与触发门槛", icon: PackageCheck },
+  ];
+  const activeSectionMeta = adminSections.find((item) => item.id === activeAdminSection) ?? adminSections[0];
+
   return (
     <section className="workspace admin-workbench">
       <aside className="product-list admin-sidebar">
@@ -678,11 +910,25 @@ function AdminPage({ products, selectedProduct, onSelect, onUpdate, onPublish })
           <span className="eyebrow">产品库</span>
           <h1>按年级管理</h1>
         </div>
-        <button className="add-button" type="button" title="新建产品">
-          <Plus size={17} />
-          <span>新建产品</span>
-        </button>
         <GradeProductList products={products} selectedProduct={selectedProduct} onSelect={onSelect} />
+        <nav className="admin-section-nav" aria-label="后台配置模块">
+          <span>当前产品配置</span>
+          {adminSections.map((section) => {
+            const Icon = section.icon;
+            return (
+              <button
+                type="button"
+                key={section.id}
+                className={activeAdminSection === section.id ? "active" : ""}
+                onClick={() => setActiveAdminSection(section.id)}
+              >
+                <em>{section.number}</em>
+                <Icon size={17} />
+                <span><strong>{section.label}</strong><small>{section.description}</small></span>
+              </button>
+            );
+          })}
+        </nav>
       </aside>
 
       <section className="config-panel">
@@ -692,23 +938,49 @@ function AdminPage({ products, selectedProduct, onSelect, onUpdate, onPublish })
             <h2>{draft.name}</h2>
           </div>
           <div className="admin-publish-actions">
-            <button className="secondary-action small" type="button" onClick={copySalesPortalLink}>
-              <Share2 size={17} />
-              <span>{salesLinkCopied ? "销售端链接已复制" : "复制销售端链接"}</span>
-            </button>
             <button className="secondary-action small" type="button" onClick={saveDraft}>
               <Save size={17} />
-              <span>保存草稿</span>
+              <span>{saveState === "saving" ? "保存中..." : saveState === "saved" ? "云端草稿已保存" : saveState === "local-only" ? "仅保存到本机" : "保存配置"}</span>
             </button>
-            <button className="primary-action small" type="button" onClick={publishDraft} disabled={publishState === "publishing"}>
+            <button className="primary-action small" type="button" onClick={publishDraft} disabled={publishState === "publishing" || !canPublish}>
               <Upload size={17} />
-              <span>{publishState === "publishing" ? "发布中..." : publishState === "published" ? "已发布" : publishState === "error" ? "发布失败" : "发布到销售端"}</span>
+              <span>{publishState === "publishing" ? "发布中..." : publishState === "published" ? "发布成功" : publishState === "error" ? "请先补齐必填项" : "发布并同步"}</span>
+            </button>
+            <button className="secondary-action small" type="button" onClick={copySalesPortalLink}>
+              <Share2 size={17} />
+              <span>{salesLinkCopied ? "销售端链接已复制" : "复制销售链接"}</span>
             </button>
           </div>
         </div>
 
-        <AdminPanel
-          number="00"
+        <section className={syncStatus.includes("失败") || syncStatus.includes("本机") ? "admin-cloud-banner warning" : "admin-cloud-banner"}>
+          <Database size={20} />
+          <div>
+            <strong>{syncStatus}</strong>
+            <span>保存配置写入云端草稿；点击“发布并同步”后，销售链接才会读取本次更新。</span>
+          </div>
+          <em>{cloudConfigEnabled ? "Supabase 已配置" : "仅本地模式"}</em>
+          {syncStatus.includes("数据表未创建") ? (
+            <button type="button" onClick={copySupabaseSchema}>
+              {schemaCopied ? "建表内容已复制" : "复制一次性建表内容"}
+            </button>
+          ) : null}
+        </section>
+
+        <section className="admin-section-intro">
+          <div><span>{activeSectionMeta.number}</span><strong>{activeSectionMeta.label}</strong></div>
+          <p>{activeSectionMeta.description}</p>
+          <div className={canPublish ? "admin-readiness ready" : "admin-readiness"}>
+            {publishChecks.map((item) => (
+              <span className={item.ready ? "ready" : "missing"} key={item.label}>
+                {item.ready ? "已完成" : "待补充"} · {item.label}
+              </span>
+            ))}
+          </div>
+        </section>
+
+        {activeAdminSection === "basic" ? <AdminPanel
+          number="01"
           title="产品基础信息"
           note="配置清单首页所需的产品信息：产品、正课数量、服务期和按科目数量计算的价格。"
           icon={Settings}
@@ -728,10 +1000,7 @@ function AdminPage({ products, selectedProduct, onSelect, onUpdate, onPublish })
               </div>
             </Field>
             <Field label="年级">
-              <SegmentedSelect options={gradeLabels} value={draft.grade} onChange={(grade) => setDraft({ ...draft, grade })} />
-            </Field>
-            <Field label="阶段包装">
-              <SegmentedSelect options={stageLabels} value={draft.stage} onChange={(stage) => setDraft({ ...draft, stage })} />
+              <SegmentedSelect options={gradeLabels} value={draft.grade} onChange={changeProductGrade} />
             </Field>
           </div>
           <div className="number-grid">
@@ -762,33 +1031,36 @@ function AdminPage({ products, selectedProduct, onSelect, onUpdate, onPublish })
               <input type="number" min="0" value={draft.pricing?.threePlusPerSubject ?? 0} onChange={(event) => updatePricing("threePlusPerSubject", event.target.value)} />
             </Field>
           </div>
-          <Field label="销售讲解话术">
-            <textarea rows="3" value={draft.salesNote} onChange={(event) => setDraft({ ...draft, salesNote: event.target.value })} />
-          </Field>
-        </AdminPanel>
+        </AdminPanel> : null}
 
-        <AdminPanel
-          number="01"
+        {activeAdminSection === "courses" ? <AdminPanel
+          number="02"
           title="正课权益"
-          note="仅上传两份总表：学法直播大纲、知识视频大纲。每份文档内包含 9 个科目，系统解析后按销售选择科目展示。"
+          note="每个年级的全年总表只需维护一套。表格中的季度用于归档；当前产品勾选哪些阶段，销售端就只展示这些阶段的课程。"
           icon={BookOpen}
         >
           <CourseUploadBoard
-            uploadNames={uploadNames}
+            grade={draft.grade}
+            uploadNames={activeCourseUploadNames}
             parsedData={parsedCourseData}
             selectedSubject={parsedSubject}
             onSubjectChange={setParsedSubject}
             onUpload={handleUploadName}
+            coveragePhases={draft.coveragePhases?.length ? draft.coveragePhases : getDefaultCoveragePhases(draft)}
+            onPhaseToggle={toggleCoveragePhase}
+            sourceMode={courseSourceMode}
+            onSourceModeChange={changeCourseSourceMode}
           />
-        </AdminPanel>
+        </AdminPanel> : null}
 
-        <AdminPanel
-          number="02"
+        {activeAdminSection === "gifts" ? <AdminPanel
+          number="03"
           title="赠课课程池"
           note="同年级重复赠课只维护一次。当前产品勾选需要赠送的课程，并配置价值、时长、明细、讲解内容和触发规则。"
           icon={Gift}
         >
           <GiftPoolSummary grade={draft.grade} total={courseGiftItems.length} selected={selectedGiftKeys.length} />
+          <GiftTriggerGuide />
           <GiftOutlineTable
             items={courseGiftItems}
             selectedKeys={selectedGiftKeys}
@@ -801,10 +1073,21 @@ function AdminPage({ products, selectedProduct, onSelect, onUpdate, onPublish })
           />
           <div className="gift-import-box">
             <div className="gift-import-head">
-              <strong>上传新的赠课信息</strong>
-              <span>上传后会进入上方赠课池，并默认勾选到当前产品。</span>
+              <strong>上传九科“买即赠对应学科”课程表</strong>
+              <span>一个 Excel 内可放 9 个科目。系统按工作表名或科目列解析，销售买哪科就展示哪科赠课。</span>
             </div>
-            <UploadSlot label="上传赠课明细表" name={uploadNames.gift} onChange={(event) => handleUploadName("gift", event)} />
+            <UploadSlot label="选择九科赠课 Excel" name={uploadNames.gift} onChange={(event) => handleUploadName("gift", event)} />
+            {lastGiftImport ? (
+              <div className="gift-import-result">
+                <Check size={16} />
+                <strong>解析完成</strong>
+                <span>{Object.entries(lastGiftImport.subjectCourses ?? {}).filter(([, rows]) => rows.length).map(([subject, rows]) => `${subject}${rows.length}条`).join("、") || "已读取普通赠课明细"}</span>
+              </div>
+            ) : null}
+            <div className="gift-import-head manual-gift-head">
+              <strong>手动新增普通赠课</strong>
+              <span>适合选科宝典、家长成长计划等不按学科区分的赠课。</span>
+            </div>
             <div className="add-gift-box">
               <input placeholder="赠课名称" value={newGift.name} onChange={(event) => setNewGift({ ...newGift, name: event.target.value })} />
               <input placeholder="课程明细 / 节数" value={newGift.detail} onChange={(event) => setNewGift({ ...newGift, detail: event.target.value })} />
@@ -812,20 +1095,15 @@ function AdminPage({ products, selectedProduct, onSelect, onUpdate, onPublish })
               <input placeholder="课时量，如 10节 × 30min" value={newGift.lessonCount} onChange={(event) => setNewGift({ ...newGift, lessonCount: event.target.value })} />
               <input placeholder="主要讲解内容" value={newGift.mainContent} onChange={(event) => setNewGift({ ...newGift, mainContent: event.target.value })} />
               <select value={newGift.rule} onChange={(event) => setNewGift({ ...newGift, rule: event.target.value })}>
-                <option>直接赠送</option>
-                <option>买一科即赠</option>
-                <option>买两科及以上赠送</option>
-                <option>买对应学科赠对应学科</option>
-                <option>累计3科及以上可以赠</option>
-                <option>累计科目数获赠</option>
+                {courseGiftRuleOptions.map((rule) => <option key={rule}>{rule}</option>)}
               </select>
               <button type="button" className="secondary-action" onClick={addCustomGift}><Plus size={16} />添加赠课</button>
             </div>
           </div>
-        </AdminPanel>
+        </AdminPanel> : null}
 
-        <AdminPanel
-          number="03"
+        {activeAdminSection === "materials" ? <AdminPanel
+          number="04"
           title="实物赠礼 / 教辅资料"
           note="勾选当前产品包含的实物，并设置买一科即赠或满三科赠送。前台会根据销售实际勾选科目数自动判断。"
           icon={PackageCheck}
@@ -835,7 +1113,9 @@ function AdminPage({ products, selectedProduct, onSelect, onUpdate, onPublish })
             selectedKeys={selectedPhysicalGiftKeys}
             onToggle={togglePhysicalGiftSelection}
             onItemChange={updateGiftOverride}
+            onImageChange={updatePhysicalGiftImage}
           />
+          <GiftTriggerGuide physical />
           <div className="gift-import-box physical-create-box">
             <div className="gift-import-head">
               <strong>新增实物赠礼</strong>
@@ -845,16 +1125,19 @@ function AdminPage({ products, selectedProduct, onSelect, onUpdate, onPublish })
               <input placeholder="实物名称" value={newPhysicalGift.name} onChange={(event) => setNewPhysicalGift({ ...newPhysicalGift, name: event.target.value })} />
               <input placeholder="价值" value={newPhysicalGift.value} onChange={(event) => setNewPhysicalGift({ ...newPhysicalGift, value: event.target.value })} />
               <input placeholder="赠礼明细 / 数量" value={newPhysicalGift.detail} onChange={(event) => setNewPhysicalGift({ ...newPhysicalGift, detail: event.target.value })} />
+              <label className="image-upload-button">
+                <ImagePlus size={16} />
+                <span>{newPhysicalGift.image ? "配图已选择" : "上传赠礼配图"}</span>
+                <input type="file" accept="image/png,image/jpeg,image/webp" onChange={(event) => updateNewPhysicalGiftImage(event.target.files?.[0])} />
+              </label>
               <select value={newPhysicalGift.rule} onChange={(event) => setNewPhysicalGift({ ...newPhysicalGift, rule: event.target.value })}>
-                <option>买一科即赠</option>
-                <option>买两科及以上赠送</option>
-                <option>累计3科及以上可以赠</option>
+                {physicalGiftRuleOptions.map((rule) => <option key={rule}>{rule}</option>)}
               </select>
               <button type="button" className="secondary-action" onClick={addCustomPhysicalGift}><Plus size={16} />添加实物</button>
             </div>
           </div>
           <TeachingAidImageAdmin stage={draft.stage} />
-        </AdminPanel>
+        </AdminPanel> : null}
       </section>
     </section>
   );
@@ -910,36 +1193,143 @@ function CourseProductBrief({ product, uploadedSubjectCount }) {
   );
 }
 
-function CourseUploadBoard({ uploadNames, parsedData, selectedSubject, onSubjectChange, onUpload }) {
+function CourseUploadBoard({ grade, uploadNames, parsedData, selectedSubject, onSubjectChange, onUpload, coveragePhases, onPhaseToggle, sourceMode, onSourceModeChange }) {
+  const [previewScope, setPreviewScope] = useState("product");
+  const [previewTrack, setPreviewTrack] = useState("目标班");
+  const allCoursePhases = getGradeCoursePhases(grade);
+  const displayPhases = previewScope === "annual" ? allCoursePhases : coveragePhases;
   const liveUploaded = Boolean(uploadNames.live);
   const videoUploaded = Boolean(uploadNames.video);
-  const liveRows = parsedData.live?.[selectedSubject] ?? [];
-  const videoRows = parsedData.video?.[selectedSubject] ?? [];
+  const uploadPrefix = sourceMode === "custom" ? "custom" : "annual";
+  const liveRows = (parsedData.live?.[selectedSubject] ?? []).filter((row) => phaseMatches(row.quarter, displayPhases));
+  const videoRows = filterVideoRowsByTrack(
+    (parsedData.video?.[selectedSubject] ?? []).filter((row) => phaseMatches(row.quarter, displayPhases)),
+    previewTrack,
+  );
+  const selectedPhaseStats = coveragePhases.map((phase) => ({
+    phase,
+    live: (parsedData.live?.[selectedSubject] ?? []).filter((row) => phaseMatches(row.quarter, [phase])).length,
+    video: filterVideoRowsByTrack(
+      (parsedData.video?.[selectedSubject] ?? []).filter((row) => phaseMatches(row.quarter, [phase])),
+      previewTrack,
+    ).length,
+  }));
+  const emptySelectedPhases = selectedPhaseStats.filter((item) => !item.live && !item.video).map((item) => item.phase);
+  const liveMissingPhases = selectedPhaseStats.filter((item) => !item.live && item.video).map((item) => item.phase);
+  const videoMissingPhases = selectedPhaseStats.filter((item) => item.live && !item.video).map((item) => item.phase);
   const parsedSubjectCount = courseSubjects.filter((subject) => parsedData.live?.[subject]?.length || parsedData.video?.[subject]?.length).length;
   return (
     <div className="course-upload-board">
-      <div className="course-upload-head">
-        <strong>上传正课总表</strong>
-        <span>学法直播和知识视频各上传一份表格，表内包含 9 个科目；用户买多科时，清单自动取对应科目的内容。</span>
+      <section className="course-source-picker">
+        <div>
+          <strong>正课来源</strong>
+          <span>普通季度产品直接复用年级全年课程库；只有直通卡等特殊产品才使用专属课表。</span>
+        </div>
+        <div className="course-source-options">
+          <button type="button" className={sourceMode === "grade" ? "active" : ""} onClick={() => onSourceModeChange("grade")}>
+            <BookOpen size={17} />
+            <span><strong>年级全年课程库</strong><small>推荐，选择阶段自动组合</small></span>
+          </button>
+          <button type="button" className={sourceMode === "custom" ? "active" : ""} onClick={() => onSourceModeChange("custom")}>
+            <Upload size={17} />
+            <span><strong>产品专属课表</strong><small>仅用于个性化产品</small></span>
+          </button>
+        </div>
+      </section>
+      <section className="course-link-logic">
+        <div>
+          <span>第一步</span>
+          <strong>{sourceMode === "custom" ? "上传产品专属课表" : "维护年级全年课程库"}</strong>
+          <small>{sourceMode === "custom" ? "仅当前产品使用，不影响同年级其他产品。" : "学法直播、知识视频各一份，同年级只维护一次。"}</small>
+        </div>
+        <ChevronDown size={18} />
+        <div>
+          <span>第二步</span>
+          <strong>选择当前产品覆盖阶段</strong>
+          <small>系统按表格“季度”字段筛选，不需要为每个产品重复上传。</small>
+        </div>
+        <ChevronDown size={18} />
+        <div>
+          <span>第三步</span>
+          <strong>销售按科目展示</strong>
+          <small>销售勾选几科，就展示几科在所选阶段内的课程。</small>
+        </div>
+      </section>
+      <div className="course-phase-config">
+        <div>
+          <strong>当前产品覆盖阶段</strong>
+          <span>至少选择一个阶段</span>
+        </div>
+        <div className="phase-checks">
+          {allCoursePhases.map((phase) => {
+            const active = coveragePhases.includes(phase);
+            const liveCount = (parsedData.live?.[selectedSubject] ?? []).filter((row) => phaseMatches(row.quarter, [phase])).length;
+            const videoCount = filterVideoRowsByTrack(
+              (parsedData.video?.[selectedSubject] ?? []).filter((row) => phaseMatches(row.quarter, [phase])),
+              previewTrack,
+            ).length;
+            const phaseSummary = liveCount && videoCount
+              ? `${liveCount}直播 / ${videoCount}视频`
+              : liveCount
+                ? `${liveCount}直播 / 视频源表未提供`
+                : videoCount
+                  ? `直播源表未提供 / ${videoCount}视频`
+                  : "源表未提供";
+            return (
+              <button type="button" className={active ? "active" : ""} key={phase} onClick={() => onPhaseToggle(phase)}>
+                <Check size={14} />
+                <span>{phase}<small>{phaseSummary}</small></span>
+              </button>
+            );
+          })}
+        </div>
       </div>
+      {emptySelectedPhases.length || liveMissingPhases.length || videoMissingPhases.length ? (
+        <div className="course-stage-warning">
+          <strong>所选阶段的源表数据不完整</strong>
+          <span>
+            {emptySelectedPhases.length ? `${emptySelectedPhases.join("、")}：两份源表均未提供；` : ""}
+            {liveMissingPhases.length ? `${liveMissingPhases.join("、")}：学法直播源表未提供；` : ""}
+            {videoMissingPhases.length ? `${videoMissingPhases.join("、")}：知识视频源表未提供；` : ""}
+            当前只统计实际解析到的 {liveRows.length} 节直播、{videoRows.length} 条知识视频。
+          </span>
+        </div>
+      ) : (
+        <div className="course-stage-result">
+          当前选择共匹配 <strong>{liveRows.length} 节学法直播</strong>、<strong>{videoRows.length} 条知识视频原始大纲</strong>
+        </div>
+      )}
+      <div className="course-upload-head">
+        <strong>{sourceMode === "custom" ? "当前产品专属课表" : "年级全年正课总表"}</strong>
+        <span>{sourceMode === "custom" ? "这两份表只覆盖当前产品；仍可通过上方阶段筛选销售端展示范围。" : "更新后同年级普通产品共享；各产品只需勾选覆盖阶段，不再重复上传。"}</span>
+      </div>
+      <CourseLibraryMatrix grade={grade} parsedData={parsedData} videoTrack={previewTrack} />
       <div className="course-upload-grid">
         <article className="course-upload-card">
           <header>
-            <strong>学法直播大纲</strong>
+            <strong>{sourceMode === "custom" ? "专属学法直播大纲" : "学法直播全年大纲"}</strong>
             <em>{liveUploaded ? "已上传" : "待上传"}</em>
           </header>
-          <UploadSlot label="上传学法直播总表" name={uploadNames.live} onChange={(event) => onUpload("live", event)} />
+          <UploadSlot label={sourceMode === "custom" ? "上传专属学法直播课表" : "上传学法直播全年总表"} name={uploadNames.live} onChange={(event) => onUpload(`${uploadPrefix}-live`, event)} />
         </article>
         <article className="course-upload-card">
           <header>
-            <strong>知识视频大纲</strong>
+            <strong>{sourceMode === "custom" ? "专属知识视频大纲" : "知识视频全年大纲"}</strong>
             <em>{videoUploaded ? "已上传" : "待上传"}</em>
           </header>
-          <UploadSlot label="上传知识视频总表" name={uploadNames.video} onChange={(event) => onUpload("video", event)} />
+          <UploadSlot label={sourceMode === "custom" ? "上传专属知识视频课表" : "上传知识视频全年总表"} name={uploadNames.video} onChange={(event) => onUpload(`${uploadPrefix}-video`, event)} />
         </article>
       </div>
       <div className="course-parse-preview">
-        <strong>表格解析科目</strong>
+        <div className="course-preview-toolbar">
+          <strong>课程大纲核对</strong>
+          <div className="course-preview-switches">
+            <button type="button" className={previewScope === "product" ? "active" : ""} onClick={() => setPreviewScope("product")}>当前产品阶段</button>
+            <button type="button" className={previewScope === "annual" ? "active" : ""} onClick={() => setPreviewScope("annual")}>全年全部阶段</button>
+            <button type="button" className={previewTrack === "目标班" ? "active" : ""} onClick={() => setPreviewTrack("目标班")}>目标班</button>
+            <button type="button" className={previewTrack === "精英班" ? "active" : ""} onClick={() => setPreviewTrack("精英班")}>精英班</button>
+          </div>
+        </div>
         <div>
           {courseSubjects.map((subject) => (
             <button
@@ -991,6 +1381,39 @@ function CourseUploadBoard({ uploadNames, parsedData, selectedSubject, onSubject
         />
       </div>
     </div>
+  );
+}
+
+function CourseLibraryMatrix({ grade, parsedData, videoTrack }) {
+  const phases = getGradeCoursePhases(grade);
+  return (
+    <section className="course-library-matrix">
+      <header>
+        <div><strong>全年课程库完整度</strong><span>直接核对每科、每阶段实际解析数量</span></div>
+        <em>知识视频：通用 + {videoTrack}</em>
+      </header>
+      <div className="course-matrix-scroll">
+        <table>
+          <thead><tr><th>科目</th>{phases.map((phase) => <th key={phase}>{phase}</th>)}</tr></thead>
+          <tbody>
+            {courseSubjects.map((subject) => (
+              <tr key={subject}>
+                <th>{subject}</th>
+                {phases.map((phase) => {
+                  const live = (parsedData.live?.[subject] ?? []).filter((row) => phaseMatches(row.quarter, [phase])).length;
+                  const video = filterVideoRowsByTrack(
+                    (parsedData.video?.[subject] ?? []).filter((row) => phaseMatches(row.quarter, [phase])),
+                    videoTrack,
+                  ).length;
+                  return <td className={live || video ? "has-data" : "missing-data"} key={phase}><strong>{live}</strong><span>直播</span><strong>{video}</strong><span>视频</span></td>;
+                })}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <small>显示 0 的位置代表当前上传源表中没有对应课程，不会自动使用其他阶段内容替代。</small>
+    </section>
   );
 }
 
@@ -1091,6 +1514,18 @@ function GiftPoolSummary({ grade, total, selected }) {
   );
 }
 
+function GiftTriggerGuide({ physical = false }) {
+  return (
+    <div className="gift-trigger-guide">
+      <div><span>销售选 1 科</span><strong>显示“买满1科赠”</strong></div>
+      <ChevronDown size={16} />
+      <div><span>销售选 2 科</span><strong>同时显示满1科、满2科赠礼</strong></div>
+      <ChevronDown size={16} />
+      <div><span>销售选 3 科及以上</span><strong>显示全部满足门槛的{physical ? "实物" : "赠课"}</strong></div>
+    </div>
+  );
+}
+
 function GiftOutlineTable({ items, selectedKeys, expandedKey, uploadNames, onToggle, onExpand, onUpload, onItemChange }) {
   if (!items.length) {
     return (
@@ -1125,9 +1560,9 @@ function GiftOutlineTable({ items, selectedKeys, expandedKey, uploadNames, onTog
               <strong>{item.name}</strong>
               <span>{item.value}</span>
               <span>{item.detail}</span>
-              <em>{item.rule}</em>
+              <em>{normalizeCourseGiftRule(item.rule)}</em>
               <button type="button" className="outline-detail-button" onClick={() => onExpand(key)}>
-                {expanded ? "收起详情" : "赠课详情"}
+                <Pencil size={14} />{expanded ? "完成编辑" : "编辑信息"}
               </button>
             </div>
             {expanded ? (
@@ -1136,13 +1571,15 @@ function GiftOutlineTable({ items, selectedKeys, expandedKey, uploadNames, onTog
                   <label><span>赠课名称</span><input value={item.name || ""} onChange={(event) => onItemChange(key, "name", event.target.value)} /></label>
                   <label><span>权益价值</span><input value={item.value || ""} onChange={(event) => onItemChange(key, "value", event.target.value)} /></label>
                   <label><span>课时量</span><input placeholder="例如：10节 × 30min" value={item.lessonCount || ""} onChange={(event) => onItemChange(key, "lessonCount", event.target.value)} /></label>
-                  <label><span>赠送规则</span><input value={item.rule || ""} onChange={(event) => onItemChange(key, "rule", event.target.value)} /></label>
+                  <label><span>赠送规则</span><select value={normalizeCourseGiftRule(item.rule)} onChange={(event) => onItemChange(key, "rule", event.target.value)}>
+                    {courseGiftRuleOptions.map((rule) => <option key={rule}>{rule}</option>)}
+                  </select></label>
                   <label className="wide"><span>课程明细</span><textarea rows="2" value={item.detail || ""} onChange={(event) => onItemChange(key, "detail", event.target.value)} /></label>
                   <label className="wide"><span>主要讲解内容</span><textarea rows="3" value={item.mainContent || item.bullets?.join("\n") || ""} onChange={(event) => onItemChange(key, "mainContent", event.target.value)} /></label>
                 </div>
                 <div className="gift-detail-upload">
-                  <strong>也可上传具体课程明细</strong>
-                  <span>上传后自动解析课程明细、价值和对应学科内容。</span>
+                  <strong>重新上传课程明细</strong>
+                  <span>可替换为新的九科表格；名称、价值也可以直接在左侧修改。</span>
                   <UploadSlot
                     label="上传赠课详情"
                     name={uploadNames[`gift-detail-${key}`]}
@@ -1201,26 +1638,28 @@ function PhysicalGiftAdmin({ items, selectedKeys, onToggle, stage }) {
   );
 }
 
-function PhysicalGiftRuleTable({ items, selectedKeys, onToggle, onItemChange }) {
+function PhysicalGiftRuleTable({ items, selectedKeys, onToggle, onItemChange, onImageChange }) {
   if (!items.length) {
     return <div className="admin-empty"><PackageCheck size={20} /><strong>实物赠礼待配置</strong><span>在下方新增实物并设置触发规则。</span></div>;
   }
   return (
     <div className="physical-rule-table">
-      <div className="physical-rule-head"><span /><strong>实物名称</strong><strong>价值</strong><strong>赠礼明细</strong><strong>触发规则</strong></div>
+      <div className="physical-rule-head"><span /><strong>配图</strong><strong>实物名称</strong><strong>价值</strong><strong>赠礼明细</strong><strong>触发规则</strong></div>
       {items.map((item) => {
         const key = getGiftItemKey(item);
         const selected = selectedKeys.includes(key);
         return (
           <div className={selected ? "physical-rule-row selected" : "physical-rule-row"} key={key}>
             <button type="button" className={selected ? "table-check active" : "table-check"} onClick={() => onToggle(key)}><Check size={13} /></button>
+            <label className="physical-image-cell">
+              {item.image ? <img src={assetUrl(item.image)} alt="" /> : <ImagePlus size={18} />}
+              <input type="file" accept="image/png,image/jpeg,image/webp" onChange={(event) => onImageChange(key, event.target.files?.[0])} />
+            </label>
             <input aria-label="实物名称" value={item.name || ""} onChange={(event) => onItemChange(key, "name", event.target.value)} />
             <input aria-label="实物价值" value={item.value || ""} onChange={(event) => onItemChange(key, "value", event.target.value)} />
             <input aria-label="赠礼明细" value={item.detail || ""} onChange={(event) => onItemChange(key, "detail", event.target.value)} />
             <select aria-label="触发规则" value={normalizePhysicalRule(item.rule)} onChange={(event) => onItemChange(key, "rule", event.target.value)}>
-              <option>买一科即赠</option>
-              <option>买两科及以上赠送</option>
-              <option>累计3科及以上可以赠</option>
+              {physicalGiftRuleOptions.map((rule) => <option key={rule}>{rule}</option>)}
             </select>
           </div>
         );
@@ -1229,11 +1668,12 @@ function PhysicalGiftRuleTable({ items, selectedKeys, onToggle, onItemChange }) 
   );
 }
 
+function normalizeCourseGiftRule(rule) {
+  return `买满${getGiftRuleThreshold(rule)}科赠对应学科`;
+}
+
 function normalizePhysicalRule(rule) {
-  const text = String(rule || "");
-  if (text.includes("3科") || text.includes("三科")) return "累计3科及以上可以赠";
-  if (text.includes("2科") || text.includes("两科")) return "买两科及以上赠送";
-  return "买一科即赠";
+  return `买满${getGiftRuleThreshold(rule)}科赠`;
 }
 
 function TeachingAidImageAdmin({ stage }) {
@@ -1443,7 +1883,7 @@ function BenefitSheet({ products = [], product, coursePlan, coursePlans, refNode
                   const videoCount = getCourseVideoRows(plan).length || plan.videoEntitlement || 0;
                   return (
                     <details
-                      className="subject-course-details"
+                      className={`subject-course-details${viewMode === "detail" ? " detail-static" : ""}`}
                       key={`${viewMode}-${plan.subject}`}
                       open={viewMode === "detail" ? true : undefined}
                     >
@@ -1454,8 +1894,8 @@ function BenefitSheet({ products = [], product, coursePlan, coursePlans, refNode
                         </div>
                         <div className="subject-course-summary-meta">
                           {videoCount ? <em>知识视频 {videoCount}条</em> : <em>本阶段无知识视频</em>}
-                          <span>点击展开完整大纲</span>
-                          <ChevronDown size={18} />
+                          <span>{viewMode === "detail" ? "完整大纲已展示" : "点击展开完整大纲"}</span>
+                          {viewMode === "detail" ? null : <ChevronDown size={18} />}
                         </div>
                       </summary>
                       <div className="subject-course-detail-body">
@@ -1502,8 +1942,9 @@ function BenefitSheet({ products = [], product, coursePlan, coursePlans, refNode
         <EnvelopeSection number="02" title="赠课权益" tone="orange">
           <BenefitDisclosure
             title={`已配置 ${giftPlan.items.length} 项赠课`}
-            description="赠课名称、价值及赠送规则已汇总，点击查看完整课程明细。"
+            description={viewMode === "detail" ? "赠课名称、价值、规则及课程明细已完整展示。" : "赠课名称、价值及赠送规则已汇总，点击查看完整课程明细。"}
             open={viewMode === "detail"}
+            staticOpen={viewMode === "detail"}
           >
             <GiftRuleList giftPlan={giftPlan} />
           </BenefitDisclosure>
@@ -1512,8 +1953,9 @@ function BenefitSheet({ products = [], product, coursePlan, coursePlans, refNode
         <EnvelopeSection number="03" title="实物赠礼 / 教辅资料" tone="blue">
           <BenefitDisclosure
             title={`已匹配 ${subjects.join("、")} 教辅资料`}
-            description="买哪科展示哪科资料，实物赠礼与教辅图片点击展开查看。"
+            description={viewMode === "detail" ? "买哪科展示哪科资料，实物赠礼与教辅图片已完整展示。" : "买哪科展示哪科资料，实物赠礼与教辅图片点击展开查看。"}
             open={viewMode === "detail"}
+            staticOpen={viewMode === "detail"}
           >
             <PhysicalGiftSection items={physicalGiftItems} />
             <TeachingAidSection subjects={subjects} stage={product.stage} />
@@ -1733,7 +2175,7 @@ function BenefitOverview({ product, plans, giftPlan, physicalGiftItems, subjects
           <span>权益总览</span>
           <strong>{subjects.join("、")} · 一页看清全部所得</strong>
         </div>
-        <em>详细大纲可逐项展开</em>
+        <em>完整课程大纲已直接展示</em>
       </header>
       <div className="benefit-overview-grid">
         <div>
@@ -1764,15 +2206,15 @@ function BenefitOverview({ product, plans, giftPlan, physicalGiftItems, subjects
   );
 }
 
-function BenefitDisclosure({ title, description, children, open = false }) {
+function BenefitDisclosure({ title, description, children, open = false, staticOpen = false }) {
   return (
-    <details className="benefit-disclosure" open={open ? true : undefined}>
+    <details className={`benefit-disclosure${staticOpen ? " detail-static" : ""}`} open={open ? true : undefined}>
       <summary>
         <div>
           <strong>{title}</strong>
           <span>{description}</span>
         </div>
-        <ChevronDown size={19} />
+        {staticOpen ? null : <ChevronDown size={19} />}
       </summary>
       <div className="benefit-disclosure-body">{children}</div>
     </details>
@@ -1976,69 +2418,34 @@ function CourseOutlineRow({ lesson, expanded, onToggle, onLessonChange }) {
 
 async function parseCourseWorkbook(file, type, grade) {
   const buffer = await file.arrayBuffer();
-  const workbook = XLSX.read(buffer, { type: "array", cellDates: true });
-  const parsed = {};
-  courseSubjects.forEach((subject) => {
-    const sheetName = type === "live" ? subject : findVideoSheetName(workbook.SheetNames, grade, subject);
-    const sheet = workbook.Sheets[sheetName];
-    if (!sheet) {
-      parsed[subject] = [];
-      return;
-    }
-    const rows = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: "", raw: true });
-    parsed[subject] = type === "live" ? parseLiveRows(rows) : parseVideoRows(rows);
+  const workbook = XLSX.read(buffer, { type: "array", cellDates: false });
+  return parseCourseWorkbookSheets({
+    SheetNames: workbook.SheetNames,
+    Sheets: workbook.Sheets,
+    sheetToRows: (sheet) => XLSX.utils.sheet_to_json(sheet, { header: 1, defval: "", raw: true }),
+  }, type, grade, courseSubjects);
+}
+
+async function readImageFileAsDataUrl(file) {
+  const source = await new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
   });
-  return parsed;
-}
-
-function findVideoSheetName(sheetNames, grade, subject) {
-  return sheetNames.find((name) => name === `${grade}-${subject}`) ??
-    sheetNames.find((name) => name.includes(grade) && name.includes(subject)) ??
-    sheetNames.find((name) => name.endsWith(`-${subject}`)) ??
-    sheetNames.find((name) => name === subject);
-}
-
-function parseLiveRows(rows) {
-  const [header = [], ...body] = rows;
-  const index = createHeaderIndex(header);
-  let currentGrade = "";
-  let currentQuarter = "";
-  return body
-    .map((row, rowIndex) => {
-      currentGrade = getCell(row, index, "年级") || currentGrade;
-      currentQuarter = getCell(row, index, "季度") || getCell(row, index, "季节") || currentQuarter;
-      const date = formatExcelDate(getCell(row, index, "日期"));
-      const time = String(getCell(row, index, "上课时间") || "").trim();
-      const title = String(getCell(row, index, "课程大纲") || getCell(row, index, "课程大纲标题") || "").trim();
-      return {
-        id: `uploaded-live-${rowIndex + 1}`,
-        no: rowIndex + 1,
-        grade: currentGrade,
-        quarter: currentQuarter,
-        date,
-        time,
-        early: formatSchedule(getCell(row, index, "早鸟期-上课日期"), getCell(row, index, "早鸟期-上课时间")),
-        phase1: formatSchedule(getCell(row, index, "一期-上课日期"), getCell(row, index, "一期-上课时间")),
-        phase2: formatSchedule(getCell(row, index, "二期-上课日期"), getCell(row, index, "二期-上课时间")),
-        phase3: formatSchedule(getCell(row, index, "三期-上课日期"), getCell(row, index, "三期-上课时间")),
-        title,
-        live: title,
-      };
-    })
-    .filter((row) => row.title);
-}
-
-function parseVideoRows(rows) {
-  const [header = [], ...body] = rows;
-  const index = createHeaderIndex(header);
-  return body
-    .map((row) => ({
-      title: String(getCell(row, index, "视频大纲") || "").trim(),
-      difficulty: getCell(row, index, "难度星级") || getCell(row, index, "星级难度"),
-      layered: getCell(row, index, "是否分层"),
-      quarter: getCell(row, index, "所属季度"),
-    }))
-    .filter((row) => row.title);
+  const image = await new Promise((resolve, reject) => {
+    const element = new Image();
+    element.onload = () => resolve(element);
+    element.onerror = reject;
+    element.src = source;
+  });
+  const maxWidth = 1200;
+  const scale = Math.min(1, maxWidth / image.width);
+  const canvas = document.createElement("canvas");
+  canvas.width = Math.max(1, Math.round(image.width * scale));
+  canvas.height = Math.max(1, Math.round(image.height * scale));
+  canvas.getContext("2d").drawImage(image, 0, 0, canvas.width, canvas.height);
+  return canvas.toDataURL("image/jpeg", 0.86);
 }
 
 async function parseGiftWorkbook(file, grade) {
@@ -2069,7 +2476,7 @@ async function parseGiftWorkbook(file, grade) {
     name: file.name.replace(/\.(xlsx|xls|csv)$/i, ""),
     detail: hasSubjectCourses ? "对应学科赠课" : fallbackBullets.length ? `${fallbackBullets.length}项课程明细` : "课程明细待补充",
     value: extractGiftValue(allTexts) || "待补充",
-    rule: hasSubjectCourses ? "买赠对应学科" : "按表格赠送规则",
+    rule: "买满1科赠对应学科",
     subjectCourses: hasSubjectCourses ? cleanedSubjectCourses : undefined,
     bullets: fallbackBullets.length ? fallbackBullets : undefined,
   };
@@ -2199,10 +2606,10 @@ function formatExcelDate(value) {
 }
 
 function resolveCoursePlan(product, subject, forcedPhases, videoTrack = "目标班") {
-  const profile = getSubjectProfile(product, subject);
+  const profile = { ...getSubjectProfile(product, subject) };
   const isG1Autumn = String(product.grade).includes("高一") && `${product.stage}${product.name}`.includes("秋实");
   if (isG1Autumn && ["语文", "数学", "英语", "物理", "化学"].includes(subject)) {
-    profile.knowledgeVideos = Math.max(Number(product.core.knowledgeVideos) || 0, 40);
+    profile.knowledgeVideos = 40;
   }
   const parsedPlan = resolveParsedCoursePlan(product, subject, profile, forcedPhases, videoTrack);
   if (parsedPlan) return parsedPlan;
@@ -2276,14 +2683,12 @@ function resolveParsedCoursePlan(product, subject, profile, forcedPhases, videoT
   let filteredVideos = filterVideoRowsByTrack(
     videoRows.filter((video) => phaseMatches(video.quarter, getVideoCoveragePhases(product, coveragePhases))),
     videoTrack,
-  )
-    .slice(0, profile.knowledgeVideos || undefined);
-  if (!filteredVideos.length && fallbackVideoRows.length && profile.knowledgeVideos) {
+  ).slice(0, profile.knowledgeVideos || undefined);
+  if (!uploadedVideoRows.length && !filteredVideos.length && fallbackVideoRows.length && profile.knowledgeVideos) {
     filteredVideos = filterVideoRowsByTrack(
       fallbackVideoRows.filter((video) => phaseMatches(video.quarter, getVideoCoveragePhases(product, coveragePhases))),
       videoTrack,
-    )
-      .slice(0, profile.knowledgeVideos);
+    ).slice(0, profile.knowledgeVideos || undefined);
   }
   const assignedLessons = assignVideosToLessons(
     filteredLive.map((lesson, index) => ({
@@ -2302,8 +2707,8 @@ function resolveParsedCoursePlan(product, subject, profile, forcedPhases, videoT
     grade: product.grade,
     stage: product.stage,
     description: product.subtitle,
-    liveCount: lessons.length || profile.liveLessons,
-    videoEntitlement: profile.knowledgeVideos || filteredVideos.length,
+    liveCount: lessons.length,
+    videoEntitlement: filteredVideos.length,
     videoLibraryCount: filteredVideos.length,
     matchedVideoCount: matchedCount,
     unmatchedVideoCount: Math.max(0, filteredVideos.length - matchedCount),
@@ -2321,11 +2726,21 @@ function resolveParsedCoursePlan(product, subject, profile, forcedPhases, videoT
 function filterVideoRowsByTrack(rows, videoTrack) {
   const normalizedRows = rows.map((row) => ({ ...row, normalizedTrack: normalizeVideoTrack(row.layered) }));
   const hasExplicitTracks = normalizedRows.some((row) => row.normalizedTrack === "目标班" || row.normalizedTrack === "精英班");
-  if (!hasExplicitTracks) return rows;
+  if (!hasExplicitTracks) return uniqueCourseRows(rows);
 
-  return normalizedRows
+  return uniqueCourseRows(normalizedRows
     .filter((row) => row.normalizedTrack === "通用" || row.normalizedTrack === videoTrack)
-    .map(({ normalizedTrack, ...row }) => row);
+    .map(({ normalizedTrack, ...row }) => row));
+}
+
+function uniqueCourseRows(rows) {
+  const seen = new Set();
+  return rows.filter((row) => {
+    const key = [row.quarter, row.layered, row.title, row.name].map((value) => String(value ?? "").trim()).join("|");
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
 }
 
 function normalizeVideoTrack(value) {
@@ -2340,17 +2755,44 @@ function phaseMatches(phase, selectedPhases) {
   if (!selectedPhases?.length) return true;
   if (selectedPhases.includes(phase)) return true;
   if (phase === "暑秋" && (selectedPhases.includes("暑期") || selectedPhases.includes("秋季"))) return true;
+  if (phase === "寒春" && (selectedPhases.includes("寒假") || selectedPhases.includes("春季"))) return true;
   if (phase === "夏季" && selectedPhases.includes("暑期")) return true;
   return false;
 }
 
+function getGradeCoursePhases(grade) {
+  return grade === "高三" ? ["一轮", "二轮"] : ["暑期", "秋季", "寒假", "春季"];
+}
+
 function getVideoCoveragePhases(product, coveragePhases) {
-  const isG1Autumn = String(product.grade).includes("高一") && `${product.stage}${product.name}`.includes("秋实");
-  if (isG1Autumn) return ["秋季"];
-  return product.videoPhases?.length ? product.videoPhases : coveragePhases;
+  // 全年课程库始终跟随产品覆盖阶段；仅个性化课表允许保留独立的视频范围。
+  if (product.courseSourceMode === "custom" && product.videoPhases?.length) {
+    return product.videoPhases;
+  }
+  return coveragePhases;
+}
+
+function getCourseStageCounts(parsedData, coveragePhases) {
+  const counts = courseSubjects.map((subject) => {
+    const live = (parsedData.live?.[subject] ?? [])
+      .filter((row) => phaseMatches(row.quarter, coveragePhases)).length;
+    const video = filterVideoRowsByTrack(
+      (parsedData.video?.[subject] ?? [])
+        .filter((row) => phaseMatches(row.quarter, coveragePhases)),
+      "目标班",
+    ).length;
+    return { live, video };
+  });
+  return {
+    live: Math.max(0, ...counts.map((item) => item.live)),
+    video: Math.max(0, ...counts.map((item) => item.video)),
+  };
 }
 
 function getDefaultCoveragePhases(product) {
+  if (product.grade === "高三") {
+    return product.stage === "二轮卡" ? ["二轮"] : ["一轮"];
+  }
   if (product.stage === "夏研卡") return ["暑期"];
   if (product.stage === "秋实卡") return ["秋季"];
   if (product.stage === "一轮卡") return ["暑期", "秋季"];
@@ -2401,7 +2843,7 @@ function getSubjectProfile(product, subject) {
     : product.videoSubjects;
   const hasKnowledgeVideos = !videoSubjects || videoSubjects.includes(subject);
   const knowledgeVideos = isG1Autumn && hasKnowledgeVideos
-    ? Math.max(Number(product.core.knowledgeVideos) || 0, 40)
+    ? 40
     : hasKnowledgeVideos ? profile?.knowledgeVideos ?? product.core.knowledgeVideos : 0;
   return {
     liveLessons: profile?.liveLessons ?? product.core.liveLessons,
@@ -2437,9 +2879,10 @@ function getGiftPlanForSubjects(product, subjects, products = []) {
     .filter((item) => isGiftRuleEligible(item.rule, subjects.length));
   const items = selectedItems.flatMap((item) => {
     if (isSubjectMatchedGift(item)) {
-      return subjects.map((subject) => resolveSubjectGiftItem(item, subject));
+      return subjects
+        .filter((subject) => item.subjectCourses?.[subject]?.length)
+        .map((subject) => resolveSubjectGiftItem(item, subject));
     }
-    if (item.subjectCourses) return [resolveMergedSubjectGiftItem(item, subjects)];
     return [item];
   });
   const firstPlan = basePlan ?? { title: "赠课权益", note: "赠课权益以实际开通内容为准。" };
@@ -2451,7 +2894,7 @@ function getGiftPlanForSubjects(product, subjects, products = []) {
 }
 
 function isSubjectMatchedGift(item) {
-  return Boolean(item.subjectCourses) && String(item.rule || "").includes("对应学科");
+  return Boolean(item.subjectCourses);
 }
 
 function resolveMergedSubjectGiftItem(item, subjects) {
@@ -2542,11 +2985,15 @@ function getGradePhysicalGiftCandidates(products, product) {
 }
 
 function isGiftRuleEligible(rule, subjectCount) {
+  return subjectCount >= getGiftRuleThreshold(rule);
+}
+
+function getGiftRuleThreshold(rule) {
   const text = String(rule || "");
-  if (text.includes("两科及以下") || text.includes("对应学科") || text.includes("买赠对应")) return subjectCount >= 1;
-  if (text.includes("3科") || text.includes("三科")) return subjectCount >= 3;
-  if (text.includes("2科") || text.includes("两科")) return subjectCount >= 2;
-  return subjectCount >= 1;
+  if (text.includes("两科及以下") || text.includes("直接赠送") || text.includes("买赠对应") || text.includes("买对应学科")) return 1;
+  if (/买满\s*3\s*科|3科|三科/.test(text)) return 3;
+  if (/买满\s*2\s*科|2科|两科/.test(text) && !text.includes("两科及以下")) return 2;
+  return 1;
 }
 
 function uniqueGiftItems(items) {
