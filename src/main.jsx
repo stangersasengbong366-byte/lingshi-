@@ -228,14 +228,36 @@ function App() {
   const [selectedProductId, setSelectedProductId] = useState(() => shareParams?.productId ?? loadStoredProducts()[0]?.id ?? initialProducts[0].id);
   const [selectedSubjects, setSelectedSubjects] = useState(() => shareParams?.subjects ?? [shareParams?.subject ?? "数学"]);
   const [selectedVideoTracks, setSelectedVideoTracks] = useState(() => shareParams?.videoTracks ?? {});
-  const selectedProduct = products.find((item) => item.id === selectedProductId) ?? products[0];
-  const selectedCoursePlans = selectedSubjects.map((subject) => resolveCoursePlan(
+  const activeProducts = useMemo(() => products.filter((item) => item.status === "在售"), [products]);
+  const availableProducts = !publicView && activePage === "admin" ? products : activeProducts;
+  const selectedProduct = availableProducts.find((item) => item.id === selectedProductId) ?? availableProducts[0] ?? null;
+  const selectedCoursePlans = selectedProduct ? selectedSubjects.map((subject) => resolveCoursePlan(
     selectedProduct,
     subject,
     undefined,
     selectedVideoTracks[subject] ?? "目标班",
-  ));
+  )) : [];
   const selectedCoursePlan = selectedCoursePlans[0];
+
+  React.useEffect(() => {
+    if (!shareParams) return undefined;
+    const viewport = document.querySelector('meta[name="viewport"]');
+    const isPhone = window.matchMedia("(max-width: 760px)").matches;
+    if (!viewport || !isPhone) return undefined;
+    const previousContent = viewport.getAttribute("content");
+    const canvasWidth = shareParams.viewMode === "detail" ? 980 : 1120;
+    viewport.setAttribute(
+      "content",
+      `width=${canvasWidth}, minimum-scale=0.25, maximum-scale=4, user-scalable=yes`,
+    );
+    document.documentElement.classList.add("share-fixed-canvas");
+    document.documentElement.style.setProperty("--share-canvas-width", `${canvasWidth}px`);
+    return () => {
+      viewport.setAttribute("content", previousContent ?? "width=device-width, initial-scale=1.0");
+      document.documentElement.classList.remove("share-fixed-canvas");
+      document.documentElement.style.removeProperty("--share-canvas-width");
+    };
+  }, [shareParams?.viewMode]);
 
   React.useEffect(() => {
     if (!cloudConfigEnabled) return undefined;
@@ -248,9 +270,12 @@ function App() {
           return;
         }
         const nextProducts = cloudProducts;
+        const selectableProducts = publicView
+          ? nextProducts.filter((product) => product.status === "在售")
+          : nextProducts;
         setProducts(nextProducts);
         saveStoredProducts(nextProducts);
-        setSelectedProductId((current) => nextProducts.some((product) => product.id === current) ? current : nextProducts[0]?.id);
+        setSelectedProductId((current) => selectableProducts.some((product) => product.id === current) ? current : selectableProducts[0]?.id);
         setSyncStatus(publicView ? "已同步最新发布版本" : "云端草稿已同步");
       })
       .catch((error) => setSyncStatus(error?.isMissingTable ? "云端数据表未创建，当前使用本地配置" : "云端连接失败，已使用本地配置"));
@@ -321,10 +346,38 @@ function App() {
     return nextProduct;
   };
 
+  const deleteProduct = async (productId) => {
+    const target = products.find((product) => product.id === productId);
+    if (!target) return;
+    if (products.length <= 1) {
+      window.alert("至少需要保留一个产品。");
+      return;
+    }
+    if (!window.confirm(`确认删除“${target.name}”吗？删除后无法恢复。`)) return;
+    const nextProducts = products.filter((product) => product.id !== productId);
+    setProducts(nextProducts);
+    saveStoredProducts(nextProducts);
+    setSelectedProductId((current) => current === productId ? nextProducts[0]?.id : current);
+    setSyncStatus("正在删除并同步云端");
+    try {
+      await Promise.all([
+        saveCloudProducts(nextProducts, CLOUD_PRODUCTS_DRAFT_ID),
+        saveCloudProducts(nextProducts, CLOUD_PRODUCTS_PUBLISHED_ID),
+      ]);
+      setSyncStatus("产品已删除，销售端同步完成");
+    } catch (error) {
+      setSyncStatus(error?.isMissingTable ? "产品已从本机删除，云端数据表尚未创建" : "产品已从本机删除，云端同步失败");
+    }
+  };
+
+  if (publicView && !selectedProduct) {
+    return <main className="public-empty-state"><strong>暂无在售产品</strong><span>产品上线后即可查看权益清单。</span></main>;
+  }
+
   if (shareParams) {
     return (
       <CustomerSharePage
-        products={products}
+        products={activeProducts}
         product={selectedProduct}
         selectedSubjects={selectedSubjects}
         selectedVideoTracks={selectedVideoTracks}
@@ -338,16 +391,23 @@ function App() {
     <main className="app-shell">
       <AppHeader activePage={activePage} onPageChange={setActivePage} syncStatus={syncStatus} salesOnly={salesOnly} />
       {activePage === "sales" && (
-        <SalesPage
-          products={products}
-          selectedProduct={selectedProduct}
-          selectedSubjects={selectedSubjects}
-          selectedVideoTracks={selectedVideoTracks}
-          coursePlans={selectedCoursePlans}
-          onSelect={setSelectedProductId}
-          onSubjectsChange={setSelectedSubjects}
-          onVideoTrackChange={(subject, track) => setSelectedVideoTracks((current) => ({ ...current, [subject]: track }))}
-        />
+        selectedProduct ? (
+          <SalesPage
+            products={activeProducts}
+            selectedProduct={selectedProduct}
+            selectedSubjects={selectedSubjects}
+            selectedVideoTracks={selectedVideoTracks}
+            coursePlans={selectedCoursePlans}
+            onSelect={setSelectedProductId}
+            onSubjectsChange={setSelectedSubjects}
+            onVideoTrackChange={(subject, track) => setSelectedVideoTracks((current) => ({ ...current, [subject]: track }))}
+          />
+        ) : (
+          <section className="public-empty-state sales-empty-state">
+            <strong>暂无在售产品</strong>
+            <span>请前往后台，将需要销售的产品状态调整为“在售”。</span>
+          </section>
+        )
       )}
       {activePage === "admin" && (
         <AdminPage
@@ -355,6 +415,7 @@ function App() {
           selectedProduct={selectedProduct}
           onSelect={setSelectedProductId}
           onAdd={addProduct}
+          onDelete={deleteProduct}
           onUpdate={updateProduct}
           onPublish={publishProducts}
           syncStatus={syncStatus}
@@ -718,7 +779,7 @@ function CustomerSharePage({ products, product, selectedSubjects, selectedVideoT
   );
 }
 
-function AdminPage({ products, selectedProduct, onSelect, onAdd, onUpdate, onPublish, syncStatus }) {
+function AdminPage({ products, selectedProduct, onSelect, onAdd, onDelete, onUpdate, onPublish, syncStatus }) {
   const [draft, setDraft] = useState(selectedProduct);
   const [activeAdminSection, setActiveAdminSection] = useState("basic");
   const [expandedGiftKey, setExpandedGiftKey] = useState("");
@@ -727,7 +788,7 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onUpdate, onPub
   const [annualCourseData, setAnnualCourseData] = useState(selectedProduct.annualCourseData ?? selectedProduct.parsedCourseData ?? { live: {}, video: {} });
   const [customCourseData, setCustomCourseData] = useState(selectedProduct.customCourseData ?? { live: {}, video: {} });
   const [parsedSubject, setParsedSubject] = useState("语文");
-  const [newGift, setNewGift] = useState({ name: "", detail: "", value: "", lessonCount: "", mainContent: "", category: "学科类赠课", rule: "买满1科赠对应学科", image: "" });
+  const [newGift, setNewGift] = useState({ name: "", detail: "", value: "", lessonCount: "", mainContent: "", displayOrder: "", category: "学科类赠课", rule: "买满1科赠对应学科", image: "" });
   const [newPhysicalGift, setNewPhysicalGift] = useState({ name: "", detail: "", value: "", rule: "买满1科赠" });
   const [lastGiftImport, setLastGiftImport] = useState(null);
   const [publishState, setPublishState] = useState("idle");
@@ -984,6 +1045,7 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onUpdate, onPub
       value: newGift.value.trim() || "待补充",
       lessonCount: newGift.lessonCount.trim(),
       mainContent: newGift.mainContent.trim(),
+      displayOrder: newGift.displayOrder === "" ? "" : Number(newGift.displayOrder),
       category: newGift.category,
       rule: newGift.rule,
       image: newGift.image || "",
@@ -993,7 +1055,7 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onUpdate, onPub
       customGiftItems: [...(draft.customGiftItems ?? []), item],
       giftSelections: [...selectedGiftKeys, getGiftItemKey(item)],
     });
-    setNewGift({ name: "", detail: "", value: "", lessonCount: "", mainContent: "", category: "学科类赠课", rule: "买满1科赠对应学科", image: "" });
+    setNewGift({ name: "", detail: "", value: "", lessonCount: "", mainContent: "", displayOrder: "", category: "学科类赠课", rule: "买满1科赠对应学科", image: "" });
   };
 
   const togglePhysicalGiftSelection = (key) => {
@@ -1100,7 +1162,7 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onUpdate, onPub
           <Plus size={17} />
           <span>新增产品</span>
         </button>
-        <GradeProductList products={products} selectedProduct={selectedProduct} onSelect={onSelect} />
+        <GradeProductList products={products} selectedProduct={selectedProduct} onSelect={onSelect} onDelete={onDelete} />
         <nav className="admin-section-nav" aria-label="后台配置模块">
           <span>当前产品配置</span>
           {adminSections.map((section) => {
@@ -1283,6 +1345,7 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onUpdate, onPub
               <input placeholder="价值" value={newGift.value} onChange={(event) => setNewGift({ ...newGift, value: event.target.value })} />
               <input placeholder="课时量，如 10节 × 30min" value={newGift.lessonCount} onChange={(event) => setNewGift({ ...newGift, lessonCount: event.target.value })} />
               <input placeholder="主要讲解内容" value={newGift.mainContent} onChange={(event) => setNewGift({ ...newGift, mainContent: event.target.value })} />
+              <input type="number" min="1" placeholder="展示顺序（数字越小越靠前）" value={newGift.displayOrder} onChange={(event) => setNewGift({ ...newGift, displayOrder: event.target.value })} />
               <select value={newGift.category} onChange={(event) => setNewGift({ ...newGift, category: event.target.value })}>
                 {giftCategoryOptions.map((category) => <option key={category}>{category}</option>)}
               </select>
@@ -1340,7 +1403,7 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onUpdate, onPub
   );
 }
 
-function GradeProductList({ products, selectedProduct, onSelect }) {
+function GradeProductList({ products, selectedProduct, onSelect, onDelete }) {
   return (
     <div className="grade-product-list">
       {gradeLabels.map((grade) => {
@@ -1351,15 +1414,21 @@ function GradeProductList({ products, selectedProduct, onSelect }) {
             <header>{grade}</header>
             <div className="product-list-items">
               {gradeProducts.map((product) => (
-                <button
-                  key={product.id}
-                  type="button"
-                  onClick={() => onSelect(product.id)}
-                  className={product.id === selectedProduct.id ? "product-row active" : "product-row"}
-                >
-                  <strong>{product.name}</strong>
-                  <span>{product.stage} · {product.status}</span>
-                </button>
+                <div key={product.id} className={product.id === selectedProduct?.id ? "product-row active" : "product-row"}>
+                  <button type="button" className="product-row-select" onClick={() => onSelect(product.id)}>
+                    <strong>{product.name}</strong>
+                    <span>{product.stage} · {product.status}</span>
+                  </button>
+                  <button
+                    type="button"
+                    className="product-row-delete"
+                    title={`删除${product.name}`}
+                    aria-label={`删除${product.name}`}
+                    onClick={() => onDelete(product.id)}
+                  >
+                    <Trash2 size={16} />
+                  </button>
+                </div>
               ))}
             </div>
           </section>
@@ -1911,6 +1980,7 @@ function GiftOutlineTable({ items, selectedKeys, expandedKey, uploadNames, onTog
                   <label><span>赠课名称</span><input value={item.name || ""} onChange={(event) => onItemChange(key, "name", event.target.value)} /></label>
                   <label><span>权益价值</span><input value={item.value || ""} onChange={(event) => onItemChange(key, "value", event.target.value)} /></label>
                   <label><span>课时量</span><input placeholder="例如：10节 × 30min" value={item.lessonCount || ""} onChange={(event) => onItemChange(key, "lessonCount", event.target.value)} /></label>
+                  <label><span>展示顺序</span><input type="number" min="1" placeholder="数字越小越靠前" value={item.displayOrder ?? ""} onChange={(event) => onItemChange(key, "displayOrder", event.target.value === "" ? "" : Number(event.target.value))} /></label>
                   <label><span>赠课分类</span><select value={category} onChange={(event) => onItemChange(key, "category", event.target.value)}>
                     {giftCategoryOptions.map((option) => <option key={option}>{option}</option>)}
                   </select></label>
@@ -2391,6 +2461,7 @@ function SummaryBenefitLayout({ product, plans, giftPlan, physicalGiftItems, sub
   const videoCount = videoRows.length || activePlan.videoEntitlement || 0;
   const originalTotal = pricing.originalTotal;
   const discountTotal = Math.max(0, originalTotal - pricing.currentTotal);
+  const selectedSubjectLabel = subjects.length ? subjects.join(" + ") : activeSubject;
 
   return (
     <div className="summary-layout reference-summary-layout">
@@ -2426,7 +2497,7 @@ function SummaryBenefitLayout({ product, plans, giftPlan, physicalGiftItems, sub
           </article>
 
           <aside className="reference-price-card">
-            <span>{product.stage} · {activeSubject}</span>
+            <span>{product.stage} · {selectedSubjectLabel}</span>
             <p>原价 <del>¥{formatPrice(originalTotal)}</del><em>限时优惠</em></p>
             <strong>¥{formatPrice(pricing.currentTotal)}</strong>
             <small>已选 {subjects.length} 科：{subjects.join("、")}</small>
@@ -2513,6 +2584,37 @@ function getGiftLessonCount(item) {
   );
   if (compactCount) return compactCount[1].replace(/\s+/g, "");
   return "";
+}
+
+function getGiftLessonNumber(item) {
+  const match = String(getGiftLessonCount(item)).match(/\d+(?:\.\d+)?/);
+  return match ? Number(match[0]) : 0;
+}
+
+function isLongGrowthGift(item) {
+  return getGiftLessonNumber(item) >= 10 || (item.bullets?.length || 0) >= 6;
+}
+
+function getGiftDisplayOrder(item) {
+  const order = Number(item.displayOrder ?? item.order);
+  return Number.isFinite(order) ? order : null;
+}
+
+function sortGiftItemsForDisplay(items, category) {
+  return items
+    .map((item, index) => ({ item, index }))
+    .sort((left, right) => {
+      const leftOrder = getGiftDisplayOrder(left.item);
+      const rightOrder = getGiftDisplayOrder(right.item);
+      if (leftOrder !== null || rightOrder !== null) {
+        return (leftOrder ?? 999) - (rightOrder ?? 999) || left.index - right.index;
+      }
+      if (category === "升学赋能包") {
+        return Number(isLongGrowthGift(left.item)) - Number(isLongGrowthGift(right.item)) || left.index - right.index;
+      }
+      return left.index - right.index;
+    })
+    .map(({ item }) => item);
 }
 
 function getPhysicalGiftQuantity(item) {
@@ -3757,18 +3859,30 @@ function GiftRuleList({ giftPlan }) {
 
   const courseItems = giftPlan.items.filter((item) => item.type === "赠课");
   const courseGroups = giftCategoryOptions
-    .map((category) => ({ category, ...giftCategoryMeta[category], items: courseItems.filter((item) => getGiftCategory(item) === category) }))
+    .map((category) => ({
+      category,
+      ...giftCategoryMeta[category],
+      items: sortGiftItemsForDisplay(
+        courseItems.filter((item) => getGiftCategory(item) === category),
+        category,
+      ),
+    }))
     .filter((group) => group.items.length);
 
   return (
     <div className="gift-rule-wrap">
       <div className="detail-gift-groups">
         {courseGroups.map((group) => (
-          <section className="detail-gift-group" key={group.category}>
+          <section className={`detail-gift-group ${group.category === "升学赋能包" ? "smart-growth-group" : ""}`} key={group.category}>
             <header><span>{group.index}</span><div><strong>{group.category}</strong><small>{group.note}</small></div></header>
             <div className="gift-poster-grid">
               {group.items.map((item, index) => (
-                <GiftPosterCard item={item} index={index} key={`${item.name}-${index}`} />
+                <GiftPosterCard
+                  item={item}
+                  index={index}
+                  key={`${item.name}-${index}`}
+                  wide={group.category === "升学赋能包" && isLongGrowthGift(item)}
+                />
               ))}
             </div>
           </section>
@@ -3778,13 +3892,13 @@ function GiftRuleList({ giftPlan }) {
   );
 }
 
-function GiftPosterCard({ item, index }) {
+function GiftPosterCard({ item, index, wide = false }) {
   const tones = ["cyan", "orange", "purple", "green", "blue"];
   const tone = tones[index % tones.length];
   const showValue = item.value && !String(item.value).includes("待补充");
   const image = getGiftImage(item);
   return (
-    <article className={`gift-poster-card simplified ${tone}`}>
+    <article className={`gift-poster-card simplified ${tone} ${wide ? "is-wide" : ""}`}>
       <div className="gift-poster-image">
         {showValue ? <em>价值 {item.value}</em> : null}
         {image ? <img src={assetUrl(image)} alt={item.name} /> : <span>{item.name}</span>}

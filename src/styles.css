@@ -928,6 +928,67 @@ textarea {
   line-height: 1.55;
 }
 
+/* Final growth-gift layout: ordered short courses pair up, long courses span the row. */
+.detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-flow: row dense;
+  align-items: start;
+  gap: 16px;
+}
+
+.detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card:not(.is-wide) {
+  align-self: start;
+}
+
+.detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(280px, 0.84fr) minmax(0, 1.16fr);
+  grid-template-rows: auto 1fr;
+  width: 100%;
+}
+
+.detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide .gift-poster-image {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  aspect-ratio: auto;
+  border-right: 1px solid #e2e8f0;
+  border-bottom: 0;
+}
+
+.detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide > header,
+.detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide > .gift-poster-summary {
+  grid-column: 2;
+}
+
+.detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide .gift-course-outline ol {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 22px;
+}
+
+@media (max-width: 720px) {
+  .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid {
+    gap: 8px;
+  }
+
+  .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide {
+    grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+  }
+
+  .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide .gift-poster-image {
+    min-height: 220px;
+  }
+
+  .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide .gift-course-outline ol {
+    column-gap: 10px;
+  }
+}
+
 /* Compact customer summary, aligned with the approved course-list reference. */
 .benefit-sheet.view-summary .reference-summary-layout {
   width: 100%;
@@ -5581,9 +5642,11 @@ select {
 
 .product-row {
   display: grid;
-  gap: 5px;
+  grid-template-columns: minmax(0, 1fr) 34px;
+  align-items: center;
+  gap: 8px;
   width: 100%;
-  padding: 12px;
+  padding: 6px;
   text-align: left;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -5602,6 +5665,72 @@ select {
 .product-row span {
   color: var(--muted);
   font-size: 12px;
+}
+
+.product-row-select {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+  padding: 6px;
+  text-align: left;
+  border: 0;
+  background: transparent;
+}
+
+.product-row-delete {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  color: #d92d20;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+}
+
+.product-row-delete:hover {
+  background: #fff0ee;
+}
+
+.public-empty-state {
+  display: grid;
+  min-height: 100vh;
+  place-content: center;
+  gap: 8px;
+  text-align: center;
+  color: #0b3475;
+  background: #f5f9ff;
+}
+
+.public-empty-state strong {
+  font-size: 24px;
+}
+
+.public-empty-state span {
+  color: #65758b;
+}
+
+html.share-fixed-canvas,
+html.share-fixed-canvas body {
+  width: var(--share-canvas-width);
+  min-width: var(--share-canvas-width);
+  overflow-x: hidden;
+}
+
+html.share-fixed-canvas .share-shell {
+  width: var(--share-canvas-width);
+  min-width: var(--share-canvas-width);
+  max-width: none;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+html.share-fixed-canvas .share-result,
+html.share-fixed-canvas .share-result .benefit-sheet,
+html.share-fixed-canvas .share-result .benefit-sheet.poster {
+  width: 100%;
+  min-width: 0;
+  max-width: none;
 }
 
 .form-grid,
