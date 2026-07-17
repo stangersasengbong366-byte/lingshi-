@@ -1,7 +1,9 @@
 :root {
   color: #17233d;
   background: #f5f9ff;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-primary: "HarmonyOS Sans SC", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif;
+  --app-font: var(--font-primary);
+  font-family: var(--font-primary);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   --blue-900: #0b3b75;
@@ -14,6 +16,1736 @@
   --line: #dce7f6;
   --panel: #ffffff;
   --soft: #f7fbff;
+}
+
+body {
+  color: #081c42;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+html,
+body,
+#root,
+button,
+input,
+select,
+textarea {
+  font-family: var(--app-font);
+}
+
+/* Reference-aligned summary page. Detail and admin views intentionally remain unchanged. */
+.benefit-sheet.view-summary {
+  --summary-navy: #07172f;
+  --summary-blue: #347ff1;
+  --summary-orange: #ff6b16;
+  --summary-warm: #fff9f1;
+  --summary-cyan: #f0fbfc;
+  --summary-line: #dce6ef;
+  color: var(--summary-navy);
+  background: #ffffff;
+  border-color: #d9e4ec;
+  box-shadow: 0 24px 70px rgba(19, 48, 82, 0.12);
+}
+
+.benefit-sheet.view-summary .letter-body {
+  gap: 0;
+  padding: 0;
+  background: #ffffff;
+}
+
+.benefit-sheet.view-summary .summary-layout {
+  display: block;
+  color: var(--summary-navy);
+  background: #ffffff;
+}
+
+.benefit-sheet.view-summary .summary-stage-section,
+.benefit-sheet.view-summary .summary-core-section,
+.benefit-sheet.view-summary .summary-price-section,
+.benefit-sheet.view-summary .summary-gift-section {
+  overflow: visible;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.benefit-sheet.view-summary .summary-stage-section {
+  padding: 54px 50px 44px;
+}
+
+.benefit-sheet.view-summary .summary-stage-section > header,
+.benefit-sheet.view-summary .summary-section-title {
+  display: grid;
+  justify-items: center;
+  min-height: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  text-align: center;
+}
+
+.benefit-sheet.view-summary .summary-stage-section > header::before,
+.benefit-sheet.view-summary .summary-section-title::before {
+  display: none;
+}
+
+.benefit-sheet.view-summary .summary-stage-section > header > span,
+.benefit-sheet.view-summary .summary-section-title > span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--summary-blue);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.benefit-sheet.view-summary .summary-stage-section > header > span::before,
+.benefit-sheet.view-summary .summary-stage-section > header > span::after,
+.benefit-sheet.view-summary .summary-section-title > span::before,
+.benefit-sheet.view-summary .summary-section-title > span::after {
+  width: 9px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--summary-blue);
+  content: "";
+}
+
+.benefit-sheet.view-summary .summary-stage-section > header h2,
+.benefit-sheet.view-summary .summary-section-title h2 {
+  margin: 10px 0 5px;
+  color: var(--summary-navy);
+  font-size: 28px;
+  line-height: 1.15;
+}
+
+.benefit-sheet.view-summary .summary-stage-section > header p,
+.benefit-sheet.view-summary .summary-section-title p {
+  margin: 0;
+  color: #7d8c9d;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.benefit-sheet.view-summary .summary-purchase-strip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 28px;
+  padding: 11px 16px;
+  color: var(--summary-orange);
+  background: #fff7ed;
+  border-radius: 8px;
+  font-size: 11px;
+}
+
+.benefit-sheet.view-summary .summary-purchase-strip span {
+  display: grid;
+  place-items: center;
+  color: var(--summary-blue);
+}
+
+.benefit-sheet.view-summary .summary-purchase-strip strong {
+  white-space: nowrap;
+}
+
+.benefit-sheet.view-summary .summary-purchase-strip em {
+  overflow: hidden;
+  font-style: normal;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.benefit-sheet.view-summary .summary-stage-flow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  padding: 28px 0 0;
+}
+
+.benefit-sheet.view-summary .summary-stage-item {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  padding: 0;
+  background: #fffdf9;
+  border: 1px solid var(--summary-line);
+  border-radius: 8px;
+  text-align: left;
+}
+
+.benefit-sheet.view-summary .summary-stage-item.current {
+  background: #ffffff;
+  border: 1.5px solid var(--summary-blue);
+  box-shadow: 0 15px 34px rgba(52, 127, 241, 0.08);
+}
+
+.benefit-sheet.view-summary .summary-stage-item:not(:last-child)::after {
+  display: none;
+}
+
+.benefit-sheet.view-summary .summary-stage-item > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid #e8edf3;
+}
+
+.benefit-sheet.view-summary .summary-stage-item > header div {
+  display: grid;
+  gap: 3px;
+}
+
+.benefit-sheet.view-summary .summary-stage-item > header small {
+  color: var(--summary-blue);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.benefit-sheet.view-summary .summary-stage-item > header strong {
+  width: auto;
+  padding: 0;
+  color: var(--summary-navy);
+  background: transparent;
+  font-size: 21px;
+}
+
+.benefit-sheet.view-summary .summary-stage-item > header em {
+  width: auto;
+  padding: 6px 9px;
+  color: #c87500;
+  background: #fff3c7;
+  border-radius: 5px;
+  font-size: 9px;
+  font-style: normal;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.benefit-sheet.view-summary .summary-stage-item.current > header em {
+  color: #ffffff;
+  background: var(--summary-blue);
+}
+
+.benefit-sheet.view-summary .summary-stage-tasks {
+  display: grid;
+  gap: 12px;
+  padding: 18px 20px 20px;
+}
+
+.benefit-sheet.view-summary .summary-stage-tasks > b {
+  margin-bottom: 2px;
+  font-size: 11px;
+}
+
+.benefit-sheet.view-summary .summary-stage-tasks p,
+.benefit-sheet.view-summary .summary-stage-item.current .summary-stage-tasks p {
+  display: grid;
+  grid-template-columns: 21px minmax(0, 1fr);
+  gap: 10px;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  color: #657387;
+  background: transparent;
+  border: 0;
+  font-size: 10px;
+  line-height: 1.55;
+}
+
+.benefit-sheet.view-summary .summary-stage-tasks p i {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  color: var(--summary-orange);
+  background: #fff4e9;
+  border-radius: 50%;
+  font-size: 9px;
+  font-style: normal;
+  font-weight: 900;
+}
+
+.benefit-sheet.view-summary .summary-stage-tasks p span {
+  display: grid;
+  gap: 2px;
+}
+
+.benefit-sheet.view-summary .summary-stage-tasks p strong {
+  color: #26364d;
+  font-size: 11px;
+}
+
+.benefit-sheet.view-summary .summary-course-band {
+  padding: 52px 50px 44px;
+  background: var(--summary-cyan);
+}
+
+.benefit-sheet.view-summary .summary-main-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 246px;
+  align-items: start;
+  gap: 22px;
+  margin-top: 28px;
+  padding: 0;
+  background: transparent;
+}
+
+.benefit-sheet.view-summary .summary-subject-course-list {
+  display: grid;
+  gap: 14px;
+  padding: 0;
+}
+
+.benefit-sheet.view-summary .summary-subject-course-list article {
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #f1ded0;
+  border-radius: 8px;
+  box-shadow: 0 10px 28px rgba(20, 53, 96, 0.05);
+}
+
+.benefit-sheet.view-summary .summary-subject-course-list article > header {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 14px 16px;
+  color: var(--summary-navy);
+  background: linear-gradient(90deg, #fff8ef, #ffffff);
+  border: 0;
+}
+
+.benefit-sheet.view-summary .summary-subject-course-list article > header > span {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  color: #ffffff;
+  background: var(--summary-blue);
+  border-radius: 7px;
+  box-shadow: 0 7px 14px rgba(52, 127, 241, 0.22);
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.benefit-sheet.view-summary .summary-subject-course-list article > header div {
+  display: grid;
+  gap: 1px;
+}
+
+.benefit-sheet.view-summary .summary-subject-course-list article > header strong {
+  color: var(--summary-navy);
+  font-size: 15px;
+}
+
+.benefit-sheet.view-summary .summary-subject-course-list article > header small {
+  color: #a5b1c1;
+  font-size: 8px;
+}
+
+.benefit-sheet.view-summary .summary-course-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding: 0;
+  border-top: 1px solid #f1e6dc;
+  border-bottom: 1px solid #f1e6dc;
+}
+
+.benefit-sheet.view-summary .summary-course-metrics > div {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  min-height: 100px;
+  padding: 17px 8px 13px;
+  border-right: 1px solid #f1e6dc;
+  text-align: center;
+}
+
+.benefit-sheet.view-summary .summary-course-metrics > div:last-child {
+  border-right: 0;
+}
+
+.benefit-sheet.view-summary .summary-course-metrics small {
+  padding: 3px 8px;
+  color: #e37a00;
+  background: #fff1bc;
+  border-radius: 999px;
+  font-size: 8px;
+  font-weight: 900;
+}
+
+.benefit-sheet.view-summary .summary-course-metrics > div:nth-child(2) small {
+  color: #ff6b16;
+  background: #fff0df;
+}
+
+.benefit-sheet.view-summary .summary-course-metrics > div:nth-child(3) small {
+  color: #e34830;
+  background: #ffe9e6;
+}
+
+.benefit-sheet.view-summary .summary-course-metrics strong {
+  color: var(--summary-orange);
+  font-family: var(--app-font);
+  font-size: 33px;
+  line-height: 1;
+}
+
+.benefit-sheet.view-summary .summary-course-metrics strong em {
+  margin-left: 2px;
+  font-family: inherit;
+  font-size: 11px;
+  font-style: normal;
+}
+
+.benefit-sheet.view-summary .summary-course-metrics > div > span {
+  color: #a0adbc;
+  font-size: 8px;
+}
+
+.benefit-sheet.view-summary .summary-subject-course-list article > footer {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 0 16px;
+  color: #657387;
+  background: #ffffff;
+  border: 0;
+}
+
+.benefit-sheet.view-summary .summary-subject-course-list article > footer p {
+  display: grid;
+  grid-template-columns: 22px 72px minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 12px 0;
+  border-bottom: 1px solid #edf1f5;
+  font-size: 9px;
+}
+
+.benefit-sheet.view-summary .summary-subject-course-list article > footer p:last-child {
+  border-bottom: 0;
+}
+
+.benefit-sheet.view-summary .summary-subject-course-list article > footer svg {
+  color: var(--summary-blue);
+}
+
+.benefit-sheet.view-summary .summary-subject-course-list article > footer b {
+  color: #27364b;
+}
+
+.benefit-sheet.view-summary .summary-price-section {
+  position: sticky;
+  top: 16px;
+  align-self: start;
+  overflow: hidden;
+  padding: 20px 20px 18px;
+  color: #ffffff;
+  background: var(--summary-navy);
+  border-radius: 8px;
+  box-shadow: 0 22px 45px rgba(3, 18, 39, 0.2);
+}
+
+.benefit-sheet.view-summary .summary-price-section > span {
+  color: #ff9a00;
+  font-size: 8px;
+  font-weight: 900;
+}
+
+.benefit-sheet.view-summary .summary-price-section > h2 {
+  margin: 5px 0 18px;
+  padding-bottom: 17px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.11);
+  font-size: 18px;
+}
+
+.benefit-sheet.view-summary .summary-price-subjects {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.benefit-sheet.view-summary .summary-price-subjects small {
+  color: #6e819d;
+  font-size: 8px;
+}
+
+.benefit-sheet.view-summary .summary-price-subjects strong {
+  width: fit-content;
+  padding: 5px 8px;
+  color: #ff9a00;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #1f5ba8;
+  border-radius: 4px;
+  font-size: 9px;
+}
+
+.benefit-sheet.view-summary .summary-price-section dl {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 10px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: transparent;
+}
+
+.benefit-sheet.view-summary .summary-price-section dl > div {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  border: 0;
+  font-size: 9px;
+}
+
+.benefit-sheet.view-summary .summary-price-section dt {
+  color: #7b8ca5;
+}
+
+.benefit-sheet.view-summary .summary-price-section dd {
+  margin: 0;
+  color: #ff7a18;
+  font-weight: 900;
+}
+
+.benefit-sheet.view-summary .summary-price-section dl > div:first-child dd {
+  color: #77859a;
+  text-decoration: line-through;
+}
+
+.benefit-sheet.view-summary .summary-price-total {
+  display: grid;
+  justify-items: center;
+  padding: 17px 0 13px;
+}
+
+.benefit-sheet.view-summary .summary-price-total span {
+  color: #7b8ca5;
+  font-size: 8px;
+}
+
+.benefit-sheet.view-summary .summary-price-total strong {
+  color: var(--summary-orange);
+  font-family: var(--app-font);
+  font-size: 38px;
+}
+
+.benefit-sheet.view-summary .summary-price-section ul {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 12px 13px 12px 23px;
+  color: #a9b8cd;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  font-size: 8px;
+  line-height: 1.5;
+}
+
+.benefit-sheet.view-summary .summary-price-section li::marker {
+  color: var(--summary-blue);
+}
+
+.benefit-sheet.view-summary .summary-price-cta {
+  margin-top: 13px;
+  padding: 12px;
+  color: #ffffff;
+  background: var(--summary-blue);
+  border-radius: 6px;
+  box-shadow: 0 8px 22px rgba(52, 127, 241, 0.28);
+  font-size: 12px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.benefit-sheet.view-summary .summary-gift-section {
+  padding: 48px 50px 0;
+  background: #ffffff;
+}
+
+.benefit-sheet.view-summary .summary-gift-album {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 13px;
+  padding: 28px 0 44px;
+}
+
+.benefit-sheet.view-summary .summary-gift-album article {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 134px auto;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid var(--summary-line);
+  border-radius: 8px;
+  box-shadow: 0 9px 22px rgba(20, 53, 96, 0.05);
+}
+
+.benefit-sheet.view-summary .summary-album-cover,
+.benefit-sheet.view-summary .summary-album-cover.tone-2,
+.benefit-sheet.view-summary .summary-album-cover.tone-3,
+.benefit-sheet.view-summary .summary-album-cover.tone-4,
+.benefit-sheet.view-summary .summary-album-cover.tone-5 {
+  position: relative;
+  min-height: 0;
+  color: #ffffff;
+  background: linear-gradient(145deg, #256ee3, #0d2d64);
+}
+
+.benefit-sheet.view-summary .summary-gift-album article:nth-child(4n + 2) .summary-album-cover {
+  background: linear-gradient(145deg, #e7aa44, #71451d);
+}
+
+.benefit-sheet.view-summary .summary-gift-album article:nth-child(4n + 3) .summary-album-cover {
+  background: linear-gradient(145deg, #5e3fac, #26185f);
+}
+
+.benefit-sheet.view-summary .summary-gift-album article:nth-child(4n) .summary-album-cover {
+  background: linear-gradient(145deg, #83a8c8, #314f70);
+}
+
+.benefit-sheet.view-summary .summary-album-cover > em {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 2;
+  padding: 4px 7px;
+  color: #ffffff;
+  background: var(--summary-blue);
+  border-radius: 4px;
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 900;
+}
+
+.benefit-sheet.view-summary .summary-album-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.benefit-sheet.view-summary .summary-album-cover small {
+  font-size: 8px;
+  opacity: 0.75;
+}
+
+.benefit-sheet.view-summary .summary-album-cover > span {
+  max-width: 88%;
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.benefit-sheet.view-summary .summary-album-info {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  padding: 11px 11px 12px;
+}
+
+.benefit-sheet.view-summary .summary-album-info header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 7px;
+}
+
+.benefit-sheet.view-summary .summary-album-info header strong {
+  color: #17283f;
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.benefit-sheet.view-summary .summary-album-info header em {
+  color: #152942;
+  background: transparent;
+  font-size: 8px;
+  font-style: normal;
+  white-space: nowrap;
+}
+
+.benefit-sheet.view-summary .summary-album-info p {
+  display: -webkit-box;
+  overflow: hidden;
+  margin: 0;
+  color: #718095;
+  font-size: 8px;
+  line-height: 1.55;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.benefit-sheet.view-summary .summary-album-info footer {
+  margin-top: 2px;
+  padding-top: 7px;
+  color: #258052;
+  border-top: 1px solid #edf1f5;
+  font-size: 8px;
+  font-weight: 800;
+}
+
+.benefit-sheet.view-summary .summary-gift-section > footer {
+  margin: 0 -50px;
+  padding: 30px 40px;
+  color: #73839a;
+  background: var(--summary-navy);
+  text-align: center;
+}
+
+.benefit-sheet.view-summary .summary-gift-section > footer p {
+  margin: 0 0 6px;
+  font-size: 9px;
+}
+
+.benefit-sheet.view-summary .summary-gift-section > footer span {
+  display: block;
+  margin-top: 10px;
+  color: #4e6079;
+  font-size: 8px;
+}
+
+@media (max-width: 720px) {
+  .benefit-sheet.view-summary .letter-body {
+    padding: 0;
+  }
+
+  .benefit-sheet.view-summary .summary-stage-section,
+  .benefit-sheet.view-summary .summary-course-band,
+  .benefit-sheet.view-summary .summary-gift-section {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  .benefit-sheet.view-summary .summary-stage-section {
+    padding-top: 32px;
+    padding-bottom: 30px;
+  }
+
+  .benefit-sheet.view-summary .summary-stage-section > header h2,
+  .benefit-sheet.view-summary .summary-section-title h2 {
+    font-size: 23px;
+  }
+
+  .benefit-sheet.view-summary .summary-purchase-strip {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+
+  .benefit-sheet.view-summary .summary-purchase-strip em {
+    flex-basis: 100%;
+    white-space: normal;
+  }
+
+  .benefit-sheet.view-summary .summary-stage-flow,
+  .benefit-sheet.view-summary .summary-main-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .benefit-sheet.view-summary .summary-stage-flow {
+    gap: 14px;
+    padding-top: 20px;
+  }
+
+  .benefit-sheet.view-summary .summary-course-band {
+    padding-top: 36px;
+    padding-bottom: 30px;
+  }
+
+  .benefit-sheet.view-summary .summary-main-grid {
+    gap: 15px;
+    margin-top: 22px;
+  }
+
+  .benefit-sheet.view-summary .summary-price-section {
+    position: static;
+  }
+
+  .benefit-sheet.view-summary .summary-course-metrics strong {
+    font-size: 27px;
+  }
+
+  .benefit-sheet.view-summary .summary-subject-course-list article > footer p {
+    grid-template-columns: 19px 58px minmax(0, 1fr);
+  }
+
+  .benefit-sheet.view-summary .summary-gift-section {
+    padding-top: 36px;
+  }
+
+  .benefit-sheet.view-summary .summary-gift-album {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    padding-top: 22px;
+    padding-bottom: 28px;
+  }
+
+  .benefit-sheet.view-summary .summary-gift-album article {
+    grid-template-rows: 118px auto;
+  }
+
+  .benefit-sheet.view-summary .summary-gift-section > footer {
+    margin-right: -18px;
+    margin-left: -18px;
+  }
+}
+
+/* Per-subject class selection and simplified detail layouts. */
+.subject-track-list {
+  display: grid;
+  gap: 8px;
+}
+
+.subject-track-row {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  background: #f7faff;
+  border: 1px solid #dbe8fb;
+  border-radius: 8px;
+}
+
+.subject-track-row > strong {
+  color: #12366b;
+  text-align: center;
+  font-size: 13px;
+}
+
+.subject-track-row .segmented {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.live-compact-table th:nth-child(1),
+.live-compact-table td:nth-child(1),
+.live-compact-table th:nth-child(3),
+.live-compact-table td:nth-child(3) {
+  width: 48px;
+}
+
+.live-compact-table th:nth-child(2),
+.live-compact-table td:nth-child(2),
+.live-compact-table th:nth-child(4),
+.live-compact-table td:nth-child(4) {
+  width: auto;
+}
+
+.video-compact-table .outline-title {
+  width: auto;
+  padding: 9px 12px;
+  font-size: 11px;
+  line-height: 1.4;
+  word-break: normal;
+  overflow-wrap: anywhere;
+}
+
+.video-compact-table .outline-no {
+  width: 42px;
+}
+
+.video-compact-table .outline-difficulty {
+  width: 74px;
+  min-width: 74px;
+  padding-inline: 7px;
+  white-space: nowrap;
+}
+
+.video-compact-table .outline-stars {
+  display: inline-block;
+  font-size: 13px;
+  letter-spacing: 0;
+}
+
+.gift-poster-card.simplified {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+}
+
+.gift-poster-card.simplified .gift-poster-image {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  padding: 0;
+  background: #f8fafc;
+}
+
+.gift-poster-card.simplified .gift-poster-image img {
+  object-fit: contain;
+}
+
+.gift-poster-card.simplified .gift-poster-image > em {
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  left: 10px;
+  padding: 5px 9px;
+  color: #ffffff;
+  background: #3b82f6;
+  border-radius: 5px;
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.gift-poster-card.simplified .gift-poster-image > span {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  padding: 20px;
+  color: #31517e;
+  text-align: center;
+  font-weight: 900;
+}
+
+.gift-poster-card.simplified header {
+  min-height: 48px;
+  padding: 10px 14px;
+}
+
+.gift-poster-summary {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  padding: 13px 15px 16px;
+}
+
+.gift-poster-summary > strong {
+  color: #ea580c;
+  font-size: 14px;
+}
+
+.gift-poster-summary > p {
+  margin: 0;
+  color: #475569;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+/* Compact customer summary, aligned with the approved course-list reference. */
+.benefit-sheet.view-summary .reference-summary-layout {
+  width: 100%;
+  overflow: hidden;
+  color: #081c42;
+  background: #ffffff;
+}
+
+.reference-course-overview,
+.reference-gift-section {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 48px 64px;
+  background: #ffffff;
+}
+
+.reference-gift-section {
+  padding-top: 20px;
+  padding-bottom: 34px;
+}
+
+.reference-heading {
+  display: flex;
+  width: 100%;
+  margin: 0 0 22px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.reference-heading::before,
+.reference-heading::after {
+  width: 34px;
+  height: 1px;
+  margin: 0 12px;
+  content: "";
+  background: linear-gradient(90deg, transparent, #5c8ed8);
+}
+
+.reference-heading::after {
+  background: linear-gradient(90deg, #5c8ed8, transparent);
+}
+
+.reference-heading > span {
+  color: #081c42;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.reference-subject-tabs {
+  display: flex;
+  min-width: 0;
+  margin: -4px 0 22px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.reference-subject-tabs::-webkit-scrollbar { display: none; }
+
+.reference-subject-tabs button {
+  flex: 0 0 auto;
+  min-width: 64px;
+  padding: 8px 14px;
+  color: #334155;
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.reference-subject-tabs button.active {
+  color: #2563eb;
+  background: #f1f6ff;
+  border-bottom-color: #3b82f6;
+}
+
+.reference-overview-grid {
+  display: grid;
+  min-width: 0;
+  align-items: stretch;
+  grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+  gap: 22px;
+}
+
+.reference-rights-card,
+.reference-price-card {
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 320px;
+  border-radius: 14px;
+}
+
+.reference-rights-card {
+  padding: 22px 28px 20px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(8, 28, 66, 0.06);
+}
+
+.reference-rights-card > h2 {
+  margin: 0 0 15px;
+  padding-bottom: 13px;
+  color: #081c42;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.reference-rights-list {
+  display: grid;
+  gap: 3px;
+}
+
+.reference-rights-list p {
+  display: grid;
+  min-width: 0;
+  margin: 0;
+  padding: 7px 0;
+  align-items: center;
+  grid-template-columns: 26px minmax(0, 1fr) auto;
+  gap: 8px;
+}
+
+.reference-rights-list i {
+  display: grid;
+  width: 22px;
+  height: 22px;
+  color: #ffffff;
+  background: #4b8df8;
+  border-radius: 5px;
+  place-items: center;
+}
+
+.reference-rights-list i.is-video { background: #f59e0b; }
+.reference-rights-list i.is-service { background: #35a889; }
+.reference-rights-list i.is-period { background: #587fcf; }
+.reference-rights-list span { color: #334155; font-size: 14px; font-weight: 600; }
+.reference-rights-list strong { color: #081c42; font-size: 15px; font-weight: 800; }
+
+.reference-rights-card > footer {
+  display: grid;
+  margin-top: 11px;
+  padding-top: 8px;
+  border-top: 1px solid #e2e8f0;
+  gap: 4px;
+}
+
+.reference-rights-card > footer p {
+  display: grid;
+  min-width: 0;
+  margin: 0;
+  padding: 5px 0;
+  grid-template-columns: 78px minmax(0, 1fr);
+  gap: 10px;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.reference-rights-card > footer b { color: #1e293b; }
+.reference-rights-card > footer span { color: #64748b; }
+
+.reference-price-card {
+  display: flex;
+  padding: 28px;
+  color: #ffffff;
+  background: linear-gradient(145deg, #173868, #0c2a59);
+  box-shadow: 0 16px 34px rgba(8, 28, 66, 0.18);
+  align-items: stretch;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.reference-price-card > span {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.reference-price-card > p {
+  display: flex;
+  margin: 14px 0 0;
+  color: #c7d4e9;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.reference-price-card del { color: #9fb0ca; }
+.reference-price-card p em {
+  margin-left: 6px;
+  padding: 3px 7px;
+  color: #713f12;
+  background: #fef3c7;
+  border-radius: 5px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.reference-price-card > strong {
+  margin: 18px 0 6px;
+  color: #fff2a6;
+  font-size: 52px;
+  line-height: 1;
+  font-weight: 800;
+}
+
+.reference-price-card > small {
+  color: #c7d4e9;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.reference-price-card > div {
+  margin-top: 20px;
+  padding: 13px 18px;
+  color: #ffffff;
+  background: #3b82f6;
+  border-radius: 999px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.reference-gift-grid {
+  display: grid;
+  min-width: 0;
+  gap: 18px;
+}
+
+.course-gifts .reference-gift-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.growth-gifts .reference-gift-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.physical-gifts .reference-gift-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+.reference-gift-grid > article {
+  display: grid;
+  min-width: 0;
+  min-height: 150px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 8px 22px rgba(8, 28, 66, 0.05);
+  grid-template-columns: minmax(120px, 40%) minmax(0, 1fr);
+}
+
+.reference-gift-image {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  padding: 8px;
+  background: #ffffff;
+  place-items: center;
+}
+
+.reference-gift-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 172px;
+  object-fit: contain;
+  background: #ffffff;
+}
+
+.reference-gift-image > em {
+  position: absolute;
+  z-index: 1;
+  top: 8px;
+  left: 8px;
+  padding: 4px 7px;
+  color: #ffffff;
+  background: #3b82f6;
+  border-radius: 5px;
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.reference-gift-copy {
+  display: flex;
+  min-width: 0;
+  padding: 18px 17px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.reference-gift-copy header {
+  display: flex;
+  min-width: 0;
+  margin-bottom: 9px;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.reference-gift-copy strong {
+  min-width: 0;
+  color: #081c42;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 800;
+}
+
+.reference-gift-copy b {
+  flex: 0 0 auto;
+  color: #081c42;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.reference-gift-copy p {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  color: #56657c;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.growth-gifts .reference-gift-grid > article {
+  min-height: 132px;
+  grid-template-columns: 1fr;
+}
+
+.growth-gifts .reference-gift-image { min-height: 128px; }
+.growth-gifts .reference-gift-copy { padding-top: 12px; }
+
+.reference-summary-footer {
+  display: grid;
+  padding: 28px 64px;
+  color: #a9b8cf;
+  background: #0b1528;
+  place-items: center;
+  gap: 5px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.reference-summary-footer p { margin: 0; }
+
+@media (max-width: 760px) {
+  .reference-course-overview,
+  .reference-gift-section {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .reference-course-overview { padding-top: 30px; }
+  .reference-heading > span { font-size: 21px; }
+  .reference-subject-tabs { justify-content: flex-start; }
+  .reference-overview-grid { grid-template-columns: minmax(0, 1fr); }
+  .reference-rights-card,
+  .reference-price-card { min-height: auto; }
+  .reference-price-card > strong { font-size: 43px; }
+  .course-gifts .reference-gift-grid,
+  .growth-gifts .reference-gift-grid,
+  .physical-gifts .reference-gift-grid { grid-template-columns: minmax(0, 1fr); }
+  .reference-gift-grid > article { grid-template-columns: 118px minmax(0, 1fr); }
+  .growth-gifts .reference-gift-grid > article { grid-template-columns: 118px minmax(0, 1fr); }
+  .growth-gifts .reference-gift-image { min-height: 112px; }
+  .reference-gift-copy { padding: 14px; }
+  .reference-summary-footer { padding-right: 16px; padding-left: 16px; }
+}
+
+/* Export and media parity: exported PNG must match the browser preview. */
+.benefit-sheet.is-exporting .envelope-hero::before {
+  display: block;
+}
+
+.benefit-sheet.is-exporting .envelope-back,
+.benefit-sheet.is-exporting .envelope-front,
+.benefit-sheet.is-exporting .envelope-back::before,
+.benefit-sheet.is-exporting .envelope-back::after,
+.benefit-sheet.is-exporting .envelope-front::before,
+.benefit-sheet.is-exporting .envelope-front::after {
+  background-color: transparent !important;
+}
+
+.benefit-sheet.view-summary .summary-gift-group .summary-gift-album article .summary-album-cover,
+.benefit-sheet.view-summary .summary-gift-group .summary-gift-album article .summary-album-cover.tone-1,
+.benefit-sheet.view-summary .summary-gift-group .summary-gift-album article .summary-album-cover.tone-2,
+.benefit-sheet.view-summary .summary-gift-group .summary-gift-album article .summary-album-cover.tone-3,
+.benefit-sheet.view-summary .summary-gift-group .summary-gift-album article .summary-album-cover.tone-4,
+.benefit-sheet.view-summary .summary-gift-group .summary-gift-album article .summary-album-cover.tone-5 {
+  overflow: hidden;
+  background: #ffffff !important;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.benefit-sheet.view-summary .summary-gift-group .summary-gift-album article .summary-album-cover img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  object-fit: contain;
+  background: #ffffff;
+}
+
+.gift-poster-card.simplified,
+.gift-poster-card.simplified.cyan,
+.gift-poster-card.simplified.orange,
+.gift-poster-card.simplified.purple,
+.gift-poster-card.simplified.green,
+.gift-poster-card.simplified.blue {
+  overflow: hidden;
+  background: #ffffff !important;
+  border-color: #dbe4ef;
+}
+
+.gift-poster-card.simplified .gift-poster-image {
+  overflow: hidden;
+  padding: 0;
+  background: #ffffff !important;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.gift-poster-card.simplified .gift-poster-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #ffffff;
+}
+
+.aid-cover {
+  overflow: hidden;
+  background: #ffffff !important;
+}
+
+.aid-cover img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #ffffff;
+}
+
+/* Summary preview fits its workspace; export keeps the fixed 1280px poster. */
+.preview-panel {
+  min-width: 0;
+  overflow-x: hidden;
+  container-type: inline-size;
+}
+
+.preview-panel .benefit-sheet.view-summary:not(.is-exporting) {
+  width: 100%;
+  max-width: 1280px;
+  min-width: 0;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.benefit-sheet.view-summary .summary-stage-section > header,
+.benefit-sheet.view-summary .summary-section-title {
+  display: grid;
+  width: 100%;
+  max-width: none;
+  margin-right: auto;
+  margin-left: auto;
+  place-items: center;
+  text-align: center;
+  transform: none;
+}
+
+.benefit-sheet.view-summary .summary-stage-section > header > span,
+.benefit-sheet.view-summary .summary-stage-section > header > h2,
+.benefit-sheet.view-summary .summary-stage-section > header > p,
+.benefit-sheet.view-summary .summary-section-title > span,
+.benefit-sheet.view-summary .summary-section-title > h2,
+.benefit-sheet.view-summary .summary-section-title > p {
+  justify-self: center;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+@container (max-width: 1100px) {
+  .benefit-sheet.view-summary:not(.is-exporting) .envelope-hero {
+    min-height: 570px;
+    padding: 28px 30px 0;
+  }
+
+  .benefit-sheet.view-summary:not(.is-exporting) .letter-paper {
+    min-height: 410px;
+    padding: 30px 38px 150px;
+  }
+
+  .benefit-sheet.view-summary:not(.is-exporting) .letter-paper .hero-content {
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 34%);
+    gap: 24px;
+  }
+
+  .benefit-sheet.view-summary:not(.is-exporting) .letter-paper h1 {
+    font-size: 50px;
+  }
+
+  .benefit-sheet.view-summary:not(.is-exporting) .claim-line {
+    font-size: 29px;
+  }
+
+  .benefit-sheet.view-summary:not(.is-exporting) .letter-paper .hero-symbol {
+    width: 100%;
+    max-height: 285px;
+  }
+
+  .benefit-sheet.view-summary:not(.is-exporting) .envelope-back {
+    height: 235px;
+  }
+
+  .benefit-sheet.view-summary:not(.is-exporting) .envelope-front {
+    height: 150px;
+  }
+
+  .benefit-sheet.view-summary:not(.is-exporting) .seal {
+    bottom: 48px;
+    width: 108px;
+    height: 110px;
+  }
+
+  .benefit-sheet.view-summary:not(.is-exporting) .summary-stage-section,
+  .benefit-sheet.view-summary:not(.is-exporting) .summary-course-band {
+    padding: 56px 48px;
+  }
+
+  .benefit-sheet.view-summary:not(.is-exporting) .summary-gift-section {
+    padding: 56px 48px 0;
+  }
+
+  .benefit-sheet.view-summary:not(.is-exporting) .summary-main-grid {
+    grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+  }
+
+  .benefit-sheet.view-summary:not(.is-exporting) .summary-gift-section > footer {
+    margin-right: -48px;
+    margin-left: -48px;
+    padding-right: 48px;
+    padding-left: 48px;
+  }
+}
+
+@container (max-width: 850px) {
+  .benefit-sheet.view-summary:not(.is-exporting) .summary-stage-flow,
+  .benefit-sheet.view-summary:not(.is-exporting) .summary-main-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .benefit-sheet.view-summary:not(.is-exporting) .summary-price-section {
+    min-height: auto;
+  }
+
+  .benefit-sheet.view-summary:not(.is-exporting) .summary-gift-album,
+  .benefit-sheet.view-summary:not(.is-exporting) .summary-gift-group .summary-gift-album {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Keep long gift outlines readable instead of compressing two items onto one line. */
+.detail-gift-group .gift-poster-grid {
+  align-items: start;
+}
+
+.detail-gift-group .gift-poster-card.simplified {
+  align-self: start;
+  grid-template-rows: auto auto auto;
+}
+
+.detail-gift-group .gift-course-outline ol,
+.detail-gift-group .gift-poster-card.featured .gift-course-outline ol {
+  display: flex;
+  flex-direction: column;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 10px;
+  padding-left: 0;
+  list-style: none;
+  counter-reset: gift-outline;
+}
+
+.detail-gift-group .gift-course-outline li {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  width: 100%;
+  gap: 10px;
+  align-items: start;
+  color: #334155;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  counter-increment: gift-outline;
+}
+
+.detail-gift-group .gift-course-outline li::before {
+  content: counter(gift-outline) ".";
+  color: #ea580c;
+  font-weight: 900;
+  text-align: right;
+  line-height: 1.6;
+}
+
+.subject-track-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 0 12px;
+  color: #31517e;
+  background: #f1f6fd;
+  border: 1px solid #cfe0f7;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+/* Detail view: the concise page sells the value; this view proves every entitlement. */
+.benefit-sheet.view-detail .subject-course-details > summary {
+  display: none;
+}
+
+.benefit-sheet.view-detail .subject-course-details {
+  border-color: #d7e0ec;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(15, 35, 65, 0.08);
+}
+
+.benefit-sheet.view-detail .subject-course-detail-body {
+  gap: 18px;
+  padding: 20px;
+  border-top: 0;
+}
+
+.detail-course-overview {
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+}
+
+.detail-course-overview > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px 20px;
+  background: linear-gradient(110deg, #fff8ef, #ffffff 72%);
+  border-bottom: 1px solid #e7edf5;
+}
+
+.detail-course-identity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.detail-course-identity > span {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  color: #ffffff;
+  background: #f97316;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.detail-course-identity div {
+  display: grid;
+  gap: 3px;
+}
+
+.detail-course-identity strong {
+  color: #0b1528;
+  font-size: 20px;
+}
+
+.detail-course-identity small {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.detail-course-price {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.detail-course-price del { color: #94a3b8; font-size: 12px; }
+.detail-course-price span { color: #ea580c; font-size: 12px; font-weight: 900; }
+.detail-course-price strong { color: #ea580c; font-size: 28px; }
+.detail-course-price em { color: #64748b; font-size: 12px; font-style: normal; }
+
+.detail-course-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.detail-course-metrics > div {
+  position: relative;
+  min-width: 0;
+  padding: 18px 14px;
+  text-align: center;
+  border-right: 1px solid #e7edf5;
+}
+
+.detail-course-metrics > div:last-child { border-right: 0; }
+.detail-course-metrics span { display: block; color: #64748b; font-size: 12px; font-weight: 800; }
+.detail-course-metrics strong { color: #f97316; font-size: 38px; line-height: 1.25; }
+.detail-course-metrics em { margin-left: 3px; color: #ea580c; font-size: 13px; font-style: normal; font-weight: 900; }
+.detail-course-metrics small { display: block; color: #94a3b8; font-size: 11px; }
+
+.benefit-sheet.view-detail .outline-block {
+  border-color: #d8e0eb;
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+.benefit-sheet.view-detail .outline-block > header,
+.benefit-sheet.view-detail .compact-outline-table th {
+  color: #ffffff;
+  background: #0b1528;
+  border-color: #26344c;
+}
+
+.benefit-sheet.view-detail .outline-block > header strong,
+.benefit-sheet.view-detail .outline-block > header span {
+  color: #ffffff;
+}
+
+.benefit-sheet.view-detail .outline-block > header span { opacity: 0.72; }
+.benefit-sheet.view-detail .outline-block > header em {
+  color: #c8d8f0;
+  background: #17243a;
+  border-color: #2a3a55;
+}
+
+.benefit-sheet.view-detail .compact-outline-table tbody tr:nth-child(even) td { background: #f8fafc; }
+.benefit-sheet.view-detail .compact-outline-table td { border-color: #e2e8f0; }
+.benefit-sheet.view-detail .outline-no { color: #71839b; font-weight: 900; text-align: center; }
+.benefit-sheet.view-detail .outline-stars { color: #f97316; white-space: nowrap; }
+
+.detail-course-service {
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  padding: 13px 16px;
+  color: #475569;
+  background: #fffaf3;
+  border: 1px solid #fed7aa;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+.detail-course-service svg { color: #f97316; }
+.detail-course-service strong { color: #1e293b; }
+
+.gift-course-outline {
+  display: grid;
+  gap: 8px;
+  margin-top: 4px;
+  padding-top: 12px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.gift-course-outline > span {
+  color: #1e3a5f;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.gift-course-outline ol {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px 22px;
+  margin: 0;
+  padding: 0 0 0 20px;
+  color: #475569;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+@media (max-width: 720px) {
+  .benefit-sheet.view-detail .subject-course-detail-body { padding: 10px; }
+  .detail-course-overview > header { align-items: flex-start; flex-direction: column; padding: 14px; }
+  .detail-course-price { width: 100%; justify-content: flex-start; flex-wrap: wrap; }
+  .detail-course-price strong { font-size: 24px; }
+  .detail-course-metrics > div { padding: 13px 5px; }
+  .detail-course-metrics strong { font-size: 28px; }
+  .detail-course-metrics small { padding: 0 4px; font-size: 9px; }
+  .detail-course-service { grid-template-columns: auto minmax(0, 1fr); }
+  .detail-course-service span { grid-column: 1 / -1; }
+  .gift-course-outline ol { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 720px) {
+  .subject-track-row {
+    grid-template-columns: 46px minmax(0, 1fr);
+  }
+
+  .mobile-outline-table.live-mobile-table {
+    table-layout: fixed;
+  }
+
+  .mobile-outline-table.live-mobile-table th:first-child,
+  .mobile-outline-table.live-mobile-table td:first-child {
+    width: 52px;
+  }
 }
 
 * {
@@ -3285,6 +5017,366 @@ select {
   border-color: #2176ee;
 }
 
+/* Premium summary page v0 */
+.benefit-sheet.view-summary {
+  --summary-ink: #102a52;
+  --summary-blue: #075bd8;
+  --summary-orange: #ff7a2f;
+  --summary-line: #d7e2ef;
+  --summary-muted: #65758a;
+  color: var(--summary-ink);
+  background: #eef4fa;
+  border-color: #cbd9e8;
+  box-shadow: 0 24px 70px rgba(20, 53, 96, 0.14);
+}
+
+.benefit-sheet.view-summary .letter-body {
+  gap: 18px;
+  padding: 18px;
+  background: #eef4fa;
+}
+
+.summary-layout {
+  gap: 18px;
+  color: var(--summary-ink);
+}
+
+.summary-stage-section,
+.summary-core-section,
+.summary-price-section,
+.summary-gift-section {
+  background: #ffffff;
+  border: 1px solid var(--summary-line);
+  border-radius: 6px;
+  box-shadow: 0 10px 28px rgba(20, 53, 96, 0.07);
+}
+
+.summary-stage-section > header {
+  min-height: 58px;
+  padding: 13px 18px;
+  background: #ffffff;
+  border-bottom: 1px solid var(--summary-line);
+}
+
+.summary-stage-section > header::before {
+  inset: 0 auto 0 0;
+  width: 5px;
+  background: var(--summary-blue);
+  clip-path: none;
+}
+
+.summary-stage-section > header h2 {
+  color: var(--summary-ink);
+  font-size: 20px;
+}
+
+.summary-stage-section > header em {
+  color: var(--summary-muted);
+  font-size: 11px;
+}
+
+.summary-stage-flow {
+  gap: 54px;
+  padding: 22px 34px 24px;
+}
+
+.summary-stage-item {
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-areas:
+    "title title"
+    "role role"
+    "copy copy";
+  justify-items: start;
+  gap: 7px;
+  text-align: left;
+}
+
+.summary-stage-item:not(:last-child)::after {
+  top: 37px;
+  right: -39px;
+  width: 24px;
+  height: 1px;
+  background: #9ab6d7;
+  transform: none;
+}
+
+.summary-stage-item > strong {
+  grid-area: title;
+  width: auto;
+  padding: 0;
+  color: var(--summary-ink);
+  background: transparent;
+  font-size: 16px;
+}
+
+.summary-stage-item.current > strong {
+  color: var(--summary-blue);
+  background: transparent;
+}
+
+.summary-stage-item > em,
+.summary-stage-item.current > em {
+  grid-area: role;
+  width: auto;
+  padding: 4px 7px;
+  color: #7a3b16;
+  background: #fff0e6;
+  border-radius: 3px;
+  font-size: 10px;
+}
+
+.summary-stage-item > i {
+  display: none;
+}
+
+.summary-stage-item p,
+.summary-stage-item.current p {
+  grid-area: copy;
+  min-height: 82px;
+  padding: 13px 14px;
+  color: #526277;
+  background: #f7f9fc;
+  border: 1px solid #e0e8f2;
+  border-radius: 4px;
+  font-size: 11px;
+  line-height: 1.72;
+}
+
+.summary-main-grid {
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  gap: 18px;
+  padding: 0;
+  background: transparent;
+}
+
+.summary-course-facts {
+  background: #ffffff;
+}
+
+.summary-fact-row {
+  grid-template-columns: 92px minmax(0, 1fr);
+  border-color: var(--summary-line);
+}
+
+.summary-fact-row > strong {
+  padding: 12px 9px;
+  color: #31527a;
+  background: #f2f6fb;
+  font-size: 10px;
+}
+
+.summary-fact-row > span {
+  padding: 11px 14px;
+  color: #40546d;
+}
+
+.summary-subject-course-list {
+  gap: 10px;
+  padding: 12px;
+}
+
+.summary-subject-course-list article {
+  border-color: #d9e3ef;
+  border-radius: 4px;
+}
+
+.summary-subject-course-list article > header {
+  padding: 8px 10px;
+  color: var(--summary-ink);
+  background: #edf4fd;
+  border-bottom: 1px solid #d7e3f1;
+}
+
+.summary-subject-course-list article > header strong {
+  color: var(--summary-blue);
+}
+
+.summary-subject-course-list article > header span {
+  color: #49627f;
+}
+
+.summary-subject-course-detail p > b {
+  color: #31527a;
+  background: #edf3f9;
+}
+
+.summary-subject-course-list article > footer {
+  border-color: #e2e9f2;
+  color: #596b81;
+  background: #fafbfd;
+}
+
+.summary-price-section {
+  align-self: start;
+  background: #102a52;
+  border-color: #102a52;
+  color: #ffffff;
+}
+
+.summary-price-section > header {
+  padding: 16px;
+  background: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.summary-price-section > header span {
+  color: #9ec5ff;
+}
+
+.summary-price-section > header h2 {
+  font-size: 19px;
+}
+
+.summary-price-section > header em {
+  color: #c7d8ee;
+}
+
+.summary-selected-price {
+  gap: 12px;
+  padding: 14px;
+}
+
+.summary-price-subjects > div {
+  grid-template-columns: minmax(45px, 0.55fr) minmax(80px, 1fr) auto;
+  padding: 10px;
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.summary-price-subjects strong,
+.summary-price-subjects span {
+  color: #ffffff;
+}
+
+.summary-price-subjects span {
+  opacity: 0.62;
+}
+
+.summary-price-subjects em {
+  color: #ffb485;
+}
+
+.summary-selected-price dl {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.summary-selected-price dl > div {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.summary-selected-price dt,
+.summary-selected-price dd {
+  color: #d9e6f6;
+}
+
+.summary-selected-price dl .total {
+  background: var(--summary-orange);
+}
+
+.summary-selected-price dl .total dt,
+.summary-selected-price dl .total dd {
+  color: #ffffff;
+}
+
+.summary-selected-price > p {
+  color: #c2d4e9;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.summary-gift-section > header {
+  padding: 14px 16px;
+  background: #ffffff;
+  border-bottom: 1px solid var(--summary-line);
+}
+
+.summary-gift-section > header h2 {
+  color: var(--summary-ink);
+  font-size: 17px;
+}
+
+.summary-gift-section > header em {
+  color: var(--summary-muted);
+}
+
+.summary-gift-album {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  padding: 14px;
+}
+
+.summary-gift-album article {
+  grid-template-columns: 88px minmax(0, 1fr);
+  border-color: #d8e2ed;
+  border-radius: 4px;
+  box-shadow: 0 7px 18px rgba(20, 53, 96, 0.05);
+}
+
+.summary-album-cover,
+.summary-album-cover.tone-2,
+.summary-album-cover.tone-3,
+.summary-album-cover.tone-4,
+.summary-album-cover.tone-5 {
+  min-height: 120px;
+  color: #ffffff;
+  background: #1e5ca8;
+}
+
+.summary-gift-album article:nth-child(3n + 2) .summary-album-cover {
+  background: #0d766e;
+}
+
+.summary-gift-album article:nth-child(3n) .summary-album-cover {
+  background: #be5a22;
+}
+
+.summary-album-info header strong {
+  color: var(--summary-ink);
+}
+
+.summary-album-info header em {
+  color: #ffffff;
+  background: var(--summary-orange);
+}
+
+.summary-album-info > span {
+  color: #176653;
+}
+
+.summary-album-info footer {
+  color: #a34819;
+  border-color: #e7edf4;
+}
+
+.summary-gift-section > p {
+  margin: 0;
+  padding: 11px;
+  color: #31527a;
+  background: #f2f6fb;
+  border-top: 1px solid var(--summary-line);
+}
+
+@media (max-width: 720px) {
+  .summary-stage-flow,
+  .summary-main-grid,
+  .summary-gift-album {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-stage-flow {
+    gap: 16px;
+    padding: 17px;
+  }
+
+  .summary-stage-item:not(:last-child)::after {
+    display: none;
+  }
+
+  .summary-gift-album article {
+    grid-template-columns: 100px minmax(0, 1fr);
+  }
+}
+
 .admin-section-nav {
   display: grid;
   gap: 7px;
@@ -6327,4 +8419,1337 @@ select {
     gap: 7px;
     padding: 10px;
   }
+}
+
+/* Final 1280px summary poster specification. */
+.benefit-sheet.view-summary {
+  width: 1280px;
+  --summary-blue: #3b82f6;
+  --summary-orange: #f97316;
+  --summary-navy: #0b1528;
+  --summary-line: #e2e8f0;
+  color: #1e293b;
+  background: #fdfbf7;
+  border: 0;
+  box-shadow: none;
+}
+
+.benefit-sheet.view-summary .letter-body {
+  gap: 0;
+  padding: 0;
+  background: #ffffff;
+}
+
+.benefit-sheet.view-summary .envelope-hero {
+  min-height: 712px;
+  padding: 38px 44px 0;
+}
+
+.benefit-sheet.view-summary .envelope-back {
+  right: 28px;
+  left: 28px;
+  height: 290px;
+}
+
+.benefit-sheet.view-summary .letter-paper {
+  min-height: 508px;
+  padding: 38px 53px 181px;
+  border-radius: 12px;
+}
+
+.benefit-sheet.view-summary .letter-paper .sheet-brand {
+  margin-bottom: 34px;
+}
+
+.benefit-sheet.view-summary .letter-paper .sheet-brand img {
+  width: 265px;
+  height: 47px;
+}
+
+.benefit-sheet.view-summary .letter-paper .sheet-brand span {
+  font-size: 21px;
+}
+
+.benefit-sheet.view-summary .letter-paper .hero-content {
+  grid-template-columns: minmax(0, 1fr) 372px;
+  gap: 34px;
+}
+
+.benefit-sheet.view-summary .letter-paper .product-kicker {
+  font-size: 23px;
+}
+
+.benefit-sheet.view-summary .letter-paper h1 {
+  max-width: 760px;
+  font-size: 68px;
+}
+
+.benefit-sheet.view-summary .claim-line {
+  font-size: 36px;
+}
+
+.benefit-sheet.view-summary .hero-tags {
+  gap: 15px;
+  margin: 19px 0 16px;
+  max-width: 810px;
+}
+
+.benefit-sheet.view-summary .hero-tags span {
+  min-height: 50px;
+  padding: 0 18px;
+  font-size: 18px;
+}
+
+.benefit-sheet.view-summary .letter-paper p:not(.claim-line) {
+  max-width: 860px;
+  font-size: 20px;
+}
+
+.benefit-sheet.view-summary .letter-paper .hero-symbol {
+  width: 372px;
+  max-height: 350px;
+}
+
+.benefit-sheet.view-summary .envelope-front {
+  height: 184px;
+}
+
+.benefit-sheet.view-summary .seal {
+  bottom: 59px;
+  width: 131px;
+  height: 134px;
+}
+
+.benefit-sheet.view-summary .summary-stage-section {
+  min-height: 698px;
+  padding: 80px;
+  background: #ffffff;
+}
+
+.benefit-sheet.view-summary .summary-stage-section > header h2,
+.benefit-sheet.view-summary .summary-section-title h2 {
+  margin: 12px 0 8px;
+  font-family: var(--app-font);
+  font-size: 36px;
+  font-weight: 800;
+}
+
+.benefit-sheet.view-summary .summary-stage-section > header > span,
+.benefit-sheet.view-summary .summary-section-title > span {
+  font-size: 14px;
+}
+
+.benefit-sheet.view-summary .summary-stage-section > header p,
+.benefit-sheet.view-summary .summary-section-title p {
+  color: #94a3b8;
+  font-size: 16px;
+}
+
+.benefit-sheet.view-summary .summary-purchase-strip {
+  margin-top: 40px;
+  padding: 17px 22px;
+  color: #ea580c;
+  border-radius: 12px;
+  font-size: 15px;
+}
+
+.benefit-sheet.view-summary .summary-purchase-strip svg {
+  width: 22px;
+  height: 22px;
+}
+
+.benefit-sheet.view-summary .summary-stage-flow {
+  gap: 32px;
+  padding-top: 40px;
+}
+
+.benefit-sheet.view-summary .summary-stage-item {
+  min-height: 362px;
+  border-radius: 16px;
+}
+
+.benefit-sheet.view-summary .summary-stage-item > header {
+  padding: 28px 32px 22px;
+}
+
+.benefit-sheet.view-summary .summary-stage-item > header small {
+  font-size: 14px;
+}
+
+.benefit-sheet.view-summary .summary-stage-item > header strong {
+  font-family: var(--app-font);
+  font-size: 24px;
+}
+
+.benefit-sheet.view-summary .summary-stage-item > header em {
+  padding: 8px 13px;
+  font-size: 12px;
+}
+
+.benefit-sheet.view-summary .summary-stage-tasks {
+  gap: 17px;
+  padding: 28px 32px 32px;
+}
+
+.benefit-sheet.view-summary .summary-stage-tasks > b,
+.benefit-sheet.view-summary .summary-stage-tasks p strong {
+  font-size: 15px;
+}
+
+.benefit-sheet.view-summary .summary-stage-tasks p,
+.benefit-sheet.view-summary .summary-stage-item.current .summary-stage-tasks p {
+  grid-template-columns: 30px minmax(0, 1fr);
+  gap: 13px;
+  font-size: 14px;
+}
+
+.benefit-sheet.view-summary .summary-stage-tasks p i {
+  width: 28px;
+  height: 28px;
+  font-size: 13px;
+}
+
+.benefit-sheet.view-summary .summary-course-band {
+  padding: 80px;
+  background: #f0fbfc;
+}
+
+.benefit-sheet.view-summary .summary-main-grid {
+  grid-template-columns: 736px 352px;
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.benefit-sheet.view-summary .summary-subject-course-list {
+  gap: 20px;
+}
+
+.benefit-sheet.view-summary .summary-subject-course-list article {
+  min-height: 384px;
+  border-radius: 16px;
+}
+
+.benefit-sheet.view-summary .summary-subject-course-list article > header {
+  gap: 14px;
+  padding: 20px 24px;
+}
+
+.benefit-sheet.view-summary .summary-subject-course-list article > header > span {
+  width: 44px;
+  height: 44px;
+  font-size: 22px;
+}
+
+.benefit-sheet.view-summary .summary-subject-course-list article > header strong {
+  font-family: var(--app-font);
+  font-size: 20px;
+}
+
+.benefit-sheet.view-summary .summary-subject-course-list article > header small {
+  font-size: 13px;
+}
+
+.benefit-sheet.view-summary .summary-course-metrics > div {
+  min-height: 150px;
+  padding: 25px 12px 19px;
+}
+
+.benefit-sheet.view-summary .summary-course-metrics small {
+  font-size: 11px;
+}
+
+.benefit-sheet.view-summary .summary-course-metrics strong {
+  font-size: 52px;
+}
+
+.benefit-sheet.view-summary .summary-course-metrics strong em {
+  font-size: 18px;
+}
+
+.benefit-sheet.view-summary .summary-course-metrics > div > span {
+  font-size: 12px;
+}
+
+.benefit-sheet.view-summary .summary-subject-course-list article > footer {
+  padding: 0 24px;
+}
+
+.benefit-sheet.view-summary .summary-subject-course-list article > footer p {
+  grid-template-columns: 28px 92px minmax(0, 1fr);
+  gap: 12px;
+  padding: 17px 0;
+  font-size: 14px;
+}
+
+.benefit-sheet.view-summary .summary-price-section {
+  min-height: 784px;
+  padding: 30px 32px;
+  border-radius: 16px;
+}
+
+.benefit-sheet.view-summary .summary-price-section > span {
+  font-size: 11px;
+}
+
+.benefit-sheet.view-summary .summary-price-section > h2 {
+  margin: 8px 0 28px;
+  padding-bottom: 25px;
+  font-family: var(--app-font);
+  font-size: 24px;
+}
+
+.benefit-sheet.view-summary .summary-price-subjects small,
+.benefit-sheet.view-summary .summary-price-section dl > div,
+.benefit-sheet.view-summary .summary-price-total span,
+.benefit-sheet.view-summary .summary-price-section ul {
+  font-size: 12px;
+}
+
+.benefit-sheet.view-summary .summary-price-subjects strong {
+  padding: 8px 12px;
+  font-size: 13px;
+}
+
+.benefit-sheet.view-summary .summary-price-section dl {
+  padding: 18px 0;
+}
+
+.benefit-sheet.view-summary .summary-price-total {
+  padding: 32px 0 24px;
+}
+
+.benefit-sheet.view-summary .summary-price-total strong {
+  font-size: 52px;
+}
+
+.benefit-sheet.view-summary .summary-price-section ul {
+  gap: 10px;
+  padding: 18px 20px 18px 34px;
+}
+
+.benefit-sheet.view-summary .summary-price-cta {
+  margin-top: 22px;
+  padding: 16px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.benefit-sheet.view-summary .summary-gift-section {
+  padding: 80px 80px 0;
+}
+
+.benefit-sheet.view-summary .summary-gift-album {
+  gap: 20px;
+  padding: 40px 0 80px;
+}
+
+.benefit-sheet.view-summary .summary-gift-album article {
+  grid-template-rows: 193px auto;
+  min-height: 309px;
+  border-radius: 12px;
+}
+
+.benefit-sheet.view-summary .summary-album-info {
+  gap: 9px;
+  padding: 15px 16px 17px;
+}
+
+.benefit-sheet.view-summary .summary-album-info header strong {
+  font-family: var(--app-font);
+  font-size: 16px;
+}
+
+.benefit-sheet.view-summary .summary-album-info header em,
+.benefit-sheet.view-summary .summary-album-cover > em,
+.benefit-sheet.view-summary .summary-album-info p,
+.benefit-sheet.view-summary .summary-album-info footer {
+  font-size: 12px;
+}
+
+.benefit-sheet.view-summary .summary-gift-section > footer {
+  margin: 0 -80px;
+  padding: 48px 80px;
+}
+
+.benefit-sheet.view-summary .summary-gift-section > footer p {
+  font-size: 14px;
+}
+
+.benefit-sheet.view-summary .summary-gift-section > footer span {
+  font-size: 12px;
+}
+
+.benefit-sheet.view-summary.is-exporting {
+  width: 1280px;
+}
+
+@media (max-width: 720px) {
+  .benefit-sheet.view-summary {
+    width: 100%;
+  }
+
+  .benefit-sheet.view-summary .letter-body {
+    padding: 0;
+  }
+
+  .benefit-sheet.view-summary .envelope-hero {
+    min-height: 304px;
+    padding: 10px 10px 0;
+  }
+
+  .benefit-sheet.view-summary .envelope-back {
+    right: 18px;
+    left: 18px;
+    height: 186px;
+  }
+
+  .benefit-sheet.view-summary .letter-paper {
+    min-height: 238px;
+    padding: 14px 14px 84px;
+  }
+
+  .benefit-sheet.view-summary .letter-paper .sheet-brand {
+    margin-bottom: 12px;
+  }
+
+  .benefit-sheet.view-summary .letter-paper .sheet-brand img {
+    width: 132px;
+    height: 24px;
+  }
+
+  .benefit-sheet.view-summary .letter-paper .sheet-brand span {
+    font-size: 12px;
+  }
+
+  .benefit-sheet.view-summary .letter-paper .hero-content {
+    grid-template-columns: minmax(0, 1fr) 108px;
+    gap: 8px;
+  }
+
+  .benefit-sheet.view-summary .letter-paper .product-kicker {
+    font-size: 12px;
+  }
+
+  .benefit-sheet.view-summary .letter-paper h1 {
+    font-size: 27px;
+  }
+
+  .benefit-sheet.view-summary .claim-line {
+    font-size: 17px;
+  }
+
+  .benefit-sheet.view-summary .hero-tags {
+    gap: 4px;
+    margin: 8px 0 6px;
+  }
+
+  .benefit-sheet.view-summary .hero-tags span {
+    min-height: 28px;
+    padding: 0 4px;
+    font-size: 10px;
+  }
+
+  .benefit-sheet.view-summary .letter-paper p:not(.claim-line) {
+    font-size: 11px;
+  }
+
+  .benefit-sheet.view-summary .letter-paper .hero-symbol {
+    width: 108px;
+    max-height: 136px;
+  }
+
+  .benefit-sheet.view-summary .envelope-front {
+    height: 82px;
+  }
+
+  .benefit-sheet.view-summary .seal {
+    bottom: 22px;
+    width: 62px;
+    height: 64px;
+  }
+
+  .benefit-sheet.view-summary .summary-stage-section,
+  .benefit-sheet.view-summary .summary-course-band,
+  .benefit-sheet.view-summary .summary-gift-section {
+    min-height: 0;
+    padding: 36px 18px;
+  }
+
+  .benefit-sheet.view-summary .summary-stage-section > header h2,
+  .benefit-sheet.view-summary .summary-section-title h2 {
+    font-size: 24px;
+  }
+
+  .benefit-sheet.view-summary .summary-stage-section > header > span,
+  .benefit-sheet.view-summary .summary-section-title > span {
+    font-size: 11px;
+  }
+
+  .benefit-sheet.view-summary .summary-stage-section > header p,
+  .benefit-sheet.view-summary .summary-section-title p {
+    font-size: 12px;
+  }
+
+  .benefit-sheet.view-summary .summary-purchase-strip {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-top: 22px;
+    padding: 12px 14px;
+  }
+
+  .benefit-sheet.view-summary .summary-purchase-strip em {
+    flex-basis: 100%;
+    white-space: normal;
+  }
+
+  .benefit-sheet.view-summary .summary-stage-flow,
+  .benefit-sheet.view-summary .summary-gift-album {
+    grid-template-columns: 1fr;
+  }
+
+  .benefit-sheet.view-summary .summary-stage-flow {
+    gap: 14px;
+    padding-top: 22px;
+  }
+
+  .benefit-sheet.view-summary .summary-stage-item {
+    padding: 20px;
+  }
+
+  .benefit-sheet.view-summary .summary-main-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .benefit-sheet.view-summary .summary-subject-course-list article > header {
+    padding: 16px;
+  }
+
+  .benefit-sheet.view-summary .summary-course-metrics > div {
+    min-height: 112px;
+    padding: 18px 6px 14px;
+  }
+
+  .benefit-sheet.view-summary .summary-course-metrics strong {
+    font-size: 30px;
+  }
+
+  .benefit-sheet.view-summary .summary-course-metrics strong em {
+    font-size: 13px;
+  }
+
+  .benefit-sheet.view-summary .summary-subject-course-list article > footer {
+    padding: 0 16px;
+  }
+
+  .benefit-sheet.view-summary .summary-subject-course-list article > footer p {
+    grid-template-columns: 22px 64px minmax(0, 1fr);
+    gap: 8px;
+    font-size: 12px;
+  }
+
+  .benefit-sheet.view-summary .summary-stage-item {
+    min-height: 0;
+  }
+
+  .benefit-sheet.view-summary .summary-price-section {
+    min-height: 0;
+    padding: 24px 20px;
+  }
+
+  .benefit-sheet.view-summary .summary-price-total strong {
+    font-size: 42px;
+  }
+
+  .benefit-sheet.view-summary .summary-gift-album {
+    gap: 12px;
+    padding: 24px 0 32px;
+  }
+
+  .benefit-sheet.view-summary .summary-gift-album article {
+    grid-template-rows: 193px auto;
+    min-height: 0;
+  }
+
+  .benefit-sheet.view-summary .summary-gift-section {
+    padding-bottom: 0;
+  }
+
+  .benefit-sheet.view-summary .summary-gift-section > footer {
+    margin: 0 -18px;
+  }
+}
+
+/* Summary typography and rhythm pass: keep the hero and data bindings unchanged. */
+.benefit-sheet.view-summary .summary-stage-tasks p,
+.benefit-sheet.view-summary .summary-stage-item.current .summary-stage-tasks p {
+  grid-area: auto;
+  align-items: start;
+  min-height: 0;
+  line-height: 1.65;
+}
+
+.benefit-sheet.view-summary .summary-stage-tasks {
+  align-content: start;
+}
+
+.benefit-sheet.view-summary .summary-stage-item {
+  min-height: 340px;
+}
+
+.benefit-sheet.view-summary .summary-main-grid {
+  align-items: stretch;
+}
+
+.benefit-sheet.view-summary .summary-price-section {
+  min-height: 0;
+  align-self: stretch;
+}
+
+.benefit-sheet.view-summary .summary-subject-course-list article > footer p {
+  line-height: 1.65;
+}
+
+.benefit-sheet.view-summary .summary-gift-album article {
+  min-height: 348px;
+}
+
+.benefit-sheet.view-summary .summary-album-info {
+  grid-template-rows: auto auto 1fr;
+  align-content: stretch;
+  gap: 10px;
+  min-width: 0;
+}
+
+.benefit-sheet.view-summary .summary-album-info header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 8px 10px;
+  min-width: 0;
+}
+
+.benefit-sheet.view-summary .summary-album-info header strong {
+  min-width: 0;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.benefit-sheet.view-summary .summary-album-info header em {
+  max-width: 92px;
+  padding-top: 2px;
+  line-height: 1.35;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.benefit-sheet.view-summary .summary-album-info p {
+  display: -webkit-box;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.65;
+  -webkit-line-clamp: 3;
+}
+
+.benefit-sheet.view-summary .summary-album-info footer {
+  align-self: end;
+  margin-top: 2px;
+  line-height: 1.5;
+}
+
+@media (max-width: 720px) {
+  .benefit-sheet.view-summary .summary-stage-item,
+  .benefit-sheet.view-summary .summary-gift-album article {
+    min-height: 0;
+  }
+}
+
+/* Keep the price summary aligned with the course panel and improve contrast. */
+.benefit-sheet.view-summary .summary-course-band {
+  background: #f4f9fb;
+}
+
+.benefit-sheet.view-summary .summary-subject-course-list article {
+  color: #1e293b;
+  background: #fffdfa;
+  border-color: #e7ded4;
+}
+
+.benefit-sheet.view-summary .summary-subject-course-list article > header strong {
+  color: #17243a;
+}
+
+.benefit-sheet.view-summary .summary-subject-course-list article > header small,
+.benefit-sheet.view-summary .summary-subject-course-list article > footer span {
+  color: #52647b;
+}
+
+.benefit-sheet.view-summary .summary-subject-course-list article > footer b {
+  color: #26364c;
+}
+
+.benefit-sheet.view-summary .summary-price-section {
+  color: #f8fafc;
+  background: #0b172a;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  box-shadow: 0 20px 42px rgba(15, 23, 42, 0.18);
+}
+
+.benefit-sheet.view-summary .summary-price-section > span {
+  color: #fbbf24;
+}
+
+.benefit-sheet.view-summary .summary-price-section > h2 {
+  color: #ffffff;
+  border-color: rgba(203, 213, 225, 0.2);
+}
+
+.benefit-sheet.view-summary .summary-price-subjects small,
+.benefit-sheet.view-summary .summary-price-section dt,
+.benefit-sheet.view-summary .summary-price-total span {
+  color: #b8c5d6;
+}
+
+.benefit-sheet.view-summary .summary-price-subjects strong {
+  color: #ffb347;
+  background: rgba(59, 130, 246, 0.08);
+  border-color: #397ed8;
+}
+
+.benefit-sheet.view-summary .summary-price-section dl {
+  border-color: rgba(203, 213, 225, 0.16);
+}
+
+.benefit-sheet.view-summary .summary-price-section dd {
+  color: #ff8a24;
+}
+
+.benefit-sheet.view-summary .summary-price-section dl > div:first-child dd {
+  color: #a9b6c8;
+}
+
+.benefit-sheet.view-summary .summary-price-total strong {
+  color: #ff7417;
+}
+
+.benefit-sheet.view-summary .summary-price-section ul {
+  color: #d8e2ee;
+  background: #152238;
+}
+
+.benefit-sheet.view-summary .summary-price-section li::marker {
+  color: #60a5fa;
+}
+
+.benefit-sheet.view-summary .summary-price-cta {
+  color: #ffffff;
+  background: #347ff1;
+}
+
+@media (min-width: 721px) {
+  .benefit-sheet.view-summary .summary-main-grid {
+    align-items: stretch;
+  }
+
+  .benefit-sheet.view-summary .summary-price-section {
+    display: flex;
+    flex-direction: column;
+    min-height: 384px;
+    padding: 21px 26px;
+    box-sizing: border-box;
+  }
+
+  .benefit-sheet.view-summary .summary-price-section > span {
+    font-size: 10px;
+    line-height: 1.2;
+  }
+
+  .benefit-sheet.view-summary .summary-price-section > h2 {
+    margin: 5px 0 11px;
+    padding-bottom: 11px;
+    font-size: 21px;
+    line-height: 1.25;
+  }
+
+  .benefit-sheet.view-summary .summary-price-subjects {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 0 10px;
+    margin-bottom: 0;
+  }
+
+  .benefit-sheet.view-summary .summary-price-subjects small {
+    font-size: 10px;
+  }
+
+  .benefit-sheet.view-summary .summary-price-subjects strong {
+    padding: 5px 9px;
+    font-size: 11px;
+  }
+
+  .benefit-sheet.view-summary .summary-price-section dl {
+    gap: 1px;
+    margin-top: 9px;
+    padding: 8px 0;
+  }
+
+  .benefit-sheet.view-summary .summary-price-section dl > div {
+    padding: 2px 0;
+    font-size: 10px;
+    line-height: 1.35;
+  }
+
+  .benefit-sheet.view-summary .summary-price-total {
+    padding: 10px 0 7px;
+  }
+
+  .benefit-sheet.view-summary .summary-price-total span {
+    font-size: 10px;
+  }
+
+  .benefit-sheet.view-summary .summary-price-total strong {
+    font-size: 41px;
+    line-height: 1.02;
+  }
+
+  .benefit-sheet.view-summary .summary-price-section ul {
+    gap: 3px;
+    margin-top: 5px;
+    padding: 9px 13px 9px 27px;
+    font-size: 10px;
+    line-height: 1.45;
+  }
+
+  .benefit-sheet.view-summary .summary-price-cta {
+    margin-top: auto;
+    padding: 10px 12px;
+    font-size: 13px;
+    line-height: 1.25;
+  }
+}
+
+/* Reference typography and alignment: centered sections, readable card content. */
+.benefit-sheet.view-summary .summary-layout {
+  color: #0b1528;
+  font-family: var(--app-font);
+}
+
+.benefit-sheet.view-summary .summary-stage-section > header,
+.benefit-sheet.view-summary .summary-section-title {
+  width: 100%;
+  max-width: 760px;
+  margin-right: auto;
+  margin-left: auto;
+  justify-items: center;
+  text-align: center;
+}
+
+.benefit-sheet.view-summary .summary-stage-section > header > span,
+.benefit-sheet.view-summary .summary-section-title > span {
+  justify-content: center;
+  color: #3b82f6;
+  text-align: center;
+}
+
+.benefit-sheet.view-summary .summary-stage-section > header h2,
+.benefit-sheet.view-summary .summary-section-title h2 {
+  color: #0b1528;
+  letter-spacing: 0;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.benefit-sheet.view-summary .summary-stage-section > header p,
+.benefit-sheet.view-summary .summary-section-title p {
+  max-width: 640px;
+  color: #64748b;
+  line-height: 1.7;
+  text-align: center;
+  text-wrap: pretty;
+}
+
+.benefit-sheet.view-summary .summary-purchase-strip,
+.benefit-sheet.view-summary .summary-stage-flow,
+.benefit-sheet.view-summary .summary-main-grid,
+.benefit-sheet.view-summary .summary-gift-album {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.benefit-sheet.view-summary .summary-purchase-strip {
+  color: #d9570b;
+  background: #fff7ed;
+}
+
+.benefit-sheet.view-summary .summary-stage-item,
+.benefit-sheet.view-summary .summary-stage-item > header,
+.benefit-sheet.view-summary .summary-stage-tasks {
+  text-align: left;
+}
+
+.benefit-sheet.view-summary .summary-stage-item > header small {
+  color: #3b82f6;
+}
+
+.benefit-sheet.view-summary .summary-stage-item > header strong,
+.benefit-sheet.view-summary .summary-stage-tasks > b,
+.benefit-sheet.view-summary .summary-stage-tasks p strong {
+  color: #1e293b;
+}
+
+.benefit-sheet.view-summary .summary-stage-tasks p {
+  color: #52647b;
+}
+
+.benefit-sheet.view-summary .summary-subject-course-list article > header {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.benefit-sheet.view-summary .summary-subject-course-list article > header > span {
+  flex: 0 0 auto;
+  text-align: center;
+}
+
+.benefit-sheet.view-summary .summary-subject-course-list article > header > div {
+  width: auto;
+  min-width: 0;
+  margin-right: auto;
+  text-align: left;
+}
+
+.benefit-sheet.view-summary .summary-subject-course-list article > header strong {
+  color: #17243a;
+  line-height: 1.35;
+  text-align: left;
+}
+
+.benefit-sheet.view-summary .summary-subject-course-list article > header small {
+  color: #718096;
+  line-height: 1.45;
+  text-align: left;
+}
+
+.benefit-sheet.view-summary .summary-course-metrics,
+.benefit-sheet.view-summary .summary-course-metrics > div {
+  text-align: center;
+}
+
+.benefit-sheet.view-summary .summary-course-metrics > div > span {
+  color: #718096;
+  line-height: 1.45;
+}
+
+.benefit-sheet.view-summary .summary-subject-course-list article > footer p {
+  color: #52647b;
+  text-align: left;
+}
+
+.benefit-sheet.view-summary .summary-subject-course-list article > footer b {
+  color: #26364c;
+}
+
+.benefit-sheet.view-summary .summary-price-section {
+  text-align: left;
+}
+
+.benefit-sheet.view-summary .summary-price-total,
+.benefit-sheet.view-summary .summary-price-cta {
+  text-align: center;
+}
+
+.benefit-sheet.view-summary .summary-album-info,
+.benefit-sheet.view-summary .summary-album-info header,
+.benefit-sheet.view-summary .summary-album-info p,
+.benefit-sheet.view-summary .summary-album-info footer {
+  text-align: left;
+}
+
+.benefit-sheet.view-summary .summary-album-info header strong {
+  color: #1e293b;
+}
+
+.benefit-sheet.view-summary .summary-album-info p {
+  color: #52647b;
+}
+
+.benefit-sheet.view-summary .summary-gift-section > footer {
+  text-align: center;
+}
+
+@media (max-width: 720px) {
+  .benefit-sheet.view-summary .summary-stage-section > header,
+  .benefit-sheet.view-summary .summary-section-title {
+    max-width: 100%;
+  }
+
+  .benefit-sheet.view-summary .summary-subject-course-list article > header {
+    align-items: center;
+    justify-content: flex-start;
+  }
+}
+
+/* Gift catalog: one shared visual system for summary, detail and admin. */
+.summary-gift-groups {
+  display: grid;
+  gap: 34px;
+  padding: 40px 0 72px;
+}
+
+.benefit-sheet.view-summary .summary-gift-group {
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+}
+
+.benefit-sheet.view-summary .summary-gift-group > header {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 22px;
+  text-align: left;
+  background: #f8fbff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.benefit-sheet.view-summary .summary-gift-group > header > span {
+  color: #ffffff;
+  background: #3b82f6;
+  border-radius: 8px;
+  padding: 9px 0;
+  font-size: 15px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.benefit-sheet.view-summary .summary-gift-group.category-growth > header > span {
+  background: #f97316;
+}
+
+.benefit-sheet.view-summary .summary-gift-group.category-physical > header > span {
+  background: #0f766e;
+}
+
+.benefit-sheet.view-summary .summary-gift-group > header h3 {
+  margin: 0;
+  color: #16243b;
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+.benefit-sheet.view-summary .summary-gift-group > header p {
+  margin: 4px 0 0;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.benefit-sheet.view-summary .summary-gift-group > header > em {
+  color: #3b82f6;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 800;
+}
+
+.benefit-sheet.view-summary .summary-gift-group .summary-gift-album {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  padding: 22px;
+}
+
+.benefit-sheet.view-summary .summary-gift-group .summary-gift-album article {
+  grid-template-rows: 154px auto;
+  min-height: 284px;
+}
+
+.benefit-sheet.view-summary .summary-album-cover {
+  display: grid;
+  place-items: center;
+  background: #fffaf3;
+}
+
+.benefit-sheet.view-summary .summary-album-cover img {
+  width: 100%;
+  height: 100%;
+  padding: 4px;
+  object-fit: contain;
+  background: #fffaf3;
+  box-sizing: border-box;
+}
+
+.detail-gift-groups {
+  display: grid;
+  gap: 22px;
+}
+
+.detail-gift-group {
+  overflow: hidden;
+  border: 1px solid #d8e5f7;
+  border-radius: 10px;
+  background: #f8fbff;
+}
+
+.detail-gift-group > header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 16px;
+  background: #edf5ff;
+  border-bottom: 1px solid #d8e5f7;
+}
+
+.detail-gift-group > header > span {
+  padding: 6px 9px;
+  color: #ffffff;
+  background: #2563eb;
+  border-radius: 6px;
+  font-weight: 900;
+}
+
+.detail-gift-group > header div {
+  display: grid;
+  gap: 2px;
+}
+
+.detail-gift-group > header strong { color: #14315b; }
+.detail-gift-group > header small { color: #66758d; }
+.detail-gift-group .gift-poster-grid { padding: 14px; }
+
+.gift-poster-image {
+  aspect-ratio: 4 / 3;
+  padding: 8px;
+  background: #fff9f0;
+  border-bottom: 1px solid #eef2fb;
+}
+
+.gift-poster-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.gift-category-badge {
+  display: inline-block;
+  margin: 4px 0 0;
+  padding: 2px 7px;
+  border-radius: 999px;
+  color: #1d4ed8;
+  background: #eaf2ff;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.gift-category-badge.category-growth {
+  color: #c2410c;
+  background: #fff1e8;
+}
+
+.gift-edit-image,
+.gift-image-upload {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  color: #0d5be4;
+  background: #f3f8ff;
+  border: 1px dashed #9cc4ff;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.gift-edit-image {
+  display: grid;
+  min-height: 142px;
+  margin-bottom: 10px;
+  place-items: center;
+  overflow: hidden;
+}
+
+.gift-edit-image img {
+  width: 100%;
+  height: 112px;
+  object-fit: contain;
+  background: #fffaf3;
+}
+
+.gift-edit-image input,
+.gift-image-upload input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+@media (max-width: 720px) {
+  .benefit-sheet.view-summary .summary-gift-group .summary-gift-album {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .benefit-sheet.view-summary .summary-gift-group > header {
+    grid-template-columns: 38px minmax(0, 1fr);
+    padding: 13px 14px;
+  }
+
+  .benefit-sheet.view-summary .summary-gift-group > header > em {
+    display: none;
+  }
+
+  .benefit-sheet.view-summary .summary-gift-group .summary-gift-album article {
+    grid-template-rows: 112px auto;
+    min-height: 238px;
+  }
+
+  .gift-poster-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gift-poster-card.featured {
+    grid-column: auto;
+  }
+}
+
+/* Final summary heading alignment: every section title follows the sheet centerline. */
+.benefit-sheet.view-summary .summary-stage-section,
+.benefit-sheet.view-summary .summary-course-band,
+.benefit-sheet.view-summary .summary-gift-section {
+  position: relative;
+  display: block;
+}
+
+.benefit-sheet.view-summary .summary-stage-section > header,
+.benefit-sheet.view-summary .summary-course-band > .summary-section-title,
+.benefit-sheet.view-summary .summary-gift-section > .summary-section-title {
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+  margin-right: 0;
+  margin-left: 0;
+  padding-right: 0;
+  padding-left: 0;
+  transform: none;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  justify-self: stretch;
+  grid-column: 1 / -1;
+  text-align: center;
+}
+
+.benefit-sheet.view-summary .summary-stage-section > header > span,
+.benefit-sheet.view-summary .summary-stage-section > header > h2,
+.benefit-sheet.view-summary .summary-stage-section > header > p,
+.benefit-sheet.view-summary .summary-course-band > .summary-section-title > span,
+.benefit-sheet.view-summary .summary-course-band > .summary-section-title > h2,
+.benefit-sheet.view-summary .summary-course-band > .summary-section-title > p,
+.benefit-sheet.view-summary .summary-gift-section > .summary-section-title > span,
+.benefit-sheet.view-summary .summary-gift-section > .summary-section-title > h2,
+.benefit-sheet.view-summary .summary-gift-section > .summary-section-title > p {
+  box-sizing: border-box;
+  width: auto;
+  max-width: min(760px, 100%);
+  margin-right: auto;
+  margin-left: auto;
+  align-self: center;
+  justify-content: center;
+  justify-self: center;
+  text-align: center;
+}
+
+/* Final detail-page overrides. */
+.live-compact-table th:nth-child(1),
+.live-compact-table td:nth-child(1),
+.live-compact-table th:nth-child(3),
+.live-compact-table td:nth-child(3) {
+  width: 48px;
+}
+
+.live-compact-table th:nth-child(2),
+.live-compact-table td:nth-child(2),
+.live-compact-table th:nth-child(4),
+.live-compact-table td:nth-child(4) {
+  width: auto;
+}
+
+.video-compact-table .outline-title {
+  padding: 10px 14px;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.gift-poster-card.simplified {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  grid-column: auto;
+}
+
+.gift-poster-card.simplified .gift-poster-image {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  padding: 0;
+  background: #f8fafc;
+}
+
+.gift-poster-card.simplified .gift-poster-image img {
+  object-fit: contain;
+}
+
+.gift-poster-card.simplified .gift-poster-image > em {
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  left: 10px;
+  padding: 5px 9px;
+  color: #ffffff;
+  background: #3b82f6;
+  border-radius: 5px;
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.gift-poster-card.simplified .gift-poster-image > span {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  padding: 20px;
+  color: #31517e;
+  text-align: center;
+  font-weight: 900;
+}
+
+.gift-poster-card.simplified header {
+  min-height: 48px;
+  padding: 10px 14px;
+}
+
+.gift-poster-summary {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  padding: 13px 15px 16px;
+}
+
+.gift-poster-summary > strong {
+  color: #ea580c;
+  font-size: 14px;
+}
+
+.gift-poster-summary > p {
+  margin: 0;
+  color: #475569;
+  font-size: 13px;
+  line-height: 1.55;
 }

@@ -5,7 +5,7 @@ export const moduleLibrary = [];
 export const initialProducts = [
   {
     id: "g1-autumn-card",
-    name: "高一秋实卡",
+    name: "新高一秋实卡",
     grade: "高一",
     stage: "秋实卡",
     courseKey: "秋实卡",
@@ -14,7 +14,9 @@ export const initialProducts = [
     coveragePhases: ["秋季"],
     videoPhases: ["秋季"],
     videoSubjects: ["语文", "数学", "英语", "物理", "化学"],
-    subtitle: "高一秋季正课权益，学法直播搭配知识视频补基础。",
+    unlayeredVideoSubjects: ["语文"],
+    layeredVideoSubjects: ["数学", "英语", "物理", "化学"],
+    subtitle: "新高一秋季系统学习，学法直播讲透方法，知识视频分层补足基础。",
     core: {
       liveLessons: 16,
       liveDuration: "2h",
@@ -22,14 +24,22 @@ export const initialProducts = [
       videoDuration: "30min",
       servicePeriod: "4个月",
     },
+    serviceDateRange: "2026.09.01-2026.12.31",
+    courseValidity: "即日起至2029.08.31",
+    salePeriod: "2026.07.26起",
     priceNote: "",
     pricing: {
-      originalPerSubject: 5400,
-      singlePerSubject: 3980,
-      twoPerSubject: 3680,
-      threePlusPerSubject: 3380,
+      originalPerSubject: 3600,
+      singlePerSubject: 2780,
+      twoPerSubject: 2680,
+      threePlusPerSubject: 2580,
     },
-    videoReleasePlan: "",
+    humanitiesPricing: {
+      originalPerSubject: 2200,
+      fixedPerSubject: 900,
+    },
+    productProfileVersion: "2026-07-17-authoritative-v1",
+    videoReleasePlan: "购买后立即开放3节试听，其余视频自8月起分批释放",
     subjectProfiles: {
       default: {
         liveLessons: 16,

@@ -44,9 +44,27 @@ const courseGiftRuleOptions = [
   "买满3科赠对应学科",
 ];
 const physicalGiftRuleOptions = ["买满1科赠", "买满2科赠", "买满3科赠"];
+const giftCategoryOptions = ["学科类赠课", "升学赋能包"];
+const videoTrackOptions = ["目标班", "菁英班"];
+const giftCategoryMeta = {
+  "学科类赠课": { index: "01", note: "随所购学科匹配，买哪科赠哪科" },
+  "升学赋能包": { index: "02", note: "选科、成长与升学规划通用权益" },
+  "实物赠送": { index: "03", note: "教辅资料、文创与达标实物礼" },
+};
+const giftImageLibrary = [
+  { names: ["暑期学法知识视频包", "高一暑期重难点精华课"], category: "学科类赠课", image: "/assets/gifts/summer-review.png" },
+  { names: ["新高一入门知识精讲"], category: "学科类赠课", image: "/assets/gifts/freshman-foundation.jpg" },
+  { names: ["高一选科宝典"], category: "升学赋能包", image: "/assets/gifts/subject-selection-guide.png" },
+  { names: ["高一家长成长计划"], category: "升学赋能包", image: "/assets/gifts/parent-growth-plan.png" },
+  { names: ["高中升学路径全解"], category: "升学赋能包", image: "/assets/gifts/pathway-guide.png" },
+  { names: ["极境拾音坞", "实物单品"], category: "实物赠送", image: "/assets/gifts/sound-dock.jpg" },
+  { names: ["午福临门", "升学礼包"], category: "实物赠送", image: "/assets/gifts/fortune-gift-box.png" },
+  { names: ["草稿本"], category: "实物赠送", image: "/assets/gifts/draft-notebooks.png" },
+];
 const PRODUCTS_STORAGE_KEY = "youdao-benefits-products-v5-g1-autumn-course-refresh";
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
 const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
+const PUBLIC_SITE_URL = import.meta.env.VITE_PUBLIC_SITE_URL || "https://stangersasengbong366-byte.github.io/lingshi-/";
 const CLOUD_CONFIG_TABLE = "benefit_configs";
 const CLOUD_PRODUCTS_LEGACY_ID = "products";
 const CLOUD_PRODUCTS_DRAFT_ID = "products_draft";
@@ -70,20 +88,41 @@ function loadStoredProducts() {
 }
 
 function migrateStoredProduct(product) {
-  const migrated = String(product.grade).includes("高一") && `${product.stage}${product.name}`.includes("秋实") ? {
+  const isG1Autumn = String(product.grade).includes("高一") && `${product.stage}${product.name}`.includes("秋实");
+  const migrated = isG1Autumn && product.productProfileVersion !== "2026-07-17-authoritative-v1" ? {
     ...product,
+    name: "新高一秋实卡",
+    term: "26H2 秋季",
+    subtitle: "新高一秋季系统学习，学法直播讲透方法，知识视频分层补足基础。",
     videoSubjects: ["语文", "数学", "英语", "物理", "化学"],
+    unlayeredVideoSubjects: ["语文"],
+    layeredVideoSubjects: ["数学", "英语", "物理", "化学"],
     core: {
       ...product.core,
       liveLessons: 16,
+      liveDuration: "2h",
       knowledgeVideos: 40,
+      videoDuration: "30min",
+      servicePeriod: "4个月",
     },
-    pricing: product.pricing ?? {
-      originalPerSubject: 5400,
-      singlePerSubject: 3980,
-      twoPerSubject: 3680,
-      threePlusPerSubject: 3380,
+    serviceDateRange: "2026.09.01-2026.12.31",
+    courseValidity: "即日起至2029.08.31",
+    salePeriod: "2026.07.26起",
+    pricing: {
+      originalPerSubject: 3600,
+      singlePerSubject: 2780,
+      twoPerSubject: 2680,
+      threePlusPerSubject: 2580,
     },
+    humanitiesPricing: {
+      originalPerSubject: 2200,
+      fixedPerSubject: 900,
+    },
+    giftSelections: null,
+    physicalGiftSelections: null,
+    giftOverrides: {},
+    productProfileVersion: "2026-07-17-authoritative-v1",
+    videoReleasePlan: "购买后立即开放3节试听，其余视频自8月起分批释放",
   } : product;
   return hydrateAnnualCourseProduct(migrated);
 }
@@ -98,7 +137,11 @@ function hydrateAnnualCourseProduct(product) {
     && !isLegacyProductUpload;
   if (!annualData) return product;
   if (hasCurrentAnnualUpload) return product;
-  if (product.annualCourseVersion === annualCourseLibraryVersion && !isLegacyProductUpload) return product;
+  const hasLoadedAnnualCourse = courseSubjects.some((subject) => (
+    product.parsedCourseData?.live?.[subject]?.length
+    || product.parsedCourseData?.video?.[subject]?.length
+  ));
+  if (product.annualCourseVersion === annualCourseLibraryVersion && !isLegacyProductUpload && hasLoadedAnnualCourse) return product;
   const annualNames = {
     live: "学法直播.xlsx",
     video: "知识视频.xlsx",
@@ -184,9 +227,14 @@ function App() {
   const [syncStatus, setSyncStatus] = useState(cloudConfigEnabled ? "正在同步云端配置" : "本地配置");
   const [selectedProductId, setSelectedProductId] = useState(() => shareParams?.productId ?? loadStoredProducts()[0]?.id ?? initialProducts[0].id);
   const [selectedSubjects, setSelectedSubjects] = useState(() => shareParams?.subjects ?? [shareParams?.subject ?? "数学"]);
-  const [selectedVideoTrack, setSelectedVideoTrack] = useState(() => shareParams?.videoTrack ?? "目标班");
+  const [selectedVideoTracks, setSelectedVideoTracks] = useState(() => shareParams?.videoTracks ?? {});
   const selectedProduct = products.find((item) => item.id === selectedProductId) ?? products[0];
-  const selectedCoursePlans = selectedSubjects.map((subject) => resolveCoursePlan(selectedProduct, subject, undefined, selectedVideoTrack));
+  const selectedCoursePlans = selectedSubjects.map((subject) => resolveCoursePlan(
+    selectedProduct,
+    subject,
+    undefined,
+    selectedVideoTracks[subject] ?? "目标班",
+  ));
   const selectedCoursePlan = selectedCoursePlans[0];
 
   React.useEffect(() => {
@@ -232,10 +280,13 @@ function App() {
     setProducts(nextProducts);
     saveStoredProducts(nextProducts);
     setSelectedProductId(nextProduct.id);
-    setSyncStatus("正在保存云端草稿");
+    setSyncStatus("正在保存并同步销售端");
     try {
-      await saveCloudProducts(nextProducts, CLOUD_PRODUCTS_DRAFT_ID);
-      setSyncStatus("草稿已保存到云端");
+      await Promise.all([
+        saveCloudProducts(nextProducts, CLOUD_PRODUCTS_DRAFT_ID),
+        saveCloudProducts(nextProducts, CLOUD_PRODUCTS_PUBLISHED_ID),
+      ]);
+      setSyncStatus("已保存到云端，销售端同步完成");
       return { cloudSaved: true };
     } catch (error) {
       setSyncStatus(error?.isMissingTable ? "云端数据表未创建，仅保存在本机" : "云端保存失败，仅保存在本机");
@@ -257,10 +308,13 @@ function App() {
     setProducts(nextProducts);
     saveStoredProducts(nextProducts);
     setSelectedProductId(nextProduct.id);
-    setSyncStatus("正在保存新产品");
+    setSyncStatus("正在保存新产品并同步销售端");
     try {
-      await saveCloudProducts(nextProducts, CLOUD_PRODUCTS_DRAFT_ID);
-      setSyncStatus("新产品已保存到云端草稿");
+      await Promise.all([
+        saveCloudProducts(nextProducts, CLOUD_PRODUCTS_DRAFT_ID),
+        saveCloudProducts(nextProducts, CLOUD_PRODUCTS_PUBLISHED_ID),
+      ]);
+      setSyncStatus("新产品已同步到云端销售端");
     } catch (error) {
       setSyncStatus(error?.isMissingTable ? "云端数据表未创建，新产品仅保存在本机" : "云端保存失败，新产品仅保存在本机");
     }
@@ -273,7 +327,7 @@ function App() {
         products={products}
         product={selectedProduct}
         selectedSubjects={selectedSubjects}
-        selectedVideoTrack={selectedVideoTrack}
+        selectedVideoTracks={selectedVideoTracks}
         coursePlans={selectedCoursePlans}
         viewMode={shareParams.viewMode}
       />
@@ -288,11 +342,11 @@ function App() {
           products={products}
           selectedProduct={selectedProduct}
           selectedSubjects={selectedSubjects}
-          selectedVideoTrack={selectedVideoTrack}
+          selectedVideoTracks={selectedVideoTracks}
           coursePlans={selectedCoursePlans}
           onSelect={setSelectedProductId}
           onSubjectsChange={setSelectedSubjects}
-          onVideoTrackChange={setSelectedVideoTrack}
+          onVideoTrackChange={(subject, track) => setSelectedVideoTracks((current) => ({ ...current, [subject]: track }))}
         />
       )}
       {activePage === "admin" && (
@@ -363,13 +417,24 @@ function getSalesOnlyMode() {
 function getShareParams() {
   const params = new URLSearchParams(window.location.search);
   if (params.get("share") !== "1") return null;
+  const subjects = (params.get("subjects") || params.get("subject") || "数学").split(",").map((item) => item.trim()).filter(Boolean);
+  const legacyTrack = /菁英|精英/.test(params.get("track") || "") ? "菁英班" : "目标班";
+  const videoTracks = Object.fromEntries(subjects.map((subject) => [subject, legacyTrack]));
+  (params.get("tracks") || "").split(",").forEach((entry) => {
+    const [subject, track] = entry.split(":");
+    if (subject && track) videoTracks[subject] = /菁英|精英/.test(track) ? "菁英班" : "目标班";
+  });
   return {
     productId: params.get("product") || initialProducts[0].id,
     subject: params.get("subject") || "数学",
-    subjects: (params.get("subjects") || params.get("subject") || "数学").split(",").map((item) => item.trim()).filter(Boolean),
-    videoTrack: params.get("track") === "精英班" ? "精英班" : "目标班",
+    subjects,
+    videoTracks,
     viewMode: params.get("view") === "detail" ? "detail" : "summary",
   };
+}
+
+function formatSubjectTracks(subjects, tracks) {
+  return subjects.map((subject) => `${subject}·${tracks?.[subject] ?? "目标班"}`).join(" / ");
 }
 
 function AppHeader({ activePage, onPageChange, syncStatus, salesOnly }) {
@@ -411,7 +476,7 @@ function AppHeader({ activePage, onPageChange, syncStatus, salesOnly }) {
   );
 }
 
-function SalesPage({ products, selectedProduct, selectedSubjects, selectedVideoTrack, coursePlans, onSelect, onSubjectsChange, onVideoTrackChange }) {
+function SalesPage({ products, selectedProduct, selectedSubjects, selectedVideoTracks, coursePlans, onSelect, onSubjectsChange, onVideoTrackChange }) {
   const previewRef = useRef(null);
   const [linkCopied, setLinkCopied] = useState(false);
   const [exporting, setExporting] = useState(false);
@@ -432,7 +497,7 @@ function SalesPage({ products, selectedProduct, selectedSubjects, selectedVideoT
   const videoTotal = coursePlans.reduce((sum, plan) => sum + (plan?.videoEntitlement ?? 0), 0);
 
   const copyShareLink = async () => {
-    await navigator.clipboard.writeText(buildShareUrl(selectedProduct, selectedSubjects, viewMode, selectedVideoTrack));
+    await navigator.clipboard.writeText(buildShareUrl(selectedProduct, selectedSubjects, viewMode, selectedVideoTracks));
     setLinkCopied(true);
     window.setTimeout(() => setLinkCopied(false), 1600);
   };
@@ -511,13 +576,26 @@ function SalesPage({ products, selectedProduct, selectedSubjects, selectedVideoT
             ))}
           </div>
         </Field>
-        <Field label="知识视频班型">
-          <SegmentedSelect
-            options={["目标班", "精英班"]}
-            value={selectedVideoTrack}
-            onChange={onVideoTrackChange}
-          />
-          <p className="field-help">知识视频按“通用课程 + 所选班型课程”组合展示。</p>
+        <Field label="各科知识视频班型">
+          <div className="subject-track-list">
+            {selectedSubjects.map((subject) => {
+              const hasVideo = selectedProduct.videoSubjects?.includes(subject);
+              const isLayered = selectedProduct.layeredVideoSubjects?.includes(subject);
+              return (
+                <div className="subject-track-row" key={subject}>
+                  <strong>{subject}</strong>
+                  {isLayered ? (
+                    <SegmentedSelect
+                      options={videoTrackOptions}
+                      value={selectedVideoTracks[subject] ?? "目标班"}
+                      onChange={(track) => onVideoTrackChange(subject, track)}
+                    />
+                  ) : <span className="subject-track-status">{hasVideo ? "不分层" : "无知识视频"}</span>}
+                </div>
+              );
+            })}
+          </div>
+          <p className="field-help">数英物化可独立选择“目标班”或“菁英班”；语文不分层，生政史地本产品无知识视频。</p>
         </Field>
         <Field label="页面类型">
           <div className="version-switch" role="group" aria-label="页面类型">
@@ -576,7 +654,7 @@ function SalesPage({ products, selectedProduct, selectedSubjects, selectedVideoT
   );
 }
 
-function CustomerSharePage({ products, product, selectedSubjects, selectedVideoTrack, coursePlans, viewMode }) {
+function CustomerSharePage({ products, product, selectedSubjects, selectedVideoTracks, coursePlans, viewMode }) {
   const [opened, setOpened] = useState(false);
   const [isOpening, setIsOpening] = useState(false);
 
@@ -616,7 +694,7 @@ function CustomerSharePage({ products, product, selectedSubjects, selectedVideoT
             </button>
           </div>
           <div className="share-opening-copy">
-            <span>{product.name} · {selectedSubjects.join("、")} · {selectedVideoTrack}</span>
+            <span>{product.name} · {formatSubjectTracks(selectedSubjects, selectedVideoTracks)}</span>
             <p>点击火漆章，开启你的专属权益清单。</p>
           </div>
         </section>
@@ -631,7 +709,7 @@ function CustomerSharePage({ products, product, selectedSubjects, selectedVideoT
           <img src={assetUrl("/assets/youdao-logo.png")} alt="网易有道领世" />
           <div>
             <span>权益清单已开启</span>
-            <strong>{product.name} · {selectedSubjects.join("、")} · {selectedVideoTrack}</strong>
+            <strong>{product.name} · {formatSubjectTracks(selectedSubjects, selectedVideoTracks)}</strong>
           </div>
         </div>
         <BenefitSheet products={products} product={product} coursePlans={coursePlans} mode="poster" viewMode={viewMode} />
@@ -649,7 +727,7 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onUpdate, onPub
   const [annualCourseData, setAnnualCourseData] = useState(selectedProduct.annualCourseData ?? selectedProduct.parsedCourseData ?? { live: {}, video: {} });
   const [customCourseData, setCustomCourseData] = useState(selectedProduct.customCourseData ?? { live: {}, video: {} });
   const [parsedSubject, setParsedSubject] = useState("语文");
-  const [newGift, setNewGift] = useState({ name: "", detail: "", value: "", lessonCount: "", mainContent: "", rule: "买满1科赠对应学科" });
+  const [newGift, setNewGift] = useState({ name: "", detail: "", value: "", lessonCount: "", mainContent: "", category: "学科类赠课", rule: "买满1科赠对应学科", image: "" });
   const [newPhysicalGift, setNewPhysicalGift] = useState({ name: "", detail: "", value: "", rule: "买满1科赠" });
   const [lastGiftImport, setLastGiftImport] = useState(null);
   const [publishState, setPublishState] = useState("idle");
@@ -694,7 +772,7 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onUpdate, onPub
     setAnnualCourseData(selectedProduct.annualCourseData ?? selectedProduct.parsedCourseData ?? { live: {}, video: {} });
     setCustomCourseData(selectedProduct.customCourseData ?? { live: {}, video: {} });
     setParsedSubject("语文");
-    setNewGift({ name: "", detail: "", value: "", lessonCount: "", mainContent: "", rule: "买满1科赠对应学科" });
+    setNewGift({ name: "", detail: "", value: "", lessonCount: "", mainContent: "", category: "学科类赠课", rule: "买满1科赠对应学科", image: "" });
     setNewPhysicalGift({ name: "", detail: "", value: "", rule: "买满1科赠" });
     setLastGiftImport(null);
   }, [selectedProduct]);
@@ -872,6 +950,18 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onUpdate, onPub
     updateGiftOverride(key, "image", image);
   };
 
+  const updateCourseGiftImage = async (key, file) => {
+    if (!file) return;
+    const image = await readImageFileAsDataUrl(file);
+    updateGiftOverride(key, "image", image);
+  };
+
+  const updateNewGiftImage = async (file) => {
+    if (!file) return;
+    const image = await readImageFileAsDataUrl(file);
+    setNewGift((current) => ({ ...current, image }));
+  };
+
   const updateNewPhysicalGiftImage = async (file) => {
     if (!file) return;
     const image = await readImageFileAsDataUrl(file);
@@ -894,14 +984,16 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onUpdate, onPub
       value: newGift.value.trim() || "待补充",
       lessonCount: newGift.lessonCount.trim(),
       mainContent: newGift.mainContent.trim(),
+      category: newGift.category,
       rule: newGift.rule,
+      image: newGift.image || "",
     };
     setDraft({
       ...draft,
       customGiftItems: [...(draft.customGiftItems ?? []), item],
       giftSelections: [...selectedGiftKeys, getGiftItemKey(item)],
     });
-    setNewGift({ name: "", detail: "", value: "", lessonCount: "", mainContent: "", rule: "买满1科赠对应学科" });
+    setNewGift({ name: "", detail: "", value: "", lessonCount: "", mainContent: "", category: "学科类赠课", rule: "买满1科赠对应学科", image: "" });
   };
 
   const togglePhysicalGiftSelection = (key) => {
@@ -1038,11 +1130,7 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onUpdate, onPub
           <div className="admin-publish-actions">
             <button className="secondary-action small" type="button" onClick={saveDraft}>
               <Save size={17} />
-              <span>{saveState === "saving" ? "保存中..." : saveState === "saved" ? "云端草稿已保存" : saveState === "local-only" ? "仅保存到本机" : "保存配置"}</span>
-            </button>
-            <button className="primary-action small" type="button" onClick={publishDraft} disabled={publishState === "publishing" || !canPublish}>
-              <Upload size={17} />
-              <span>{publishState === "publishing" ? "发布中..." : publishState === "published" ? "发布成功" : publishState === "error" ? "请先补齐必填项" : "发布并同步"}</span>
+              <span>{saveState === "saving" ? "正在同步..." : saveState === "saved" ? "云端与销售端已同步" : saveState === "local-only" ? "同步失败，请重试" : "保存并同步"}</span>
             </button>
             <button className="secondary-action small" type="button" onClick={copySalesPortalLink}>
               <Share2 size={17} />
@@ -1055,7 +1143,7 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onUpdate, onPub
           <Database size={20} />
           <div>
             <strong>{syncStatus}</strong>
-            <span>保存配置写入云端草稿；点击“发布并同步”后，销售链接才会读取本次更新。</span>
+            <span>点击“保存并同步”后，配置会同时写入云端正式版本；销售和家长链接刷新后即可看到最新内容。</span>
           </div>
           <em>{cloudConfigEnabled ? "Supabase 已配置" : "仅本地模式"}</em>
           {syncStatus.includes("数据表未创建") ? (
@@ -1170,6 +1258,7 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onUpdate, onPub
             onExpand={(key) => setExpandedGiftKey(expandedGiftKey === key ? "" : key)}
             onUpload={handleUploadName}
             onItemChange={updateGiftOverride}
+            onImageChange={updateCourseGiftImage}
           />
           <div className="gift-import-box">
             <div className="gift-import-head">
@@ -1194,9 +1283,17 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onUpdate, onPub
               <input placeholder="价值" value={newGift.value} onChange={(event) => setNewGift({ ...newGift, value: event.target.value })} />
               <input placeholder="课时量，如 10节 × 30min" value={newGift.lessonCount} onChange={(event) => setNewGift({ ...newGift, lessonCount: event.target.value })} />
               <input placeholder="主要讲解内容" value={newGift.mainContent} onChange={(event) => setNewGift({ ...newGift, mainContent: event.target.value })} />
+              <select value={newGift.category} onChange={(event) => setNewGift({ ...newGift, category: event.target.value })}>
+                {giftCategoryOptions.map((category) => <option key={category}>{category}</option>)}
+              </select>
               <select value={newGift.rule} onChange={(event) => setNewGift({ ...newGift, rule: event.target.value })}>
                 {courseGiftRuleOptions.map((rule) => <option key={rule}>{rule}</option>)}
               </select>
+              <label className="gift-image-upload">
+                <ImagePlus size={17} />
+                <span>{newGift.image ? "配图已选择" : "上传赠课配图"}</span>
+                <input type="file" accept="image/png,image/jpeg,image/webp" onChange={(event) => updateNewGiftImage(event.target.files?.[0])} />
+              </label>
               <button type="button" className="secondary-action" onClick={addCustomGift}><Plus size={16} />添加赠课</button>
             </div>
           </div>
@@ -1396,7 +1493,7 @@ function CoursePreviewControls({ selectedSubject, onSubjectChange, previewTrack,
         <strong>查看课程大纲</strong>
         <div className="course-preview-switches">
           <button type="button" className={previewTrack === "目标班" ? "active" : ""} onClick={() => onTrackChange("目标班")}>目标班</button>
-          <button type="button" className={previewTrack === "精英班" ? "active" : ""} onClick={() => onTrackChange("精英班")}>精英班</button>
+          <button type="button" className={previewTrack === "菁英班" ? "active" : ""} onClick={() => onTrackChange("菁英班")}>菁英班</button>
         </div>
       </div>
       <div>
@@ -1569,7 +1666,7 @@ function LegacyCourseUploadBoard({ grade, uploadNames, parsedData, selectedSubje
             <button type="button" className={previewScope === "product" ? "active" : ""} onClick={() => setPreviewScope("product")}>当前产品阶段</button>
             <button type="button" className={previewScope === "annual" ? "active" : ""} onClick={() => setPreviewScope("annual")}>全年全部阶段</button>
             <button type="button" className={previewTrack === "目标班" ? "active" : ""} onClick={() => setPreviewTrack("目标班")}>目标班</button>
-            <button type="button" className={previewTrack === "精英班" ? "active" : ""} onClick={() => setPreviewTrack("精英班")}>精英班</button>
+            <button type="button" className={previewTrack === "菁英班" ? "active" : ""} onClick={() => setPreviewTrack("菁英班")}>菁英班</button>
           </div>
         </div>
         <div>
@@ -1768,7 +1865,7 @@ function GiftTriggerGuide({ physical = false }) {
   );
 }
 
-function GiftOutlineTable({ items, selectedKeys, expandedKey, uploadNames, onToggle, onExpand, onUpload, onItemChange }) {
+function GiftOutlineTable({ items, selectedKeys, expandedKey, uploadNames, onToggle, onExpand, onUpload, onItemChange, onImageChange }) {
   if (!items.length) {
     return (
       <div className="admin-empty">
@@ -1793,13 +1890,14 @@ function GiftOutlineTable({ items, selectedKeys, expandedKey, uploadNames, onTog
         const key = getGiftItemKey(item);
         const selected = selectedKeys.includes(key);
         const expanded = expandedKey === key;
+        const category = getGiftCategory(item);
         return (
           <article className={expanded ? "gift-outline-row expanded" : "gift-outline-row"} key={key}>
             <div className="gift-outline-main">
               <button type="button" className={selected ? "table-check active" : "table-check"} onClick={() => onToggle(key)}>
                 <Check size={13} />
               </button>
-              <strong>{item.name}</strong>
+              <strong>{item.name}<small className={`gift-category-badge category-${category === "升学赋能包" ? "growth" : "subject"}`}>{category}</small></strong>
               <span>{item.value}</span>
               <span>{item.detail}</span>
               <em>{normalizeCourseGiftRule(item.rule)}</em>
@@ -1813,6 +1911,9 @@ function GiftOutlineTable({ items, selectedKeys, expandedKey, uploadNames, onTog
                   <label><span>赠课名称</span><input value={item.name || ""} onChange={(event) => onItemChange(key, "name", event.target.value)} /></label>
                   <label><span>权益价值</span><input value={item.value || ""} onChange={(event) => onItemChange(key, "value", event.target.value)} /></label>
                   <label><span>课时量</span><input placeholder="例如：10节 × 30min" value={item.lessonCount || ""} onChange={(event) => onItemChange(key, "lessonCount", event.target.value)} /></label>
+                  <label><span>赠课分类</span><select value={category} onChange={(event) => onItemChange(key, "category", event.target.value)}>
+                    {giftCategoryOptions.map((option) => <option key={option}>{option}</option>)}
+                  </select></label>
                   <label><span>赠送规则</span><select value={normalizeCourseGiftRule(item.rule)} onChange={(event) => onItemChange(key, "rule", event.target.value)}>
                     {courseGiftRuleOptions.map((rule) => <option key={rule}>{rule}</option>)}
                   </select></label>
@@ -1820,6 +1921,11 @@ function GiftOutlineTable({ items, selectedKeys, expandedKey, uploadNames, onTog
                   <label className="wide"><span>主要讲解内容</span><textarea rows="3" value={item.mainContent || item.bullets?.join("\n") || ""} onChange={(event) => onItemChange(key, "mainContent", event.target.value)} /></label>
                 </div>
                 <div className="gift-detail-upload">
+                  <label className="gift-edit-image">
+                    {getGiftImage(item) ? <img src={assetUrl(getGiftImage(item))} alt="" /> : <ImagePlus size={22} />}
+                    <span>点击替换赠课配图</span>
+                    <input type="file" accept="image/png,image/jpeg,image/webp" onChange={(event) => onImageChange(key, event.target.files?.[0])} />
+                  </label>
                   <strong>重新上传课程明细</strong>
                   <span>可替换为新的九科表格；名称、价值也可以直接在左侧修改。</span>
                   <UploadSlot
@@ -2018,9 +2124,10 @@ async function exportElementAsPng(element, filename) {
 
   let canvas;
   try {
-    canvas = await html2canvas(element, {
-      backgroundColor: "#eaf5ff",
-      scale: 2,
+    const isSummaryExport = element.classList.contains("view-summary");
+    const exportOptions = {
+      backgroundColor: isSummaryExport ? "#fdfbf7" : "#eaf5ff",
+      scale: isSummaryExport ? 1 : 2,
       useCORS: true,
       allowTaint: false,
       foreignObjectRendering: false,
@@ -2028,11 +2135,46 @@ async function exportElementAsPng(element, filename) {
       logging: false,
       scrollX: 0,
       scrollY: 0,
-      width: element.scrollWidth,
-      height: element.scrollHeight,
       windowWidth: element.scrollWidth,
-      windowHeight: element.scrollHeight,
-    });
+    };
+
+    if (isSummaryExport) {
+      const hero = element.querySelector(":scope > .envelope-hero");
+      const summarySections = [...element.querySelectorAll(":scope > .letter-body > .summary-layout > *")]
+        .filter((section) => window.getComputedStyle(section).display !== "none");
+      const sections = summarySections.length
+        ? summarySections
+        : [...element.querySelectorAll(":scope > .letter-body > *")]
+          .filter((section) => window.getComputedStyle(section).display !== "none");
+      const segments = [hero, ...sections].filter(Boolean);
+      const rendered = [];
+      for (const segment of segments) {
+        rendered.push(await html2canvas(segment, {
+          ...exportOptions,
+          width: segment.scrollWidth,
+          height: segment.scrollHeight,
+          windowHeight: segment.scrollHeight,
+        }));
+      }
+      canvas = document.createElement("canvas");
+      canvas.width = Math.max(...rendered.map((item) => item.width));
+      canvas.height = rendered.reduce((sum, item) => sum + item.height, 0);
+      const context = canvas.getContext("2d");
+      context.fillStyle = "#fdfbf7";
+      context.fillRect(0, 0, canvas.width, canvas.height);
+      let offsetY = 0;
+      rendered.forEach((item) => {
+        context.drawImage(item, 0, offsetY);
+        offsetY += item.height;
+      });
+    } else {
+      canvas = await html2canvas(element, {
+        ...exportOptions,
+        width: element.scrollWidth,
+        height: element.scrollHeight,
+        windowHeight: element.scrollHeight,
+      });
+    }
   } finally {
     element.classList.remove("is-exporting");
   }
@@ -2106,15 +2248,7 @@ function BenefitSheet({ products = [], product, coursePlan, coursePlans, refNode
             physicalGiftItems={physicalGiftItems}
             subjects={subjects}
           />
-        ) : (
-          <BenefitOverview
-            product={product}
-            plans={plans}
-            giftPlan={giftPlan}
-            physicalGiftItems={physicalGiftItems}
-            subjects={subjects}
-          />
-        )}
+        ) : null}
 
         <EnvelopeSection number="01" title="正课权益" tone="blue">
           {plans.length ? (
@@ -2136,20 +2270,29 @@ function BenefitSheet({ products = [], product, coursePlan, coursePlans, refNode
                         </div>
                         <div className="subject-course-summary-meta">
                           {videoCount ? <em>知识视频 {videoCount}条</em> : <em>本阶段无知识视频</em>}
-                          <span>{viewMode === "detail" ? "完整大纲已展示" : "点击展开完整大纲"}</span>
                           {viewMode === "detail" ? null : <ChevronDown size={18} />}
                         </div>
                       </summary>
                       <div className="subject-course-detail-body">
-                        <div className="course-list-header">
-                          <div>
-                            <strong>{plan.subject}正课大纲</strong>
-                            <span>{plan.time || "以实际排课为准"}</span>
+                        {viewMode === "detail" ? (
+                          <CourseDetailOverview product={product} plan={plan} subjects={plans.map((item) => item.subject)} />
+                        ) : (
+                          <div className="course-list-header">
+                            <div>
+                              <strong>{plan.subject}正课大纲</strong>
+                            </div>
+                            <em><PlayCircle size={15} />{videoCount ? "学法直播大纲 + 知识视频大纲" : "学法直播大纲"}</em>
                           </div>
-                          <em><PlayCircle size={15} />{videoCount ? "学法直播大纲 + 知识视频大纲" : "学法直播大纲"}</em>
-                        </div>
+                        )}
                         <CourseOutlineSplit coursePlan={plan} lessons={coreLessons} />
                         {!coreLessons.length ? <CourseOverview product={product} coursePlan={plan} /> : null}
+                        {viewMode === "detail" ? (
+                          <div className="detail-course-service">
+                            <GraduationCap size={18} />
+                            <strong>辅导老师</strong>
+                            <span>购买即享 {product.core.servicePeriod} 专属伴学服务，包含答疑、学习提醒与阶段复盘</span>
+                          </div>
+                        ) : null}
                       </div>
                     </details>
                   );
@@ -2182,26 +2325,14 @@ function BenefitSheet({ products = [], product, coursePlan, coursePlans, refNode
         </EnvelopeSection>
 
         <EnvelopeSection number="02" title="赠课权益" tone="orange">
-          <BenefitDisclosure
-            title={`已配置 ${giftPlan.items.length} 项赠课`}
-            description={viewMode === "detail" ? "赠课名称、价值、规则及课程明细已完整展示。" : "赠课名称、价值及赠送规则已汇总，点击查看完整课程明细。"}
-            open={viewMode === "detail"}
-            staticOpen={viewMode === "detail"}
-          >
-            <GiftRuleList giftPlan={giftPlan} />
-          </BenefitDisclosure>
+          <GiftRuleList giftPlan={giftPlan} />
         </EnvelopeSection>
 
         <EnvelopeSection number="03" title="实物赠礼 / 教辅资料" tone="blue">
-          <BenefitDisclosure
-            title={`已匹配 ${subjects.join("、")} 教辅资料`}
-            description={viewMode === "detail" ? "买哪科展示哪科资料，实物赠礼与教辅图片已完整展示。" : "买哪科展示哪科资料，实物赠礼与教辅图片点击展开查看。"}
-            open={viewMode === "detail"}
-            staticOpen={viewMode === "detail"}
-          >
+          <div className="benefit-disclosure-body customer-gift-materials">
             <PhysicalGiftSection items={physicalGiftItems} />
             <TeachingAidSection subjects={subjects} stage={product.stage} />
-          </BenefitDisclosure>
+          </div>
         </EnvelopeSection>
 
         <section className="notice-box">
@@ -2210,7 +2341,7 @@ function BenefitSheet({ products = [], product, coursePlan, coursePlans, refNode
             <li>正课部分按已选科目展示：{subjects.join("、")}。</li>
             <li>赠课及资料用于辅助学习，开放时间以班主任或官方通知为准。</li>
             <li>纸质资料依据卡型加赠，具体发放规则以实际权益为准。</li>
-            <li>海报信息仅用于产品权益说明，最终以系统开通页面为准。</li>
+            <li>本清单用于说明所选产品权益，课程安排及礼品发放以官方通知为准。</li>
           </ol>
           <img src={assetUrl("/assets/youdao-symbol-cutout.png")} alt="" />
         </section>
@@ -2220,148 +2351,180 @@ function BenefitSheet({ products = [], product, coursePlan, coursePlans, refNode
 }
 
 function SummaryBenefitLayout({ product, plans, giftPlan, physicalGiftItems, subjects }) {
-  const subjectCount = subjects.length;
-  const pricing = getProductPricing(product, subjectCount);
-  const journey = getProductJourney(product);
+  const [activeSubjectState, setActiveSubject] = useState(subjects[0] || plans[0]?.subject || "数学");
+  const activeSubject = subjects.includes(activeSubjectState) ? activeSubjectState : (subjects[0] || plans[0]?.subject || "数学");
+  const activePlan = plans.find((plan) => plan.subject === activeSubject) || plans[0] || {};
+  const pricing = getProductPricing(product, subjects);
   const teachingAidItems = subjects.flatMap((subject) =>
     getTeachingAidItems(subject, product.stage).map((item) => ({ ...item, subject, summaryType: "教辅资料" })),
   );
   const teachingAidCount = teachingAidItems.length;
+  const decoratedPhysicalItems = physicalGiftItems.map((item) => decorateGiftItem(item, { category: "实物赠送" }));
+  const hasDraftNotebook = teachingAidCount > 0 || decoratedPhysicalItems.some((item) => `${item.name}${item.detail}`.includes("草稿本"));
+  const summaryTeachingAidItem = hasDraftNotebook ? [{
+    type: "教辅资料",
+    name: `${subjects.join("、")}随课教辅与习题草稿本`,
+    detail: `${teachingAidCount || subjects.length}项资料，按所购学科匹配`,
+    value: "随课配套",
+    rule: getTeachingAidRule(product.stage),
+    image: "/assets/gifts/draft-notebooks.png",
+    category: "实物赠送",
+    summaryType: "教辅资料",
+  }] : [];
+  const summaryCourseGiftItems = [...new Map(
+    giftPlan.items
+      .map((item) => decorateGiftItem(item, { summaryType: "赠课权益" }))
+      .map((item) => [`${getGiftCategory(item)}-${item.name}`, item]),
+  ).values()];
   const giftAlbumItems = [
-    ...giftPlan.items.map((item) => ({ ...item, summaryType: "赠课权益" })),
-    ...teachingAidItems.map((item) => ({ ...item, rule: getTeachingAidRule(product.stage) })),
-    ...physicalGiftItems.map((item) => ({ ...item, summaryType: "实物赠礼" })),
+    ...summaryCourseGiftItems,
+    ...summaryTeachingAidItem,
+    ...decoratedPhysicalItems
+      .filter((item) => !`${item.name}${item.detail}`.includes("草稿本"))
+      .map((item) => ({ ...item, summaryType: "实物赠礼" })),
   ];
+  const subjectGiftItems = giftAlbumItems.filter((item) => getGiftCategory(item) === "学科类赠课");
+  const growthGiftItems = giftAlbumItems.filter((item) => getGiftCategory(item) === "升学赋能包");
+  const tangibleGiftItems = giftAlbumItems.filter((item) => getGiftCategory(item) === "实物赠送");
+  const liveCount = activePlan.lessons?.length || activePlan.liveCount || 0;
+  const videoRows = getCourseVideoRows(activePlan);
+  const videoCount = videoRows.length || activePlan.videoEntitlement || 0;
+  const originalTotal = pricing.originalTotal;
+  const discountTotal = Math.max(0, originalTotal - pricing.currentTotal);
 
   return (
-    <div className="summary-layout">
-      <section className="summary-stage-section">
-        <header>
-          <div>
-            <h2>{product.stage}涵盖阶段</h2>
-          </div>
-          <em>{product.term} · 提前衔接，秋季体系进阶</em>
+    <div className="summary-layout reference-summary-layout">
+      <section className="reference-course-overview">
+        <header className="reference-heading">
+          <span>课程权益明细</span>
         </header>
-        <div className="summary-stage-flow">
-          {journey.map((item, index) => (
-            <div className={item.current ? "summary-stage-item current" : "summary-stage-item"} key={item.title}>
-              <strong>{item.title}</strong>
-              <em>{item.role}</em>
-              <i aria-hidden="true" />
-              <p>{item.description}</p>
-            </div>
+        <nav className="reference-subject-tabs" aria-label="选择查看科目">
+          {subjects.map((subject) => (
+            <button
+              className={subject === activeSubject ? "active" : ""}
+              key={subject}
+              onClick={() => setActiveSubject(subject)}
+              type="button"
+            >
+              {subject}
+            </button>
           ))}
+        </nav>
+        <div className="reference-overview-grid">
+          <article className="reference-rights-card">
+            <h2>{activeSubject}学科正课权益</h2>
+            <div className="reference-rights-list">
+              <p><i className="is-live"><PlayCircle size={15} /></i><span>学法直播</span><strong>{liveCount}节</strong></p>
+              <p><i className="is-video"><BookOpen size={15} /></i><span>知识视频</span><strong>{videoCount ? `${videoCount}节` : "无"}</strong></p>
+              <p><i className="is-service"><GraduationCap size={15} /></i><span>辅导服务</span><strong>{product.core.servicePeriod || "以开通为准"}</strong></p>
+              <p><i className="is-period"><Clock size={15} /></i><span>课程周期</span><strong>{product.term || product.stage}</strong></p>
+            </div>
+            <footer>
+              <p><b>正课课时</b><span>核心知识视频{videoCount}节 + 学法直播{liveCount}节</span></p>
+              <p><b>辅导老师</b><span>专属伴学答疑、学习提醒与阶段复盘</span></p>
+            </footer>
+          </article>
+
+          <aside className="reference-price-card">
+            <span>{product.stage} · {activeSubject}</span>
+            <p>原价 <del>¥{formatPrice(originalTotal)}</del><em>限时优惠</em></p>
+            <strong>¥{formatPrice(pricing.currentTotal)}</strong>
+            <small>已选 {subjects.length} 科：{subjects.join("、")}</small>
+            <div>查看完整权益</div>
+          </aside>
         </div>
       </section>
 
-      <div className="summary-main-grid">
-        <section className="summary-core-section">
-          <div className="summary-course-facts">
-            <div className="summary-fact-row"><strong>适合人群</strong><span>{product.grade}</span></div>
-            <div className="summary-fact-row"><strong>所购科目</strong><span>{subjects.join("　")}</span></div>
-            <div className="summary-fact-row"><strong>课程随材</strong><span>纸质版物料，含视频讲义 + 配套习题</span></div>
-            <div className="summary-fact-row content-row">
-              <strong>正课权益<br /><small>按所购科目</small></strong>
-              <div className="summary-subject-course-list">
-                {plans.map((plan) => {
-                  const liveTopics = (plan.lessons ?? []).map((lesson) => lesson.title || lesson.live).filter(Boolean);
-                  const videoRows = getCourseVideoRows(plan);
-                  const videoTopics = videoRows.map((row) => row.title || row.name).filter(Boolean);
-                  return (
-                    <article key={plan.subject}>
-                      <header>
-                        <strong>{plan.subject}</strong>
-                        <span>
-                          学法直播 {plan.lessons?.length || plan.liveCount || 0}节
-                          {videoRows.length ? ` · 知识视频 ${videoRows.length}条（${plan.videoTrack || "目标班"}${plan.videoEntitlement > videoRows.length ? `，${plan.videoEntitlement}节权益` : ""}）` : ""}
-                        </span>
-                      </header>
-                      <div className="summary-subject-course-detail">
-                        <p><b>学法直播</b><span>{summarizeCourseTitles(liveTopics)}</span></p>
-                        {videoRows.length ? <p><b>知识视频</b><span>{summarizeCourseTitles(videoTopics)}</span></p> : null}
-                      </div>
-                      <footer>
-                        <span><b>辅导老师</b> 专属伴学跟进、答疑与学习提醒</span>
-                        <span><b>辅导服务</b> 资料匹配、进度反馈与阶段复盘</span>
-                      </footer>
-                    </article>
-                  );
-                })}
-              </div>
-            </div>
-            <div className="summary-fact-row service-row"><strong>服务期<br />有效期</strong><span><b>课程服务期：</b>购买后按系统开通周期执行<br /><b>课程有效期：</b>以系统课程页面为准</span></div>
-          </div>
-        </section>
-
-        <section className="summary-price-section">
-          <header>
-            <div>
-              <span>本次报名价格</span>
-              <h2>{subjects.join("、")}</h2>
-            </div>
-            <em>共 {subjectCount} 科</em>
-          </header>
-          <div className="summary-selected-price">
-            <div className="summary-price-subjects">
-              {subjects.map((subject) => (
-                <div key={subject}><strong>{subject}</strong><span>原价 ¥{formatPrice(pricing.originalPerSubject)}</span><em>¥{formatPrice(pricing.selectedPerSubject)}</em></div>
-              ))}
-            </div>
-            <dl>
-              <div><dt>课程原价值</dt><dd>¥{formatPrice(pricing.originalPerSubject * subjectCount)}</dd></div>
-              <div><dt>本次优惠</dt><dd>-¥{formatPrice(pricing.originalPerSubject * subjectCount - pricing.currentTotal)}</dd></div>
-              <div className="total"><dt>预计实付</dt><dd>¥{formatPrice(pricing.currentTotal)}</dd></div>
-            </dl>
-            <p>正课、辅导服务与对应学科资料，均按本次所选科目开通。</p>
-          </div>
-        </section>
-      </div>
-
-      <section className="summary-gift-section">
-        <header>
-          <div>
-            <h2>报名赠送</h2>
-          </div>
-          <em>共 {giftPlan.items.length} 项赠课 · {teachingAidCount} 项教辅{physicalGiftItems.length ? ` · ${physicalGiftItems.length} 项实物/文创` : ""}</em>
-        </header>
-        <div className="summary-gift-album">
-          {giftAlbumItems.map((item, index) => (
-            <article key={item._displayKey || `${item.summaryType}-${item.name}-${index}`}>
-              <div className={`summary-album-cover tone-${(index % 5) + 1}`}>
-                {item.image ? <img src={assetUrl(item.image)} alt={item.name} /> : <><small>{item.summaryType}</small><span>{item.name.replace(/[·（）()]/g, "").slice(0, 9)}</span></>}
-              </div>
-              <div className="summary-album-info">
-                <header><strong>{item.name}</strong>{item.value ? <em>{item.value}</em> : null}</header>
-                <span>{getGiftLessonCount(item)}</span>
-                <p>{getGiftMainContent(item)}</p>
-                <footer>{item.rule || "按产品规则赠送"}</footer>
-              </div>
-            </article>
-          ))}
-        </div>
-        <p><PackageCheck size={16} />教辅资料按所购科目自动匹配，买哪科展示并赠送哪科资料。</p>
-      </section>
+      <SummaryReferenceGiftSection
+        className="course-gifts"
+        items={subjectGiftItems}
+        subjectCount={subjects.length}
+        title="课程权益"
+      />
+      <SummaryReferenceGiftSection
+        className="growth-gifts"
+        items={growthGiftItems}
+        title="升学服务与成长内容"
+      />
+      <SummaryReferenceGiftSection
+        className="physical-gifts"
+        items={tangibleGiftItems}
+        title="实物赠礼"
+      />
+      <footer className="reference-summary-footer">
+        <p>课程安排与赠礼发放以官方通知为准</p>
+        <span>© 2026 网易有道领世</span>
+      </footer>
     </div>
   );
 }
 
+function SummaryReferenceGiftSection({ title, items, className = "", subjectCount = 0 }) {
+  if (!items.length) return null;
+  return (
+    <section className={`reference-gift-section ${className}`}>
+      <header className="reference-heading">
+        <span>{title}{subjectCount ? ` · 赠${subjectCount}科` : ""}</span>
+      </header>
+      <div className="reference-gift-grid">
+        {items.map((item, index) => {
+          const image = getGiftImage(item);
+          const lessonCount = className === "physical-gifts" ? "" : getGiftLessonCount(item);
+          return (
+            <article key={item._displayKey || `${title}-${item.name}-${index}`}>
+              {image ? (
+                <div className="reference-gift-image">
+                  {item.value ? <em>价值 {item.value}</em> : null}
+                  <img src={assetUrl(image)} alt={item.name} />
+                </div>
+              ) : null}
+              <div className="reference-gift-copy">
+                <header><strong>{item.name}</strong>{lessonCount ? <b>{lessonCount}</b> : null}</header>
+                <p>{getGiftMainContent(item)}</p>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+function getJourneyTasks(item, index) {
+  const taskTitles = index === 0
+    ? ["诊断查漏", "方法转化", "超前预热"]
+    : ["课内高度同步", "解题套路提炼", "全科学习闭环"];
+  const descriptions = index === 0
+    ? ["精准筛查知识盲区，针对性补齐基础。", "建立高中主动学习与思维模式。", "提前感知核心重点，平稳衔接新阶段。"]
+    : ["紧贴学校教学进度，保障校内成绩稳步提升。", "提炼高效得分方法，攻克典型易错点。", "讲练评全面结合，形成稳定学习闭环。"];
+  return taskTitles.map((title, taskIndex) => ({ title, description: descriptions[taskIndex] || item.description }));
+}
+
 function summarizeCourseTitles(titles) {
-  if (!titles.length) return "课程大纲以后台配置与实际开通内容为准";
+  if (!titles.length) return "课程内容将随学习进度陆续开放";
   const visible = titles.slice(0, 3);
   return `${visible.join("、")}${titles.length > visible.length ? ` 等${titles.length}项` : ""}`;
 }
 
 function getGiftLessonCount(item) {
   if (item.lessonCount) return item.lessonCount;
-  if (item.detail) return item.detail;
-  const count = item.subjectCourses ? Math.max(0, ...Object.values(item.subjectCourses).map((items) => items.length)) : item.bullets?.length;
-  return count ? `${count}项课程内容` : "权益内容以实际开通为准";
+  const compactCount = String(item.detail || "").match(
+    /(\d+(?:\.\d+)?\s*(?:节|讲|套|册|本|项)(?:\s*[*×xX]\s*\d+(?:\.\d+)?\s*(?:h|min|分钟|小时))?)/i,
+  );
+  if (compactCount) return compactCount[1].replace(/\s+/g, "");
+  return "";
+}
+
+function getPhysicalGiftQuantity(item) {
+  const text = `${item.quantity || ""} ${item.detail || ""} ${item.mainContent || ""}`;
+  const quantity = text.match(/(\d+\s*(?:份|套|本|册|件|项))/);
+  return quantity ? quantity[1].replace(/\s+/g, "") : "1份";
 }
 
 function getGiftMainContent(item) {
   if (item.mainContent) return String(item.mainContent).split(/\n+/).filter(Boolean).slice(0, 3).join("；");
   if (item.bullets?.length) return item.bullets.slice(0, 3).join("；");
-  return item.detail || "课程内容以实际开通为准";
+  return item.detail || "围绕核心学习任务提供专项支持";
 }
 
 function getProductJourney(product) {
@@ -2378,17 +2541,27 @@ function getProductJourney(product) {
   ];
 }
 
-function getProductPricing(product, subjectCount) {
+function getProductPricing(product, subjectsOrCount) {
+  const selectedSubjects = Array.isArray(subjectsOrCount) ? subjectsOrCount : [];
+  const subjectCount = selectedSubjects.length || Number(subjectsOrCount) || 1;
   const source = product.pricing ?? {};
   const originalPerSubject = Number(source.originalPerSubject) || 5400;
   const singlePerSubject = Number(source.singlePerSubject) || 3980;
   const twoPerSubject = Number(source.twoPerSubject) || 3680;
   const threePlusPerSubject = Number(source.threePlusPerSubject) || 3380;
   const selectedPerSubject = subjectCount === 1 ? singlePerSubject : subjectCount === 2 ? twoPerSubject : threePlusPerSubject;
+  const humanities = new Set(["历史", "地理", "政治"]);
+  const standardCount = selectedSubjects.length ? selectedSubjects.filter((subject) => !humanities.has(subject)).length : subjectCount;
+  const humanitiesCount = selectedSubjects.length ? selectedSubjects.filter((subject) => humanities.has(subject)).length : 0;
+  const humanitiesOriginal = Number(product.humanitiesPricing?.originalPerSubject) || originalPerSubject;
+  const humanitiesCurrent = Number(product.humanitiesPricing?.fixedPerSubject) || selectedPerSubject;
   return {
     originalPerSubject,
     selectedPerSubject,
-    currentTotal: selectedPerSubject * subjectCount,
+    originalTotal: originalPerSubject * standardCount + humanitiesOriginal * humanitiesCount,
+    currentTotal: selectedPerSubject * standardCount + humanitiesCurrent * humanitiesCount,
+    getSubjectOriginal: (subject) => humanities.has(subject) ? humanitiesOriginal : originalPerSubject,
+    getSubjectCurrent: (subject) => humanities.has(subject) ? humanitiesCurrent : selectedPerSubject,
     tiers: [
       { label: "单科", subjects: 1, perSubject: singlePerSubject, total: singlePerSubject, active: subjectCount === 1 },
       { label: "联报两科", subjects: 2, perSubject: twoPerSubject, total: twoPerSubject * 2, active: subjectCount === 2 },
@@ -2399,53 +2572,6 @@ function getProductPricing(product, subjectCount) {
 
 function formatPrice(value) {
   return Number(value || 0).toLocaleString("zh-CN");
-}
-
-function BenefitOverview({ product, plans, giftPlan, physicalGiftItems, subjects }) {
-  const liveCount = plans.reduce((sum, plan) => sum + (plan.lessons?.length || plan.liveCount || 0), 0);
-  const videoCount = plans.reduce((sum, plan) => {
-    const parsedCount = getCourseVideoRows(plan).length;
-    return sum + (parsedCount || plan.videoEntitlement || 0);
-  }, 0);
-  const teachingAidCount = subjects.reduce((sum, subject) => sum + getTeachingAidItems(subject, product.stage).length, 0);
-  const giftValue = giftPlan.items.reduce((sum, item) => sum + getNumericValue(item.value), 0);
-
-  return (
-    <section className="benefit-overview-panel">
-      <header>
-        <div>
-          <span>权益总览</span>
-          <strong>{subjects.join("、")} · 一页看清全部所得</strong>
-        </div>
-        <em>完整课程大纲已直接展示</em>
-      </header>
-      <div className="benefit-overview-grid">
-        <div>
-          <BookOpen size={18} />
-          <span>正课权益</span>
-          <strong>{liveCount}节直播</strong>
-          <small>{videoCount ? `另含 ${videoCount} 条知识视频` : "以学法直播课程为主"}</small>
-        </div>
-        <div>
-          <Gift size={18} />
-          <span>赠课权益</span>
-          <strong>{giftPlan.items.length}项赠课</strong>
-          <small>{giftValue ? `标注价值合计 ¥${giftValue}` : "按产品买赠规则开通"}</small>
-        </div>
-        <div>
-          <PackageCheck size={18} />
-          <span>资料权益</span>
-          <strong>{teachingAidCount}项教辅</strong>
-          <small>{physicalGiftItems.length ? `另含 ${physicalGiftItems.length} 项实物/文创` : "按所购科目自动匹配"}</small>
-        </div>
-      </div>
-      <div className="benefit-overview-subjects">
-        {plans.map((plan) => (
-          <span key={plan.subject}>{plan.subject}</span>
-        ))}
-      </div>
-    </section>
-  );
 }
 
 function BenefitDisclosure({ title, description, children, open = false, staticOpen = false }) {
@@ -2525,7 +2651,7 @@ function PhysicalGiftSection({ items }) {
       <div className="teaching-aid-head">
         <div>
           <strong>文创 / 书籍 / 实物</strong>
-          <span>随单赠礼与课程教辅分开说明。</span>
+          <span>精选实体礼品，为学习增添仪式感。</span>
         </div>
         <em>{items.length}项</em>
       </div>
@@ -2539,7 +2665,7 @@ function TeachingAidCard({ item, index, rule }) {
     <article className="teaching-aid-card">
       <em className="aid-index">{String(index + 1).padStart(2, "0")}</em>
       <div className="aid-cover">
-        {item.image ? <img src={assetUrl(item.image)} alt={item.name} /> : <span>暂无封面</span>}
+        {item.image ? <img src={assetUrl(item.image)} alt={item.name} /> : <span>{item.name}</span>}
       </div>
       <div className="aid-info">
         <span>{item.type}</span>
@@ -2967,7 +3093,7 @@ function resolveParsedCoursePlan(product, subject, profile, forcedPhases, videoT
 
 function filterVideoRowsByTrack(rows, videoTrack) {
   const normalizedRows = rows.map((row) => ({ ...row, normalizedTrack: normalizeVideoTrack(row.layered) }));
-  const hasExplicitTracks = normalizedRows.some((row) => row.normalizedTrack === "目标班" || row.normalizedTrack === "精英班");
+  const hasExplicitTracks = normalizedRows.some((row) => row.normalizedTrack === "目标班" || row.normalizedTrack === "菁英班");
   if (!hasExplicitTracks) return uniqueCourseRows(rows);
 
   return uniqueCourseRows(normalizedRows
@@ -2988,7 +3114,7 @@ function uniqueCourseRows(rows) {
 function normalizeVideoTrack(value) {
   const label = String(value || "").trim();
   if (/目标/.test(label)) return "目标班";
-  if (/菁英|精英/.test(label)) return "精英班";
+  if (/菁英|精英/.test(label)) return "菁英班";
   return "通用";
 }
 
@@ -3131,7 +3257,7 @@ function getGiftPlanForSubjects(product, subjects, products = []) {
   return {
     ...firstPlan,
     note: subjects.length > 1 ? `已按所购科目生成赠课权益：${subjects.join("、")}` : firstPlan.note,
-    items: uniqueGiftItems(items),
+    items: uniqueGiftItems(items).map((item) => decorateGiftItem(item)),
   };
 }
 
@@ -3165,7 +3291,7 @@ function resolveSubjectGiftItem(item, subject) {
   return {
     ...item,
     _displayKey: `${getGiftItemKey(item)}-${subject}`,
-    detail: `${subject}｜${courses.length}节`,
+    detail: `${subject}｜${item.lessonCount || item.detail || `${courses.length}项`}`,
     bullets: courses,
   };
 }
@@ -3185,7 +3311,8 @@ function getPhysicalGiftItems(product, subject) {
 
 function getPhysicalGiftItemsForSubjects(product, subjects) {
   return uniqueGiftItems(subjects.flatMap((subject) => getPhysicalGiftItems(product, subject)))
-    .filter((item) => isGiftRuleEligible(item.rule, subjects.length));
+    .filter((item) => isGiftRuleEligible(item.rule, subjects.length))
+    .map((item) => decorateGiftItem(item, { category: "实物赠送" }));
 }
 
 function getAllPhysicalGiftItems(product, subject) {
@@ -3223,7 +3350,7 @@ function getGradePhysicalGiftCandidates(products, product) {
       .filter((item) => item.grade === product.grade)
       .flatMap((item) => getAdminPhysicalGiftCandidates(item)),
     ...(product.customPhysicalItems ?? []),
-  ]));
+  ])).map((item) => decorateGiftItem(item, { category: "实物赠送" }));
 }
 
 function isGiftRuleEligible(rule, subjectCount) {
@@ -3236,6 +3363,34 @@ function getGiftRuleThreshold(rule) {
   if (/买满\s*3\s*科|3科|三科/.test(text)) return 3;
   if (/买满\s*2\s*科|2科|两科/.test(text) && !text.includes("两科及以下")) return 2;
   return 1;
+}
+
+function getGiftLibraryMatch(item) {
+  const text = `${item?.name ?? ""} ${item?.detail ?? ""}`;
+  return giftImageLibrary.find((entry) => entry.names.some((name) => text.includes(name)));
+}
+
+function getGiftCategory(item) {
+  if (item?.category && giftCategoryMeta[item.category]) return item.category;
+  if (item?.type && item.type !== "赠课") return "实物赠送";
+  const matched = getGiftLibraryMatch(item);
+  if (matched?.category) return matched.category;
+  const text = `${item?.name ?? ""} ${item?.detail ?? ""}`;
+  return /选科|升学|家长|心理|规划/.test(text) ? "升学赋能包" : "学科类赠课";
+}
+
+function getGiftImage(item) {
+  if (/^(data:|blob:|https?:)/.test(item?.image || "")) return item.image;
+  return getGiftLibraryMatch(item)?.image || item?.image || "";
+}
+
+function decorateGiftItem(item, extra = {}) {
+  return {
+    ...item,
+    category: getGiftCategory(item),
+    image: getGiftImage(item),
+    ...extra,
+  };
 }
 
 function uniqueGiftItems(items) {
@@ -3291,12 +3446,12 @@ function CourseOverview({ product, coursePlan }) {
         <div>
           <span>服务期</span>
           <strong>{product.core.servicePeriod}</strong>
-          <small>以系统开通为准</small>
+          <small>专属伴学服务</small>
         </div>
         <div>
           <span>视频释放</span>
-          <strong>{product.videoReleasePlan ? "分批释放" : "按开通为准"}</strong>
-          <small>{product.videoReleasePlan ?? "以实际开通节奏为准"}</small>
+          <strong>{product.videoReleasePlan ? "分批开放" : "按课程计划开放"}</strong>
+          <small>{product.videoReleasePlan ?? "开放时间以官方通知为准"}</small>
         </div>
       </div>
       <div className="course-summary-lines">
@@ -3321,10 +3476,42 @@ function EnvelopeSection({ number, title, tone, children }) {
   );
 }
 
+function CourseDetailOverview({ product, plan, subjects }) {
+  const liveCount = plan.lessons?.length || plan.liveCount || 0;
+  const videoCount = getCourseVideoRows(plan).length || plan.videoEntitlement || 0;
+  const pricing = getProductPricing(product, subjects);
+  const originalPrice = pricing.getSubjectOriginal(plan.subject);
+  const currentPrice = pricing.getSubjectCurrent(plan.subject);
+  return (
+    <section className="detail-course-overview">
+      <header>
+        <div className="detail-course-identity">
+          <span>{plan.subject.slice(0, 1)}</span>
+          <div>
+            <strong>{plan.subject}正课大纲</strong>
+            <small>{videoCount ? `学法直播 + ${product.unlayeredVideoSubjects?.includes(plan.subject) ? "不分层" : plan.videoTrack || "目标班"}知识视频` : "学法直播课程"}</small>
+          </div>
+        </div>
+        <div className="detail-course-price">
+          <del>原价 ¥{formatPrice(originalPrice)}</del>
+          <span>到手价</span>
+          <strong>¥{formatPrice(currentPrice)}</strong>
+          <em>/科</em>
+        </div>
+      </header>
+      <div className="detail-course-metrics">
+        <div><span>知识视频</span><strong>{videoCount}</strong><em>节</em><small>基础查漏与分层精讲</small></div>
+        <div><span>学法直播</span><strong>{liveCount}</strong><em>节</em><small>方法教学与提分训练</small></div>
+        <div><span>合计课程</span><strong>{liveCount + videoCount}</strong><em>节</em><small>本学科完整正课权益</small></div>
+      </div>
+    </section>
+  );
+}
+
 function CourseOutlineSplit({ coursePlan, lessons }) {
   const videoRows = getCourseVideoRows(coursePlan);
   const liveRows = chunkItems(lessons, 2);
-  const videoTableRows = chunkItems(videoRows, 3);
+  const videoTableRows = chunkItems(videoRows, 2);
   return (
     <div className="course-outline-split">
       <section className="outline-block live">
@@ -3333,18 +3520,14 @@ function CourseOutlineSplit({ coursePlan, lessons }) {
             <strong>学法直播大纲</strong>
             <span>{coursePlan.subject} ｜ {lessons.length}节</span>
           </div>
-          <em><Clock size={14} />{coursePlan.time || "以实际排课为准"}</em>
+          <em><BookOpen size={14} />学习主题一览</em>
         </header>
         <table className="compact-outline-table live-compact-table desktop-outline-table">
           <thead>
             <tr>
               <th>课次</th>
-              <th>日期</th>
-              <th>时间</th>
               <th>学法直播主题</th>
               <th>课次</th>
-              <th>日期</th>
-              <th>时间</th>
               <th>学法直播主题</th>
             </tr>
           </thead>
@@ -3354,12 +3537,10 @@ function CourseOutlineSplit({ coursePlan, lessons }) {
                 {row.map((lesson, index) => (
                   <Fragment key={lesson.id ?? `${lesson.no}-${lesson.live}`}>
                     <td className="outline-no">{lesson.no ?? rowIndex * 2 + index + 1}</td>
-                    <td className="outline-date">{lesson.date || "-"}</td>
-                    <td className="outline-date">{lesson.time || coursePlan.time || "-"}</td>
                     <td className="outline-title">{lesson.live}</td>
                   </Fragment>
                 ))}
-                {row.length < 2 ? <EmptyOutlineCells count={4} /> : null}
+                {row.length < 2 ? <EmptyOutlineCells count={2} /> : null}
               </tr>
             ))}
           </tbody>
@@ -3368,7 +3549,6 @@ function CourseOutlineSplit({ coursePlan, lessons }) {
           <thead>
             <tr>
               <th>课次</th>
-              <th>日期与时间</th>
               <th>学法直播主题</th>
             </tr>
           </thead>
@@ -3376,10 +3556,6 @@ function CourseOutlineSplit({ coursePlan, lessons }) {
             {lessons.map((lesson, index) => (
               <tr key={`live-mobile-${lesson.id ?? `${lesson.no}-${lesson.live}`}`}>
                 <td className="outline-no">{lesson.no ?? index + 1}</td>
-                <td className="outline-schedule">
-                  <strong>{lesson.date || "-"}</strong>
-                  <span>{lesson.time || coursePlan.time || "-"}</span>
-                </td>
                 <td className="outline-title">{lesson.live}</td>
               </tr>
             ))}
@@ -3408,9 +3584,6 @@ function CourseOutlineSplit({ coursePlan, lessons }) {
                 <th>课次</th>
                 <th>课程大纲</th>
                 <th>星级难度</th>
-                <th>课次</th>
-                <th>课程大纲</th>
-                <th>星级难度</th>
               </tr>
             </thead>
             <tbody>
@@ -3418,14 +3591,14 @@ function CourseOutlineSplit({ coursePlan, lessons }) {
                 <tr key={`video-row-${rowIndex}`}>
                   {row.map((video, index) => (
                     <Fragment key={video.id ?? `${getVideoTitle(video)}-${rowIndex}-${index}`}>
-                      <td className="outline-no">{rowIndex * 3 + index + 1}</td>
+                      <td className="outline-no">{rowIndex * 2 + index + 1}</td>
                       <td className="outline-title">{getVideoTitle(video)}</td>
                       <td className="outline-difficulty">
                         <span className="outline-stars">{formatDifficultyStars(getVideoDifficulty(video))}</span>
                       </td>
                     </Fragment>
                   ))}
-                  {row.length < 3 ? <EmptyOutlineCells count={(3 - row.length) * 3} /> : null}
+                  {row.length < 2 ? <EmptyOutlineCells count={3} /> : null}
                 </tr>
               ))}
             </tbody>
@@ -3539,7 +3712,7 @@ function CourseMatrixGroup({ lessons, showVideos }) {
             <div className="matrix-cell matrix-video" key={`video-${lesson.no}`}>
               {lesson.videos?.length ? lesson.videos.map((video) => (
                 <span key={video.title ?? video}>{typeof video === "string" ? video : video.title}</span>
-              )) : <span className="empty-video">{lesson.quarter === "暑期" ? "无知识视频" : "以实际开通为准"}</span>}
+              )) : <span className="empty-video">{lesson.quarter === "暑期" ? "无知识视频" : "暂无配套视频"}</span>}
             </div>
           ))}
         </>
@@ -3577,29 +3750,28 @@ function GiftRuleList({ giftPlan }) {
       <div className="gift-empty">
         <Gift size={22} />
         <strong>{giftPlan?.title ?? "赠课权益"}</strong>
-        <span>{giftPlan?.note ?? "赠课权益以实际开通内容为准。"}</span>
+        <span>{giftPlan?.note ?? "本产品暂无额外赠课。"}</span>
       </div>
     );
   }
 
-  const totalValue = giftPlan.items.reduce((sum, item) => {
-    const match = String(item.value).match(/¥\s*(\d+)/);
-    return sum + (match ? Number(match[1]) : 0);
-  }, 0);
   const courseItems = giftPlan.items.filter((item) => item.type === "赠课");
+  const courseGroups = giftCategoryOptions
+    .map((category) => ({ category, ...giftCategoryMeta[category], items: courseItems.filter((item) => getGiftCategory(item) === category) }))
+    .filter((group) => group.items.length);
 
   return (
     <div className="gift-rule-wrap">
-      <div className="gift-rule-head">
-        <div>
-          <strong>{giftPlan.title}</strong>
-          <span>{giftPlan.note}</span>
-        </div>
-        {totalValue > 0 ? <em>赠课价值约 ¥{totalValue}</em> : null}
-      </div>
-      <div className="gift-poster-grid">
-        {courseItems.map((item, index) => (
-          <GiftPosterCard item={item} index={index} key={`${item.name}-${index}`} />
+      <div className="detail-gift-groups">
+        {courseGroups.map((group) => (
+          <section className="detail-gift-group" key={group.category}>
+            <header><span>{group.index}</span><div><strong>{group.category}</strong><small>{group.note}</small></div></header>
+            <div className="gift-poster-grid">
+              {group.items.map((item, index) => (
+                <GiftPosterCard item={item} index={index} key={`${item.name}-${index}`} />
+              ))}
+            </div>
+          </section>
         ))}
       </div>
     </div>
@@ -3609,32 +3781,31 @@ function GiftRuleList({ giftPlan }) {
 function GiftPosterCard({ item, index }) {
   const tones = ["cyan", "orange", "purple", "green", "blue"];
   const tone = tones[index % tones.length];
-  const bullets = item.bullets?.length ? item.bullets : [item.detail];
   const showValue = item.value && !String(item.value).includes("待补充");
-  const compact = bullets.length <= 2;
-  const featured = bullets.length >= 5 || item.name.includes("升学路径") || item.name.includes("家长成长") || item.name.includes("预备营");
+  const image = getGiftImage(item);
   return (
-    <article className={`gift-poster-card ${tone} ${compact ? "compact" : ""} ${featured ? "featured" : ""}`}>
+    <article className={`gift-poster-card simplified ${tone}`}>
+      <div className="gift-poster-image">
+        {showValue ? <em>价值 {item.value}</em> : null}
+        {image ? <img src={assetUrl(image)} alt={item.name} /> : <span>{item.name}</span>}
+      </div>
       <header>
         <strong>{item.name}</strong>
       </header>
-      <div className="gift-card-body">
-        <div className="gift-mini-cover">
-          <span>{item.name.replace(/[·（）()]/g, "").slice(0, 6)}</span>
-        </div>
-        <div className="gift-card-info">
-          <div className="gift-meta">
-            <span>{item.detail}</span>
-            {showValue ? <em>价值 {item.value}</em> : null}
+      <div className="gift-poster-summary">
+        <strong>{getGiftLessonCount(item)}</strong>
+        <p>{getGiftMainContent(item)}</p>
+        {item.bullets?.length ? (
+          <div className="gift-course-outline">
+            <span>课程大纲</span>
+            <ol>
+              {item.bullets.map((outline, outlineIndex) => (
+                <li key={`${item.name}-outline-${outlineIndex}`}>{outline}</li>
+              ))}
+            </ol>
           </div>
-          <p>{item.rule}</p>
-        </div>
+        ) : null}
       </div>
-      <ol>
-        {bullets.slice(0, 8).map((bullet) => (
-          <li key={bullet}>{bullet}</li>
-        ))}
-      </ol>
     </article>
   );
 }
@@ -3791,20 +3962,23 @@ function Metric({ icon: Icon, label, value }) {
   );
 }
 
-function buildShareUrl(product, subjects, viewMode = "summary", videoTrack = "目标班") {
-  const url = new URL(window.location.href);
+function buildShareUrl(product, subjects, viewMode = "summary", videoTracks = {}) {
+  const isLocalPreview = ["127.0.0.1", "localhost"].includes(window.location.hostname);
+  const url = new URL(isLocalPreview ? PUBLIC_SITE_URL : window.location.href);
   url.search = "";
   url.hash = "";
   url.searchParams.set("share", "1");
   url.searchParams.set("product", product.id);
-  url.searchParams.set("subjects", Array.isArray(subjects) ? subjects.join(",") : subjects);
-  url.searchParams.set("track", videoTrack);
+  const subjectList = Array.isArray(subjects) ? subjects : [subjects];
+  url.searchParams.set("subjects", subjectList.join(","));
+  url.searchParams.set("tracks", subjectList.map((subject) => `${subject}:${videoTracks?.[subject] ?? "目标班"}`).join(","));
   url.searchParams.set("view", viewMode);
   return url.toString();
 }
 
 function buildSalesPortalUrl() {
-  const url = new URL(window.location.href);
+  const isLocalPreview = ["127.0.0.1", "localhost"].includes(window.location.hostname);
+  const url = new URL(isLocalPreview ? PUBLIC_SITE_URL : window.location.href);
   url.search = "";
   url.hash = "";
   url.searchParams.set("sales", "1");
