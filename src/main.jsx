@@ -32,50 +32,30 @@ import { giftCatalog } from "./data/giftCatalog";
 import { getTeachingAidItems, getTeachingAidRule } from "./data/teachingAidCatalog";
 import { annualCourseLibrary, annualCourseLibraryVersion } from "./data/annualCourseLibrary";
 import { parseCourseWorkbookSheets } from "./lib/courseWorkbookParser";
+import {
+  courseGiftRuleOptions,
+  giftCategoryOptions,
+  gradeLabels,
+  humanitiesSubjects,
+  physicalGiftRuleOptions,
+  stageLabels,
+  videoTrackOptions,
+} from "./config/options";
+import { giftCategoryMeta, giftImageLibrary } from "./config/giftPresentation";
+import {
+  assetUrl,
+  CLOUD_CONFIG_TABLE,
+  CLOUD_PRODUCTS_DRAFT_ID,
+  CLOUD_PRODUCTS_LEGACY_ID,
+  CLOUD_PRODUCTS_PUBLISHED_ID,
+  cloudConfigEnabled,
+  PRODUCTS_STORAGE_KEY,
+  PUBLIC_SITE_URL,
+  SUPABASE_ANON_KEY,
+  SUPABASE_URL,
+} from "./config/runtime";
 import supabaseSchemaSql from "../supabase/schema.sql?raw";
 import "./styles.css";
-
-const gradeLabels = ["高一", "高二", "高三"];
-const stageLabels = ["夏研卡", "秋实卡", "决胜卡", "直通卡", "一轮卡", "二轮卡"];
-const humanitiesSubjects = ["生物", "历史", "地理", "政治"];
-const courseGiftRuleOptions = [
-  "买满1科赠对应学科",
-  "买满2科赠对应学科",
-  "买满3科赠对应学科",
-];
-const physicalGiftRuleOptions = ["买满1科赠", "买满2科赠", "买满3科赠"];
-const giftCategoryOptions = ["学科类赠课", "升学赋能包"];
-const videoTrackOptions = ["目标班", "菁英班"];
-const giftCategoryMeta = {
-  "学科类赠课": { index: "01", note: "随所购学科匹配，买哪科赠哪科" },
-  "升学赋能包": { index: "02", note: "选科、成长与升学规划通用权益" },
-  "实物赠送": { index: "03", note: "教辅资料、文创与达标实物礼" },
-};
-const giftImageLibrary = [
-  { names: ["暑期学法知识视频包", "高一暑期重难点精华课"], category: "学科类赠课", image: "/assets/gifts/summer-review.png" },
-  { names: ["新高一入门知识精讲"], category: "学科类赠课", image: "/assets/gifts/freshman-foundation.jpg" },
-  { names: ["高一选科宝典"], category: "升学赋能包", image: "/assets/gifts/subject-selection-guide.png" },
-  { names: ["高一家长成长计划"], category: "升学赋能包", image: "/assets/gifts/parent-growth-plan.png" },
-  { names: ["高中升学路径全解"], category: "升学赋能包", image: "/assets/gifts/pathway-guide.png" },
-  { names: ["极境拾音坞", "实物单品"], category: "实物赠送", image: "/assets/gifts/sound-dock.jpg" },
-  { names: ["午福临门", "升学礼包"], category: "实物赠送", image: "/assets/gifts/fortune-gift-box.png" },
-  { names: ["草稿本"], category: "实物赠送", image: "/assets/gifts/draft-notebooks.png" },
-];
-const PRODUCTS_STORAGE_KEY = "youdao-benefits-products-v5-g1-autumn-course-refresh";
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
-const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
-const PUBLIC_SITE_URL = import.meta.env.VITE_PUBLIC_SITE_URL || "https://stangersasengbong366-byte.github.io/lingshi-/";
-const CLOUD_CONFIG_TABLE = "benefit_configs";
-const CLOUD_PRODUCTS_LEGACY_ID = "products";
-const CLOUD_PRODUCTS_DRAFT_ID = "products_draft";
-const CLOUD_PRODUCTS_PUBLISHED_ID = "products_published";
-const cloudConfigEnabled = Boolean(SUPABASE_URL && SUPABASE_ANON_KEY);
-
-function assetUrl(path) {
-  if (!path) return "";
-  if (/^(https?:|data:|blob:)/.test(path)) return path;
-  return `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
-}
 
 function loadStoredProducts() {
   try {
