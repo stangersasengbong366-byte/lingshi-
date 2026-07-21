@@ -29,7 +29,6 @@ import {
 import { initialProducts, moduleLibrary } from "./data/products";
 import { courseCatalog, courseSubjects } from "./data/courseCatalog";
 import { giftCatalog } from "./data/giftCatalog";
-import { getTeachingAidItems, getTeachingAidRule } from "./data/teachingAidCatalog";
 import { annualCourseLibrary, annualCourseLibraryVersion } from "./data/annualCourseLibrary";
 import { parseCourseWorkbookSheets } from "./lib/courseWorkbookParser";
 import {
@@ -48,12 +47,21 @@ import {
   CLOUD_PRODUCTS_DRAFT_ID,
   CLOUD_PRODUCTS_LEGACY_ID,
   CLOUD_PRODUCTS_PUBLISHED_ID,
+  CLOUD_SHORT_LINK_PREFIX,
+  CLOUD_TEACHING_AID_PREFIX,
   cloudConfigEnabled,
   PRODUCTS_STORAGE_KEY,
   PUBLIC_SITE_URL,
   SUPABASE_ANON_KEY,
   SUPABASE_URL,
 } from "./config/runtime";
+import { formatPrice, getProductPricing } from "./domain/pricing";
+import {
+  getGiftRuleThreshold,
+  isGiftRuleEligible,
+  normalizeCourseGiftRule,
+  normalizePhysicalRule,
+} from "./domain/giftRules";
 import supabaseSchemaSql from "../supabase/schema.sql?raw";
 import "./styles.css";
 
@@ -176,6 +184,46 @@ async function saveCloudProducts(products, configId = CLOUD_PRODUCTS_DRAFT_ID) {
   if (!response.ok) throw await createCloudError(response, "云端配置保存失败");
 }
 
+async function loadCloudTeachingAids(grade, subjects = []) {
+  if (!grade) return [];
+  const subjectFilter = subjects.length
+    ? `&payload-%3E%3Esubject=in.(${subjects.map(encodeURIComponent).join(",")})`
+    : "";
+  const response = await fetch(`${SUPABASE_URL}/rest/v1/${CLOUD_CONFIG_TABLE}?id=like.${encodeURIComponent(`${CLOUD_TEACHING_AID_PREFIX}%`)}&payload-%3E%3Egrade=eq.${encodeURIComponent(grade)}${subjectFilter}&select=id,payload,updated_at`, {
+    headers: getSupabaseHeaders(),
+  });
+  if (!response.ok) throw await createCloudError(response, "云端教辅读取失败");
+  const records = await response.json();
+  return records.map((record) => record.payload).filter((item) => item?.grade && item?.subject && item?.name);
+}
+
+async function createShortShareLink(shareState) {
+  if (!cloudConfigEnabled) throw new Error("云端配置未连接，暂时无法生成短链");
+  const bytes = crypto.getRandomValues(new Uint8Array(6));
+  const code = Array.from(bytes, (value) => value.toString(36).padStart(2, "0")).join("").slice(0, 9);
+  const response = await fetch(`${SUPABASE_URL}/rest/v1/${CLOUD_CONFIG_TABLE}`, {
+    method: "POST",
+    headers: { ...getSupabaseHeaders(), "Content-Type": "application/json" },
+    body: JSON.stringify({
+      id: `${CLOUD_SHORT_LINK_PREFIX}${code}`,
+      payload: shareState,
+      updated_at: new Date().toISOString(),
+    }),
+  });
+  if (!response.ok) throw await createCloudError(response, "短链生成失败");
+  return code;
+}
+
+async function loadShortShareState(code) {
+  if (!cloudConfigEnabled || !code) return null;
+  const response = await fetch(`${SUPABASE_URL}/rest/v1/${CLOUD_CONFIG_TABLE}?id=eq.${encodeURIComponent(`${CLOUD_SHORT_LINK_PREFIX}${code}`)}&select=payload&limit=1`, {
+    headers: getSupabaseHeaders(),
+  });
+  if (!response.ok) throw await createCloudError(response, "短链读取失败");
+  const records = await response.json();
+  return records[0]?.payload ?? null;
+}
+
 async function createCloudError(response, fallbackMessage) {
   const responseText = await response.text();
   let detail = responseText;
@@ -199,15 +247,19 @@ function getSupabaseHeaders() {
 }
 
 function App() {
-  const shareParams = getShareParams();
+  const directShareParams = getShareParams();
+  const shortCode = new URLSearchParams(window.location.search).get("s");
+  const [shareParams, setShareParams] = useState(directShareParams);
+  const [shortLinkStatus, setShortLinkStatus] = useState(shortCode && !directShareParams ? "loading" : "ready");
   const salesOnly = getSalesOnlyMode();
-  const publicView = Boolean(shareParams || salesOnly);
+  const publicView = Boolean(shareParams || shortCode || salesOnly);
   const [activePage, setActivePage] = useState("sales");
   const [products, setProducts] = useState(loadStoredProducts);
   const [syncStatus, setSyncStatus] = useState(cloudConfigEnabled ? "正在同步云端配置" : "本地配置");
   const [selectedProductId, setSelectedProductId] = useState(() => shareParams?.productId ?? loadStoredProducts()[0]?.id ?? initialProducts[0].id);
   const [selectedSubjects, setSelectedSubjects] = useState(() => shareParams?.subjects ?? [shareParams?.subject ?? "数学"]);
   const [selectedVideoTracks, setSelectedVideoTracks] = useState(() => shareParams?.videoTracks ?? {});
+  const [teachingAids, setTeachingAids] = useState([]);
   const activeProducts = useMemo(() => products.filter((item) => item.status === "在售"), [products]);
   const availableProducts = !publicView && activePage === "admin" ? products : activeProducts;
   const selectedProduct = availableProducts.find((item) => item.id === selectedProductId) ?? availableProducts[0] ?? null;
@@ -218,6 +270,37 @@ function App() {
     selectedVideoTracks[subject] ?? "目标班",
   )) : [];
   const selectedCoursePlan = selectedCoursePlans[0];
+
+  React.useEffect(() => {
+    if (!shortCode || directShareParams) return undefined;
+    let cancelled = false;
+    loadShortShareState(shortCode)
+      .then((state) => {
+        if (cancelled) return;
+        if (!state?.productId || !Array.isArray(state.subjects)) {
+          setShortLinkStatus("missing");
+          return;
+        }
+        setShareParams(state);
+        setSelectedProductId(state.productId);
+        setSelectedSubjects(state.subjects);
+        setSelectedVideoTracks(state.videoTracks ?? {});
+        setShortLinkStatus("ready");
+      })
+      .catch(() => !cancelled && setShortLinkStatus("error"));
+    return () => { cancelled = true; };
+  }, [shortCode]);
+
+  React.useEffect(() => {
+    if (!cloudConfigEnabled || !selectedProduct?.grade) return undefined;
+    let cancelled = false;
+    setTeachingAids([]);
+    const requestedSubjects = activePage === "admin" ? [] : selectedSubjects;
+    loadCloudTeachingAids(selectedProduct.grade, requestedSubjects)
+      .then((items) => !cancelled && setTeachingAids(items))
+      .catch((error) => console.error("云端教辅读取失败", error));
+    return () => { cancelled = true; };
+  }, [activePage, selectedProduct?.grade, selectedSubjects.join("|")]);
 
   React.useEffect(() => {
     if (!shareParams) return undefined;
@@ -350,6 +433,14 @@ function App() {
     }
   };
 
+  if (shortLinkStatus === "loading") {
+    return <main className="public-empty-state"><strong>正在打开短链</strong><span>正在读取云端权益配置，请稍候。</span></main>;
+  }
+
+  if (shortLinkStatus === "missing" || shortLinkStatus === "error") {
+    return <main className="public-empty-state"><strong>短链无效或已失效</strong><span>请联系销售重新生成分享链接。</span></main>;
+  }
+
   if (publicView && !selectedProduct) {
     return <main className="public-empty-state"><strong>暂无在售产品</strong><span>产品上线后即可查看权益清单。</span></main>;
   }
@@ -363,6 +454,7 @@ function App() {
         selectedVideoTracks={selectedVideoTracks}
         coursePlans={selectedCoursePlans}
         viewMode={shareParams.viewMode}
+        teachingAids={teachingAids}
       />
     );
   }
@@ -381,6 +473,7 @@ function App() {
             onSelect={setSelectedProductId}
             onSubjectsChange={setSelectedSubjects}
             onVideoTrackChange={(subject, track) => setSelectedVideoTracks((current) => ({ ...current, [subject]: track }))}
+            teachingAids={teachingAids}
           />
         ) : (
           <section className="public-empty-state sales-empty-state">
@@ -399,6 +492,7 @@ function App() {
           onUpdate={updateProduct}
           onPublish={publishProducts}
           syncStatus={syncStatus}
+          teachingAids={teachingAids}
         />
       )}
     </main>
@@ -517,7 +611,7 @@ function AppHeader({ activePage, onPageChange, syncStatus, salesOnly }) {
   );
 }
 
-function SalesPage({ products, selectedProduct, selectedSubjects, selectedVideoTracks, coursePlans, onSelect, onSubjectsChange, onVideoTrackChange }) {
+function SalesPage({ products, selectedProduct, selectedSubjects, selectedVideoTracks, coursePlans, onSelect, onSubjectsChange, onVideoTrackChange, teachingAids }) {
   const previewRef = useRef(null);
   const [linkCopied, setLinkCopied] = useState(false);
   const [exporting, setExporting] = useState(false);
@@ -538,9 +632,16 @@ function SalesPage({ products, selectedProduct, selectedSubjects, selectedVideoT
   const videoTotal = coursePlans.reduce((sum, plan) => sum + (plan?.videoEntitlement ?? 0), 0);
 
   const copyShareLink = async () => {
-    await navigator.clipboard.writeText(buildShareUrl(selectedProduct, selectedSubjects, viewMode, selectedVideoTracks));
-    setLinkCopied(true);
-    window.setTimeout(() => setLinkCopied(false), 1600);
+    try {
+      const shareState = buildShareState(selectedProduct, selectedSubjects, viewMode, selectedVideoTracks);
+      const code = await createShortShareLink(shareState);
+      await navigator.clipboard.writeText(buildShortShareUrl(code));
+      setLinkCopied(true);
+      window.setTimeout(() => setLinkCopied(false), 1600);
+    } catch (error) {
+      console.error(error);
+      window.alert(error?.message || "短链生成失败，请稍后重试。");
+    }
   };
 
   const exportImage = async () => {
@@ -689,13 +790,14 @@ function SalesPage({ products, selectedProduct, selectedSubjects, selectedVideoT
           refNode={previewRef}
           mode="sales"
           viewMode={viewMode}
+          teachingAids={teachingAids}
         />
       </section>
     </section>
   );
 }
 
-function CustomerSharePage({ products, product, selectedSubjects, selectedVideoTracks, coursePlans, viewMode }) {
+function CustomerSharePage({ products, product, selectedSubjects, selectedVideoTracks, coursePlans, viewMode, teachingAids }) {
   const [opened, setOpened] = useState(false);
   const [isOpening, setIsOpening] = useState(false);
 
@@ -753,13 +855,13 @@ function CustomerSharePage({ products, product, selectedSubjects, selectedVideoT
             <strong>{product.name} · {formatSubjectTracks(selectedSubjects, selectedVideoTracks)}</strong>
           </div>
         </div>
-        <BenefitSheet products={products} product={product} coursePlans={coursePlans} mode="poster" viewMode={viewMode} />
+        <BenefitSheet products={products} product={product} coursePlans={coursePlans} mode="poster" viewMode={viewMode} teachingAids={teachingAids} />
       </section>
     </main>
   );
 }
 
-function AdminPage({ products, selectedProduct, onSelect, onAdd, onDelete, onUpdate, onPublish, syncStatus }) {
+function AdminPage({ products, selectedProduct, onSelect, onAdd, onDelete, onUpdate, onPublish, syncStatus, teachingAids }) {
   const [draft, setDraft] = useState(selectedProduct);
   const [activeAdminSection, setActiveAdminSection] = useState("basic");
   const [expandedGiftKey, setExpandedGiftKey] = useState("");
@@ -1376,7 +1478,7 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onDelete, onUpd
               <button type="button" className="secondary-action" onClick={addCustomPhysicalGift}><Plus size={16} />添加实物</button>
             </div>
           </div>
-          <TeachingAidImageAdmin stage={draft.stage} />
+          <TeachingAidImageAdmin grade={draft.grade} stage={draft.stage} teachingAids={teachingAids} />
         </AdminPanel> : null}
       </section>
     </section>
@@ -2027,11 +2129,11 @@ function GiftAdminList({ items, selectedKeys, onToggle }) {
   );
 }
 
-function PhysicalGiftAdmin({ items, selectedKeys, onToggle, stage }) {
+function PhysicalGiftAdmin({ items, selectedKeys, onToggle, grade, stage, teachingAids }) {
   return (
     <div className="physical-admin-wrap">
       <GiftAdminList items={items} selectedKeys={selectedKeys} onToggle={onToggle} />
-      <TeachingAidAutoSummary stage={stage} />
+      <TeachingAidAutoSummary grade={grade} stage={stage} teachingAids={teachingAids} />
     </div>
   );
 }
@@ -2066,15 +2168,7 @@ function PhysicalGiftRuleTable({ items, selectedKeys, onToggle, onItemChange, on
   );
 }
 
-function normalizeCourseGiftRule(rule) {
-  return `买满${getGiftRuleThreshold(rule)}科赠对应学科`;
-}
-
-function normalizePhysicalRule(rule) {
-  return `买满${getGiftRuleThreshold(rule)}科赠`;
-}
-
-function TeachingAidImageAdmin({ stage }) {
+function TeachingAidImageAdmin({ grade, stage, teachingAids }) {
   return (
     <div className="teaching-aid-admin">
       <div className="course-upload-head">
@@ -2083,7 +2177,7 @@ function TeachingAidImageAdmin({ stage }) {
       </div>
       <div className="teaching-aid-admin-grid">
         {courseSubjects.map((subject) => {
-          const items = getTeachingAidItems(subject, stage);
+          const items = getTeachingAidItems(teachingAids, grade, subject, stage);
           return (
             <article className="teaching-aid-admin-card" key={subject}>
               <header>
@@ -2110,10 +2204,10 @@ function TeachingAidImageAdmin({ stage }) {
   );
 }
 
-function TeachingAidAutoSummary({ stage }) {
+function TeachingAidAutoSummary({ grade, stage, teachingAids }) {
   const subjectItems = courseSubjects.map((subject) => ({
     subject,
-    items: getTeachingAidItems(subject, stage),
+    items: getTeachingAidItems(teachingAids, grade, subject, stage),
   }));
   const total = subjectItems.reduce((sum, item) => sum + item.items.length, 0);
   return (
@@ -2175,56 +2269,39 @@ async function exportElementAsPng(element, filename) {
   let canvas;
   try {
     const isSummaryExport = element.classList.contains("view-summary");
-    const exportOptions = {
+    const width = Math.ceil(element.scrollWidth);
+    const height = Math.ceil(element.scrollHeight);
+    const preferredScale = isSummaryExport ? 1 : 2;
+    const maxCanvasSide = 32760;
+    const maxCanvasArea = 120_000_000;
+    const scale = Math.max(0.5, Math.min(
+      preferredScale,
+      maxCanvasSide / width,
+      maxCanvasSide / height,
+      Math.sqrt(maxCanvasArea / (width * height)),
+    ));
+
+    canvas = await html2canvas(element, {
       backgroundColor: isSummaryExport ? "#fdfbf7" : "#eaf5ff",
-      scale: isSummaryExport ? 1 : 2,
+      scale,
       useCORS: true,
       allowTaint: false,
       foreignObjectRendering: false,
-      imageTimeout: 15000,
+      imageTimeout: 30000,
       logging: false,
       scrollX: 0,
       scrollY: 0,
-      windowWidth: element.scrollWidth,
-    };
-
-    if (isSummaryExport) {
-      const hero = element.querySelector(":scope > .envelope-hero");
-      const summarySections = [...element.querySelectorAll(":scope > .letter-body > .summary-layout > *")]
-        .filter((section) => window.getComputedStyle(section).display !== "none");
-      const sections = summarySections.length
-        ? summarySections
-        : [...element.querySelectorAll(":scope > .letter-body > *")]
-          .filter((section) => window.getComputedStyle(section).display !== "none");
-      const segments = [hero, ...sections].filter(Boolean);
-      const rendered = [];
-      for (const segment of segments) {
-        rendered.push(await html2canvas(segment, {
-          ...exportOptions,
-          width: segment.scrollWidth,
-          height: segment.scrollHeight,
-          windowHeight: segment.scrollHeight,
-        }));
-      }
-      canvas = document.createElement("canvas");
-      canvas.width = Math.max(...rendered.map((item) => item.width));
-      canvas.height = rendered.reduce((sum, item) => sum + item.height, 0);
-      const context = canvas.getContext("2d");
-      context.fillStyle = "#fdfbf7";
-      context.fillRect(0, 0, canvas.width, canvas.height);
-      let offsetY = 0;
-      rendered.forEach((item) => {
-        context.drawImage(item, 0, offsetY);
-        offsetY += item.height;
-      });
-    } else {
-      canvas = await html2canvas(element, {
-        ...exportOptions,
-        width: element.scrollWidth,
-        height: element.scrollHeight,
-        windowHeight: element.scrollHeight,
-      });
-    }
+      width,
+      height,
+      windowWidth: width,
+      windowHeight: height,
+      onclone: (clonedDocument) => {
+        clonedDocument.querySelectorAll(".benefit-sheet *").forEach((node) => {
+          node.style.animation = "none";
+          node.style.transition = "none";
+        });
+      },
+    });
   } finally {
     element.classList.remove("is-exporting");
   }
@@ -2255,7 +2332,7 @@ async function waitForExportAssets(element) {
   }));
 }
 
-function BenefitSheet({ products = [], product, coursePlan, coursePlans, refNode, mode, viewMode = "summary" }) {
+function BenefitSheet({ products = [], product, coursePlan, coursePlans, refNode, mode, viewMode = "summary", teachingAids = [] }) {
   const plans = coursePlans?.length ? coursePlans : coursePlan ? [coursePlan] : [];
   const subjects = plans.length ? plans.map((plan) => plan.subject) : ["数学"];
   const giftPlan = getGiftPlanForSubjects(product, subjects, products);
@@ -2285,7 +2362,39 @@ function BenefitSheet({ products = [], product, coursePlan, coursePlans, refNode
             <img className="hero-symbol" src={assetUrl("/assets/youdao-symbol-cutout.png")} alt="" />
           </div>
         </div>
-        <div className="envelope-front" />
+        <svg
+          className="envelope-front"
+          viewBox="0 0 1000 118"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <defs>
+            <linearGradient id="envelope-front-base" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stopColor="#b9d7ff" />
+              <stop offset="1" stopColor="#78aaf3" />
+            </linearGradient>
+            <linearGradient id="envelope-front-left" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stopColor="#e5f1ff" />
+              <stop offset="0.54" stopColor="#9ec5fb" />
+              <stop offset="1" stopColor="#5c96ee" />
+            </linearGradient>
+            <linearGradient id="envelope-front-right" x1="1" y1="0" x2="0" y2="1">
+              <stop offset="0" stopColor="#dcecff" />
+              <stop offset="0.54" stopColor="#a8cbfc" />
+              <stop offset="1" stopColor="#659bed" />
+            </linearGradient>
+          </defs>
+          <path d="M0 0 L500 38 L1000 0 L1000 118 L0 118 Z" fill="url(#envelope-front-base)" />
+          <path d="M0 0 L500 38 L610 118 L0 118 Z" fill="url(#envelope-front-left)" />
+          <path d="M1000 0 L500 38 L390 118 L1000 118 Z" fill="url(#envelope-front-right)" />
+          <path
+            d="M0 0 L500 38 L1000 0"
+            fill="none"
+            stroke="rgba(89, 144, 224, 0.38)"
+            strokeWidth="1"
+            vectorEffect="non-scaling-stroke"
+          />
+        </svg>
         <img className="seal" src={assetUrl("/assets/wax-seal-cutout.png")} alt="" />
       </section>
 
@@ -2297,6 +2406,7 @@ function BenefitSheet({ products = [], product, coursePlan, coursePlans, refNode
             giftPlan={giftPlan}
             physicalGiftItems={physicalGiftItems}
             subjects={subjects}
+            teachingAids={teachingAids}
           />
         ) : null}
 
@@ -2381,7 +2491,7 @@ function BenefitSheet({ products = [], product, coursePlan, coursePlans, refNode
         <EnvelopeSection number="03" title="实物赠礼 / 教辅资料" tone="blue">
           <div className="benefit-disclosure-body customer-gift-materials">
             <PhysicalGiftSection items={physicalGiftItems} />
-            <TeachingAidSection subjects={subjects} stage={product.stage} />
+            <TeachingAidSection subjects={subjects} grade={product.grade} stage={product.stage} teachingAids={teachingAids} />
           </div>
         </EnvelopeSection>
 
@@ -2400,13 +2510,10 @@ function BenefitSheet({ products = [], product, coursePlan, coursePlans, refNode
   );
 }
 
-function SummaryBenefitLayout({ product, plans, giftPlan, physicalGiftItems, subjects }) {
-  const [activeSubjectState, setActiveSubject] = useState(subjects[0] || plans[0]?.subject || "数学");
-  const activeSubject = subjects.includes(activeSubjectState) ? activeSubjectState : (subjects[0] || plans[0]?.subject || "数学");
-  const activePlan = plans.find((plan) => plan.subject === activeSubject) || plans[0] || {};
+function SummaryBenefitLayout({ product, plans, giftPlan, physicalGiftItems, subjects, teachingAids }) {
   const pricing = getProductPricing(product, subjects);
   const teachingAidItems = subjects.flatMap((subject) =>
-    getTeachingAidItems(subject, product.stage).map((item) => ({ ...item, subject, summaryType: "教辅资料" })),
+    getTeachingAidItems(teachingAids, product.grade, subject, product.stage).map((item) => ({ ...item, subject, summaryType: "教辅资料" })),
   );
   const teachingAidCount = teachingAidItems.length;
   const decoratedPhysicalItems = physicalGiftItems.map((item) => decorateGiftItem(item, { category: "实物赠送" }));
@@ -2436,12 +2543,9 @@ function SummaryBenefitLayout({ product, plans, giftPlan, physicalGiftItems, sub
   const subjectGiftItems = giftAlbumItems.filter((item) => getGiftCategory(item) === "学科类赠课");
   const growthGiftItems = giftAlbumItems.filter((item) => getGiftCategory(item) === "升学赋能包");
   const tangibleGiftItems = giftAlbumItems.filter((item) => getGiftCategory(item) === "实物赠送");
-  const liveCount = activePlan.lessons?.length || activePlan.liveCount || 0;
-  const videoRows = getCourseVideoRows(activePlan);
-  const videoCount = videoRows.length || activePlan.videoEntitlement || 0;
   const originalTotal = pricing.originalTotal;
   const discountTotal = Math.max(0, originalTotal - pricing.currentTotal);
-  const selectedSubjectLabel = subjects.length ? subjects.join(" + ") : activeSubject;
+  const selectedSubjectLabel = subjects.length ? subjects.join(" + ") : "数学";
 
   return (
     <div className="summary-layout reference-summary-layout">
@@ -2449,32 +2553,28 @@ function SummaryBenefitLayout({ product, plans, giftPlan, physicalGiftItems, sub
         <header className="reference-heading">
           <span>课程权益明细</span>
         </header>
-        <nav className="reference-subject-tabs" aria-label="选择查看科目">
-          {subjects.map((subject) => (
-            <button
-              className={subject === activeSubject ? "active" : ""}
-              key={subject}
-              onClick={() => setActiveSubject(subject)}
-              type="button"
-            >
-              {subject}
-            </button>
-          ))}
-        </nav>
         <div className="reference-overview-grid">
-          <article className="reference-rights-card">
-            <h2>{activeSubject}学科正课权益</h2>
-            <div className="reference-rights-list">
-              <p><i className="is-live"><PlayCircle size={15} /></i><span>学法直播</span><strong>{liveCount}节</strong></p>
-              <p><i className="is-video"><BookOpen size={15} /></i><span>知识视频</span><strong>{videoCount ? `${videoCount}节` : "无"}</strong></p>
-              <p><i className="is-service"><GraduationCap size={15} /></i><span>辅导服务</span><strong>{product.core.servicePeriod || "以开通为准"}</strong></p>
-              <p><i className="is-period"><Clock size={15} /></i><span>课程周期</span><strong>{product.term || product.stage}</strong></p>
-            </div>
-            <footer>
-              <p><b>正课课时</b><span>核心知识视频{videoCount}节 + 学法直播{liveCount}节</span></p>
-              <p><b>辅导老师</b><span>专属伴学答疑、学习提醒与阶段复盘</span></p>
-            </footer>
-          </article>
+          <div className="reference-rights-stack">
+            {plans.map((plan) => {
+              const liveCount = plan.lessons?.length || plan.liveCount || 0;
+              const videoCount = getCourseVideoRows(plan).length || plan.videoEntitlement || 0;
+              return (
+                <article className="reference-rights-card" key={plan.subject}>
+                  <h2>{plan.subject}学科正课权益</h2>
+                  <div className="reference-rights-list">
+                    <p><i className="is-live"><PlayCircle size={15} /></i><span>学法直播</span><strong>{liveCount}节</strong></p>
+                    <p><i className="is-video"><BookOpen size={15} /></i><span>知识视频</span><strong>{videoCount ? `${videoCount}节` : "无"}</strong></p>
+                    <p><i className="is-service"><GraduationCap size={15} /></i><span>辅导服务</span><strong>{product.core.servicePeriod || "以开通为准"}</strong></p>
+                    <p><i className="is-period"><Clock size={15} /></i><span>课程周期</span><strong>{product.term || product.stage}</strong></p>
+                  </div>
+                  <footer>
+                    <p><b>正课课时</b><span>核心知识视频{videoCount}节 + 学法直播{liveCount}节</span></p>
+                    <p><b>辅导老师</b><span>专属伴学答疑、学习提醒与阶段复盘</span></p>
+                  </footer>
+                </article>
+              );
+            })}
+          </div>
 
           <aside className="reference-price-card">
             <span>{product.stage} · {selectedSubjectLabel}</span>
@@ -2512,6 +2612,8 @@ function SummaryBenefitLayout({ product, plans, giftPlan, physicalGiftItems, sub
 
 function SummaryReferenceGiftSection({ title, items, className = "", subjectCount = 0 }) {
   if (!items.length) return null;
+  const columnCount = className === "growth-gifts" ? 3 : 2;
+  const hasOrphan = items.length % columnCount === 1;
   return (
     <section className={`reference-gift-section ${className}`}>
       <header className="reference-heading">
@@ -2521,8 +2623,12 @@ function SummaryReferenceGiftSection({ title, items, className = "", subjectCoun
         {items.map((item, index) => {
           const image = getGiftImage(item);
           const lessonCount = className === "physical-gifts" ? "" : getGiftLessonCount(item);
+          const isHorizontal = hasOrphan && index === items.length - 1;
           return (
-            <article key={item._displayKey || `${title}-${item.name}-${index}`}>
+            <article
+              className={isHorizontal ? "is-horizontal" : ""}
+              key={item._displayKey || `${title}-${item.name}-${index}`}
+            >
               {image ? (
                 <div className="reference-gift-image">
                   {item.value ? <em>价值 {item.value}</em> : null}
@@ -2531,7 +2637,7 @@ function SummaryReferenceGiftSection({ title, items, className = "", subjectCoun
               ) : null}
               <div className="reference-gift-copy">
                 <header><strong>{item.name}</strong>{lessonCount ? <b>{lessonCount}</b> : null}</header>
-                <p>{getGiftMainContent(item)}</p>
+                <p>{getGiftOverview(item)}</p>
               </div>
             </article>
           );
@@ -2609,6 +2715,40 @@ function getGiftMainContent(item) {
   return item.detail || "围绕核心学习任务提供专项支持";
 }
 
+function getGiftOverview(item) {
+  const mainContent = String(item.mainContent || "").trim();
+  if (mainContent && !mainContent.includes("\n")) return mainContent;
+  const detailOverview = String(item.detail || "")
+    .replace(/^\s*\d+(?:\.\d+)?\s*(?:节|讲|套|册|本|项)(?:\s*[*×xX]\s*\d+(?:\.\d+)?\s*(?:h|min|分钟|小时))?\s*[，,、]?\s*/i, "")
+    .trim();
+  return detailOverview || `提供${item.name || "该权益"}相关的系统内容与专项支持`;
+}
+
+function getGiftOutlineLines(item) {
+  const mainContentLines = String(item.mainContent || "")
+    .split(/\n+/)
+    .map((line) => line.trim().replace(/^\d+\s*[、.．]\s*/, ""))
+    .filter(Boolean);
+  if (mainContentLines.length > 1) return trimRepeatedOutlinePrefix(mainContentLines);
+  return (item.bullets ?? []).map((line) => String(line).trim()).filter(Boolean);
+}
+
+function trimRepeatedOutlinePrefix(lines) {
+  if (lines.length < 2) return lines;
+  let commonPrefix = lines[0];
+  for (const line of lines.slice(1)) {
+    let index = 0;
+    while (index < commonPrefix.length && index < line.length && commonPrefix[index] === line[index]) index += 1;
+    commonPrefix = commonPrefix.slice(0, index);
+    if (commonPrefix.length < 4) return lines;
+  }
+  const boundary = Math.max(commonPrefix.lastIndexOf("之"), commonPrefix.lastIndexOf("："), commonPrefix.lastIndexOf(":"));
+  if (boundary < 3) return lines;
+  const prefix = commonPrefix.slice(0, boundary + 1);
+  const trimmed = lines.map((line) => line.startsWith(prefix) ? line.slice(prefix.length).trim() : line);
+  return trimmed.every(Boolean) ? trimmed : lines;
+}
+
 function getProductJourney(product) {
   if (product.stage === "秋实卡") {
     return [
@@ -2621,39 +2761,6 @@ function getProductJourney(product) {
     { title: product.stage, role: "系统学习", description: product.subtitle, current: true },
     { title: "阶段复盘", role: "巩固提升", description: "复盘关键知识与方法，查漏补缺并衔接下一学习阶段。" },
   ];
-}
-
-function getProductPricing(product, subjectsOrCount) {
-  const selectedSubjects = Array.isArray(subjectsOrCount) ? subjectsOrCount : [];
-  const subjectCount = selectedSubjects.length || Number(subjectsOrCount) || 1;
-  const source = product.pricing ?? {};
-  const originalPerSubject = Number(source.originalPerSubject) || 5400;
-  const singlePerSubject = Number(source.singlePerSubject) || 3980;
-  const twoPerSubject = Number(source.twoPerSubject) || 3680;
-  const threePlusPerSubject = Number(source.threePlusPerSubject) || 3380;
-  const selectedPerSubject = subjectCount === 1 ? singlePerSubject : subjectCount === 2 ? twoPerSubject : threePlusPerSubject;
-  const humanities = new Set(["历史", "地理", "政治"]);
-  const standardCount = selectedSubjects.length ? selectedSubjects.filter((subject) => !humanities.has(subject)).length : subjectCount;
-  const humanitiesCount = selectedSubjects.length ? selectedSubjects.filter((subject) => humanities.has(subject)).length : 0;
-  const humanitiesOriginal = Number(product.humanitiesPricing?.originalPerSubject) || originalPerSubject;
-  const humanitiesCurrent = Number(product.humanitiesPricing?.fixedPerSubject) || selectedPerSubject;
-  return {
-    originalPerSubject,
-    selectedPerSubject,
-    originalTotal: originalPerSubject * standardCount + humanitiesOriginal * humanitiesCount,
-    currentTotal: selectedPerSubject * standardCount + humanitiesCurrent * humanitiesCount,
-    getSubjectOriginal: (subject) => humanities.has(subject) ? humanitiesOriginal : originalPerSubject,
-    getSubjectCurrent: (subject) => humanities.has(subject) ? humanitiesCurrent : selectedPerSubject,
-    tiers: [
-      { label: "单科", subjects: 1, perSubject: singlePerSubject, total: singlePerSubject, active: subjectCount === 1 },
-      { label: "联报两科", subjects: 2, perSubject: twoPerSubject, total: twoPerSubject * 2, active: subjectCount === 2 },
-      { label: "联报三科", subjects: 3, perSubject: threePlusPerSubject, total: threePlusPerSubject * Math.max(subjectCount, 3), active: subjectCount >= 3 },
-    ],
-  };
-}
-
-function formatPrice(value) {
-  return Number(value || 0).toLocaleString("zh-CN");
 }
 
 function BenefitDisclosure({ title, description, children, open = false, staticOpen = false }) {
@@ -2676,21 +2783,36 @@ function getNumericValue(value) {
   return match ? Number(match[0]) : 0;
 }
 
-function TeachingAidSection({ subject, subjects, stage }) {
+function getTeachingAidItems(catalog, grade, subject, stage) {
+  const items = (catalog ?? []).filter((item) => item.grade === grade && item.subject === subject);
+  if (stage === "夏研卡") {
+    return items.filter((item) => item.type.includes("讲义") || item.type.includes("夏研/半年卡加赠"));
+  }
+  if (stage === "决胜卡") return items;
+  return items.filter((item) => !item.type.includes("半年纸质版资料"));
+}
+
+function getTeachingAidRule(stage) {
+  if (stage === "夏研卡") return "买即赠对应学科讲义，纸质资料按卡型加赠";
+  if (stage === "决胜卡") return "半年卡买即赠对应学科讲义、习题，纸质资料按卡型加赠";
+  return "买即赠对应学科随课讲义/习题";
+}
+
+function TeachingAidSection({ subject, subjects, grade, stage, teachingAids }) {
   if (subjects?.length) {
     return (
       <div className="teaching-aid-subject-stack">
         {subjects.map((item) => (
-          <TeachingAidSingleSection subject={item} stage={stage} key={item} />
+          <TeachingAidSingleSection subject={item} grade={grade} stage={stage} teachingAids={teachingAids} key={item} />
         ))}
       </div>
     );
   }
-  return <TeachingAidSingleSection subject={subject} stage={stage} />;
+  return <TeachingAidSingleSection subject={subject} grade={grade} stage={stage} teachingAids={teachingAids} />;
 }
 
-function TeachingAidSingleSection({ subject, stage }) {
-  const aidItems = getTeachingAidItems(subject, stage);
+function TeachingAidSingleSection({ subject, grade, stage, teachingAids }) {
+  const aidItems = getTeachingAidItems(teachingAids, grade, subject, stage);
   const rule = getTeachingAidRule(stage);
   const gridSize = aidItems.length === 1 ? "single" : aidItems.length === 2 ? "pair" : aidItems.length === 3 ? "trio" : "many";
 
@@ -3429,22 +3551,9 @@ function getAdminPhysicalGiftCandidates(product) {
 function getGradePhysicalGiftCandidates(products, product) {
   return uniqueGiftItems(applyGiftOverrides(product, [
     ...products
-      .filter((item) => item.grade === product.grade)
       .flatMap((item) => getAdminPhysicalGiftCandidates(item)),
     ...(product.customPhysicalItems ?? []),
   ])).map((item) => decorateGiftItem(item, { category: "实物赠送" }));
-}
-
-function isGiftRuleEligible(rule, subjectCount) {
-  return subjectCount >= getGiftRuleThreshold(rule);
-}
-
-function getGiftRuleThreshold(rule) {
-  const text = String(rule || "");
-  if (text.includes("两科及以下") || text.includes("直接赠送") || text.includes("买赠对应") || text.includes("买对应学科")) return 1;
-  if (/买满\s*3\s*科|3科|三科/.test(text)) return 3;
-  if (/买满\s*2\s*科|2科|两科/.test(text) && !text.includes("两科及以下")) return 2;
-  return 1;
 }
 
 function getGiftLibraryMatch(item) {
@@ -3856,14 +3965,19 @@ function GiftRuleList({ giftPlan }) {
           <section className={`detail-gift-group ${group.category === "升学赋能包" ? "smart-growth-group" : ""}`} key={group.category}>
             <header><span>{group.index}</span><div><strong>{group.category}</strong><small>{group.note}</small></div></header>
             <div className="gift-poster-grid">
-              {group.items.map((item, index) => (
-                <GiftPosterCard
-                  item={item}
-                  index={index}
-                  key={`${item.name}-${index}`}
-                  wide={group.category === "升学赋能包" && isLongGrowthGift(item)}
-                />
-              ))}
+              {group.items.map((item, index) => {
+                const longGrowth = group.category === "升学赋能包" && isLongGrowthGift(item);
+                const horizontal = group.items.length % 2 === 1 && index === group.items.length - 1 && !longGrowth;
+                return (
+                  <GiftPosterCard
+                    horizontal={horizontal}
+                    item={item}
+                    index={index}
+                    key={`${item.name}-${index}`}
+                    wide={longGrowth}
+                  />
+                );
+              })}
             </div>
           </section>
         ))}
@@ -3872,13 +3986,15 @@ function GiftRuleList({ giftPlan }) {
   );
 }
 
-function GiftPosterCard({ item, index, wide = false }) {
+function GiftPosterCard({ item, index, wide = false, horizontal = false }) {
   const tones = ["cyan", "orange", "purple", "green", "blue"];
   const tone = tones[index % tones.length];
   const showValue = item.value && !String(item.value).includes("待补充");
   const image = getGiftImage(item);
+  const outlineLines = getGiftOutlineLines(item);
+  const hasLongOutline = outlineLines.length >= 10;
   return (
-    <article className={`gift-poster-card simplified ${tone} ${wide ? "is-wide" : ""}`}>
+    <article className={`gift-poster-card simplified ${tone} ${wide ? "is-wide" : ""} ${horizontal ? "is-horizontal" : ""} ${hasLongOutline ? "has-long-outline" : ""}`}>
       <div className="gift-poster-image">
         {showValue ? <em>价值 {item.value}</em> : null}
         {image ? <img src={assetUrl(image)} alt={item.name} /> : <span>{item.name}</span>}
@@ -3888,13 +4004,13 @@ function GiftPosterCard({ item, index, wide = false }) {
       </header>
       <div className="gift-poster-summary">
         <strong>{getGiftLessonCount(item)}</strong>
-        <p>{getGiftMainContent(item)}</p>
-        {item.bullets?.length ? (
+        {hasLongOutline ? null : <p>{getGiftMainContent(item)}</p>}
+        {outlineLines.length ? (
           <div className="gift-course-outline">
             <span>课程大纲</span>
             <ol>
-              {item.bullets.map((outline, outlineIndex) => (
-                <li key={`${item.name}-outline-${outlineIndex}`}>{outline}</li>
+              {outlineLines.map((outline, outlineIndex) => (
+                <li className={outline.length >= 11 ? "is-long-label" : ""} key={`${item.name}-outline-${outlineIndex}`}>{outline}</li>
               ))}
             </ol>
           </div>
@@ -4056,17 +4172,23 @@ function Metric({ icon: Icon, label, value }) {
   );
 }
 
-function buildShareUrl(product, subjects, viewMode = "summary", videoTracks = {}) {
+function buildShareState(product, subjects, viewMode = "summary", videoTracks = {}) {
+  const subjectList = Array.isArray(subjects) ? subjects : [subjects];
+  return {
+    productId: product.id,
+    subject: subjectList[0] ?? "数学",
+    subjects: subjectList,
+    videoTracks: Object.fromEntries(subjectList.map((subject) => [subject, videoTracks?.[subject] ?? "目标班"])),
+    viewMode,
+  };
+}
+
+function buildShortShareUrl(code) {
   const isLocalPreview = ["127.0.0.1", "localhost"].includes(window.location.hostname);
   const url = new URL(isLocalPreview ? PUBLIC_SITE_URL : window.location.href);
   url.search = "";
   url.hash = "";
-  url.searchParams.set("share", "1");
-  url.searchParams.set("product", product.id);
-  const subjectList = Array.isArray(subjects) ? subjects : [subjects];
-  url.searchParams.set("subjects", subjectList.join(","));
-  url.searchParams.set("tracks", subjectList.map((subject) => `${subject}:${videoTracks?.[subject] ?? "目标班"}`).join(","));
-  url.searchParams.set("view", viewMode);
+  url.searchParams.set("s", code);
   return url.toString();
 }
 
