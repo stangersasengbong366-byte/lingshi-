@@ -1253,7 +1253,7 @@ textarea {
   margin: 0;
   padding: 7px 0;
   align-items: center;
-  grid-template-columns: 24px minmax(0, 1fr) auto;
+  grid-template-columns: 24px 62px minmax(0, 1fr);
   gap: 6px;
 }
 
@@ -1270,8 +1270,8 @@ textarea {
 .reference-rights-list i.is-video { background: #f59e0b; }
 .reference-rights-list i.is-service { background: #35a889; }
 .reference-rights-list i.is-period { background: #587fcf; }
-.reference-rights-list span { color: #334155; font-size: 13px; font-weight: 600; }
-.reference-rights-list strong { color: #081c42; font-size: 14px; font-weight: 800; }
+.reference-rights-list span { color: #334155; font-size: 13px; font-weight: 600; white-space: nowrap; }
+.reference-rights-list strong { min-width: 0; color: #081c42; font-size: 14px; line-height: 1.45; font-weight: 800; overflow-wrap: break-word; }
 
 .reference-rights-card > footer {
   display: grid;

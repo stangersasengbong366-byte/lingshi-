@@ -928,10 +928,18 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onDelete, onUpd
     setDraft({ ...draft, pricing: { ...draft.pricing, [key]: Number(value) || 0 } });
   };
 
+  const updateHumanitiesPricing = (key, value) => {
+    setDraft({
+      ...draft,
+      humanitiesPricing: { ...(draft.humanitiesPricing ?? {}), [key]: Number(value) || 0 },
+    });
+  };
+
   const changeProductGrade = (grade) => {
     if (grade === draft.grade) return;
     const nextAnnualData = annualCourseLibrary[grade] ?? { live: {}, video: {} };
-    const nextGradeProduct = { ...draft, grade };
+    const nextStage = grade === "高三" ? "一轮卡" : draft.grade === "高三" ? "秋实卡" : draft.stage;
+    const nextGradeProduct = { ...draft, grade, stage: nextStage, courseKey: nextStage };
     const coveragePhases = getDefaultCoveragePhases(nextGradeProduct);
     const stageCounts = getCourseStageCounts(nextAnnualData, coveragePhases);
     if (courseSourceMode === "grade") setAnnualCourseData(nextAnnualData);
@@ -939,6 +947,8 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onDelete, onUpd
     setDraft({
       ...draft,
       grade,
+      stage: nextStage,
+      courseKey: nextStage,
       coveragePhases,
       videoPhases: coveragePhases,
       ...(courseSourceMode === "grade" ? {
@@ -1172,6 +1182,18 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onDelete, onUpd
     const resolvedUploadNames = courseSourceMode === "custom" ? customCourseUploadNames : annualCourseUploadNames;
     return {
       ...draft,
+      subjectProfiles: {
+        ...(draft.subjectProfiles ?? {}),
+        default: {
+          ...(draft.subjectProfiles?.default ?? {}),
+          liveLessons: draft.core.liveLessons,
+          knowledgeVideos: draft.core.knowledgeVideos,
+          summary: [
+            `学法直播${draft.core.liveLessons}节`,
+            draft.core.knowledgeVideos ? `知识视频${draft.core.knowledgeVideos}节` : "无知识视频",
+          ],
+        },
+      },
       courseSourceMode,
       annualCourseData,
       annualCourseUploadNames,
@@ -1359,6 +1381,12 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onDelete, onUpd
             </Field>
             <Field label="三科及以上 / 科">
               <input type="number" min="0" value={draft.pricing?.threePlusPerSubject ?? 0} onChange={(event) => updatePricing("threePlusPerSubject", event.target.value)} />
+            </Field>
+            <Field label="文综原价 / 科">
+              <input type="number" min="0" value={draft.humanitiesPricing?.originalPerSubject ?? 0} onChange={(event) => updateHumanitiesPricing("originalPerSubject", event.target.value)} />
+            </Field>
+            <Field label="文综一口价 / 科">
+              <input type="number" min="0" value={draft.humanitiesPricing?.fixedPerSubject ?? 0} onChange={(event) => updateHumanitiesPricing("fixedPerSubject", event.target.value)} />
             </Field>
           </div>
         </AdminPanel> : null}
@@ -3298,21 +3326,11 @@ function resolveParsedCoursePlan(product, subject, profile, forcedPhases, videoT
 function filterVideoRowsByTrack(rows, videoTrack) {
   const normalizedRows = rows.map((row) => ({ ...row, normalizedTrack: normalizeVideoTrack(row.layered) }));
   const hasExplicitTracks = normalizedRows.some((row) => row.normalizedTrack === "目标班" || row.normalizedTrack === "菁英班");
-  if (!hasExplicitTracks) return uniqueCourseRows(rows);
+  if (!hasExplicitTracks) return rows;
 
-  return uniqueCourseRows(normalizedRows
+  return normalizedRows
     .filter((row) => row.normalizedTrack === "通用" || row.normalizedTrack === videoTrack)
-    .map(({ normalizedTrack, ...row }) => row));
-}
-
-function uniqueCourseRows(rows) {
-  const seen = new Set();
-  return rows.filter((row) => {
-    const key = [row.quarter, row.layered, row.title, row.name].map((value) => String(value ?? "").trim()).join("|");
-    if (seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  });
+    .map(({ normalizedTrack, ...row }) => row);
 }
 
 function normalizeVideoTrack(value) {
@@ -3407,8 +3425,8 @@ function getLessonValue(lesson) {
 }
 
 function getSubjectProfile(product, subject) {
-  const group = product.humanitiesSubjects?.includes(subject) || humanitiesSubjects.includes(subject) ? "humanities" : "default";
-  const profile = product.subjectProfiles?.[group] ?? product.subjectProfiles?.default;
+  const isHumanities = product.humanitiesSubjects?.includes(subject) || humanitiesSubjects.includes(subject);
+  const profile = isHumanities ? product.subjectProfiles?.humanities : null;
   const isG1Autumn = String(product.grade).includes("高一") && `${product.stage}${product.name}`.includes("秋实");
   const videoSubjects = isG1Autumn
     ? ["语文", "数学", "英语", "物理", "化学"]
