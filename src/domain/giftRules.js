@@ -13,7 +13,9 @@ export function getGiftRuleThreshold(rule) {
 }
 
 export function normalizeCourseGiftRule(rule) {
-  return "买即赠对应学科；三科及以上赠全科";
+  const text = String(rule || "");
+  if (text.includes("三科及以上赠全科") && !text.includes("买即赠对应学科")) return "三科及以上赠全科";
+  return "买即赠对应学科";
 }
 
 export function normalizePhysicalRule(rule) {

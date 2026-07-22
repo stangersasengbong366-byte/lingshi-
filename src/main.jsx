@@ -942,7 +942,7 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onDelete, onUpd
   const [annualCourseData, setAnnualCourseData] = useState(selectedProduct.annualCourseData ?? selectedProduct.parsedCourseData ?? { live: {}, video: {} });
   const [customCourseData, setCustomCourseData] = useState(selectedProduct.customCourseData ?? { live: {}, video: {} });
   const [parsedSubject, setParsedSubject] = useState("语文");
-  const [newGift, setNewGift] = useState({ name: "", detail: "", value: "", lessonCount: "", mainContent: "", displayOrder: "", category: "学科类赠课", rule: "买即赠对应学科；三科及以上赠全科", image: "" });
+  const [newGift, setNewGift] = useState({ name: "", detail: "", value: "", lessonCount: "", mainContent: "", displayOrder: "", category: "学科类赠课", rule: "买即赠对应学科", image: "" });
   const [newPhysicalGift, setNewPhysicalGift] = useState({ name: "", detail: "", value: "", rule: "买满1科赠" });
   const [lastGiftImport, setLastGiftImport] = useState(null);
   const [publishState, setPublishState] = useState("idle");
@@ -989,7 +989,7 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onDelete, onUpd
     setAnnualCourseData(selectedProduct.annualCourseData ?? selectedProduct.parsedCourseData ?? { live: {}, video: {} });
     setCustomCourseData(selectedProduct.customCourseData ?? { live: {}, video: {} });
     setParsedSubject("语文");
-    setNewGift({ name: "", detail: "", value: "", lessonCount: "", mainContent: "", category: "学科类赠课", rule: "买即赠对应学科；三科及以上赠全科", image: "" });
+    setNewGift({ name: "", detail: "", value: "", lessonCount: "", mainContent: "", category: "学科类赠课", rule: "买即赠对应学科", image: "" });
     setNewPhysicalGift({ name: "", detail: "", value: "", rule: "买满1科赠" });
     setLastGiftImport(null);
   }, [selectedProduct]);
@@ -1240,7 +1240,7 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onDelete, onUpd
       giftSelections: [...selectedGiftKeys, getGiftItemKey(item)],
       deletedGiftKeys: (draft.deletedGiftKeys ?? []).filter((key) => key !== getGiftItemKey(item)),
     });
-    setNewGift({ name: "", detail: "", value: "", lessonCount: "", mainContent: "", displayOrder: "", category: "学科类赠课", rule: "买即赠对应学科；三科及以上赠全科", image: "" });
+    setNewGift({ name: "", detail: "", value: "", lessonCount: "", mainContent: "", displayOrder: "", category: "学科类赠课", rule: "买即赠对应学科", image: "" });
   };
 
   const togglePhysicalGiftSelection = (key) => {
@@ -2130,9 +2130,9 @@ function GiftTriggerGuide({ physical = false }) {
   if (!physical) {
     return (
       <div className="gift-trigger-guide">
-        <div><span>购买 1～2 科</span><strong>买即赠所购对应学科</strong></div>
+        <div><span>规则 ①</span><strong>买即赠对应学科：购买哪科赠哪科</strong></div>
         <ChevronDown size={16} />
-        <div><span>购买 3 科及以上</span><strong>赠送后台已勾选的全科赠课</strong></div>
+        <div><span>规则 ②</span><strong>三科及以上赠全科：开通该赠课全部可用学科</strong></div>
       </div>
     );
   }
@@ -2983,11 +2983,9 @@ function SummaryBenefitLayout({ product, plans, giftPlan, physicalGiftItems, sub
     category: "实物赠送",
     summaryType: "教辅资料",
   }] : [];
-  const summaryCourseGiftItems = [...new Map(
-    giftPlan.items
-      .map((item) => decorateGiftItem(item, { summaryType: "赠课权益" }))
-      .map((item) => [`${getGiftCategory(item)}-${item.name}-${item.subject ?? "通用"}`, item]),
-  ).values()];
+  const summaryCourseGiftItems = mergeSummaryCourseGiftItems(
+    giftPlan.items.map((item) => decorateGiftItem(item, { summaryType: "赠课权益" })),
+  );
   const giftAlbumItems = [
     ...summaryCourseGiftItems,
     ...summaryTeachingAidItem,
@@ -2996,6 +2994,7 @@ function SummaryBenefitLayout({ product, plans, giftPlan, physicalGiftItems, sub
       .map((item) => ({ ...item, summaryType: "实物赠礼" })),
   ];
   const subjectGiftItems = giftAlbumItems.filter((item) => getGiftCategory(item) === "学科类赠课");
+  const giftedSubjectCount = new Set(subjectGiftItems.flatMap((item) => item.giftSubjects ?? (item.subject ? [item.subject] : []))).size;
   const growthGiftItems = giftAlbumItems.filter((item) => getGiftCategory(item) === "升学赋能包");
   const tangibleGiftItems = giftAlbumItems.filter((item) => getGiftCategory(item) === "实物赠送");
   const originalTotal = pricing.originalTotal;
@@ -3070,7 +3069,7 @@ function SummaryBenefitLayout({ product, plans, giftPlan, physicalGiftItems, sub
       <SummaryReferenceGiftSection
         className="course-gifts"
         items={subjectGiftItems}
-        subjectCount={subjects.length}
+        subjectCount={giftedSubjectCount}
         title="课程权益"
       />
       <SummaryReferenceGiftSection
@@ -3119,6 +3118,12 @@ function SummaryReferenceGiftSection({ title, items, className = "", subjectCoun
               ) : null}
               <div className="reference-gift-copy">
                 <header><strong>{getGiftDisplayName(item)}</strong>{lessonCount ? <b>{lessonCount}</b> : null}</header>
+                {item.giftSubjects?.length ? (
+                  <div className="reference-gift-subjects">
+                    <span>赠送学科</span>
+                    <div>{item.giftSubjects.map((subject) => <em key={`${item._displayKey}-${subject}`}>{subject}</em>)}</div>
+                  </div>
+                ) : null}
                 <p>{getGiftOverview(item)}</p>
               </div>
             </article>
@@ -3127,6 +3132,41 @@ function SummaryReferenceGiftSection({ title, items, className = "", subjectCoun
       </div>
     </section>
   );
+}
+
+function mergeSummaryCourseGiftItems(items) {
+  const groupedItems = new Map();
+
+  items.forEach((item, index) => {
+    const subject = String(item.subject ?? "").trim();
+    if (!subject || getGiftCategory(item) !== "学科类赠课") {
+      groupedItems.set(item._displayKey || `${getGiftCategory(item)}-${item.name}-${index}`, item);
+      return;
+    }
+
+    const name = String(item.name ?? "");
+    const baseName = name
+      .replace(new RegExp(`（${subject}）\\s*$`), "")
+      .replace(new RegExp(`\\(${subject}\\)\\s*$`), "")
+      .trim();
+    const groupKey = `${getGiftCategory(item)}-${baseName}`;
+    const existing = groupedItems.get(groupKey);
+    if (existing) {
+      existing.giftSubjects = [...new Set([...existing.giftSubjects, subject])];
+      return;
+    }
+
+    groupedItems.set(groupKey, {
+      ...item,
+      name: baseName,
+      subject: "",
+      giftSubjects: [subject],
+      detail: String(item.detail ?? "").replace(new RegExp(`^${subject}\\s*[｜|·:：]\\s*`), ""),
+      _displayKey: `summary-${groupKey}`,
+    });
+  });
+
+  return [...groupedItems.values()];
 }
 
 function getJourneyTasks(item, index) {
@@ -3546,7 +3586,7 @@ async function parseGiftWorkbook(file, grade) {
     name: file.name.replace(/\.(xlsx|xls|csv)$/i, ""),
     detail: hasSubjectCourses ? "对应学科赠课" : fallbackBullets.length ? `${fallbackBullets.length}项课程明细` : "课程明细待补充",
     value: extractGiftValue(allTexts) || "待补充",
-    rule: "买即赠对应学科；三科及以上赠全科",
+    rule: "买即赠对应学科",
     subjectCourses: hasSubjectCourses ? cleanedSubjectCourses : undefined,
     bullets: fallbackBullets.length ? fallbackBullets : undefined,
   };
@@ -3943,7 +3983,7 @@ function getGiftPlanForSubjects(product, subjects, products = []) {
     .filter((item) => isCourseGiftRuleEligible(item.rule, subjects.length));
   const items = selectedItems.flatMap((item) => {
     if (isSubjectMatchedGift(item)) {
-      const giftedSubjects = subjects.length >= 3
+      const giftedSubjects = normalizeCourseGiftRule(item.rule) === "三科及以上赠全科"
         ? courseSubjects.filter((subject) => item.subjectCourses?.[subject]?.length)
         : subjects;
       return giftedSubjects
@@ -3955,8 +3995,8 @@ function getGiftPlanForSubjects(product, subjects, products = []) {
   const firstPlan = basePlan ?? { title: "赠课权益", note: "赠课权益以实际开通内容为准。" };
   return {
     ...firstPlan,
-    note: subjects.length >= 3
-      ? "购买三科及以上，享已勾选的全科赠课权益"
+    note: selectedItems.some((item) => normalizeCourseGiftRule(item.rule) === "三科及以上赠全科") && subjects.length >= 3
+      ? "已满足三科门槛：全科规则赠课按后台勾选内容开通"
       : `买即赠对应学科：${subjects.join("、")}`,
     items: uniqueGiftItems(items).map((item) => decorateGiftItem(item)),
   };
@@ -4463,6 +4503,10 @@ function GiftRuleList({ giftPlan }) {
         category,
       ),
     }))
+    .map((group) => ({
+      ...group,
+      items: group.category === "学科类赠课" ? mergeDetailCourseGiftItems(group.items) : group.items,
+    }))
     .filter((group) => group.items.length);
 
   return (
@@ -4505,6 +4549,7 @@ function GiftRuleList({ giftPlan }) {
 }
 
 function getGiftCardLayout(item) {
+  if (item.subjectVariants?.length > 1) return "expanded";
   const outlineLines = getGiftOutlineLines(item);
   const outlineCharacters = outlineLines.reduce((total, line) => total + String(line).length, 0);
   const longestLine = outlineLines.reduce((max, line) => Math.max(max, String(line).length), 0);
@@ -4513,6 +4558,10 @@ function getGiftCardLayout(item) {
 }
 
 function GiftPosterCard({ item, index, layout = "compact", horizontal = false, unpaired = false }) {
+  if (item.subjectVariants?.length > 1) {
+    return <GiftSubjectCollectionCard item={item} index={index} />;
+  }
+
   const tones = ["cyan", "orange", "purple", "green", "blue"];
   const tone = tones[index % tones.length];
   const showValue = item.value && !String(item.value).includes("待补充");
@@ -4549,6 +4598,91 @@ function GiftPosterCard({ item, index, layout = "compact", horizontal = false, u
             )}
           </div>
         ) : null}
+      </div>
+    </article>
+  );
+}
+
+function mergeDetailCourseGiftItems(items) {
+  const groupedItems = new Map();
+
+  items.forEach((item, index) => {
+    const subject = String(item.subject ?? "").trim();
+    if (!subject) {
+      groupedItems.set(item._displayKey || `${item.name}-${index}`, item);
+      return;
+    }
+
+    const name = String(item.name ?? "");
+    const baseName = name
+      .replace(new RegExp(`（${subject}）\\s*$`), "")
+      .replace(new RegExp(`\\(${subject}\\)\\s*$`), "")
+      .trim();
+    const groupKey = `${getGiftCategory(item)}-${baseName}`;
+    const variant = {
+      subject,
+      lessonCount: getGiftLessonCount(item),
+      overview: getGiftMainContent(item),
+      outlines: getGiftOutlineLines(item),
+    };
+    const existing = groupedItems.get(groupKey);
+    if (existing) {
+      existing.subjectVariants.push(variant);
+      existing.giftSubjects.push(subject);
+      return;
+    }
+
+    groupedItems.set(groupKey, {
+      ...item,
+      name: baseName,
+      subject: "",
+      giftSubjects: [subject],
+      subjectVariants: [variant],
+      _displayKey: `detail-${groupKey}`,
+    });
+  });
+
+  return [...groupedItems.values()];
+}
+
+function GiftSubjectCollectionCard({ item, index }) {
+  const tones = ["cyan", "orange", "purple", "green", "blue"];
+  const tone = tones[index % tones.length];
+  const showValue = item.value && !String(item.value).includes("待补充");
+  const image = getGiftImage(item);
+
+  return (
+    <article className={`gift-subject-collection ${tone}`}>
+      <div className="gift-collection-hero">
+        <div className="gift-poster-image">
+          {showValue ? <em>价值 {item.value}</em> : null}
+          {image ? <img src={assetUrl(image)} alt={item.name} /> : <span>{item.name}</span>}
+        </div>
+        <header>
+          <strong>{item.name}</strong>
+          <div className="gift-collection-subjects">
+            <span>赠送学科</span>
+            {item.giftSubjects.map((subject) => <em key={`${item._displayKey}-${subject}`}>{subject}</em>)}
+          </div>
+        </header>
+      </div>
+      <div className={`gift-subject-variant-grid is-count-${item.subjectVariants.length}`}>
+        {item.subjectVariants.map((variant) => (
+          <section className="gift-subject-variant" key={`${item._displayKey}-${variant.subject}`}>
+            <header><strong>{variant.subject}</strong>{variant.lessonCount ? <b>{variant.lessonCount}</b> : null}</header>
+            {variant.overview ? <p>{variant.overview}</p> : null}
+            {variant.outlines.length ? (
+              <div className="gift-course-outline">
+                <span>课程大纲</span>
+                <ol>
+                  {variant.outlines.map((outline, outlineIndex) => (
+                    <li className={outline.length >= 11 ? "is-long-label" : ""} key={`${item._displayKey}-${variant.subject}-${outlineIndex}`}>{outline}</li>
+                  ))}
+                </ol>
+              </div>
+            ) : null}
+          </section>
+        ))}
       </div>
     </article>
   );

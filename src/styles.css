@@ -1283,9 +1283,10 @@ textarea {
 
 .benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-poster-image img,
 .benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-poster-image img {
-  width: min(720px, 100%) !important;
+  width: min(340px, 100%) !important;
   height: auto !important;
-  max-height: none !important;
+  max-height: 191px !important;
+  aspect-ratio: 16 / 9 !important;
   object-fit: contain !important;
 }
 
@@ -1433,6 +1434,13 @@ textarea {
   text-overflow: clip !important;
   font-size: 13px !important;
   line-height: 1.45 !important;
+}
+
+/* Keep long-outline course artwork at the same visual size as a default card. */
+.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-poster-image img,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-poster-image img {
+  width: min(340px, 100%) !important;
+  max-height: 191px !important;
 }
 
 .bonus-subject-picker {
@@ -2827,6 +2835,42 @@ textarea {
   white-space: nowrap;
 }
 
+.reference-gift-subjects {
+  display: flex;
+  min-width: 0;
+  margin: 0 0 9px;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.reference-gift-subjects > span {
+  flex: 0 0 auto;
+  padding-top: 3px;
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.reference-gift-subjects > div {
+  display: flex;
+  min-width: 0;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.reference-gift-subjects em {
+  padding: 2px 7px;
+  color: #1661c9;
+  background: #eef6ff;
+  border: 1px solid #cfe2ff;
+  border-radius: 999px;
+  font-style: normal;
+  font-size: 11px;
+  line-height: 1.35;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
 .reference-gift-grid > article.has-long-metric .reference-gift-copy header {
   grid-template-columns: minmax(0, 1fr);
   gap: 5px;
@@ -3208,6 +3252,153 @@ textarea {
   font-weight: 900;
   text-align: right;
   line-height: 1.6;
+}
+
+.detail-gift-group .gift-subject-collection {
+  grid-column: 1 / -1;
+  min-width: 0;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #d9e3f1;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(15, 42, 82, 0.05);
+}
+
+.gift-collection-hero {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: minmax(260px, 42%) minmax(0, 1fr);
+  border-bottom: 1px solid #dbe5f2;
+}
+
+.gift-collection-hero .gift-poster-image {
+  min-height: 0;
+  padding: 12px;
+}
+
+.gift-collection-hero .gift-poster-image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.gift-collection-hero > header {
+  display: flex;
+  min-width: 0;
+  padding: 22px 24px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+}
+
+.gift-collection-hero > header > strong {
+  color: #0b2f63;
+  font-size: 24px;
+  line-height: 1.35;
+  font-weight: 900;
+}
+
+.gift-collection-subjects {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+}
+
+.gift-collection-subjects > span {
+  margin-right: 3px;
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.gift-collection-subjects em {
+  padding: 4px 10px;
+  color: #075fc7;
+  background: #eef6ff;
+  border: 1px solid #c9ddfb;
+  border-radius: 999px;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.gift-subject-variant-grid {
+  display: grid;
+  min-width: 0;
+  padding: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 14px;
+}
+
+.gift-subject-variant {
+  min-width: 0;
+  padding: 16px;
+  background: #f8fbff;
+  border: 1px solid #dce7f4;
+  border-radius: 10px;
+}
+
+.gift-subject-variant > header {
+  display: flex;
+  min-width: 0;
+  margin-bottom: 8px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.gift-subject-variant > header strong {
+  color: #0b3470;
+  font-size: 17px;
+  font-weight: 900;
+}
+
+.gift-subject-variant > header b {
+  color: #ea580c;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.gift-subject-variant > p {
+  margin: 0;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.gift-subject-variant .gift-course-outline ol {
+  gap: 7px;
+}
+
+.gift-subject-variant .gift-course-outline li {
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 7px;
+  font-size: 13px;
+  line-height: 1.5;
+  overflow-wrap: normal;
+  word-break: keep-all;
+  white-space: nowrap;
+}
+
+.gift-subject-variant .gift-course-outline li.is-long-label {
+  font-size: 12px;
+  letter-spacing: -0.1px;
+}
+
+@media (max-width: 760px) {
+  .gift-collection-hero { grid-template-columns: minmax(0, 1fr); }
+  .gift-collection-hero > header { padding: 16px; }
+  .gift-collection-hero > header > strong { font-size: 20px; }
+  .gift-subject-variant-grid,
+  .gift-subject-variant-grid.is-count-3,
+  .gift-subject-variant-grid.is-count-5,
+  .gift-subject-variant-grid.is-count-6,
+  .gift-subject-variant-grid.is-count-7,
+  .gift-subject-variant-grid.is-count-8,
+  .gift-subject-variant-grid.is-count-9 { grid-template-columns: minmax(0, 1fr); }
 }
 
 .subject-track-status {
@@ -11956,9 +12147,10 @@ html.share-fixed-canvas .share-result .benefit-sheet.poster {
 
 .benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-poster-image img,
 .benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-poster-image img {
-  width: min(720px, 100%) !important;
+  width: min(340px, 100%) !important;
   height: auto !important;
-  max-height: none !important;
+  max-height: 191px !important;
+  aspect-ratio: 16 / 9 !important;
   object-fit: contain !important;
 }
 
