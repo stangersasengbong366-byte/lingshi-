@@ -4518,14 +4518,15 @@ function GiftRuleList({ giftPlan }) {
             .map((layout, index) => (layout === "compact" ? index : -1))
             .filter((index) => index >= 0);
           const hasExpandedCard = cardLayouts.includes("expanded");
-          const unpairedCompactIndex = compactIndexes.length % 2 === 1
+          const useThreeColumnGrid = compactIndexes.length === 3;
+          const unpairedCompactIndex = !useThreeColumnGrid && compactIndexes.length % 2 === 1
             ? compactIndexes[compactIndexes.length - 1]
             : -1;
 
           return (
             <section className={`detail-gift-group ${group.category === "升学赋能包" ? "smart-growth-group" : ""}`} key={group.category}>
               <header><span>{group.index}</span><div><strong>{group.category}</strong><small>{group.note}</small></div></header>
-              <div className={`gift-poster-grid adaptive-gift-grid is-count-${group.items.length}`}>
+              <div className={`gift-poster-grid adaptive-gift-grid is-count-${group.items.length} ${useThreeColumnGrid ? "is-three-up" : ""}`}>
                 {group.items.map((item, index) => {
                   const layout = cardLayouts[index];
                   return (

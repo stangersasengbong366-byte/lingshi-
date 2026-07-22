@@ -1436,6 +1436,57 @@ textarea {
   line-height: 1.45 !important;
 }
 
+/* Three short gift courses share one balanced row instead of leaving an orphan card. */
+.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid.is-three-up,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid.is-three-up {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  align-items: stretch !important;
+  gap: 12px !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid.is-three-up > .gift-poster-card.simplified.is-compact,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid.is-three-up > .gift-poster-card.simplified.is-compact {
+  grid-column: auto !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  height: 100% !important;
+  justify-self: stretch !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid.is-three-up .gift-poster-card.simplified.is-compact > header,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid.is-three-up .gift-poster-card.simplified.is-compact > header {
+  min-height: 50px !important;
+  padding: 9px 10px !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid.is-three-up .gift-poster-card.simplified.is-compact > header strong,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid.is-three-up .gift-poster-card.simplified.is-compact > header strong {
+  font-size: 14px !important;
+  line-height: 1.35 !important;
+  text-wrap: balance;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid.is-three-up .gift-poster-card.simplified.is-compact .gift-poster-summary,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid.is-three-up .gift-poster-card.simplified.is-compact .gift-poster-summary {
+  gap: 6px !important;
+  padding: 11px 12px 14px !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid.is-three-up .gift-poster-card.simplified.is-compact .gift-poster-summary > p,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid.is-three-up .gift-poster-card.simplified.is-compact .gift-poster-summary > p,
+.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid.is-three-up .gift-poster-card.simplified.is-compact .gift-course-outline ol,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid.is-three-up .gift-poster-card.simplified.is-compact .gift-course-outline ol {
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+}
+
+@media (max-width: 720px) {
+  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .adaptive-gift-grid.is-three-up {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
 /* Keep long-outline course artwork at the same visual size as a default card. */
 .benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-poster-image img,
 .benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-poster-image img {
@@ -1550,8 +1601,8 @@ textarea {
 }
 
 /* Adaptive gift-course layout: compact courses pair up; content-heavy courses own a full row. */
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.adaptive-gift-grid,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.adaptive-gift-grid {
+.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.adaptive-gift-grid:not(.is-three-up),
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.adaptive-gift-grid:not(.is-three-up) {
   grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   grid-auto-flow: row dense;
   align-items: start;
