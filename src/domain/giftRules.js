@@ -3,6 +3,7 @@ export function getGiftRuleThreshold(rule) {
   if (
     text.includes("两科及以下")
     || text.includes("直接赠送")
+    || text.includes("买即赠对应学科")
     || text.includes("买赠对应")
     || text.includes("买对应学科")
   ) return 1;
@@ -12,7 +13,7 @@ export function getGiftRuleThreshold(rule) {
 }
 
 export function normalizeCourseGiftRule(rule) {
-  return `买满${getGiftRuleThreshold(rule)}科赠对应学科`;
+  return "买即赠对应学科；三科及以上赠全科";
 }
 
 export function normalizePhysicalRule(rule) {
@@ -21,4 +22,8 @@ export function normalizePhysicalRule(rule) {
 
 export function isGiftRuleEligible(rule, subjectCount) {
   return subjectCount >= getGiftRuleThreshold(rule);
+}
+
+export function isCourseGiftRuleEligible(rule, subjectCount) {
+  return isGiftRuleEligible(normalizeCourseGiftRule(rule), subjectCount);
 }

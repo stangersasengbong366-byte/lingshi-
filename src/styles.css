@@ -1435,6 +1435,112 @@ textarea {
   line-height: 1.45 !important;
 }
 
+.bonus-subject-picker {
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+  background: linear-gradient(135deg, #fff9eb, #f2f7ff);
+  border: 1px solid #f0c981;
+  border-radius: 10px;
+}
+
+.bonus-subject-message {
+  display: grid;
+  gap: 3px;
+}
+
+.bonus-subject-message strong { color: #a54b08; font-size: 14px; }
+.bonus-subject-message span { color: #68758c; font-size: 12px; }
+.bonus-subject-buttons { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 7px; }
+.bonus-subject-buttons button { min-height: 38px; color: #304563; background: #fff; border: 1px solid #c8d6eb; border-radius: 7px; font-weight: 800; }
+.bonus-subject-buttons button.active { color: #fff; background: #1677f2; border-color: #1677f2; }
+.bonus-subject-buttons button:disabled { opacity: .42; cursor: not-allowed; }
+.bonus-subject-picker small { font-weight: 800; }
+.bonus-subject-picker small.pending { color: #d25b14; }
+.bonus-subject-picker small.complete { color: #168248; }
+
+.bonus-course-results {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+  padding: 18px;
+  background: #fffaf1;
+  border: 1px solid #f0d1a0;
+  border-radius: 12px;
+}
+
+.bonus-course-results > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.bonus-course-results > header > div { display: grid; gap: 3px; }
+.bonus-course-results > header strong { color: #713f12; font-size: 18px; }
+.bonus-course-results > header span { color: #806a4c; font-size: 12px; }
+.bonus-course-results > header em { padding: 6px 10px; color: #fff; background: #f97316; border-radius: 999px; font-style: normal; font-weight: 900; }
+.bonus-course-result-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.bonus-course-result-grid > article { min-width: 0; padding: 14px; background: #fff; border: 1px solid #eadbc4; border-radius: 9px; }
+.bonus-course-title { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 9px; padding-bottom: 10px; border-bottom: 1px solid #eee2cf; }
+.bonus-course-title strong { display: grid; place-items: center; width: 36px; height: 36px; color: #fff; background: #f97316; border-radius: 8px; }
+.bonus-course-title > div { display: grid; gap: 2px; min-width: 0; }
+.bonus-course-title b { color: #253b5c; font-size: 15px; }
+.bonus-course-title > div small { color: #a45116; font-weight: 800; }
+.bonus-course-title .bonus-zero-price { display: flex; align-items: baseline; gap: 3px; color: #e4530c; font-size: 23px; font-weight: 950; white-space: nowrap; }
+.bonus-zero-price small { font-size: 11px; }
+.bonus-course-meta { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding-top: 10px; color: #5f6f87; font-size: 12px; }
+.bonus-course-meta em { padding: 4px 8px; color: #147844; background: #eaf8f0; border-radius: 999px; font-style: normal; font-weight: 800; white-space: nowrap; }
+.bonus-course-result-grid > article > p { margin: 10px 0 0; color: #66738a; line-height: 1.7; }
+
+.bonus-course-results.same-as-core-course {
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+}
+
+.bonus-course-results.same-as-core-course > header {
+  padding: 12px 14px;
+  background: linear-gradient(100deg, #fff7ed, #ffffff 72%);
+  border: 1px solid #fed7aa;
+  border-radius: 8px;
+}
+
+.bonus-course-details > summary {
+  background: linear-gradient(100deg, #edf6ff, #ffffff 70%);
+}
+
+.bonus-service-line { margin-top: 0; }
+
+.reference-bonus-course-overview {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid #dbe7f6;
+}
+
+.reference-bonus-course-overview > header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.reference-bonus-course-overview > header strong { color: #0b3470; font-size: 18px; }
+.reference-bonus-course-overview > header span { color: #64748b; font-size: 12px; }
+.reference-bonus-rights-card > h2 { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.reference-bonus-rights-card > h2 em { padding: 4px 8px; color: #fff; background: #f97316; border-radius: 999px; font-size: 11px; font-style: normal; white-space: nowrap; }
+
+@media (max-width: 760px) {
+  .bonus-subject-buttons,
+  .bonus-course-result-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .bonus-course-title { grid-template-columns: auto 1fr auto; }
+  .bonus-course-meta { align-items: flex-start; flex-direction: column; }
+  .reference-bonus-course-overview > header { align-items: flex-start; flex-direction: column; }
+}
+
 /* Adaptive gift-course layout: compact courses pair up; content-heavy courses own a full row. */
 .benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.adaptive-gift-grid,
 .benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.adaptive-gift-grid {
@@ -8493,7 +8599,7 @@ html.share-fixed-canvas .share-result .benefit-sheet.poster {
 .gift-outline-head,
 .gift-outline-main {
   display: grid;
-  grid-template-columns: 40px minmax(150px, 0.9fr) minmax(80px, 0.45fr) minmax(220px, 1.3fr) minmax(150px, 0.85fr) minmax(96px, 0.55fr);
+  grid-template-columns: 40px minmax(150px, 0.9fr) minmax(80px, 0.45fr) minmax(220px, 1.3fr) minmax(150px, 0.85fr) minmax(190px, 0.75fr);
   align-items: center;
   gap: 12px;
 }
@@ -8577,6 +8683,29 @@ html.share-fixed-canvas .share-result .benefit-sheet.poster {
   border-radius: 7px;
   font-weight: 900;
 }
+
+.gift-row-actions {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 6px;
+}
+
+.outline-delete-button {
+  display: inline-flex;
+  min-height: 34px;
+  padding: 0 9px;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  color: #dc2626;
+  background: #fff5f5;
+  border: 1px solid #fecaca;
+  border-radius: 7px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.outline-delete-button:hover { background: #fee2e2; }
 
 .gift-outline-detail {
   display: grid;
@@ -9557,7 +9686,7 @@ html.share-fixed-canvas .share-result .benefit-sheet.poster {
 
   .gift-outline-head,
   .gift-outline-main {
-    width: 860px;
+    width: 960px;
   }
 
   .sheet-footer {
