@@ -1199,15 +1199,25 @@ textarea {
 .benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified:not(.has-long-outline) .gift-poster-image,
 .benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.is-horizontal .gift-poster-image,
 .benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.is-horizontal .gift-poster-image {
+  display: grid !important;
+  place-items: center !important;
   grid-column: 1 !important;
   grid-row: 1 / span 2 !important;
   width: 100% !important;
-  height: 100% !important;
-  min-height: 230px !important;
+  height: auto !important;
+  min-height: 0 !important;
   aspect-ratio: auto !important;
   border-right: 1px solid #e2e8f0 !important;
   border-bottom: 0 !important;
   background: #f8fafc !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.is-horizontal .gift-poster-image img,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.is-horizontal .gift-poster-image img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: contain !important;
 }
 
 .benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified:not(.has-long-outline) > header,
@@ -1264,7 +1274,7 @@ textarea {
   width: 100% !important;
   height: auto !important;
   min-height: 0 !important;
-  aspect-ratio: 16 / 7 !important;
+  aspect-ratio: auto !important;
   padding: 12px 18px !important;
   border-right: 0 !important;
   border-bottom: 1px solid #e2e8f0 !important;
@@ -1273,10 +1283,88 @@ textarea {
 
 .benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-poster-image img,
 .benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-poster-image img {
-  width: min(520px, 72%) !important;
-  height: 100% !important;
-  max-height: 220px !important;
+  width: min(720px, 100%) !important;
+  height: auto !important;
+  max-height: none !important;
   object-fit: contain !important;
+}
+
+/* Summary-card typography contract: every card uses the same left edge,
+   title/metric baseline and description rhythm. */
+.benefit-sheet.view-summary .reference-gift-copy {
+  align-items: stretch;
+  justify-content: center;
+  padding: 18px 20px;
+  text-align: left;
+}
+
+.benefit-sheet.view-summary .reference-gift-copy header,
+.benefit-sheet.view-summary .growth-gifts .reference-gift-copy header {
+  width: 100%;
+  margin-bottom: 7px;
+  align-items: baseline;
+  grid-template-columns: minmax(0, 1fr) max-content;
+  gap: 10px;
+}
+
+.benefit-sheet.view-summary .reference-gift-copy strong,
+.benefit-sheet.view-summary .reference-gift-copy b,
+.benefit-sheet.view-summary .reference-gift-copy p,
+.benefit-sheet.view-summary .growth-gifts .reference-gift-copy strong,
+.benefit-sheet.view-summary .growth-gifts .reference-gift-copy b,
+.benefit-sheet.view-summary .growth-gifts .reference-gift-copy p {
+  width: auto;
+  text-align: left;
+}
+
+.benefit-sheet.view-summary .reference-gift-copy strong {
+  line-height: 1.45;
+}
+
+.benefit-sheet.view-summary .reference-gift-copy b {
+  align-self: baseline;
+  line-height: 1.45;
+  white-space: nowrap;
+}
+
+.benefit-sheet.view-summary .reference-gift-copy p {
+  line-height: 1.55;
+}
+
+.benefit-sheet.view-summary .reference-gift-grid > article.has-long-metric .reference-gift-copy header {
+  align-items: start;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 4px;
+}
+
+.benefit-sheet.view-summary .reference-gift-grid > article.has-long-metric .reference-gift-copy b {
+  width: 100%;
+  white-space: normal;
+}
+
+.benefit-sheet.view-summary .reference-gift-grid > article.is-horizontal .reference-gift-copy,
+.benefit-sheet.view-summary .growth-gifts .reference-gift-grid > article.is-horizontal .reference-gift-copy {
+  padding: 20px 24px;
+}
+
+@media (max-width: 760px) {
+  .benefit-sheet.view-summary .reference-gift-copy,
+  .benefit-sheet.view-summary .reference-gift-grid > article.is-horizontal .reference-gift-copy,
+  .benefit-sheet.view-summary .growth-gifts .reference-gift-grid > article.is-horizontal .reference-gift-copy {
+    padding: 13px 14px;
+  }
+
+  .benefit-sheet.view-summary .reference-gift-copy header,
+  .benefit-sheet.view-summary .growth-gifts .reference-gift-copy header {
+    align-items: start;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3px;
+  }
+
+  .benefit-sheet.view-summary .reference-gift-copy b,
+  .benefit-sheet.view-summary .growth-gifts .reference-gift-copy b {
+    width: 100%;
+  }
 }
 
 .benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline > header,
@@ -11538,8 +11626,8 @@ html.share-fixed-canvas .share-result .benefit-sheet.poster {
 
 /* Keep an odd compact gift card the same size as its paired neighbours.
    Only genuinely content-heavy cards are allowed to span the full row. */
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid:not(.is-count-1) > .gift-poster-card.is-compact.is-unpaired,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid:not(.is-count-1) > .gift-poster-card.is-compact.is-unpaired {
+.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid:not(.is-count-1) > .gift-poster-card.is-compact.is-unpaired:not(.is-horizontal),
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid:not(.is-count-1) > .gift-poster-card.is-compact.is-unpaired:not(.is-horizontal) {
   grid-column: 1 / -1 !important;
   width: calc((100% - 14px) / 2) !important;
   max-width: none !important;
@@ -11730,7 +11818,7 @@ html.share-fixed-canvas .share-result .benefit-sheet.poster {
   width: 100% !important;
   height: auto !important;
   min-height: 0 !important;
-  aspect-ratio: 16 / 7 !important;
+  aspect-ratio: auto !important;
   padding: 12px 18px !important;
   border-right: 0 !important;
   border-bottom: 1px solid #e2e8f0 !important;
@@ -11739,9 +11827,9 @@ html.share-fixed-canvas .share-result .benefit-sheet.poster {
 
 .benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-poster-image img,
 .benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-poster-image img {
-  width: min(520px, 72%) !important;
-  height: 100% !important;
-  max-height: 220px !important;
+  width: min(720px, 100%) !important;
+  height: auto !important;
+  max-height: none !important;
   object-fit: contain !important;
 }
 

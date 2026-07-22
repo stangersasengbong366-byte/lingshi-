@@ -4300,6 +4300,7 @@ function GiftRuleList({ giftPlan }) {
           const compactIndexes = cardLayouts
             .map((layout, index) => (layout === "compact" ? index : -1))
             .filter((index) => index >= 0);
+          const hasExpandedCard = cardLayouts.includes("expanded");
           const unpairedCompactIndex = compactIndexes.length % 2 === 1
             ? compactIndexes[compactIndexes.length - 1]
             : -1;
@@ -4316,6 +4317,7 @@ function GiftRuleList({ giftPlan }) {
                       index={index}
                       key={`${item.name}-${index}`}
                       layout={layout}
+                      horizontal={group.items.length === 1 || (layout === "compact" && compactIndexes.length === 1 && hasExpandedCard)}
                       unpaired={index === unpairedCompactIndex}
                     />
                   );
@@ -4337,7 +4339,7 @@ function getGiftCardLayout(item) {
   return isCompact ? "compact" : "expanded";
 }
 
-function GiftPosterCard({ item, index, layout = "compact", unpaired = false }) {
+function GiftPosterCard({ item, index, layout = "compact", horizontal = false, unpaired = false }) {
   const tones = ["cyan", "orange", "purple", "green", "blue"];
   const tone = tones[index % tones.length];
   const showValue = item.value && !String(item.value).includes("待补充");
@@ -4345,7 +4347,7 @@ function GiftPosterCard({ item, index, layout = "compact", unpaired = false }) {
   const outlineLines = getGiftOutlineLines(item);
   const hasLongOutline = outlineLines.length >= 10;
   return (
-    <article className={`gift-poster-card simplified ${tone} is-${layout} ${unpaired ? "is-unpaired" : ""} ${layout === "expanded" ? "is-wide" : ""} ${hasLongOutline ? "has-long-outline course-card-layout" : ""}`}>
+    <article className={`gift-poster-card simplified ${tone} is-${layout} ${horizontal ? "is-horizontal" : ""} ${unpaired ? "is-unpaired" : ""} ${layout === "expanded" ? "is-wide" : ""} ${hasLongOutline ? "has-long-outline course-card-layout" : ""}`}>
       <div className="gift-poster-image">
         {showValue ? <em>价值 {item.value}</em> : null}
         {image ? <img src={assetUrl(image)} alt={getGiftDisplayName(item)} /> : <span>{getGiftDisplayName(item)}</span>}
