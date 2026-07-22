@@ -308,7 +308,7 @@ function App() {
     const isPhone = window.matchMedia("(max-width: 760px)").matches;
     if (!viewport || !isPhone) return undefined;
     const previousContent = viewport.getAttribute("content");
-    const canvasWidth = shareParams.viewMode === "detail" ? 980 : 1120;
+    const canvasWidth = shareParams.viewMode === "detail" ? 1120 : 1120;
     viewport.setAttribute(
       "content",
       `width=${canvasWidth}, minimum-scale=0.25, maximum-scale=4, user-scalable=yes`,
@@ -651,8 +651,9 @@ function SalesPage({ products, selectedProduct, selectedSubjects, selectedVideoT
       const versionName = viewMode === "detail" ? "明细版" : "清单版";
       await exportElementAsPng(previewRef.current, `${selectedProduct.name}-${versionName}权益清单.png`);
     } catch (error) {
+      if (isExportCancelled(error)) return;
       console.error(error);
-      window.alert("长图生成失败，请稍后重试。");
+      window.alert(`长图生成失败：${getErrorMessage(error)}`);
     } finally {
       setExporting(false);
     }
@@ -2264,8 +2265,9 @@ function LayoutPage({ products, product, selectedSubjects, coursePlans }) {
     try {
       await exportElementAsPng(previewRef.current, `${product.name}-长图版权益清单.png`);
     } catch (error) {
+      if (isExportCancelled(error)) return;
       console.error(error);
-      window.alert("长图生成失败，请稍后重试。");
+      window.alert(`长图生成失败：${getErrorMessage(error)}`);
     } finally {
       setExporting(false);
     }
@@ -2290,16 +2292,21 @@ function LayoutPage({ products, product, selectedSubjects, coursePlans }) {
 }
 
 async function exportElementAsPng(element, filename) {
-  await waitForExportAssets(element);
-  element.classList.add("is-exporting");
-  await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+  const isSummaryExport = element.classList.contains("view-summary");
+  const { root: exportRoot, element: exportElement } = createExportClone(element, isSummaryExport);
+  const restoreCanvasPattern = installSafeCanvasPatternGuard();
 
   let canvas;
   try {
-    const isSummaryExport = element.classList.contains("view-summary");
-    const width = Math.ceil(element.scrollWidth);
-    const height = Math.ceil(element.scrollHeight);
-    const preferredScale = isSummaryExport ? 1 : 2;
+    await inlineExportImages(element, exportElement);
+    document.body.appendChild(exportRoot);
+    await withTimeout(waitForExportAssets(exportElement), 20000, "图片资源加载超时，已尝试继续导出")
+      .catch((error) => console.warn(getErrorMessage(error)));
+    await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+
+    const width = Math.ceil(Math.max(exportElement.getBoundingClientRect().width, exportElement.scrollWidth));
+    const height = Math.ceil(Math.max(exportElement.getBoundingClientRect().height, exportElement.scrollHeight));
+    const preferredScale = 2;
     const maxCanvasSide = 32760;
     const maxCanvasArea = 120_000_000;
     const scale = Math.max(0.5, Math.min(
@@ -2309,7 +2316,7 @@ async function exportElementAsPng(element, filename) {
       Math.sqrt(maxCanvasArea / (width * height)),
     ));
 
-    canvas = await html2canvas(element, {
+    const options = {
       backgroundColor: isSummaryExport ? "#fdfbf7" : "#eaf5ff",
       scale,
       useCORS: true,
@@ -2317,47 +2324,362 @@ async function exportElementAsPng(element, filename) {
       foreignObjectRendering: false,
       imageTimeout: 30000,
       logging: false,
-      scrollX: 0,
-      scrollY: 0,
+      x: 0,
+      y: 0,
       width,
       height,
       windowWidth: width,
       windowHeight: height,
+      scrollX: 0,
+      scrollY: 0,
+      ignoreElements: shouldIgnoreExportElement,
       onclone: (clonedDocument) => {
+        sanitizeExportTree(clonedDocument);
         clonedDocument.querySelectorAll(".benefit-sheet *").forEach((node) => {
           node.style.animation = "none";
           node.style.transition = "none";
         });
       },
-    });
+    };
+
+    try {
+      canvas = await withTimeout(html2canvas(exportElement, options), 45000, "长图渲染超时，请减少内容后重试。");
+      if (isCanvasVisuallyEmpty(canvas)) {
+        throw new Error("长图渲染结果异常，请重新生成。");
+      }
+    } catch (error) {
+      if (!isZeroCanvasPatternError(error) && !/渲染结果异常/.test(getErrorMessage(error))) throw error;
+      await new Promise((resolve) => requestAnimationFrame(resolve));
+      canvas = await withTimeout(html2canvas(exportElement, {
+        ...options,
+        scale: Math.max(0.5, Math.min(1, scale)),
+        foreignObjectRendering: false,
+      }), 45000, "长图渲染超时，请减少内容后重试。");
+      if (isCanvasVisuallyEmpty(canvas)) {
+        throw new Error("长图渲染结果异常，请刷新页面后重试。");
+      }
+    }
+    canvas = trimCanvasBottom(canvas);
   } finally {
-    element.classList.remove("is-exporting");
+    restoreCanvasPattern();
+    exportRoot.remove();
   }
   const blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/png", 1));
   if (!blob) throw new Error("Canvas export failed");
+  presentExportDownload(blob, filename);
+}
+
+function installSafeCanvasPatternGuard() {
+  const prototype = window.CanvasRenderingContext2D?.prototype;
+  if (!prototype?.createPattern) return () => {};
+  const originalCreatePattern = prototype.createPattern;
+  const transparentPixel = document.createElement("canvas");
+  transparentPixel.width = 1;
+  transparentPixel.height = 1;
+
+  prototype.createPattern = function safeCreatePattern(image, repetition) {
+    if (image instanceof HTMLCanvasElement && (!image.width || !image.height)) {
+      return originalCreatePattern.call(this, transparentPixel, repetition || "repeat");
+    }
+    return originalCreatePattern.call(this, image, repetition);
+  };
+
+  return () => {
+    prototype.createPattern = originalCreatePattern;
+  };
+}
+
+function createExportClone(element, isSummaryExport) {
+  const renderedWidth = Math.ceil(element.getBoundingClientRect().width || element.scrollWidth || 1120);
+  const exportWidth = isSummaryExport ? 1280 : renderedWidth;
+  const root = document.createElement("div");
+  root.className = "export-capture-root";
+  Object.assign(root.style, {
+    position: "fixed",
+    inset: "0 auto auto 0",
+    zIndex: "2147483647",
+    width: `${exportWidth}px`,
+    minHeight: "1px",
+    overflow: "visible",
+    pointerEvents: "none",
+    background: isSummaryExport ? "#fdfbf7" : "#eaf5ff",
+  });
+
+  const exportElement = element.cloneNode(true);
+  // The detail page must be captured with the exact layout visible in preview.
+  // Its legacy `is-exporting` rules compact typography, spacing and card height,
+  // which makes the exported long image look vertically compressed.
+  if (isSummaryExport) exportElement.classList.add("is-exporting");
+  Object.assign(exportElement.style, {
+    width: `${exportWidth}px`,
+    maxWidth: "none",
+    margin: "0",
+    overflow: "visible",
+    maxHeight: "none",
+    transform: "none",
+  });
+  exportElement.querySelectorAll("details").forEach((details) => {
+    details.open = true;
+  });
+  exportElement.querySelectorAll("img").forEach((image) => {
+    image.loading = "eager";
+    image.decoding = "sync";
+  });
+  root.appendChild(exportElement);
+  return { root, element: exportElement };
+}
+
+async function inlineExportImages(sourceElement, exportElement) {
+  const sourceImages = [...sourceElement.querySelectorAll("img")];
+  const exportImages = [...exportElement.querySelectorAll("img")];
+  await Promise.all(sourceImages.map(async (sourceImage, index) => {
+    const exportImage = exportImages[index];
+    if (!exportImage || !sourceImage.complete || !sourceImage.naturalWidth || !sourceImage.naturalHeight) return;
+    const dataUrl = await imageToDataUrl(sourceImage).catch(() => "");
+    if (!dataUrl) return;
+    exportImage.removeAttribute("srcset");
+    exportImage.removeAttribute("sizes");
+    exportImage.src = dataUrl;
+  }));
+}
+
+async function imageToDataUrl(image) {
+  if (image.currentSrc?.startsWith("data:")) return image.currentSrc;
+  const canvas = document.createElement("canvas");
+  canvas.width = image.naturalWidth;
+  canvas.height = image.naturalHeight;
+  const context = canvas.getContext("2d");
+  context.drawImage(image, 0, 0, canvas.width, canvas.height);
+  try {
+    return canvas.toDataURL("image/png");
+  } catch {
+    const response = await fetch(image.currentSrc || image.src, { mode: "cors", credentials: "omit" });
+    if (!response.ok) throw new Error(`图片读取失败：${response.status}`);
+    return blobToDataUrl(await response.blob());
+  }
+}
+
+function blobToDataUrl(blob) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(String(reader.result || ""));
+    reader.onerror = () => reject(reader.error || new Error("图片转换失败"));
+    reader.readAsDataURL(blob);
+  });
+}
+
+function isCanvasVisuallyEmpty(canvas) {
+  if (!canvas?.width || !canvas?.height) return true;
+  const sample = document.createElement("canvas");
+  sample.width = 96;
+  sample.height = 96;
+  const context = sample.getContext("2d", { willReadFrequently: true });
+  context.drawImage(canvas, 0, 0, sample.width, sample.height);
+  const pixels = context.getImageData(0, 0, sample.width, sample.height).data;
+  let opaquePixels = 0;
+  let blackPixels = 0;
+  const colorBuckets = new Set();
+  let luminanceTotal = 0;
+  let luminanceSquaredTotal = 0;
+  for (let index = 0; index < pixels.length; index += 4) {
+    if (pixels[index + 3] < 24) continue;
+    opaquePixels += 1;
+    if (pixels[index] + pixels[index + 1] + pixels[index + 2] < 36) blackPixels += 1;
+    const luminance = pixels[index] * 0.2126 + pixels[index + 1] * 0.7152 + pixels[index + 2] * 0.0722;
+    luminanceTotal += luminance;
+    luminanceSquaredTotal += luminance * luminance;
+    colorBuckets.add(`${pixels[index] >> 4}-${pixels[index + 1] >> 4}-${pixels[index + 2] >> 4}`);
+  }
+  if (!opaquePixels || blackPixels / opaquePixels > 0.45) return true;
+  const mean = luminanceTotal / opaquePixels;
+  const variance = Math.max(0, luminanceSquaredTotal / opaquePixels - mean * mean);
+  return colorBuckets.size < 12 || Math.sqrt(variance) < 7;
+}
+
+function trimCanvasBottom(canvas) {
+  const context = canvas.getContext("2d", { willReadFrequently: true });
+  const background = context.getImageData(canvas.width - 1, canvas.height - 1, 1, 1).data;
+  const xStep = Math.max(2, Math.floor(canvas.width / 320));
+  const minDifferentPixels = Math.max(4, Math.floor((canvas.width / xStep) * 0.025));
+  let contentBottom = canvas.height - 1;
+
+  for (let y = canvas.height - 1; y >= 0; y -= 2) {
+    const row = context.getImageData(0, y, canvas.width, 1).data;
+    let differentPixels = 0;
+    for (let x = 0; x < canvas.width; x += xStep) {
+      const index = x * 4;
+      const difference = Math.abs(row[index] - background[0])
+        + Math.abs(row[index + 1] - background[1])
+        + Math.abs(row[index + 2] - background[2]);
+      if (difference > 36 && ++differentPixels >= minDifferentPixels) break;
+    }
+    if (differentPixels >= minDifferentPixels) {
+      contentBottom = y;
+      break;
+    }
+  }
+
+  const trimmedHeight = Math.min(canvas.height, contentBottom + 3);
+  if (trimmedHeight >= canvas.height - 8) return canvas;
+  const trimmedCanvas = document.createElement("canvas");
+  trimmedCanvas.width = canvas.width;
+  trimmedCanvas.height = trimmedHeight;
+  trimmedCanvas.getContext("2d").drawImage(
+    canvas,
+    0,
+    0,
+    canvas.width,
+    trimmedHeight,
+    0,
+    0,
+    canvas.width,
+    trimmedHeight,
+  );
+  return trimmedCanvas;
+}
+
+function getErrorMessage(error) {
+  return error?.message || String(error || "未知错误，请刷新后重试。");
+}
+
+class ExportCancelledError extends Error {
+  constructor() {
+    super("用户取消保存");
+    this.name = "ExportCancelledError";
+  }
+}
+
+function isExportCancelled(error) {
+  return error?.name === "AbortError" || error?.name === "ExportCancelledError";
+}
+
+async function requestExportFileHandle(filename) {
+  if (typeof window.showSaveFilePicker !== "function") return null;
+  try {
+    return await window.showSaveFilePicker({
+      suggestedName: filename,
+      types: [
+        {
+          description: "PNG 图片",
+          accept: { "image/png": [".png"] },
+        },
+      ],
+    });
+  } catch (error) {
+    if (error?.name === "AbortError") throw new ExportCancelledError();
+    return null;
+  }
+}
+
+async function writeBlobToFileHandle(fileHandle, blob) {
+  const writable = await fileHandle.createWritable();
+  try {
+    await writable.write(blob);
+  } finally {
+    await writable.close();
+  }
+}
+
+function presentExportDownload(blob, filename) {
+  document.querySelector(".export-download-toast")?.remove();
   const url = URL.createObjectURL(blob);
-  const link = document.createElement("a");
-  link.download = filename;
-  link.href = url;
-  link.rel = "noopener";
-  document.body.appendChild(link);
-  link.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true, view: window }));
-  window.setTimeout(() => {
+  const autoLink = document.createElement("a");
+  autoLink.download = filename;
+  autoLink.href = url;
+  autoLink.rel = "noopener";
+  autoLink.style.display = "none";
+  document.body.appendChild(autoLink);
+  autoLink.click();
+  autoLink.remove();
+
+  const toast = document.createElement("div");
+  toast.className = "export-download-toast";
+  toast.innerHTML = `
+    <strong>长图已生成</strong>
+    <span>如果没有自动下载，请点击按钮保存到电脑。</span>
+  `;
+
+  const saveLink = document.createElement("a");
+  saveLink.href = url;
+  saveLink.download = filename;
+  saveLink.rel = "noopener";
+  saveLink.textContent = "保存图片到电脑";
+
+  const openButton = document.createElement("button");
+  openButton.type = "button";
+  openButton.textContent = "打开预览";
+  openButton.addEventListener("click", () => {
+    window.open(url, "_blank", "noopener");
+  });
+
+  const closeButton = document.createElement("button");
+  closeButton.type = "button";
+  closeButton.textContent = "关闭";
+  closeButton.addEventListener("click", () => {
     URL.revokeObjectURL(url);
-    link.remove();
-  }, 1000);
+    toast.remove();
+  });
+
+  toast.append(saveLink, openButton, closeButton);
+  document.body.appendChild(toast);
 }
 
 async function waitForExportAssets(element) {
   await document.fonts?.ready;
   const images = [...element.querySelectorAll("img")];
-  await Promise.all(images.map((image) => {
-    if (image.complete) return Promise.resolve();
-    return new Promise((resolve) => {
-      image.addEventListener("load", resolve, { once: true });
-      image.addEventListener("error", resolve, { once: true });
-    });
+  await Promise.all(images.map(async (image) => {
+    if (!image.complete) {
+      await new Promise((resolve) => {
+        image.addEventListener("load", resolve, { once: true });
+        image.addEventListener("error", resolve, { once: true });
+      });
+    }
+    if (image.decode && image.currentSrc && image.naturalWidth > 0 && image.naturalHeight > 0) {
+      await image.decode().catch(() => {});
+    }
   }));
+}
+
+async function withTimeout(promise, timeoutMs, message) {
+  let timeoutId;
+  try {
+    return await Promise.race([
+      promise,
+      new Promise((_, reject) => {
+        timeoutId = window.setTimeout(() => reject(new Error(message)), timeoutMs);
+      }),
+    ]);
+  } finally {
+    window.clearTimeout(timeoutId);
+  }
+}
+
+function sanitizeExportTree(root) {
+  root.querySelectorAll?.("canvas").forEach((canvas) => {
+    canvas.remove();
+  });
+  root.querySelectorAll?.("img").forEach((image) => {
+    if (image.complete && (!image.naturalWidth || !image.naturalHeight)) {
+      image.style.display = "none";
+      image.removeAttribute("src");
+      image.removeAttribute("srcset");
+    }
+  });
+}
+
+function shouldIgnoreExportElement(node) {
+  const tagName = node?.tagName?.toLowerCase();
+  if (tagName === "canvas") {
+    return true;
+  }
+  if (tagName === "img") {
+    return node.complete && (!node.naturalWidth || !node.naturalHeight);
+  }
+  return false;
+}
+
+function isZeroCanvasPatternError(error) {
+  return /createPattern|width or height of 0|CanvasRenderingContext2D/i.test(getErrorMessage(error));
 }
 
 function BenefitSheet({ products = [], product, coursePlan, coursePlans, refNode, mode, viewMode = "summary", teachingAids = [] }) {
@@ -2390,39 +2712,7 @@ function BenefitSheet({ products = [], product, coursePlan, coursePlans, refNode
             <img className="hero-symbol" src={assetUrl("/assets/youdao-symbol-cutout.png")} alt="" />
           </div>
         </div>
-        <svg
-          className="envelope-front"
-          viewBox="0 0 1000 118"
-          preserveAspectRatio="none"
-          aria-hidden="true"
-        >
-          <defs>
-            <linearGradient id="envelope-front-base" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stopColor="#b9d7ff" />
-              <stop offset="1" stopColor="#78aaf3" />
-            </linearGradient>
-            <linearGradient id="envelope-front-left" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stopColor="#e5f1ff" />
-              <stop offset="0.54" stopColor="#9ec5fb" />
-              <stop offset="1" stopColor="#5c96ee" />
-            </linearGradient>
-            <linearGradient id="envelope-front-right" x1="1" y1="0" x2="0" y2="1">
-              <stop offset="0" stopColor="#dcecff" />
-              <stop offset="0.54" stopColor="#a8cbfc" />
-              <stop offset="1" stopColor="#659bed" />
-            </linearGradient>
-          </defs>
-          <path d="M0 0 L500 38 L1000 0 L1000 118 L0 118 Z" fill="url(#envelope-front-base)" />
-          <path d="M0 0 L500 38 L610 118 L0 118 Z" fill="url(#envelope-front-left)" />
-          <path d="M1000 0 L500 38 L390 118 L1000 118 Z" fill="url(#envelope-front-right)" />
-          <path
-            d="M0 0 L500 38 L1000 0"
-            fill="none"
-            stroke="rgba(89, 144, 224, 0.38)"
-            strokeWidth="1"
-            vectorEffect="non-scaling-stroke"
-          />
-        </svg>
+        <img className="envelope-front" src={assetUrl("/assets/envelope-front.png")} alt="" />
         <img className="seal" src={assetUrl("/assets/wax-seal-cutout.png")} alt="" />
       </section>
 
@@ -2559,7 +2849,7 @@ function SummaryBenefitLayout({ product, plans, giftPlan, physicalGiftItems, sub
   const summaryCourseGiftItems = [...new Map(
     giftPlan.items
       .map((item) => decorateGiftItem(item, { summaryType: "赠课权益" }))
-      .map((item) => [`${getGiftCategory(item)}-${item.name}`, item]),
+      .map((item) => [`${getGiftCategory(item)}-${item.name}-${item.subject ?? "通用"}`, item]),
   ).values()];
   const giftAlbumItems = [
     ...summaryCourseGiftItems,
@@ -2582,7 +2872,7 @@ function SummaryBenefitLayout({ product, plans, giftPlan, physicalGiftItems, sub
           <span>课程权益明细</span>
         </header>
         <div className="reference-overview-grid">
-          <div className="reference-rights-stack">
+          <div className={`reference-rights-stack is-count-${plans.length}`}>
             {plans.map((plan) => {
               const liveCount = plan.lessons?.length || plan.liveCount || 0;
               const videoCount = getCourseVideoRows(plan).length || plan.videoEntitlement || 0;
@@ -2652,19 +2942,20 @@ function SummaryReferenceGiftSection({ title, items, className = "", subjectCoun
           const image = getGiftImage(item);
           const lessonCount = className === "physical-gifts" ? "" : getGiftLessonCount(item);
           const isHorizontal = hasOrphan && index === items.length - 1;
+          const hasLongMetric = lessonCount.length >= 12;
           return (
             <article
-              className={isHorizontal ? "is-horizontal" : ""}
+              className={`${isHorizontal ? "is-horizontal" : ""} ${hasLongMetric ? "has-long-metric" : ""}`.trim()}
               key={item._displayKey || `${title}-${item.name}-${index}`}
             >
               {image ? (
                 <div className="reference-gift-image">
                   {item.value ? <em>价值 {item.value}</em> : null}
-                  <img src={assetUrl(image)} alt={item.name} />
+                  <img src={assetUrl(image)} alt={getGiftDisplayName(item)} />
                 </div>
               ) : null}
               <div className="reference-gift-copy">
-                <header><strong>{item.name}</strong>{lessonCount ? <b>{lessonCount}</b> : null}</header>
+                <header><strong>{getGiftDisplayName(item)}</strong>{lessonCount ? <b>{lessonCount}</b> : null}</header>
                 <p>{getGiftOverview(item)}</p>
               </div>
             </article>
@@ -2829,7 +3120,7 @@ function getTeachingAidRule(stage) {
 function TeachingAidSection({ subject, subjects, grade, stage, teachingAids }) {
   if (subjects?.length) {
     return (
-      <div className="teaching-aid-subject-stack">
+      <div className={`teaching-aid-subject-stack is-count-${subjects.length}`}>
         {subjects.map((item) => (
           <TeachingAidSingleSection subject={item} grade={grade} stage={stage} teachingAids={teachingAids} key={item} />
         ))}
@@ -2862,6 +3153,22 @@ function TeachingAidSingleSection({ subject, grade, stage, teachingAids }) {
           <span>{rule}</span>
         </div>
         <em>{aidItems.length}项资料</em>
+      </div>
+      <div className="teaching-aid-export-row">
+        <div className="teaching-aid-export-thumbs">
+          {aidItems.map((item) => (
+            item.image
+              ? <img src={assetUrl(item.image)} alt={item.name} key={`${item.type}-${item.name}-thumb`} />
+              : <span key={`${item.type}-${item.name}-thumb`}>{item.type}</span>
+          ))}
+        </div>
+        <div className="teaching-aid-export-names">
+          {aidItems.map((item) => <span key={`${item.type}-${item.name}-name`}>{item.name}</span>)}
+        </div>
+        <footer>
+          <strong>{subject}</strong>
+          <em>{aidItems.length}项资料</em>
+        </footer>
       </div>
       <div className={`teaching-aid-grid ${gridSize}`}>
         {aidItems.map((item, index) => (
@@ -3507,12 +3814,14 @@ function resolveSubjectGiftItem(item, subject) {
     return {
       ...item,
       _displayKey: `${getGiftItemKey(item)}-${subject}`,
+      subject,
       bullets: item.bullets?.length ? item.bullets : ["该学科具体明细以实际开通内容为准"],
     };
   }
   return {
     ...item,
     _displayKey: `${getGiftItemKey(item)}-${subject}`,
+    subject,
     detail: `${subject}｜${item.lessonCount || item.detail || `${courses.length}项`}`,
     bullets: courses,
   };
@@ -3586,6 +3895,13 @@ function getGiftCategory(item) {
   if (matched?.category) return matched.category;
   const text = `${item?.name ?? ""} ${item?.detail ?? ""}`;
   return /选科|升学|家长|心理|规划/.test(text) ? "升学赋能包" : "学科类赠课";
+}
+
+function getGiftDisplayName(item) {
+  const name = String(item?.name ?? "");
+  const subject = String(item?.subject ?? "").trim();
+  if (getGiftCategory(item) !== "学科类赠课" || !subject || name.includes(`（${subject}）`)) return name;
+  return `${name}（${subject}）`;
 }
 
 function getGiftImage(item) {
@@ -3979,32 +4295,49 @@ function GiftRuleList({ giftPlan }) {
   return (
     <div className="gift-rule-wrap">
       <div className="detail-gift-groups">
-        {courseGroups.map((group) => (
-          <section className={`detail-gift-group ${group.category === "升学赋能包" ? "smart-growth-group" : ""}`} key={group.category}>
-            <header><span>{group.index}</span><div><strong>{group.category}</strong><small>{group.note}</small></div></header>
-            <div className="gift-poster-grid">
-              {group.items.map((item, index) => {
-                const longGrowth = group.category === "升学赋能包" && isLongGrowthGift(item);
-                const horizontal = group.items.length % 2 === 1 && index === group.items.length - 1 && !longGrowth;
-                return (
-                  <GiftPosterCard
-                    horizontal={horizontal}
-                    item={item}
-                    index={index}
-                    key={`${item.name}-${index}`}
-                    wide={longGrowth}
-                  />
-                );
-              })}
-            </div>
-          </section>
-        ))}
+        {courseGroups.map((group) => {
+          const cardLayouts = group.items.map(getGiftCardLayout);
+          const compactIndexes = cardLayouts
+            .map((layout, index) => (layout === "compact" ? index : -1))
+            .filter((index) => index >= 0);
+          const unpairedCompactIndex = compactIndexes.length % 2 === 1
+            ? compactIndexes[compactIndexes.length - 1]
+            : -1;
+
+          return (
+            <section className={`detail-gift-group ${group.category === "升学赋能包" ? "smart-growth-group" : ""}`} key={group.category}>
+              <header><span>{group.index}</span><div><strong>{group.category}</strong><small>{group.note}</small></div></header>
+              <div className={`gift-poster-grid adaptive-gift-grid is-count-${group.items.length}`}>
+                {group.items.map((item, index) => {
+                  const layout = cardLayouts[index];
+                  return (
+                    <GiftPosterCard
+                      item={item}
+                      index={index}
+                      key={`${item.name}-${index}`}
+                      layout={layout}
+                      unpaired={index === unpairedCompactIndex}
+                    />
+                  );
+                })}
+              </div>
+            </section>
+          );
+        })}
       </div>
     </div>
   );
 }
 
-function GiftPosterCard({ item, index, wide = false, horizontal = false }) {
+function getGiftCardLayout(item) {
+  const outlineLines = getGiftOutlineLines(item);
+  const outlineCharacters = outlineLines.reduce((total, line) => total + String(line).length, 0);
+  const longestLine = outlineLines.reduce((max, line) => Math.max(max, String(line).length), 0);
+  const isCompact = outlineLines.length <= 6 && outlineCharacters <= 120 && longestLine <= 24;
+  return isCompact ? "compact" : "expanded";
+}
+
+function GiftPosterCard({ item, index, layout = "compact", unpaired = false }) {
   const tones = ["cyan", "orange", "purple", "green", "blue"];
   const tone = tones[index % tones.length];
   const showValue = item.value && !String(item.value).includes("待补充");
@@ -4012,25 +4345,33 @@ function GiftPosterCard({ item, index, wide = false, horizontal = false }) {
   const outlineLines = getGiftOutlineLines(item);
   const hasLongOutline = outlineLines.length >= 10;
   return (
-    <article className={`gift-poster-card simplified ${tone} ${wide ? "is-wide" : ""} ${horizontal ? "is-horizontal" : ""} ${hasLongOutline ? "has-long-outline" : ""}`}>
+    <article className={`gift-poster-card simplified ${tone} is-${layout} ${unpaired ? "is-unpaired" : ""} ${layout === "expanded" ? "is-wide" : ""} ${hasLongOutline ? "has-long-outline course-card-layout" : ""}`}>
       <div className="gift-poster-image">
         {showValue ? <em>价值 {item.value}</em> : null}
-        {image ? <img src={assetUrl(image)} alt={item.name} /> : <span>{item.name}</span>}
+        {image ? <img src={assetUrl(image)} alt={getGiftDisplayName(item)} /> : <span>{getGiftDisplayName(item)}</span>}
       </div>
       <header>
-        <strong>{item.name}</strong>
+        <strong>{getGiftDisplayName(item)}</strong>
       </header>
       <div className="gift-poster-summary">
         <strong>{getGiftLessonCount(item)}</strong>
-        {hasLongOutline ? null : <p>{getGiftMainContent(item)}</p>}
+        <p>{getGiftMainContent(item)}</p>
         {outlineLines.length ? (
-          <div className="gift-course-outline">
+          <div className={`gift-course-outline${hasLongOutline ? " is-split-outline" : ""}`}>
             <span>课程大纲</span>
-            <ol>
-              {outlineLines.map((outline, outlineIndex) => (
-                <li className={outline.length >= 11 ? "is-long-label" : ""} key={`${item.name}-outline-${outlineIndex}`}>{outline}</li>
-              ))}
-            </ol>
+            {hasLongOutline ? (
+              <ol className="is-two-column-outline">
+                {outlineLines.map((outline, outlineIndex) => (
+                  <li className={outline.length >= 11 ? "is-long-label" : ""} key={`${item.name}-outline-${outlineIndex}`}>{outline}</li>
+                ))}
+              </ol>
+            ) : (
+              <ol>
+                {outlineLines.map((outline, outlineIndex) => (
+                  <li className={outline.length >= 11 ? "is-long-label" : ""} key={`${item.name}-outline-${outlineIndex}`}>{outline}</li>
+                ))}
+              </ol>
+            )}
           </div>
         ) : null}
       </div>
