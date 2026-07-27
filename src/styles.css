@@ -9442,6 +9442,20 @@ html.share-fixed-canvas .share-result .benefit-sheet.poster {
     linear-gradient(145deg, #fff8ec 0%, #f7efe1 46%, #edf7ff 100%);
 }
 
+.share-image-preload {
+  position: fixed;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.share-image-preload img {
+  width: 1px;
+  height: 1px;
+}
+
 .share-envelope-screen {
   display: grid;
   place-items: center;

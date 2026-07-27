@@ -1,7 +1,5 @@
 import React, { Fragment, useMemo, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
-import html2canvas from "html2canvas";
-import * as XLSX from "xlsx";
 import {
   BookOpen,
   Check,
@@ -73,14 +71,19 @@ import {
 import supabaseSchemaSql from "../supabase/schema.sql?raw";
 import "./styles.css";
 
+let storedProductsCache;
+
 function loadStoredProducts() {
+  if (storedProductsCache) return storedProductsCache;
   try {
     const stored = JSON.parse(window.localStorage.getItem(PRODUCTS_STORAGE_KEY) || "[]");
-    if (!Array.isArray(stored) || !stored.length) return initialProducts.map(migrateStoredProduct);
-    return stored.map(migrateStoredProduct);
+    storedProductsCache = !Array.isArray(stored) || !stored.length
+      ? initialProducts.map(migrateStoredProduct)
+      : stored.map(migrateStoredProduct);
   } catch {
-    return initialProducts.map(migrateStoredProduct);
+    storedProductsCache = initialProducts.map(migrateStoredProduct);
   }
+  return storedProductsCache;
 }
 
 function migrateStoredProduct(product) {
@@ -170,6 +173,7 @@ function hydrateAnnualCourseProduct(product) {
 }
 
 function saveStoredProducts(products) {
+  storedProductsCache = products;
   window.localStorage.setItem(PRODUCTS_STORAGE_KEY, JSON.stringify(products));
 }
 
@@ -316,6 +320,9 @@ function App() {
         setSelectedSubjects(state.subjects);
         setSelectedBonusSubjects(state.bonusSubjects ?? []);
         setSelectedVideoTracks(state.videoTracks ?? {});
+        if (Array.isArray(state.products) && state.products.length) {
+          setProducts(state.products.map(migrateStoredProduct));
+        }
         setShortLinkStatus("ready");
       })
       .catch(() => !cancelled && setShortLinkStatus("error"));
@@ -362,6 +369,8 @@ function App() {
 
   React.useEffect(() => {
     if (!cloudConfigEnabled) return undefined;
+    if (shortCode && shortLinkStatus === "loading") return undefined;
+    if (shortCode && Array.isArray(shareParams?.products) && shareParams.products.length) return undefined;
     let cancelled = false;
     const configId = publicView ? CLOUD_PRODUCTS_PUBLISHED_ID : CLOUD_PRODUCTS_DRAFT_ID;
     loadCloudProducts(configId)
@@ -375,7 +384,7 @@ function App() {
           ? nextProducts.filter((product) => product.status === "在售")
           : nextProducts;
         setProducts(nextProducts);
-        saveStoredProducts(nextProducts);
+        if (!publicView) saveStoredProducts(nextProducts);
         setSelectedProductId((current) => selectableProducts.some((product) => product.id === current) ? current : selectableProducts[0]?.id);
         setSyncStatus(publicView ? "已同步最新发布版本" : "云端草稿已同步");
       })
@@ -383,7 +392,7 @@ function App() {
     return () => {
       cancelled = true;
     };
-  }, [publicView]);
+  }, [publicView, shortCode, shortLinkStatus, shareParams?.productId]);
 
   const updateProduct = async (nextProduct) => {
     const nextProducts = products.map((item) => {
@@ -679,7 +688,10 @@ function SalesPage({ products, selectedProduct, selectedSubjects, selectedBonusS
       return;
     }
     try {
-      const shareState = buildShareState(selectedProduct, selectedSubjects, viewMode, selectedVideoTracks, selectedBonusSubjects);
+      const shareState = {
+        ...buildShareState(selectedProduct, selectedSubjects, viewMode, selectedVideoTracks, selectedBonusSubjects),
+        products: buildShareSnapshotProducts(products, selectedProduct),
+      };
       const code = await createShortShareLink(shareState);
       await navigator.clipboard.writeText(buildShortShareUrl(code));
       setLinkCopied(true);
@@ -872,6 +884,15 @@ function SalesPage({ products, selectedProduct, selectedSubjects, selectedBonusS
 function CustomerSharePage({ products, product, selectedSubjects, selectedVideoTracks, coursePlans, bonusCoursePlans, viewMode, teachingAids }) {
   const [opened, setOpened] = useState(false);
   const [isOpening, setIsOpening] = useState(false);
+  const preloadImageSources = useMemo(() => {
+    const giftPlan = getGiftPlanForSubjects(product, selectedSubjects, products);
+    const physicalItems = getPhysicalGiftItemsForSubjects(product, selectedSubjects);
+    return [...new Set([
+      ...giftPlan.items.map(getGiftImage),
+      ...physicalItems.map(getGiftImage),
+      ...teachingAids.map((item) => item.image),
+    ].filter(Boolean))].slice(0, 8);
+  }, [products, product, selectedSubjects.join("|"), teachingAids]);
 
   const openEnvelope = () => {
     if (isOpening) return;
@@ -885,6 +906,18 @@ function CustomerSharePage({ products, product, selectedSubjects, selectedVideoT
   if (!opened) {
     return (
       <main className={isOpening ? "share-shell opening" : "share-shell"}>
+        <div className="share-image-preload" aria-hidden="true">
+          {preloadImageSources.map((source, index) => (
+            <img
+              src={assetUrl(source)}
+              alt=""
+              loading="eager"
+              decoding="async"
+              fetchPriority={index < 2 ? "high" : "auto"}
+              key={source.slice(0, 120)}
+            />
+          ))}
+        </div>
         <section className="share-envelope-screen">
           <div className="share-logo-line">
             <img src={assetUrl("/assets/youdao-logo.png")} alt="网易有道领世" />
@@ -2399,6 +2432,7 @@ function LayoutPage({ products, product, selectedSubjects, coursePlans }) {
 }
 
 async function exportElementAsPng(element, filename) {
+  const { default: html2canvas } = await import("html2canvas");
   const isSummaryExport = element.classList.contains("view-summary");
   const { root: exportRoot, element: exportElement } = createExportClone(element, isSummaryExport);
   const restoreCanvasPattern = installSafeCanvasPatternGuard();
@@ -3527,6 +3561,7 @@ function CourseOutlineRow({ lesson, expanded, onToggle, onLessonChange }) {
 }
 
 async function parseCourseWorkbook(file, type, grade) {
+  const XLSX = await import("xlsx");
   const buffer = await file.arrayBuffer();
   const workbook = XLSX.read(buffer, { type: "array", cellDates: false });
   return parseCourseWorkbookSheets({
@@ -3549,16 +3584,17 @@ async function readImageFileAsDataUrl(file) {
     element.onerror = reject;
     element.src = source;
   });
-  const maxWidth = 1200;
+  const maxWidth = 960;
   const scale = Math.min(1, maxWidth / image.width);
   const canvas = document.createElement("canvas");
   canvas.width = Math.max(1, Math.round(image.width * scale));
   canvas.height = Math.max(1, Math.round(image.height * scale));
   canvas.getContext("2d").drawImage(image, 0, 0, canvas.width, canvas.height);
-  return canvas.toDataURL("image/jpeg", 0.86);
+  return canvas.toDataURL("image/webp", 0.8);
 }
 
 async function parseGiftWorkbook(file, grade) {
+  const XLSX = await import("xlsx");
   const buffer = await file.arrayBuffer();
   const workbook = XLSX.read(buffer, { type: "array", cellDates: true });
   const subjectCourses = Object.fromEntries(courseSubjects.map((subject) => [subject, []]));
@@ -3709,8 +3745,11 @@ function formatExcelDate(value) {
   if (!value) return "";
   if (value instanceof Date) return `${value.getMonth() + 1}月${value.getDate()}日`;
   if (typeof value === "number") {
-    const parsed = XLSX.SSF.parse_date_code(value);
-    return parsed ? `${parsed.m}月${parsed.d}日` : String(value);
+    const serial = Math.floor(value);
+    if (serial === 60) return "2月29日";
+    const epoch = serial < 60 ? Date.UTC(1899, 11, 31) : Date.UTC(1899, 11, 30);
+    const date = new Date(epoch + serial * 86_400_000);
+    return `${date.getUTCMonth() + 1}月${date.getUTCDate()}日`;
   }
   return String(value).trim();
 }
@@ -4851,6 +4890,40 @@ function buildShareState(product, subjects, viewMode = "summary", videoTracks = 
     videoTracks: Object.fromEntries(subjectList.map((subject) => [subject, videoTracks?.[subject] ?? "目标班"])),
     viewMode,
   };
+}
+
+function buildShareSnapshotProducts(products, selectedProduct) {
+  const selectedGiftKeys = selectedProduct.giftSelections;
+  const selectedPhysicalKeys = selectedProduct.physicalGiftSelections;
+  const selectedSnapshot = { ...selectedProduct };
+
+  // 全年课程库已随应用发布，短链无需再保存同一份大体量数据。
+  // 读取快照时 migrateStoredProduct 会自动补回内置课程库。
+  if (selectedSnapshot.annualCourseOrigin === "bundled") {
+    delete selectedSnapshot.annualCourseData;
+    if ((selectedSnapshot.courseSourceMode ?? "grade") === "grade") {
+      delete selectedSnapshot.parsedCourseData;
+    }
+  }
+
+  const poolProducts = products
+    .filter((product) => product.id !== selectedProduct.id && product.grade === selectedProduct.grade)
+    .map((product) => ({
+      id: product.id,
+      name: product.name,
+      grade: product.grade,
+      stage: product.stage,
+      status: product.status,
+      customGiftItems: (product.customGiftItems ?? []).filter((item) => (
+        !Array.isArray(selectedGiftKeys) || isGiftItemSelected(selectedGiftKeys, item)
+      )),
+      customPhysicalItems: (product.customPhysicalItems ?? []).filter((item) => (
+        !Array.isArray(selectedPhysicalKeys) || isGiftItemSelected(selectedPhysicalKeys, item)
+      )),
+    }))
+    .filter((product) => product.customGiftItems.length || product.customPhysicalItems.length || giftCatalog[product.id]);
+
+  return [selectedSnapshot, ...poolProducts];
 }
 
 function buildShortShareUrl(code) {

@@ -150,7 +150,7 @@ export const g1AutumnGiftPlan = {
       mainContent: "复盘对应学科暑期重难点，衔接秋季学习",
       value: "",
       rule: "买满1科赠对应学科",
-      image: "/assets/gifts/summer-review.png",
+      image: "/assets/gifts/summer-review.jpg",
       subjectCourses: matchedCourse(allSubjects, "暑期重难点精华课回放（5节）"),
     },
     {
@@ -174,7 +174,7 @@ export const g1AutumnGiftPlan = {
       mainContent: "系统了解高中三年升学路径与多元升学选择",
       value: "¥799",
       rule: "买满1科赠",
-      image: "/assets/gifts/pathway-guide.png",
+      image: "/assets/gifts/pathway-guide.jpg",
       bullets: [
         "强基计划（上）", "强基计划（下）", "综合评价", "保送生", "免费医学生", "特殊院校招生", "港澳升学",
       ],
@@ -188,7 +188,7 @@ export const g1AutumnGiftPlan = {
       mainContent: "解读新高考政策，明确选科与大学专业的关系",
       value: "¥199",
       rule: "买满1科赠",
-      image: "/assets/gifts/subject-selection-guide.png",
+      image: "/assets/gifts/subject-selection-guide.jpg",
       bullets: ["新高考政策解读", "新高一如何正确选科", "选科对未来大学和专业的影响"],
     },
     {
@@ -200,7 +200,7 @@ export const g1AutumnGiftPlan = {
       mainContent: "帮助家长完成角色升级，建立高中阶段家庭支持力",
       value: "¥149",
       rule: "买满1科赠",
-      image: "/assets/gifts/parent-growth-plan.png",
+      image: "/assets/gifts/parent-growth-plan.jpg",
       bullets: [
         "打开“初升高”的正确方式", "高效学习与满分动力两手抓", "帮助孩子构建良好的自我认知", "正确审美观的培养方法论", "高中“优秀”家长必修课",
       ],
