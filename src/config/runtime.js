@@ -8,6 +8,8 @@ export const CLOUD_PRODUCTS_DRAFT_ID = "products_draft";
 export const CLOUD_PRODUCTS_PUBLISHED_ID = "products_published";
 export const CLOUD_SHORT_LINK_PREFIX = "share_";
 export const CLOUD_TEACHING_AID_PREFIX = "teaching_aid_";
+export const CLOUD_FEEDBACK_PREFIX = "feedback_";
+export const CLOUD_VISIT_PREFIX = "visit_";
 export const cloudConfigEnabled = Boolean(SUPABASE_URL && SUPABASE_ANON_KEY);
 
 export function assetUrl(path) {

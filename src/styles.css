@@ -1368,6 +1368,141 @@ textarea {
   }
 }
 
+/* Canonical course-card system: equal media, equal hierarchy, content-aware width. */
+.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.adaptive-gift-grid,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.adaptive-gift-grid,
+.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.adaptive-gift-grid.is-three-up,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.adaptive-gift-grid.is-three-up {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  grid-auto-flow: row !important;
+  align-items: start !important;
+  gap: 14px !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified {
+  grid-column: auto !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  grid-template-rows: 210px auto 1fr !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-height: 0 !important;
+  align-items: stretch !important;
+  justify-self: stretch !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.is-expanded,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.is-expanded,
+.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.has-long-outline,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.has-long-outline {
+  grid-column: 1 / -1 !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified.is-compact,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified.is-compact {
+  grid-column: 1 / -1 !important;
+  width: min(100%, calc((100% - 14px) / 2)) !important;
+  justify-self: center !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified .gift-poster-image,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified .gift-poster-image,
+.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified .gift-poster-image,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified .gift-poster-image {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  display: grid !important;
+  width: 100% !important;
+  height: 210px !important;
+  min-height: 210px !important;
+  padding: 10px 14px !important;
+  place-items: center !important;
+  align-self: start !important;
+  aspect-ratio: auto !important;
+  border-right: 0 !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  background: linear-gradient(135deg, #fffaf2, #f7fbff) !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified .gift-poster-image img,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified .gift-poster-image img,
+.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-poster-image img,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-poster-image img {
+  display: block !important;
+  width: min(390px, 100%) !important;
+  height: 190px !important;
+  max-width: 100% !important;
+  max-height: 190px !important;
+  margin: 0 auto !important;
+  aspect-ratio: 16 / 9 !important;
+  object-fit: contain !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified > header,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified > header,
+.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified > header,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified > header {
+  grid-column: 1 !important;
+  grid-row: 2 !important;
+  display: grid !important;
+  min-height: 54px !important;
+  margin: 0 !important;
+  padding: 10px 16px !important;
+  place-items: center !important;
+  text-align: center !important;
+  border-right: 0 !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified > .gift-poster-summary,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified > .gift-poster-summary,
+.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified > .gift-poster-summary,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified > .gift-poster-summary {
+  grid-column: 1 !important;
+  grid-row: 3 !important;
+  padding: 14px 18px 18px !important;
+  align-content: start !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .gift-subject-collection .gift-collection-hero {
+  grid-template-columns: 410px minmax(0, 1fr);
+  align-items: center;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .gift-subject-collection .gift-poster-image {
+  width: 100% !important;
+  height: 210px !important;
+  min-height: 210px !important;
+  padding: 10px 14px !important;
+  aspect-ratio: auto !important;
+  place-items: center !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .gift-subject-collection .gift-poster-image img {
+  width: min(390px, 100%) !important;
+  height: 190px !important;
+  max-height: 190px !important;
+  aspect-ratio: 16 / 9 !important;
+  object-fit: contain !important;
+}
+
+@media (max-width: 760px) {
+  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .gift-poster-grid.adaptive-gift-grid,
+  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .gift-poster-grid.adaptive-gift-grid.is-three-up {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified.is-compact {
+    width: 100% !important;
+  }
+
+  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .gift-subject-collection .gift-collection-hero {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 .benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline > header,
 .benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline > header,
 .benefit-sheet.view-detail .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.simplified.is-wide.has-long-outline > header,
@@ -1434,6 +1569,534 @@ textarea {
   text-overflow: clip !important;
   font-size: 13px !important;
   line-height: 1.45 !important;
+}
+
+/* Course card layout contract.
+   Card width follows content volume; media size and information order never change. */
+.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid,
+.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid.is-three-up,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid.is-three-up {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  grid-auto-flow: row !important;
+  align-items: start !important;
+  gap: 14px !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified {
+  grid-column: auto !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  grid-template-rows: 210px auto 1fr !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-height: 0 !important;
+  align-items: stretch !important;
+  justify-self: stretch !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified.is-expanded,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified.is-expanded,
+.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified.has-long-outline,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified.has-long-outline {
+  grid-column: 1 / -1 !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid.is-count-1 > .gift-poster-card.simplified.is-compact,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid.is-count-1 > .gift-poster-card.simplified.is-compact {
+  grid-column: 1 / -1 !important;
+  width: min(100%, calc((100% - 14px) / 2)) !important;
+  justify-self: center !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid.is-count-3 > .gift-poster-card.simplified.is-compact:last-child,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid.is-count-3 > .gift-poster-card.simplified.is-compact:last-child {
+  grid-column: 1 / -1 !important;
+  width: min(100%, calc((100% - 14px) / 2)) !important;
+  justify-self: center !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified .gift-poster-image,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified .gift-poster-image {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  display: grid !important;
+  width: 100% !important;
+  height: 210px !important;
+  min-height: 210px !important;
+  padding: 10px 14px !important;
+  place-items: center !important;
+  align-self: start !important;
+  aspect-ratio: auto !important;
+  border-right: 0 !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  background: linear-gradient(135deg, #fffaf2, #f7fbff) !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified .gift-poster-image img,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified .gift-poster-image img {
+  display: block !important;
+  width: min(390px, 100%) !important;
+  height: 190px !important;
+  max-width: 100% !important;
+  max-height: 190px !important;
+  margin: 0 auto !important;
+  aspect-ratio: 16 / 9 !important;
+  object-fit: contain !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified > header,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified > header {
+  grid-column: 1 !important;
+  grid-row: 2 !important;
+  display: grid !important;
+  min-height: 54px !important;
+  margin: 0 !important;
+  padding: 10px 16px !important;
+  place-items: center !important;
+  text-align: center !important;
+  border-right: 0 !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified > .gift-poster-summary,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified > .gift-poster-summary {
+  grid-column: 1 !important;
+  grid-row: 3 !important;
+  padding: 14px 18px 18px !important;
+  align-content: start !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .gift-subject-collection .gift-collection-hero {
+  grid-template-columns: 410px minmax(0, 1fr) !important;
+  align-items: center !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .gift-subject-collection .gift-poster-image {
+  width: 100% !important;
+  height: 210px !important;
+  min-height: 210px !important;
+  padding: 10px 14px !important;
+  aspect-ratio: auto !important;
+  place-items: center !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .gift-subject-collection .gift-poster-image img {
+  width: min(390px, 100%) !important;
+  height: 190px !important;
+  max-height: 190px !important;
+  aspect-ratio: 16 / 9 !important;
+  object-fit: contain !important;
+}
+
+@media (max-width: 760px) {
+  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .adaptive-gift-grid,
+  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .adaptive-gift-grid.is-three-up {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .adaptive-gift-grid.is-count-1 > .gift-poster-card.simplified.is-compact,
+  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .adaptive-gift-grid.is-count-3 > .gift-poster-card.simplified.is-compact:last-child {
+    width: 100% !important;
+  }
+
+  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .gift-subject-collection .gift-collection-hero {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+/* Definitive card sizing — keep this final so legacy layout variants cannot override it. */
+.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid,
+.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid.is-three-up,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid.is-three-up {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  grid-auto-flow: row !important;
+  align-items: start !important;
+  gap: 14px !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified {
+  grid-column: auto !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  grid-template-rows: 210px auto 1fr !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-height: 0 !important;
+  justify-self: stretch !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified.is-expanded,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified.is-expanded,
+.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified.has-long-outline,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified.has-long-outline {
+  grid-column: 1 / -1 !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid.is-count-1 > .gift-poster-card.simplified.is-compact,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid.is-count-1 > .gift-poster-card.simplified.is-compact {
+  grid-column: 1 / -1 !important;
+  width: min(100%, calc((100% - 14px) / 2)) !important;
+  justify-self: center !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified .gift-poster-image,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified .gift-poster-image {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  display: grid !important;
+  width: 100% !important;
+  height: 210px !important;
+  min-height: 210px !important;
+  padding: 10px 14px !important;
+  place-items: center !important;
+  aspect-ratio: auto !important;
+  border-right: 0 !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  background: linear-gradient(135deg, #fffaf2, #f7fbff) !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified .gift-poster-image img,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified .gift-poster-image img {
+  width: min(390px, 100%) !important;
+  height: 190px !important;
+  max-width: 100% !important;
+  max-height: 190px !important;
+  margin: 0 auto !important;
+  aspect-ratio: 16 / 9 !important;
+  object-fit: contain !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified > header,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified > header {
+  grid-column: 1 !important;
+  grid-row: 2 !important;
+  display: grid !important;
+  min-height: 54px !important;
+  margin: 0 !important;
+  padding: 10px 16px !important;
+  place-items: center !important;
+  text-align: center !important;
+  border-right: 0 !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified > .gift-poster-summary,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified > .gift-poster-summary {
+  grid-column: 1 !important;
+  grid-row: 3 !important;
+  padding: 14px 18px 18px !important;
+  align-content: start !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .gift-subject-collection .gift-collection-hero {
+  grid-template-columns: 410px minmax(0, 1fr) !important;
+  align-items: center !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .gift-subject-collection .gift-poster-image {
+  display: grid !important;
+  width: 100% !important;
+  height: 210px !important;
+  min-height: 210px !important;
+  padding: 10px 14px !important;
+  place-items: center !important;
+  aspect-ratio: auto !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .gift-subject-collection .gift-poster-image img {
+  width: min(390px, 100%) !important;
+  height: 190px !important;
+  max-height: 190px !important;
+  aspect-ratio: 16 / 9 !important;
+  object-fit: contain !important;
+}
+
+@media (max-width: 760px) {
+  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .adaptive-gift-grid,
+  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .adaptive-gift-grid.is-three-up {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .adaptive-gift-grid.is-count-1 > .gift-poster-card.simplified.is-compact {
+    width: 100% !important;
+  }
+
+  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .gift-subject-collection .gift-collection-hero {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+/* Unified detail gift media and value treatment. */
+.detail-gift-groups .gift-poster-image {
+  position: relative;
+  overflow: hidden;
+  align-self: start;
+  aspect-ratio: 16 / 9;
+  background: #f8fafc;
+}
+
+.detail-gift-groups .gift-poster-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.detail-gift-groups .gift-value-badge {
+  position: absolute;
+  z-index: 3;
+  top: 10px;
+  left: 10px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 5px 10px;
+  color: #ffffff;
+  background: #3b82f6;
+  border-radius: 6px;
+  box-shadow: 0 5px 12px rgba(37, 99, 235, 0.2);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.gift-collection-hero .gift-poster-image {
+  width: 100%;
+  min-height: 0;
+  padding: 0;
+  aspect-ratio: 16 / 9;
+}
+
+.gift-collection-hero .gift-poster-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.sales-toolbar-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 9px;
+  flex-wrap: wrap;
+}
+
+.usage-count-pill,
+.feedback-trigger {
+  display: inline-flex;
+  min-height: 34px;
+  padding: 0 12px;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 850;
+  white-space: nowrap;
+}
+
+.usage-count-pill {
+  color: #31517e;
+  border: 1px solid #d8e6f8;
+  background: #f6faff;
+}
+
+.feedback-trigger {
+  color: #ffffff;
+  border: 1px solid #1677ff;
+  background: linear-gradient(135deg, #1677ff, #0d56c7);
+  box-shadow: 0 7px 16px rgba(22, 119, 255, 0.18);
+  cursor: pointer;
+}
+
+.feedback-modal-backdrop {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: grid;
+  padding: 24px;
+  place-items: center;
+  background: rgba(7, 23, 48, 0.48);
+  backdrop-filter: blur(5px);
+}
+
+.feedback-modal {
+  width: min(520px, 100%);
+  padding: 22px;
+  color: #102f5f;
+  background: #ffffff;
+  border: 1px solid #d9e6f6;
+  border-radius: 16px;
+  box-shadow: 0 24px 70px rgba(5, 28, 67, 0.22);
+}
+
+.feedback-modal > header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.feedback-modal h2 {
+  margin: 4px 0 0;
+  font-size: 24px;
+}
+
+.feedback-modal > header > button {
+  width: 34px;
+  height: 34px;
+  color: #64748b;
+  background: #f3f7fc;
+  border: 0;
+  border-radius: 50%;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.feedback-modal > p {
+  margin: 16px 0;
+  color: #475569;
+  line-height: 1.65;
+}
+
+.feedback-modal form {
+  display: grid;
+  gap: 10px;
+}
+
+.feedback-modal textarea {
+  width: 100%;
+  min-height: 150px;
+  resize: vertical;
+  padding: 13px 14px;
+  border: 1px solid #cbdcf1;
+  border-radius: 10px;
+  outline: none;
+  font: inherit;
+  line-height: 1.6;
+}
+
+.feedback-modal textarea:focus {
+  border-color: #1677ff;
+  box-shadow: 0 0 0 3px rgba(22, 119, 255, 0.11);
+}
+
+.feedback-modal form > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.feedback-modal form small {
+  color: #94a3b8;
+}
+
+.feedback-modal form > em {
+  color: #dc2626;
+  font-size: 12px;
+  font-style: normal;
+}
+
+.feedback-inbox {
+  margin-bottom: 16px;
+  padding: 16px;
+  background: #ffffff;
+  border: 1px solid #dbe7f5;
+  border-radius: 12px;
+}
+
+.feedback-inbox > header,
+.feedback-inbox > header > div {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.feedback-inbox > header {
+  justify-content: space-between;
+}
+
+.feedback-inbox > header strong {
+  color: #0b2f63;
+}
+
+.feedback-inbox > header span {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.feedback-inbox > header button {
+  padding: 7px 11px;
+  color: #1668d9;
+  background: #f4f9ff;
+  border: 1px solid #cfe1f8;
+  border-radius: 7px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.feedback-inbox-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 13px;
+}
+
+.feedback-inbox-list article {
+  min-width: 0;
+  padding: 12px;
+  background: #f8fbff;
+  border: 1px solid #e1eaf6;
+  border-radius: 9px;
+}
+
+.feedback-inbox-list article > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.feedback-inbox-list time,
+.feedback-inbox-list article > span {
+  color: #738299;
+  font-size: 11px;
+}
+
+.feedback-inbox-list p {
+  margin: 9px 0;
+  color: #334155;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.feedback-empty {
+  margin: 13px 0 0;
+  color: #7c8da5;
+  font-size: 13px;
+}
+
+@media (max-width: 760px) {
+  .sales-toolbar-actions {
+    justify-content: flex-start;
+  }
+
+  .feedback-inbox-list {
+    grid-template-columns: 1fr;
+  }
+
+  .feedback-modal-backdrop {
+    padding: 14px;
+  }
 }
 
 /* Three short gift courses share one balanced row instead of leaving an orphan card. */
@@ -1616,7 +2279,7 @@ textarea {
   justify-self: stretch !important;
   display: grid !important;
   grid-template-columns: minmax(0, 1fr) !important;
-  grid-template-rows: auto auto auto !important;
+  grid-template-rows: 210px auto 1fr !important;
 }
 
 .benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.is-compact.is-unpaired,
@@ -1674,7 +2337,7 @@ textarea {
   justify-self: stretch !important;
   display: grid !important;
   grid-template-columns: minmax(0, 1fr) !important;
-  grid-template-rows: auto auto auto !important;
+  grid-template-rows: 210px auto 1fr !important;
 }
 
 .benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.is-compact .gift-poster-image,
@@ -1684,10 +2347,10 @@ textarea {
   grid-column: 1 !important;
   grid-row: 1 !important;
   width: 100% !important;
-  height: auto !important;
-  min-height: 0 !important;
-  aspect-ratio: 16 / 7 !important;
-  padding: 12px 18px !important;
+  height: 210px !important;
+  min-height: 210px !important;
+  aspect-ratio: auto !important;
+  padding: 10px 14px !important;
   border-right: 0 !important;
   border-bottom: 1px solid #e2e8f0 !important;
   background: linear-gradient(135deg, #fffaf2, #f7fbff) !important;
@@ -1697,10 +2360,11 @@ textarea {
 .benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.is-compact .gift-poster-image img,
 .benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.is-expanded .gift-poster-image img,
 .benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.is-expanded .gift-poster-image img {
-  width: min(520px, 78%) !important;
-  height: 100% !important;
-  max-height: 220px !important;
+  width: min(390px, 100%) !important;
+  height: 190px !important;
+  max-height: 190px !important;
   margin: 0 auto !important;
+  aspect-ratio: 16 / 9 !important;
   object-fit: contain !important;
 }
 
@@ -1789,7 +2453,7 @@ textarea {
   grid-column: 1 / -1 !important;
   display: grid !important;
   grid-template-columns: minmax(0, 1fr) !important;
-  grid-template-rows: auto auto 1fr !important;
+  grid-template-rows: 210px auto 1fr !important;
   width: auto !important;
   min-height: 0 !important;
   align-items: stretch !important;
@@ -1900,7 +2564,7 @@ textarea {
   grid-column: auto !important;
   display: grid !important;
   grid-template-columns: minmax(0, 1fr) !important;
-  grid-template-rows: auto auto 1fr !important;
+  grid-template-rows: 210px auto 1fr !important;
   width: auto !important;
   min-height: 0 !important;
 }
@@ -1911,19 +2575,22 @@ textarea {
   grid-column: 1 !important;
   grid-row: 1 !important;
   width: 100% !important;
-  height: auto !important;
-  min-height: 0 !important;
-  aspect-ratio: 16 / 9 !important;
-  padding: 0 !important;
+  height: 210px !important;
+  min-height: 210px !important;
+  aspect-ratio: auto !important;
+  padding: 10px 14px !important;
   border-right: 0 !important;
   border-bottom: 0 !important;
-  background: #f8fafc !important;
+  background: linear-gradient(135deg, #fffaf2, #f7fbff) !important;
 }
 
 .benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified .gift-poster-image img,
 .benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified .gift-poster-image img {
-  width: 100% !important;
-  height: 100% !important;
+  width: min(390px, 100%) !important;
+  height: 190px !important;
+  max-height: 190px !important;
+  margin: 0 auto !important;
+  aspect-ratio: 16 / 9 !important;
   object-fit: contain !important;
 }
 
@@ -11986,17 +12653,110 @@ html.share-fixed-canvas .share-result .benefit-sheet.poster {
 }
 
 .benefit-sheet.view-detail .teaching-aid-subject-stack {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 12px;
 }
 
 .benefit-sheet.view-detail .teaching-aid-subject-stack.is-count-1 {
-  grid-template-columns: minmax(0, 340px);
-  justify-content: center;
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .benefit-sheet.view-detail .teaching-aid-subject-stack.is-count-2 {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.benefit-sheet.view-detail .teaching-aid-subject-stack > * {
+  grid-column: span 2;
+  width: 100%;
+  min-width: 0;
+}
+
+.benefit-sheet.view-detail .teaching-aid-subject-stack.is-count-1 > * {
+  grid-column: 1 / -1;
+}
+
+.benefit-sheet.view-detail .teaching-aid-subject-stack.is-count-2 > *,
+.benefit-sheet.view-detail .teaching-aid-subject-stack.is-count-4 > * {
+  grid-column: span 3;
+}
+
+.benefit-sheet.view-detail .teaching-aid-subject-stack.is-count-5 > :nth-last-child(-n + 2) {
+  grid-column: span 3;
+}
+
+.benefit-sheet.view-detail .teaching-aid-subject-stack.is-count-7 > :last-child {
+  grid-column: 3 / span 2;
+}
+
+.benefit-sheet.view-detail .teaching-aid-subject-stack.is-count-8 > * {
+  grid-column: span 2;
+}
+
+.benefit-sheet.view-detail .teaching-aid-subject-stack.is-count-8 > :nth-last-child(-n + 2) {
+  grid-column: span 3;
+}
+
+.benefit-sheet.view-detail .teaching-aid-subject-stack.is-count-1 .teaching-aid-export-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(220px, 0.85fr);
+  grid-template-rows: 1fr auto;
+  align-items: center;
+  column-gap: 20px;
+  min-height: 230px;
+  padding: 16px 18px;
+}
+
+.benefit-sheet.view-detail .teaching-aid-subject-stack.is-count-1 .teaching-aid-export-thumbs {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+
+.benefit-sheet.view-detail .teaching-aid-subject-stack.is-count-1 .teaching-aid-export-thumbs img,
+.benefit-sheet.view-detail .teaching-aid-subject-stack.is-count-1 .teaching-aid-export-thumbs span {
+  height: 132px;
+}
+
+.benefit-sheet.view-detail .teaching-aid-subject-stack.is-count-1 .teaching-aid-export-names {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.benefit-sheet.view-detail .teaching-aid-subject-stack.is-count-1 .teaching-aid-export-names span {
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.benefit-sheet.view-detail .teaching-aid-subject-stack.is-count-1 .teaching-aid-export-row footer {
+  grid-column: 2;
+  grid-row: 2;
+  width: 100%;
+}
+
+@media (max-width: 760px) {
+  .benefit-sheet.view-detail:not(.is-exporting) .teaching-aid-subject-stack,
+  .benefit-sheet.view-detail:not(.is-exporting) .teaching-aid-subject-stack.is-count-2 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .benefit-sheet.view-detail:not(.is-exporting) .teaching-aid-subject-stack > *,
+  .benefit-sheet.view-detail:not(.is-exporting) .teaching-aid-subject-stack.is-count-4 > *,
+  .benefit-sheet.view-detail:not(.is-exporting) .teaching-aid-subject-stack.is-count-5 > :nth-last-child(-n + 2),
+  .benefit-sheet.view-detail:not(.is-exporting) .teaching-aid-subject-stack.is-count-7 > :last-child,
+  .benefit-sheet.view-detail:not(.is-exporting) .teaching-aid-subject-stack.is-count-8 > *,
+  .benefit-sheet.view-detail:not(.is-exporting) .teaching-aid-subject-stack.is-count-8 > :nth-last-child(-n + 2) {
+    grid-column: 1;
+  }
+
+  .benefit-sheet.view-detail:not(.is-exporting) .teaching-aid-subject-stack.is-count-1 .teaching-aid-export-row {
+    display: flex;
+    min-height: 0;
+    padding: 12px;
+  }
+
+  .benefit-sheet.view-detail:not(.is-exporting) .teaching-aid-subject-stack.is-count-1 .teaching-aid-export-thumbs img,
+  .benefit-sheet.view-detail:not(.is-exporting) .teaching-aid-subject-stack.is-count-1 .teaching-aid-export-thumbs span {
+    height: 86px;
+  }
 }
 
 .benefit-sheet.view-detail .teaching-aid-wrap {
@@ -12115,10 +12875,10 @@ html.share-fixed-canvas .share-result .benefit-sheet.poster {
   line-height: 1.55;
 }
 
-/* EOF guard: keep single/odd/long gift cards from falling back to narrow vertical cards. */
+/* Single short courses keep the same default card width and hierarchy as their peers. */
 .benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1,
 .benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 {
-  grid-template-columns: minmax(0, 1fr) !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
 }
 
 .benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified:not(.has-long-outline),
@@ -12127,10 +12887,11 @@ html.share-fixed-canvas .share-result .benefit-sheet.poster {
 .benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.is-horizontal {
   grid-column: 1 / -1 !important;
   display: grid !important;
-  width: 100% !important;
-  grid-template-columns: minmax(300px, 0.38fr) minmax(0, 0.62fr) !important;
-  grid-template-rows: auto 1fr !important;
+  width: min(100%, calc((100% - 14px) / 2)) !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  grid-template-rows: 210px auto 1fr !important;
   align-items: stretch !important;
+  justify-self: center !important;
 }
 
 .benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified:not(.has-long-outline) .gift-poster-image,
@@ -12138,22 +12899,23 @@ html.share-fixed-canvas .share-result .benefit-sheet.poster {
 .benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.is-horizontal .gift-poster-image,
 .benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.is-horizontal .gift-poster-image {
   grid-column: 1 !important;
-  grid-row: 1 / span 2 !important;
+  grid-row: 1 !important;
   width: 100% !important;
-  height: 100% !important;
-  min-height: 230px !important;
+  height: 210px !important;
+  min-height: 210px !important;
+  padding: 10px 14px !important;
   aspect-ratio: auto !important;
-  border-right: 1px solid #e2e8f0 !important;
-  border-bottom: 0 !important;
-  background: #f8fafc !important;
+  border-right: 0 !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  background: linear-gradient(135deg, #fffaf2, #f7fbff) !important;
 }
 
 .benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified:not(.has-long-outline) > header,
 .benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified:not(.has-long-outline) > header,
 .benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.is-horizontal > header,
 .benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.is-horizontal > header {
-  grid-column: 2 !important;
-  grid-row: 1 !important;
+  grid-column: 1 !important;
+  grid-row: 2 !important;
   margin-top: 0 !important;
   min-height: 52px !important;
   align-content: center !important;
@@ -12165,8 +12927,8 @@ html.share-fixed-canvas .share-result .benefit-sheet.poster {
 .benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified:not(.has-long-outline) > .gift-poster-summary,
 .benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.is-horizontal > .gift-poster-summary,
 .benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.is-horizontal > .gift-poster-summary {
-  grid-column: 2 !important;
-  grid-row: 2 !important;
+  grid-column: 1 !important;
+  grid-row: 3 !important;
   align-content: start !important;
   padding: 14px 18px !important;
 }
@@ -12176,6 +12938,17 @@ html.share-fixed-canvas .share-result .benefit-sheet.poster {
   display: grid !important;
   grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   gap: 8px 22px !important;
+}
+
+@media (max-width: 760px) {
+  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .gift-poster-grid.is-count-1 {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified:not(.has-long-outline),
+  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.is-horizontal {
+    width: 100% !important;
+  }
 }
 
 /* TRUE EOF override: course cards follow the hand-drawn structure.
@@ -12188,7 +12961,7 @@ html.share-fixed-canvas .share-result .benefit-sheet.poster {
   display: grid !important;
   width: 100% !important;
   grid-template-columns: minmax(0, 1fr) !important;
-  grid-template-rows: auto auto auto !important;
+  grid-template-rows: 210px auto auto !important;
   align-items: start !important;
 }
 
@@ -12201,8 +12974,8 @@ html.share-fixed-canvas .share-result .benefit-sheet.poster {
   display: grid !important;
   place-items: center !important;
   width: 100% !important;
-  height: auto !important;
-  min-height: 0 !important;
+  height: 210px !important;
+  min-height: 210px !important;
   aspect-ratio: auto !important;
   padding: 12px 18px !important;
   border-right: 0 !important;
@@ -12212,9 +12985,9 @@ html.share-fixed-canvas .share-result .benefit-sheet.poster {
 
 .benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-poster-image img,
 .benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-poster-image img {
-  width: min(340px, 100%) !important;
-  height: auto !important;
-  max-height: 191px !important;
+  width: min(390px, 100%) !important;
+  height: 190px !important;
+  max-height: 190px !important;
   aspect-ratio: 16 / 9 !important;
   object-fit: contain !important;
 }

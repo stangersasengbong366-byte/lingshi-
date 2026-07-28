@@ -14,6 +14,7 @@ import {
   ImagePlus,
   Layers,
   ListChecks,
+  MessageSquare,
   PackageCheck,
   Pencil,
   PlayCircle,
@@ -49,11 +50,13 @@ import {
 import {
   assetUrl,
   CLOUD_CONFIG_TABLE,
+  CLOUD_FEEDBACK_PREFIX,
   CLOUD_PRODUCTS_DRAFT_ID,
   CLOUD_PRODUCTS_LEGACY_ID,
   CLOUD_PRODUCTS_PUBLISHED_ID,
   CLOUD_SHORT_LINK_PREFIX,
   CLOUD_TEACHING_AID_PREFIX,
+  CLOUD_VISIT_PREFIX,
   cloudConfigEnabled,
   PRODUCTS_STORAGE_KEY,
   PUBLIC_SITE_URL,
@@ -247,6 +250,54 @@ async function loadShortShareState(code) {
   return records[0]?.payload ?? null;
 }
 
+function createCloudRecordId(prefix) {
+  const bytes = crypto.getRandomValues(new Uint8Array(5));
+  const suffix = Array.from(bytes, (value) => value.toString(36).padStart(2, "0")).join("");
+  return `${prefix}${Date.now().toString(36)}_${suffix}`;
+}
+
+async function createCloudRecord(prefix, payload) {
+  if (!cloudConfigEnabled) throw new Error("云端配置未连接");
+  const response = await fetch(`${SUPABASE_URL}/rest/v1/${CLOUD_CONFIG_TABLE}`, {
+    method: "POST",
+    headers: { ...getSupabaseHeaders(), "Content-Type": "application/json" },
+    body: JSON.stringify({
+      id: createCloudRecordId(prefix),
+      payload,
+      updated_at: new Date().toISOString(),
+    }),
+  });
+  if (!response.ok) throw await createCloudError(response, "云端记录保存失败");
+}
+
+async function loadCloudRecordCount(prefix) {
+  if (!cloudConfigEnabled) return null;
+  const response = await fetch(
+    `${SUPABASE_URL}/rest/v1/${CLOUD_CONFIG_TABLE}?id=like.${encodeURIComponent(`${prefix}%`)}&select=id&limit=1`,
+    {
+      headers: {
+        ...getSupabaseHeaders(),
+        Prefer: "count=exact",
+        Range: "0-0",
+        "Range-Unit": "items",
+      },
+    },
+  );
+  if (!response.ok) throw await createCloudError(response, "浏览次数读取失败");
+  const total = response.headers.get("content-range")?.split("/").pop();
+  return total && total !== "*" ? Number(total) : 0;
+}
+
+async function loadCloudFeedback() {
+  if (!cloudConfigEnabled) return [];
+  const response = await fetch(
+    `${SUPABASE_URL}/rest/v1/${CLOUD_CONFIG_TABLE}?id=like.${encodeURIComponent(`${CLOUD_FEEDBACK_PREFIX}%`)}&select=id,payload,updated_at&order=updated_at.desc&limit=30`,
+    { headers: getSupabaseHeaders() },
+  );
+  if (!response.ok) throw await createCloudError(response, "问题反馈读取失败");
+  return response.json();
+}
+
 async function createCloudError(response, fallbackMessage) {
   const responseText = await response.text();
   let detail = responseText;
@@ -284,6 +335,8 @@ function App() {
   const [selectedBonusSubjects, setSelectedBonusSubjects] = useState(() => shareParams?.bonusSubjects ?? []);
   const [selectedVideoTracks, setSelectedVideoTracks] = useState(() => shareParams?.videoTracks ?? {});
   const [teachingAids, setTeachingAids] = useState([]);
+  const [usageCount, setUsageCount] = useState(null);
+  const [salesFeedback, setSalesFeedback] = useState([]);
   const activeProducts = useMemo(() => products.filter((item) => item.status === "在售"), [products]);
   const availableProducts = !publicView && activePage === "admin" ? products : activeProducts;
   const selectedProduct = availableProducts.find((item) => item.id === selectedProductId) ?? availableProducts[0] ?? null;
@@ -393,6 +446,50 @@ function App() {
       cancelled = true;
     };
   }, [publicView, shortCode, shortLinkStatus, shareParams?.productId]);
+
+  React.useEffect(() => {
+    if (!cloudConfigEnabled) return undefined;
+    let cancelled = false;
+    const sessionKey = "youdao-benefits-visit-recorded";
+    const refreshUsage = async () => {
+      try {
+        if (!window.sessionStorage.getItem(sessionKey)) {
+          await createCloudRecord(CLOUD_VISIT_PREFIX, {
+            page: shareParams ? "customer-share" : salesOnly ? "sales-portal" : activePage,
+            productId: selectedProduct?.id ?? "",
+            productName: selectedProduct?.name ?? "",
+            createdAt: new Date().toISOString(),
+          });
+          window.sessionStorage.setItem(sessionKey, "1");
+        }
+        const count = await loadCloudRecordCount(CLOUD_VISIT_PREFIX);
+        if (!cancelled) setUsageCount(count);
+      } catch (error) {
+        console.error("浏览次数同步失败", error);
+      }
+    };
+    refreshUsage();
+    return () => { cancelled = true; };
+  }, []);
+
+  React.useEffect(() => {
+    if (!cloudConfigEnabled || activePage !== "admin" || publicView) return undefined;
+    let cancelled = false;
+    loadCloudFeedback()
+      .then((items) => !cancelled && setSalesFeedback(items))
+      .catch((error) => console.error("问题反馈读取失败", error));
+    return () => { cancelled = true; };
+  }, [activePage, publicView]);
+
+  const submitSalesFeedback = async (message) => {
+    await createCloudRecord(CLOUD_FEEDBACK_PREFIX, {
+      message: message.trim(),
+      productId: selectedProduct?.id ?? "",
+      productName: selectedProduct?.name ?? "",
+      subjects: selectedSubjects,
+      createdAt: new Date().toISOString(),
+    });
+  };
 
   const updateProduct = async (nextProduct) => {
     const nextProducts = products.map((item) => {
@@ -525,6 +622,8 @@ function App() {
             onSubjectsChange={setSelectedSubjects}
             onVideoTrackChange={(subject, track) => setSelectedVideoTracks((current) => ({ ...current, [subject]: track }))}
             teachingAids={teachingAids}
+            usageCount={usageCount}
+            onSubmitFeedback={submitSalesFeedback}
           />
         ) : (
           <section className="public-empty-state sales-empty-state">
@@ -544,6 +643,9 @@ function App() {
           onPublish={publishProducts}
           syncStatus={syncStatus}
           teachingAids={teachingAids}
+          usageCount={usageCount}
+          salesFeedback={salesFeedback}
+          onRefreshFeedback={() => loadCloudFeedback().then(setSalesFeedback)}
         />
       )}
     </main>
@@ -663,10 +765,13 @@ function AppHeader({ activePage, onPageChange, syncStatus, salesOnly }) {
   );
 }
 
-function SalesPage({ products, selectedProduct, selectedSubjects, selectedBonusSubjects, selectedVideoTracks, coursePlans, bonusCoursePlans, onSelect, onSubjectsChange, onBonusSubjectsChange, onVideoTrackChange, teachingAids }) {
+function SalesPage({ products, selectedProduct, selectedSubjects, selectedBonusSubjects, selectedVideoTracks, coursePlans, bonusCoursePlans, onSelect, onSubjectsChange, onBonusSubjectsChange, onVideoTrackChange, teachingAids, usageCount, onSubmitFeedback }) {
   const previewRef = useRef(null);
   const [linkCopied, setLinkCopied] = useState(false);
   const [exporting, setExporting] = useState(false);
+  const [feedbackOpen, setFeedbackOpen] = useState(false);
+  const [feedbackText, setFeedbackText] = useState("");
+  const [feedbackState, setFeedbackState] = useState("idle");
   const [viewMode, setViewMode] = useState(() => (
     new URLSearchParams(window.location.search).get("view") === "detail" ? "detail" : "summary"
   ));
@@ -718,6 +823,24 @@ function SalesPage({ products, selectedProduct, selectedSubjects, selectedBonusS
       window.alert(`长图生成失败：${getErrorMessage(error)}`);
     } finally {
       setExporting(false);
+    }
+  };
+
+  const submitFeedback = async (event) => {
+    event.preventDefault();
+    if (!feedbackText.trim() || feedbackState === "saving") return;
+    setFeedbackState("saving");
+    try {
+      await onSubmitFeedback(feedbackText);
+      setFeedbackText("");
+      setFeedbackState("saved");
+      window.setTimeout(() => {
+        setFeedbackOpen(false);
+        setFeedbackState("idle");
+      }, 900);
+    } catch (error) {
+      console.error(error);
+      setFeedbackState("error");
     }
   };
 
@@ -864,7 +987,12 @@ function SalesPage({ products, selectedProduct, selectedSubjects, selectedBonusS
             <span className="eyebrow">实时预览</span>
             <h2>销售展示清单</h2>
           </div>
-          <span className="status-pill">适合微信发送</span>
+          <div className="sales-toolbar-actions">
+            <span className="usage-count-pill"><Eye size={15} />累计浏览 {usageCount ?? "—"} 次</span>
+            <button className="feedback-trigger" type="button" onClick={() => setFeedbackOpen(true)}>
+              <MessageSquare size={16} />问题反馈
+            </button>
+          </div>
         </div>
         <BenefitSheet
           products={products}
@@ -877,6 +1005,28 @@ function SalesPage({ products, selectedProduct, selectedSubjects, selectedBonusS
           teachingAids={teachingAids}
         />
       </section>
+      {feedbackOpen ? (
+        <div className="feedback-modal-backdrop" role="presentation" onMouseDown={() => setFeedbackOpen(false)}>
+          <section className="feedback-modal" role="dialog" aria-modal="true" aria-labelledby="feedback-title" onMouseDown={(event) => event.stopPropagation()}>
+            <header>
+              <div><span className="eyebrow">销售支持</span><h2 id="feedback-title">问题反馈</h2></div>
+              <button type="button" aria-label="关闭问题反馈" onClick={() => setFeedbackOpen(false)}>×</button>
+            </header>
+            <p>有问题请通过企业微信 / POPo 联系王熙，也可以直接把问题写在这里。</p>
+            <form onSubmit={submitFeedback}>
+              <textarea
+                value={feedbackText}
+                onChange={(event) => setFeedbackText(event.target.value)}
+                placeholder="请描述遇到的问题，例如产品、科目、页面位置和希望调整的内容"
+                maxLength={800}
+                autoFocus
+              />
+              <div><small>{feedbackText.length}/800</small><button className="primary-action small" type="submit" disabled={!feedbackText.trim() || feedbackState === "saving"}>{feedbackState === "saving" ? "提交中..." : feedbackState === "saved" ? "已提交" : "提交反馈"}</button></div>
+              {feedbackState === "error" ? <em>提交失败，请稍后重试或直接联系王熙。</em> : null}
+            </form>
+          </section>
+        </div>
+      ) : null}
     </section>
   );
 }
@@ -966,7 +1116,7 @@ function CustomerSharePage({ products, product, selectedSubjects, selectedVideoT
   );
 }
 
-function AdminPage({ products, selectedProduct, onSelect, onAdd, onDelete, onUpdate, onPublish, syncStatus, teachingAids }) {
+function AdminPage({ products, selectedProduct, onSelect, onAdd, onDelete, onUpdate, onPublish, syncStatus, teachingAids, usageCount, salesFeedback, onRefreshFeedback }) {
   const [draft, setDraft] = useState(selectedProduct);
   const [activeAdminSection, setActiveAdminSection] = useState("basic");
   const [expandedGiftKey, setExpandedGiftKey] = useState("");
@@ -1443,6 +1593,24 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onDelete, onUpd
               {schemaCopied ? "建表内容已复制" : "复制一次性建表内容"}
             </button>
           ) : null}
+        </section>
+
+        <section className="feedback-inbox">
+          <header>
+            <div><MessageSquare size={19} /><strong>销售问题反馈</strong><span>累计浏览 {usageCount ?? "—"} 次</span></div>
+            <button type="button" onClick={onRefreshFeedback}>刷新反馈</button>
+          </header>
+          {salesFeedback.length ? (
+            <div className="feedback-inbox-list">
+              {salesFeedback.slice(0, 8).map((item) => (
+                <article key={item.id}>
+                  <div><strong>{item.payload?.productName || "未指定产品"}</strong><time>{new Date(item.updated_at).toLocaleString("zh-CN", { hour12: false })}</time></div>
+                  <p>{item.payload?.message}</p>
+                  {item.payload?.subjects?.length ? <span>科目：{item.payload.subjects.join("、")}</span> : null}
+                </article>
+              ))}
+            </div>
+          ) : <p className="feedback-empty">暂时没有新的销售反馈。</p>}
         </section>
 
         <section className="admin-section-intro">
@@ -4611,7 +4779,7 @@ function GiftPosterCard({ item, index, layout = "compact", horizontal = false, u
   return (
     <article className={`gift-poster-card simplified ${tone} is-${layout} ${horizontal ? "is-horizontal" : ""} ${unpaired ? "is-unpaired" : ""} ${layout === "expanded" ? "is-wide" : ""} ${hasLongOutline ? "has-long-outline course-card-layout" : ""}`}>
       <div className="gift-poster-image">
-        {showValue ? <em>价值 {item.value}</em> : null}
+        {showValue ? <em className="gift-value-badge">价值 {item.value}</em> : null}
         {image ? <img src={assetUrl(image)} alt={getGiftDisplayName(item)} /> : <span>{getGiftDisplayName(item)}</span>}
       </div>
       <header>
@@ -4695,7 +4863,7 @@ function GiftSubjectCollectionCard({ item, index }) {
     <article className={`gift-subject-collection ${tone}`}>
       <div className="gift-collection-hero">
         <div className="gift-poster-image">
-          {showValue ? <em>价值 {item.value}</em> : null}
+          {showValue ? <em className="gift-value-badge">价值 {item.value}</em> : null}
           {image ? <img src={assetUrl(image)} alt={item.name} /> : <span>{item.name}</span>}
         </div>
         <header>
