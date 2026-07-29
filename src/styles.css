@@ -1403,8 +1403,47 @@ textarea {
 .benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified.is-compact,
 .benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified.is-compact {
   grid-column: 1 / -1 !important;
-  width: min(100%, calc((100% - 14px) / 2)) !important;
+  width: 100% !important;
   justify-self: center !important;
+}
+
+/* Sales operation keeps the desktop information architecture on phones.
+   The fixed viewport scales the complete two-column canvas instead of stacking it. */
+@media (max-width: 980px) {
+  html.sales-fixed-canvas,
+  html.sales-fixed-canvas body,
+  html.sales-fixed-canvas #root,
+  html.sales-fixed-canvas .app-shell {
+    width: 1180px !important;
+    min-width: 1180px !important;
+  }
+
+  html.sales-fixed-canvas .app-shell {
+    padding: 16px !important;
+    overflow-x: visible !important;
+  }
+
+  html.sales-fixed-canvas .topbar,
+  html.sales-fixed-canvas .sales-workspace {
+    width: 1148px !important;
+    max-width: 1148px !important;
+  }
+
+  html.sales-fixed-canvas .topbar {
+    flex-direction: row !important;
+    align-items: center !important;
+  }
+
+  html.sales-fixed-canvas .sales-workspace {
+    display: grid !important;
+    grid-template-columns: 330px minmax(0, 1fr) !important;
+    gap: 18px !important;
+  }
+
+  html.sales-fixed-canvas .brand-lockup {
+    flex-direction: row !important;
+    align-items: center !important;
+  }
 }
 
 .benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified .gift-poster-image,
@@ -1564,9 +1603,11 @@ textarea {
   display: grid !important;
   grid-template-columns: auto minmax(0, 1fr) !important;
   gap: 8px !important;
-  white-space: nowrap !important;
+  white-space: normal !important;
   overflow: visible !important;
   text-overflow: clip !important;
+  overflow-wrap: break-word !important;
+  word-break: normal !important;
   font-size: 13px !important;
   line-height: 1.45 !important;
 }
@@ -1607,7 +1648,7 @@ textarea {
 .benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid.is-count-1 > .gift-poster-card.simplified.is-compact,
 .benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid.is-count-1 > .gift-poster-card.simplified.is-compact {
   grid-column: 1 / -1 !important;
-  width: min(100%, calc((100% - 14px) / 2)) !important;
+  width: 100% !important;
   justify-self: center !important;
 }
 
@@ -13053,9 +13094,61 @@ html.share-fixed-canvas .share-result .benefit-sheet.poster {
   display: grid !important;
   grid-template-columns: auto minmax(0, 1fr) !important;
   gap: 8px !important;
-  white-space: nowrap !important;
+  white-space: normal !important;
   overflow: visible !important;
   text-overflow: clip !important;
+  overflow-wrap: break-word !important;
+  word-break: normal !important;
   font-size: 13px !important;
   line-height: 1.45 !important;
+}
+
+/* Final effective gift-card cardinality rules. */
+.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 {
+  grid-template-columns: minmax(0, 1fr) !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-2,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  align-items: start !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card,
+.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-subject-collection,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-subject-collection {
+  grid-column: 1 / -1 !important;
+  width: 100% !important;
+  max-width: none !important;
+  justify-self: stretch !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-2 > .gift-poster-card,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-2 > .gift-poster-card,
+.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-2 > .gift-subject-collection,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-2 > .gift-subject-collection {
+  grid-column: auto !important;
+  width: 100% !important;
+  max-width: none !important;
+  justify-self: stretch !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1 .gift-course-outline li,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 .gift-course-outline li,
+.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-2 .gift-course-outline li,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-2 .gift-course-outline li {
+  min-width: 0 !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  overflow-wrap: break-word !important;
+  word-break: normal !important;
+}
+
+@media (max-width: 760px) {
+  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .gift-poster-grid.is-count-2 {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
 }

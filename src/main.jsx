@@ -210,17 +210,29 @@ async function saveCloudProducts(products, configId = CLOUD_PRODUCTS_DRAFT_ID) {
   if (!response.ok) throw await createCloudError(response, "云端配置保存失败");
 }
 
+const teachingAidRequestCache = new Map();
+
 async function loadCloudTeachingAids(grade, subjects = []) {
   if (!grade) return [];
+  const normalizedSubjects = [...new Set(subjects)].sort();
+  const cacheKey = `${grade}|${normalizedSubjects.join("|") || "*"}`;
+  if (teachingAidRequestCache.has(cacheKey)) return teachingAidRequestCache.get(cacheKey);
   const subjectFilter = subjects.length
     ? `&payload-%3E%3Esubject=in.(${subjects.map(encodeURIComponent).join(",")})`
     : "";
-  const response = await fetch(`${SUPABASE_URL}/rest/v1/${CLOUD_CONFIG_TABLE}?id=like.${encodeURIComponent(`${CLOUD_TEACHING_AID_PREFIX}%`)}&payload-%3E%3Egrade=eq.${encodeURIComponent(grade)}${subjectFilter}&select=id,payload,updated_at`, {
+  const request = fetch(`${SUPABASE_URL}/rest/v1/${CLOUD_CONFIG_TABLE}?id=like.${encodeURIComponent(`${CLOUD_TEACHING_AID_PREFIX}%`)}&payload-%3E%3Egrade=eq.${encodeURIComponent(grade)}${subjectFilter}&select=id,payload,updated_at`, {
     headers: getSupabaseHeaders(),
+    cache: "force-cache",
+  }).then(async (response) => {
+    if (!response.ok) throw await createCloudError(response, "云端教辅读取失败");
+    const records = await response.json();
+    return records.map((record) => record.payload).filter((item) => item?.grade && item?.subject && item?.name);
+  }).catch((error) => {
+    teachingAidRequestCache.delete(cacheKey);
+    throw error;
   });
-  if (!response.ok) throw await createCloudError(response, "云端教辅读取失败");
-  const records = await response.json();
-  return records.map((record) => record.payload).filter((item) => item?.grade && item?.subject && item?.name);
+  teachingAidRequestCache.set(cacheKey, request);
+  return request;
 }
 
 async function createShortShareLink(shareState) {
@@ -392,10 +404,18 @@ function App() {
   React.useEffect(() => {
     if (!cloudConfigEnabled || !selectedProduct?.grade) return undefined;
     let cancelled = false;
-    setTeachingAids([]);
     const requestedSubjects = activePage === "admin" ? [] : selectedSubjects;
     loadCloudTeachingAids(selectedProduct.grade, requestedSubjects)
-      .then((items) => !cancelled && setTeachingAids(items))
+      .then((items) => {
+        if (cancelled) return;
+        setTeachingAids(items);
+        items.forEach((item) => {
+          if (!item.image) return;
+          const image = new Image();
+          image.decoding = "async";
+          image.src = assetUrl(item.image);
+        });
+      })
       .catch((error) => console.error("云端教辅读取失败", error));
     return () => { cancelled = true; };
   }, [activePage, selectedProduct?.grade, selectedSubjects.join("|")]);
@@ -776,6 +796,22 @@ function SalesPage({ products, selectedProduct, selectedSubjects, selectedBonusS
     new URLSearchParams(window.location.search).get("view") === "detail" ? "detail" : "summary"
   ));
 
+  React.useEffect(() => {
+    const viewport = document.querySelector('meta[name="viewport"]');
+    const isPhone = window.matchMedia("(max-width: 980px)").matches;
+    if (!viewport || !isPhone) return undefined;
+    const previousContent = viewport.getAttribute("content");
+    viewport.setAttribute(
+      "content",
+      "width=1180, minimum-scale=0.25, maximum-scale=4, user-scalable=yes",
+    );
+    document.documentElement.classList.add("sales-fixed-canvas");
+    return () => {
+      viewport.setAttribute("content", previousContent ?? "width=device-width, initial-scale=1.0");
+      document.documentElement.classList.remove("sales-fixed-canvas");
+    };
+  }, []);
+
   const productOptions = useMemo(() => {
     return products.filter((item) => item.status === "在售");
   }, [products]);
@@ -845,7 +881,7 @@ function SalesPage({ products, selectedProduct, selectedSubjects, selectedBonusS
   };
 
   return (
-    <section className="workspace two-column">
+    <section className="workspace two-column sales-workspace">
       <aside className="selector-panel">
         <div className="panel-heading">
           <span className="eyebrow">销售操作</span>
@@ -3563,7 +3599,7 @@ function TeachingAidSingleSection({ subject, grade, stage, teachingAids }) {
         <div className="teaching-aid-export-thumbs">
           {aidItems.map((item) => (
             item.image
-              ? <img src={assetUrl(item.image)} alt={item.name} key={`${item.type}-${item.name}-thumb`} />
+              ? <img src={assetUrl(item.image)} alt={item.name} loading="eager" decoding="async" fetchPriority="high" key={`${item.type}-${item.name}-thumb`} />
               : <span key={`${item.type}-${item.name}-thumb`}>{item.type}</span>
           ))}
         </div>
@@ -3609,7 +3645,7 @@ function TeachingAidCard({ item, index, rule }) {
     <article className="teaching-aid-card">
       <em className="aid-index">{String(index + 1).padStart(2, "0")}</em>
       <div className="aid-cover">
-        {item.image ? <img src={assetUrl(item.image)} alt={item.name} /> : <span>{item.name}</span>}
+        {item.image ? <img src={assetUrl(item.image)} alt={item.name} loading="eager" decoding="async" fetchPriority="high" /> : <span>{item.name}</span>}
       </div>
       <div className="aid-info">
         <span>{item.type}</span>
@@ -5095,8 +5131,7 @@ function buildShareSnapshotProducts(products, selectedProduct) {
 }
 
 function buildShortShareUrl(code) {
-  const isLocalPreview = ["127.0.0.1", "localhost"].includes(window.location.hostname);
-  const url = new URL(isLocalPreview ? PUBLIC_SITE_URL : window.location.href);
+  const url = new URL(PUBLIC_SITE_URL);
   url.search = "";
   url.hash = "";
   url.searchParams.set("s", code);
@@ -5104,8 +5139,7 @@ function buildShortShareUrl(code) {
 }
 
 function buildSalesPortalUrl() {
-  const isLocalPreview = ["127.0.0.1", "localhost"].includes(window.location.hostname);
-  const url = new URL(isLocalPreview ? PUBLIC_SITE_URL : window.location.href);
+  const url = new URL(PUBLIC_SITE_URL);
   url.search = "";
   url.hash = "";
   url.searchParams.set("sales", "1");
