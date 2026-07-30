@@ -13152,3 +13152,38 @@ html.share-fixed-canvas .share-result .benefit-sheet.poster {
     grid-template-columns: minmax(0, 1fr) !important;
   }
 }
+
+/* Keep sibling course cards visually consistent without clipping their content. */
+.benefit-sheet.view-detail .detail-gift-groups .gift-subject-variant-grid,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-subject-variant-grid {
+  align-items: stretch !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .gift-subject-variant,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-subject-variant {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .gift-subject-variant .gift-course-outline,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-subject-variant .gift-course-outline {
+  width: 100%;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-2,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-2 {
+  align-items: stretch !important;
+}
+
+.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-2 > .gift-poster-card,
+.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-2 > .gift-poster-card {
+  height: 100% !important;
+}
+
+@media (max-width: 760px) {
+  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .gift-subject-variant,
+  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .gift-poster-grid.is-count-2 > .gift-poster-card {
+    height: auto !important;
+  }
+}
