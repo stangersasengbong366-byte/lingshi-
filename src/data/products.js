@@ -47,7 +47,7 @@ export const initialProducts = [
         summary: ["学法直播16节", "知识视频按所购科目开通"],
       },
     },
-    humanitiesSubjects: [],
+    humanitiesSubjects: ["生物", "历史", "地理", "政治"],
     salesNote: "学法直播负责大招教学和提分方法，知识视频用于补充直播中不熟的基础点，形成直播提分+视频补基的组合学习。",
     giftModuleIds: [],
     lessons: [],

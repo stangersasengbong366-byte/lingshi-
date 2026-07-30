@@ -1010,10 +1010,6 @@ textarea {
   grid-template-columns: minmax(0, 1fr);
 }
 
-.gift-v3-grid.has-unpaired-card > :last-child {
-  grid-column: 1 / -1;
-}
-
 .gift-v3-card,
 .gift-v3-collection {
   min-width: 0;
@@ -1159,7 +1155,8 @@ textarea {
 }
 
 .gift-v3-card.has-long-outline,
-.gift-v3-variant.has-long-outline {
+.gift-v3-variant.has-long-outline,
+.gift-v3-card.is-full-width {
   grid-column: 1 / -1;
 }
 

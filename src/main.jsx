@@ -120,12 +120,16 @@ function migrateStoredProduct(product) {
       originalPerSubject: 2200,
       fixedPerSubject: 900,
     },
+    humanitiesSubjects: ["生物", "历史", "地理", "政治"],
     giftSelections: null,
     physicalGiftSelections: null,
     giftOverrides: {},
     productProfileVersion: "2026-07-17-authoritative-v1",
     videoReleasePlan: "购买后立即开放3节试听，其余视频自8月起分批释放",
   } : product;
+  if (isG1Autumn && !migrated.humanitiesSubjects?.includes("生物")) {
+    migrated.humanitiesSubjects = ["生物", "历史", "地理", "政治"];
+  }
   return hydrateAnnualCourseProduct(migrated);
 }
 
@@ -189,11 +193,40 @@ async function loadCloudProducts(configId, fallbackId = CLOUD_PRODUCTS_LEGACY_ID
   const records = await response.json();
   const record = records.find((item) => item.id === configId) ?? records.find((item) => item.id === fallbackId);
   const products = Array.isArray(record?.payload?.products) ? record.payload.products : record?.payload;
-  return Array.isArray(products) ? products.map(migrateStoredProduct) : null;
+  const gradeCourseLibraries = record?.payload?.gradeCourseLibraries ?? {};
+  return Array.isArray(products) ? products.map((product) => {
+    const shared = gradeCourseLibraries[product.grade];
+    if (!shared) return migrateStoredProduct(product);
+    const courseSourceMode = product.courseSourceMode ?? "grade";
+    return migrateStoredProduct({
+      ...product,
+      annualCourseData: shared.data,
+      annualCourseUploadNames: shared.uploadNames,
+      courseUploadNames: courseSourceMode === "custom" ? product.customCourseUploadNames : shared.uploadNames,
+      parsedCourseData: courseSourceMode === "custom" ? product.customCourseData : shared.data,
+    });
+  }) : null;
 }
 
 async function saveCloudProducts(products, configId = CLOUD_PRODUCTS_DRAFT_ID) {
   if (!cloudConfigEnabled) throw new Error("云端配置未连接");
+  const gradeCourseLibraries = {};
+  const compactProducts = products.map((product) => {
+    if (!gradeCourseLibraries[product.grade] && product.annualCourseData) {
+      gradeCourseLibraries[product.grade] = {
+        data: product.annualCourseData,
+        uploadNames: product.annualCourseUploadNames ?? product.courseUploadNames ?? {},
+      };
+    }
+    const {
+      annualCourseData,
+      annualCourseUploadNames,
+      parsedCourseData,
+      courseUploadNames,
+      ...compactProduct
+    } = product;
+    return compactProduct;
+  });
   const response = await fetch(`${SUPABASE_URL}/rest/v1/${CLOUD_CONFIG_TABLE}?on_conflict=id`, {
     method: "POST",
     headers: {
@@ -203,11 +236,17 @@ async function saveCloudProducts(products, configId = CLOUD_PRODUCTS_DRAFT_ID) {
     },
     body: JSON.stringify({
       id: configId,
-      payload: { products, version: Date.now() },
+      payload: { products: compactProducts, gradeCourseLibraries, version: Date.now() },
       updated_at: new Date().toISOString(),
     }),
   });
   if (!response.ok) throw await createCloudError(response, "云端配置保存失败");
+}
+
+async function saveCloudProductVersions(products, configIds) {
+  for (const configId of configIds) {
+    await saveCloudProducts(products, configId);
+  }
 }
 
 const teachingAidRequestCache = new Map();
@@ -542,14 +581,17 @@ function App() {
     setSelectedProductId(nextProduct.id);
     setSyncStatus("正在保存并同步销售端");
     try {
-      await Promise.all([
-        saveCloudProducts(nextProducts, CLOUD_PRODUCTS_DRAFT_ID),
-        saveCloudProducts(nextProducts, CLOUD_PRODUCTS_PUBLISHED_ID),
+      await saveCloudProductVersions(nextProducts, [
+        CLOUD_PRODUCTS_DRAFT_ID,
+        CLOUD_PRODUCTS_PUBLISHED_ID,
       ]);
       setSyncStatus("已保存到云端，销售端同步完成");
       return { cloudSaved: true };
     } catch (error) {
-      setSyncStatus(error?.isMissingTable ? "云端数据表未创建，仅保存在本机" : "云端保存失败，仅保存在本机");
+      console.error("云端产品保存失败", error);
+      setSyncStatus(error?.isMissingTable
+        ? "云端数据表未创建，仅保存在本机"
+        : `云端保存失败：${error?.message || "请重试"}`);
       return { cloudSaved: false, error };
     }
   };
@@ -570,9 +612,9 @@ function App() {
     setSelectedProductId(nextProduct.id);
     setSyncStatus("正在保存新产品并同步销售端");
     try {
-      await Promise.all([
-        saveCloudProducts(nextProducts, CLOUD_PRODUCTS_DRAFT_ID),
-        saveCloudProducts(nextProducts, CLOUD_PRODUCTS_PUBLISHED_ID),
+      await saveCloudProductVersions(nextProducts, [
+        CLOUD_PRODUCTS_DRAFT_ID,
+        CLOUD_PRODUCTS_PUBLISHED_ID,
       ]);
       setSyncStatus("新产品已同步到云端销售端");
     } catch (error) {
@@ -595,9 +637,9 @@ function App() {
     setSelectedProductId((current) => current === productId ? nextProducts[0]?.id : current);
     setSyncStatus("正在删除并同步云端");
     try {
-      await Promise.all([
-        saveCloudProducts(nextProducts, CLOUD_PRODUCTS_DRAFT_ID),
-        saveCloudProducts(nextProducts, CLOUD_PRODUCTS_PUBLISHED_ID),
+      await saveCloudProductVersions(nextProducts, [
+        CLOUD_PRODUCTS_DRAFT_ID,
+        CLOUD_PRODUCTS_PUBLISHED_ID,
       ]);
       setSyncStatus("产品已删除，销售端同步完成");
     } catch (error) {
@@ -823,6 +865,7 @@ function SalesPage({ products, selectedProduct, selectedSubjects, selectedBonusS
   const productOptions = useMemo(() => {
     return products.filter((item) => item.status === "在售");
   }, [products]);
+  const saleSubjects = useMemo(() => getSaleSubjects(selectedProduct), [selectedProduct]);
   const gradeOptions = useMemo(() => [...new Set(productOptions.map((item) => item.grade))], [productOptions]);
   const selectedSubjectText = selectedSubjects.join("、");
   const liveTotal = coursePlans.reduce((sum, plan) => sum + (plan?.liveCount ?? 0), 0);
@@ -830,6 +873,12 @@ function SalesPage({ products, selectedProduct, selectedSubjects, selectedBonusS
   const requiredBonusCount = getRequiredBonusCount(selectedProduct, selectedSubjects);
   const purchasedBonusSubjectCount = getPurchasedBonusSubjectCount(selectedSubjects);
   const bonusSelectionComplete = selectedBonusSubjects.length === requiredBonusCount;
+
+  React.useEffect(() => {
+    const validSubjects = selectedSubjects.filter((subject) => saleSubjects.includes(subject));
+    if (validSubjects.length === selectedSubjects.length) return;
+    onSubjectsChange(validSubjects.length ? validSubjects : [saleSubjects[0]]);
+  }, [onSubjectsChange, saleSubjects, selectedSubjects]);
 
   const copyShareLink = async () => {
     if (requiredBonusCount && !bonusSelectionComplete) {
@@ -919,7 +968,7 @@ function SalesPage({ products, selectedProduct, selectedSubjects, selectedBonusS
         </Field>
         <Field label="科目">
           <div className="subject-grid">
-            {courseSubjects.map((subject) => (
+            {saleSubjects.map((subject) => (
               <button
                 key={subject}
                 type="button"
@@ -3536,6 +3585,14 @@ function getProductJourney(product) {
   ];
 }
 
+function getSaleSubjects(product) {
+  const configured = product?.availableSubjects?.length ? product.availableSubjects : courseSubjects;
+  const isG2Autumn = product?.grade === "高二" && /秋实/.test(`${product?.stage ?? ""}${product?.name ?? ""}`);
+  return isG2Autumn
+    ? configured.filter((subject) => !["历史", "地理", "政治"].includes(subject))
+    : configured;
+}
+
 function BenefitDisclosure({ title, description, children, open = false, staticOpen = false }) {
   return (
     <details className={`benefit-disclosure${staticOpen ? " detail-static" : ""}`} open={open ? true : undefined}>
@@ -4771,17 +4828,17 @@ function GiftRuleList({ giftPlan }) {
     <div className="gift-rule-wrap">
       <div className="detail-gift-groups">
         {courseGroups.map((group) => {
-          const hasUnpairedCard = group.items.length > 1 && group.items.length % 2 === 1;
-
+          const fullWidthIndexes = getGiftFullWidthIndexes(group.items);
           return (
             <section className="detail-gift-group" key={group.category}>
               <header><span>{group.index}</span><div><strong>{group.category}</strong><small>{group.note}</small></div></header>
-              <div className={`gift-v3-grid is-count-${group.items.length} ${hasUnpairedCard ? "has-unpaired-card" : ""}`}>
+              <div className={`gift-v3-grid is-count-${group.items.length}`}>
                 {group.items.map((item, index) => {
                   return (
                     <GiftPosterCard
                       item={item}
                       index={index}
+                      fullWidth={fullWidthIndexes.has(index)}
                       key={`${item.name}-${index}`}
                     />
                   );
@@ -4795,7 +4852,29 @@ function GiftRuleList({ giftPlan }) {
   );
 }
 
-function GiftPosterCard({ item, index }) {
+function getGiftFullWidthIndexes(items) {
+  const fullWidthIndexes = new Set();
+  let compactRun = [];
+  const closeCompactRun = () => {
+    if (compactRun.length % 2 === 1) fullWidthIndexes.add(compactRun[compactRun.length - 1]);
+    compactRun = [];
+  };
+
+  items.forEach((item, index) => {
+    const isCollection = item.subjectVariants?.length > 1;
+    const isLongOutline = !isCollection && getGiftOutlineLines(item).length > 10;
+    if (isCollection || isLongOutline) {
+      closeCompactRun();
+      fullWidthIndexes.add(index);
+    } else {
+      compactRun.push(index);
+    }
+  });
+  closeCompactRun();
+  return fullWidthIndexes;
+}
+
+function GiftPosterCard({ item, index, fullWidth = false }) {
   if (item.subjectVariants?.length > 1) {
     return <GiftSubjectCollectionCard item={item} index={index} />;
   }
@@ -4807,7 +4886,7 @@ function GiftPosterCard({ item, index }) {
   const outlineLines = getGiftOutlineLines(item);
   const hasLongOutline = outlineLines.length > 10;
   return (
-    <article className={`gift-v3-card ${tone} ${hasLongOutline ? "has-long-outline" : ""}`}>
+    <article className={`gift-v3-card ${tone} ${hasLongOutline ? "has-long-outline" : ""} ${fullWidth ? "is-full-width" : ""}`}>
       <div className="gift-v3-image">
         {showValue ? <em className="gift-v3-value">价值 {item.value}</em> : null}
         {image ? <img src={assetUrl(image)} alt={getGiftDisplayName(item)} loading="lazy" decoding="async" /> : <span>{getGiftDisplayName(item)}</span>}

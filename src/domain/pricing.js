@@ -1,6 +1,10 @@
-const humanitiesSubjects = new Set(["历史", "地理", "政治"]);
+const defaultHumanitiesSubjects = ["历史", "地理", "政治"];
 
 export function getProductPricing(product, subjectsOrCount) {
+  const humanitiesSubjects = new Set([
+    ...defaultHumanitiesSubjects,
+    ...(product.humanitiesSubjects ?? []),
+  ]);
   const selectedSubjects = Array.isArray(subjectsOrCount) ? subjectsOrCount : [];
   const subjectCount = selectedSubjects.length || Number(subjectsOrCount) || 1;
   const source = product.pricing ?? {};
