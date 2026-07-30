@@ -4757,19 +4757,11 @@ function GiftRuleList({ giftPlan }) {
       <div className="detail-gift-groups">
         {courseGroups.map((group) => {
           const cardLayouts = group.items.map(getGiftCardLayout);
-          const compactIndexes = cardLayouts
-            .map((layout, index) => (layout === "compact" ? index : -1))
-            .filter((index) => index >= 0);
-          const hasExpandedCard = cardLayouts.includes("expanded");
-          const useThreeColumnGrid = compactIndexes.length === 3;
-          const unpairedCompactIndex = !useThreeColumnGrid && compactIndexes.length % 2 === 1
-            ? compactIndexes[compactIndexes.length - 1]
-            : -1;
 
           return (
             <section className={`detail-gift-group ${group.category === "升学赋能包" ? "smart-growth-group" : ""}`} key={group.category}>
               <header><span>{group.index}</span><div><strong>{group.category}</strong><small>{group.note}</small></div></header>
-              <div className={`gift-poster-grid adaptive-gift-grid is-count-${group.items.length} ${useThreeColumnGrid ? "is-three-up" : ""}`}>
+              <div className={`gift-poster-grid adaptive-gift-grid is-count-${group.items.length}`}>
                 {group.items.map((item, index) => {
                   const layout = cardLayouts[index];
                   return (
@@ -4778,8 +4770,7 @@ function GiftRuleList({ giftPlan }) {
                       index={index}
                       key={`${item.name}-${index}`}
                       layout={layout}
-                      horizontal={group.items.length === 1 || (layout === "compact" && compactIndexes.length === 1 && hasExpandedCard)}
-                      unpaired={index === unpairedCompactIndex}
+                      horizontal={group.items.length === 1}
                     />
                   );
                 })}
@@ -4801,7 +4792,7 @@ function getGiftCardLayout(item) {
   return isCompact ? "compact" : "expanded";
 }
 
-function GiftPosterCard({ item, index, layout = "compact", horizontal = false, unpaired = false }) {
+function GiftPosterCard({ item, index, layout = "compact", horizontal = false }) {
   if (item.subjectVariants?.length > 1) {
     return <GiftSubjectCollectionCard item={item} index={index} />;
   }
@@ -4813,7 +4804,7 @@ function GiftPosterCard({ item, index, layout = "compact", horizontal = false, u
   const outlineLines = getGiftOutlineLines(item);
   const hasLongOutline = outlineLines.length >= 10;
   return (
-    <article className={`gift-poster-card simplified ${tone} is-${layout} ${horizontal ? "is-horizontal" : ""} ${unpaired ? "is-unpaired" : ""} ${layout === "expanded" ? "is-wide" : ""} ${hasLongOutline ? "has-long-outline course-card-layout" : ""}`}>
+    <article className={`gift-poster-card simplified ${tone} is-${layout} ${horizontal ? "is-horizontal" : ""} ${layout === "expanded" ? "is-wide" : ""} ${hasLongOutline ? "has-long-outline course-card-layout" : ""}`}>
       <div className="gift-poster-image">
         {showValue ? <em className="gift-value-badge">价值 {item.value}</em> : null}
         {image ? <img src={assetUrl(image)} alt={getGiftDisplayName(item)} /> : <span>{getGiftDisplayName(item)}</span>}
