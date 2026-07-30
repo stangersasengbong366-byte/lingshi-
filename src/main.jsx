@@ -404,20 +404,28 @@ function App() {
   React.useEffect(() => {
     if (!cloudConfigEnabled || !selectedProduct?.grade) return undefined;
     let cancelled = false;
+    let frameId = 0;
+    let timerId = 0;
     const requestedSubjects = activePage === "admin" ? [] : selectedSubjects;
-    loadCloudTeachingAids(selectedProduct.grade, requestedSubjects)
-      .then((items) => {
-        if (cancelled) return;
-        setTeachingAids(items);
-        items.forEach((item) => {
-          if (!item.image) return;
-          const image = new Image();
-          image.decoding = "async";
-          image.src = assetUrl(item.image);
-        });
-      })
-      .catch((error) => console.error("云端教辅读取失败", error));
-    return () => { cancelled = true; };
+    const load = () => {
+      loadCloudTeachingAids(selectedProduct.grade, requestedSubjects)
+        .then((items) => {
+          if (!cancelled) setTeachingAids(items);
+        })
+        .catch((error) => console.error("云端教辅读取失败", error));
+    };
+    if (activePage === "admin") {
+      load();
+    } else {
+      frameId = window.requestAnimationFrame(() => {
+        timerId = window.setTimeout(load, 120);
+      });
+    }
+    return () => {
+      cancelled = true;
+      window.cancelAnimationFrame(frameId);
+      window.clearTimeout(timerId);
+    };
   }, [activePage, selectedProduct?.grade, selectedSubjects.join("|")]);
 
   React.useEffect(() => {
@@ -1076,9 +1084,26 @@ function CustomerSharePage({ products, product, selectedSubjects, selectedVideoT
     return [...new Set([
       ...giftPlan.items.map(getGiftImage),
       ...physicalItems.map(getGiftImage),
-      ...teachingAids.map((item) => item.image),
-    ].filter(Boolean))].slice(0, 8);
-  }, [products, product, selectedSubjects.join("|"), teachingAids]);
+    ].filter(Boolean))].slice(0, 4);
+  }, [products, product, selectedSubjects.join("|")]);
+
+  useEffect(() => {
+    if (opened || !preloadImageSources.length) return undefined;
+    const warmImages = () => {
+      preloadImageSources.forEach((source) => {
+        const image = new Image();
+        image.decoding = "async";
+        image.fetchPriority = "low";
+        image.src = assetUrl(source);
+      });
+    };
+    if ("requestIdleCallback" in window) {
+      const idleId = window.requestIdleCallback(warmImages, { timeout: 1500 });
+      return () => window.cancelIdleCallback(idleId);
+    }
+    const timerId = window.setTimeout(warmImages, 700);
+    return () => window.clearTimeout(timerId);
+  }, [opened, preloadImageSources]);
 
   const openEnvelope = () => {
     if (isOpening) return;
@@ -1092,21 +1117,9 @@ function CustomerSharePage({ products, product, selectedSubjects, selectedVideoT
   if (!opened) {
     return (
       <main className={isOpening ? "share-shell opening" : "share-shell"}>
-        <div className="share-image-preload" aria-hidden="true">
-          {preloadImageSources.map((source, index) => (
-            <img
-              src={assetUrl(source)}
-              alt=""
-              loading="eager"
-              decoding="async"
-              fetchPriority={index < 2 ? "high" : "auto"}
-              key={source.slice(0, 120)}
-            />
-          ))}
-        </div>
         <section className="share-envelope-screen">
           <div className="share-logo-line">
-            <img src={assetUrl("/assets/youdao-logo.png")} alt="网易有道领世" />
+            <img src={assetUrl("/assets/youdao-logo.png")} alt="网易有道领世" loading="eager" decoding="async" fetchPriority="high" />
             <span>{getProductDisplayTerm(product)}</span>
           </div>
           <div className={isOpening ? "share-envelope opening" : "share-envelope"} onClick={openEnvelope}>
@@ -1124,7 +1137,7 @@ function CustomerSharePage({ products, product, selectedSubjects, selectedVideoT
               }}
               aria-label="开启权益清单"
             >
-              <img src={assetUrl("/assets/wax-seal-cutout-ui.png")} alt="" decoding="async" />
+              <img src={assetUrl("/assets/wax-seal-cutout-ui.png")} alt="" loading="eager" decoding="async" fetchPriority="high" />
             </button>
           </div>
           <div className="share-opening-copy">
@@ -3058,7 +3071,7 @@ function BenefitSheet({ products = [], product, coursePlan, coursePlans, bonusCo
           </div>
         </div>
         <img className="envelope-front" src={assetUrl("/assets/envelope-front.png")} alt="" />
-        <img className="seal" src={assetUrl("/assets/wax-seal-cutout.png")} alt="" />
+        <img className="seal" src={assetUrl("/assets/wax-seal-cutout-ui.png")} alt="" loading="eager" decoding="async" />
       </section>
 
       <section className="letter-body">
@@ -3351,7 +3364,7 @@ function SummaryReferenceGiftSection({ title, items, className = "", subjectCoun
               {image ? (
                 <div className="reference-gift-image">
                   {item.value ? <em>价值 {item.value}</em> : null}
-                  <img src={assetUrl(image)} alt={getGiftDisplayName(item)} />
+                  <img src={assetUrl(image)} alt={getGiftDisplayName(item)} loading="lazy" decoding="async" />
                 </div>
               ) : null}
               <div className="reference-gift-copy">
@@ -3599,7 +3612,7 @@ function TeachingAidSingleSection({ subject, grade, stage, teachingAids }) {
         <div className="teaching-aid-export-thumbs">
           {aidItems.map((item) => (
             item.image
-              ? <img src={assetUrl(item.image)} alt={item.name} loading="eager" decoding="async" fetchPriority="high" key={`${item.type}-${item.name}-thumb`} />
+              ? <img src={assetUrl(item.image)} alt={item.name} loading="lazy" decoding="async" fetchPriority="low" key={`${item.type}-${item.name}-thumb`} />
               : <span key={`${item.type}-${item.name}-thumb`}>{item.type}</span>
           ))}
         </div>
@@ -3645,7 +3658,7 @@ function TeachingAidCard({ item, index, rule }) {
     <article className="teaching-aid-card">
       <em className="aid-index">{String(index + 1).padStart(2, "0")}</em>
       <div className="aid-cover">
-        {item.image ? <img src={assetUrl(item.image)} alt={item.name} loading="eager" decoding="async" fetchPriority="high" /> : <span>{item.name}</span>}
+        {item.image ? <img src={assetUrl(item.image)} alt={item.name} loading="lazy" decoding="async" fetchPriority="low" /> : <span>{item.name}</span>}
       </div>
       <div className="aid-info">
         <span>{item.type}</span>
@@ -4797,7 +4810,7 @@ function GiftPosterCard({ item, index }) {
     <article className={`gift-v3-card ${tone} ${hasLongOutline ? "has-long-outline" : ""}`}>
       <div className="gift-v3-image">
         {showValue ? <em className="gift-v3-value">价值 {item.value}</em> : null}
-        {image ? <img src={assetUrl(image)} alt={getGiftDisplayName(item)} /> : <span>{getGiftDisplayName(item)}</span>}
+        {image ? <img src={assetUrl(image)} alt={getGiftDisplayName(item)} loading="lazy" decoding="async" /> : <span>{getGiftDisplayName(item)}</span>}
       </div>
       <header className="gift-v3-title">
         <strong>{getGiftDisplayName(item)}</strong>
@@ -4873,7 +4886,7 @@ function GiftSubjectCollectionCard({ item, index }) {
       <div className="gift-v3-collection-hero">
         <div className="gift-v3-image">
           {showValue ? <em className="gift-v3-value">价值 {item.value}</em> : null}
-          {image ? <img src={assetUrl(image)} alt={item.name} /> : <span>{item.name}</span>}
+          {image ? <img src={assetUrl(image)} alt={item.name} loading="lazy" decoding="async" /> : <span>{item.name}</span>}
         </div>
         <header className="gift-v3-title">
           <strong>{item.name}</strong>
@@ -4913,7 +4926,7 @@ function SupportGiftGrid({ items }) {
     <div className="support-gift-grid">
       {items.map((item) => (
         <div className={`support-gift-card ${item.image ? "with-image" : ""}`} key={`${item.type}-${item.name}`}>
-          {item.image ? <img src={assetUrl(item.image)} alt={item.detail} /> : null}
+          {item.image ? <img src={assetUrl(item.image)} alt={item.detail} loading="lazy" decoding="async" /> : null}
           <span>{item.type}</span>
           <strong>{item.name}</strong>
           <small>{item.detail}</small>
