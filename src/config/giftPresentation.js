@@ -5,11 +5,11 @@ export const giftCategoryMeta = {
 };
 
 export const giftImageLibrary = [
-  { names: ["暑期学法知识视频包", "高一暑期重难点精华课"], category: "学科类赠课", image: "/assets/gifts/summer-review.jpg" },
-  { names: ["新高一入门知识精讲"], category: "学科类赠课", image: "/assets/gifts/freshman-foundation.jpg" },
-  { names: ["高一选科宝典"], category: "升学赋能包", image: "/assets/gifts/subject-selection-guide.jpg" },
-  { names: ["高一家长成长计划"], category: "升学赋能包", image: "/assets/gifts/parent-growth-plan.jpg" },
-  { names: ["高中升学路径全解"], category: "升学赋能包", image: "/assets/gifts/pathway-guide.jpg" },
+  { names: ["暑期学法知识视频包", "暑期重难点精华课"], category: "学科类赠课", image: "/assets/gifts/summer-review.jpg" },
+  { names: ["新高一入门知识精讲", "入门知识精讲"], category: "学科类赠课", image: "/assets/gifts/freshman-foundation.jpg" },
+  { names: ["高一选科宝典", "选科宝典"], category: "升学赋能包", image: "/assets/gifts/subject-selection-guide.jpg" },
+  { names: ["高一家长成长计划", "家长成长计划"], category: "升学赋能包", image: "/assets/gifts/parent-growth-plan.jpg" },
+  { names: ["高中升学路径全解", "升学路径全解"], category: "升学赋能包", image: "/assets/gifts/pathway-guide.jpg" },
   { names: ["极境拾音坞", "实物单品"], category: "实物赠送", image: "/assets/gifts/sound-dock.jpg" },
   { names: ["午福临门", "升学礼包"], category: "实物赠送", image: "/assets/gifts/fortune-gift-box.png" },
   { names: ["草稿本"], category: "实物赠送", image: "/assets/gifts/draft-notebooks.png" },

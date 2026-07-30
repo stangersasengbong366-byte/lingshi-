@@ -4360,8 +4360,10 @@ function getGiftDisplayName(item) {
 }
 
 function getGiftImage(item) {
+  const libraryImage = getGiftLibraryMatch(item)?.image;
+  if (libraryImage) return libraryImage;
   if (/^(data:|blob:|https?:)/.test(item?.image || "")) return item.image;
-  return getGiftLibraryMatch(item)?.image || item?.image || "";
+  return item?.image || "";
 }
 
 function decorateGiftItem(item, extra = {}) {
@@ -5073,7 +5075,37 @@ function buildShareState(product, subjects, viewMode = "summary", videoTracks = 
 function buildShareSnapshotProducts(products, selectedProduct) {
   const selectedGiftKeys = selectedProduct.giftSelections;
   const selectedPhysicalKeys = selectedProduct.physicalGiftSelections;
-  const selectedSnapshot = { ...selectedProduct };
+  const selectedKeys = [
+    ...(Array.isArray(selectedGiftKeys) ? selectedGiftKeys : []),
+    ...(Array.isArray(selectedPhysicalKeys) ? selectedPhysicalKeys : []),
+  ];
+  const selectedOverrides = Object.fromEntries(
+    Object.entries(selectedProduct.giftOverrides ?? {})
+      .filter(([key]) => !selectedKeys.length || selectedKeys.includes(key))
+      .map(([key, override]) => {
+        const itemName = override?.name || key.replace(/^[^-]+-/, "");
+        const libraryImage = getGiftLibraryMatch({ ...override, name: itemName })?.image;
+        return [key, libraryImage ? { ...override, image: libraryImage } : override];
+      }),
+  );
+  const compactItem = (item) => {
+    const sourceKey = item._sourceKey || `${item.type}-${item.name}`;
+    const overrideImage = selectedOverrides[sourceKey]?.image;
+    const libraryImage = getGiftLibraryMatch(item)?.image;
+    const nextItem = { ...item, image: libraryImage || item.image || "" };
+    if (overrideImage && nextItem.image === overrideImage) delete nextItem.image;
+    return nextItem;
+  };
+  const selectedSnapshot = {
+    ...selectedProduct,
+    giftOverrides: selectedOverrides,
+    customGiftItems: (selectedProduct.customGiftItems ?? [])
+      .filter((item) => !Array.isArray(selectedGiftKeys) || isGiftItemSelected(selectedGiftKeys, item))
+      .map(compactItem),
+    customPhysicalItems: (selectedProduct.customPhysicalItems ?? [])
+      .filter((item) => !Array.isArray(selectedPhysicalKeys) || isGiftItemSelected(selectedPhysicalKeys, item))
+      .map(compactItem),
+  };
 
   // 全年课程库已随应用发布，短链无需再保存同一份大体量数据。
   // 读取快照时 migrateStoredProduct 会自动补回内置课程库。
@@ -5094,10 +5126,10 @@ function buildShareSnapshotProducts(products, selectedProduct) {
       status: product.status,
       customGiftItems: (product.customGiftItems ?? []).filter((item) => (
         !Array.isArray(selectedGiftKeys) || isGiftItemSelected(selectedGiftKeys, item)
-      )),
+      )).map(compactItem),
       customPhysicalItems: (product.customPhysicalItems ?? []).filter((item) => (
         !Array.isArray(selectedPhysicalKeys) || isGiftItemSelected(selectedPhysicalKeys, item)
-      )),
+      )).map(compactItem),
     }))
     .filter((product) => product.customGiftItems.length || product.customPhysicalItems.length || giftCatalog[product.id]);
 
