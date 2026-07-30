@@ -4756,21 +4756,18 @@ function GiftRuleList({ giftPlan }) {
     <div className="gift-rule-wrap">
       <div className="detail-gift-groups">
         {courseGroups.map((group) => {
-          const cardLayouts = group.items.map(getGiftCardLayout);
+          const hasUnpairedCard = group.items.length > 1 && group.items.length % 2 === 1;
 
           return (
-            <section className={`detail-gift-group ${group.category === "升学赋能包" ? "smart-growth-group" : ""}`} key={group.category}>
+            <section className="detail-gift-group" key={group.category}>
               <header><span>{group.index}</span><div><strong>{group.category}</strong><small>{group.note}</small></div></header>
-              <div className={`gift-poster-grid adaptive-gift-grid is-count-${group.items.length}`}>
+              <div className={`gift-v3-grid is-count-${group.items.length} ${hasUnpairedCard ? "has-unpaired-card" : ""}`}>
                 {group.items.map((item, index) => {
-                  const layout = cardLayouts[index];
                   return (
                     <GiftPosterCard
                       item={item}
                       index={index}
                       key={`${item.name}-${index}`}
-                      layout={layout}
-                      horizontal={group.items.length === 1}
                     />
                   );
                 })}
@@ -4783,16 +4780,7 @@ function GiftRuleList({ giftPlan }) {
   );
 }
 
-function getGiftCardLayout(item) {
-  if (item.subjectVariants?.length > 1) return "expanded";
-  const outlineLines = getGiftOutlineLines(item);
-  const outlineCharacters = outlineLines.reduce((total, line) => total + String(line).length, 0);
-  const longestLine = outlineLines.reduce((max, line) => Math.max(max, String(line).length), 0);
-  const isCompact = outlineLines.length <= 6 && outlineCharacters <= 120 && longestLine <= 24;
-  return isCompact ? "compact" : "expanded";
-}
-
-function GiftPosterCard({ item, index, layout = "compact", horizontal = false }) {
+function GiftPosterCard({ item, index }) {
   if (item.subjectVariants?.length > 1) {
     return <GiftSubjectCollectionCard item={item} index={index} />;
   }
@@ -4802,35 +4790,27 @@ function GiftPosterCard({ item, index, layout = "compact", horizontal = false })
   const showValue = item.value && !String(item.value).includes("待补充");
   const image = getGiftImage(item);
   const outlineLines = getGiftOutlineLines(item);
-  const hasLongOutline = outlineLines.length >= 10;
+  const hasLongOutline = outlineLines.length > 10;
   return (
-    <article className={`gift-poster-card simplified ${tone} is-${layout} ${horizontal ? "is-horizontal" : ""} ${layout === "expanded" ? "is-wide" : ""} ${hasLongOutline ? "has-long-outline course-card-layout" : ""}`}>
-      <div className="gift-poster-image">
-        {showValue ? <em className="gift-value-badge">价值 {item.value}</em> : null}
+    <article className={`gift-v3-card ${tone} ${hasLongOutline ? "has-long-outline" : ""}`}>
+      <div className="gift-v3-image">
+        {showValue ? <em className="gift-v3-value">价值 {item.value}</em> : null}
         {image ? <img src={assetUrl(image)} alt={getGiftDisplayName(item)} /> : <span>{getGiftDisplayName(item)}</span>}
       </div>
-      <header>
+      <header className="gift-v3-title">
         <strong>{getGiftDisplayName(item)}</strong>
       </header>
-      <div className="gift-poster-summary">
+      <div className="gift-v3-body">
         <strong>{getGiftLessonCount(item)}</strong>
         <p>{getGiftMainContent(item)}</p>
         {outlineLines.length ? (
-          <div className={`gift-course-outline${hasLongOutline ? " is-split-outline" : ""}`}>
+          <div className="gift-v3-outline">
             <span>课程大纲</span>
-            {hasLongOutline ? (
-              <ol className="is-two-column-outline">
-                {outlineLines.map((outline, outlineIndex) => (
-                  <li className={outline.length >= 11 ? "is-long-label" : ""} key={`${item.name}-outline-${outlineIndex}`}>{outline}</li>
-                ))}
-              </ol>
-            ) : (
-              <ol>
-                {outlineLines.map((outline, outlineIndex) => (
-                  <li className={outline.length >= 11 ? "is-long-label" : ""} key={`${item.name}-outline-${outlineIndex}`}>{outline}</li>
-                ))}
-              </ol>
-            )}
+            <ol>
+              {outlineLines.map((outline, outlineIndex) => (
+                <li key={`${item.name}-outline-${outlineIndex}`}>{outline}</li>
+              ))}
+            </ol>
           </div>
         ) : null}
       </div>
@@ -4887,37 +4867,40 @@ function GiftSubjectCollectionCard({ item, index }) {
   const image = getGiftImage(item);
 
   return (
-    <article className={`gift-subject-collection ${tone}`}>
-      <div className="gift-collection-hero">
-        <div className="gift-poster-image">
-          {showValue ? <em className="gift-value-badge">价值 {item.value}</em> : null}
+    <article className={`gift-v3-collection ${tone}`}>
+      <div className="gift-v3-collection-hero">
+        <div className="gift-v3-image">
+          {showValue ? <em className="gift-v3-value">价值 {item.value}</em> : null}
           {image ? <img src={assetUrl(image)} alt={item.name} /> : <span>{item.name}</span>}
         </div>
-        <header>
+        <header className="gift-v3-title">
           <strong>{item.name}</strong>
-          <div className="gift-collection-subjects">
+          <div className="gift-v3-subjects">
             <span>赠送学科</span>
             {item.giftSubjects.map((subject) => <em key={`${item._displayKey}-${subject}`}>{subject}</em>)}
           </div>
         </header>
       </div>
-      <div className={`gift-subject-variant-grid is-count-${item.subjectVariants.length}`}>
-        {item.subjectVariants.map((variant) => (
-          <section className="gift-subject-variant" key={`${item._displayKey}-${variant.subject}`}>
-            <header><strong>{variant.subject}</strong>{variant.lessonCount ? <b>{variant.lessonCount}</b> : null}</header>
-            {variant.overview ? <p>{variant.overview}</p> : null}
-            {variant.outlines.length ? (
-              <div className="gift-course-outline">
-                <span>课程大纲</span>
-                <ol>
-                  {variant.outlines.map((outline, outlineIndex) => (
-                    <li className={outline.length >= 11 ? "is-long-label" : ""} key={`${item._displayKey}-${variant.subject}-${outlineIndex}`}>{outline}</li>
-                  ))}
-                </ol>
-              </div>
-            ) : null}
-          </section>
-        ))}
+      <div className={`gift-v3-variant-grid is-count-${item.subjectVariants.length}`}>
+        {item.subjectVariants.map((variant) => {
+          const hasLongOutline = variant.outlines.length > 10;
+          return (
+            <section className={`gift-v3-variant ${hasLongOutline ? "has-long-outline" : ""}`} key={`${item._displayKey}-${variant.subject}`}>
+              <header><strong>{variant.subject}</strong>{variant.lessonCount ? <b>{variant.lessonCount}</b> : null}</header>
+              {variant.overview ? <p>{variant.overview}</p> : null}
+              {variant.outlines.length ? (
+                <div className="gift-v3-outline">
+                  <span>课程大纲</span>
+                  <ol>
+                    {variant.outlines.map((outline, outlineIndex) => (
+                      <li key={`${item._displayKey}-${variant.subject}-${outlineIndex}`}>{outline}</li>
+                    ))}
+                  </ol>
+                </div>
+              ) : null}
+            </section>
+          );
+        })}
       </div>
     </article>
   );

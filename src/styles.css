@@ -863,267 +863,6 @@ textarea {
   letter-spacing: 0;
 }
 
-.gift-poster-card.simplified {
-  display: grid;
-  grid-template-rows: auto auto 1fr;
-}
-
-.gift-poster-card.simplified .gift-poster-image {
-  position: relative;
-  aspect-ratio: 16 / 9;
-  padding: 0;
-  background: #f8fafc;
-}
-
-.gift-poster-card.simplified .gift-poster-image img {
-  object-fit: contain;
-}
-
-.gift-poster-card.simplified .gift-poster-image > em {
-  position: absolute;
-  z-index: 1;
-  top: 10px;
-  left: 10px;
-  padding: 5px 9px;
-  color: #ffffff;
-  background: #3b82f6;
-  border-radius: 5px;
-  font-style: normal;
-  font-size: 12px;
-  font-weight: 900;
-}
-
-.gift-poster-card.simplified .gift-poster-image > span {
-  display: grid;
-  width: 100%;
-  height: 100%;
-  place-items: center;
-  padding: 20px;
-  color: #31517e;
-  text-align: center;
-  font-weight: 900;
-}
-
-.gift-poster-card.simplified header {
-  min-height: 48px;
-  padding: 10px 14px;
-}
-
-.gift-poster-summary {
-  display: grid;
-  align-content: start;
-  gap: 8px;
-  padding: 13px 15px 16px;
-}
-
-.gift-poster-summary > strong {
-  color: #ea580c;
-  font-size: 14px;
-}
-
-.gift-poster-summary > p {
-  margin: 0;
-  color: #475569;
-  font-size: 13px;
-  line-height: 1.55;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.course-card-layout,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.course-card-layout,
-.benefit-sheet.view-detail .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.simplified.is-wide.has-long-outline.course-card-layout,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.simplified.is-wide.has-long-outline.course-card-layout {
-  grid-column: 1 / -1 !important;
-  display: grid !important;
-  width: 100% !important;
-  grid-template-columns: minmax(0, 1fr) !important;
-  grid-template-rows: auto auto auto !important;
-  align-items: start !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.course-card-layout .gift-poster-image,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.course-card-layout .gift-poster-image,
-.benefit-sheet.view-detail .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.simplified.is-wide.has-long-outline.course-card-layout .gift-poster-image,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.simplified.is-wide.has-long-outline.course-card-layout .gift-poster-image {
-  grid-column: 1 !important;
-  grid-row: 1 !important;
-  display: grid !important;
-  place-items: center !important;
-  width: 100% !important;
-  height: auto !important;
-  min-height: 0 !important;
-  aspect-ratio: auto !important;
-  min-height: 190px !important;
-  max-height: 220px !important;
-  padding: 10px 18px !important;
-  border-right: 0 !important;
-  border-bottom: 1px solid #e2e8f0 !important;
-  background: linear-gradient(135deg, #fffaf2, #f7fbff) !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.course-card-layout .gift-poster-image img,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.course-card-layout .gift-poster-image img {
-  width: min(560px, 76%) !important;
-  height: 100% !important;
-  max-height: 190px !important;
-  object-fit: contain !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.course-card-layout > header,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.course-card-layout > header,
-.benefit-sheet.view-detail .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.simplified.is-wide.has-long-outline.course-card-layout > header,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.simplified.is-wide.has-long-outline.course-card-layout > header {
-  grid-column: 1 !important;
-  grid-row: 2 !important;
-  min-height: 50px !important;
-  margin-top: 0 !important;
-  padding: 12px 18px !important;
-  text-align: center !important;
-  align-content: center !important;
-  border-right: 0 !important;
-  border-bottom: 1px solid #e2e8f0 !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.course-card-layout > header strong,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.course-card-layout > header strong {
-  font-size: 18px !important;
-  line-height: 1.25 !important;
-  white-space: nowrap !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.course-card-layout > .gift-poster-summary,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.course-card-layout > .gift-poster-summary,
-.benefit-sheet.view-detail .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.simplified.is-wide.has-long-outline.course-card-layout > .gift-poster-summary,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.simplified.is-wide.has-long-outline.course-card-layout > .gift-poster-summary {
-  grid-column: 1 !important;
-  grid-row: 3 !important;
-  padding: 14px 22px 18px !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.course-card-layout .gift-poster-summary > p,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.course-card-layout .gift-poster-summary > p {
-  margin: -2px 0 2px !important;
-  color: #52657f !important;
-  font-size: 13px !important;
-  line-height: 1.5 !important;
-  white-space: nowrap !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.course-card-layout .is-two-column-outline,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.course-card-layout .is-two-column-outline {
-  display: grid !important;
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  gap: 9px 36px !important;
-  padding-left: 0 !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.course-card-layout .is-two-column-outline li,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.course-card-layout .is-two-column-outline li {
-  display: grid !important;
-  grid-template-columns: auto minmax(0, 1fr) !important;
-  gap: 8px !important;
-  white-space: nowrap !important;
-  overflow: visible !important;
-  text-overflow: clip !important;
-  font-size: 13px !important;
-  line-height: 1.45 !important;
-}
-
-.detail-gift-groups .gift-poster-card.simplified.course-card-layout {
-  grid-column: 1 / -1 !important;
-  display: grid !important;
-  width: 100% !important;
-  grid-template-columns: minmax(0, 1fr) !important;
-  grid-template-rows: auto auto auto !important;
-  align-items: start !important;
-}
-
-.detail-gift-groups .gift-poster-card.simplified.course-card-layout .gift-poster-image {
-  grid-column: 1 !important;
-  grid-row: 1 !important;
-  display: grid !important;
-  place-items: center !important;
-  width: 100% !important;
-  height: auto !important;
-  min-height: 190px !important;
-  max-height: 220px !important;
-  aspect-ratio: auto !important;
-  padding: 10px 18px !important;
-  border-right: 0 !important;
-  border-bottom: 1px solid #e2e8f0 !important;
-  background: linear-gradient(135deg, #fffaf2, #f7fbff) !important;
-}
-
-.detail-gift-groups .gift-poster-card.simplified.course-card-layout .gift-poster-image img {
-  width: min(560px, 76%) !important;
-  height: 100% !important;
-  max-height: 190px !important;
-  object-fit: contain !important;
-}
-
-.detail-gift-groups .gift-poster-card.simplified.course-card-layout > header {
-  grid-column: 1 !important;
-  grid-row: 2 !important;
-  display: grid !important;
-  place-items: center !important;
-  height: 56px !important;
-  min-height: 56px !important;
-  margin-top: 0 !important;
-  padding: 0 18px !important;
-  color: #ffffff !important;
-  text-align: center !important;
-  align-content: center !important;
-  border-right: 0 !important;
-  border-bottom: 1px solid #e2e8f0 !important;
-  background: linear-gradient(135deg, #8b5cf6, #6d28d9) !important;
-}
-
-.detail-gift-groups .gift-poster-card.simplified.course-card-layout.orange > header {
-  background: linear-gradient(135deg, #fb923c, #ea580c) !important;
-}
-
-.detail-gift-groups .gift-poster-card.simplified.course-card-layout.green > header {
-  background: linear-gradient(135deg, #34d399, #059669) !important;
-}
-
-.detail-gift-groups .gift-poster-card.simplified.course-card-layout.blue > header,
-.detail-gift-groups .gift-poster-card.simplified.course-card-layout.cyan > header {
-  background: linear-gradient(135deg, #38bdf8, #2563eb) !important;
-}
-
-.detail-gift-groups .gift-poster-card.simplified.course-card-layout > header strong {
-  font-size: 18px !important;
-  line-height: 1.25 !important;
-  white-space: nowrap !important;
-}
-
-.detail-gift-groups .gift-poster-card.simplified.course-card-layout > .gift-poster-summary {
-  grid-column: 1 !important;
-  grid-row: 3 !important;
-  padding: 14px 22px 18px !important;
-}
-
-.detail-gift-groups .gift-poster-card.simplified.course-card-layout .gift-poster-summary > p,
-.detail-gift-groups .gift-poster-card.simplified.course-card-layout .gift-poster-summary > strong {
-  white-space: nowrap !important;
-}
-
-.detail-gift-groups .gift-poster-card.simplified.course-card-layout .is-two-column-outline {
-  display: grid !important;
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  gap: 9px 36px !important;
-  padding-left: 0 !important;
-}
-
-.detail-gift-groups .gift-poster-card.simplified.course-card-layout .is-two-column-outline li {
-  display: grid !important;
-  grid-template-columns: auto minmax(0, 1fr) !important;
-  gap: 8px !important;
-  white-space: nowrap !important;
-  overflow: visible !important;
-  text-overflow: clip !important;
-  font-size: 13px !important;
-  line-height: 1.45 !important;
-}
 
 .export-download-toast {
   position: fixed;
@@ -1176,119 +915,6 @@ textarea {
   background: #eef5ff;
 }
 
-/* Absolute final gift-card layout guard.
-   Put at EOF so later legacy/detail/export blocks cannot revert single-card or long-growth cards. */
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 {
-  grid-template-columns: minmax(0, 1fr) !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified:not(.has-long-outline),
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified:not(.has-long-outline),
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.is-horizontal,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.is-horizontal {
-  grid-column: 1 / -1 !important;
-  display: grid !important;
-  width: 100% !important;
-  grid-template-columns: minmax(300px, 0.38fr) minmax(0, 0.62fr) !important;
-  grid-template-rows: auto 1fr !important;
-  align-items: stretch !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified:not(.has-long-outline) .gift-poster-image,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified:not(.has-long-outline) .gift-poster-image,
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.is-horizontal .gift-poster-image,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.is-horizontal .gift-poster-image {
-  display: grid !important;
-  place-items: center !important;
-  grid-column: 1 !important;
-  grid-row: 1 / span 2 !important;
-  width: 100% !important;
-  height: auto !important;
-  min-height: 0 !important;
-  aspect-ratio: auto !important;
-  border-right: 1px solid #e2e8f0 !important;
-  border-bottom: 0 !important;
-  background: #f8fafc !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.is-horizontal .gift-poster-image img,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.is-horizontal .gift-poster-image img {
-  width: 100% !important;
-  height: auto !important;
-  max-height: none !important;
-  object-fit: contain !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified:not(.has-long-outline) > header,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified:not(.has-long-outline) > header,
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.is-horizontal > header,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.is-horizontal > header {
-  grid-column: 2 !important;
-  grid-row: 1 !important;
-  margin-top: 0 !important;
-  min-height: 52px !important;
-  align-content: center !important;
-  border-right: 0 !important;
-  border-bottom: 1px solid #e2e8f0 !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified:not(.has-long-outline) > .gift-poster-summary,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified:not(.has-long-outline) > .gift-poster-summary,
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.is-horizontal > .gift-poster-summary,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.is-horizontal > .gift-poster-summary {
-  grid-column: 2 !important;
-  grid-row: 2 !important;
-  align-content: start !important;
-  padding: 14px 18px !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline .is-two-column-outline,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline .is-two-column-outline {
-  display: grid !important;
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  gap: 8px 22px !important;
-}
-
-/* Course-card final form: value + image on top, title divider, details below. */
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline,
-.benefit-sheet.view-detail .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.simplified.is-wide.has-long-outline,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.simplified.is-wide.has-long-outline {
-  grid-column: 1 / -1 !important;
-  display: grid !important;
-  width: 100% !important;
-  grid-template-columns: minmax(0, 1fr) !important;
-  grid-template-rows: auto auto auto !important;
-  align-items: start !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-poster-image,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-poster-image,
-.benefit-sheet.view-detail .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.simplified.is-wide.has-long-outline .gift-poster-image,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.simplified.is-wide.has-long-outline .gift-poster-image {
-  grid-column: 1 !important;
-  grid-row: 1 !important;
-  display: grid !important;
-  place-items: center !important;
-  width: 100% !important;
-  height: auto !important;
-  min-height: 0 !important;
-  aspect-ratio: auto !important;
-  padding: 12px 18px !important;
-  border-right: 0 !important;
-  border-bottom: 1px solid #e2e8f0 !important;
-  background: linear-gradient(135deg, #fffaf2, #f7fbff) !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-poster-image img,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-poster-image img {
-  width: min(340px, 100%) !important;
-  height: auto !important;
-  max-height: 191px !important;
-  aspect-ratio: 16 / 9 !important;
-  object-fit: contain !important;
-}
 
 /* Summary-card typography contract: every card uses the same left edge,
    title/metric baseline and description rhythm. */
@@ -1368,44 +994,297 @@ textarea {
   }
 }
 
-/* Canonical course-card system: equal media, equal hierarchy, content-aware width. */
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.adaptive-gift-grid,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.adaptive-gift-grid,
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.adaptive-gift-grid.is-three-up,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.adaptive-gift-grid.is-three-up {
-  display: grid !important;
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  grid-auto-flow: row !important;
-  align-items: start !important;
-  gap: 14px !important;
+/* Gift detail V3
+   This isolated component is the only active detailed gift-course layout.
+   Historical gift-poster selectors cannot affect it. */
+.gift-v3-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-flow: row;
+  align-items: start;
+  gap: 14px;
+  padding: 16px;
 }
 
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified {
-  grid-column: auto !important;
-  display: grid !important;
-  grid-template-columns: minmax(0, 1fr) !important;
-  grid-template-rows: 210px auto 1fr !important;
-  width: 100% !important;
-  max-width: none !important;
-  min-height: 0 !important;
-  align-items: stretch !important;
-  justify-self: stretch !important;
+.gift-v3-grid.is-count-1 {
+  grid-template-columns: minmax(0, 1fr);
 }
 
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.is-expanded,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.is-expanded,
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.has-long-outline,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.has-long-outline {
-  grid-column: 1 / -1 !important;
+.gift-v3-grid.has-unpaired-card > :last-child {
+  grid-column: 1 / -1;
 }
 
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified.is-compact,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified.is-compact {
-  grid-column: 1 / -1 !important;
-  width: 100% !important;
-  justify-self: center !important;
+.gift-v3-card,
+.gift-v3-collection {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #cfe0f7;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 7px 18px rgba(38, 79, 130, 0.06);
 }
+
+.gift-v3-card {
+  display: grid;
+  grid-template-rows: 220px auto auto;
+  align-self: start;
+}
+
+.gift-v3-image {
+  position: relative;
+  display: grid;
+  width: 100%;
+  height: 220px;
+  min-height: 220px;
+  padding: 12px 16px;
+  place-items: center;
+  overflow: hidden;
+  border-bottom: 1px solid #e2e8f0;
+  background: linear-gradient(135deg, #fffaf2, #f8fbff);
+}
+
+.gift-v3-image img {
+  display: block;
+  width: min(100%, 520px);
+  height: 196px;
+  max-width: 100%;
+  max-height: 196px;
+  object-fit: contain;
+}
+
+.gift-v3-image > span {
+  color: #31517e;
+  text-align: center;
+  font-weight: 800;
+}
+
+.gift-v3-value {
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  left: 10px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  color: #ffffff;
+  background: #3b82f6;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.18);
+  font-style: normal;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.gift-v3-title {
+  display: grid;
+  width: 100%;
+  min-height: 58px;
+  padding: 11px 16px;
+  place-items: center;
+  color: #ffffff;
+  background: linear-gradient(135deg, #32b8f0, #1766ed);
+  text-align: center;
+}
+
+.gift-v3-card.orange > .gift-v3-title,
+.gift-v3-collection.orange .gift-v3-collection-hero > .gift-v3-title {
+  background: linear-gradient(135deg, #ff9d2e, #f45b13);
+}
+
+.gift-v3-card.purple > .gift-v3-title,
+.gift-v3-collection.purple .gift-v3-collection-hero > .gift-v3-title {
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+}
+
+.gift-v3-card.green > .gift-v3-title,
+.gift-v3-collection.green .gift-v3-collection-hero > .gift-v3-title {
+  background: linear-gradient(135deg, #22c997, #059669);
+}
+
+.gift-v3-title > strong {
+  max-width: 100%;
+  color: inherit;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  font-size: 20px;
+  line-height: 1.35;
+}
+
+.gift-v3-body {
+  display: grid;
+  min-width: 0;
+  padding: 15px 18px 19px;
+  align-content: start;
+  gap: 9px;
+}
+
+.gift-v3-body > strong {
+  color: #ea580c;
+  font-size: 15px;
+}
+
+.gift-v3-body > p,
+.gift-v3-variant > p {
+  margin: 0;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.gift-v3-outline {
+  min-width: 0;
+  margin-top: 2px;
+  padding-top: 11px;
+  border-top: 1px solid #dbe4f0;
+}
+
+.gift-v3-outline > span {
+  display: block;
+  margin-bottom: 10px;
+  color: #17365f;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.gift-v3-outline ol {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 8px;
+  margin: 0;
+  padding-left: 23px;
+}
+
+.gift-v3-card.has-long-outline .gift-v3-outline ol,
+.gift-v3-variant.has-long-outline .gift-v3-outline ol {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 24px;
+}
+
+.gift-v3-card.has-long-outline,
+.gift-v3-variant.has-long-outline {
+  grid-column: 1 / -1;
+}
+
+.gift-v3-outline li {
+  min-width: 0;
+  padding-left: 3px;
+  color: #334155;
+  white-space: normal;
+  overflow-wrap: break-word;
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.5;
+}
+
+.gift-v3-outline li::marker {
+  color: #f05223;
+  font-weight: 800;
+}
+
+.gift-v3-collection {
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
+.gift-v3-collection-hero {
+  display: grid;
+  grid-template-rows: 220px auto;
+}
+
+.gift-v3-collection-hero > .gift-v3-title {
+  min-height: 72px;
+  gap: 8px;
+}
+
+.gift-v3-subjects {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.gift-v3-subjects > span {
+  font-size: 12px;
+  opacity: 0.86;
+}
+
+.gift-v3-subjects > em {
+  padding: 3px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  color: inherit;
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.gift-v3-variant-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 12px;
+  padding: 14px;
+}
+
+.gift-v3-variant-grid.is-count-1 {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.gift-v3-variant-grid:is(.is-count-3, .is-count-5, .is-count-7, .is-count-9) > :last-child {
+  grid-column: 1 / -1;
+}
+
+.gift-v3-variant {
+  min-width: 0;
+  padding: 14px 15px 16px;
+  border: 1px solid #d8e3f2;
+  border-radius: 9px;
+  background: #f8fbff;
+}
+
+.gift-v3-variant > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 9px;
+}
+
+.gift-v3-variant > header strong {
+  color: #17365f;
+  font-size: 16px;
+}
+
+.gift-v3-variant > header b {
+  flex: 0 0 auto;
+  color: #ea580c;
+  font-size: 13px;
+}
+
+
+@media (max-width: 760px) {
+
+
+
+}
+
+
+@media (max-width: 760px) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
 
 /* Sales operation keeps the desktop information architecture on phones.
    The fixed viewport scales the complete two-column canvas instead of stacking it. */
@@ -1446,480 +1325,33 @@ textarea {
   }
 }
 
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified .gift-poster-image,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified .gift-poster-image,
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified .gift-poster-image,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified .gift-poster-image {
-  grid-column: 1 !important;
-  grid-row: 1 !important;
-  display: grid !important;
-  width: 100% !important;
-  height: 210px !important;
-  min-height: 210px !important;
-  padding: 10px 14px !important;
-  place-items: center !important;
-  align-self: start !important;
-  aspect-ratio: auto !important;
-  border-right: 0 !important;
-  border-bottom: 1px solid #e2e8f0 !important;
-  background: linear-gradient(135deg, #fffaf2, #f7fbff) !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified .gift-poster-image img,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified .gift-poster-image img,
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-poster-image img,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-poster-image img {
-  display: block !important;
-  width: min(390px, 100%) !important;
-  height: 190px !important;
-  max-width: 100% !important;
-  max-height: 190px !important;
-  margin: 0 auto !important;
-  aspect-ratio: 16 / 9 !important;
-  object-fit: contain !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified > header,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified > header,
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified > header,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified > header {
-  grid-column: 1 !important;
-  grid-row: 2 !important;
-  display: grid !important;
-  min-height: 54px !important;
-  margin: 0 !important;
-  padding: 10px 16px !important;
-  place-items: center !important;
-  text-align: center !important;
-  border-right: 0 !important;
-  border-bottom: 1px solid #e2e8f0 !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified > .gift-poster-summary,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified > .gift-poster-summary,
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified > .gift-poster-summary,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified > .gift-poster-summary {
-  grid-column: 1 !important;
-  grid-row: 3 !important;
-  padding: 14px 18px 18px !important;
-  align-content: start !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-subject-collection .gift-collection-hero {
-  grid-template-columns: 410px minmax(0, 1fr);
-  align-items: center;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-subject-collection .gift-poster-image {
-  width: 100% !important;
-  height: 210px !important;
-  min-height: 210px !important;
-  padding: 10px 14px !important;
-  aspect-ratio: auto !important;
-  place-items: center !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-subject-collection .gift-poster-image img {
-  width: min(390px, 100%) !important;
-  height: 190px !important;
-  max-height: 190px !important;
-  aspect-ratio: 16 / 9 !important;
-  object-fit: contain !important;
-}
 
 @media (max-width: 760px) {
-  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .gift-poster-grid.adaptive-gift-grid,
-  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .gift-poster-grid.adaptive-gift-grid.is-three-up {
-    grid-template-columns: minmax(0, 1fr) !important;
-  }
 
-  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified.is-compact {
-    width: 100% !important;
-  }
 
-  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .gift-subject-collection .gift-collection-hero {
-    grid-template-columns: minmax(0, 1fr);
-  }
+
+
+
 }
 
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline > header,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline > header,
-.benefit-sheet.view-detail .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.simplified.is-wide.has-long-outline > header,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.simplified.is-wide.has-long-outline > header {
-  grid-column: 1 !important;
-  grid-row: 2 !important;
-  min-height: 58px !important;
-  margin-top: 0 !important;
-  padding: 12px 18px !important;
-  text-align: center !important;
-  align-content: center !important;
-  border-right: 0 !important;
-  border-bottom: 1px solid #e2e8f0 !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline > header strong,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline > header strong {
-  font-size: 18px !important;
-  line-height: 1.25 !important;
-  white-space: nowrap !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline > .gift-poster-summary,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline > .gift-poster-summary,
-.benefit-sheet.view-detail .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.simplified.is-wide.has-long-outline > .gift-poster-summary,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.simplified.is-wide.has-long-outline > .gift-poster-summary {
-  grid-column: 1 !important;
-  grid-row: 3 !important;
-  padding: 16px 22px 20px !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-poster-summary > strong,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-poster-summary > strong {
-  font-size: 15px !important;
-  white-space: nowrap !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-course-outline,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-course-outline {
-  padding-top: 12px !important;
-  border-top: 1px solid #e2e8f0 !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-course-outline > span,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-course-outline > span {
-  display: block !important;
-  margin-bottom: 10px !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline .is-two-column-outline,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline .is-two-column-outline {
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  gap: 9px 36px !important;
-  padding-left: 0 !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline .is-two-column-outline li,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline .is-two-column-outline li {
-  display: grid !important;
-  grid-template-columns: auto minmax(0, 1fr) !important;
-  gap: 8px !important;
-  white-space: normal !important;
-  overflow: visible !important;
-  text-overflow: clip !important;
-  overflow-wrap: break-word !important;
-  word-break: normal !important;
-  font-size: 13px !important;
-  line-height: 1.45 !important;
-}
-
-/* Course card layout contract.
-   Card width follows content volume; media size and information order never change. */
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid,
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid.is-three-up,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid.is-three-up {
-  display: grid !important;
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  grid-auto-flow: row !important;
-  align-items: start !important;
-  gap: 14px !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified {
-  grid-column: auto !important;
-  display: grid !important;
-  grid-template-columns: minmax(0, 1fr) !important;
-  grid-template-rows: 210px auto 1fr !important;
-  width: 100% !important;
-  max-width: none !important;
-  min-height: 0 !important;
-  align-items: stretch !important;
-  justify-self: stretch !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified.is-expanded,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified.is-expanded,
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified.has-long-outline,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified.has-long-outline {
-  grid-column: 1 / -1 !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid.is-count-1 > .gift-poster-card.simplified.is-compact,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid.is-count-1 > .gift-poster-card.simplified.is-compact {
-  grid-column: 1 / -1 !important;
-  width: 100% !important;
-  justify-self: center !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid.is-count-3 > .gift-poster-card.simplified.is-compact:last-child,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid.is-count-3 > .gift-poster-card.simplified.is-compact:last-child {
-  grid-column: 1 / -1 !important;
-  width: min(100%, calc((100% - 14px) / 2)) !important;
-  justify-self: center !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified .gift-poster-image,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified .gift-poster-image {
-  grid-column: 1 !important;
-  grid-row: 1 !important;
-  display: grid !important;
-  width: 100% !important;
-  height: 210px !important;
-  min-height: 210px !important;
-  padding: 10px 14px !important;
-  place-items: center !important;
-  align-self: start !important;
-  aspect-ratio: auto !important;
-  border-right: 0 !important;
-  border-bottom: 1px solid #e2e8f0 !important;
-  background: linear-gradient(135deg, #fffaf2, #f7fbff) !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified .gift-poster-image img,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified .gift-poster-image img {
-  display: block !important;
-  width: min(390px, 100%) !important;
-  height: 190px !important;
-  max-width: 100% !important;
-  max-height: 190px !important;
-  margin: 0 auto !important;
-  aspect-ratio: 16 / 9 !important;
-  object-fit: contain !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified > header,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified > header {
-  grid-column: 1 !important;
-  grid-row: 2 !important;
-  display: grid !important;
-  min-height: 54px !important;
-  margin: 0 !important;
-  padding: 10px 16px !important;
-  place-items: center !important;
-  text-align: center !important;
-  border-right: 0 !important;
-  border-bottom: 1px solid #e2e8f0 !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified > .gift-poster-summary,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified > .gift-poster-summary {
-  grid-column: 1 !important;
-  grid-row: 3 !important;
-  padding: 14px 18px 18px !important;
-  align-content: start !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-subject-collection .gift-collection-hero {
-  grid-template-columns: 410px minmax(0, 1fr) !important;
-  align-items: center !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-subject-collection .gift-poster-image {
-  width: 100% !important;
-  height: 210px !important;
-  min-height: 210px !important;
-  padding: 10px 14px !important;
-  aspect-ratio: auto !important;
-  place-items: center !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-subject-collection .gift-poster-image img {
-  width: min(390px, 100%) !important;
-  height: 190px !important;
-  max-height: 190px !important;
-  aspect-ratio: 16 / 9 !important;
-  object-fit: contain !important;
-}
 
 @media (max-width: 760px) {
-  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .adaptive-gift-grid,
-  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .adaptive-gift-grid.is-three-up {
-    grid-template-columns: minmax(0, 1fr) !important;
-  }
 
-  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .adaptive-gift-grid.is-count-1 > .gift-poster-card.simplified.is-compact,
-  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .adaptive-gift-grid.is-count-3 > .gift-poster-card.simplified.is-compact:last-child {
-    width: 100% !important;
-  }
 
-  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .gift-subject-collection .gift-collection-hero {
-    grid-template-columns: minmax(0, 1fr) !important;
-  }
+
+
+
 }
 
-/* Definitive card sizing — keep this final so legacy layout variants cannot override it. */
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid,
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid.is-three-up,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid.is-three-up {
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  grid-auto-flow: row !important;
-  align-items: start !important;
-  gap: 14px !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified {
-  grid-column: auto !important;
-  display: grid !important;
-  grid-template-columns: minmax(0, 1fr) !important;
-  grid-template-rows: 210px auto 1fr !important;
-  width: 100% !important;
-  max-width: none !important;
-  min-height: 0 !important;
-  justify-self: stretch !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified.is-expanded,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified.is-expanded,
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified.has-long-outline,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified.has-long-outline {
-  grid-column: 1 / -1 !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid.is-count-1 > .gift-poster-card.simplified.is-compact,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid.is-count-1 > .gift-poster-card.simplified.is-compact {
-  grid-column: 1 / -1 !important;
-  width: min(100%, calc((100% - 14px) / 2)) !important;
-  justify-self: center !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified .gift-poster-image,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified .gift-poster-image {
-  grid-column: 1 !important;
-  grid-row: 1 !important;
-  display: grid !important;
-  width: 100% !important;
-  height: 210px !important;
-  min-height: 210px !important;
-  padding: 10px 14px !important;
-  place-items: center !important;
-  aspect-ratio: auto !important;
-  border-right: 0 !important;
-  border-bottom: 1px solid #e2e8f0 !important;
-  background: linear-gradient(135deg, #fffaf2, #f7fbff) !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified .gift-poster-image img,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified .gift-poster-image img {
-  width: min(390px, 100%) !important;
-  height: 190px !important;
-  max-width: 100% !important;
-  max-height: 190px !important;
-  margin: 0 auto !important;
-  aspect-ratio: 16 / 9 !important;
-  object-fit: contain !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified > header,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified > header {
-  grid-column: 1 !important;
-  grid-row: 2 !important;
-  display: grid !important;
-  min-height: 54px !important;
-  margin: 0 !important;
-  padding: 10px 16px !important;
-  place-items: center !important;
-  text-align: center !important;
-  border-right: 0 !important;
-  border-bottom: 1px solid #e2e8f0 !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified > .gift-poster-summary,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.simplified > .gift-poster-summary {
-  grid-column: 1 !important;
-  grid-row: 3 !important;
-  padding: 14px 18px 18px !important;
-  align-content: start !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-subject-collection .gift-collection-hero {
-  grid-template-columns: 410px minmax(0, 1fr) !important;
-  align-items: center !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-subject-collection .gift-poster-image {
-  display: grid !important;
-  width: 100% !important;
-  height: 210px !important;
-  min-height: 210px !important;
-  padding: 10px 14px !important;
-  place-items: center !important;
-  aspect-ratio: auto !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-subject-collection .gift-poster-image img {
-  width: min(390px, 100%) !important;
-  height: 190px !important;
-  max-height: 190px !important;
-  aspect-ratio: 16 / 9 !important;
-  object-fit: contain !important;
-}
 
 @media (max-width: 760px) {
-  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .adaptive-gift-grid,
-  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .adaptive-gift-grid.is-three-up {
-    grid-template-columns: minmax(0, 1fr) !important;
-  }
 
-  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .adaptive-gift-grid.is-count-1 > .gift-poster-card.simplified.is-compact {
-    width: 100% !important;
-  }
 
-  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .gift-subject-collection .gift-collection-hero {
-    grid-template-columns: minmax(0, 1fr) !important;
-  }
+
+
+
 }
 
-/* Unified detail gift media and value treatment. */
-.detail-gift-groups .gift-poster-image {
-  position: relative;
-  overflow: hidden;
-  align-self: start;
-  aspect-ratio: 16 / 9;
-  background: #f8fafc;
-}
-
-.detail-gift-groups .gift-poster-image img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.detail-gift-groups .gift-value-badge {
-  position: absolute;
-  z-index: 3;
-  top: 10px;
-  left: 10px;
-  display: inline-flex;
-  align-items: center;
-  min-height: 28px;
-  padding: 5px 10px;
-  color: #ffffff;
-  background: #3b82f6;
-  border-radius: 6px;
-  box-shadow: 0 5px 12px rgba(37, 99, 235, 0.2);
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 900;
-  line-height: 1;
-  white-space: nowrap;
-}
-
-.gift-collection-hero .gift-poster-image {
-  width: 100%;
-  min-height: 0;
-  padding: 0;
-  aspect-ratio: 16 / 9;
-}
-
-.gift-collection-hero .gift-poster-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
 
 .sales-toolbar-actions {
   display: flex;
@@ -2140,63 +1572,11 @@ textarea {
   }
 }
 
-/* Three short gift courses share one balanced row instead of leaving an orphan card. */
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid.is-three-up,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid.is-three-up {
-  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-  align-items: stretch !important;
-  gap: 12px !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid.is-three-up > .gift-poster-card.simplified.is-compact,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid.is-three-up > .gift-poster-card.simplified.is-compact {
-  grid-column: auto !important;
-  width: 100% !important;
-  min-width: 0 !important;
-  max-width: none !important;
-  height: 100% !important;
-  justify-self: stretch !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid.is-three-up .gift-poster-card.simplified.is-compact > header,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid.is-three-up .gift-poster-card.simplified.is-compact > header {
-  min-height: 50px !important;
-  padding: 9px 10px !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid.is-three-up .gift-poster-card.simplified.is-compact > header strong,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid.is-three-up .gift-poster-card.simplified.is-compact > header strong {
-  font-size: 14px !important;
-  line-height: 1.35 !important;
-  text-wrap: balance;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid.is-three-up .gift-poster-card.simplified.is-compact .gift-poster-summary,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid.is-three-up .gift-poster-card.simplified.is-compact .gift-poster-summary {
-  gap: 6px !important;
-  padding: 11px 12px 14px !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid.is-three-up .gift-poster-card.simplified.is-compact .gift-poster-summary > p,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid.is-three-up .gift-poster-card.simplified.is-compact .gift-poster-summary > p,
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid.is-three-up .gift-poster-card.simplified.is-compact .gift-course-outline ol,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid.is-three-up .gift-poster-card.simplified.is-compact .gift-course-outline ol {
-  font-size: 12px !important;
-  line-height: 1.5 !important;
-}
 
 @media (max-width: 720px) {
-  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .adaptive-gift-grid.is-three-up {
-    grid-template-columns: minmax(0, 1fr) !important;
-  }
+
 }
 
-/* Keep long-outline course artwork at the same visual size as a default card. */
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-poster-image img,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-poster-image img {
-  width: min(340px, 100%) !important;
-  max-height: 191px !important;
-}
 
 .bonus-subject-picker {
   display: grid;
@@ -2304,947 +1684,32 @@ textarea {
   .reference-bonus-course-overview > header { align-items: flex-start; flex-direction: column; }
 }
 
-/* Adaptive gift-course layout: compact courses pair up; content-heavy courses own a full row. */
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.adaptive-gift-grid:not(.is-three-up),
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.adaptive-gift-grid:not(.is-three-up) {
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  grid-auto-flow: row dense;
-  align-items: start;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.is-compact,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.is-compact {
-  grid-column: auto !important;
-  width: 100% !important;
-  max-width: none !important;
-  justify-self: stretch !important;
-  display: grid !important;
-  grid-template-columns: minmax(0, 1fr) !important;
-  grid-template-rows: 210px auto 1fr !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.is-compact.is-unpaired,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.is-compact.is-unpaired {
-  grid-column: 1 / -1 !important;
-  width: min(100%, 620px) !important;
-  justify-self: center !important;
-}
-
-/* A single compact course must keep the same top-to-bottom card structure. */
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.adaptive-gift-grid.is-count-1 > .gift-poster-card.simplified.is-compact.is-unpaired,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.adaptive-gift-grid.is-count-1 > .gift-poster-card.simplified.is-compact.is-unpaired {
-  grid-column: 1 / -1 !important;
-  display: grid !important;
-  width: min(100%, 620px) !important;
-  grid-template-columns: minmax(0, 1fr) !important;
-  grid-template-rows: auto auto auto !important;
-  justify-self: center !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.adaptive-gift-grid.is-count-1 > .gift-poster-card.simplified.is-compact.is-unpaired .gift-poster-image,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.adaptive-gift-grid.is-count-1 > .gift-poster-card.simplified.is-compact.is-unpaired .gift-poster-image {
-  grid-column: 1 !important;
-  grid-row: 1 !important;
-  width: 100% !important;
-  height: auto !important;
-  min-height: 0 !important;
-  aspect-ratio: 16 / 7 !important;
-  border-right: 0 !important;
-  border-bottom: 1px solid #e2e8f0 !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.adaptive-gift-grid.is-count-1 > .gift-poster-card.simplified.is-compact.is-unpaired > header,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.adaptive-gift-grid.is-count-1 > .gift-poster-card.simplified.is-compact.is-unpaired > header {
-  grid-column: 1 !important;
-  grid-row: 2 !important;
-  margin: 0 !important;
-  min-height: 54px !important;
-  border-right: 0 !important;
-  border-bottom: 1px solid #e2e8f0 !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.adaptive-gift-grid.is-count-1 > .gift-poster-card.simplified.is-compact.is-unpaired > .gift-poster-summary,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.adaptive-gift-grid.is-count-1 > .gift-poster-card.simplified.is-compact.is-unpaired > .gift-poster-summary {
-  grid-column: 1 !important;
-  grid-row: 3 !important;
-  padding: 14px 18px 18px !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.is-expanded,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.is-expanded {
-  grid-column: 1 / -1 !important;
-  width: 100% !important;
-  max-width: none !important;
-  justify-self: stretch !important;
-  display: grid !important;
-  grid-template-columns: minmax(0, 1fr) !important;
-  grid-template-rows: 210px auto 1fr !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.is-compact .gift-poster-image,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.is-compact .gift-poster-image,
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.is-expanded .gift-poster-image,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.is-expanded .gift-poster-image {
-  grid-column: 1 !important;
-  grid-row: 1 !important;
-  width: 100% !important;
-  height: 210px !important;
-  min-height: 210px !important;
-  aspect-ratio: auto !important;
-  padding: 10px 14px !important;
-  border-right: 0 !important;
-  border-bottom: 1px solid #e2e8f0 !important;
-  background: linear-gradient(135deg, #fffaf2, #f7fbff) !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.is-compact .gift-poster-image img,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.is-compact .gift-poster-image img,
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.is-expanded .gift-poster-image img,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.is-expanded .gift-poster-image img {
-  width: min(390px, 100%) !important;
-  height: 190px !important;
-  max-height: 190px !important;
-  margin: 0 auto !important;
-  aspect-ratio: 16 / 9 !important;
-  object-fit: contain !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.is-compact > header,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.is-compact > header,
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.is-expanded > header,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.is-expanded > header {
-  grid-column: 1 !important;
-  grid-row: 2 !important;
-  min-height: 54px !important;
-  margin: 0 !important;
-  padding: 10px 16px !important;
-  align-content: center !important;
-  text-align: center !important;
-  border-right: 0 !important;
-  border-bottom: 1px solid #e2e8f0 !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.is-compact > .gift-poster-summary,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.is-compact > .gift-poster-summary,
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.is-expanded > .gift-poster-summary,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.is-expanded > .gift-poster-summary {
-  grid-column: 1 !important;
-  grid-row: 3 !important;
-  padding: 14px 18px 18px !important;
-  align-content: start !important;
-}
 
 @media (max-width: 760px) {
-  .benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.adaptive-gift-grid {
-    grid-template-columns: minmax(0, 1fr) !important;
-  }
 
-  .benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.is-compact,
-  .benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid > .gift-poster-card.is-compact.is-unpaired {
-    grid-column: 1 !important;
-    width: 100% !important;
-  }
-}
-
-/* Final override: a gift group with one card must really fill the row. */
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 {
-  grid-template-columns: minmax(0, 1fr) !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified {
-  grid-column: 1 / -1 !important;
-  display: grid !important;
-  width: 100% !important;
-  grid-template-columns: minmax(300px, 0.38fr) minmax(0, 0.62fr) !important;
-  grid-template-rows: auto 1fr !important;
-  align-items: stretch !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified .gift-poster-image,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified .gift-poster-image {
-  grid-column: 1 !important;
-  grid-row: 1 / span 2 !important;
-  width: 100% !important;
-  height: 100% !important;
-  min-height: 230px !important;
-  aspect-ratio: auto !important;
-  border-right: 1px solid #e2e8f0 !important;
-  border-bottom: 0 !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified > header,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified > header {
-  grid-column: 2 !important;
-  grid-row: 1 !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified > .gift-poster-summary,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified > .gift-poster-summary {
-  grid-column: 2 !important;
-  grid-row: 2 !important;
-}
-
-/* FINAL: long outline cards must match the normal gift-card layout. */
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.has-long-outline,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.has-long-outline,
-.benefit-sheet.view-detail .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.simplified.is-wide.has-long-outline,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.simplified.is-wide.has-long-outline {
-  grid-column: 1 / -1 !important;
-  display: grid !important;
-  grid-template-columns: minmax(0, 1fr) !important;
-  grid-template-rows: 210px auto 1fr !important;
-  width: auto !important;
-  min-height: 0 !important;
-  align-items: stretch !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-poster-image,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-poster-image {
-  display: grid !important;
-  grid-column: 1 !important;
-  grid-row: 1 !important;
-  width: 100% !important;
-  height: auto !important;
-  min-height: 0 !important;
-  aspect-ratio: 16 / 9 !important;
-  padding: 0 !important;
-  border-right: 0 !important;
-  border-bottom: 0 !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline > header,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline > header {
-  grid-column: 1 !important;
-  grid-row: 2 !important;
-  min-height: 48px !important;
-  align-content: center !important;
-  margin-top: 0 !important;
-  padding: 10px 14px !important;
-  border-right: 0 !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline > .gift-poster-summary,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline > .gift-poster-summary {
-  grid-column: 1 !important;
-  grid-row: 3 !important;
-  align-content: start !important;
-  padding: 14px 16px 16px !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-course-outline,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-course-outline {
-  margin-top: 0 !important;
-  padding-top: 10px !important;
-  border-top: 1px solid #e2e8f0 !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-course-outline > span,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-course-outline > span {
-  display: block !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline .is-two-column-outline,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline .is-two-column-outline {
-  display: grid !important;
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  gap: 7px 18px !important;
-  margin: 0 !important;
-  padding-left: 18px !important;
-  font-size: 12px !important;
-  line-height: 1.45 !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline .is-two-column-outline li,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline .is-two-column-outline li {
-  min-width: 0 !important;
-  overflow: visible !important;
-  text-overflow: clip !important;
-  white-space: normal !important;
-  overflow-wrap: anywhere !important;
-}
-
-/* If a gift group has only one card, make it use the row instead of leaving a blank half page. */
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified {
-  grid-column: 1 / -1 !important;
-  display: grid !important;
-  grid-template-columns: minmax(260px, 0.42fr) minmax(0, 0.58fr) !important;
-  grid-template-rows: auto 1fr !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified .gift-poster-image,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified .gift-poster-image {
-  grid-column: 1 !important;
-  grid-row: 1 / span 2 !important;
-  height: 100% !important;
-  min-height: 220px !important;
-  aspect-ratio: auto !important;
-  border-right: 1px solid #e2e8f0 !important;
-  border-bottom: 0 !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified > header,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified > header {
-  grid-column: 2 !important;
-  grid-row: 1 !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified > .gift-poster-summary,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified > .gift-poster-summary {
-  grid-column: 2 !important;
-  grid-row: 2 !important;
-}
-
-/* FINAL gift card layout: match the subject gift cards in figure 2. */
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified,
-.benefit-sheet.view-detail .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.simplified.is-wide.has-long-outline,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.simplified.is-wide.has-long-outline {
-  grid-column: auto !important;
-  display: grid !important;
-  grid-template-columns: minmax(0, 1fr) !important;
-  grid-template-rows: 210px auto 1fr !important;
-  width: auto !important;
-  min-height: 0 !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified .gift-poster-image,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified .gift-poster-image {
-  display: grid !important;
-  grid-column: 1 !important;
-  grid-row: 1 !important;
-  width: 100% !important;
-  height: 210px !important;
-  min-height: 210px !important;
-  aspect-ratio: auto !important;
-  padding: 10px 14px !important;
-  border-right: 0 !important;
-  border-bottom: 0 !important;
-  background: linear-gradient(135deg, #fffaf2, #f7fbff) !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified .gift-poster-image img,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified .gift-poster-image img {
-  width: min(390px, 100%) !important;
-  height: 190px !important;
-  max-height: 190px !important;
-  margin: 0 auto !important;
-  aspect-ratio: 16 / 9 !important;
-  object-fit: contain !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified > header,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified > header {
-  grid-column: 1 !important;
-  grid-row: 2 !important;
-  min-height: 48px !important;
-  align-content: center !important;
-  margin-top: 0 !important;
-  padding: 10px 14px !important;
-  border-right: 0 !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified > .gift-poster-summary,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified > .gift-poster-summary {
-  grid-column: 1 !important;
-  grid-row: 3 !important;
-  align-content: start !important;
-  padding: 14px 16px 16px !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline > .gift-poster-summary,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline > .gift-poster-summary {
-  padding-right: 10px !important;
-  padding-left: 10px !important;
-}
-
-/* Final gift layout: keep growth gifts visually identical to subject gifts; only split long outlines into two readable columns. */
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline,
-.benefit-sheet.view-detail.is-exporting .gift-poster-card.simplified.has-long-outline,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide.has-long-outline {
-  grid-column: auto;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  grid-template-rows: auto auto 1fr;
-  min-height: 0;
-  align-items: stretch;
-}
-
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline .gift-poster-image,
-.benefit-sheet.view-detail.is-exporting .gift-poster-card.simplified.has-long-outline .gift-poster-image,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide.has-long-outline .gift-poster-image {
-  display: grid;
-  grid-column: auto;
-  grid-row: auto;
-  height: auto;
-  min-height: 0;
-  aspect-ratio: 16 / 9;
-  padding: 0;
-  border-right: 0;
-  border-bottom: 1px solid #eef2fb;
-}
-
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline > header,
-.benefit-sheet.view-detail.is-exporting .gift-poster-card.simplified.has-long-outline > header,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide.has-long-outline > header {
-  grid-column: auto;
-  grid-row: auto;
-  min-height: 48px;
-  align-content: initial;
-  margin-top: 0;
-  padding: 10px 14px;
-  border-right: 0;
-}
-
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline > .gift-poster-summary,
-.benefit-sheet.view-detail.is-exporting .gift-poster-card.simplified.has-long-outline > .gift-poster-summary,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide.has-long-outline > .gift-poster-summary {
-  grid-column: auto;
-  grid-row: auto;
-  align-content: start;
-  padding: 12px 14px 14px;
-}
-
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline .gift-course-outline,
-.benefit-sheet.view-detail.is-exporting .gift-poster-card.simplified.has-long-outline .gift-course-outline {
-  margin-top: 4px;
-  padding-top: 10px;
-  border-top: 1px solid #e2e8f0;
-}
-
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline .gift-course-outline > span,
-.benefit-sheet.view-detail.is-exporting .gift-poster-card.simplified.has-long-outline .gift-course-outline > span {
-  display: block;
-}
-
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline .is-two-column-outline,
-.benefit-sheet.view-detail.is-exporting .gift-poster-card.simplified.has-long-outline .is-two-column-outline {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 7px 20px;
-  margin: 0;
-  padding-left: 18px;
-  font-size: 11px;
-  line-height: 1.45;
-}
-
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline .is-two-column-outline li,
-.benefit-sheet.view-detail.is-exporting .gift-poster-card.simplified.has-long-outline .is-two-column-outline li {
-  break-inside: avoid;
-}
-
-/* Absolute final override: long gift outlines are compact one-row visual strips. */
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline,
-.benefit-sheet.view-detail.is-exporting .gift-poster-card.simplified.has-long-outline,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide.has-long-outline {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: 120px 180px minmax(0, 1fr);
-  grid-template-rows: 1fr;
-  min-height: 104px;
-  align-items: stretch;
-}
-
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline .gift-poster-image,
-.benefit-sheet.view-detail.is-exporting .gift-poster-card.simplified.has-long-outline .gift-poster-image,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide.has-long-outline .gift-poster-image {
-  display: grid;
-  grid-column: 1;
-  grid-row: 1;
-  height: 104px;
-  min-height: 0;
-  aspect-ratio: auto;
-  padding: 6px;
-  border-right: 1px solid #e2e8f0;
-  border-bottom: 0;
-}
-
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline > header,
-.benefit-sheet.view-detail.is-exporting .gift-poster-card.simplified.has-long-outline > header,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide.has-long-outline > header {
-  grid-column: 2;
-  grid-row: 1;
-  min-height: 104px;
-  align-content: center;
-  margin-top: 0;
-  padding: 10px 12px;
-  background: #ffffff;
-  border-right: 1px solid #e2e8f0;
-}
-
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline > header strong,
-.benefit-sheet.view-detail.is-exporting .gift-poster-card.simplified.has-long-outline > header strong {
-  font-size: 14px;
-  line-height: 1.3;
-}
-
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline > .gift-poster-summary,
-.benefit-sheet.view-detail.is-exporting .gift-poster-card.simplified.has-long-outline > .gift-poster-summary,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide.has-long-outline > .gift-poster-summary {
-  grid-column: 3;
-  grid-row: 1;
-  align-content: center;
-  padding: 8px 10px;
-}
-
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline .gift-poster-summary > strong,
-.benefit-sheet.view-detail.is-exporting .gift-poster-card.simplified.has-long-outline .gift-poster-summary > strong {
-  margin: 0 0 3px;
-  font-size: 12px;
-}
-
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline .gift-course-outline,
-.benefit-sheet.view-detail.is-exporting .gift-poster-card.simplified.has-long-outline .gift-course-outline,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide.has-long-outline .gift-course-outline {
-  margin-top: 0;
-  padding-top: 0;
-  border-top: 0;
-}
-
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline .gift-course-outline > span,
-.benefit-sheet.view-detail.is-exporting .gift-poster-card.simplified.has-long-outline .gift-course-outline > span {
-  display: none;
-}
-
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline .gift-outline-chip-flow,
-.benefit-sheet.view-detail.is-exporting .gift-poster-card.simplified.has-long-outline .gift-outline-chip-flow {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-}
-
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline .gift-outline-chip-flow em,
-.benefit-sheet.view-detail.is-exporting .gift-poster-card.simplified.has-long-outline .gift-outline-chip-flow em {
-  min-height: 22px;
-  max-width: 180px;
-  padding: 3px 7px;
-  font-size: 10px;
-}
-
-/* Real final rule: long cards keep the same poster structure as card 1; only the course list becomes two columns. */
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline,
-.benefit-sheet.view-detail.is-exporting .gift-poster-card.simplified.has-long-outline,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide.has-long-outline {
-  grid-column: auto;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  grid-template-rows: auto auto 1fr;
-  min-height: 0;
-  align-items: stretch;
-}
-
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline .gift-poster-image,
-.benefit-sheet.view-detail.is-exporting .gift-poster-card.simplified.has-long-outline .gift-poster-image,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide.has-long-outline .gift-poster-image {
-  display: grid;
-  grid-column: auto;
-  grid-row: auto;
-  height: auto;
-  min-height: 0;
-  aspect-ratio: 16 / 9;
-  padding: 0;
-  border-right: 0;
-  border-bottom: 0;
-}
-
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline > header,
-.benefit-sheet.view-detail.is-exporting .gift-poster-card.simplified.has-long-outline > header,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide.has-long-outline > header {
-  grid-column: auto;
-  grid-row: auto;
-  min-height: 48px;
-  align-content: center;
-  margin-top: 0;
-  padding: 10px 14px;
-  color: #ffffff;
-  background: linear-gradient(135deg, #13b7ff, #1768e8);
-  border-right: 0;
-}
-
-.gift-poster-card.simplified.orange.has-long-outline > header {
-  background: linear-gradient(135deg, #ff8d2c, #ff6617);
-}
-
-.gift-poster-card.simplified.purple.has-long-outline > header {
-  background: linear-gradient(135deg, #8b5cf6, #6d28d9);
-}
-
-.gift-poster-card.simplified.green.has-long-outline > header {
-  background: linear-gradient(135deg, #22c55e, #059669);
-}
-
-.gift-poster-card.simplified.blue.has-long-outline > header {
-  background: linear-gradient(135deg, #38bdf8, #2563eb);
-}
-
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline > header strong,
-.benefit-sheet.view-detail.is-exporting .gift-poster-card.simplified.has-long-outline > header strong {
-  color: #ffffff;
-  font-size: 17px;
-  line-height: 1.25;
-}
-
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline > .gift-poster-summary,
-.benefit-sheet.view-detail.is-exporting .gift-poster-card.simplified.has-long-outline > .gift-poster-summary,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide.has-long-outline > .gift-poster-summary {
-  grid-column: auto;
-  grid-row: auto;
-  align-content: start;
-  padding: 14px 16px 16px;
-}
-
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline .gift-course-outline,
-.benefit-sheet.view-detail.is-exporting .gift-poster-card.simplified.has-long-outline .gift-course-outline {
-  margin-top: 0;
-  padding-top: 10px;
-  border-top: 1px solid #e2e8f0;
-}
-
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline .gift-course-outline > span,
-.benefit-sheet.view-detail.is-exporting .gift-poster-card.simplified.has-long-outline .gift-course-outline > span {
-  display: block;
-}
-
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline .is-two-column-outline,
-.benefit-sheet.view-detail.is-exporting .gift-poster-card.simplified.has-long-outline .is-two-column-outline,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide.has-long-outline .is-two-column-outline {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 7px 20px;
-  margin: 0;
-  padding-left: 18px;
-  font-size: 12px;
-  line-height: 1.45;
-}
-
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline .is-two-column-outline li,
-.benefit-sheet.view-detail.is-exporting .gift-poster-card.simplified.has-long-outline .is-two-column-outline li {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-/* Compact long gift outlines: one visual row first, chips instead of tall reading columns. */
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline,
-.benefit-sheet.view-detail.is-exporting .gift-poster-card.simplified.has-long-outline,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide.has-long-outline {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: 132px 190px minmax(0, 1fr);
-  grid-template-rows: 1fr;
-  min-height: 112px;
-  align-items: stretch;
-}
-
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline .gift-poster-image,
-.benefit-sheet.view-detail.is-exporting .gift-poster-card.simplified.has-long-outline .gift-poster-image,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide.has-long-outline .gift-poster-image {
-  display: grid;
-  grid-column: 1;
-  grid-row: 1;
-  height: 112px;
-  min-height: 0;
-  aspect-ratio: auto;
-  padding: 6px;
-  border-right: 1px solid #e2e8f0;
-  border-bottom: 0;
-}
-
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline > header,
-.benefit-sheet.view-detail.is-exporting .gift-poster-card.simplified.has-long-outline > header,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide.has-long-outline > header {
-  grid-column: 2;
-  grid-row: 1;
-  min-height: 112px;
-  align-content: center;
-  margin-top: 0;
-  padding: 12px 14px;
-  background: #ffffff;
-  border-right: 1px solid #e2e8f0;
-}
-
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline > header strong,
-.benefit-sheet.view-detail.is-exporting .gift-poster-card.simplified.has-long-outline > header strong {
-  font-size: 15px;
-  line-height: 1.35;
-}
-
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline > .gift-poster-summary,
-.benefit-sheet.view-detail.is-exporting .gift-poster-card.simplified.has-long-outline > .gift-poster-summary,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide.has-long-outline > .gift-poster-summary {
-  grid-column: 3;
-  grid-row: 1;
-  align-content: center;
-  padding: 10px 12px;
-}
-
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline .gift-poster-summary > strong,
-.benefit-sheet.view-detail.is-exporting .gift-poster-card.simplified.has-long-outline .gift-poster-summary > strong {
-  margin-bottom: 4px;
-  font-size: 13px;
-}
-
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline .gift-course-outline,
-.benefit-sheet.view-detail.is-exporting .gift-poster-card.simplified.has-long-outline .gift-course-outline,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide.has-long-outline .gift-course-outline {
-  margin-top: 0;
-  padding-top: 0;
-  border-top: 0;
-}
-
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline .gift-course-outline > span,
-.benefit-sheet.view-detail.is-exporting .gift-poster-card.simplified.has-long-outline .gift-course-outline > span {
-  display: none;
-}
-
-/* Long gift outlines should read like a compact dossier, not two tall posters. */
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: minmax(240px, 0.32fr) minmax(0, 0.68fr);
-  grid-template-rows: 150px auto;
-  align-items: stretch;
-}
-
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline .gift-poster-image {
-  grid-column: 1;
-  grid-row: 1;
-  aspect-ratio: auto;
-  border-right: 1px solid #e2e8f0;
-  border-bottom: 1px solid #e2e8f0;
-}
-
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline header {
-  grid-column: 1;
-  grid-row: 2;
-  min-height: 0;
-  align-content: start;
-  padding: 12px 14px;
-  border-right: 1px solid #e2e8f0;
-}
-
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline .gift-poster-summary {
-  grid-column: 2;
-  grid-row: 1 / span 2;
-  align-content: start;
-  padding: 14px 18px;
-}
-
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline .gift-course-outline {
-  margin-top: 0;
-  padding-top: 0;
-  border-top: 0;
-}
 
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline .gift-course-outline > span {
-  margin-bottom: 2px;
-}
-
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline .gift-outline-columns {
-  grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr);
-  gap: 4px 28px;
-}
-
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline .gift-outline-columns ol {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 5px;
-  padding-left: 18px;
-  font-size: 12px;
-  line-height: 1.45;
-}
-
-.benefit-sheet.view-detail .gift-poster-card.simplified.has-long-outline .gift-course-outline li {
-  break-inside: avoid;
-}
-
-/* Final growth-gift layout: ordered short courses pair up, long courses span the row. */
-.detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-auto-flow: row dense;
-  align-items: start;
-  gap: 16px;
-}
-
-.detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card:not(.is-wide) {
-  align-self: start;
-}
-
-.detail-gift-groups .detail-gift-group > .gift-poster-grid > .gift-poster-card.is-horizontal {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: minmax(280px, 0.82fr) minmax(0, 1.18fr);
-  grid-template-rows: auto 1fr;
-  width: 100%;
-}
-
-.detail-gift-groups .detail-gift-group > .gift-poster-grid > .gift-poster-card.is-horizontal .gift-poster-image {
-  grid-column: 1;
-  grid-row: 1 / span 2;
-  width: 100%;
-  height: auto;
-  min-height: 100%;
-  aspect-ratio: auto;
-  border-right: 1px solid #e2e8f0;
-  border-bottom: 0;
-}
-
-.detail-gift-groups .detail-gift-group > .gift-poster-grid > .gift-poster-card.is-horizontal .gift-poster-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.detail-gift-groups .detail-gift-group > .gift-poster-grid > .gift-poster-card.is-horizontal > header,
-.detail-gift-groups .detail-gift-group > .gift-poster-grid > .gift-poster-card.is-horizontal > .gift-poster-summary {
-  grid-column: 2;
-}
-
-.detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: minmax(280px, 0.84fr) minmax(0, 1.16fr);
-  grid-template-rows: auto 1fr;
-  width: 100%;
-}
-
-.detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide .gift-poster-image {
-  grid-column: 1;
-  grid-row: 1 / span 2;
-  width: 100%;
-  height: 100%;
-  min-height: 300px;
-  aspect-ratio: auto;
-  border-right: 1px solid #e2e8f0;
-  border-bottom: 0;
-}
 
-.detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide > header,
-.detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide > .gift-poster-summary {
-  grid-column: 2;
 }
 
-.detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide .gift-course-outline ol {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  column-gap: 22px;
-}
-
-.detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide.has-long-outline {
-  grid-template-columns: minmax(0, 1fr);
-  grid-template-rows: 220px auto auto;
-}
-
-.detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide.has-long-outline .gift-poster-image {
-  grid-column: 1;
-  grid-row: 1;
-  height: 220px;
-  min-height: 0;
-  aspect-ratio: auto;
-  border-right: 0;
-  border-bottom: 1px solid #e2e8f0;
-  background: linear-gradient(135deg, #fffaf2, #f6f9ff);
-}
-
-.detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide.has-long-outline .gift-poster-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide.has-long-outline > header,
-.detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide.has-long-outline > .gift-poster-summary {
-  grid-column: 1;
-}
-
-.detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide.has-long-outline > header {
-  grid-row: 2;
-}
-
-.detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide.has-long-outline > .gift-poster-summary {
-  grid-row: 3;
-  padding: 14px 20px 20px;
-}
-
-.detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide.has-long-outline .gift-course-outline {
-  margin-top: 0;
-}
-
-.detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide.has-long-outline .gift-course-outline ol {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-auto-flow: row;
-  gap: 8px 32px;
-}
-
-.benefit-sheet h1,
-.benefit-sheet h2,
-.benefit-sheet h3,
-.benefit-sheet summary strong,
-.benefit-sheet .gift-poster-card > header strong,
-.benefit-sheet .reference-gift-copy strong {
-  line-break: strict;
-  text-wrap: balance;
-}
-
-.benefit-sheet p,
-.benefit-sheet li,
-.benefit-sheet small,
-.benefit-sheet .reference-rights-card footer span,
-.benefit-sheet .gift-poster-summary {
-  word-break: normal;
-  overflow-wrap: break-word;
-  line-break: strict;
-  text-wrap: pretty;
-}
-
-.benefit-sheet .gift-course-outline li {
-  break-inside: avoid;
-}
 
 @media (max-width: 720px) {
-  .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid {
-    gap: 8px;
-  }
 
-  .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide {
-    grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
-  }
 
-  .detail-gift-groups .detail-gift-group > .gift-poster-grid > .gift-poster-card.is-horizontal {
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: auto auto auto;
-  }
 
-  .detail-gift-groups .detail-gift-group > .gift-poster-grid > .gift-poster-card.is-horizontal .gift-poster-image,
-  .detail-gift-groups .detail-gift-group > .gift-poster-grid > .gift-poster-card.is-horizontal > header,
-  .detail-gift-groups .detail-gift-group > .gift-poster-grid > .gift-poster-card.is-horizontal > .gift-poster-summary {
-    grid-column: 1;
-    grid-row: auto;
-  }
 
-  .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide .gift-poster-image {
-    min-height: 220px;
-  }
 
-  .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide .gift-course-outline ol {
-    column-gap: 10px;
-  }
 
-  .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide.has-long-outline {
-    grid-template-rows: 180px auto auto;
-  }
 
-  .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide.has-long-outline .gift-poster-image {
-    height: 180px;
-    min-height: 0;
-  }
 
-  .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide.has-long-outline .gift-course-outline ol {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+
+
+
+
+
+
+
+
+
 }
 
 /* Compact customer summary, aligned with the approved course-list reference. */
@@ -3811,31 +2276,6 @@ textarea {
   background: #ffffff;
 }
 
-.gift-poster-card.simplified,
-.gift-poster-card.simplified.cyan,
-.gift-poster-card.simplified.orange,
-.gift-poster-card.simplified.purple,
-.gift-poster-card.simplified.green,
-.gift-poster-card.simplified.blue {
-  overflow: hidden;
-  background: #ffffff !important;
-  border-color: #dbe4ef;
-}
-
-.gift-poster-card.simplified .gift-poster-image {
-  overflow: hidden;
-  padding: 0;
-  background: #ffffff !important;
-  border-bottom: 1px solid #e2e8f0;
-}
-
-.gift-poster-card.simplified .gift-poster-image img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  background: #ffffff;
-}
 
 .aid-cover {
   overflow: hidden;
@@ -3969,195 +2409,12 @@ textarea {
   }
 }
 
-/* Keep long gift outlines readable instead of compressing two items onto one line. */
-.detail-gift-group .gift-poster-grid {
-  align-items: start;
-}
-
-.detail-gift-group .gift-poster-card.simplified {
-  align-self: start;
-  grid-template-rows: auto auto auto;
-}
-
-.detail-gift-group .gift-course-outline ol,
-.detail-gift-group .gift-poster-card.featured .gift-course-outline ol {
-  display: flex;
-  flex-direction: column;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 10px;
-  padding-left: 0;
-  list-style: none;
-  counter-reset: gift-outline;
-}
-
-.detail-gift-group .gift-course-outline li {
-  display: grid;
-  grid-template-columns: 28px minmax(0, 1fr);
-  width: 100%;
-  gap: 10px;
-  align-items: start;
-  color: #334155;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1.6;
-  overflow-wrap: anywhere;
-  word-break: normal;
-  counter-increment: gift-outline;
-}
-
-.detail-gift-group .gift-course-outline li::before {
-  content: counter(gift-outline) ".";
-  color: #ea580c;
-  font-weight: 900;
-  text-align: right;
-  line-height: 1.6;
-}
-
-.detail-gift-group .gift-subject-collection {
-  grid-column: 1 / -1;
-  min-width: 0;
-  overflow: hidden;
-  background: #ffffff;
-  border: 1px solid #d9e3f1;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(15, 42, 82, 0.05);
-}
-
-.gift-collection-hero {
-  display: grid;
-  min-width: 0;
-  grid-template-columns: minmax(260px, 42%) minmax(0, 1fr);
-  border-bottom: 1px solid #dbe5f2;
-}
-
-.gift-collection-hero .gift-poster-image {
-  min-height: 0;
-  padding: 12px;
-}
-
-.gift-collection-hero .gift-poster-image img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-}
-
-.gift-collection-hero > header {
-  display: flex;
-  min-width: 0;
-  padding: 22px 24px;
-  flex-direction: column;
-  justify-content: center;
-  gap: 14px;
-}
-
-.gift-collection-hero > header > strong {
-  color: #0b2f63;
-  font-size: 24px;
-  line-height: 1.35;
-  font-weight: 900;
-}
-
-.gift-collection-subjects {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 7px;
-}
-
-.gift-collection-subjects > span {
-  margin-right: 3px;
-  color: #64748b;
-  font-size: 12px;
-  font-weight: 800;
-}
-
-.gift-collection-subjects em {
-  padding: 4px 10px;
-  color: #075fc7;
-  background: #eef6ff;
-  border: 1px solid #c9ddfb;
-  border-radius: 999px;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 900;
-  white-space: nowrap;
-}
-
-.gift-subject-variant-grid {
-  display: grid;
-  min-width: 0;
-  padding: 16px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-items: start;
-  gap: 14px;
-}
-
-.gift-subject-variant {
-  min-width: 0;
-  padding: 16px;
-  background: #f8fbff;
-  border: 1px solid #dce7f4;
-  border-radius: 10px;
-}
-
-.gift-subject-variant > header {
-  display: flex;
-  min-width: 0;
-  margin-bottom: 8px;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.gift-subject-variant > header strong {
-  color: #0b3470;
-  font-size: 17px;
-  font-weight: 900;
-}
-
-.gift-subject-variant > header b {
-  color: #ea580c;
-  font-size: 13px;
-  white-space: nowrap;
-}
-
-.gift-subject-variant > p {
-  margin: 0;
-  color: #64748b;
-  font-size: 13px;
-  line-height: 1.55;
-}
-
-.gift-subject-variant .gift-course-outline ol {
-  gap: 7px;
-}
-
-.gift-subject-variant .gift-course-outline li {
-  grid-template-columns: 24px minmax(0, 1fr);
-  gap: 7px;
-  font-size: 13px;
-  line-height: 1.5;
-  overflow-wrap: normal;
-  word-break: keep-all;
-  white-space: nowrap;
-}
-
-.gift-subject-variant .gift-course-outline li.is-long-label {
-  font-size: 12px;
-  letter-spacing: -0.1px;
-}
 
 @media (max-width: 760px) {
-  .gift-collection-hero { grid-template-columns: minmax(0, 1fr); }
-  .gift-collection-hero > header { padding: 16px; }
-  .gift-collection-hero > header > strong { font-size: 20px; }
-  .gift-subject-variant-grid,
-  .gift-subject-variant-grid.is-count-3,
-  .gift-subject-variant-grid.is-count-5,
-  .gift-subject-variant-grid.is-count-6,
-  .gift-subject-variant-grid.is-count-7,
-  .gift-subject-variant-grid.is-count-8,
-  .gift-subject-variant-grid.is-count-9 { grid-template-columns: minmax(0, 1fr); }
+
+
+
+
 }
 
 .subject-track-status {
@@ -4319,41 +2576,6 @@ textarea {
 .detail-course-service svg { color: #f97316; }
 .detail-course-service strong { color: #1e293b; }
 
-.gift-course-outline {
-  display: grid;
-  gap: 8px;
-  margin-top: 4px;
-  padding-top: 12px;
-  border-top: 1px solid #e2e8f0;
-}
-
-.gift-course-outline > span {
-  color: #1e3a5f;
-  font-size: 12px;
-  font-weight: 900;
-}
-
-.gift-course-outline ol {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 6px 22px;
-  margin: 0;
-  padding: 0 0 0 20px;
-  color: #475569;
-  font-size: 12px;
-  font-weight: 600;
-  line-height: 1.5;
-}
-
-.gift-outline-columns {
-  display: grid;
-  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-  gap: 10px 24px;
-}
-
-.gift-outline-columns ol {
-  grid-template-columns: minmax(0, 1fr);
-}
 
 .gift-outline-chip-flow {
   display: flex;
@@ -4399,7 +2621,7 @@ textarea {
   .detail-course-metrics small { padding: 0 4px; font-size: 9px; }
   .detail-course-service { grid-template-columns: auto minmax(0, 1fr); }
   .detail-course-service span { grid-column: 1 / -1; }
-  .gift-course-outline ol { grid-template-columns: 1fr; }
+
 }
 
 @media (max-width: 720px) {
@@ -7162,54 +5384,6 @@ select {
   font-weight: 900;
 }
 
-.gift-poster-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.gift-poster-card {
-  overflow: hidden;
-  background: #ffffff;
-  border: 1px solid #d8e5ff;
-  border-radius: 8px;
-  box-shadow: 0 8px 18px rgba(32, 92, 180, 0.08);
-}
-
-.gift-poster-card header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 44px;
-  padding: 8px 12px;
-  color: #ffffff;
-  text-align: center;
-}
-
-.gift-poster-card header strong {
-  font-size: 18px;
-  line-height: 1.25;
-}
-
-.gift-poster-card.cyan header {
-  background: linear-gradient(180deg, #08a8ff, #1d77ea);
-}
-
-.gift-poster-card.orange header {
-  background: linear-gradient(180deg, #ff8e19, #ff6714);
-}
-
-.gift-poster-card.purple header {
-  background: linear-gradient(180deg, #8b64ff, #7050e8);
-}
-
-.gift-poster-card.green header {
-  background: linear-gradient(180deg, #0fd4aa, #00a978);
-}
-
-.gift-poster-card.blue header {
-  background: linear-gradient(180deg, #43a4ff, #286be9);
-}
 
 .gift-card-body {
   display: grid;
@@ -7235,20 +5409,6 @@ select {
   line-height: 1.25;
 }
 
-.gift-poster-card.orange .gift-mini-cover {
-  color: #c94f00;
-  background: linear-gradient(145deg, #fff2d9, #ffffff);
-}
-
-.gift-poster-card.purple .gift-mini-cover {
-  color: #6542d8;
-  background: linear-gradient(145deg, #efe9ff, #ffffff);
-}
-
-.gift-poster-card.green .gift-mini-cover {
-  color: #008866;
-  background: linear-gradient(145deg, #e6fff8, #ffffff);
-}
 
 .gift-card-info {
   display: grid;
@@ -7286,30 +5446,6 @@ select {
   line-height: 1.5;
 }
 
-.gift-poster-card ol {
-  display: grid;
-  gap: 7px;
-  margin: 0;
-  padding: 12px 18px 16px 32px;
-  color: #111827;
-  font-size: 14px;
-  font-weight: 800;
-  line-height: 1.5;
-}
-
-.gift-poster-card.compact ol {
-  font-size: 13px;
-  min-height: 64px;
-}
-
-.gift-poster-card.featured {
-  grid-column: 1 / -1;
-}
-
-.gift-poster-card.featured ol {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  column-gap: 28px;
-}
 
 .support-gift-grid {
   display: grid;
@@ -10731,12 +8867,7 @@ html.share-fixed-canvas .share-result .benefit-sheet.poster {
     flex-direction: column;
   }
 
-  .gift-poster-grid,
-  .support-gift-grid,
-  .teaching-aid-grid,
-  .gift-poster-card.featured ol {
-    grid-template-columns: 1fr;
-  }
+
 
   .teaching-aid-card,
   .teaching-aid-card:nth-child(2n),
@@ -10753,9 +8884,7 @@ html.share-fixed-canvas .share-result .benefit-sheet.poster {
     grid-row: auto;
   }
 
-  .gift-poster-card.featured {
-    grid-column: auto;
-  }
+
 
   .benefit-table td,
   .benefit-table th,
@@ -12333,21 +10462,7 @@ html.share-fixed-canvas .share-result .benefit-sheet.poster {
 
 .detail-gift-group > header strong { color: #14315b; }
 .detail-gift-group > header small { color: #66758d; }
-.detail-gift-group .gift-poster-grid { padding: 14px; }
 
-.gift-poster-image {
-  aspect-ratio: 4 / 3;
-  padding: 8px;
-  background: #fff9f0;
-  border-bottom: 1px solid #eef2fb;
-}
-
-.gift-poster-image img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
 
 .gift-category-badge {
   display: inline-block;
@@ -12427,13 +10542,9 @@ html.share-fixed-canvas .share-result .benefit-sheet.poster {
     min-height: 238px;
   }
 
-  .gift-poster-grid {
-    grid-template-columns: 1fr;
-  }
 
-  .gift-poster-card.featured {
-    grid-column: auto;
-  }
+
+
 }
 
 /* Final summary heading alignment: every section title follows the sheet centerline. */
@@ -12601,89 +10712,6 @@ html.share-fixed-canvas .share-result .benefit-sheet.poster {
   gap: 18px;
 }
 
-.benefit-sheet.view-detail.is-exporting .detail-gift-group .gift-poster-grid {
-  gap: 14px;
-  padding: 14px;
-}
-
-.benefit-sheet.view-detail.is-exporting .gift-poster-card.simplified header {
-  min-height: 42px;
-  padding: 8px 12px;
-}
-
-.benefit-sheet.view-detail.is-exporting .gift-poster-summary {
-  gap: 6px;
-  padding: 11px 13px 13px;
-}
-
-.benefit-sheet.view-detail.is-exporting .gift-course-outline {
-  gap: 6px;
-  padding-top: 9px;
-}
-
-.benefit-sheet.view-detail.is-exporting .gift-course-outline ol {
-  gap: 4px 20px;
-  font-size: 11px;
-  line-height: 1.45;
-}
-
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide.has-long-outline {
-  grid-column: 1 / -1;
-  grid-template-columns: minmax(0, 1fr);
-  grid-template-rows: auto auto auto;
-  align-items: start;
-}
-
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide.has-long-outline .gift-poster-image {
-  display: grid;
-  grid-column: 1;
-  grid-row: 1;
-  height: auto;
-  min-height: 0;
-  aspect-ratio: 16 / 7;
-  padding: 12px 18px;
-  border-right: 0;
-  border-bottom: 1px solid #e2e8f0;
-  background: linear-gradient(135deg, #fffaf2, #f7fbff);
-}
-
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide.has-long-outline > header {
-  grid-column: 1;
-  grid-row: 2;
-  min-height: 58px;
-  margin-top: 0;
-  padding: 12px 18px;
-  text-align: center;
-  align-content: center;
-  border-right: 0;
-  border-bottom: 1px solid #e2e8f0;
-}
-
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide.has-long-outline > .gift-poster-summary {
-  grid-column: 1;
-  grid-row: 3;
-  padding: 16px 22px 20px;
-}
-
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide.has-long-outline .gift-course-outline {
-  padding-top: 8px;
-}
-
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.is-wide.has-long-outline .gift-course-outline ol {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 9px 36px;
-}
-
-.benefit-sheet.view-detail.is-exporting .gift-outline-columns {
-  grid-template-columns: minmax(280px, 0.38fr) minmax(0, 0.62fr);
-  gap: 6px 24px;
-}
-
-.benefit-sheet.view-detail.is-exporting .gift-outline-columns ol {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 4px;
-}
 
 .benefit-sheet.view-detail.is-exporting .notice-box {
   margin-top: 2px;
@@ -12810,15 +10838,6 @@ html.share-fixed-canvas .share-result .benefit-sheet.poster {
   display: none;
 }
 
-/* Keep an odd compact gift card the same size as its paired neighbours.
-   Only genuinely content-heavy cards are allowed to span the full row. */
-.benefit-sheet.view-detail .detail-gift-groups .adaptive-gift-grid:not(.is-count-1) > .gift-poster-card.is-compact.is-unpaired:not(.is-horizontal),
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .adaptive-gift-grid:not(.is-count-1) > .gift-poster-card.is-compact.is-unpaired:not(.is-horizontal) {
-  grid-column: 1 / -1 !important;
-  width: calc((100% - 14px) / 2) !important;
-  max-width: none !important;
-  justify-self: center !important;
-}
 
 .benefit-sheet.view-detail.is-exporting .teaching-aid-wrap {
   gap: 0;
@@ -12850,462 +10869,33 @@ html.share-fixed-canvas .share-result .benefit-sheet.poster {
   line-height: 1.55;
 }
 
-.gift-poster-card.simplified {
-  display: grid;
-  grid-template-rows: auto auto 1fr;
-  grid-column: auto;
-}
-
-.gift-poster-card.simplified .gift-poster-image {
-  position: relative;
-  aspect-ratio: 16 / 9;
-  padding: 0;
-  background: #f8fafc;
-}
-
-.gift-poster-card.simplified .gift-poster-image img {
-  object-fit: contain;
-}
-
-.gift-poster-card.simplified .gift-poster-image > em {
-  position: absolute;
-  z-index: 1;
-  top: 10px;
-  left: 10px;
-  padding: 5px 9px;
-  color: #ffffff;
-  background: #3b82f6;
-  border-radius: 5px;
-  font-style: normal;
-  font-size: 12px;
-  font-weight: 900;
-}
-
-.gift-poster-card.simplified .gift-poster-image > span {
-  display: grid;
-  width: 100%;
-  height: 100%;
-  place-items: center;
-  padding: 20px;
-  color: #31517e;
-  text-align: center;
-  font-weight: 900;
-}
-
-.gift-poster-card.simplified header {
-  min-height: 48px;
-  padding: 10px 14px;
-}
-
-.gift-poster-summary {
-  display: grid;
-  align-content: start;
-  gap: 8px;
-  padding: 13px 15px 16px;
-}
-
-.gift-poster-summary > strong {
-  color: #ea580c;
-  font-size: 14px;
-}
-
-.gift-poster-summary > p {
-  margin: 0;
-  color: #475569;
-  font-size: 13px;
-  line-height: 1.55;
-}
-
-/* Single short courses keep the same default card width and hierarchy as their peers. */
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 {
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified:not(.has-long-outline),
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified:not(.has-long-outline),
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.is-horizontal,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.is-horizontal {
-  grid-column: 1 / -1 !important;
-  display: grid !important;
-  width: min(100%, calc((100% - 14px) / 2)) !important;
-  grid-template-columns: minmax(0, 1fr) !important;
-  grid-template-rows: 210px auto 1fr !important;
-  align-items: stretch !important;
-  justify-self: center !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified:not(.has-long-outline) .gift-poster-image,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified:not(.has-long-outline) .gift-poster-image,
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.is-horizontal .gift-poster-image,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.is-horizontal .gift-poster-image {
-  grid-column: 1 !important;
-  grid-row: 1 !important;
-  width: 100% !important;
-  height: 210px !important;
-  min-height: 210px !important;
-  padding: 10px 14px !important;
-  aspect-ratio: auto !important;
-  border-right: 0 !important;
-  border-bottom: 1px solid #e2e8f0 !important;
-  background: linear-gradient(135deg, #fffaf2, #f7fbff) !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified:not(.has-long-outline) > header,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified:not(.has-long-outline) > header,
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.is-horizontal > header,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.is-horizontal > header {
-  grid-column: 1 !important;
-  grid-row: 2 !important;
-  margin-top: 0 !important;
-  min-height: 52px !important;
-  align-content: center !important;
-  border-right: 0 !important;
-  border-bottom: 1px solid #e2e8f0 !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified:not(.has-long-outline) > .gift-poster-summary,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified:not(.has-long-outline) > .gift-poster-summary,
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.is-horizontal > .gift-poster-summary,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.is-horizontal > .gift-poster-summary {
-  grid-column: 1 !important;
-  grid-row: 3 !important;
-  align-content: start !important;
-  padding: 14px 18px !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline .is-two-column-outline,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline .is-two-column-outline {
-  display: grid !important;
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  gap: 8px 22px !important;
-}
 
 @media (max-width: 760px) {
-  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .gift-poster-grid.is-count-1 {
-    grid-template-columns: minmax(0, 1fr) !important;
-  }
 
-  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified:not(.has-long-outline),
-  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .gift-poster-grid > .gift-poster-card.simplified.is-horizontal {
-    width: 100% !important;
-  }
+
+
 }
 
-/* TRUE EOF override: course cards follow the hand-drawn structure.
-   Top image -> middle title divider -> bottom meta and outline. */
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline,
-.benefit-sheet.view-detail .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.simplified.is-wide.has-long-outline,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.simplified.is-wide.has-long-outline {
-  grid-column: 1 / -1 !important;
-  display: grid !important;
-  width: 100% !important;
-  grid-template-columns: minmax(0, 1fr) !important;
-  grid-template-rows: 210px auto auto !important;
-  align-items: start !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-poster-image,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-poster-image,
-.benefit-sheet.view-detail .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.simplified.is-wide.has-long-outline .gift-poster-image,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.simplified.is-wide.has-long-outline .gift-poster-image {
-  grid-column: 1 !important;
-  grid-row: 1 !important;
-  display: grid !important;
-  place-items: center !important;
-  width: 100% !important;
-  height: 210px !important;
-  min-height: 210px !important;
-  aspect-ratio: auto !important;
-  padding: 12px 18px !important;
-  border-right: 0 !important;
-  border-bottom: 1px solid #e2e8f0 !important;
-  background: linear-gradient(135deg, #fffaf2, #f7fbff) !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-poster-image img,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-poster-image img {
-  width: min(390px, 100%) !important;
-  height: 190px !important;
-  max-height: 190px !important;
-  aspect-ratio: 16 / 9 !important;
-  object-fit: contain !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline > header,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline > header,
-.benefit-sheet.view-detail .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.simplified.is-wide.has-long-outline > header,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.simplified.is-wide.has-long-outline > header {
-  grid-column: 1 !important;
-  grid-row: 2 !important;
-  min-height: 58px !important;
-  margin-top: 0 !important;
-  padding: 12px 18px !important;
-  text-align: center !important;
-  align-content: center !important;
-  border-right: 0 !important;
-  border-bottom: 1px solid #e2e8f0 !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline > header strong,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline > header strong {
-  font-size: 18px !important;
-  line-height: 1.25 !important;
-  white-space: nowrap !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline > .gift-poster-summary,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline > .gift-poster-summary,
-.benefit-sheet.view-detail .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.simplified.is-wide.has-long-outline > .gift-poster-summary,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .detail-gift-group.smart-growth-group > .gift-poster-grid > .gift-poster-card.simplified.is-wide.has-long-outline > .gift-poster-summary {
-  grid-column: 1 !important;
-  grid-row: 3 !important;
-  padding: 16px 22px 20px !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-poster-summary > strong,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-poster-summary > strong {
-  font-size: 15px !important;
-  white-space: nowrap !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-course-outline,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-course-outline {
-  padding-top: 12px !important;
-  border-top: 1px solid #e2e8f0 !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-course-outline > span,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline .gift-course-outline > span {
-  display: block !important;
-  margin-bottom: 10px !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline .is-two-column-outline,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline .is-two-column-outline {
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  gap: 9px 36px !important;
-  padding-left: 0 !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card.simplified.has-long-outline .is-two-column-outline li,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card.simplified.has-long-outline .is-two-column-outline li {
-  display: grid !important;
-  grid-template-columns: auto minmax(0, 1fr) !important;
-  gap: 8px !important;
-  white-space: normal !important;
-  overflow: visible !important;
-  text-overflow: clip !important;
-  overflow-wrap: break-word !important;
-  word-break: normal !important;
-  font-size: 13px !important;
-  line-height: 1.45 !important;
-}
-
-/* Canonical gift-course layout.
-   Width follows the available row; height always follows each card's content. */
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)) !important;
-  grid-auto-flow: row !important;
-  align-items: start !important;
-  gap: 14px !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 {
-  grid-template-columns: minmax(0, 1fr) !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified {
-  grid-column: 1 / -1 !important;
-  display: grid !important;
-  width: 100% !important;
-  max-width: none !important;
-  grid-template-columns: minmax(320px, 0.42fr) minmax(0, 0.58fr) !important;
-  grid-template-rows: auto auto !important;
-  align-items: stretch !important;
-  justify-self: stretch !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified .gift-poster-image,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified .gift-poster-image {
-  grid-column: 1 !important;
-  grid-row: 1 !important;
-  width: 100% !important;
-  height: 280px !important;
-  min-height: 280px !important;
-  padding: 14px 18px !important;
-  border-right: 1px solid #e2e8f0 !important;
-  border-bottom: 1px solid #e2e8f0 !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified .gift-poster-image img,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified .gift-poster-image img {
-  width: 100% !important;
-  height: 252px !important;
-  max-height: 252px !important;
-  object-fit: contain !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified > header,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified > header {
-  grid-column: 2 !important;
-  grid-row: 1 !important;
-  min-height: 280px !important;
-  margin: 0 !important;
-  padding: 24px !important;
-  align-content: center !important;
-  text-align: left !important;
-  border-right: 0 !important;
-  border-bottom: 1px solid #e2e8f0 !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified > .gift-poster-summary,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified > .gift-poster-summary {
-  grid-column: 1 / -1 !important;
-  grid-row: 2 !important;
-  width: 100% !important;
-  padding: 18px 24px 24px !important;
-  align-content: start !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid:not(.is-count-1) > .gift-poster-card.is-compact.is-unpaired,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid:not(.is-count-1) > .gift-poster-card.is-compact.is-unpaired {
-  grid-column: 1 / -1 !important;
-  width: 100% !important;
-  max-width: none !important;
-  justify-self: stretch !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid:not(.is-count-1) > .gift-poster-card,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid:not(.is-count-1) > .gift-poster-card {
-  min-width: 0 !important;
-  max-width: none !important;
-  height: auto !important;
-  align-self: start !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-card .gift-course-outline li,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-card .gift-course-outline li {
-  white-space: normal !important;
-  overflow: visible !important;
-  text-overflow: clip !important;
-  overflow-wrap: break-word !important;
-  word-break: normal !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-subject-collection,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-subject-collection {
-  display: block !important;
-  width: 100% !important;
-  height: auto !important;
-  min-height: 0 !important;
-  align-self: start !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-subject-collection .gift-collection-hero,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-subject-collection .gift-collection-hero {
-  display: grid !important;
-  grid-template-columns: minmax(0, 1fr) !important;
-  grid-template-rows: auto auto !important;
-  width: 100% !important;
-  height: auto !important;
-  min-height: 0 !important;
-  align-items: start !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-subject-collection .gift-collection-hero > .gift-poster-image,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-subject-collection .gift-collection-hero > .gift-poster-image {
-  grid-column: 1 !important;
-  grid-row: 1 !important;
-  width: 100% !important;
-  min-width: 0 !important;
-  height: 210px !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-subject-collection .gift-collection-hero > header,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-subject-collection .gift-collection-hero > header {
-  grid-column: 1 !important;
-  grid-row: 2 !important;
-  width: 100% !important;
-  height: auto !important;
-  min-height: 76px !important;
-  padding: 14px 18px !important;
-  align-items: center !important;
-  justify-content: center !important;
-  text-align: center !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid:not(.is-count-1) > .gift-subject-collection,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid:not(.is-count-1) > .gift-subject-collection {
-  grid-column: auto !important;
-  min-width: 0 !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-subject-collection,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-subject-collection {
-  grid-column: 1 / -1 !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-subject-variant-grid,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-subject-variant-grid {
-  align-items: start !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-poster-grid:not(.is-count-1) > .gift-subject-collection .gift-subject-variant-grid,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-poster-grid:not(.is-count-1) > .gift-subject-collection .gift-subject-variant-grid {
-  grid-template-columns: minmax(0, 1fr) !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-subject-variant,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-subject-variant {
-  display: block !important;
-  height: auto !important;
-  min-height: 0 !important;
-  align-self: start !important;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-subject-variant .gift-course-outline,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-subject-variant .gift-course-outline {
-  width: 100%;
-}
-
-.benefit-sheet.view-detail .detail-gift-groups .gift-subject-variant .gift-course-outline li,
-.benefit-sheet.view-detail.is-exporting .detail-gift-groups .gift-subject-variant .gift-course-outline li {
-  white-space: normal !important;
-  overflow: visible !important;
-  text-overflow: clip !important;
-  overflow-wrap: break-word !important;
-  word-break: normal !important;
-}
 
 @media (max-width: 760px) {
-  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified {
-    grid-template-columns: minmax(0, 1fr) !important;
-    grid-template-rows: auto auto auto !important;
-  }
 
-  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified .gift-poster-image,
-  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified > header,
-  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified > .gift-poster-summary {
-    grid-column: 1 !important;
-    min-height: 0 !important;
-  }
 
-  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified .gift-poster-image {
-    grid-row: 1 !important;
-    border-right: 0 !important;
-  }
 
-  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified > header {
-    grid-row: 2 !important;
-  }
 
-  .benefit-sheet.view-detail:not(.is-exporting) .detail-gift-groups .gift-poster-grid.is-count-1 > .gift-poster-card.simplified > .gift-poster-summary {
-    grid-row: 3 !important;
-  }
+
+
+
+
+
+
+
+
+
+}
+
+
+@media (max-width: 760px) {
+
+
+
 }
