@@ -867,6 +867,10 @@ function SalesPage({ products, selectedProduct, selectedSubjects, selectedBonusS
   }, [products]);
   const saleSubjects = useMemo(() => getSaleSubjects(selectedProduct), [selectedProduct]);
   const gradeOptions = useMemo(() => [...new Set(productOptions.map((item) => item.grade))], [productOptions]);
+  const gradeProductOptions = useMemo(
+    () => sortSaleProducts(productOptions.filter((item) => item.grade === selectedProduct.grade)),
+    [productOptions, selectedProduct.grade],
+  );
   const selectedSubjectText = selectedSubjects.join("、");
   const liveTotal = coursePlans.reduce((sum, plan) => sum + (plan?.liveCount ?? 0), 0);
   const videoTotal = coursePlans.reduce((sum, plan) => sum + (plan?.videoEntitlement ?? 0), 0);
@@ -949,7 +953,7 @@ function SalesPage({ products, selectedProduct, selectedSubjects, selectedBonusS
             options={gradeOptions}
             value={selectedProduct.grade}
             onChange={(grade) => {
-              const next = productOptions.find((item) => item.grade === grade) ?? selectedProduct;
+              const next = sortSaleProducts(productOptions.filter((item) => item.grade === grade))[0] ?? selectedProduct;
               onSelect(next.id);
             }}
           />
@@ -957,7 +961,7 @@ function SalesPage({ products, selectedProduct, selectedSubjects, selectedBonusS
         <Field label="产品名称">
           <div className="select-wrap">
             <select value={selectedProduct.id} onChange={(event) => onSelect(event.target.value)}>
-              {productOptions.map((product) => (
+              {gradeProductOptions.map((product) => (
                 <option key={product.id} value={product.id}>
                   {product.name}
                 </option>
@@ -3587,10 +3591,21 @@ function getProductJourney(product) {
 
 function getSaleSubjects(product) {
   const configured = product?.availableSubjects?.length ? product.availableSubjects : courseSubjects;
-  const isG2Autumn = product?.grade === "高二" && /秋实/.test(`${product?.stage ?? ""}${product?.name ?? ""}`);
+  const isG2Autumn = product?.grade === "高二"
+    && /秋实卡/.test(product?.name ?? "")
+    && !/决胜卡/.test(product?.name ?? "");
   return isG2Autumn
     ? configured.filter((subject) => !["历史", "地理", "政治"].includes(subject))
     : configured;
+}
+
+function sortSaleProducts(products) {
+  return [...products].sort((a, b) => {
+    const aPriority = /全体系决胜卡/.test(a?.name ?? "") ? 0 : 1;
+    const bPriority = /全体系决胜卡/.test(b?.name ?? "") ? 0 : 1;
+    if (aPriority !== bPriority) return aPriority - bPriority;
+    return String(a?.name ?? "").localeCompare(String(b?.name ?? ""), "zh-CN");
+  });
 }
 
 function BenefitDisclosure({ title, description, children, open = false, staticOpen = false }) {
