@@ -1177,7 +1177,7 @@ function CustomerSharePage({ products, product, selectedSubjects, selectedVideoT
     ].filter(Boolean))].slice(0, 4);
   }, [products, product, selectedSubjects.join("|")]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (opened || !preloadImageSources.length) return undefined;
     const warmImages = () => {
       preloadImageSources.forEach((source) => {
