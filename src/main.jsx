@@ -1178,30 +1178,24 @@ function CustomerSharePage({ products, product, selectedSubjects, selectedVideoT
   }, [products, product, selectedSubjects.join("|")]);
 
   React.useEffect(() => {
-    if (opened || !preloadImageSources.length) return undefined;
-    const warmImages = () => {
-      preloadImageSources.forEach((source) => {
-        const image = new Image();
-        image.decoding = "async";
-        image.fetchPriority = "low";
-        image.src = assetUrl(source);
-      });
-    };
-    if ("requestIdleCallback" in window) {
-      const idleId = window.requestIdleCallback(warmImages, { timeout: 1500 });
-      return () => window.cancelIdleCallback(idleId);
-    }
-    const timerId = window.setTimeout(warmImages, 700);
-    return () => window.clearTimeout(timerId);
-  }, [opened, preloadImageSources]);
+    if (!preloadImageSources.length) return undefined;
+    const images = preloadImageSources.map((source) => {
+      const image = new Image();
+      image.decoding = "async";
+      image.fetchPriority = "high";
+      image.src = assetUrl(source);
+      return image;
+    });
+    return () => images.forEach((image) => { image.src = ""; });
+  }, [preloadImageSources]);
 
   const openEnvelope = () => {
     if (isOpening) return;
     setIsOpening(true);
-    window.setTimeout(() => {
+    window.requestAnimationFrame(() => {
       React.startTransition(() => setOpened(true));
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }, 240);
+      window.scrollTo({ top: 0, behavior: "auto" });
+    });
   };
 
   if (!opened) {
