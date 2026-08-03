@@ -1161,6 +1161,25 @@ textarea {
   grid-column: 1 / -1;
 }
 
+/* Full-row course cards keep the source artwork ratio without allowing the
+   image area to grow to the full sheet width. */
+.gift-v3-card:is(.has-long-outline, .is-full-width) > .gift-v3-image,
+.gift-v3-collection-hero > .gift-v3-image {
+  height: 276px;
+  min-height: 276px;
+  aspect-ratio: auto;
+}
+
+.gift-v3-card:is(.has-long-outline, .is-full-width) > .gift-v3-image img,
+.gift-v3-collection-hero > .gift-v3-image img {
+  width: auto;
+  height: 252px;
+  max-width: 100%;
+  max-height: 252px;
+  aspect-ratio: 1277 / 745;
+  object-fit: contain;
+}
+
 .gift-v3-outline li {
   min-width: 0;
   padding-left: 3px;
