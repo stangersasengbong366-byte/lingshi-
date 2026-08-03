@@ -293,12 +293,27 @@ async function createShortShareLink(shareState) {
 
 async function loadShortShareState(code) {
   if (!cloudConfigEnabled || !code) return null;
-  const response = await fetch(`${SUPABASE_URL}/rest/v1/${CLOUD_CONFIG_TABLE}?id=eq.${encodeURIComponent(`${CLOUD_SHORT_LINK_PREFIX}${code}`)}&select=payload&limit=1`, {
-    headers: getSupabaseHeaders(),
-  });
-  if (!response.ok) throw await createCloudError(response, "短链读取失败");
-  const records = await response.json();
-  return records[0]?.payload ?? null;
+  const url = `${SUPABASE_URL}/rest/v1/${CLOUD_CONFIG_TABLE}?id=eq.${encodeURIComponent(`${CLOUD_SHORT_LINK_PREFIX}${code}`)}&select=payload&limit=1`;
+  let lastError;
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    const controller = new AbortController();
+    const timeoutId = window.setTimeout(() => controller.abort(), 12000);
+    try {
+      const response = await fetch(url, {
+        headers: getSupabaseHeaders(),
+        cache: "no-store",
+        signal: controller.signal,
+      });
+      if (!response.ok) throw await createCloudError(response, "短链读取失败");
+      const records = await response.json();
+      return records[0]?.payload ?? null;
+    } catch (error) {
+      lastError = error;
+    } finally {
+      window.clearTimeout(timeoutId);
+    }
+  }
+  throw lastError ?? new Error("短链读取失败");
 }
 
 function createCloudRecordId(prefix) {
@@ -372,8 +387,9 @@ function getSupabaseHeaders() {
 }
 
 function App() {
-  const directShareParams = getShareParams();
   const shortCode = new URLSearchParams(window.location.search).get("s");
+  const fallbackShareParams = shortCode ? getShareParams() : null;
+  const directShareParams = shortCode ? null : getShareParams();
   const [shareParams, setShareParams] = useState(directShareParams);
   const [shortLinkStatus, setShortLinkStatus] = useState(shortCode && !directShareParams ? "loading" : "ready");
   const salesOnly = getSalesOnlyMode();
@@ -416,6 +432,15 @@ function App() {
       .then((state) => {
         if (cancelled) return;
         if (!state?.productId || !Array.isArray(state.subjects)) {
+          if (fallbackShareParams) {
+            setShareParams(fallbackShareParams);
+            setSelectedProductId(fallbackShareParams.productId);
+            setSelectedSubjects(fallbackShareParams.subjects);
+            setSelectedBonusSubjects(fallbackShareParams.bonusSubjects ?? []);
+            setSelectedVideoTracks(fallbackShareParams.videoTracks ?? {});
+            setShortLinkStatus("ready");
+            return;
+          }
           setShortLinkStatus("missing");
           return;
         }
@@ -429,7 +454,19 @@ function App() {
         }
         setShortLinkStatus("ready");
       })
-      .catch(() => !cancelled && setShortLinkStatus("error"));
+      .catch(() => {
+        if (cancelled) return;
+        if (fallbackShareParams) {
+          setShareParams(fallbackShareParams);
+          setSelectedProductId(fallbackShareParams.productId);
+          setSelectedSubjects(fallbackShareParams.subjects);
+          setSelectedBonusSubjects(fallbackShareParams.bonusSubjects ?? []);
+          setSelectedVideoTracks(fallbackShareParams.videoTracks ?? {});
+          setShortLinkStatus("ready");
+          return;
+        }
+        setShortLinkStatus("error");
+      });
     return () => { cancelled = true; };
   }, [shortCode]);
 
@@ -895,7 +932,7 @@ function SalesPage({ products, selectedProduct, selectedSubjects, selectedBonusS
         products: buildShareSnapshotProducts(products, selectedProduct),
       };
       const code = await createShortShareLink(shareState);
-      await navigator.clipboard.writeText(buildShortShareUrl(code));
+      await navigator.clipboard.writeText(buildShortShareUrl(code, shareState));
       setLinkCopied(true);
       window.setTimeout(() => setLinkCopied(false), 1600);
     } catch (error) {
@@ -5243,11 +5280,22 @@ function buildShareSnapshotProducts(products, selectedProduct) {
   return [selectedSnapshot, ...poolProducts];
 }
 
-function buildShortShareUrl(code) {
+function buildShortShareUrl(code, shareState) {
   const url = new URL(PUBLIC_SITE_URL);
   url.search = "";
   url.hash = "";
   url.searchParams.set("s", code);
+  if (shareState?.productId && Array.isArray(shareState.subjects)) {
+    url.searchParams.set("share", "1");
+    url.searchParams.set("product", shareState.productId);
+    url.searchParams.set("subjects", shareState.subjects.join(","));
+    if (shareState.bonusSubjects?.length) url.searchParams.set("bonus", shareState.bonusSubjects.join(","));
+    const tracks = shareState.subjects
+      .map((subject) => `${subject}:${shareState.videoTracks?.[subject] ?? "目标班"}`)
+      .join(",");
+    if (tracks) url.searchParams.set("tracks", tracks);
+    url.searchParams.set("view", shareState.viewMode === "detail" ? "detail" : "summary");
+  }
   return url.toString();
 }
 
