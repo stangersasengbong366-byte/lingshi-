@@ -2777,7 +2777,12 @@ async function exportElementAsPng(element, filename) {
   const isSummaryExport = element.classList.contains("view-summary");
   const isMobileExport = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
   const exportBackground = isMobileExport ? "#ffffff" : isSummaryExport ? "#fdfbf7" : "#eaf5ff";
-  const { root: exportRoot, element: exportElement } = createExportClone(element, isSummaryExport, exportBackground);
+  const { root: exportRoot, element: exportElement } = createExportClone(
+    element,
+    isSummaryExport,
+    exportBackground,
+    isMobileExport,
+  );
   const restoreCanvasPattern = installSafeCanvasPatternGuard();
 
   let canvas;
@@ -2877,7 +2882,7 @@ function installSafeCanvasPatternGuard() {
   };
 }
 
-function createExportClone(element, isSummaryExport, exportBackground) {
+function createExportClone(element, isSummaryExport, exportBackground, isMobileExport) {
   const renderedWidth = Math.ceil(element.getBoundingClientRect().width || element.scrollWidth || 1120);
   const exportWidth = isSummaryExport ? 1280 : renderedWidth;
   const root = document.createElement("div");
@@ -2900,6 +2905,7 @@ function createExportClone(element, isSummaryExport, exportBackground) {
   // Its legacy `is-exporting` rules compact typography, spacing and card height,
   // which makes the exported long image look vertically compressed.
   if (isSummaryExport) exportElement.classList.add("is-exporting");
+  if (isMobileExport) exportElement.classList.add("is-mobile-export");
   Object.assign(exportElement.style, {
     width: `${exportWidth}px`,
     maxWidth: "none",

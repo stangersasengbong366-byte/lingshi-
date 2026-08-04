@@ -2282,6 +2282,29 @@ textarea {
 
 .reference-summary-footer p { margin: 0; }
 
+/* Android WebViews can rasterize translucent shadows as broad gray blocks in
+   html2canvas. Keep the live page unchanged, but make the mobile export tree
+   fully opaque so every white card is captured with its intended color. */
+.benefit-sheet.is-mobile-export.view-summary .reference-course-overview,
+.benefit-sheet.is-mobile-export.view-summary .reference-gift-section,
+.benefit-sheet.is-mobile-export.view-summary .reference-overview-grid,
+.benefit-sheet.is-mobile-export.view-summary .reference-rights-stack,
+.benefit-sheet.is-mobile-export.view-summary .reference-rights-card,
+.benefit-sheet.is-mobile-export.view-summary .reference-rights-card > footer,
+.benefit-sheet.is-mobile-export.view-summary .reference-gift-grid,
+.benefit-sheet.is-mobile-export.view-summary .reference-gift-grid > article,
+.benefit-sheet.is-mobile-export.view-summary .reference-gift-image,
+.benefit-sheet.is-mobile-export.view-summary .reference-gift-image img,
+.benefit-sheet.is-mobile-export.view-summary .reference-gift-copy {
+  background-color: #ffffff;
+  background-image: none;
+}
+
+.benefit-sheet.is-mobile-export.view-summary .reference-rights-card,
+.benefit-sheet.is-mobile-export.view-summary .reference-gift-grid > article {
+  box-shadow: none;
+}
+
 @media (max-width: 760px) {
   .reference-course-overview,
   .reference-gift-section {
