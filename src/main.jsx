@@ -3057,33 +3057,63 @@ async function writeBlobToFileHandle(fileHandle, blob) {
 function presentExportDownload(blob, filename) {
   document.querySelector(".export-download-toast")?.remove();
   const url = URL.createObjectURL(blob);
-  const autoLink = document.createElement("a");
-  autoLink.download = filename;
-  autoLink.href = url;
-  autoLink.rel = "noopener";
-  autoLink.style.display = "none";
-  document.body.appendChild(autoLink);
-  autoLink.click();
-  autoLink.remove();
+  const isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+  const imageFile = typeof File === "function"
+    ? new File([blob], filename, { type: "image/png", lastModified: Date.now() })
+    : null;
+  const canShareFile = Boolean(
+    isMobile
+    && imageFile
+    && typeof navigator.share === "function"
+    && typeof navigator.canShare === "function"
+    && navigator.canShare({ files: [imageFile] }),
+  );
+
+  if (!isMobile) {
+    const autoLink = document.createElement("a");
+    autoLink.download = filename;
+    autoLink.href = url;
+    autoLink.rel = "noopener";
+    autoLink.style.display = "none";
+    document.body.appendChild(autoLink);
+    autoLink.click();
+    autoLink.remove();
+  }
 
   const toast = document.createElement("div");
   toast.className = "export-download-toast";
   toast.innerHTML = `
     <strong>长图已生成</strong>
-    <span>如果没有自动下载，请点击按钮保存到电脑。</span>
+    <span>${isMobile
+      ? "点击下方按钮保存到手机；微信内无法直接保存时，请打开原图后长按图片。"
+      : "如果没有自动下载，请点击按钮保存到电脑。"}</span>
   `;
 
   const saveLink = document.createElement("a");
   saveLink.href = url;
   saveLink.download = filename;
   saveLink.rel = "noopener";
-  saveLink.textContent = "保存图片到电脑";
+  saveLink.textContent = isMobile ? "下载图片到手机" : "保存图片到电脑";
+
+  const shareButton = document.createElement("button");
+  shareButton.type = "button";
+  shareButton.className = "primary";
+  shareButton.textContent = "保存 / 分享图片";
+  shareButton.addEventListener("click", async () => {
+    try {
+      await navigator.share({ files: [imageFile], title: filename });
+    } catch (error) {
+      if (error?.name === "AbortError") return;
+      openExportImagePreview(url, filename);
+    }
+  });
 
   const openButton = document.createElement("button");
   openButton.type = "button";
-  openButton.textContent = "打开预览";
+  openButton.textContent = isMobile ? "打开原图，长按保存" : "打开预览";
   openButton.addEventListener("click", () => {
-    window.open(url, "_blank", "noopener");
+    if (isMobile) openExportImagePreview(url, filename);
+    else window.open(url, "_blank", "noopener");
   });
 
   const closeButton = document.createElement("button");
@@ -3094,8 +3124,32 @@ function presentExportDownload(blob, filename) {
     toast.remove();
   });
 
+  if (canShareFile) toast.append(shareButton);
   toast.append(saveLink, openButton, closeButton);
   document.body.appendChild(toast);
+}
+
+function openExportImagePreview(url, filename) {
+  document.querySelector(".export-image-preview")?.remove();
+  const preview = document.createElement("div");
+  preview.className = "export-image-preview";
+
+  const header = document.createElement("header");
+  const copy = document.createElement("div");
+  copy.innerHTML = `<strong>长按图片保存到手机</strong><span>若没有“保存图片”，请点击右上角菜单后选择在浏览器打开。</span>`;
+  const close = document.createElement("button");
+  close.type = "button";
+  close.textContent = "关闭";
+  close.addEventListener("click", () => preview.remove());
+  header.append(copy, close);
+
+  const image = document.createElement("img");
+  image.src = url;
+  image.alt = filename;
+  image.draggable = false;
+  preview.append(header, image);
+  document.body.appendChild(preview);
+  preview.scrollTop = 0;
 }
 
 async function waitForExportAssets(element) {
