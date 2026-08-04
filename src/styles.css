@@ -2305,6 +2305,50 @@ textarea {
   box-shadow: none;
 }
 
+/* The hero is assembled from several translucent layers. Some Android
+   WebViews flatten those layers in the wrong order during html2canvas capture,
+   producing a gray-blue veil that is not present in the live preview. Use
+   visually equivalent opaque colors in the mobile export clone. */
+.benefit-sheet.is-mobile-export.view-summary .envelope-hero {
+  background: radial-gradient(circle at 86% 18%, #dbeaff 0%, #edf7ff 30%, #fbfdff 62%, #d9ebff 100%);
+}
+
+.benefit-sheet.is-mobile-export.view-summary .envelope-hero::before {
+  display: none;
+}
+
+.benefit-sheet.is-mobile-export.view-summary .envelope-back {
+  background: linear-gradient(180deg, #c9e3ff 0%, #90bdf8 100%);
+  border-color: #9fc5f4;
+  box-shadow: none;
+}
+
+.benefit-sheet.is-mobile-export.view-summary .envelope-back::before {
+  background: linear-gradient(146deg, #e5f2ff 0%, #b6d3fa 100%);
+  border-top-color: #d7e9ff;
+}
+
+.benefit-sheet.is-mobile-export.view-summary .envelope-back::after {
+  background: linear-gradient(34deg, #aecdf7 0%, #e8f4ff 100%);
+  border-top-color: #d7e9ff;
+}
+
+.benefit-sheet.is-mobile-export.view-summary .letter-paper {
+  background: linear-gradient(105deg, #ffffff 0%, #f8fbff 54%, #eef7ff 100%);
+  border-color: #b4d2f7;
+  box-shadow: none;
+}
+
+.benefit-sheet.is-mobile-export.view-summary .hero-tags span {
+  background: #ffffff;
+  box-shadow: none;
+}
+
+.benefit-sheet.is-mobile-export.view-summary .letter-paper .hero-symbol,
+.benefit-sheet.is-mobile-export.view-summary .seal {
+  filter: none;
+}
+
 @media (max-width: 760px) {
   .reference-course-overview,
   .reference-gift-section {
