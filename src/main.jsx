@@ -2775,7 +2775,9 @@ function LayoutPage({ products, product, selectedSubjects, coursePlans }) {
 async function exportElementAsPng(element, filename) {
   const { default: html2canvas } = await import("html2canvas");
   const isSummaryExport = element.classList.contains("view-summary");
-  const { root: exportRoot, element: exportElement } = createExportClone(element, isSummaryExport);
+  const isMobileExport = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+  const exportBackground = isMobileExport ? "#ffffff" : isSummaryExport ? "#fdfbf7" : "#eaf5ff";
+  const { root: exportRoot, element: exportElement } = createExportClone(element, isSummaryExport, exportBackground);
   const restoreCanvasPattern = installSafeCanvasPatternGuard();
 
   let canvas;
@@ -2788,7 +2790,6 @@ async function exportElementAsPng(element, filename) {
 
     const width = Math.ceil(Math.max(exportElement.getBoundingClientRect().width, exportElement.scrollWidth));
     const height = Math.ceil(Math.max(exportElement.getBoundingClientRect().height, exportElement.scrollHeight));
-    const isMobileExport = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
     const preferredScale = isMobileExport ? 1 : 2;
     const maxCanvasSide = 32760;
     const maxCanvasArea = 120_000_000;
@@ -2800,7 +2801,7 @@ async function exportElementAsPng(element, filename) {
     ));
 
     const options = {
-      backgroundColor: isSummaryExport ? "#fdfbf7" : "#eaf5ff",
+      backgroundColor: exportBackground,
       scale,
       useCORS: true,
       allowTaint: false,
@@ -2817,6 +2818,10 @@ async function exportElementAsPng(element, filename) {
       scrollY: 0,
       ignoreElements: shouldIgnoreExportElement,
       onclone: (clonedDocument) => {
+        clonedDocument.documentElement.style.colorScheme = "light";
+        clonedDocument.documentElement.style.backgroundColor = exportBackground;
+        clonedDocument.body.style.colorScheme = "light";
+        clonedDocument.body.style.backgroundColor = exportBackground;
         sanitizeExportTree(clonedDocument);
         clonedDocument.querySelectorAll(".benefit-sheet *").forEach((node) => {
           node.style.animation = "none";
@@ -2872,7 +2877,7 @@ function installSafeCanvasPatternGuard() {
   };
 }
 
-function createExportClone(element, isSummaryExport) {
+function createExportClone(element, isSummaryExport, exportBackground) {
   const renderedWidth = Math.ceil(element.getBoundingClientRect().width || element.scrollWidth || 1120);
   const exportWidth = isSummaryExport ? 1280 : renderedWidth;
   const root = document.createElement("div");
@@ -2886,7 +2891,8 @@ function createExportClone(element, isSummaryExport) {
     minHeight: "1px",
     overflow: "visible",
     pointerEvents: "none",
-    background: isSummaryExport ? "#fdfbf7" : "#eaf5ff",
+    background: exportBackground,
+    colorScheme: "light",
   });
 
   const exportElement = element.cloneNode(true);
@@ -2901,6 +2907,8 @@ function createExportClone(element, isSummaryExport) {
     overflow: "visible",
     maxHeight: "none",
     transform: "none",
+    backgroundColor: exportBackground,
+    colorScheme: "light",
   });
   exportElement.querySelectorAll("details").forEach((details) => {
     details.open = true;
