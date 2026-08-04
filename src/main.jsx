@@ -1252,6 +1252,10 @@ function CustomerSharePage({ products, product, selectedSubjects, selectedVideoT
 function AdminPage({ products, selectedProduct, onSelect, onAdd, onDelete, onUpdate, onPublish, syncStatus, teachingAids, usageCount, salesFeedback, onRefreshFeedback }) {
   const [draft, setDraft] = useState(selectedProduct);
   const [activeAdminSection, setActiveAdminSection] = useState("basic");
+  const [feedbackDropdownOpen, setFeedbackDropdownOpen] = useState(false);
+  const [feedbackLastSeenAt, setFeedbackLastSeenAt] = useState(() => (
+    window.localStorage.getItem("youdao-benefits-feedback-last-seen-at") || ""
+  ));
   const [expandedGiftKey, setExpandedGiftKey] = useState("");
   const [uploadNames, setUploadNames] = useState({});
   const [courseSourceMode, setCourseSourceMode] = useState(selectedProduct.courseSourceMode ?? "grade");
@@ -1288,6 +1292,16 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onDelete, onUpd
   ];
   const missingPublishItems = publishChecks.filter((item) => !item.ready);
   const canPublish = cloudConfigEnabled && missingPublishItems.length === 0;
+  const latestFeedbackAt = salesFeedback.reduce((latest, item) => (
+    String(item.updated_at ?? "") > latest ? String(item.updated_at) : latest
+  ), "");
+  const hasUnreadFeedback = Boolean(latestFeedbackAt && latestFeedbackAt > feedbackLastSeenAt);
+
+  React.useEffect(() => {
+    if (!feedbackDropdownOpen || !latestFeedbackAt) return;
+    setFeedbackLastSeenAt(latestFeedbackAt);
+    window.localStorage.setItem("youdao-benefits-feedback-last-seen-at", latestFeedbackAt);
+  }, [feedbackDropdownOpen, latestFeedbackAt]);
 
   React.useEffect(() => {
     setDraft(selectedProduct);
@@ -1703,6 +1717,42 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onDelete, onUpd
             <h2>{draft.name}</h2>
           </div>
           <div className="admin-publish-actions">
+            <div className="admin-feedback-menu">
+              <button
+                className={feedbackDropdownOpen ? "admin-feedback-trigger active" : "admin-feedback-trigger"}
+                type="button"
+                onClick={() => {
+                  setFeedbackDropdownOpen((current) => !current);
+                  if (!feedbackDropdownOpen) onRefreshFeedback();
+                }}
+                aria-expanded={feedbackDropdownOpen}
+                aria-haspopup="true"
+              >
+                <MessageSquare size={17} />
+                <span>销售反馈</span>
+                {hasUnreadFeedback ? <i aria-label="有新反馈" /> : null}
+                <ChevronDown size={15} />
+              </button>
+              {feedbackDropdownOpen ? (
+                <section className="feedback-inbox admin-feedback-dropdown">
+                  <header>
+                    <div><MessageSquare size={18} /><strong>销售问题反馈</strong><span>累计浏览 {usageCount ?? "—"} 次</span></div>
+                    <button type="button" onClick={onRefreshFeedback}>刷新</button>
+                  </header>
+                  {salesFeedback.length ? (
+                    <div className="feedback-inbox-list">
+                      {salesFeedback.slice(0, 8).map((item) => (
+                        <article key={item.id}>
+                          <div><strong>{item.payload?.productName || "未指定产品"}</strong><time>{new Date(item.updated_at).toLocaleString("zh-CN", { hour12: false })}</time></div>
+                          <p>{item.payload?.message}</p>
+                          {item.payload?.subjects?.length ? <span>科目：{item.payload.subjects.join("、")}</span> : null}
+                        </article>
+                      ))}
+                    </div>
+                  ) : <p className="feedback-empty">暂时没有新的销售反馈。</p>}
+                </section>
+              ) : null}
+            </div>
             <button className="secondary-action small" type="button" onClick={saveDraft}>
               <Save size={17} />
               <span>{saveState === "saving" ? "正在同步..." : saveState === "saved" ? "云端与销售端已同步" : saveState === "local-only" ? "同步失败，请重试" : "保存并同步"}</span>
@@ -1726,24 +1776,6 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onDelete, onUpd
               {schemaCopied ? "建表内容已复制" : "复制一次性建表内容"}
             </button>
           ) : null}
-        </section>
-
-        <section className="feedback-inbox">
-          <header>
-            <div><MessageSquare size={19} /><strong>销售问题反馈</strong><span>累计浏览 {usageCount ?? "—"} 次</span></div>
-            <button type="button" onClick={onRefreshFeedback}>刷新反馈</button>
-          </header>
-          {salesFeedback.length ? (
-            <div className="feedback-inbox-list">
-              {salesFeedback.slice(0, 8).map((item) => (
-                <article key={item.id}>
-                  <div><strong>{item.payload?.productName || "未指定产品"}</strong><time>{new Date(item.updated_at).toLocaleString("zh-CN", { hour12: false })}</time></div>
-                  <p>{item.payload?.message}</p>
-                  {item.payload?.subjects?.length ? <span>科目：{item.payload.subjects.join("、")}</span> : null}
-                </article>
-              ))}
-            </div>
-          ) : <p className="feedback-empty">暂时没有新的销售反馈。</p>}
         </section>
 
         <section className="admin-section-intro">

@@ -1504,6 +1504,60 @@ textarea {
   border-radius: 12px;
 }
 
+.admin-feedback-menu {
+  position: relative;
+  z-index: 30;
+}
+
+.admin-feedback-trigger {
+  position: relative;
+  display: inline-flex;
+  min-height: 38px;
+  padding: 0 11px;
+  align-items: center;
+  gap: 7px;
+  color: #174b86;
+  background: #ffffff;
+  border: 1px solid #cfe0f3;
+  border-radius: 7px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.admin-feedback-trigger:hover,
+.admin-feedback-trigger.active {
+  color: #0d5bd7;
+  background: #f3f8ff;
+  border-color: #9fc4f3;
+}
+
+.admin-feedback-trigger > i {
+  position: absolute;
+  top: 5px;
+  right: 23px;
+  width: 8px;
+  height: 8px;
+  background: #ef4444;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(220, 38, 38, 0.12);
+}
+
+.feedback-inbox.admin-feedback-dropdown {
+  position: absolute;
+  top: calc(100% + 9px);
+  right: 0;
+  width: min(680px, calc(100vw - 48px));
+  max-height: min(620px, calc(100vh - 150px));
+  margin: 0;
+  overflow-y: auto;
+  box-shadow: 0 20px 55px rgba(22, 56, 96, 0.2);
+}
+
+.admin-feedback-dropdown .feedback-inbox-list {
+  grid-template-columns: 1fr;
+}
+
 .feedback-inbox > header,
 .feedback-inbox > header > div {
   display: flex;
@@ -1586,6 +1640,15 @@ textarea {
 
   .feedback-modal-backdrop {
     padding: 14px;
+  }
+
+  .feedback-inbox.admin-feedback-dropdown {
+    position: fixed;
+    top: 76px;
+    right: 12px;
+    left: 12px;
+    width: auto;
+    max-height: calc(100vh - 92px);
   }
 }
 
