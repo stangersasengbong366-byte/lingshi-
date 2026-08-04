@@ -426,6 +426,14 @@ function App() {
   }) : [];
 
   React.useEffect(() => {
+    const previousTitle = document.title;
+    if (shortCode || shareParams) document.title = "有道领世用户权益清单";
+    else if (salesOnly) document.title = "有道领世销售权益清单";
+    else document.title = "有道领世产品权益清单";
+    return () => { document.title = previousTitle; };
+  }, [shortCode, Boolean(shareParams), salesOnly]);
+
+  React.useEffect(() => {
     if (!shortCode || directShareParams) return undefined;
     let cancelled = false;
     loadShortShareState(shortCode)
@@ -932,7 +940,7 @@ function SalesPage({ products, selectedProduct, selectedSubjects, selectedBonusS
         products: buildShareSnapshotProducts(products, selectedProduct),
       };
       const code = await createShortShareLink(shareState);
-      await navigator.clipboard.writeText(buildShortShareUrl(code, shareState));
+      await navigator.clipboard.writeText(buildShortShareUrl(code));
       setLinkCopied(true);
       window.setTimeout(() => setLinkCopied(false), 1600);
     } catch (error) {
@@ -5367,22 +5375,11 @@ function buildShareSnapshotProducts(products, selectedProduct) {
   return [selectedSnapshot, ...poolProducts];
 }
 
-function buildShortShareUrl(code, shareState) {
+function buildShortShareUrl(code) {
   const url = new URL(PUBLIC_SITE_URL);
   url.search = "";
   url.hash = "";
   url.searchParams.set("s", code);
-  if (shareState?.productId && Array.isArray(shareState.subjects)) {
-    url.searchParams.set("share", "1");
-    url.searchParams.set("product", shareState.productId);
-    url.searchParams.set("subjects", shareState.subjects.join(","));
-    if (shareState.bonusSubjects?.length) url.searchParams.set("bonus", shareState.bonusSubjects.join(","));
-    const tracks = shareState.subjects
-      .map((subject) => `${subject}:${shareState.videoTracks?.[subject] ?? "目标班"}`)
-      .join(",");
-    if (tracks) url.searchParams.set("tracks", tracks);
-    url.searchParams.set("view", shareState.viewMode === "detail" ? "detail" : "summary");
-  }
   return url.toString();
 }
 
