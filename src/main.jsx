@@ -3070,23 +3070,43 @@ function presentExportDownload(blob, filename) {
   const url = URL.createObjectURL(blob);
   const isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
   const isWeChat = /MicroMessenger/i.test(navigator.userAgent);
-  const autoLink = document.createElement("a");
-  autoLink.download = filename;
-  autoLink.href = url;
-  autoLink.rel = "noopener";
-  autoLink.style.display = "none";
-  document.body.appendChild(autoLink);
-  autoLink.click();
-  autoLink.remove();
+  const imageFile = typeof File === "function"
+    ? new File([blob], filename, { type: "image/png", lastModified: Date.now() })
+    : null;
+  let canShareFile = false;
+  try {
+    canShareFile = Boolean(
+      isMobile
+      && imageFile
+      && typeof navigator.share === "function"
+      && typeof navigator.canShare === "function"
+      && navigator.canShare({ files: [imageFile] }),
+    );
+  } catch {
+    canShareFile = false;
+  }
+
+  if (!isMobile) {
+    const autoLink = document.createElement("a");
+    autoLink.download = filename;
+    autoLink.href = url;
+    autoLink.rel = "noopener";
+    autoLink.style.display = "none";
+    document.body.appendChild(autoLink);
+    autoLink.click();
+    autoLink.remove();
+  }
 
   const toast = document.createElement("div");
   toast.className = "export-download-toast";
   toast.innerHTML = `
-    <strong>长图已生成，正在下载</strong>
+    <strong>${isMobile ? "长图已生成" : "长图已生成，正在下载"}</strong>
     <span>${isMobile
-      ? isWeChat
-        ? "已发起系统下载。若微信未响应，请点击右上角菜单，选择“在浏览器打开”后再次下载。"
-        : "已发起系统下载，请在手机通知栏或浏览器下载列表中查看。"
+      ? canShareFile
+        ? "点击“保存图片到手机”，在系统面板中选择存储到相册或文件。"
+        : isWeChat
+          ? "微信限制网页直接保存文件，请点击右上角菜单，选择“在浏览器打开”后下载。"
+          : "点击下方按钮下载图片到手机。"
       : "如果没有自动下载，请点击按钮保存到电脑。"}</span>
   `;
 
@@ -3094,7 +3114,21 @@ function presentExportDownload(blob, filename) {
   saveLink.href = url;
   saveLink.download = filename;
   saveLink.rel = "noopener";
-  saveLink.textContent = isMobile ? "再次下载到手机" : "保存图片到电脑";
+  saveLink.textContent = isMobile ? "下载图片到手机" : "保存图片到电脑";
+
+  const shareButton = document.createElement("button");
+  shareButton.type = "button";
+  shareButton.className = "primary";
+  shareButton.textContent = "保存图片到手机";
+  shareButton.addEventListener("click", async () => {
+    try {
+      await navigator.share({ files: [imageFile], title: filename });
+    } catch (error) {
+      if (error?.name !== "AbortError") {
+        toast.querySelector("span").textContent = "系统保存未响应，请在外部浏览器打开页面后重试。";
+      }
+    }
+  });
 
   const closeButton = document.createElement("button");
   closeButton.type = "button";
@@ -3104,7 +3138,9 @@ function presentExportDownload(blob, filename) {
     toast.remove();
   });
 
-  toast.append(saveLink, closeButton);
+  if (canShareFile) toast.append(shareButton);
+  else toast.append(saveLink);
+  toast.append(closeButton);
   document.body.appendChild(toast);
 }
 
