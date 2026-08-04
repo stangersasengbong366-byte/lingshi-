@@ -3160,7 +3160,7 @@ function BenefitSheet({ products = [], product, coursePlan, coursePlans, bonusCo
   const plans = coursePlans?.length ? coursePlans : coursePlan ? [coursePlan] : [];
   const subjects = plans.length ? plans.map((plan) => plan.subject) : ["数学"];
   const giftPlan = getGiftPlanForSubjects(product, subjects, products);
-  const physicalGiftItems = getPhysicalGiftItemsForSubjects(product, subjects);
+  const physicalGiftItems = getPhysicalGiftItemsForSubjects(product, subjects, products);
 
   return (
     <article className={`${mode === "poster" ? "benefit-sheet poster" : "benefit-sheet"} view-${viewMode}`} ref={refNode}>
@@ -4443,8 +4443,15 @@ function getPhysicalGiftItems(product, subject) {
   return selectedKeys ? items.filter((item) => isGiftItemSelected(selectedKeys, item)) : items;
 }
 
-function getPhysicalGiftItemsForSubjects(product, subjects) {
-  return uniqueGiftItems(subjects.flatMap((subject) => getPhysicalGiftItems(product, subject)))
+function getPhysicalGiftItemsForSubjects(product, subjects, products = []) {
+  const selectedKeys = product.physicalGiftSelections;
+  const pooledItems = products.length
+    ? getGradePhysicalGiftCandidates(products, product)
+    : uniqueGiftItems(subjects.flatMap((subject) => getPhysicalGiftItems(product, subject)));
+  const selectedItems = selectedKeys
+    ? pooledItems.filter((item) => isGiftItemSelected(selectedKeys, item))
+    : pooledItems;
+  return selectedItems
     .filter((item) => isGiftRuleEligible(item.rule, subjects.length))
     .map((item) => decorateGiftItem(item, { category: "实物赠送" }));
 }
