@@ -10,7 +10,7 @@ export function getProductPricing(product, subjectsOrCount) {
     ...configuredHumanitiesSubjects,
   ]);
   const selectedSubjects = Array.isArray(subjectsOrCount) ? subjectsOrCount : [];
-  const subjectCount = selectedSubjects.length || Number(subjectsOrCount) || 1;
+  const fallbackStandardCount = Math.max(1, Number(subjectsOrCount) || 1);
   const source = product.pricing ?? {};
   const originalPerSubject = Number(source.originalPerSubject) || 5400;
   const singlePerSubject = Number(source.singlePerSubject) || 3980;
@@ -18,7 +18,7 @@ export function getProductPricing(product, subjectsOrCount) {
   const threePlusPerSubject = Number(source.threePlusPerSubject) || 3380;
   const standardCount = selectedSubjects.length
     ? selectedSubjects.filter((subject) => !humanitiesSubjects.has(subject)).length
-    : subjectCount;
+    : fallbackStandardCount;
   const humanitiesCount = selectedSubjects.length
     ? selectedSubjects.filter((subject) => humanitiesSubjects.has(subject)).length
     : 0;

@@ -77,6 +77,27 @@ import supabaseSchemaSql from "../supabase/schema.sql?raw";
 import "./styles.css";
 
 let storedProductsCache;
+const APP_BUILD_VERSION = __APP_BUILD_VERSION__;
+const VERSION_RELOAD_KEY = "youdao-benefits-version-reload";
+
+async function refreshStaleAppVersion() {
+  try {
+    const response = await fetch(`${assetUrl("/version.json")}?t=${Date.now()}`, {
+      cache: "no-store",
+    });
+    if (!response.ok) return;
+    const remote = await response.json();
+    if (!remote?.version || remote.version === APP_BUILD_VERSION) {
+      window.sessionStorage.removeItem(VERSION_RELOAD_KEY);
+      return;
+    }
+    if (window.sessionStorage.getItem(VERSION_RELOAD_KEY) === remote.version) return;
+    window.sessionStorage.setItem(VERSION_RELOAD_KEY, remote.version);
+    window.location.reload();
+  } catch {
+    // 离线或弱网时继续使用当前页面，下次回到前台再次校验。
+  }
+}
 
 function loadStoredProducts() {
   if (storedProductsCache) return storedProductsCache;
@@ -426,6 +447,15 @@ function App() {
       ? { ...plan, isBonus: true, videoRows: [], videoEntitlement: 0, videoOutlineCount: 0, bonusType: "夏研学法直播", bonusService: "无辅导服务", bonusPrice: 0 }
       : { ...plan, isBonus: true, bonusType: "夏季+秋季半年正课", bonusService: `享受与所购正课相同的辅导服务${selectedProduct.core?.servicePeriod ? ` · ${selectedProduct.core.servicePeriod}` : ""}`, bonusPrice: 0 };
   }) : [];
+
+  React.useEffect(() => {
+    refreshStaleAppVersion();
+    const handleVisibility = () => {
+      if (document.visibilityState === "visible") refreshStaleAppVersion();
+    };
+    document.addEventListener("visibilitychange", handleVisibility);
+    return () => document.removeEventListener("visibilitychange", handleVisibility);
+  }, []);
 
   React.useEffect(() => {
     const previousTitle = document.title;

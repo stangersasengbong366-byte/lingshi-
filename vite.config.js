@@ -1,8 +1,25 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
+const buildVersion = Date.now().toString(36);
+
 export default defineConfig({
-  plugins: [react()],
+  define: {
+    __APP_BUILD_VERSION__: JSON.stringify(buildVersion),
+  },
+  plugins: [
+    react(),
+    {
+      name: "benefits-version-manifest",
+      generateBundle() {
+        this.emitFile({
+          type: "asset",
+          fileName: "version.json",
+          source: JSON.stringify({ version: buildVersion }),
+        });
+      },
+    },
+  ],
   base: process.env.GITHUB_ACTIONS ? "/lingshi-/" : "/",
   build: {
     rollupOptions: {
