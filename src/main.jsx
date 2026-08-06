@@ -429,7 +429,11 @@ function App() {
   const [salesFeedback, setSalesFeedback] = useState([]);
   const activeProducts = useMemo(() => products.filter((item) => item.status === "在售"), [products]);
   const availableProducts = !publicView && activePage === "admin" ? products : activeProducts;
-  const selectedProduct = availableProducts.find((item) => item.id === selectedProductId) ?? availableProducts[0] ?? null;
+  const isCustomerShare = Boolean(shortCode || shareParams);
+  // 分享链接必须严格匹配链接中指定的产品。云端快照尚未返回时宁可
+  // 显示加载状态，也不能回退到本地第一个产品（新高一秋实卡）。
+  const selectedProduct = availableProducts.find((item) => item.id === selectedProductId)
+    ?? (isCustomerShare ? null : availableProducts[0] ?? null);
   const selectedCoursePlans = selectedProduct ? selectedSubjects.map((subject) => resolveCoursePlan(
     selectedProduct,
     subject,
@@ -730,6 +734,10 @@ function App() {
 
   if (shortLinkStatus === "missing" || shortLinkStatus === "error") {
     return <main className="public-empty-state"><strong>短链无效或已失效</strong><span>请联系销售重新生成分享链接。</span></main>;
+  }
+
+  if (isCustomerShare && !selectedProduct) {
+    return <main className="public-empty-state"><strong>正在加载对应产品</strong><span>正在读取本链接指定的权益配置，请稍候。</span></main>;
   }
 
   if (publicView && !selectedProduct) {
