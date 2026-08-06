@@ -23,8 +23,8 @@ export function getProductPricing(product, subjectsOrCount) {
     ? selectedSubjects.filter((subject) => humanitiesSubjects.has(subject)).length
     : 0;
   // 文综一口价科目不参与语数英物化（及其他非文综科目）的阶梯档位。
-  // 高一生物是否按文综价由产品 humanitiesSubjects 配置决定；其他年级
-  // 未配置生物时，它自然归入 standardCount 并参与阶梯计价。
+  // 高一生物固定按一口价；其他年级生物固定归入 standardCount，
+  // 即使历史产品配置残留 humanitiesSubjects 也不会改变这个规则。
   const tierSubjectCount = standardCount;
   const selectedPerSubject = tierSubjectCount <= 1
     ? singlePerSubject
