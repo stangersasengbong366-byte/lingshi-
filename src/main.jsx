@@ -7,6 +7,8 @@ import {
   Clock,
   Download,
   Database,
+  Crosshair,
+  Eraser,
   Eye,
   FileText,
   Gift,
@@ -390,8 +392,8 @@ function App() {
   const shortCode = new URLSearchParams(window.location.search).get("s");
   const fallbackShareParams = shortCode ? getShareParams() : null;
   const directShareParams = shortCode ? null : getShareParams();
-  const [shareParams, setShareParams] = useState(directShareParams);
-  const [shortLinkStatus, setShortLinkStatus] = useState(shortCode && !directShareParams ? "loading" : "ready");
+  const [shareParams, setShareParams] = useState(fallbackShareParams ?? directShareParams);
+  const [shortLinkStatus, setShortLinkStatus] = useState(shortCode && !fallbackShareParams ? "loading" : "ready");
   const salesOnly = getSalesOnlyMode();
   const publicView = Boolean(shareParams || shortCode || salesOnly);
   const [activePage, setActivePage] = useState("sales");
@@ -887,6 +889,8 @@ function SalesPage({ products, selectedProduct, selectedSubjects, selectedBonusS
   const [feedbackOpen, setFeedbackOpen] = useState(false);
   const [feedbackText, setFeedbackText] = useState("");
   const [feedbackState, setFeedbackState] = useState("idle");
+  const [presentationTool, setPresentationTool] = useState("off");
+  const [annotationClearSignal, setAnnotationClearSignal] = useState(0);
   const [viewMode, setViewMode] = useState(() => (
     new URLSearchParams(window.location.search).get("view") === "detail" ? "detail" : "summary"
   ));
@@ -940,7 +944,7 @@ function SalesPage({ products, selectedProduct, selectedSubjects, selectedBonusS
         products: buildShareSnapshotProducts(products, selectedProduct),
       };
       const code = await createShortShareLink(shareState);
-      await navigator.clipboard.writeText(buildShortShareUrl(code));
+      await navigator.clipboard.writeText(buildShortShareUrl(code, shareState));
       setLinkCopied(true);
       window.setTimeout(() => setLinkCopied(false), 1600);
     } catch (error) {
@@ -1130,22 +1134,50 @@ function SalesPage({ products, selectedProduct, selectedSubjects, selectedBonusS
             <h2>销售展示清单</h2>
           </div>
           <div className="sales-toolbar-actions">
+            <div className="presentation-tools" role="group" aria-label="电子笔工具">
+              <button
+                className={presentationTool === "laser" ? "active laser" : ""}
+                type="button"
+                title="激光笔"
+                onClick={() => setPresentationTool((current) => current === "laser" ? "off" : "laser")}
+              >
+                <Crosshair size={15} />激光笔
+              </button>
+              <button
+                className={presentationTool === "pen" ? "active" : ""}
+                type="button"
+                title="画笔"
+                onClick={() => setPresentationTool((current) => current === "pen" ? "off" : "pen")}
+              >
+                <Pencil size={15} />画笔
+              </button>
+              <button
+                type="button"
+                title="清空标注"
+                onClick={() => setAnnotationClearSignal((value) => value + 1)}
+              >
+                <Eraser size={15} />清空
+              </button>
+            </div>
             <span className="usage-count-pill"><Eye size={15} />累计浏览 {usageCount ?? "—"} 次</span>
             <button className="feedback-trigger" type="button" onClick={() => setFeedbackOpen(true)}>
               <MessageSquare size={16} />问题反馈
             </button>
           </div>
         </div>
-        <BenefitSheet
-          products={products}
-          product={selectedProduct}
-          coursePlans={coursePlans}
-          bonusCoursePlans={bonusCoursePlans}
-          refNode={previewRef}
-          mode="sales"
-          viewMode={viewMode}
-          teachingAids={teachingAids}
-        />
+        <div className={`presentation-surface tool-${presentationTool}`}>
+          <BenefitSheet
+            products={products}
+            product={selectedProduct}
+            coursePlans={coursePlans}
+            bonusCoursePlans={bonusCoursePlans}
+            refNode={previewRef}
+            mode="sales"
+            viewMode={viewMode}
+            teachingAids={teachingAids}
+          />
+          <PresentationOverlay mode={presentationTool} clearSignal={annotationClearSignal} />
+        </div>
       </section>
       {feedbackOpen ? (
         <div className="feedback-modal-backdrop" role="presentation" onMouseDown={() => setFeedbackOpen(false)}>
@@ -1170,6 +1202,108 @@ function SalesPage({ products, selectedProduct, selectedSubjects, selectedBonusS
         </div>
       ) : null}
     </section>
+  );
+}
+
+function PresentationOverlay({ mode, clearSignal }) {
+  const canvasRef = useRef(null);
+  const [laserPoint, setLaserPoint] = useState(null);
+  const drawingRef = useRef(false);
+  const lastPointRef = useRef(null);
+
+  const resizeCanvas = React.useCallback(() => {
+    const canvas = canvasRef.current;
+    const surface = canvas?.parentElement;
+    if (!canvas || !surface) return;
+    const width = Math.max(1, Math.round(surface.clientWidth));
+    const height = Math.max(1, Math.round(surface.scrollHeight));
+    if (canvas.width === width && canvas.height === height) return;
+    const snapshot = document.createElement("canvas");
+    snapshot.width = canvas.width;
+    snapshot.height = canvas.height;
+    snapshot.getContext("2d")?.drawImage(canvas, 0, 0);
+    canvas.width = width;
+    canvas.height = height;
+    canvas.getContext("2d")?.drawImage(snapshot, 0, 0);
+  }, []);
+
+  React.useEffect(() => {
+    resizeCanvas();
+    const surface = canvasRef.current?.parentElement;
+    if (!surface) return undefined;
+    const observer = new ResizeObserver(resizeCanvas);
+    observer.observe(surface);
+    return () => observer.disconnect();
+  }, [resizeCanvas]);
+
+  React.useEffect(() => {
+    const canvas = canvasRef.current;
+    canvas?.getContext("2d")?.clearRect(0, 0, canvas.width, canvas.height);
+    setLaserPoint(null);
+  }, [clearSignal]);
+
+  const getPoint = (event) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    return {
+      x: (event.clientX - rect.left) * (event.currentTarget.width / rect.width),
+      y: (event.clientY - rect.top) * (event.currentTarget.height / rect.height),
+      displayX: event.clientX - rect.left,
+      displayY: event.clientY - rect.top,
+    };
+  };
+
+  const handlePointerDown = (event) => {
+    if (mode === "off") return;
+    event.currentTarget.setPointerCapture?.(event.pointerId);
+    const point = getPoint(event);
+    if (mode === "laser") {
+      setLaserPoint({ x: point.displayX, y: point.displayY });
+      return;
+    }
+    drawingRef.current = true;
+    lastPointRef.current = point;
+  };
+
+  const handlePointerMove = (event) => {
+    if (mode === "off") return;
+    const point = getPoint(event);
+    if (mode === "laser") {
+      setLaserPoint({ x: point.displayX, y: point.displayY });
+      return;
+    }
+    if (!drawingRef.current || !lastPointRef.current) return;
+    const context = event.currentTarget.getContext("2d");
+    context.strokeStyle = "#1677ff";
+    context.lineWidth = 5;
+    context.lineCap = "round";
+    context.lineJoin = "round";
+    context.beginPath();
+    context.moveTo(lastPointRef.current.x, lastPointRef.current.y);
+    context.lineTo(point.x, point.y);
+    context.stroke();
+    lastPointRef.current = point;
+  };
+
+  const stopDrawing = () => {
+    drawingRef.current = false;
+    lastPointRef.current = null;
+    if (mode === "laser") setLaserPoint(null);
+  };
+
+  return (
+    <div className={`presentation-overlay mode-${mode}`} aria-hidden="true">
+      <canvas
+        ref={canvasRef}
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={stopDrawing}
+        onPointerCancel={stopDrawing}
+        onPointerLeave={stopDrawing}
+      />
+      {mode === "laser" && laserPoint ? (
+        <span className="laser-pointer" style={{ left: laserPoint.x, top: laserPoint.y }} />
+      ) : null}
+    </div>
   );
 }
 
@@ -5373,11 +5507,19 @@ function buildShareSnapshotProducts(products, selectedProduct) {
   return [selectedSnapshot, ...poolProducts];
 }
 
-function buildShortShareUrl(code) {
+function buildShortShareUrl(code, shareState) {
   const url = new URL(PUBLIC_SITE_URL);
   url.search = "";
   url.hash = "";
   url.searchParams.set("s", code);
+  if (shareState?.productId) {
+    url.searchParams.set("share", "1");
+    url.searchParams.set("product", shareState.productId);
+    url.searchParams.set("subjects", shareState.subjects.join(","));
+    url.searchParams.set("tracks", shareState.subjects.map((subject) => `${subject}:${shareState.videoTracks?.[subject] ?? "目标班"}`).join(","));
+    if (shareState.bonusSubjects?.length) url.searchParams.set("bonus", shareState.bonusSubjects.join(","));
+    url.searchParams.set("view", shareState.viewMode === "detail" ? "detail" : "summary");
+  }
   return url.toString();
 }
 
