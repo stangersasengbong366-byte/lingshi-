@@ -413,11 +413,11 @@ function App() {
   const shortCode = new URLSearchParams(window.location.search).get("s");
   const fallbackShareParams = shortCode ? getShareParams() : null;
   const directShareParams = shortCode ? null : getShareParams();
+  const salesOnly = getSalesOnlyMode();
   const [shareParams, setShareParams] = useState(fallbackShareParams ?? directShareParams);
   const [shortLinkStatus, setShortLinkStatus] = useState(shortCode && !fallbackShareParams ? "loading" : "ready");
-  const salesOnly = getSalesOnlyMode();
   const publicView = Boolean(shareParams || shortCode || salesOnly);
-  const [activePage, setActivePage] = useState("sales");
+  const [activePage, setActivePage] = useState(() => salesOnly ? "sales" : "admin");
   const [products, setProducts] = useState(loadStoredProducts);
   const [syncStatus, setSyncStatus] = useState(cloudConfigEnabled ? "正在同步云端配置" : "本地配置");
   const [selectedProductId, setSelectedProductId] = useState(() => shareParams?.productId ?? loadStoredProducts()[0]?.id ?? initialProducts[0].id);
