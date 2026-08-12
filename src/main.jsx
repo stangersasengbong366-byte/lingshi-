@@ -66,6 +66,7 @@ import {
   SUPABASE_URL,
 } from "./config/runtime";
 import { formatPrice, getProductPricing } from "./domain/pricing";
+import { getSaleableSubjects, getVideoAvailabilityOverride } from "./domain/productSubjectRules";
 import {
   getGiftRuleThreshold,
   isCourseGiftRuleEligible,
@@ -522,6 +523,14 @@ function App() {
   }, [selectedProduct?.id, selectedSubjects.join("|"), selectedBonusSubjects.join("|")]);
 
   React.useEffect(() => {
+    if (!selectedProduct) return;
+    const saleableSubjects = getSaleSubjects(selectedProduct);
+    const normalized = selectedSubjects.filter((subject) => saleableSubjects.includes(subject));
+    const nextSubjects = normalized.length ? normalized : [saleableSubjects[0] ?? "数学"];
+    if (nextSubjects.join("|") !== selectedSubjects.join("|")) setSelectedSubjects(nextSubjects);
+  }, [selectedProduct?.id, selectedProduct?.grade, selectedProduct?.stage, selectedProduct?.name, selectedSubjects.join("|")]);
+
+  React.useEffect(() => {
     if (!cloudConfigEnabled || !selectedProduct?.grade) return undefined;
     let cancelled = false;
     let frameId = 0;
@@ -958,7 +967,10 @@ function SalesPage({ products, selectedProduct, selectedSubjects, selectedBonusS
     () => sortSaleProducts(productOptions.filter((item) => item.grade === selectedProduct.grade)),
     [productOptions, selectedProduct.grade],
   );
-  const selectedSubjectText = selectedSubjects.join("、");
+  const videoSubjectText = coursePlans
+    .filter((plan) => (plan?.videoEntitlement ?? 0) > 0)
+    .map((plan) => plan.subject)
+    .join("、");
   const liveTotal = coursePlans.reduce((sum, plan) => sum + (plan?.liveCount ?? 0), 0);
   const videoTotal = coursePlans.reduce((sum, plan) => sum + (plan?.videoEntitlement ?? 0), 0);
   const requiredBonusCount = getRequiredBonusCount(selectedProduct, selectedSubjects);
@@ -1152,7 +1164,7 @@ function SalesPage({ products, selectedProduct, selectedSubjects, selectedBonusS
         </Field>
         <div className="quick-facts">
           <Metric icon={BookOpen} label={`${selectedSubjects.length}科 学法直播`} value={`${liveTotal || selectedProduct.core.liveLessons}节`} />
-          <Metric icon={Layers} label={`${selectedSubjectText} 知识视频`} value={`${videoTotal}节`} />
+          <Metric icon={Layers} label={videoSubjectText ? `${videoSubjectText} 知识视频` : "无知识视频"} value={`${videoTotal}节`} />
           <Metric icon={GraduationCap} label="服务周期" value={selectedProduct.core.servicePeriod} />
         </div>
         <div className="action-stack">
@@ -3887,12 +3899,7 @@ function getProductJourney(product) {
 
 function getSaleSubjects(product) {
   const configured = product?.availableSubjects?.length ? product.availableSubjects : courseSubjects;
-  const isG2Autumn = product?.grade === "高二"
-    && /秋实卡/.test(product?.name ?? "")
-    && !/决胜卡/.test(product?.name ?? "");
-  return isG2Autumn
-    ? configured.filter((subject) => !["历史", "地理", "政治"].includes(subject))
-    : configured;
+  return getSaleableSubjects(product, configured, courseSubjects);
 }
 
 function sortSaleProducts(products) {
@@ -4577,6 +4584,9 @@ function getSubjectProfile(product, subject) {
 }
 
 function getSubjectVideoAvailability(product, subject) {
+  const specialRule = getVideoAvailabilityOverride(product, subject);
+  if (specialRule) return specialRule;
+
   const isG1Autumn = String(product.grade).includes("高一") && `${product.stage}${product.name}`.includes("秋实");
   if (isG1Autumn) {
     const hasVideo = ["语文", "数学", "英语", "物理", "化学"].includes(subject);
