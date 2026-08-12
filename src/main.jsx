@@ -1111,8 +1111,9 @@ function SalesPage({ products, selectedProduct, selectedSubjects, selectedBonusS
         <Field label="各科知识视频班型">
           <div className="subject-track-list">
             {selectedSubjects.map((subject) => {
-              const hasVideo = selectedProduct.videoSubjects?.includes(subject);
-              const isLayered = selectedProduct.layeredVideoSubjects?.includes(subject);
+              const videoAvailability = getSubjectVideoAvailability(selectedProduct, subject);
+              const hasVideo = videoAvailability.hasVideo;
+              const isLayered = videoAvailability.isLayered;
               return (
                 <div className="subject-track-row" key={subject}>
                   <strong>{subject}</strong>
@@ -1127,7 +1128,7 @@ function SalesPage({ products, selectedProduct, selectedSubjects, selectedBonusS
               );
             })}
           </div>
-          <p className="field-help">数英物化可独立选择“目标班”或“菁英班”；语文不分层，生政史地本产品无知识视频。</p>
+          <p className="field-help">知识视频与班型以当前产品实际课程库为准；显示班型按钮的科目可独立选择“目标班”或“菁英班”。</p>
         </Field>
         <Field label="页面类型">
           <div className="version-switch" role="group" aria-label="页面类型">
@@ -4561,10 +4562,7 @@ function getSubjectProfile(product, subject) {
   const isHumanities = product.humanitiesSubjects?.includes(subject) || humanitiesSubjects.includes(subject);
   const profile = isHumanities ? product.subjectProfiles?.humanities : null;
   const isG1Autumn = String(product.grade).includes("高一") && `${product.stage}${product.name}`.includes("秋实");
-  const videoSubjects = isG1Autumn
-    ? ["语文", "数学", "英语", "物理", "化学"]
-    : product.videoSubjects;
-  const hasKnowledgeVideos = !videoSubjects || videoSubjects.includes(subject);
+  const { hasVideo: hasKnowledgeVideos } = getSubjectVideoAvailability(product, subject);
   const knowledgeVideos = isG1Autumn && hasKnowledgeVideos
     ? 40
     : hasKnowledgeVideos ? profile?.knowledgeVideos ?? product.core.knowledgeVideos : 0;
@@ -4575,6 +4573,41 @@ function getSubjectProfile(product, subject) {
       `学法直播${product.core.liveLessons}节`,
       hasKnowledgeVideos && product.core.knowledgeVideos ? `知识视频${product.core.knowledgeVideos}节` : "无知识视频",
     ],
+  };
+}
+
+function getSubjectVideoAvailability(product, subject) {
+  const isG1Autumn = String(product.grade).includes("高一") && `${product.stage}${product.name}`.includes("秋实");
+  if (isG1Autumn) {
+    const hasVideo = ["语文", "数学", "英语", "物理", "化学"].includes(subject);
+    return {
+      hasVideo,
+      isLayered: hasVideo && ["数学", "英语", "物理", "化学"].includes(subject),
+    };
+  }
+
+  const coveragePhases = product.videoPhases?.length
+    ? product.videoPhases
+    : product.coveragePhases?.length
+      ? product.coveragePhases
+      : getDefaultCoveragePhases(product);
+  const parsedRows = product.parsedCourseData?.video?.[subject] ?? [];
+  const catalogRows = courseCatalog[product.grade]?.[subject]?.videoLibrary ?? [];
+  const sourceRows = parsedRows.length ? parsedRows : catalogRows;
+  const matchingRows = sourceRows.filter((row) => phaseMatches(row.quarter, coveragePhases));
+  if (matchingRows.length) {
+    const tracks = new Set(matchingRows.map((row) => normalizeVideoTrack(row.layered)));
+    return {
+      hasVideo: true,
+      isLayered: tracks.has("目标班") && tracks.has("菁英班"),
+    };
+  }
+
+  const configuredSubjects = product.videoSubjects;
+  const hasVideo = !configuredSubjects || configuredSubjects.includes(subject);
+  return {
+    hasVideo,
+    isLayered: hasVideo && Boolean(product.layeredVideoSubjects?.includes(subject)),
   };
 }
 
