@@ -9,6 +9,10 @@ if (process.env.GITHUB_ACTIONS) {
     'const activeProducts = useMemo(() => products.filter((item) => item.status === "在售"), [products]);',
     'const activeProducts = useMemo(() => { const live = products.filter((item) => item.status === "在售"); return live.length ? live : (salesOnly ? initialProducts.map(migrateStoredProduct).filter((item) => item.status === "在售") : live); }, [products, salesOnly]);',
   );
+  source = source.replace(
+    'function getSupabaseHeaders() {\n  return {\n    apikey: SUPABASE_ANON_KEY,\n    Authorization: `Bearer ${SUPABASE_ANON_KEY}`,\n  };\n}',
+    'function getSupabaseHeaders() {\n  return {\n    apikey: SUPABASE_ANON_KEY,\n  };\n}',
+  );
   fs.writeFileSync(sourcePath, source);
 }
 
