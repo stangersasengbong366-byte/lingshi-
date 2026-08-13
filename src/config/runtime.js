@@ -1,4 +1,4 @@
-export const PRODUCTS_STORAGE_KEY = "youdao-benefits-products-v5-g1-autumn-course-refresh";
+export const PRODUCTS_STORAGE_KEY = "youdao-benefits-products-v6-sales-recovery";
 export const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
 export const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
 export const PUBLIC_SITE_URL = import.meta.env.VITE_PUBLIC_SITE_URL || "https://stangersasengbong366-byte.github.io/lingshi-/";
