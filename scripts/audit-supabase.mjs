@@ -18,96 +18,89 @@ if (!url || !key) throw new Error('Supabase env missing');
 const H = { apikey: key, Authorization: `Bearer ${key}` };
 const table = 'benefit_configs';
 async function get(path) {
-  const r = await fetch(`${url}/rest/v1/${table}${path}`, { headers: H });
+  const r = await fetch(`${url}/rest/v1/${table}${path}`, { headers: H, cache: 'no-store' });
   if (!r.ok) throw new Error(`${r.status} ${await r.text()}`);
   return r.json();
 }
+async function upsert(id, payload) {
+  const r = await fetch(`${url}/rest/v1/${table}?on_conflict=id`, {
+    method: 'POST',
+    headers: { ...H, 'Content-Type': 'application/json', Prefer: 'resolution=merge-duplicates,return=minimal' },
+    body: JSON.stringify({ id, payload, updated_at: new Date().toISOString() }),
+  });
+  if (!r.ok) throw new Error(`${r.status} ${await r.text()}`);
+}
 
-const arr = (p) => Array.isArray(p) ? p : Array.isArray(p?.products) ? p.products : [];
-const generic = (name) => /新产品|未命名|待配置|测试产品/.test(String(name || ''));
-const score = (p) => {
-  let n = 0;
-  if (p?.name && !generic(p.name)) n += 12;
-  if (p?.grade) n += 2;
-  if (p?.stage) n += 2;
-  if (p?.status === '在售') n += 2;
-  if (p?.core?.servicePeriod || p?.serviceDateRange) n += 3;
-  if (+p?.core?.liveLessons) n += 2;
-  if (+p?.core?.knowledgeVideos) n += 2;
-  const z = p?.pricing || {};
-  if ([z.originalPerSubject,z.singlePerSubject,z.twoPerSubject,z.threePlusPerSubject].some(v => Number(v) > 0)) n += 6;
-  if (Array.isArray(p?.giftSelections) && p.giftSelections.length) n += 3;
-  if (Array.isArray(p?.physicalGiftSelections) && p.physicalGiftSelections.length) n += 2;
-  if (Array.isArray(p?.customGiftItems) && p.customGiftItems.length) n += 3;
-  if (Array.isArray(p?.customPhysicalItems) && p.customPhysicalItems.length) n += 2;
-  if (p?.customCourseData || p?.parsedCourseData || p?.annualCourseData) n += 3;
-  return n;
-};
+const sourceIds = [
+  'share_1s3d523e4',
+  'share_0o6f0a5a2',
+  'share_4x4m4t4w1',
+  'share_3e2637374',
+  'share_5n4b1l6o1',
+  'share_5m6240412',
+];
 
 const core = await get('?id=in.(products,products_draft,products_published)&select=id,payload,updated_at');
-console.log('=== CORE ROWS ===');
-for (const row of core) {
+const coreById = Object.fromEntries(core.map(r => [r.id, r]));
+const shares = await get(`?id=in.(${sourceIds.join(',')})&select=id,payload,updated_at`);
+
+const arr = p => Array.isArray(p) ? p : Array.isArray(p?.products) ? p.products : [];
+const byId = new Map();
+for (const row of shares) {
+  for (const p of arr(row.payload)) {
+    if (p?.id) byId.set(p.id, p);
+  }
+}
+const products = [...byId.values()];
+if (products.length !== 6) {
+  throw new Error(`恢复候选数量异常：期望6个，实际${products.length}个`);
+}
+
+const now = new Date();
+const stamp = now.toISOString().replace(/[:.]/g, '-');
+await upsert(`recovery_backup_${stamp}_draft`, coreById.products_draft?.payload ?? null);
+await upsert(`recovery_backup_${stamp}_published`, coreById.products_published?.payload ?? null);
+
+const latestWithLibraries = [...core]
+  .filter(r => r.payload?.gradeCourseLibraries && Object.keys(r.payload.gradeCourseLibraries).length)
+  .sort((a,b) => String(b.updated_at || '').localeCompare(String(a.updated_at || '')))[0];
+const gradeCourseLibraries = latestWithLibraries?.payload?.gradeCourseLibraries || {};
+
+const payload = {
+  products,
+  gradeCourseLibraries,
+  version: Date.now(),
+  recoveredAt: new Date().toISOString(),
+  recoveredFrom: sourceIds,
+};
+
+await upsert('products_draft', payload);
+await upsert('products_published', payload);
+
+const verify = await get('?id=in.(products_draft,products_published)&select=id,payload,updated_at');
+console.log('=== SUPABASE RESTORE VERIFIED ===');
+for (const row of verify) {
   const ps = arr(row.payload);
   console.log(JSON.stringify({
     id: row.id,
     updated_at: row.updated_at,
     count: ps.length,
-    names: ps.slice(0, 40).map(p => `${p.grade || ''}|${p.name || ''}|${p.stage || ''}|${p.status || ''}`),
-    genericCount: ps.filter(p => generic(p?.name)).length,
+    products: ps.map(p => ({
+      id: p.id,
+      grade: p.grade,
+      name: p.name,
+      stage: p.stage,
+      status: p.status,
+      liveLessons: p?.core?.liveLessons,
+      knowledgeVideos: p?.core?.knowledgeVideos,
+      singlePrice: p?.pricing?.singlePerSubject,
+      giftCount: Array.isArray(p?.giftSelections) ? p.giftSelections.length : 0,
+    })),
     hasLibraries: Boolean(row.payload?.gradeCourseLibraries && Object.keys(row.payload.gradeCourseLibraries).length),
   }));
+  if (ps.length !== 6) throw new Error(`${row.id} 回读数量不是6`);
+  if (ps.some(p => /新产品|未命名|待配置|测试产品/.test(String(p?.name || '')))) {
+    throw new Error(`${row.id} 仍包含错误模板产品`);
+  }
 }
-
-// id 是主键；用 share_ 的字典序范围避免 LIKE 前缀全表扫描导致 statement timeout。
-const shareMeta = await get('?id=gte.share_&id=lt.sharf&select=id,updated_at&order=updated_at.desc&limit=300');
-console.log('=== SHARE META ===');
-console.log(JSON.stringify({ shareMetaCount: shareMeta.length, newest: shareMeta[0]?.updated_at, oldestSampled: shareMeta.at(-1)?.updated_at }));
-
-const shares = [];
-for (let i = 0; i < shareMeta.length; i += 20) {
-  const batch = shareMeta.slice(i, i + 20);
-  const filter = `(${batch.map(x => x.id).join(',')})`;
-  const rows = await get(`?id=in.${encodeURIComponent(filter)}&select=id,payload,updated_at`);
-  shares.push(...rows);
-}
-
-const bestById = new Map();
-const add = (p, source, at) => {
-  if (!p?.id || generic(p?.name)) return;
-  const c = { p, source, at: at || '', s: score(p) };
-  const o = bestById.get(p.id);
-  if (!o || c.s > o.s || (c.s === o.s && c.at > o.at)) bestById.set(p.id, c);
-};
-core.forEach(r => arr(r.payload).forEach(p => add(p, r.id, r.updated_at)));
-for (const r of shares) {
-  for (const p of arr(r.payload)) add(p, r.id, r.updated_at);
-}
-
-const bySemantic = new Map();
-for (const x of bestById.values()) {
-  if (x.s < 12) continue;
-  const k = `${x.p.grade || ''}|${x.p.name || ''}|${x.p.stage || ''}`;
-  const o = bySemantic.get(k);
-  if (!o || x.s > o.s || (x.s === o.s && x.at > o.at)) bySemantic.set(k, x);
-}
-const candidates = [...bySemantic.values()].sort((a,b) => String(a.p.grade).localeCompare(String(b.p.grade),'zh-CN') || String(a.p.name).localeCompare(String(b.p.name),'zh-CN'));
-console.log('=== CANDIDATES ===');
-console.log(JSON.stringify({ sampledShares: shares.length, candidateCount: candidates.length }));
-for (const x of candidates) {
-  console.log(JSON.stringify({
-    id: x.p.id,
-    grade: x.p.grade,
-    name: x.p.name,
-    stage: x.p.stage,
-    status: x.p.status,
-    score: x.s,
-    source: x.source,
-    updated_at: x.at,
-    liveLessons: x.p?.core?.liveLessons,
-    knowledgeVideos: x.p?.core?.knowledgeVideos,
-    servicePeriod: x.p?.core?.servicePeriod,
-    singlePrice: x.p?.pricing?.singlePerSubject,
-    giftCount: Array.isArray(x.p?.giftSelections) ? x.p.giftSelections.length : 0,
-    customGiftCount: Array.isArray(x.p?.customGiftItems) ? x.p.customGiftItems.length : 0,
-  }));
-}
+console.log(`RESTORE_OK backup_prefix=recovery_backup_${stamp}`);
