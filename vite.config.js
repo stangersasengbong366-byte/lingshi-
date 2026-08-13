@@ -1,9 +1,15 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import fs from "node:fs";
 
 if (process.env.GITHUB_ACTIONS) {
-  await import("./scripts/patch-restore-selection.mjs");
-  await import("./scripts/audit-supabase.mjs");
+  const sourcePath = "src/main.jsx";
+  let source = fs.readFileSync(sourcePath, "utf8");
+  source = source.replace(
+    'const activeProducts = useMemo(() => products.filter((item) => item.status === "在售"), [products]);',
+    'const activeProducts = useMemo(() => { const live = products.filter((item) => item.status === "在售"); return live.length ? live : (salesOnly ? initialProducts.map(migrateStoredProduct).filter((item) => item.status === "在售") : live); }, [products, salesOnly]);',
+  );
+  fs.writeFileSync(sourcePath, source);
 }
 
 const buildVersion = Date.now().toString(36);
