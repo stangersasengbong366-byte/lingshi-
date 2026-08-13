@@ -1,6 +1,11 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
+if (process.env.GITHUB_ACTIONS) {
+  await import("./scripts/patch-restore-selection.mjs");
+  await import("./scripts/audit-supabase.mjs");
+}
+
 const buildVersion = Date.now().toString(36);
 
 export default defineConfig({
