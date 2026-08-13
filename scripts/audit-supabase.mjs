@@ -23,8 +23,6 @@ async function get(path) {
   return r.json();
 }
 
-const core = await get('?id=in.(products,products_draft,products_published)&select=id,payload,updated_at');
-const shares = await get('?id=like.share_%25&select=id,payload,updated_at&order=updated_at.desc&limit=1000');
 const arr = (p) => Array.isArray(p) ? p : Array.isArray(p?.products) ? p.products : [];
 const generic = (name) => /新产品|未命名|待配置|测试产品/.test(String(name || ''));
 const score = (p) => {
@@ -46,6 +44,7 @@ const score = (p) => {
   return n;
 };
 
+const core = await get('?id=in.(products,products_draft,products_published)&select=id,payload,updated_at');
 console.log('=== CORE ROWS ===');
 for (const row of core) {
   const ps = arr(row.payload);
@@ -53,10 +52,23 @@ for (const row of core) {
     id: row.id,
     updated_at: row.updated_at,
     count: ps.length,
-    names: ps.slice(0, 30).map(p => `${p.grade || ''}|${p.name || ''}|${p.stage || ''}|${p.status || ''}`),
+    names: ps.slice(0, 40).map(p => `${p.grade || ''}|${p.name || ''}|${p.stage || ''}|${p.status || ''}`),
     genericCount: ps.filter(p => generic(p?.name)).length,
     hasLibraries: Boolean(row.payload?.gradeCourseLibraries && Object.keys(row.payload.gradeCourseLibraries).length),
   }));
+}
+
+// id 是主键；用 share_ 的字典序范围避免 LIKE 前缀全表扫描导致 statement timeout。
+const shareMeta = await get('?id=gte.share_&id=lt.sharf&select=id,updated_at&order=updated_at.desc&limit=300');
+console.log('=== SHARE META ===');
+console.log(JSON.stringify({ shareMetaCount: shareMeta.length, newest: shareMeta[0]?.updated_at, oldestSampled: shareMeta.at(-1)?.updated_at }));
+
+const shares = [];
+for (let i = 0; i < shareMeta.length; i += 20) {
+  const batch = shareMeta.slice(i, i + 20);
+  const filter = `(${batch.map(x => x.id).join(',')})`;
+  const rows = await get(`?id=in.${encodeURIComponent(filter)}&select=id,payload,updated_at`);
+  shares.push(...rows);
 }
 
 const bestById = new Map();
@@ -68,8 +80,7 @@ const add = (p, source, at) => {
 };
 core.forEach(r => arr(r.payload).forEach(p => add(p, r.id, r.updated_at)));
 for (const r of shares) {
-  const ps = arr(r.payload);
-  for (const p of ps) add(p, r.id, r.updated_at);
+  for (const p of arr(r.payload)) add(p, r.id, r.updated_at);
 }
 
 const bySemantic = new Map();
@@ -80,9 +91,8 @@ for (const x of bestById.values()) {
   if (!o || x.s > o.s || (x.s === o.s && x.at > o.at)) bySemantic.set(k, x);
 }
 const candidates = [...bySemantic.values()].sort((a,b) => String(a.p.grade).localeCompare(String(b.p.grade),'zh-CN') || String(a.p.name).localeCompare(String(b.p.name),'zh-CN'));
-console.log('=== SHARE SNAPSHOTS ===');
-console.log(JSON.stringify({ shareCount: shares.length, candidateCount: candidates.length }));
 console.log('=== CANDIDATES ===');
+console.log(JSON.stringify({ sampledShares: shares.length, candidateCount: candidates.length }));
 for (const x of candidates) {
   console.log(JSON.stringify({
     id: x.p.id,
