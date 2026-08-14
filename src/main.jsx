@@ -242,12 +242,132 @@ function hydrateAnnualCourseProduct(product) {
 function saveStoredProducts(products) {
   storedProductsCache = products;
   try {
-    window.localStorage.setItem(PRODUCTS_STORAGE_KEY, JSON.stringify(products));
+    const compactProducts = products.map(compactProductCourseData);
+    window.localStorage.setItem(PRODUCTS_STORAGE_KEY, JSON.stringify(compactProducts));
   } catch (error) {
     // 全年课程数据可能超过浏览器 localStorage 配额。云端数据已经读取成功时，
     // 缓存写入失败不能反过来让页面进入“云端连接失败/无配置产品”。
     console.warn("本地产品缓存空间不足，当前继续使用已读取的云端配置", error);
   }
+}
+
+function compactProductCourseData(product) {
+  const {
+    annualCourseData,
+    annualCourseUploadNames,
+    parsedCourseData,
+    courseUploadNames,
+    ...compactProduct
+  } = product;
+  return externalizeProductMedia(compactProduct).value;
+}
+
+const CLOUD_COURSE_LIBRARY_PREFIX = "course_library_";
+const CLOUD_PRODUCT_MEDIA_PREFIX = "product_media_";
+const cloudCourseLibraryCache = new Map();
+const cloudProductMediaCache = new Map();
+
+function externalizeProductMedia(value, media = {}, path = "root") {
+  if (typeof value === "string" && value.startsWith("data:image/")) {
+    const token = `cloud-media:${path}`;
+    media[token] = value;
+    return { value: token, media };
+  }
+  if (Array.isArray(value)) {
+    return { value: value.map((item, index) => externalizeProductMedia(item, media, `${path}.${index}`).value), media };
+  }
+  if (value && typeof value === "object") {
+    return {
+      value: Object.fromEntries(Object.entries(value).map(([key, item]) => [
+        key,
+        externalizeProductMedia(item, media, `${path}.${key}`).value,
+      ])),
+      media,
+    };
+  }
+  return { value, media };
+}
+
+function hydrateProductMedia(value, media) {
+  if (typeof value === "string" && value.startsWith("cloud-media:")) return media[value] ?? value;
+  if (Array.isArray(value)) return value.map((item) => hydrateProductMedia(item, media));
+  if (value && typeof value === "object") {
+    return Object.fromEntries(Object.entries(value).map(([key, item]) => [key, hydrateProductMedia(item, media)]));
+  }
+  return value;
+}
+
+async function loadCloudProductMedia(productId) {
+  if (!cloudConfigEnabled || !productId) return null;
+  if (cloudProductMediaCache.has(productId)) return cloudProductMediaCache.get(productId);
+  const request = fetch(`${SUPABASE_URL}/rest/v1/${CLOUD_CONFIG_TABLE}?id=eq.${encodeURIComponent(`${CLOUD_PRODUCT_MEDIA_PREFIX}${productId}`)}&select=id,payload,updated_at&limit=1`, {
+    headers: getSupabaseHeaders(),
+    cache: "force-cache",
+  }).then(async (response) => {
+    if (!response.ok) throw await createCloudError(response, "云端产品图片读取失败");
+    const records = await response.json();
+    return records[0]?.payload?.media ?? null;
+  }).catch((error) => {
+    cloudProductMediaCache.delete(productId);
+    throw error;
+  });
+  cloudProductMediaCache.set(productId, request);
+  return request;
+}
+
+async function saveCloudProductMedia(product) {
+  const { media } = externalizeProductMedia(product);
+  if (!product?.id || !Object.keys(media).length) return;
+  const response = await fetch(`${SUPABASE_URL}/rest/v1/${CLOUD_CONFIG_TABLE}?on_conflict=id`, {
+    method: "POST",
+    headers: { ...getSupabaseHeaders(), "Content-Type": "application/json", Prefer: "resolution=merge-duplicates" },
+    body: JSON.stringify({
+      id: `${CLOUD_PRODUCT_MEDIA_PREFIX}${product.id}`,
+      payload: { productId: product.id, media, version: Date.now() },
+      updated_at: new Date().toISOString(),
+    }),
+  });
+  if (!response.ok) throw await createCloudError(response, "云端产品图片保存失败");
+  cloudProductMediaCache.set(product.id, Promise.resolve(media));
+}
+
+async function loadCloudGradeCourseLibrary(grade) {
+  if (!cloudConfigEnabled || !grade) return null;
+  if (cloudCourseLibraryCache.has(grade)) return cloudCourseLibraryCache.get(grade);
+  const request = fetch(`${SUPABASE_URL}/rest/v1/${CLOUD_CONFIG_TABLE}?id=eq.${encodeURIComponent(`${CLOUD_COURSE_LIBRARY_PREFIX}${grade}`)}&select=id,payload,updated_at&limit=1`, {
+    headers: getSupabaseHeaders(),
+    cache: "force-cache",
+  }).then(async (response) => {
+    if (!response.ok) throw await createCloudError(response, "云端年级课程库读取失败");
+    const records = await response.json();
+    return records[0]?.payload ?? null;
+  }).catch((error) => {
+    cloudCourseLibraryCache.delete(grade);
+    throw error;
+  });
+  cloudCourseLibraryCache.set(grade, request);
+  return request;
+}
+
+async function saveCloudGradeCourseLibrary(product) {
+  if (product?.annualCourseOrigin !== "uploaded" || !product?.annualCourseData || !product?.grade) return;
+  const payload = {
+    grade: product.grade,
+    data: product.annualCourseData,
+    uploadNames: product.annualCourseUploadNames ?? product.courseUploadNames ?? {},
+    version: product.annualCourseVersion ?? `uploaded-${Date.now()}`,
+  };
+  const response = await fetch(`${SUPABASE_URL}/rest/v1/${CLOUD_CONFIG_TABLE}?on_conflict=id`, {
+    method: "POST",
+    headers: { ...getSupabaseHeaders(), "Content-Type": "application/json", Prefer: "resolution=merge-duplicates" },
+    body: JSON.stringify({
+      id: `${CLOUD_COURSE_LIBRARY_PREFIX}${product.grade}`,
+      payload,
+      updated_at: new Date().toISOString(),
+    }),
+  });
+  if (!response.ok) throw await createCloudError(response, "云端年级课程库保存失败");
+  cloudCourseLibraryCache.set(product.grade, Promise.resolve(payload));
 }
 
 async function loadCloudProducts(configId) {
@@ -260,43 +380,16 @@ async function loadCloudProducts(configId) {
   const records = await response.json();
   const record = records[0];
   const products = Array.isArray(record?.payload?.products) ? record.payload.products : record?.payload;
-  const gradeCourseLibraries = record?.payload?.gradeCourseLibraries ?? {};
   if (!Array.isArray(products)) return null;
-  return products.map((product) => {
-    const shared = gradeCourseLibraries[product.grade];
-    return normalizeProductShape({
-      ...product,
-      ...resolveProductCourseLibrary(product, shared, annualCourseLibrary[product.grade]),
-    });
-  });
+  return products.map((product) => normalizeProductShape({
+    ...product,
+    ...resolveProductCourseLibrary(product, null, annualCourseLibrary[product.grade]),
+  }));
 }
 
-async function saveCloudProducts(products, configId = CLOUD_PRODUCTS_DRAFT_ID, preferredLibraryProductIds = []) {
+async function saveCloudProducts(products, configId = CLOUD_PRODUCTS_DRAFT_ID) {
   if (!cloudConfigEnabled) throw new Error("云端配置未连接");
-  const gradeCourseLibraries = {};
-  const preferredIds = new Set(preferredLibraryProductIds);
-  const librarySources = [
-    ...products.filter((product) => preferredIds.has(product.id)),
-    ...products.filter((product) => !preferredIds.has(product.id)),
-  ];
-  for (const product of librarySources) {
-    if (!gradeCourseLibraries[product.grade] && product.annualCourseData) {
-      gradeCourseLibraries[product.grade] = {
-        data: product.annualCourseData,
-        uploadNames: product.annualCourseUploadNames ?? product.courseUploadNames ?? {},
-      };
-    }
-  }
-  const compactProducts = products.map((product) => {
-    const {
-      annualCourseData,
-      annualCourseUploadNames,
-      parsedCourseData,
-      courseUploadNames,
-      ...compactProduct
-    } = product;
-    return compactProduct;
-  });
+  const compactProducts = products.map(compactProductCourseData);
   const response = await fetch(`${SUPABASE_URL}/rest/v1/${CLOUD_CONFIG_TABLE}?on_conflict=id`, {
     method: "POST",
     headers: {
@@ -306,7 +399,7 @@ async function saveCloudProducts(products, configId = CLOUD_PRODUCTS_DRAFT_ID, p
     },
     body: JSON.stringify({
       id: configId,
-      payload: { products: compactProducts, gradeCourseLibraries, version: Date.now() },
+      payload: { products: compactProducts, version: Date.now() },
       updated_at: new Date().toISOString(),
     }),
   });
@@ -314,12 +407,20 @@ async function saveCloudProducts(products, configId = CLOUD_PRODUCTS_DRAFT_ID, p
 }
 
 async function saveCloudProductChanges(nextProducts, { upsertIds = [], deleteIds = [], configIds = [] }) {
+  const changedProducts = nextProducts.filter((product) => upsertIds.includes(product.id));
+  const uploadedGrades = new Set();
+  for (const product of changedProducts) {
+    await saveCloudProductMedia(product);
+    if (product.annualCourseOrigin !== "uploaded" || uploadedGrades.has(product.grade)) continue;
+    await saveCloudGradeCourseLibrary(product);
+    uploadedGrades.add(product.grade);
+  }
   let mergedDraft = null;
   for (const configId of configIds) {
     const latestProducts = await loadCloudProducts(configId);
     if (!latestProducts) throw new Error(`${configId} 云端产品配置不存在`);
     const mergedProducts = mergeCloudProductChanges(latestProducts, nextProducts, { upsertIds, deleteIds });
-    await saveCloudProducts(mergedProducts, configId, upsertIds);
+    await saveCloudProducts(mergedProducts, configId);
     if (configId === CLOUD_PRODUCTS_DRAFT_ID) mergedDraft = mergedProducts;
   }
   return mergedDraft;
@@ -666,6 +767,42 @@ function App() {
       cancelled = true;
     };
   }, [publicView, shortCode, shortLinkStatus, shareParams?.productId]);
+
+  React.useEffect(() => {
+    if (!cloudConfigEnabled || !selectedProduct?.grade) return undefined;
+    let cancelled = false;
+    const grade = selectedProduct.grade;
+    loadCloudGradeCourseLibrary(grade)
+      .then((sharedLibrary) => {
+        if (cancelled || !sharedLibrary?.data) return;
+        setProducts((currentProducts) => currentProducts.map((product) => {
+          if (product.grade !== grade) return product;
+          return normalizeProductShape({
+            ...product,
+            annualCourseOrigin: "uploaded",
+            annualCourseVersion: sharedLibrary.version ?? product.annualCourseVersion,
+            ...resolveProductCourseLibrary(product, sharedLibrary, annualCourseLibrary[grade]),
+          });
+        }));
+      })
+      .catch((error) => console.error("云端年级课程库读取失败，继续使用内置课表", error));
+    return () => { cancelled = true; };
+  }, [selectedProduct?.grade]);
+
+  React.useEffect(() => {
+    if (!cloudConfigEnabled || !selectedProduct?.id) return undefined;
+    let cancelled = false;
+    const productId = selectedProduct.id;
+    loadCloudProductMedia(productId)
+      .then((media) => {
+        if (cancelled || !media) return;
+        setProducts((currentProducts) => currentProducts.map((product) => (
+          product.id === productId ? hydrateProductMedia(product, media) : product
+        )));
+      })
+      .catch((error) => console.error("云端产品图片读取失败", error));
+    return () => { cancelled = true; };
+  }, [selectedProduct?.id]);
 
   React.useEffect(() => {
     if (!cloudConfigEnabled) return undefined;
