@@ -25,6 +25,148 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+.admin-access-page {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 28px;
+  background:
+    radial-gradient(circle at 16% 12%, rgba(22, 119, 255, 0.13), transparent 34%),
+    radial-gradient(circle at 86% 88%, rgba(74, 161, 255, 0.12), transparent 32%),
+    linear-gradient(145deg, #f7fbff 0%, #edf5ff 100%);
+}
+
+.admin-access-card {
+  width: min(100%, 430px);
+  padding: 42px 40px 34px;
+  border: 1px solid rgba(112, 157, 218, 0.24);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 28px 80px rgba(26, 76, 142, 0.16);
+  text-align: center;
+}
+
+.admin-access-mark {
+  display: grid;
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 18px;
+  place-items: center;
+  border-radius: 18px;
+  color: #ffffff;
+  background: linear-gradient(145deg, #2585ff, #0c57ce);
+  box-shadow: 0 12px 28px rgba(22, 119, 255, 0.28);
+}
+
+.admin-access-eyebrow {
+  color: var(--blue-700);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.admin-access-card h1 {
+  margin: 10px 0 8px;
+  color: #102b56;
+  font-size: 28px;
+  line-height: 1.25;
+}
+
+.admin-access-card > p {
+  margin: 0 0 28px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.admin-access-card form {
+  display: grid;
+  text-align: left;
+}
+
+.admin-access-card label {
+  margin-bottom: 9px;
+  color: #31466a;
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.admin-access-card input {
+  width: 100%;
+  height: 50px;
+  padding: 0 16px;
+  border: 1px solid #cfddf0;
+  border-radius: 13px;
+  outline: none;
+  color: #102b56;
+  background: #f9fbff;
+  font-size: 16px;
+  transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.admin-access-card input:focus {
+  border-color: var(--blue-600);
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(22, 119, 255, 0.12);
+}
+
+.admin-access-card input[aria-invalid="true"] {
+  border-color: #e25353;
+}
+
+.admin-access-message {
+  min-height: 28px;
+  padding-top: 7px;
+  color: #c83b3b;
+  font-size: 12px;
+}
+
+.admin-access-card button {
+  height: 50px;
+  border: 0;
+  border-radius: 13px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #2382ff, #0f61df);
+  box-shadow: 0 12px 26px rgba(22, 119, 255, 0.22);
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
+}
+
+.admin-access-card button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 15px 30px rgba(22, 119, 255, 0.28);
+}
+
+.admin-access-card button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  box-shadow: none;
+}
+
+.admin-access-card > small {
+  display: block;
+  margin-top: 22px;
+  color: #8190a8;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+@media (max-width: 560px) {
+  .admin-access-page {
+    padding: 18px;
+  }
+
+  .admin-access-card {
+    padding: 34px 24px 28px;
+    border-radius: 20px;
+  }
+
+  .admin-access-card h1 {
+    font-size: 25px;
+  }
+}
+
 html,
 body,
 #root,

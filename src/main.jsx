@@ -16,6 +16,7 @@ import {
   ImagePlus,
   Layers,
   ListChecks,
+  LockKeyhole,
   MessageSquare,
   PackageCheck,
   Pencil,
@@ -67,6 +68,7 @@ import {
 } from "./config/runtime";
 import { formatPrice, getProductPricing } from "./domain/pricing";
 import { mergeCloudProductChanges } from "./domain/productMerge";
+import { isPublicEntrySearch } from "./domain/accessRules";
 import { getSaleableSubjects, getVideoAvailabilityOverride } from "./domain/productSubjectRules";
 import {
   getGiftRuleThreshold,
@@ -81,6 +83,14 @@ import "./styles.css";
 let storedProductsCache;
 const APP_BUILD_VERSION = __APP_BUILD_VERSION__;
 const VERSION_RELOAD_KEY = "youdao-benefits-version-reload";
+const ADMIN_ACCESS_SESSION_KEY = "youdao-benefits-admin-access";
+const ADMIN_ACCESS_PASSWORD_HASH = "8cc7e8cb6aee0f3833a012e019c4812150ed9a8a958610bed305eda827576042";
+
+async function hashAccessPassword(value) {
+  const bytes = new TextEncoder().encode(value);
+  const digest = await window.crypto.subtle.digest("SHA-256", bytes);
+  return Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, "0")).join("");
+}
 
 async function refreshStaleAppVersion() {
   try {
@@ -903,6 +913,75 @@ function App() {
       )}
     </main>
   );
+}
+
+function AdminAccessGate({ onAuthorized }) {
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [checking, setChecking] = useState(false);
+
+  const submit = async (event) => {
+    event.preventDefault();
+    if (checking) return;
+    setChecking(true);
+    const passwordHash = await hashAccessPassword(password);
+    if (passwordHash !== ADMIN_ACCESS_PASSWORD_HASH) {
+      setError("密码不正确，请重新输入");
+      setPassword("");
+      setChecking(false);
+      return;
+    }
+    try {
+      window.sessionStorage.setItem(ADMIN_ACCESS_SESSION_KEY, "authorized");
+    } catch {
+      // 隐私模式下仍允许本次页面会话进入，刷新后需要重新验证。
+    }
+    onAuthorized();
+  };
+
+  return (
+    <main className="admin-access-page">
+      <section className="admin-access-card" aria-labelledby="admin-access-title">
+        <div className="admin-access-mark"><LockKeyhole size={28} /></div>
+        <span className="admin-access-eyebrow">有道领世 · 运营配置</span>
+        <h1 id="admin-access-title">后台访问验证</h1>
+        <p>请输入运营后台密码，验证后进入产品配置。</p>
+        <form onSubmit={submit}>
+          <label htmlFor="admin-access-password">访问密码</label>
+          <input
+            id="admin-access-password"
+            type="password"
+            value={password}
+            autoComplete="current-password"
+            autoFocus
+            placeholder="请输入密码"
+            aria-invalid={Boolean(error)}
+            aria-describedby={error ? "admin-access-error" : undefined}
+            onChange={(event) => {
+              setPassword(event.target.value);
+              if (error) setError("");
+            }}
+          />
+          <div className="admin-access-message" id="admin-access-error" role="alert">{error}</div>
+          <button type="submit" disabled={!password || checking}>{checking ? "正在验证…" : "验证并进入后台"}</button>
+        </form>
+        <small>验证仅对当前浏览器会话有效，关闭浏览器后需重新输入。</small>
+      </section>
+    </main>
+  );
+}
+
+function RootApp() {
+  const isPublicEntry = isPublicEntrySearch(window.location.search);
+  const [authorized, setAuthorized] = useState(() => {
+    if (isPublicEntry) return true;
+    try {
+      return window.sessionStorage.getItem(ADMIN_ACCESS_SESSION_KEY) === "authorized";
+    } catch {
+      return false;
+    }
+  });
+  return authorized ? <App /> : <AdminAccessGate onAuthorized={() => setAuthorized(true)} />;
 }
 
 function createNewProduct(template) {
@@ -5701,4 +5780,4 @@ function buildSalesPortalUrl() {
   return url.toString();
 }
 
-createRoot(document.getElementById("root")).render(<App />);
+createRoot(document.getElementById("root")).render(<RootApp />);
