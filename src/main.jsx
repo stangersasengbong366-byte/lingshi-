@@ -38,6 +38,7 @@ import {
   giftCategoryOptions,
   gradeLabels,
   humanitiesSubjects,
+  orderGradeOptions,
   physicalGiftRuleOptions,
   videoTrackOptions,
 } from "./config/options";
@@ -1117,7 +1118,7 @@ function SalesPage({ products, selectedProduct, selectedSubjects, selectedBonusS
     return products.filter((item) => item.status === "在售");
   }, [products]);
   const saleSubjects = useMemo(() => getSaleSubjects(selectedProduct), [selectedProduct]);
-  const gradeOptions = useMemo(() => [...new Set(productOptions.map((item) => item.grade))], [productOptions]);
+  const gradeOptions = useMemo(() => orderGradeOptions(productOptions.map((item) => item.grade)), [productOptions]);
   const gradeProductOptions = useMemo(
     () => sortSaleProducts(productOptions.filter((item) => item.grade === selectedProduct.grade)),
     [productOptions, selectedProduct.grade],

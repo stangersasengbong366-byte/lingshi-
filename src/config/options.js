@@ -1,5 +1,13 @@
 export const gradeLabels = ["高一", "高二", "高三"];
 
+export function orderGradeOptions(grades = []) {
+  const uniqueGrades = [...new Set(grades.filter(Boolean))];
+  return [
+    ...gradeLabels.filter((grade) => uniqueGrades.includes(grade)),
+    ...uniqueGrades.filter((grade) => !gradeLabels.includes(grade)),
+  ];
+}
+
 export const stageLabels = ["夏研卡", "秋实卡", "决胜卡", "直通卡", "一轮卡", "二轮卡"];
 
 export const humanitiesSubjects = ["生物", "历史", "地理", "政治"];
