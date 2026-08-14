@@ -69,6 +69,7 @@ import {
 import { formatPrice, getProductPricing } from "./domain/pricing";
 import { mergeCloudProductChanges } from "./domain/productMerge";
 import { isPublicEntrySearch } from "./domain/accessRules";
+import { resolveProductCourseLibrary } from "./domain/courseLibraryRules";
 import { getSaleableSubjects, getVideoAvailabilityOverride } from "./domain/productSubjectRules";
 import {
   getGiftRuleThreshold,
@@ -261,24 +262,10 @@ async function loadCloudProducts(configId) {
   const gradeCourseLibraries = record?.payload?.gradeCourseLibraries ?? {};
   if (!Array.isArray(products)) return null;
   return products.map((product) => {
-    const courseSourceMode = product.courseSourceMode ?? "grade";
     const shared = gradeCourseLibraries[product.grade];
-    if (courseSourceMode === "custom") {
-      return normalizeProductShape({
-        ...product,
-        annualCourseData: shared?.data,
-        annualCourseUploadNames: shared?.uploadNames,
-        courseUploadNames: product.customCourseUploadNames ?? {},
-        parsedCourseData: product.customCourseData ?? { live: {}, video: {} },
-      });
-    }
-    if (!shared) return normalizeProductShape(product);
     return normalizeProductShape({
       ...product,
-      annualCourseData: shared.data,
-      annualCourseUploadNames: shared.uploadNames,
-      courseUploadNames: shared.uploadNames,
-      parsedCourseData: shared.data,
+      ...resolveProductCourseLibrary(product, shared, annualCourseLibrary[product.grade]),
     });
   });
 }
