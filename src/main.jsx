@@ -154,7 +154,30 @@ function migrateStoredProduct(product) {
   if (isG1Autumn && !migrated.humanitiesSubjects?.includes("生物")) {
     migrated.humanitiesSubjects = ["生物", "历史", "地理", "政治"];
   }
-  return hydrateAnnualCourseProduct(migrated);
+  return normalizeProductShape(hydrateAnnualCourseProduct(migrated));
+}
+
+function normalizeProductShape(product) {
+  return {
+    ...product,
+    core: {
+      liveLessons: 0,
+      liveDuration: "2h",
+      knowledgeVideos: 0,
+      videoDuration: "30min",
+      servicePeriod: "",
+      ...(product?.core ?? {}),
+    },
+    pricing: {
+      originalPerSubject: 0,
+      singlePerSubject: 0,
+      twoPerSubject: 0,
+      threePlusPerSubject: 0,
+      ...(product?.pricing ?? {}),
+    },
+    customGiftItems: Array.isArray(product?.customGiftItems) ? product.customGiftItems : [],
+    customPhysicalItems: Array.isArray(product?.customPhysicalItems) ? product.customPhysicalItems : [],
+  };
 }
 
 function getProductDisplayStage(product) {
@@ -205,31 +228,48 @@ function hydrateAnnualCourseProduct(product) {
 
 function saveStoredProducts(products) {
   storedProductsCache = products;
-  window.localStorage.setItem(PRODUCTS_STORAGE_KEY, JSON.stringify(products));
+  try {
+    window.localStorage.setItem(PRODUCTS_STORAGE_KEY, JSON.stringify(products));
+  } catch (error) {
+    // 全年课程数据可能超过浏览器 localStorage 配额。云端数据已经读取成功时，
+    // 缓存写入失败不能反过来让页面进入“云端连接失败/无配置产品”。
+    console.warn("本地产品缓存空间不足，当前继续使用已读取的云端配置", error);
+  }
 }
 
-async function loadCloudProducts(configId, fallbackId = CLOUD_PRODUCTS_LEGACY_ID) {
+async function loadCloudProducts(configId) {
   if (!cloudConfigEnabled) return null;
-  const response = await fetch(`${SUPABASE_URL}/rest/v1/${CLOUD_CONFIG_TABLE}?id=in.(${configId},${fallbackId})&select=id,payload,updated_at`, {
+  const response = await fetch(`${SUPABASE_URL}/rest/v1/${CLOUD_CONFIG_TABLE}?id=eq.${encodeURIComponent(configId)}&select=id,payload,updated_at&limit=1`, {
     headers: getSupabaseHeaders(),
+    cache: "no-store",
   });
-  if (!response.ok) throw await createCloudError(response, "云端配置读取失败");
+  if (!response.ok) throw await createCloudError(response, "Supabase云端配置读取失败");
   const records = await response.json();
-  const record = records.find((item) => item.id === configId) ?? records.find((item) => item.id === fallbackId);
+  const record = records[0];
   const products = Array.isArray(record?.payload?.products) ? record.payload.products : record?.payload;
   const gradeCourseLibraries = record?.payload?.gradeCourseLibraries ?? {};
-  return Array.isArray(products) ? products.map((product) => {
-    const shared = gradeCourseLibraries[product.grade];
-    if (!shared) return migrateStoredProduct(product);
+  if (!Array.isArray(products)) return null;
+  return products.map((product) => {
     const courseSourceMode = product.courseSourceMode ?? "grade";
-    return migrateStoredProduct({
+    const shared = gradeCourseLibraries[product.grade];
+    if (courseSourceMode === "custom") {
+      return normalizeProductShape({
+        ...product,
+        annualCourseData: shared?.data,
+        annualCourseUploadNames: shared?.uploadNames,
+        courseUploadNames: product.customCourseUploadNames ?? {},
+        parsedCourseData: product.customCourseData ?? { live: {}, video: {} },
+      });
+    }
+    if (!shared) return normalizeProductShape(product);
+    return normalizeProductShape({
       ...product,
       annualCourseData: shared.data,
       annualCourseUploadNames: shared.uploadNames,
-      courseUploadNames: courseSourceMode === "custom" ? product.customCourseUploadNames : shared.uploadNames,
-      parsedCourseData: courseSourceMode === "custom" ? product.customCourseData : shared.data,
+      courseUploadNames: shared.uploadNames,
+      parsedCourseData: shared.data,
     });
-  }) : null;
+  });
 }
 
 async function saveCloudProducts(products, configId = CLOUD_PRODUCTS_DRAFT_ID) {
@@ -406,7 +446,6 @@ async function createCloudError(response, fallbackMessage) {
 function getSupabaseHeaders() {
   return {
     apikey: SUPABASE_ANON_KEY,
-    Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
   };
 }
 
@@ -428,6 +467,7 @@ function App() {
   const [teachingAids, setTeachingAids] = useState([]);
   const [usageCount, setUsageCount] = useState(null);
   const [salesFeedback, setSalesFeedback] = useState([]);
+  const [cloudLoadState, setCloudLoadState] = useState(cloudConfigEnabled ? "loading" : "ready");
   const activeProducts = useMemo(() => products.filter((item) => item.status === "在售"), [products]);
   const availableProducts = !publicView && activePage === "admin" ? products : activeProducts;
   const isCustomerShare = Boolean(shortCode || shareParams);
@@ -585,8 +625,12 @@ function App() {
     const configId = publicView ? CLOUD_PRODUCTS_PUBLISHED_ID : CLOUD_PRODUCTS_DRAFT_ID;
     loadCloudProducts(configId)
       .then((cloudProducts) => {
-        if (cancelled || !cloudProducts?.length) {
-          if (!cancelled) setSyncStatus("云端暂无配置");
+        if (cancelled) return;
+        if (!cloudProducts?.length) {
+          setProducts([]);
+          setSelectedProductId(undefined);
+          setSyncStatus("Supabase云端暂无产品配置");
+          setCloudLoadState("ready");
           return;
         }
         const nextProducts = cloudProducts;
@@ -596,9 +640,16 @@ function App() {
         setProducts(nextProducts);
         if (!publicView) saveStoredProducts(nextProducts);
         setSelectedProductId((current) => selectableProducts.some((product) => product.id === current) ? current : selectableProducts[0]?.id);
-        setSyncStatus(publicView ? "已同步最新发布版本" : "云端草稿已同步");
+        setSyncStatus(publicView ? "Supabase正式版已同步" : "Supabase草稿已同步");
+        setCloudLoadState("ready");
       })
-      .catch((error) => setSyncStatus(error?.isMissingTable ? "云端数据表未创建，当前使用本地配置" : "云端连接失败，已使用本地配置"));
+      .catch((error) => {
+        console.error("Supabase产品读取失败", error);
+        setProducts([]);
+        setSelectedProductId(undefined);
+        setSyncStatus(error?.isMissingTable ? "Supabase数据表未创建" : `Supabase连接失败：${error?.message || "请检查网络或密钥"}`);
+        setCloudLoadState("error");
+      });
     return () => {
       cancelled = true;
     };
@@ -736,6 +787,14 @@ function App() {
       setSyncStatus(error?.isMissingTable ? "产品已从本机删除，云端数据表尚未创建" : "产品已从本机删除，云端同步失败");
     }
   };
+
+  if (cloudConfigEnabled && cloudLoadState === "loading" && !shortCode) {
+    return <main className="public-empty-state"><strong>正在同步 Supabase</strong><span>正在读取最新产品、价格、课时与课程大纲，请稍候。</span></main>;
+  }
+
+  if (cloudConfigEnabled && cloudLoadState === "error" && !shortCode) {
+    return <main className="public-empty-state"><strong>Supabase 云端连接失败</strong><span>为避免展示旧数据，当前已停止使用本地缓存，请刷新后重试。</span></main>;
+  }
 
   if (shortLinkStatus === "loading") {
     return <main className="public-empty-state"><strong>正在打开短链</strong><span>正在读取云端权益配置，请稍候。</span></main>;
