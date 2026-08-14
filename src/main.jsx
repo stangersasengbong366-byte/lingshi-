@@ -66,6 +66,7 @@ import {
   SUPABASE_URL,
 } from "./config/runtime";
 import { formatPrice, getProductPricing } from "./domain/pricing";
+import { mergeCloudProductChanges } from "./domain/productMerge";
 import { getSaleableSubjects, getVideoAvailabilityOverride } from "./domain/productSubjectRules";
 import {
   getGiftRuleThreshold,
@@ -272,16 +273,23 @@ async function loadCloudProducts(configId) {
   });
 }
 
-async function saveCloudProducts(products, configId = CLOUD_PRODUCTS_DRAFT_ID) {
+async function saveCloudProducts(products, configId = CLOUD_PRODUCTS_DRAFT_ID, preferredLibraryProductIds = []) {
   if (!cloudConfigEnabled) throw new Error("云端配置未连接");
   const gradeCourseLibraries = {};
-  const compactProducts = products.map((product) => {
+  const preferredIds = new Set(preferredLibraryProductIds);
+  const librarySources = [
+    ...products.filter((product) => preferredIds.has(product.id)),
+    ...products.filter((product) => !preferredIds.has(product.id)),
+  ];
+  for (const product of librarySources) {
     if (!gradeCourseLibraries[product.grade] && product.annualCourseData) {
       gradeCourseLibraries[product.grade] = {
         data: product.annualCourseData,
         uploadNames: product.annualCourseUploadNames ?? product.courseUploadNames ?? {},
       };
     }
+  }
+  const compactProducts = products.map((product) => {
     const {
       annualCourseData,
       annualCourseUploadNames,
@@ -307,10 +315,16 @@ async function saveCloudProducts(products, configId = CLOUD_PRODUCTS_DRAFT_ID) {
   if (!response.ok) throw await createCloudError(response, "云端配置保存失败");
 }
 
-async function saveCloudProductVersions(products, configIds) {
+async function saveCloudProductChanges(nextProducts, { upsertIds = [], deleteIds = [], configIds = [] }) {
+  let mergedDraft = null;
   for (const configId of configIds) {
-    await saveCloudProducts(products, configId);
+    const latestProducts = await loadCloudProducts(configId);
+    if (!latestProducts) throw new Error(`${configId} 云端产品配置不存在`);
+    const mergedProducts = mergeCloudProductChanges(latestProducts, nextProducts, { upsertIds, deleteIds });
+    await saveCloudProducts(mergedProducts, configId, upsertIds);
+    if (configId === CLOUD_PRODUCTS_DRAFT_ID) mergedDraft = mergedProducts;
   }
+  return mergedDraft;
 }
 
 const teachingAidRequestCache = new Map();
@@ -717,15 +731,20 @@ function App() {
         parsedCourseData: nextProduct.annualCourseData,
       };
     });
+    const changedProductIds = [nextProduct.id];
     setProducts(nextProducts);
     saveStoredProducts(nextProducts);
     setSelectedProductId(nextProduct.id);
     setSyncStatus("正在保存并同步销售端");
     try {
-      await saveCloudProductVersions(nextProducts, [
-        CLOUD_PRODUCTS_DRAFT_ID,
-        CLOUD_PRODUCTS_PUBLISHED_ID,
-      ]);
+      const mergedProducts = await saveCloudProductChanges(nextProducts, {
+        upsertIds: changedProductIds,
+        configIds: [CLOUD_PRODUCTS_DRAFT_ID, CLOUD_PRODUCTS_PUBLISHED_ID],
+      });
+      if (mergedProducts) {
+        setProducts(mergedProducts);
+        saveStoredProducts(mergedProducts);
+      }
       setSyncStatus("已保存到云端，销售端同步完成");
       return { cloudSaved: true };
     } catch (error) {
@@ -741,7 +760,10 @@ function App() {
     const nextProducts = nextProduct
       ? products.map((item) => (item.id === nextProduct.id ? nextProduct : item))
       : products;
-    await saveCloudProducts(nextProducts, CLOUD_PRODUCTS_PUBLISHED_ID);
+    await saveCloudProductChanges(nextProducts, {
+      upsertIds: nextProduct ? [nextProduct.id] : nextProducts.map((product) => product.id),
+      configIds: [CLOUD_PRODUCTS_PUBLISHED_ID],
+    });
     setSyncStatus("已发布，销售端将读取最新版本");
   };
 
@@ -753,10 +775,14 @@ function App() {
     setSelectedProductId(nextProduct.id);
     setSyncStatus("正在保存新产品并同步销售端");
     try {
-      await saveCloudProductVersions(nextProducts, [
-        CLOUD_PRODUCTS_DRAFT_ID,
-        CLOUD_PRODUCTS_PUBLISHED_ID,
-      ]);
+      const mergedProducts = await saveCloudProductChanges(nextProducts, {
+        upsertIds: [nextProduct.id],
+        configIds: [CLOUD_PRODUCTS_DRAFT_ID, CLOUD_PRODUCTS_PUBLISHED_ID],
+      });
+      if (mergedProducts) {
+        setProducts(mergedProducts);
+        saveStoredProducts(mergedProducts);
+      }
       setSyncStatus("新产品已同步到云端销售端");
     } catch (error) {
       setSyncStatus(error?.isMissingTable ? "云端数据表未创建，新产品仅保存在本机" : "云端保存失败，新产品仅保存在本机");
@@ -778,10 +804,14 @@ function App() {
     setSelectedProductId((current) => current === productId ? nextProducts[0]?.id : current);
     setSyncStatus("正在删除并同步云端");
     try {
-      await saveCloudProductVersions(nextProducts, [
-        CLOUD_PRODUCTS_DRAFT_ID,
-        CLOUD_PRODUCTS_PUBLISHED_ID,
-      ]);
+      const mergedProducts = await saveCloudProductChanges(nextProducts, {
+        deleteIds: [productId],
+        configIds: [CLOUD_PRODUCTS_DRAFT_ID, CLOUD_PRODUCTS_PUBLISHED_ID],
+      });
+      if (mergedProducts) {
+        setProducts(mergedProducts);
+        saveStoredProducts(mergedProducts);
+      }
       setSyncStatus("产品已删除，销售端同步完成");
     } catch (error) {
       setSyncStatus(error?.isMissingTable ? "产品已从本机删除，云端数据表尚未创建" : "产品已从本机删除，云端同步失败");
