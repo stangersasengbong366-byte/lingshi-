@@ -125,8 +125,26 @@ export function normalizeCoursePhase(value) {
 }
 
 function parseSimpleLiveRows(rows, requestedGrade) {
-  const [header = [], ...body] = rows;
-  const index = createHeaderIndex(header);
+  const headerRowIndex = rows.findIndex((row) => row.some((cell) => clean(cell) === "年级") && row.some((cell) => ["课程大纲", "课程大纲标题"].includes(clean(cell))));
+  const header = headerRowIndex >= 0 ? rows[headerRowIndex] : [];
+  const body = headerRowIndex >= 0 ? rows.slice(headerRowIndex + 1) : rows;
+  const namedIndex = createHeaderIndex(header);
+  // 兼容运营固定模板中偶发缺失表头的工作表（当前生物页即为此结构）。
+  const index = {
+    年级: namedIndex["年级"] ?? 0,
+    季度: namedIndex["季度"] ?? namedIndex["季节"] ?? 1,
+    "早鸟期-上课日期": namedIndex["早鸟期-上课日期"] ?? 2,
+    "早鸟期-上课时间": namedIndex["早鸟期-上课时间"] ?? 3,
+    "一期-上课日期": namedIndex["一期-上课日期"] ?? 4,
+    "一期-上课时间": namedIndex["一期-上课时间"] ?? 5,
+    "二期-上课日期": namedIndex["二期-上课日期"] ?? 6,
+    "二期-上课时间": namedIndex["二期-上课时间"] ?? 7,
+    "三期-上课日期": namedIndex["三期-上课日期"] ?? 8,
+    "三期-上课时间": namedIndex["三期-上课时间"] ?? 9,
+    "课程大纲": namedIndex["课程大纲"] ?? namedIndex["课程大纲标题"] ?? 10,
+    "课程大纲标题": namedIndex["课程大纲标题"] ?? namedIndex["课程大纲"] ?? 10,
+    课次: namedIndex["课次"] ?? -1,
+  };
   let currentGrade = "";
   let currentQuarter = "";
   return body.map((row, rowIndex) => {
@@ -177,7 +195,13 @@ function parseSimpleVideoRows(rows) {
       outlineCode: getOutlineCode(rawTitle),
       difficulty: normalizeDifficulty(row[index["难度星级"]] || row[index["星级难度"]]),
       layered: normalizeCourseTrack(row[index["整合后"]] || row[index["是否分层"]]),
-      quarter: normalizeCoursePhase(row[index["所属季度"]]),
+      quarter: normalizeCoursePhase(
+        row[index["所属季度"]]
+        || row[index["（夏/秋/冬/春）"]]
+        || row[index["夏/秋/冬/春"]]
+        || row[index["季度"]]
+        || row[index["季节"]],
+      ),
     };
   }).filter((row) => row.title && row.quarter && !/赠课/.test(clean(row[index["所属季度"]])));
 }

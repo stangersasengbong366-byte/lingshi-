@@ -13,10 +13,17 @@ export function isHalfYearCard(product) {
   return includesLabel(product, "半年") || includesLabel(product, "决胜");
 }
 
+export function isAutumnWinterBridgeCard(product) {
+  return includesLabel(product, "秋冬衔接");
+}
+
 export function getSaleableSubjects(product, configuredSubjects, allSubjects = configuredSubjects) {
   const subjects = Array.isArray(configuredSubjects) ? configuredSubjects : [];
   const completeSubjects = Array.isArray(allSubjects) ? allSubjects : subjects;
   const grade = String(product?.grade ?? "");
+  if (isAutumnWinterBridgeCard(product)) {
+    return completeSubjects.filter((subject) => !humanities.includes(subject));
+  }
   // 历史云端数据可能保留“秋实卡”stage，但产品名已经是“决胜卡”；
   // 半年/决胜卡规则优先，避免旧字段把可售科目错误截断。
   if (grade.includes("高一") && isHalfYearCard(product)) return completeSubjects;
@@ -32,6 +39,9 @@ export function getSaleableSubjects(product, configuredSubjects, allSubjects = c
 }
 
 export function getVideoAvailabilityOverride(product, subject) {
+  if (isAutumnWinterBridgeCard(product) && String(product?.grade ?? "").includes("高一") && subject === "生物") {
+    return { hasVideo: true, isLayered: false };
+  }
   if (String(product?.grade ?? "").includes("高一") && isHalfYearCard(product) && g1NoVideoSubjects.includes(subject)) {
     return { hasVideo: false, isLayered: false };
   }

@@ -54,3 +54,15 @@ test("纯文综组合全部按一口价，不触发非文综阶梯", () => {
   const pricing = getProductPricing(createProduct("高三"), ["历史", "地理", "政治"]);
   assert.equal(pricing.currentTotal, 8100);
 });
+
+test("高一秋冬衔接卡生物采用4200原价、2700实付独立体系", () => {
+  const product = {
+    grade: "高一",
+    pricing: { originalPerSubject: 5600, singlePerSubject: 4580, twoPerSubject: 4380, threePlusPerSubject: 4080 },
+    humanitiesPricing: { originalPerSubject: 4200, fixedPerSubject: 2700 },
+    humanitiesSubjects: ["生物", "历史", "地理", "政治"],
+  };
+  const pricing = getProductPricing(product, ["生物"]);
+  assert.equal(pricing.originalTotal, 4200);
+  assert.equal(pricing.currentTotal, 2700);
+});

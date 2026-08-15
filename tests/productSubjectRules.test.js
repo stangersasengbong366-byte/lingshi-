@@ -31,3 +31,13 @@ test("高三一轮卡全科可售且没有视频禁用覆盖", () => {
   assert.deepEqual(getSaleableSubjects(product, ["语文", "数学"], allSubjects), allSubjects);
   for (const subject of allSubjects) assert.equal(getVideoAvailabilityOverride(product, subject), null);
 });
+
+test("秋冬衔接卡仅售非文综，高一生物保留且仅走独立视频体系", () => {
+  const highOne = { grade: "高一", stage: "秋冬衔接卡", name: "高一秋冬衔接卡" };
+  const highTwo = { grade: "高二", stage: "秋冬衔接卡", name: "高二秋冬衔接卡" };
+  const expected = ["语文", "数学", "英语", "物理", "化学", "生物"];
+  assert.deepEqual(getSaleableSubjects(highOne, allSubjects), expected);
+  assert.deepEqual(getSaleableSubjects(highTwo, allSubjects), expected);
+  assert.deepEqual(getVideoAvailabilityOverride(highOne, "生物"), { hasVideo: true, isLayered: false });
+  assert.equal(getVideoAvailabilityOverride(highTwo, "生物"), null);
+});

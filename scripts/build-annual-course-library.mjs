@@ -27,7 +27,7 @@ const library = Object.fromEntries(grades.map((grade) => [grade, {
   video: parseCourseWorkbookSheets(videoWorkbook, "video", grade, subjects),
 }]));
 
-const output = `export const annualCourseLibraryVersion = "2026-2027-v3";\n\nexport const annualCourseLibrary = ${JSON.stringify(library, null, 2)};\n`;
+const output = `export const annualCourseLibraryVersion = "2026-2027-v4";\n\nexport const annualCourseLibrary = ${JSON.stringify(library, null, 2)};\n`;
 const outputPath = path.resolve("src/data/annualCourseLibrary.js");
 fs.writeFileSync(outputPath, output);
 
