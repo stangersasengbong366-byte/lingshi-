@@ -4713,11 +4713,11 @@ function resolveCoursePlan(product, subject, forcedPhases, videoTrack = "目标�
 function resolveParsedCoursePlan(product, subject, profile, forcedPhases, videoTrack = "目标班") {
   const liveRows = product.parsedCourseData?.live?.[subject] ?? [];
   const uploadedVideoRows = product.parsedCourseData?.video?.[subject] ?? [];
-  const fallbackVideoRows = profile.knowledgeVideos
-    ? courseCatalog[product.grade]?.[subject]?.videoLibrary ?? []
-    : [];
-  const videoRows = uploadedVideoRows.length ? uploadedVideoRows : fallbackVideoRows;
-  if (!liveRows.length && !uploadedVideoRows.length) return null;
+  const hasAuthoritativeSource = hasCourseSourceData(product.parsedCourseData);
+  if (!liveRows.length && !uploadedVideoRows.length && !hasAuthoritativeSource) return null;
+  // 一旦年级总表或产品专属表已经解析成功，课程展示只认该底表。
+  // 某科缺失即显示 0，不再从旧 courseCatalog 自动补课。
+  const videoRows = uploadedVideoRows;
 
   const coveragePhases = forcedPhases?.length ? forcedPhases : product.coveragePhases?.length ? product.coveragePhases : getDefaultCoveragePhases(product);
   const filteredLive = liveRows.filter((lesson) => phaseMatches(lesson.quarter, coveragePhases));
@@ -4730,17 +4730,6 @@ function resolveParsedCoursePlan(product, subject, profile, forcedPhases, videoT
     ),
     profile.knowledgeVideos,
   );
-  if (!uploadedVideoRows.length && !filteredVideos.length && fallbackVideoRows.length && profile.knowledgeVideos) {
-    filteredVideos = applyVideoPhaseLimits(
-      product,
-      subject,
-      filterVideoRowsByTrack(
-        fallbackVideoRows.filter((video) => phaseMatches(video.quarter, getVideoCoveragePhases(product, coveragePhases, subject))),
-        videoTrack,
-      ),
-      profile.knowledgeVideos,
-    );
-  }
   const assignedLessons = assignVideosToLessons(
     filteredLive.map((lesson, index) => ({
       ...lesson,
@@ -4792,7 +4781,7 @@ function normalizeVideoTrack(value) {
 }
 
 function phaseMatches(phase, selectedPhases) {
-  if (!String(phase || "").trim()) return true;
+  if (!String(phase || "").trim()) return !selectedPhases?.length;
   if (!selectedPhases?.length) return true;
   if (selectedPhases.includes(phase)) return true;
   if (phase === "暑秋" && (selectedPhases.includes("暑期") || selectedPhases.includes("秋季"))) return true;
@@ -4918,7 +4907,7 @@ function getSubjectVideoAvailability(product, subject) {
       : getDefaultCoveragePhases(product);
   const parsedRows = product.parsedCourseData?.video?.[subject] ?? [];
   const catalogRows = courseCatalog[product.grade]?.[subject]?.videoLibrary ?? [];
-  const sourceRows = parsedRows.length ? parsedRows : catalogRows;
+  const sourceRows = hasCourseSourceData(product.parsedCourseData) ? parsedRows : catalogRows;
   const matchingRows = sourceRows.filter((row) => phaseMatches(row.quarter, coveragePhases));
   if (matchingRows.length) {
     const tracks = new Set(matchingRows.map((row) => normalizeVideoTrack(row.layered)));
@@ -4928,12 +4917,22 @@ function getSubjectVideoAvailability(product, subject) {
     };
   }
 
+  if (hasCourseSourceData(product.parsedCourseData)) {
+    return { hasVideo: false, isLayered: false };
+  }
+
   const configuredSubjects = product.videoSubjects;
   const hasVideo = !configuredSubjects || configuredSubjects.includes(subject);
   return {
     hasVideo,
     isLayered: hasVideo && Boolean(product.layeredVideoSubjects?.includes(subject)),
   };
+}
+
+function hasCourseSourceData(data) {
+  return [data?.live, data?.video].some((group) => (
+    Object.values(group ?? {}).some((rows) => Array.isArray(rows) && rows.length)
+  ));
 }
 
 function getGiftPlan(product, subject) {
