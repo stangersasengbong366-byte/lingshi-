@@ -337,7 +337,9 @@ async function loadCloudGradeCourseLibrary(grade) {
   if (cloudCourseLibraryCache.has(grade)) return cloudCourseLibraryCache.get(grade);
   const request = fetch(`${SUPABASE_URL}/rest/v1/${CLOUD_CONFIG_TABLE}?id=eq.${encodeURIComponent(`${CLOUD_COURSE_LIBRARY_PREFIX}${grade}`)}&select=id,payload,updated_at&limit=1`, {
     headers: getSupabaseHeaders(),
-    cache: "force-cache",
+    // 年级课表更新频率低且每个会话只请求一次；禁用浏览器磁盘缓存，
+    // 避免运营上传新表后销售端继续命中旧星级/旧阶段数据。
+    cache: "no-store",
   }).then(async (response) => {
     if (!response.ok) throw await createCloudError(response, "云端年级课程库读取失败");
     const records = await response.json();

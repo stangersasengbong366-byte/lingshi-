@@ -13,9 +13,9 @@ test("知识视频固定模板按（夏/秋/冬/春）字段映射阶段", () =>
     ["函数", "函数进阶", "菁英", "3星", "冬"],
   ];
   const parsed = parseCourseWorkbookSheets(workbook(["高一数学"], { 高一数学: rows }), "video", "高一", ["数学"]);
-  assert.deepEqual(parsed.数学.map((row) => [row.title, row.quarter, row.layered]), [
-    ["函数基础", "秋季", "目标班"],
-    ["函数进阶", "寒假", "精英班"],
+  assert.deepEqual(parsed.数学.map((row) => [row.title, row.quarter, row.layered, row.difficulty]), [
+    ["函数基础", "秋季", "目标班", 2],
+    ["函数进阶", "寒假", "精英班", 3],
   ]);
 });
 

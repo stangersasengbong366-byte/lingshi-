@@ -193,7 +193,13 @@ function parseSimpleVideoRows(rows) {
       id: `uploaded-video-${rowIndex + 1}`,
       title: stripOutlineCode(rawTitle),
       outlineCode: getOutlineCode(rawTitle),
-      difficulty: normalizeDifficulty(row[index["难度星级"]] || row[index["星级难度"]]),
+      difficulty: normalizeDifficulty(
+        row[index["难度星级"]]
+        || row[index["星级难度"]]
+        || row[index["难度星级标注"]]
+        || row[index["（1星/2星/3星/4星）"]]
+        || row[index["1星/2星/3星/4星"]],
+      ),
       layered: normalizeCourseTrack(row[index["整合后"]] || row[index["是否分层"]]),
       quarter: normalizeCoursePhase(
         row[index["所属季度"]]

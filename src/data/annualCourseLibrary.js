@@ -1,4 +1,4 @@
-export const annualCourseLibraryVersion = "2026-2027-v4";
+export const annualCourseLibraryVersion = "2026-2027-v5";
 
 export const annualCourseLibrary = {
   "高一": {
@@ -4446,7 +4446,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-2",
           "title": "信息类文本核心内容理解辨识",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -4454,7 +4454,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-3",
           "title": "信息类文本论证思路正误辨析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -4462,7 +4462,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-4",
           "title": "信息类文本逻辑推理选项判断",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -4470,7 +4470,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-5",
           "title": "信息类文本论证特征要点甄别",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -4478,7 +4478,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-6",
           "title": "信息类文本阅读基础要领与文本解析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -4486,7 +4486,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-7",
           "title": "信息类文本内容理解与题型精析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -4494,7 +4494,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-8",
           "title": "信息类文本信息梳理整合与实战运用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -4502,7 +4502,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-9",
           "title": "小说叙述顺序及作用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -4510,7 +4510,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-10",
           "title": "小说叙事人称及视角",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -4518,7 +4518,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-11",
           "title": "小说叙述特征综合分析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -4534,7 +4534,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-13",
           "title": "散文表达技巧赏析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -4542,7 +4542,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-14",
           "title": "120个常见实词（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -4550,7 +4550,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-15",
           "title": "120个常见实词（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -4558,7 +4558,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-16",
           "title": "120个常见实词（三）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -4566,7 +4566,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-17",
           "title": "18个常见虚词（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -4574,7 +4574,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-18",
           "title": "18个常见虚词（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -4582,7 +4582,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-19",
           "title": "18个常见虚词（三）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -4598,7 +4598,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-21",
           "title": "古诗中的常考手法综合",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -4606,7 +4606,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-22",
           "title": "《论语》",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -4614,7 +4614,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-23",
           "title": "《呐喊》",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -4622,7 +4622,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-24",
           "title": "《边城》",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -4630,7 +4630,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-25",
           "title": "《平凡的世界》",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -4638,7 +4638,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-26",
           "title": "《老人与海》",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -4646,7 +4646,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-27",
           "title": "名著阅读选择题技巧",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -4654,7 +4654,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-28",
           "title": "名著阅读主题探究类",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -4662,7 +4662,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-29",
           "title": "常见谦辞与敬辞",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -4670,7 +4670,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-30",
           "title": "常用关联词与逻辑关系",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -4678,7 +4678,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-31",
           "title": "常用标点符号的用法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -4686,7 +4686,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-32",
           "title": "病句修改",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -4694,7 +4694,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-33",
           "title": "压缩语段",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -4710,7 +4710,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-35",
           "title": "任务驱动型作文",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -4718,7 +4718,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-36",
           "title": "新材料作文",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -4726,7 +4726,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-37",
           "title": "漫画作文",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -4734,7 +4734,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-38",
           "title": "故事寓言类作文",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -4742,7 +4742,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-39",
           "title": "时评类作文",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -4750,7 +4750,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-40",
           "title": "主旋律类作文",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -4766,7 +4766,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-42",
           "title": "信息性阅读内容理解破题要点【目标班】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -4774,7 +4774,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-43",
           "title": "信息性阅读论证分析解题关键【目标班】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -4782,7 +4782,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-44",
           "title": "信息性阅读判断推理答题策略【目标班】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -4790,7 +4790,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-45",
           "title": "现代诗鉴赏选择题解题法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -4798,7 +4798,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-46",
           "title": "现代诗情感主旨探究精要",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -4806,7 +4806,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-47",
           "title": "现代诗手法赏析要点",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -4814,7 +4814,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-48",
           "title": "现代诗形象鉴赏关键",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -4830,7 +4830,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-50",
           "title": "小说鉴赏选择题突破策略【目标班】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -4838,7 +4838,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-51",
           "title": "小说人物形象精准解析法【目标班】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -4846,7 +4846,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-52",
           "title": "小说主题解读与探究【目标班】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -4854,7 +4854,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-53",
           "title": "小说情节概括梳理技巧【目标班】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -4862,7 +4862,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-54",
           "title": "文言文词义多义与古今异义剖析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -4870,7 +4870,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-55",
           "title": "文言文词类活用规律与实例",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -4878,7 +4878,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-56",
           "title": "文言文常考实词",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -4894,7 +4894,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-58",
           "title": "文言文断句辨析方法【目标班】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -4902,7 +4902,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-59",
           "title": "《劝学》思想与文法深度解读",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -4910,7 +4910,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-60",
           "title": "《师说》教育理念与写作特色剖析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -4918,7 +4918,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-61",
           "title": "《赤壁赋》文学魅力与哲思品味",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -4926,7 +4926,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-62",
           "title": "古诗鉴赏选择题破题技巧",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -4934,7 +4934,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-63",
           "title": "古诗意象意境内涵解析【目标班】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -4942,7 +4942,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-64",
           "title": "古诗人物形象分析鉴赏",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -4950,7 +4950,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-65",
           "title": "送别酬赠诗",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -4958,7 +4958,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-66",
           "title": "山水田园诗",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -4966,7 +4966,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-67",
           "title": "《红楼梦》（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -4974,7 +4974,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-68",
           "title": "《红楼梦》（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -4982,7 +4982,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-69",
           "title": "标点符号功能与运用要点",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -4998,7 +4998,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-71",
           "title": "常考病句类型识别与修改方法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -5006,7 +5006,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-72",
           "title": "记叙文写作评分标准与核心要素",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -5014,7 +5014,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-73",
           "title": "成长励志类记叙文创作要点",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -5022,7 +5022,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-74",
           "title": "情感体验类记叙文写作技巧",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -5030,7 +5030,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-75",
           "title": "议论文写作评分标准与要素剖析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -5038,7 +5038,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-76",
           "title": "议论文审题精准与论点构建（上）【目标班】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -5046,7 +5046,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-77",
           "title": "议论文审题精准与论点构建（下）【目标班】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -5054,7 +5054,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-78",
           "title": "议论文论证方法与结构（上）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -5062,7 +5062,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-79",
           "title": "议论文论证方法与结构（下）【目标班】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -5070,7 +5070,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-80",
           "title": "作文高考真题精选带练",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -5078,7 +5078,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-81",
           "title": "信息性阅读热题新题精选精析（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -5086,7 +5086,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-82",
           "title": "信息性阅读热题新题精选精析（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -5094,7 +5094,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-83",
           "title": "小说环境特点与作用分析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -5102,7 +5102,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-84",
           "title": "文学类文本阅读热题新题精选精析（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -5110,7 +5110,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-85",
           "title": "小说综合类题目之双文本类题型",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -5118,7 +5118,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-86",
           "title": "小说综合类题目之语言风格赏析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -5126,7 +5126,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-87",
           "title": "小说综合类题目之作用效果分析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -5134,7 +5134,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-88",
           "title": "散文入门与文体常识解读",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -5142,7 +5142,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-89",
           "title": "散文行文思路梳理方法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -5150,7 +5150,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-90",
           "title": "散文词句赏析技巧要点",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -5158,7 +5158,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-91",
           "title": "文学类文本阅读热题新题精选精析（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -5166,7 +5166,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-92",
           "title": "文言文阅读热题新题精选精析（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -5174,7 +5174,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-93",
           "title": "文言文阅读热题新题精选精析（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -5182,7 +5182,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-94",
           "title": "古代诗歌阅读热题新题精选精析（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -5190,7 +5190,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-95",
           "title": "古代诗歌阅读热题新题精选精析（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -5198,7 +5198,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-96",
           "title": "边塞战争诗",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -5206,7 +5206,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-97",
           "title": "古诗炼字炼句题解题技巧",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -5214,7 +5214,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-98",
           "title": "古诗阅读之手法赏析类",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -5222,7 +5222,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-99",
           "title": "《乡土中国》（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -5230,7 +5230,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-100",
           "title": "《乡土中国》（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         }
@@ -5248,7 +5248,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-2",
           "title": "一元二次不等式与高次不等式",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -5256,7 +5256,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-3",
           "title": "分式不等式",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -5264,7 +5264,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-4",
           "title": "绝对值不等式",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -5272,7 +5272,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-5",
           "title": "子集个数问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -5280,7 +5280,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-6",
           "title": "多子集个数问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -5288,7 +5288,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-7",
           "title": "韦恩图解决抽象集合问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -5296,7 +5296,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-8",
           "title": "【数学思维】集合创新题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "精英班",
           "quarter": "秋季"
         },
@@ -5312,7 +5312,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-10",
           "title": "均值不等式的拓展",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "秋季"
         },
@@ -5320,7 +5320,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-11",
           "title": "均值不等式的轮换对称结构",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -5328,7 +5328,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-12",
           "title": "【数学思维】均值不等式多选题与应试思维综合运用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "精英班",
           "quarter": "秋季"
         },
@@ -5336,7 +5336,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-13",
           "title": "换元法、配凑法和待定系数法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -5344,7 +5344,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-14",
           "title": "构造方程组求函数解析式",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "秋季"
         },
@@ -5352,7 +5352,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-15",
           "title": "分段函数的应用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "秋季"
         },
@@ -5360,7 +5360,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-16",
           "title": "一次分式函数的最值与值域",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "秋季"
         },
@@ -5368,7 +5368,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-17",
           "title": "二次分式最值速算技巧",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -5376,7 +5376,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-18",
           "title": "单调性与奇偶性综合应用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -5384,7 +5384,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-19",
           "title": "对称性",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -5392,7 +5392,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-20",
           "title": "函数周期性",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "精英班",
           "quarter": "秋季"
         },
@@ -5400,7 +5400,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-21",
           "title": "对称性与周期性的综合应用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "秋季"
         },
@@ -5408,7 +5408,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-22",
           "title": "a 二次恒成立常见解题模板（上）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -5416,7 +5416,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-23",
           "title": "b 二次恒成立常见解题模板（下）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "秋季"
         },
@@ -5424,7 +5424,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-24",
           "title": "幂函数的判断及性质应用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "秋季"
         },
@@ -5440,7 +5440,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-26",
           "title": "指数函数的概念和图像",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -5456,7 +5456,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-28",
           "title": "对数运算法则",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "秋季"
         },
@@ -5464,7 +5464,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-29",
           "title": "换底公式",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "秋季"
         },
@@ -5472,7 +5472,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-30",
           "title": "对数函数的概念和图像",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -5480,7 +5480,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-31",
           "title": "a 指对幂比大小（上）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -5488,7 +5488,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-32",
           "title": "b 指对幂比大小（下）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -5496,7 +5496,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-33",
           "title": "复杂函数图像",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "目标班",
           "quarter": "秋季"
         },
@@ -5504,7 +5504,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-34",
           "title": "零点个数问题（基础）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -5512,7 +5512,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-35",
           "title": "零点个数问题（进阶）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "精英班",
           "quarter": "秋季"
         },
@@ -5520,7 +5520,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-36",
           "title": "一元二次方程根的分布",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "秋季"
         },
@@ -5528,7 +5528,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-37",
           "title": "【数学思维】函数的建模与应用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "秋季"
         },
@@ -5536,7 +5536,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-38",
           "title": "【数学思维】函数的创新与新定义题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "秋季"
         },
@@ -5544,7 +5544,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-39",
           "title": "【数学思维】函数多选题与应试思维综合运用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -5568,7 +5568,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-42",
           "title": "同角三角函数关系化简求值",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "秋季"
         },
@@ -5576,7 +5576,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-43",
           "title": "利用诱导公式化简求值",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "秋季"
         },
@@ -5584,7 +5584,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-44",
           "title": "和差角公式",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -5592,7 +5592,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-45",
           "title": "二倍角公式",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -5600,7 +5600,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-46",
           "title": "辅助角公式",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -5608,7 +5608,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-47",
           "title": "正（余）弦函数的图像和性质",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "秋季"
         },
@@ -5616,7 +5616,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-48",
           "title": "a 正（余）弦型函数的图像和性质（上）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -5624,7 +5624,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-49",
           "title": "b 正（余）弦型函数的图像和性质（下）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -5632,7 +5632,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-50",
           "title": "三角函数的图像变换",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "秋季"
         },
@@ -5640,7 +5640,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-51",
           "title": "三角函数图像求值",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -5648,7 +5648,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-52",
           "title": "a 与ω有关的性质问题（上）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "秋季"
         },
@@ -5656,7 +5656,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-53",
           "title": "b 与ω有关的性质问题（下）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "精英班",
           "quarter": "秋季"
         },
@@ -5664,7 +5664,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-54",
           "title": "【数学思维】三角函数的创新与新定义题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "秋季"
         },
@@ -5672,7 +5672,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-55",
           "title": "【数学思维】三角函数多选题与应试思维综合运用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "秋季"
         },
@@ -5696,7 +5696,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-58",
           "title": "数乘运算及平面向量共线定理",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "春季"
         },
@@ -5704,7 +5704,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-59",
           "title": "【数学思维】三点共线定理",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -5712,7 +5712,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-60",
           "title": "【数学思维】等和线的应用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -5720,7 +5720,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-61",
           "title": "a 数量积概念及基本运算",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -5728,7 +5728,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-62",
           "title": "b 数量积概念及基本运算",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -5736,7 +5736,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-63",
           "title": "【数学思维】投影法解决数量积问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -5744,7 +5744,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-64",
           "title": "【数学思维】极化恒等式",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -5752,7 +5752,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-65",
           "title": "【数学思维】平面向量多选题与应试思维综合运用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -5760,7 +5760,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-66",
           "title": "余弦定理",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "春季"
         },
@@ -5768,7 +5768,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-67",
           "title": "正弦定理",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "春季"
         },
@@ -5776,7 +5776,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-68",
           "title": "求边求角问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -5784,7 +5784,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-69",
           "title": "【数学思维】定角三角形的最值问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "春季"
         },
@@ -5792,7 +5792,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-70",
           "title": "【数学思维】定比三角形的最值问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "春季"
         },
@@ -5800,7 +5800,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-71",
           "title": "【数学思维】解三角形多选题与应试思维综合运用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -5816,7 +5816,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-73",
           "title": "复数的模及几何意义",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -5824,7 +5824,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-74",
           "title": "柱锥球台的结构特征",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "春季"
         },
@@ -5832,7 +5832,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-75",
           "title": "a 外接球（上）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -5840,7 +5840,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-76",
           "title": "b 外接球（中）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -5848,7 +5848,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-77",
           "title": "c 外接球（下）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "春季"
         },
@@ -5864,7 +5864,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-79",
           "title": "线面平行的性质",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "春季"
         },
@@ -5872,7 +5872,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-80",
           "title": "面面平行的判定",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "春季"
         },
@@ -5880,7 +5880,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-81",
           "title": "面面平行的性质",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "春季"
         },
@@ -5888,7 +5888,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-82",
           "title": "线面垂直的判定",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "春季"
         },
@@ -5896,7 +5896,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-83",
           "title": "线面垂直的性质",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "春季"
         },
@@ -5904,7 +5904,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-84",
           "title": "面面垂直的判定",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "春季"
         },
@@ -5912,7 +5912,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-85",
           "title": "面面垂直的性质",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "春季"
         },
@@ -5920,7 +5920,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-86",
           "title": "a 垂直与平行在大题中的综合应用（上）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -5928,7 +5928,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-87",
           "title": "b 垂直与平行在大题中的综合应用（下）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -5936,7 +5936,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-88",
           "title": "存在性问题探究",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -5944,7 +5944,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-89",
           "title": "折叠问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "精英班",
           "quarter": "春季"
         },
@@ -5952,7 +5952,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-90",
           "title": "动点问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "春季"
         },
@@ -5960,7 +5960,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-91",
           "title": "线线角基础",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -5968,7 +5968,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-92",
           "title": "线线角进阶",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "春季"
         },
@@ -5976,7 +5976,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-93",
           "title": "空间中的距离",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "春季"
         },
@@ -5984,7 +5984,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-94",
           "title": "a 线面角（上）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "春季"
         },
@@ -5992,7 +5992,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-95",
           "title": "b 线面角（下）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "精英班",
           "quarter": "春季"
         },
@@ -6000,7 +6000,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-96",
           "title": "a 二面角（上）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "春季"
         },
@@ -6008,7 +6008,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-97",
           "title": "b 二面角（下）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "精英班",
           "quarter": "春季"
         },
@@ -6016,7 +6016,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-98",
           "title": "【数学思维】立体几何多选题与应试思维综合运用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "春季"
         },
@@ -6032,7 +6032,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-100",
           "title": "概率的分布与计算",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6040,7 +6040,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-101",
           "title": "数字特征的概念与计算",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6048,7 +6048,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-102",
           "title": "平均数、方差的性质与应用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6056,7 +6056,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-103",
           "title": "总体百分位数的估计",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6072,7 +6072,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-105",
           "title": "事件的关系与运算",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6080,7 +6080,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-106",
           "title": "概率的基本概念与基本性质",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6088,7 +6088,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-107",
           "title": "古典概型概率计算",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6096,7 +6096,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-108",
           "title": "独立事件的判断与计算",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "春季"
         },
@@ -6104,7 +6104,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-109",
           "title": "a 概率与统计的综合应用（上）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "春季"
         },
@@ -6112,7 +6112,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-110",
           "title": "b 概率与统计的综合应用（下）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "精英班",
           "quarter": "春季"
         },
@@ -6120,7 +6120,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-111",
           "title": "平面向量的概念与表示",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -6136,7 +6136,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-113",
           "title": "数乘运算及平面向量共线定理",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -6144,7 +6144,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-114",
           "title": "平面向量基本定理",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -6152,7 +6152,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-115",
           "title": "【数学思维】三点共线定理",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -6160,7 +6160,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-116",
           "title": "数量积概念及基本运算",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -6168,7 +6168,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-117",
           "title": "【数学思维】投影法解决数量积问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -6184,7 +6184,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-119",
           "title": "余弦定理",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -6200,7 +6200,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-121",
           "title": "求边求角问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -6208,7 +6208,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-122",
           "title": "柱锥球台的结构特征",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -6216,7 +6216,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-123",
           "title": "线面平行的判定",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -6224,7 +6224,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-124",
           "title": "线面平行的性质",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -6232,7 +6232,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-125",
           "title": "面面平行的判定",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -6240,7 +6240,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-126",
           "title": "面面平行的性质",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -6248,7 +6248,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-127",
           "title": "线面垂直的判定",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -6256,7 +6256,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-128",
           "title": "线面垂直的性质",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -6264,7 +6264,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-129",
           "title": "面面垂直的判定",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -6272,7 +6272,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-130",
           "title": "面面垂直的性质",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         }
@@ -6306,7 +6306,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-4",
           "title": "听力基础4",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -6314,7 +6314,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-5",
           "title": "听力基础5",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -6322,7 +6322,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-6",
           "title": "听力基础6",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -6330,7 +6330,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-7",
           "title": "听力基础7",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -6338,7 +6338,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-8",
           "title": "听力基础8",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -6346,7 +6346,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-9",
           "title": "【词汇的形】高考核心词汇精讲1",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -6354,7 +6354,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-10",
           "title": "【词汇的形】高考核心词汇精讲2",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -6362,7 +6362,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-11",
           "title": "【词汇的形】高考核心词汇精讲3",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -6370,7 +6370,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-12",
           "title": "【词汇的形】高考核心词汇精讲4",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -6378,7 +6378,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-13",
           "title": "【词汇的形】高考核心词汇精讲5",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -6386,7 +6386,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-14",
           "title": "【词汇的形】高考核心词汇精讲6",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -6394,7 +6394,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-15",
           "title": "【词汇的形】高考核心词汇精讲7",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -6402,7 +6402,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-16",
           "title": "【词汇的形】高考核心词汇精讲8",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -6410,7 +6410,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-17",
           "title": "【词汇的形】高考核心词汇精讲9",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -6418,7 +6418,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-18",
           "title": "【词汇的形】高考核心词汇精讲10",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -6426,7 +6426,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-19",
           "title": "语法概念系统",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -6434,7 +6434,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-20",
           "title": "基本词性与功能",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -6442,7 +6442,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-21",
           "title": "句子的主干搭建",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -6450,7 +6450,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-22",
           "title": "句子的修饰添加",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -6458,7 +6458,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-23",
           "title": "名词代词核心考点",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -6466,7 +6466,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-24",
           "title": "动词的分类",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -6474,7 +6474,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-25",
           "title": "谓语动词的结构",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -6482,7 +6482,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-26",
           "title": "主谓一致",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -6490,7 +6490,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-27",
           "title": "一网打尽动词时态（上）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -6498,7 +6498,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-28",
           "title": "一网打尽动词时态（中）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -6506,7 +6506,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-29",
           "title": "一网打尽动词时态（下）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -6514,7 +6514,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-30",
           "title": "动词时态秘密武器",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -6522,7 +6522,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-31",
           "title": "被动语态硬核训练",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -6530,7 +6530,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-32",
           "title": "定语从句点石成金",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -6538,7 +6538,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-33",
           "title": "关系词选择的秘密武器",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -6546,7 +6546,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-34",
           "title": "定从的限定vs非限定性",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -6554,7 +6554,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-35",
           "title": "定从在写作中的应用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -6562,7 +6562,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-36",
           "title": "定从考点的硬核训练",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -6570,7 +6570,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-37",
           "title": "名词性从句拨云见日",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -6578,7 +6578,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-38",
           "title": "名从引导词选择技巧",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -6586,7 +6586,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-39",
           "title": "宾语从句硬核训练",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -6594,7 +6594,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-40",
           "title": "主语从句的硬核训练",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -6666,7 +6666,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-49",
           "title": "谓语动词一步登天",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6674,7 +6674,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-50",
           "title": "谓语动词硬核训练",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6682,7 +6682,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-51",
           "title": "非谓语动词一步登天",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6690,7 +6690,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-52",
           "title": "非谓语动词硬核训练",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6698,7 +6698,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-53",
           "title": "语法填空考点之形容词",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6706,7 +6706,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-54",
           "title": "语法填空考点之副词",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6714,7 +6714,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-55",
           "title": "语法填空考点之比较等级",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6722,7 +6722,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-56",
           "title": "语法填空考点之介词和介词短语",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6730,7 +6730,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-57",
           "title": "语法填空考点之并列连词",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6738,7 +6738,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-58",
           "title": "A=B并列结构硬核训练",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6746,7 +6746,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-59",
           "title": "定语从句的功能用途",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6754,7 +6754,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-60",
           "title": "定语从句的硬核训练",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6762,7 +6762,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-61",
           "title": "表语从句的功能用途",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6770,7 +6770,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-62",
           "title": "表语从句的硬核训练",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6778,7 +6778,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-63",
           "title": "同位语从句功能用途",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6786,7 +6786,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-64",
           "title": "易混从句区分秘密武器",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6794,7 +6794,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-65",
           "title": "同位语从句硬核训练",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6802,7 +6802,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-66",
           "title": "时间状语从句",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6810,7 +6810,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-67",
           "title": "地点条件原因状语从句",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6818,7 +6818,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-68",
           "title": "让步目的状语从句",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6826,7 +6826,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-69",
           "title": "方式结果比较状语从句",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6834,7 +6834,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-70",
           "title": "状语从句硬核训练",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6842,7 +6842,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-71",
           "title": "主旨题之main idea",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6850,7 +6850,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-72",
           "title": "主旨题之purpose",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6858,7 +6858,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-73",
           "title": "主旨题之best title",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6866,7 +6866,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-74",
           "title": "细节题之“题干关键词”",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6874,7 +6874,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-75",
           "title": "细节题之“题文同序原则”",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6882,7 +6882,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-76",
           "title": "细节题之“同义替换原则”",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6890,7 +6890,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-77",
           "title": "三段式法则",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6898,7 +6898,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-78",
           "title": "简单句造句方法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6906,7 +6906,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-79",
           "title": "复杂句造句方法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6914,7 +6914,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-80",
           "title": "高分句升级技巧",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -6922,7 +6922,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-81",
           "title": "【学】谓语动词主谓一致",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -6930,7 +6930,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-82",
           "title": "【练】谓语动词考点综合",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -6938,7 +6938,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-83",
           "title": "【导学】区分谓语和非谓语",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -6946,7 +6946,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-84",
           "title": "【学】非谓语基本形式之doing",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -6954,7 +6954,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-85",
           "title": "【学】非谓语基本形式之done",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -6962,7 +6962,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-86",
           "title": "【学】非谓语基本形式之to do",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -6970,7 +6970,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-87",
           "title": "【学】非谓语之having done/having been done",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -6978,7 +6978,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-88",
           "title": "【学】非谓语之being done/done",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -6986,7 +6986,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-89",
           "title": "【学】非谓语之to be done/to do",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -6994,7 +6994,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-90",
           "title": "【120+语法】语法填空之动词",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -7002,7 +7002,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-91",
           "title": "【120+语法】语法填空之连词",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -7010,7 +7010,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-92",
           "title": "【120+语法】语法填空之名/代/数词",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -7018,7 +7018,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-93",
           "title": "【120+语法】语法填空之形副/冠/介词",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -7026,7 +7026,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-94",
           "title": "【120+语法】语法填空篇章训练新题速递",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -7034,7 +7034,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-95",
           "title": "【降维打击】语法填空篇章训练外刊篇1",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -7042,7 +7042,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-96",
           "title": "【导学】七选五篇章线索",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -7050,7 +7050,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-97",
           "title": "【导学】七选五选项线索",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -7058,7 +7058,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-98",
           "title": "【练】七选五线索考点训练1",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -7066,7 +7066,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-99",
           "title": "【练】七选五线索考点训练2",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -7074,7 +7074,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-100",
           "title": "【练】七选五线索考点训练3",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         }
@@ -7084,7 +7084,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-1",
           "title": "匀变速直线运动基础公式",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7092,7 +7092,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-2",
           "title": "平均速度公式",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7100,7 +7100,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-3",
           "title": "位移差公式",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7108,7 +7108,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-4",
           "title": "公式选择综合问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7116,7 +7116,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-5",
           "title": "测物体的速度（纸带法）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7124,7 +7124,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-6",
           "title": "测物体的加速度（纸带法）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7132,7 +7132,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-7",
           "title": "测速度和加速度（光电门法）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7140,7 +7140,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-8",
           "title": "自由落体运动基本规律",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7148,7 +7148,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-9",
           "title": "自由落体运动综合问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7156,7 +7156,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-10",
           "title": "等时间比例问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7164,7 +7164,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-11",
           "title": "等位移比例问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7172,7 +7172,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-12",
           "title": "竖直上抛运动",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7180,7 +7180,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-13",
           "title": "等距往返问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7196,7 +7196,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-15",
           "title": "实验：探究弹簧弹力与形变量的关系",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7204,7 +7204,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-16",
           "title": "牛顿第三定律与受力分析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7212,7 +7212,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-17",
           "title": "力的合成",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7220,7 +7220,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-18",
           "title": "力的分解",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7228,7 +7228,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-19",
           "title": "实验：探究两个互成角度的力的合成规律",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7236,7 +7236,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-20",
           "title": "整体隔离与多体静态平衡问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7244,7 +7244,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-21",
           "title": "方向不变力问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7252,7 +7252,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-22",
           "title": "夹角不变力问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7260,7 +7260,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-23",
           "title": "相似三角形问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7268,7 +7268,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-24",
           "title": "多体动态平衡问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7276,7 +7276,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-25",
           "title": "牛顿第一定律",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7284,7 +7284,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-26",
           "title": "牛顿第二定律与力学单位制",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7292,7 +7292,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-27",
           "title": "牛顿第二定律的基本应用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7300,7 +7300,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-28",
           "title": "等时圆问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7308,7 +7308,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-29",
           "title": "斜绳问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7316,7 +7316,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-30",
           "title": "斜面滑块问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7324,7 +7324,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-31",
           "title": "超重和失重",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7332,7 +7332,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-32",
           "title": "弹簧问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7340,7 +7340,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-33",
           "title": "突变问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7348,7 +7348,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-34",
           "title": "系统牛顿第二定律",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7356,7 +7356,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-35",
           "title": "临界问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7364,7 +7364,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-36",
           "title": "多过程问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7372,7 +7372,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-37",
           "title": "探究加速度与力的关系（阻力补偿法）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7380,7 +7380,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-38",
           "title": "探究加速度与质量的关系（阻力补偿法）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7388,7 +7388,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-39",
           "title": "探究加速度与力、质量的关系（光电门法）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7396,7 +7396,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-40",
           "title": "探究加速度与力、质量的关系（创新实验）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7420,7 +7420,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-43",
           "title": "运动的合成与分解",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -7428,7 +7428,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-44",
           "title": "平抛运动的规律",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -7436,7 +7436,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-45",
           "title": "圆周运动的描述",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -7444,7 +7444,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-46",
           "title": "实验：探究向心力大小的表达式",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -7452,7 +7452,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-47",
           "title": "向心加速度",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -7460,7 +7460,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-48",
           "title": "水平圆问题：火车转弯",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -7468,7 +7468,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-49",
           "title": "天体运动与开普勒定律",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -7476,7 +7476,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-50",
           "title": "万有引力定律",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -7484,7 +7484,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-51",
           "title": "人造地球卫星",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -7492,7 +7492,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-52",
           "title": "功",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -7500,7 +7500,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-53",
           "title": "功率",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -7516,7 +7516,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-55",
           "title": "弹性势能",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -7524,7 +7524,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-56",
           "title": "动能和动能定理",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -7532,7 +7532,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-57",
           "title": "动能定理的应用：单过程问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -7540,7 +7540,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-58",
           "title": "机械能守恒定律",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -7548,7 +7548,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-59",
           "title": "功能关系",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -7556,7 +7556,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-60",
           "title": "动量、冲量与动量定理",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -7564,7 +7564,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-61",
           "title": "动量守恒定律",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         }
@@ -7582,7 +7582,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-2",
           "title": "分散系 胶体",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7598,7 +7598,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-4",
           "title": "离子方程式的书写",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7606,7 +7606,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-5",
           "title": "离子反应的应用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7622,7 +7622,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-7",
           "title": "氧化还原反应的核心概念",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7630,7 +7630,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-8",
           "title": "氧化性与还原性",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7638,7 +7638,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-9",
           "title": "氧化还原反应方程式配平的一般方法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7646,7 +7646,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-10",
           "title": "氧化还原反应方程式配平的进阶方法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7662,7 +7662,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-12",
           "title": "钠的氧化物",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7670,7 +7670,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-13",
           "title": "过氧化钠",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7678,7 +7678,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-14",
           "title": "钠盐性质初步与侯氏制碱法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7686,7 +7686,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-15",
           "title": "碳酸钠与碳酸氢钠",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7694,7 +7694,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-16",
           "title": "钠及其化合物图像与计算",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7710,7 +7710,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-18",
           "title": "氯水与漂白问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7718,7 +7718,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-19",
           "title": "氯气的实验室制法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7726,7 +7726,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-20",
           "title": "卤素",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7734,7 +7734,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-21",
           "title": "物质的量与阿伏加德罗常数",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7742,7 +7742,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-22",
           "title": "摩尔质量",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7750,7 +7750,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-23",
           "title": "气体摩尔体积",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7758,7 +7758,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-24",
           "title": "阿伏加德罗定律",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7766,7 +7766,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-25",
           "title": "物质的量浓度",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7774,7 +7774,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-26",
           "title": "一定浓度溶液的配制",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7798,7 +7798,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-29",
           "title": "铁盐的性质与检验",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7806,7 +7806,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-30",
           "title": "亚铁盐的性质与检验",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7822,7 +7822,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-32",
           "title": "氧化铝和氢氧化铝",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7830,7 +7830,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-33",
           "title": "铝盐",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7838,7 +7838,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-34",
           "title": "原子结构",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7846,7 +7846,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-35",
           "title": "元素周期表",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7854,7 +7854,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-36",
           "title": "同主族、同周期元素性质递变",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7862,7 +7862,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-37",
           "title": "金属性与非金属性",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7870,7 +7870,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-38",
           "title": "化学键与化合物",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7878,7 +7878,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-39",
           "title": "电子式的书写",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7886,7 +7886,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-40",
           "title": "分子间作用力",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -7902,7 +7902,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-42",
           "title": "二氧化硫的酸性与氧还性",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -7910,7 +7910,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-43",
           "title": "二氧化硫的漂白性",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -7918,7 +7918,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-44",
           "title": "浓硫酸的性质",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -7926,7 +7926,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-45",
           "title": "硫化物及硫的含氧酸盐",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -7934,7 +7934,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-46",
           "title": "氮气与氨气",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -7942,7 +7942,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-47",
           "title": "氮氧化物的性质",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -7950,7 +7950,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-48",
           "title": "硝酸的性质",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -7958,7 +7958,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-49",
           "title": "气体制备实验",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -7974,7 +7974,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-51",
           "title": "无机推断",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -7998,7 +7998,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-54",
           "title": "电极反应方程式的书写",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8006,7 +8006,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-55",
           "title": "常见电池模型的分析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8022,7 +8022,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-57",
           "title": "化学反应速率的计算进阶",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8030,7 +8030,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-58",
           "title": "影响化学反应速率的因素",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8038,7 +8038,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-59",
           "title": "可逆反应与化学反应限度",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8070,7 +8070,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-63",
           "title": "甲烷的取代实验",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8078,7 +8078,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-64",
           "title": "乙烯的理化性质",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8086,7 +8086,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-65",
           "title": "高分子材料与加聚反应",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8094,7 +8094,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-66",
           "title": "苯的结构与性质",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8102,7 +8102,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-67",
           "title": "实验室制溴苯",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8110,7 +8110,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-68",
           "title": "同分异构体的书写总述",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8118,7 +8118,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-69",
           "title": "同分异构体书写—定一议二法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8126,7 +8126,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-70",
           "title": "同分异构体书写—立体及环状物质",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8134,7 +8134,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-71",
           "title": "共线共面问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8142,7 +8142,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-72",
           "title": "烃类燃烧与实验式测定",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8158,7 +8158,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-74",
           "title": "醇类的催化氧化",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8182,7 +8182,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-77",
           "title": "金属冶炼",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8190,7 +8190,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-78",
           "title": "粗盐提纯和海水提镁",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8198,7 +8198,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-79",
           "title": "海水提溴和海水提碘",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8222,7 +8222,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-82",
           "title": "二氧化硫的酸性",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -8230,7 +8230,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-83",
           "title": "二氧化硫的氧还性",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -8238,7 +8238,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-84",
           "title": "浓硫酸的性质",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -8246,7 +8246,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-85",
           "title": "氮气与氨气",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -8262,7 +8262,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-87",
           "title": "喷泉实验",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -8270,7 +8270,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-88",
           "title": "硝酸的性质",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -8278,7 +8278,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-89",
           "title": "制备实验组合装置",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -8310,7 +8310,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-93",
           "title": "原电池的正负极判断",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -8318,7 +8318,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-94",
           "title": "电极反应方程式的书写",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -8334,7 +8334,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-96",
           "title": "温度、浓度对化学反应速率的影响",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -8342,7 +8342,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-97",
           "title": "压强、催化剂等对化学反应速率的影响",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -8366,7 +8366,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-100",
           "title": "有机物的表示方法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         }
@@ -8376,7 +8376,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-1",
           "title": "遗传基本概念",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8384,7 +8384,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-2",
           "title": "一对相对性状的杂交实验",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8392,7 +8392,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-3",
           "title": "遗传交配方式辨析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8400,7 +8400,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-4",
           "title": "验证孟德尔遗传定律的方法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8408,7 +8408,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-5",
           "title": "两对相对性状的杂交实验（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8416,7 +8416,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-6",
           "title": "两对相对性状的杂交实验（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8424,7 +8424,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-7",
           "title": "乘法原理",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8432,7 +8432,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-8",
           "title": "基因互作",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8440,7 +8440,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-9",
           "title": "对自由组合定律的解释与验证",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8448,7 +8448,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-10",
           "title": "减数分裂过程（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8456,7 +8456,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-11",
           "title": "减数分裂过程（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8464,7 +8464,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-12",
           "title": "基因位于染色体上的实验证据",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8472,7 +8472,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-13",
           "title": "性别决定的方式",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8480,7 +8480,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-14",
           "title": "伴性遗传",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8488,7 +8488,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-15",
           "title": "肺炎链球菌的体内转化实验",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8496,7 +8496,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-16",
           "title": "肺炎链球菌的体外转化实验",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8504,7 +8504,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-17",
           "title": "噬菌体侵染细菌的实验",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8512,7 +8512,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-18",
           "title": "烟草花叶病毒实验",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8520,7 +8520,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-19",
           "title": "DNA的结构",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8528,7 +8528,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-20",
           "title": "DNA半保留复制的实验证据",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8536,7 +8536,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-21",
           "title": "DNA复制的过程",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8544,7 +8544,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-22",
           "title": "基因的本质",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8552,7 +8552,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-23",
           "title": "遗传信息的转录",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8560,7 +8560,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-24",
           "title": "遗传信息的翻译",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8568,7 +8568,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-25",
           "title": "中心法则",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8576,7 +8576,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-26",
           "title": "基因、蛋白质和性状的关系",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8584,7 +8584,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-27",
           "title": "表观遗传",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8592,7 +8592,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-28",
           "title": "基因突变",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8600,7 +8600,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-29",
           "title": "细胞癌变",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8608,7 +8608,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-30",
           "title": "基因重组",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8616,7 +8616,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-31",
           "title": "染色体数目变异",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8624,7 +8624,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-32",
           "title": "染色体结构变异",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8632,7 +8632,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-33",
           "title": "低温诱导染色体变异实验",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8640,7 +8640,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-34",
           "title": "人类遗传病",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8648,7 +8648,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-35",
           "title": "生物有共同祖先的证据",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8656,7 +8656,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-36",
           "title": "自然选择和适应的形成",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8664,7 +8664,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-37",
           "title": "种群基因组成的变化",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8672,7 +8672,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-38",
           "title": "探究抗生素对细菌的选择作用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8680,7 +8680,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-39",
           "title": "隔离在物种形成当中的作用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8688,7 +8688,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-40",
           "title": "协同进化与生物多样性的形成",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8696,7 +8696,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-41",
           "title": "遗传基本概念",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -8704,7 +8704,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-42",
           "title": "一对相对性状的杂交实验",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -8712,7 +8712,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-43",
           "title": "遗传交配方式辨析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -8720,7 +8720,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-44",
           "title": "复等位基因",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -8728,7 +8728,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-45",
           "title": "自交与连续自交",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -8736,7 +8736,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-46",
           "title": "自由交配",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -8744,7 +8744,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-47",
           "title": "基因致死",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -8752,7 +8752,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-48",
           "title": "验证孟德尔遗传定律的方法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -8760,7 +8760,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-49",
           "title": "两对相对性状的杂交实验（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -8768,7 +8768,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-50",
           "title": "两对相对性状的杂交实验（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -8776,7 +8776,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-51",
           "title": "乘法原理",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -8784,7 +8784,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-52",
           "title": "基因互作",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -8792,7 +8792,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-53",
           "title": "基因累加（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -8800,7 +8800,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-54",
           "title": "基因累加（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -8808,7 +8808,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-55",
           "title": "自由组合胚胎致死",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -8816,7 +8816,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-56",
           "title": "自由组合配子致死",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -8824,7 +8824,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-57",
           "title": "对自由组合定律的解释与验证",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -8832,7 +8832,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-58",
           "title": "减数分裂过程（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -8840,7 +8840,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-59",
           "title": "减数分裂过程（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -8848,7 +8848,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-60",
           "title": "减数分裂的图像",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         }
@@ -8858,7 +8858,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-1",
           "title": "中国近代时间带背",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8866,7 +8866,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-2",
           "title": "中国现代时间带背",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8874,7 +8874,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-3",
           "title": "标点解读题（1）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8882,7 +8882,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-4",
           "title": "标点解读题（2）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8890,7 +8890,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-5",
           "title": "目的判断题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8898,7 +8898,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-6",
           "title": "逻辑关系题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8906,7 +8906,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-7",
           "title": "图片解读题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8914,7 +8914,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-8",
           "title": "数据图表题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8922,7 +8922,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-9",
           "title": "地图解读题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8930,7 +8930,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-10",
           "title": "史学常识题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8938,7 +8938,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-11",
           "title": "正确选项规律总结",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8946,7 +8946,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-12",
           "title": "错误选项规律总结",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8954,7 +8954,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-13",
           "title": "材料概括专训（1）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8962,7 +8962,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-14",
           "title": "材料概括专训（2）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8970,7 +8970,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-15",
           "title": "原因、背景类（1）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8978,7 +8978,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-16",
           "title": "原因、背景类（2）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8986,7 +8986,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-17",
           "title": "影响、作用类（1）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -8994,7 +8994,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-18",
           "title": "影响、作用类（2）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9002,7 +9002,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-19",
           "title": "特点、特征类（1）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9010,7 +9010,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-20",
           "title": "特点、特征类（2）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         }
@@ -9028,7 +9028,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-2",
           "title": "【初高衔接】刮风下雨为哪般-天气与气候（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -9036,7 +9036,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-3",
           "title": "【初高衔接】刮风下雨为哪般-天气与气候（三）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -9044,7 +9044,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-4",
           "title": "【初高衔接】刮风下雨为哪般-天气与气候（四）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -9052,7 +9052,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-5",
           "title": "【初高衔接】高山幽谷平地丘-地形与等高线（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -9068,7 +9068,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-7",
           "title": "【初高衔接】高山幽谷平地丘-地形与等高线（三）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -9076,7 +9076,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-8",
           "title": "【初高衔接】鬼斧神工自天成-地质与地貌（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -9084,7 +9084,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-9",
           "title": "【初高衔接】鬼斧神工自天成-地质与地貌（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -9092,7 +9092,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-10",
           "title": "【初高衔接】鬼斧神工自天成-地质与地貌（三）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -9100,7 +9100,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-11",
           "title": "【初高衔接】集中精力促生产-农业与工业（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -9108,7 +9108,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-12",
           "title": "【初高衔接】集中精力促生产-农业与工业（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -9116,7 +9116,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-13",
           "title": "【初高衔接】集中精力促生产-农业与工业（三）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -9124,7 +9124,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-14",
           "title": "【初高衔接】看山看谁看中国-城市与乡村（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -9132,7 +9132,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-15",
           "title": "【初高衔接】看山看谁看中国-城市与乡村（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -9148,7 +9148,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-17",
           "title": "自然地理知识总结梳理（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -9156,7 +9156,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-18",
           "title": "自然地理知识总结梳理（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -9164,7 +9164,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-19",
           "title": "自然地理知识总结梳理（三）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -9172,7 +9172,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-20",
           "title": "自然地理知识总结梳理（四）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -9180,7 +9180,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-21",
           "title": "人口分布",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9188,7 +9188,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-22",
           "title": "人口数量变化（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9196,7 +9196,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-23",
           "title": "人口数量变化（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9204,7 +9204,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-24",
           "title": "人口数量变化（三）、人口合理容量",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9212,7 +9212,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-25",
           "title": "人口问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9220,7 +9220,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-26",
           "title": "城镇空间结构（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9228,7 +9228,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-27",
           "title": "城镇空间结构（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9236,7 +9236,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-28",
           "title": "城镇等级、城镇化",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9244,7 +9244,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-29",
           "title": "乡村空间结构、地域文化与城乡景观",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9252,7 +9252,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-30",
           "title": "农业概说",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9260,7 +9260,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-31",
           "title": "农业区位因素（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9268,7 +9268,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-32",
           "title": "农业区位因素（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9276,7 +9276,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-33",
           "title": "农业地域类型（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9284,7 +9284,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-34",
           "title": "农业地域类型（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9292,7 +9292,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-35",
           "title": "工业概说",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9300,7 +9300,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-36",
           "title": "工业区位因素（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9308,7 +9308,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-37",
           "title": "工业区位因素（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9316,7 +9316,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-38",
           "title": "工业集聚与分散",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9324,7 +9324,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-39",
           "title": "服务业概说、服务业区位因素、服务业区位因素的发展变化",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9332,7 +9332,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-40",
           "title": "交通运输业概说",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9340,7 +9340,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-41",
           "title": "交通运输方式的选择、交通运输业的发展趋势",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9348,7 +9348,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-42",
           "title": "交通运输业区位因素（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9356,7 +9356,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-43",
           "title": "交通运输业区位因素（二）、交通运输业的影响",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9364,7 +9364,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-44",
           "title": "环境与发展",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9372,7 +9372,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-45",
           "title": "高一地理知识综合复习（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9380,7 +9380,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-46",
           "title": "高一地理知识综合复习（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9388,7 +9388,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-47",
           "title": "高一地理知识综合复习（三）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9396,7 +9396,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-48",
           "title": "高一地理知识综合复习（四）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9404,7 +9404,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-49",
           "title": "高一地理知识综合复习（五）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9412,7 +9412,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-50",
           "title": "高一地理知识综合复习（六）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         }
@@ -9422,7 +9422,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-1",
           "title": "中华法系与法治建设成就",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9430,7 +9430,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-2",
           "title": "全面依法治国总目标与原则",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9438,7 +9438,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-3",
           "title": "拆解“法治国家”考点",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9446,7 +9446,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-4",
           "title": "拆解“法治政府”考点",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9454,7 +9454,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-5",
           "title": "拆解“法治社会”考点",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9462,7 +9462,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-6",
           "title": "拆解“科学立法”考点",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9470,7 +9470,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-7",
           "title": "拆解“严格执法与公正司法”考点",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9478,7 +9478,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-8",
           "title": "拆解“全民守法”考点",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9486,7 +9486,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-9",
           "title": "党的领导高频选项",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9494,7 +9494,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-10",
           "title": "人民当家作主高频选项",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9502,7 +9502,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-11",
           "title": "全面依法治国高频选项",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9510,7 +9510,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-12",
           "title": "党的领导主观题题型",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9518,7 +9518,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-13",
           "title": "全过程人民民主主观题题型",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9526,7 +9526,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-14",
           "title": "国家治理和社会治理主观题题型",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9534,7 +9534,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-15",
           "title": "法治要求与国家机关主观题题型",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9542,7 +9542,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-16",
           "title": "哲学知识点总览",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9550,7 +9550,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-17",
           "title": "辩证唯物论",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9558,7 +9558,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-18",
           "title": "唯物辩证法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9566,7 +9566,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-19",
           "title": "认识论",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -9574,7 +9574,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-20",
           "title": "历史唯物主义",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         }
@@ -14026,7 +14026,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-2",
           "title": "客观题第一题速记巧选——内容理解题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14034,7 +14034,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-3",
           "title": "客观题第二题速记巧选——论证分析题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14042,7 +14042,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-4",
           "title": "客观题第三题速记巧选——推理判断题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14050,7 +14050,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-5",
           "title": "理解分析选择题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14058,7 +14058,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-6",
           "title": "信息性阅读高考真题精选带练（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14066,7 +14066,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-7",
           "title": "高考热门考点之人物塑造手法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14074,7 +14074,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-8",
           "title": "高考热门考点之情节安排手法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14082,7 +14082,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-9",
           "title": "考前急救之线索作用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14090,7 +14090,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-10",
           "title": "散文阅读高考真题精选带练（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14098,7 +14098,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-11",
           "title": "逆袭提分之情感主旨探究",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14106,7 +14106,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-12",
           "title": "逆袭提分之写作手法赏析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14114,7 +14114,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-13",
           "title": "文言通关第一关——一词多义和通假字",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14122,7 +14122,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-14",
           "title": "文言通关第一关——古今异义和偏义复词",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14130,7 +14130,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-15",
           "title": "文言通关第一关——词类活用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14138,7 +14138,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-16",
           "title": "文言通关第四关——断句辨析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14146,7 +14146,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-17",
           "title": "文言通关第五关——文化常识",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14154,7 +14154,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-18",
           "title": "文言通关第六关——文意理解",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14162,7 +14162,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-19",
           "title": "文言通关第七关——文言巧译（上）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14170,7 +14170,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-20",
           "title": "文言通关第七关——文言巧译（下）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14178,7 +14178,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-21",
           "title": "提分利器之人物形象题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14186,7 +14186,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-22",
           "title": "提分利器之意象意境题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14194,7 +14194,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-23",
           "title": "提分利器之情感分析题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14202,7 +14202,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-24",
           "title": "提分利器之手法赏析题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14210,7 +14210,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-25",
           "title": "提分必备之一般简答题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14218,7 +14218,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-26",
           "title": "提分干货之易误成语分类",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14226,7 +14226,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-27",
           "title": "提分干货之句子成分与常考病句类型",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14234,7 +14234,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-28",
           "title": "提分干货之常考标点符号的用法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14242,7 +14242,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-29",
           "title": "提分加倍之语言表达连贯",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14250,7 +14250,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-30",
           "title": "提分加倍之语言表达得体",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14258,7 +14258,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-31",
           "title": "作文解惑之审题立意",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14266,7 +14266,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-32",
           "title": "作文解惑之行文结构",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14274,7 +14274,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-33",
           "title": "作文解惑之素材选用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14282,7 +14282,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-34",
           "title": "作文解惑之语言优化",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14290,7 +14290,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-35",
           "title": "考场作文50+——时评类",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14298,7 +14298,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-36",
           "title": "考场作文50+——主旋律类",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14306,7 +14306,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-37",
           "title": "考场作文50+——逻辑思辨类",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14314,7 +14314,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-38",
           "title": "考场作文50+——名言哲理类",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14322,7 +14322,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-39",
           "title": "议论文写作高考真题精选带练（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14330,7 +14330,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-40",
           "title": "议论文写作高考真题精选带练（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14338,7 +14338,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-42",
           "title": "快速破题——选择题综合解题方法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -14346,7 +14346,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-43",
           "title": "秒出答案——选择题综合技巧",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -14362,7 +14362,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-45",
           "title": "快速破题——选择题综合解题方法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -14370,7 +14370,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-46",
           "title": "体系精讲——线索及关键物象解析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -14378,7 +14378,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-47",
           "title": "体系精讲——描写手法鉴赏讲解(上）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -14386,7 +14386,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-48",
           "title": "体系精讲——描写手法鉴赏讲解（下）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -14394,7 +14394,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-49",
           "title": "思路剖析——语言风格特征解析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -14402,7 +14402,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-50",
           "title": "满分攻略——开放性探究题型指导",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -14410,7 +14410,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-51",
           "title": "答题范式——双文本类新题型指导",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -14426,7 +14426,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-53",
           "title": "快速破题——选择题解题综合指导（上）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -14434,7 +14434,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-54",
           "title": "快速破题——选择题解题综合指导（下）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -14442,7 +14442,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-55",
           "title": "应试策略——句段作用解析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -14450,7 +14450,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-56",
           "title": "应试策略——文章结构特色鉴赏",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -14458,7 +14458,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-57",
           "title": "应试策略——语言风格鉴赏分析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -14466,7 +14466,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-58",
           "title": "应试策略——主旨内涵探究题型",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -14474,7 +14474,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-59",
           "title": "应试策略——拓展延伸题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -14482,7 +14482,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-60",
           "title": "答题范式——双文本类新题型指导",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -14490,7 +14490,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-61",
           "title": "高效攻克——文言文句子翻译综合指导",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -14498,7 +14498,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-62",
           "title": "文言文主观新题型指导指导方案",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -14506,7 +14506,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-63",
           "title": "高分方法——内容解读与情感探析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -14514,7 +14514,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-64",
           "title": "高分方法——语言风格鉴赏分析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -14522,7 +14522,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-65",
           "title": "高分方法——诗句表达作用解析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -14530,7 +14530,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-66",
           "title": "答题方法——语句扩展题型指导",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -14538,7 +14538,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-67",
           "title": "答题方法——语段压缩方法讲解",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -14546,7 +14546,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-68",
           "title": "答题方法——结构理解类转换题型",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -14554,7 +14554,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-69",
           "title": "答题方法——数据分析类转换题型",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -14562,7 +14562,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-70",
           "title": "答题方法——逻辑推断题型讲解",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -14570,7 +14570,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-71",
           "title": "作文提速第一步——文章结构优化指导（上）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -14578,7 +14578,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-72",
           "title": "作文提速第一步——文章结构优化指导（下）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -14586,7 +14586,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-73",
           "title": "作文提速第二步——写作素材精准运用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -14594,7 +14594,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-74",
           "title": "作文提速第三步——论证思路升级方法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -14602,7 +14602,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-75",
           "title": "作文提速第四步——语言点睛",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -14626,7 +14626,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-78",
           "title": "作文实战演练50+——民族自信",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -14634,7 +14634,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-79",
           "title": "作文实战演练50+——青年担当主题写作",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -14642,7 +14642,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-80",
           "title": "作文实战演练50+——科技创新主题写作",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -14650,7 +14650,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-81",
           "title": "作文实战演练50+——传统文化主题写作",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -14658,7 +14658,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-82",
           "title": "信息性阅读热题新题精选精析（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -14666,7 +14666,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-83",
           "title": "信息性阅读热题新题精选精析（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -14674,7 +14674,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-84",
           "title": "信息性阅读迁移探究类题目策略与思路",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -14682,7 +14682,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-85",
           "title": "信息性阅读高考真题精选带练（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -14690,7 +14690,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-86",
           "title": "小说之情节作用分析要点与方法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -14698,7 +14698,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-87",
           "title": "小说之情节安排效果探究与把握",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -14706,7 +14706,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-88",
           "title": "文学类文本阅读热题新题精选精析（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -14714,7 +14714,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-89",
           "title": "小说综合类题目之双文本类题型剖析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -14722,7 +14722,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-90",
           "title": "小说综合类题目之语言风格赏析方法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -14730,7 +14730,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-91",
           "title": "小说综合类题目之文体特征分析要点",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -14738,7 +14738,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-92",
           "title": "小说综合类题目之作用效果分析策略",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -14746,7 +14746,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-93",
           "title": "散文综合类题目之线索及其作用探究",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -14754,7 +14754,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-94",
           "title": "散文综合类题目之标题含义作用解读",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -14762,7 +14762,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-95",
           "title": "散文之词句赏析技巧与要点",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -14770,7 +14770,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-96",
           "title": "散文之主题探究思路与方法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -14778,7 +14778,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-97",
           "title": "散文阅读高考真题精选带练（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -14786,7 +14786,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-98",
           "title": "文言文之判断句",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -14794,7 +14794,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-99",
           "title": "文言文之被动句",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -14802,7 +14802,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-100",
           "title": "文言文之省略句",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -14810,7 +14810,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-101",
           "title": "文言文之倒装句",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         }
@@ -14844,7 +14844,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-4",
           "title": "直线的方向向量与平面的法向量",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14852,7 +14852,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-5",
           "title": "空间向量的基本应用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14860,7 +14860,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-6",
           "title": "向量夹角与直线夹角",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14868,7 +14868,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-7",
           "title": "直线与平面的夹角",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14876,7 +14876,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-8",
           "title": "平面与平面的夹角",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14884,7 +14884,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-9",
           "title": "a 平面方程与法向量（上）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "精英班",
           "quarter": "秋季"
         },
@@ -14892,7 +14892,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-10",
           "title": "b 平面方程与法向量（下）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "精英班",
           "quarter": "秋季"
         },
@@ -14900,7 +14900,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-11",
           "title": "动点问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "精英班",
           "quarter": "秋季"
         },
@@ -14924,7 +14924,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-14",
           "title": "直线间的位置关系：平行与垂直",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "秋季"
         },
@@ -14932,7 +14932,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-15",
           "title": "点到直线以及平行直线距离公式",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "秋季"
         },
@@ -14940,7 +14940,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-16",
           "title": "过定点的直线系与曲线系",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "秋季"
         },
@@ -14948,7 +14948,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-17",
           "title": "圆的标准方程和一般方程",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -14956,7 +14956,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-18",
           "title": "直线与圆位置关系的判定与应用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "秋季"
         },
@@ -14964,7 +14964,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-19",
           "title": "垂径定理与弦长最值问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "目标班",
           "quarter": "秋季"
         },
@@ -14972,7 +14972,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-20",
           "title": "线圆相离的最值模型",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "目标班",
           "quarter": "秋季"
         },
@@ -14980,7 +14980,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-21",
           "title": "圆的等价模型（代数）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "精英班",
           "quarter": "秋季"
         },
@@ -14988,7 +14988,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-22",
           "title": "圆的等价模型（几何）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "精英班",
           "quarter": "秋季"
         },
@@ -14996,7 +14996,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-23",
           "title": "椭圆的第一定义及相关概念",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -15004,7 +15004,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-24",
           "title": "椭圆离心率的简单计算",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -15012,7 +15012,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-25",
           "title": "双曲线的第一定义及标准方程",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -15020,7 +15020,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-26",
           "title": "双曲线离心率与渐近线的简单计算",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -15028,7 +15028,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-27",
           "title": "抛物线的定义及其方程",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -15036,7 +15036,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-28",
           "title": "焦点三角形周长与面积",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -15044,7 +15044,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-29",
           "title": "中位线思想",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "秋季"
         },
@@ -15052,7 +15052,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-30",
           "title": "焦半径公式",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "目标班",
           "quarter": "秋季"
         },
@@ -15060,7 +15060,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-31",
           "title": "焦点弦公式与面积",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "目标班",
           "quarter": "秋季"
         },
@@ -15068,7 +15068,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-32",
           "title": "弦中点与斜率积为定值",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "目标班",
           "quarter": "秋季"
         },
@@ -15076,7 +15076,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-33",
           "title": "求值问题（代数法）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "目标班",
           "quarter": "秋季"
         },
@@ -15084,7 +15084,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-34",
           "title": "求值问题（几何法）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "目标班",
           "quarter": "秋季"
         },
@@ -15092,7 +15092,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-35",
           "title": "向量点乘的翻译",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "秋季"
         },
@@ -15100,7 +15100,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-36",
           "title": "点乘双根式算法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "秋季"
         },
@@ -15108,7 +15108,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-37",
           "title": "弦长与面积问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "秋季"
         },
@@ -15116,7 +15116,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-38",
           "title": "极坐标下的焦点弦",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "秋季"
         },
@@ -15124,7 +15124,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-39",
           "title": "简单动点问题的处理",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "秋季"
         },
@@ -15148,7 +15148,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-42",
           "title": "等差数列角标和性质",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -15156,7 +15156,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-43",
           "title": "等差数列Sn的性质",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -15172,7 +15172,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-45",
           "title": "等比数列角标和性质",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -15180,7 +15180,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-46",
           "title": "等比数列Sn性质",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -15188,7 +15188,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-47",
           "title": "累加法与累乘法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -15196,7 +15196,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-48",
           "title": "待定系数法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -15204,7 +15204,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-49",
           "title": "利用辅助数列",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -15212,7 +15212,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-50",
           "title": "利用Sn与an的关系求通项",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -15220,7 +15220,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-51",
           "title": "放缩为可裂项的数列",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "秋季"
         },
@@ -15228,7 +15228,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-52",
           "title": "放缩为等比数列求和",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "秋季"
         },
@@ -15260,7 +15260,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-56",
           "title": "求过P点的切线",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -15268,7 +15268,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-57",
           "title": "判断切线条数问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -15276,7 +15276,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-58",
           "title": "公切线问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "春季"
         },
@@ -15308,7 +15308,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-62",
           "title": "【数学思维】导数的原函数构造速解技巧",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -15324,7 +15324,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-64",
           "title": "a 含参函数单调性讨论之可因式分解型（上）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -15332,7 +15332,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-65",
           "title": "b 含参函数单调性讨论之可因式分解型（下）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -15340,7 +15340,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-66",
           "title": "含参函数单调性讨论之类二次型",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -15348,7 +15348,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-67",
           "title": "a 含参函数单调性讨论之不可因式分解型（上）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -15356,7 +15356,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-68",
           "title": "b 含参函数单调性讨论之不可因式分解型（下）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "春季"
         },
@@ -15364,7 +15364,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-69",
           "title": "含参函数单调性讨论之超越函数",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "春季"
         },
@@ -15372,7 +15372,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-70",
           "title": "已知单调性求参之导数为二次型",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "春季"
         },
@@ -15380,7 +15380,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-71",
           "title": "已知单调性求参之导数为非二次型",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "春季"
         },
@@ -15388,7 +15388,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-72",
           "title": "极值与极值点",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -15404,7 +15404,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-74",
           "title": "最值讨论与值域之含参函数",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "目标班",
           "quarter": "春季"
         },
@@ -15412,7 +15412,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-75",
           "title": "导数可因式分解型分类讨论",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "春季"
         },
@@ -15420,7 +15420,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-76",
           "title": "参变分离法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "精英班",
           "quarter": "春季"
         },
@@ -15428,7 +15428,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-77",
           "title": "洛必达法则",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "春季"
         },
@@ -15436,7 +15436,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-78",
           "title": "双逻辑连接词的函数问题之单函数单调性构造",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "春季"
         },
@@ -15444,7 +15444,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-79",
           "title": "双逻辑连接词的函数问题之双函数最值构造",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "春季"
         },
@@ -15452,7 +15452,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-80",
           "title": "主元法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "精英班",
           "quarter": "春季"
         },
@@ -15460,7 +15460,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-81",
           "title": "常用函数放缩",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "春季"
         },
@@ -15468,7 +15468,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-82",
           "title": "分离函数法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "精英班",
           "quarter": "春季"
         },
@@ -15476,7 +15476,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-83",
           "title": "a 参变分离法（上）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "目标班",
           "quarter": "春季"
         },
@@ -15484,7 +15484,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-84",
           "title": "b 参变分离法（下）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "目标班",
           "quarter": "春季"
         },
@@ -15492,7 +15492,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-85",
           "title": "导数可因式分解型分类讨论",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "目标班",
           "quarter": "春季"
         },
@@ -15500,7 +15500,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-86",
           "title": "【数学思维】求和型放缩（上）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "目标班",
           "quarter": "春季"
         },
@@ -15508,7 +15508,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-87",
           "title": "【数学思维】求和型放缩（下）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "目标班",
           "quarter": "春季"
         },
@@ -15524,7 +15524,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-89",
           "title": "加法原理和乘法原理的应用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -15532,7 +15532,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-90",
           "title": "多子集个数速解技巧",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -15548,7 +15548,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-92",
           "title": "特元特位",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "春季"
         },
@@ -15556,7 +15556,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-93",
           "title": "相邻捆绑",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "春季"
         },
@@ -15564,7 +15564,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-94",
           "title": "插空法模型",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "春季"
         },
@@ -15572,7 +15572,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-95",
           "title": "a 分组分配模型（上）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "春季"
         },
@@ -15580,7 +15580,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-96",
           "title": "b 分组分配模型（下）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "春季"
         },
@@ -15588,7 +15588,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-97",
           "title": "定序与部分元素相同模型",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "春季"
         },
@@ -15596,7 +15596,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-98",
           "title": "隔板法模型",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "精英班",
           "quarter": "春季"
         },
@@ -15604,7 +15604,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-99",
           "title": "链状染色模型",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -15612,7 +15612,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-100",
           "title": "间接计数模型与容斥原理",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "春季"
         },
@@ -15620,7 +15620,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-101",
           "title": "杨辉三角形的性质与二项展开式的通项",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -15628,7 +15628,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-102",
           "title": "二项式定理的系数和",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -15636,7 +15636,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-103",
           "title": "换元法与多项式展开",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "目标班",
           "quarter": "春季"
         },
@@ -15644,7 +15644,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-104",
           "title": "用排列组合计算古典概型的相关问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -15652,7 +15652,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-105",
           "title": "概率的乘法原理",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -15660,7 +15660,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-106",
           "title": "条件概率公式的概念与应用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "精英班",
           "quarter": "春季"
         },
@@ -15668,7 +15668,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-107",
           "title": "全概公式",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "春季"
         },
@@ -15700,7 +15700,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-111",
           "title": "求过P点的切线",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -15708,7 +15708,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-112",
           "title": "判断切线条数问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -15740,7 +15740,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-116",
           "title": "含参函数单调性讨论之可因式分解型",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -15748,7 +15748,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-117",
           "title": "含参函数单调性讨论之类二次型",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -15756,7 +15756,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-118",
           "title": "极值与极值点",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -15780,7 +15780,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-121",
           "title": "加法原理和乘法原理的应用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -15788,7 +15788,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-122",
           "title": "多子集个数速解技巧",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -15804,7 +15804,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-124",
           "title": "特元特位",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -15812,7 +15812,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-125",
           "title": "相邻捆绑",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -15820,7 +15820,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-126",
           "title": "插空法模型",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -15828,7 +15828,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-127",
           "title": "概率的乘法原理",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         }
@@ -15838,7 +15838,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-1",
           "title": "句子的心脏——动词",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -15846,7 +15846,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-2",
           "title": "句子的关节——连词",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -15854,7 +15854,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-3",
           "title": "【学】宾语从句功能与用途",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -15862,7 +15862,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-4",
           "title": "【学】主语从句的功能用途",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -15870,7 +15870,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-5",
           "title": "易混从句区分秘密武器",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -15878,7 +15878,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-6",
           "title": "长难句拆解方法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -15886,7 +15886,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-7",
           "title": "长难句中的“and”",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -15894,7 +15894,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-8",
           "title": "重要信息识别1",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -15902,7 +15902,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-9",
           "title": "重要信息识别2",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -15910,7 +15910,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-10",
           "title": "因果题答案定位",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -15918,7 +15918,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-11",
           "title": "语意猜测题答案定位1",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -15926,7 +15926,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-12",
           "title": "语意猜测题答案定位2",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -15934,7 +15934,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-13",
           "title": "例证题解题思路",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -15942,7 +15942,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-14",
           "title": "选项设置—同义转换",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -15950,7 +15950,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-15",
           "title": "选项设置—原文概括",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -15958,7 +15958,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-16",
           "title": "错误选项设置原理1",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -15966,7 +15966,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-17",
           "title": "错误选项设置原理2",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -15974,7 +15974,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-18",
           "title": "错误选项设置原理3",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -15982,7 +15982,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-19",
           "title": "词间关系—主干",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -15990,7 +15990,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-20",
           "title": "词间关系—修饰",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -15998,7 +15998,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-21",
           "title": "句间关系—逻辑",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16006,7 +16006,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-22",
           "title": "句间关系—解释",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16014,7 +16014,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-23",
           "title": "完形二星难度真题训练1",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16022,7 +16022,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-24",
           "title": "完形二星难度真题训练2",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16030,7 +16030,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-25",
           "title": "完形二星难度真题训练3",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16038,7 +16038,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-26",
           "title": "Paraphrase-提炼要点",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16046,7 +16046,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-27",
           "title": "Paraphrase-同词性替换",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16054,7 +16054,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-28",
           "title": "Paraphrase-词性转化",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16062,7 +16062,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-29",
           "title": "Paraphrase-句式结构转化",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16070,7 +16070,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-30",
           "title": "Paraphrase-整合要点/连句成段",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16078,7 +16078,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-31",
           "title": "造句公式=主干+修饰",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16086,7 +16086,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-32",
           "title": "定语从句写作1",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16094,7 +16094,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-33",
           "title": "定语从句写作2",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16102,7 +16102,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-34",
           "title": "名词性从句写作1",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16110,7 +16110,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-35",
           "title": "名词性从句写作2",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16118,7 +16118,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-36",
           "title": "非谓语写作1",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16126,7 +16126,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-37",
           "title": "非谓语写作2",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16134,7 +16134,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-38",
           "title": "应用文篇章升级训练",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16142,7 +16142,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-39",
           "title": "【听力入门】变音现象",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16150,7 +16150,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-40",
           "title": "【听力入门】技巧",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16158,7 +16158,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-42",
           "title": "新高考卷1-阅读A篇-环境保护",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16166,7 +16166,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-43",
           "title": "全国甲卷-阅读A篇-文化交流",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16174,7 +16174,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-44",
           "title": "新高考卷1-阅读B篇-中国文化",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16182,7 +16182,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-45",
           "title": "北京卷-阅读B篇-个人成长",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16190,7 +16190,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-46",
           "title": "新高考卷1-阅读C篇-生活与学习",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16198,7 +16198,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-47",
           "title": "新高考卷2-阅读C篇-技术创新",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16206,7 +16206,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-49",
           "title": "新高考卷1-阅读D篇-科学研究",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16214,7 +16214,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-50",
           "title": "新高考卷2-阅读D篇-书籍推荐",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16222,7 +16222,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-51",
           "title": "新高考卷1-七选五-社会现象",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16230,7 +16230,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-52",
           "title": "新高考卷2-七选五-经验心得",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16238,7 +16238,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-53",
           "title": "北京卷-七选五-科普知识",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16246,7 +16246,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-54",
           "title": "新高考卷1-完形填空-哲理感悟1",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16254,7 +16254,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-55",
           "title": "新高考卷1-完形填空-哲理感悟2",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16262,7 +16262,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-56",
           "title": "新高考卷2-完形填空-旅居经历1",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16270,7 +16270,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-57",
           "title": "新高考卷2-完形填空-旅居经历2",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16278,7 +16278,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-58",
           "title": "全国卷-完形填空-亲情故事1",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16286,7 +16286,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-59",
           "title": "全国卷-完形填空-亲情故事2",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16294,7 +16294,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-60",
           "title": "浙江卷-语法填空-商业社会",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16302,7 +16302,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-61",
           "title": "九省联考-语法填空-校园生活",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16310,7 +16310,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-62",
           "title": "上海卷首考-词性辨析-沟通交流1",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16318,7 +16318,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-63",
           "title": "上海卷首考-词性辨析-沟通交流2",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16326,7 +16326,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-64",
           "title": "应用文五育话题之德育",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16334,7 +16334,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-65",
           "title": "应用文五育话题之智育",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16342,7 +16342,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-66",
           "title": "应用文五育话题之体育",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16350,7 +16350,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-67",
           "title": "应用文五育话题之美育",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16358,7 +16358,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-68",
           "title": "应用文五育话题之劳育",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16366,7 +16366,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-69",
           "title": "应用文介绍类之活动介绍",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16374,7 +16374,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-70",
           "title": "应用文介绍类之人物介绍",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16382,7 +16382,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-71",
           "title": "应用文热点话题之人工智能",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16390,7 +16390,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-72",
           "title": "应用文热点话题之移动支付",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16398,7 +16398,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-73",
           "title": "应用文热点话题之新能源汽车",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16406,7 +16406,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-74",
           "title": "应用文热点话题之智能芯片",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16414,7 +16414,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-75",
           "title": "应用文热点话题之航空航天",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16422,7 +16422,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-76",
           "title": "读后续写高分要素：动作链",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16430,7 +16430,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-77",
           "title": "读后续写高分要素：情感结",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16438,7 +16438,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-78",
           "title": "读后续写高分要素：合理过渡",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16446,7 +16446,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-79",
           "title": "读后续写高分要素：升华结尾1",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16454,7 +16454,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-80",
           "title": "读后续写高分要素：升华结尾2",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16462,7 +16462,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-81",
           "title": "听力真题训练",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16470,7 +16470,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-82",
           "title": "口语真题训练",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16478,7 +16478,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-83",
           "title": "新高考卷1-阅读A篇-环境保护",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16486,7 +16486,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-84",
           "title": "全国甲卷-阅读A篇-文化交流",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16494,7 +16494,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-85",
           "title": "新高考卷1-阅读B篇-中国文化",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16502,7 +16502,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-86",
           "title": "北京卷-阅读B篇-个人成长",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16510,7 +16510,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-87",
           "title": "新高考卷1-阅读C篇-生活与学习",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16518,7 +16518,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-88",
           "title": "新高考卷2-阅读C篇-技术创新",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16526,7 +16526,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-89",
           "title": "新高考卷1-阅读D篇-科学研究",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16534,7 +16534,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-90",
           "title": "新高考卷2-阅读D篇-书籍推荐",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16542,7 +16542,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-91",
           "title": "新高考卷1-完形填空-哲理感悟1",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16550,7 +16550,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-92",
           "title": "新高考卷1-完形填空-哲理感悟2",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16558,7 +16558,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-93",
           "title": "新高考卷2-完形填空-旅居经历1",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16566,7 +16566,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-94",
           "title": "新高考卷2-完形填空-旅居经历2",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16574,7 +16574,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-95",
           "title": "应用文热点话题之人工智能",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16582,7 +16582,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-96",
           "title": "应用文热点话题之移动支付",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16590,7 +16590,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-97",
           "title": "应用文热点话题之新能源汽车",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16598,7 +16598,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-98",
           "title": "应用文热点话题之智能芯片",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16606,7 +16606,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-99",
           "title": "应用文热点话题之航空航天",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16614,7 +16614,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-100",
           "title": "读后续写之幸运得救",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16622,7 +16622,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-101",
           "title": "读后续写之陌生温情",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -16630,7 +16630,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-102",
           "title": "读后续写之直面挑战",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         }
@@ -16656,7 +16656,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-3",
           "title": "库仑定律与库仑扭秤实验",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16664,7 +16664,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-4",
           "title": "库仑力作用下的平衡问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16672,7 +16672,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-5",
           "title": "电场强度",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16680,7 +16680,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-6",
           "title": "电场线",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16688,7 +16688,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-7",
           "title": "点电荷场强叠加问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16696,7 +16696,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-8",
           "title": "静电力做功与电势能",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16704,7 +16704,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-9",
           "title": "电势",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16712,7 +16712,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-10",
           "title": "电场方向与电势大小的判断",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16720,7 +16720,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-11",
           "title": "电势差",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16728,7 +16728,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-12",
           "title": "等势面",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16736,7 +16736,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-13",
           "title": "电势差与场强的关系",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16744,7 +16744,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-14",
           "title": "带电粒子轨迹问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16752,7 +16752,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-15",
           "title": "电容器",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16760,7 +16760,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-16",
           "title": "电容",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16768,7 +16768,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-17",
           "title": "平行板电容器动态分析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16776,7 +16776,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-18",
           "title": "带电粒子在电场中的加速偏转综合",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16800,7 +16800,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-21",
           "title": "实验：导体电阻率的测量",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16816,7 +16816,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-23",
           "title": "闭合电路欧姆定律",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16824,7 +16824,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-24",
           "title": "闭合电路的动态分析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16832,7 +16832,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-25",
           "title": "实验：半偏法测电表内阻",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16840,7 +16840,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-26",
           "title": "实验：认识和使用多用电表",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16848,7 +16848,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-27",
           "title": "实验：电池电动势和内阻的测量",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16864,7 +16864,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-29",
           "title": "安培定则",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16872,7 +16872,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-30",
           "title": "磁感应强度",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16880,7 +16880,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-31",
           "title": "安培力的方向",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16888,7 +16888,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-32",
           "title": "安培力的大小",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16896,7 +16896,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-33",
           "title": "安培力的应用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16904,7 +16904,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-34",
           "title": "洛伦兹力",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16912,7 +16912,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-35",
           "title": "带电粒子在匀强磁场中的运动",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16920,7 +16920,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-36",
           "title": "科学思维—几何法找圆心",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16928,7 +16928,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-37",
           "title": "科学思维—弦长公式",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16936,7 +16936,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-38",
           "title": "直线边界磁场",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16944,7 +16944,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-39",
           "title": "圆形边界磁场",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16952,7 +16952,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-40",
           "title": "磁聚焦和磁发散",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -16968,7 +16968,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-42",
           "title": "描述简谐运动的物理量",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -16976,7 +16976,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-43",
           "title": "简谐运动的振动图像",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -16984,7 +16984,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-44",
           "title": "简谐运动的回复力和能量",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -16992,7 +16992,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-45",
           "title": "单摆",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17000,7 +17000,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-46",
           "title": "波的形成",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17008,7 +17008,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-47",
           "title": "波的图像",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17016,7 +17016,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-48",
           "title": "振动图像和波的图像",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17024,7 +17024,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-49",
           "title": "机械波的多解问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17032,7 +17032,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-50",
           "title": "波的干涉",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17040,7 +17040,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-51",
           "title": "光的折射",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17048,7 +17048,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-52",
           "title": "全反射",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17056,7 +17056,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-53",
           "title": "光的干涉",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17072,7 +17072,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-55",
           "title": "楞次定律与右手定则",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17080,7 +17080,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-56",
           "title": "电磁感应定律",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17088,7 +17088,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-57",
           "title": "动生电动势",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17096,7 +17096,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-58",
           "title": "电阻导棒模型-能量问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17104,7 +17104,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-59",
           "title": "线框模型-图像问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17112,7 +17112,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-60",
           "title": "互感和自感",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17120,7 +17120,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-61",
           "title": "交变电流",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17128,7 +17128,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-62",
           "title": "交变电流的描述",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17136,7 +17136,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-63",
           "title": "变压器的原理",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17144,7 +17144,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-64",
           "title": "含变压器交流电路的综合问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17152,7 +17152,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-65",
           "title": "电能的输送",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17160,7 +17160,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-66",
           "title": "常见传感器的工作原理及应用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17176,7 +17176,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-68",
           "title": "分子动能和分子势能",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17184,7 +17184,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-69",
           "title": "气体的等温、等压和等容变化",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17192,7 +17192,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-70",
           "title": "理想气体状态方程",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17200,7 +17200,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-71",
           "title": "热力学第一定律",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17208,7 +17208,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-72",
           "title": "热力学第一定律的应用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17216,7 +17216,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-73",
           "title": "普朗克黑体辐射理论",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17224,7 +17224,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-74",
           "title": "光电效应",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17232,7 +17232,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-75",
           "title": "光电效应方程",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17240,7 +17240,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-76",
           "title": "原子的核式结构模型",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17248,7 +17248,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-77",
           "title": "氢原子光谱",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17256,7 +17256,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-78",
           "title": "玻尔原子理论",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17264,7 +17264,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-79",
           "title": "氢原子的能级跃迁",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17272,7 +17272,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-80",
           "title": "波粒二象性和量子力学概述",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17296,7 +17296,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-83",
           "title": "描述简谐运动的物理量",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -17304,7 +17304,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-84",
           "title": "简谐运动的振动图像",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -17312,7 +17312,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-85",
           "title": "简谐运动的回复力和能量",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -17320,7 +17320,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-86",
           "title": "阻尼振动、受迫振动与共振",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -17328,7 +17328,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-87",
           "title": "波的形成",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -17336,7 +17336,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-88",
           "title": "波的图像",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -17344,7 +17344,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-89",
           "title": "波的反射、折射、衍射与多普勒效应",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -17352,7 +17352,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-90",
           "title": "光的折射",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -17360,7 +17360,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-91",
           "title": "光的衍射",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -17368,7 +17368,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-92",
           "title": "光的偏振 激光",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -17376,7 +17376,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-93",
           "title": "楞次定律与右手定则",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -17384,7 +17384,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-94",
           "title": "交变电流",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -17392,7 +17392,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-95",
           "title": "交变电流的描述",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -17400,7 +17400,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-96",
           "title": "变压器的原理",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -17416,7 +17416,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-98",
           "title": "用油膜法估测油酸分子的大小",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -17424,7 +17424,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-99",
           "title": "分子运动速率分布规律",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -17432,7 +17432,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-100",
           "title": "分子动能和分子势能",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         }
@@ -17442,7 +17442,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-1",
           "title": "反应热与热化学方程式",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -17450,7 +17450,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-2",
           "title": "燃烧热和中和热",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -17458,7 +17458,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-3",
           "title": "盖斯定律与反应热的计算",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -17474,7 +17474,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-5",
           "title": "影响速率的因素",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -17482,7 +17482,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-6",
           "title": "速率进阶",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -17490,7 +17490,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-7",
           "title": "速率图像",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -17506,7 +17506,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-9",
           "title": "影响化学平衡的因素",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -17514,7 +17514,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-10",
           "title": "勒夏特列原理",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -17522,7 +17522,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-11",
           "title": "化学平衡常数与转化率",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -17530,7 +17530,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-12",
           "title": "平衡常数计算",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -17538,7 +17538,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-13",
           "title": "平衡图像-以时间为横轴",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -17546,7 +17546,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-14",
           "title": "平衡图像-等温线与等压线",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -17554,7 +17554,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-15",
           "title": "电解质与电离方程式",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -17562,7 +17562,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-16",
           "title": "电离平衡常数及电离度",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -17570,7 +17570,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-17",
           "title": "影响电离平衡的因素",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -17578,7 +17578,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-18",
           "title": "水的自耦电离与影响因素",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -17586,7 +17586,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-19",
           "title": "pH计算",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -17594,7 +17594,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-20",
           "title": "强酸制弱酸及其对比",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -17602,7 +17602,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-21",
           "title": "酸碱中和滴定实验",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -17610,7 +17610,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-22",
           "title": "酸碱中和滴定实验进阶",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -17618,7 +17618,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-23",
           "title": "盐类水解的原理",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -17626,7 +17626,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-24",
           "title": "离子浓度计算",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -17634,7 +17634,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-25",
           "title": "影响盐类水解的因素",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -17642,7 +17642,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-26",
           "title": "盐类水解的应用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -17650,7 +17650,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-27",
           "title": "物料守恒",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -17658,7 +17658,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-28",
           "title": "电荷守恒与质子守恒",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -17666,7 +17666,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-29",
           "title": "粒子浓度排序",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -17674,7 +17674,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-30",
           "title": "分布系数与滴定曲线",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -17682,7 +17682,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-31",
           "title": "沉淀溶解平衡原理及溶度积",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -17690,7 +17690,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-32",
           "title": "调pH除杂",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -17698,7 +17698,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-33",
           "title": "难溶物转化",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -17714,7 +17714,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-35",
           "title": "陌生电极方程式书写",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -17722,7 +17722,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-36",
           "title": "电解原理",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -17730,7 +17730,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-37",
           "title": "电解应用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -17738,7 +17738,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-38",
           "title": "离子交换膜",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -17746,7 +17746,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-39",
           "title": "电化学综合",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -17754,7 +17754,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-40",
           "title": "金属腐蚀与防护",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -17762,7 +17762,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-41",
           "title": "原子结构与核外电子排布",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17778,7 +17778,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-43",
           "title": "电离能与电负性",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17786,7 +17786,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-44",
           "title": "共价键的特点、类型与参数",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17794,7 +17794,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-45",
           "title": "VSEPR模型基本概念",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17802,7 +17802,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-46",
           "title": "VSEPR模型实例与杂化轨道理论",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17810,7 +17810,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-47",
           "title": "π键与大π键",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17818,7 +17818,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-48",
           "title": "分子极性、手性与分子间作用力",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17826,7 +17826,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-49",
           "title": "物质聚集状态、晶体类型和晶胞参数",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17834,7 +17834,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-50",
           "title": "晶胞参数与分数坐标",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17842,7 +17842,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-51",
           "title": "密堆积基本模型",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17850,7 +17850,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-52",
           "title": "晶体密度计算",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17858,7 +17858,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-53",
           "title": "晶胞参数与微粒半径、空间利用率",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17866,7 +17866,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-54",
           "title": "空隙类型与空隙坐标",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17874,7 +17874,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-55",
           "title": "离子晶体晶胞分析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17882,7 +17882,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-56",
           "title": "配位键、配合物与超分子",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17890,7 +17890,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-57",
           "title": "有机物的分类和表示方法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17898,7 +17898,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-58",
           "title": "有机物的物理性质和研究方法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17906,7 +17906,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-59",
           "title": "烃类的命名",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17914,7 +17914,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-60",
           "title": "烃类的取代与加成",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17922,7 +17922,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-61",
           "title": "烯烃的氧化反应",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17930,7 +17930,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-62",
           "title": "等效氢法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17938,7 +17938,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-63",
           "title": "共轭二烯烃",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17954,7 +17954,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-65",
           "title": "烃的衍生物的命名",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17962,7 +17962,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-66",
           "title": "卤代烃的水解与消去",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17970,7 +17970,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-67",
           "title": "醇的取代与消去",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17978,7 +17978,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-68",
           "title": "醇的氧化反应",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17986,7 +17986,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-69",
           "title": "酚的化学性质",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -17994,7 +17994,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-70",
           "title": "醛、甲酸（酯）的氧化",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18002,7 +18002,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-71",
           "title": "醛酮的加成与信息反应",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18010,7 +18010,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-72",
           "title": "酯化反应与酯的水解",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18018,7 +18018,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-73",
           "title": "常见的反应条件总结",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18026,7 +18026,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-74",
           "title": "有机实验",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18034,7 +18034,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-75",
           "title": "碳链的增长和官能团引入",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18042,7 +18042,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-76",
           "title": "有机合成推断（1）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18050,7 +18050,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-77",
           "title": "有机合成推断（2）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18058,7 +18058,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-78",
           "title": "同分异构体",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18066,7 +18066,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-79",
           "title": "糖类、蛋白质与核酸",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18074,7 +18074,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-80",
           "title": "高分子的合成与性质",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18090,7 +18090,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-82",
           "title": "能级交错与电子排布式",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -18098,7 +18098,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-83",
           "title": "轨道表示式",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -18114,7 +18114,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-85",
           "title": "共价键的特点与类型",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -18122,7 +18122,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-86",
           "title": "共价键参数基本概念",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -18130,7 +18130,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-87",
           "title": "VSEPR理论基本概念",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -18138,7 +18138,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-88",
           "title": "杂化轨道理论",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -18146,7 +18146,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-89",
           "title": "分子极性与手性",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -18154,7 +18154,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-90",
           "title": "物质聚集状态和晶体类型",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -18162,7 +18162,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-91",
           "title": "分子间作用力与晶体熔沸点",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -18170,7 +18170,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-92",
           "title": "晶胞与原子均摊计算",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -18178,7 +18178,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-93",
           "title": "密堆积基本模型",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -18186,7 +18186,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-94",
           "title": "分子晶体与晶体密度计算",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -18194,7 +18194,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-95",
           "title": "共价晶体",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -18210,7 +18210,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-97",
           "title": "有机化合物的分类方法和不饱和度",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -18218,7 +18218,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-98",
           "title": "有机物的表示方法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -18234,7 +18234,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-100",
           "title": "等效氢法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         }
@@ -18244,7 +18244,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-1",
           "title": "内环境的组成",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18252,7 +18252,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-2",
           "title": "内环境的理化性质",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18260,7 +18260,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-3",
           "title": "内环境的稳态及调节机制",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18268,7 +18268,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-4",
           "title": "神经系统的基本结构",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18276,7 +18276,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-5",
           "title": "神经调节的基本方式",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18284,7 +18284,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-6",
           "title": "兴奋在神经纤维上的传导",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18292,7 +18292,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-7",
           "title": "兴奋在神经元之间的传递",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18300,7 +18300,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-8",
           "title": "人脑的高级功能与分级调节",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18308,7 +18308,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-9",
           "title": "激素的发现",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18316,7 +18316,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-10",
           "title": "内分泌系统的组成和功能",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18324,7 +18324,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-11",
           "title": "激素产生的机理",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18332,7 +18332,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-12",
           "title": "激素调节的特点",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18340,7 +18340,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-13",
           "title": "体液调节与神经调节的比较",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18348,7 +18348,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-14",
           "title": "体温调节",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18356,7 +18356,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-15",
           "title": "血糖平衡的调节",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18364,7 +18364,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-16",
           "title": "水盐调节",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18372,7 +18372,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-17",
           "title": "免疫的结构基础",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18380,7 +18380,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-18",
           "title": "免疫系统的功能",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18388,7 +18388,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-19",
           "title": "体液免疫",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18396,7 +18396,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-20",
           "title": "细胞免疫",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18404,7 +18404,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-21",
           "title": "免疫失调与免疫学的应用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18412,7 +18412,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-22",
           "title": "生长素的发现过程",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18420,7 +18420,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-23",
           "title": "生长素的合成、运输与分布",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18428,7 +18428,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-24",
           "title": "生长素的生理作用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18436,7 +18436,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-25",
           "title": "探索生长素类似物促进插条生根的最适浓度",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18444,7 +18444,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-26",
           "title": "其他植物激素",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18452,7 +18452,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-27",
           "title": "植物生长调节剂的应用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18460,7 +18460,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-28",
           "title": "环境因素参与调节植物的生命活动",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18468,7 +18468,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-29",
           "title": "种群的数量特征",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18476,7 +18476,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-30",
           "title": "种群数量的变化",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18484,7 +18484,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-31",
           "title": "酵母菌种群数量的变化",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18492,7 +18492,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-32",
           "title": "影响种群数量变化的因素",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18500,7 +18500,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-33",
           "title": "群落及种间关系",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18508,7 +18508,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-34",
           "title": "群落的结构",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18516,7 +18516,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-35",
           "title": "初生演替与次生演替",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18524,7 +18524,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-36",
           "title": "生态系统的结构",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18532,7 +18532,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-37",
           "title": "生态系统的能量流动",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18540,7 +18540,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-38",
           "title": "生态系统的物质循环",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18548,7 +18548,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-39",
           "title": "生态系统的信息传递",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18556,7 +18556,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-40",
           "title": "生态平衡与生态系统的稳定性",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -18564,7 +18564,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-41",
           "title": "生态足迹与全球生态问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18572,7 +18572,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-42",
           "title": "生物多样性及其保护",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18580,7 +18580,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-43",
           "title": "生态工程的基本原理",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18588,7 +18588,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-44",
           "title": "生态工程的实例",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18596,7 +18596,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-45",
           "title": "果酒与果醋的制作",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18604,7 +18604,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-46",
           "title": "腐乳与泡菜的制作",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18612,7 +18612,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-47",
           "title": "无菌技术",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18620,7 +18620,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-48",
           "title": "培养基的配制",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18628,7 +18628,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-49",
           "title": "微生物的纯培养",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18636,7 +18636,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-50",
           "title": "微生物的选择培养与计数",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18644,7 +18644,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-51",
           "title": "土壤中分解尿素的细菌的分离与计数",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18652,7 +18652,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-52",
           "title": "发酵工程的基本环节",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18660,7 +18660,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-53",
           "title": "发酵工程的应用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18668,7 +18668,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-54",
           "title": "植物组织培养技术原理和过程",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18676,7 +18676,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-55",
           "title": "植物体细胞杂交技术原理和过程",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18684,7 +18684,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-56",
           "title": "植物细胞工程的应用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18692,7 +18692,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-57",
           "title": "动物细胞培养",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18700,7 +18700,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-58",
           "title": "单克隆抗体的制备原理和流程",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18708,7 +18708,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-59",
           "title": "单克隆抗体的应用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18716,7 +18716,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-60",
           "title": "动物体细胞核移植技术和克隆动物",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18724,7 +18724,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-61",
           "title": "胚胎工程的理论基础",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18732,7 +18732,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-62",
           "title": "胚胎早期发育",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18740,7 +18740,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-63",
           "title": "体外受精",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18748,7 +18748,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-64",
           "title": "胚胎移植",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18756,7 +18756,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-65",
           "title": "胚胎分割",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18764,7 +18764,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-66",
           "title": "限制性内切核酸酶",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18772,7 +18772,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-67",
           "title": "DNA连接酶",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18780,7 +18780,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-68",
           "title": "运载体",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18788,7 +18788,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-69",
           "title": "目的基因的筛选与获取",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18796,7 +18796,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-70",
           "title": "基因表达载体的构建",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18804,7 +18804,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-71",
           "title": "将目的基因导入受体细胞",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18812,7 +18812,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-72",
           "title": "目的基因的检测与鉴定",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18820,7 +18820,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-73",
           "title": "基因工程在农牧业方面的应用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18828,7 +18828,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-74",
           "title": "基因工程在医药卫生领域的应用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18836,7 +18836,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-75",
           "title": "蛋白质工程",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18844,7 +18844,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-76",
           "title": "PCR的目的与原理",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18852,7 +18852,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-77",
           "title": "PCR的基本条件和过程",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18860,7 +18860,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-78",
           "title": "常见引物的设计和选择",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18868,7 +18868,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-79",
           "title": "DNA粗提取及鉴定",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18876,7 +18876,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-80",
           "title": "电泳的原理",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -18884,7 +18884,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-81",
           "title": "生态足迹与全球生态问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -18892,7 +18892,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-82",
           "title": "生物多样性及其保护",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -18900,7 +18900,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-83",
           "title": "生态工程的基本原理",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -18908,7 +18908,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-84",
           "title": "生态工程的实例",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -18916,7 +18916,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-85",
           "title": "果酒与果醋的制作",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -18924,7 +18924,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-86",
           "title": "果酒与果醋的装置实验分析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -18932,7 +18932,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-87",
           "title": "腐乳与泡菜的制作",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -18940,7 +18940,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-88",
           "title": "比色法及亚硝酸盐含量测定",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -18948,7 +18948,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-89",
           "title": "无菌技术",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -18956,7 +18956,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-90",
           "title": "培养基的配制",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -18964,7 +18964,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-91",
           "title": "培养基的类型",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -18972,7 +18972,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-92",
           "title": "微生物的纯培养",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -18980,7 +18980,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-93",
           "title": "微生物的选择培养",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -18988,7 +18988,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-94",
           "title": "微生物的数量测定",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -18996,7 +18996,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-95",
           "title": "微生物的鉴定与菌种的保藏",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -19004,7 +19004,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-96",
           "title": "分解纤维素的微生物的分离",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -19012,7 +19012,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-97",
           "title": "土壤中分解尿素的细菌的分离与计数",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -19020,7 +19020,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-98",
           "title": "微生物直接计数和间接计数题型",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -19028,7 +19028,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-99",
           "title": "发酵工程的基本环节",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -19036,7 +19036,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-100",
           "title": "发酵工程在食品与医药工业上的应用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         }
@@ -19046,7 +19046,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-1",
           "title": "图表数据型选择题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19054,7 +19054,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-2",
           "title": "因果目的类选择题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19062,7 +19062,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-3",
           "title": "卡通漫画型选择题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19070,7 +19070,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-4",
           "title": "表明说明类选择题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19078,7 +19078,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-5",
           "title": "历史地图型选择题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19086,7 +19086,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-6",
           "title": "比较异同型选择题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19094,7 +19094,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-7",
           "title": "反映体现类选择题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19102,7 +19102,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-8",
           "title": "图片史料型选择题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19110,7 +19110,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-9",
           "title": "判断对错型选择题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19118,7 +19118,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-10",
           "title": "选择题综合训练",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19126,7 +19126,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-11",
           "title": "择业观念主题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19134,7 +19134,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-12",
           "title": "教育发展主题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19142,7 +19142,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-13",
           "title": "社会转型主题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19150,7 +19150,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-14",
           "title": "史学观念主题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19158,7 +19158,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-15",
           "title": "国际外交主题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19166,7 +19166,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-16",
           "title": "民族解放运动",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19174,7 +19174,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-17",
           "title": "全球化主题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19182,7 +19182,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-18",
           "title": "分配制度主题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19190,7 +19190,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-19",
           "title": "旅游产业主题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19198,7 +19198,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-20",
           "title": "消费观念主题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19206,7 +19206,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-21",
           "title": "人才选拔主题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19214,7 +19214,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-22",
           "title": "社会群体主题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19222,7 +19222,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-23",
           "title": "经济改革主题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19230,7 +19230,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-24",
           "title": "城市建设主题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19238,7 +19238,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-25",
           "title": "社会生活主题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19246,7 +19246,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-26",
           "title": "新闻报纸主题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19254,7 +19254,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-27",
           "title": "语言文字主题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19262,7 +19262,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-28",
           "title": "社会教化主题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19270,7 +19270,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-29",
           "title": "价值观念主题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19278,7 +19278,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-30",
           "title": "工业化主题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19286,7 +19286,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-31",
           "title": "交通建设主题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19294,7 +19294,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-32",
           "title": "思想解放主题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19302,7 +19302,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-33",
           "title": "体育竞技主题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19310,7 +19310,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-34",
           "title": "婚姻观念主题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19318,7 +19318,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-35",
           "title": "商业贸易主题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19326,7 +19326,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-36",
           "title": "人口流动主题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19334,7 +19334,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-37",
           "title": "建筑风格主题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19342,7 +19342,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-38",
           "title": "传统文化主题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19350,7 +19350,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-39",
           "title": "文学艺术主题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19358,7 +19358,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-40",
           "title": "妇女解放主题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒春"
         }
@@ -19368,7 +19368,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-1",
           "title": "地球自转基础知识、昼夜交替",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19376,7 +19376,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-2",
           "title": "时差（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19384,7 +19384,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-3",
           "title": "时差（二）、地转偏向力",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19392,7 +19392,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-4",
           "title": "地球公转基础知识、昼夜长短变化",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19400,7 +19400,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-5",
           "title": "太阳高度变化、四季五带",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19408,7 +19408,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-6",
           "title": "大气的基本组成、垂直分层、大气的热力作用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19416,7 +19416,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-7",
           "title": "简单的热力环流及应用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19424,7 +19424,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-8",
           "title": "近地面大气的水平运动、三圈环流、1月7月海陆气压状况与季风",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19432,7 +19432,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-9",
           "title": "锋面系统、雨带推移规律",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19440,7 +19440,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-10",
           "title": "高（低）压系统、锋面气旋与热带气旋",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19448,7 +19448,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-11",
           "title": "气候类型的特点与判断",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19456,7 +19456,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-12",
           "title": "气候的成因、分布及其影响因素",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19464,7 +19464,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-13",
           "title": "水循环",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19472,7 +19472,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-14",
           "title": "河流的补给形式、河流的水文与水系特征",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19480,7 +19480,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-15",
           "title": "海水温度、海水盐度",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19488,7 +19488,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-16",
           "title": "海水运动",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19496,7 +19496,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-17",
           "title": "地球内部的圈层结构、岩石的成因及分类、岩石圈物质循环",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19504,7 +19504,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-18",
           "title": "地质作用、内力作用及地表形态",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19512,7 +19512,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-19",
           "title": "外力作用及地表形态",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19520,7 +19520,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-20",
           "title": "自然环境的整体性与差异性、自然带分布、自然带的分异规律",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "暑秋"
         },
@@ -19528,7 +19528,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-21",
           "title": "地理环境对区域发展的影响、区域的整体性和关联性",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19536,7 +19536,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-22",
           "title": "区域发展的自然环境基础",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19544,7 +19544,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-23",
           "title": "生态脆弱区的综合治理",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19552,7 +19552,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-24",
           "title": "资源枯竭型城市的转型发展",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19560,7 +19560,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-25",
           "title": "城市的辐射功能",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19568,7 +19568,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-26",
           "title": "地区产业结构变化",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19576,7 +19576,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-27",
           "title": "流域内协调发展",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19584,7 +19584,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-28",
           "title": "资源的跨区域调配",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19592,7 +19592,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-29",
           "title": "产业转移、国际合作",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19600,7 +19600,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-30",
           "title": "中国地理概况（位置、疆域、邻国与行政区划）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19608,7 +19608,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-31",
           "title": "中国地理（地势和地形）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19616,7 +19616,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-32",
           "title": "中国地理（气候）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19624,7 +19624,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-33",
           "title": "中国地理（河流、湖泊与自然资源）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19632,7 +19632,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-34",
           "title": "中国地理（人口、民族、农业、工业、交通）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19640,7 +19640,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-35",
           "title": "自然环境的服务功能、自然资源及其利用、环境问题及其危害",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19648,7 +19648,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-36",
           "title": "资源安全对国家安全的影响、中国的能源安全",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19656,7 +19656,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-37",
           "title": "中国的耕地资源与粮食安全、海洋空间资源开发与国家安全",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19664,7 +19664,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-38",
           "title": "环境安全对国家安全的影响、环境污染与国家安全",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19672,7 +19672,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-39",
           "title": "生态保护与国家安全、全球气候变化与国家安全",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19680,7 +19680,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-40",
           "title": "走向生态文明、国家战略政策、国际合作",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19688,7 +19688,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-41",
           "title": "世界自然地理与人文地理",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19696,7 +19696,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-42",
           "title": "东亚",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19704,7 +19704,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-43",
           "title": "东南亚",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19712,7 +19712,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-44",
           "title": "南亚",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19720,7 +19720,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-45",
           "title": "中亚、西亚和北非、撒哈拉以南的非洲",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19728,7 +19728,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-46",
           "title": "欧洲西部",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19736,7 +19736,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-47",
           "title": "欧洲东部和北亚",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19744,7 +19744,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-48",
           "title": "北美洲",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19752,7 +19752,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-49",
           "title": "南美洲",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒春"
         },
@@ -19760,7 +19760,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-50",
           "title": "大洋洲、极地地区",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "寒春"
         }
@@ -19770,7 +19770,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-1",
           "title": "哲学总论及唯物论高频选项",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "暑期"
         },
@@ -19778,7 +19778,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-2",
           "title": "辩证法与认识论高频选项",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "暑期"
         },
@@ -19786,7 +19786,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-3",
           "title": "历史唯物主义高频选项",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "暑期"
         },
@@ -19794,7 +19794,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-4",
           "title": "文化传承与创新高频选项",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -19802,7 +19802,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-5",
           "title": "各具特色的国家高频选项",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -19810,7 +19810,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-6",
           "title": "国际政治高频选项",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -19818,7 +19818,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-7",
           "title": "国际经济高频选项",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -19826,7 +19826,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-8",
           "title": "哲学原理方法论梳理",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "暑期"
         },
@@ -19834,7 +19834,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-9",
           "title": "文化功能类主观题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -19842,7 +19842,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-10",
           "title": "文化做法类主观题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -19850,7 +19850,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-11",
           "title": "国际政治类主观题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -19858,7 +19858,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-12",
           "title": "国际经济类主观题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -19866,7 +19866,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-13",
           "title": "理清哲学基础概念",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "暑期"
         },
@@ -19874,7 +19874,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-14",
           "title": "继承中华优秀传统文化",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -19882,7 +19882,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-15",
           "title": "外来文化有益成果",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -19890,7 +19890,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-16",
           "title": "发展中国特色社会主义文化",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -19898,7 +19898,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-17",
           "title": "各具特色的国家",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -19906,7 +19906,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-18",
           "title": "梳理主要的国际组织",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -19914,7 +19914,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-19",
           "title": "国际政治与我国外交",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -19922,7 +19922,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-20",
           "title": "国际经济与对外开放",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "秋季"
         },
@@ -19930,7 +19930,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-21",
           "title": "理解民法与民事法律关系",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -19938,7 +19938,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-22",
           "title": "理清人身权利细节",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -19946,7 +19946,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-23",
           "title": "理清财产权利细节",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -19954,7 +19954,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-24",
           "title": "把握合同的订立与违约责任",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -19962,7 +19962,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-25",
           "title": "理清侵权责任与权利界限",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -19970,7 +19970,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-26",
           "title": "掌握婚姻与继承知识细节",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -19978,7 +19978,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-27",
           "title": "理清劳动关系与劳动者",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -19986,7 +19986,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-28",
           "title": "盘点创业与经营知识细节",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -19994,7 +19994,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-29",
           "title": "掌握调解与仲裁知识细节",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -20002,7 +20002,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-30",
           "title": "理清诉讼相关知识（1）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -20010,7 +20010,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-31",
           "title": "理清诉讼相关知识（2）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
         },
@@ -20018,7 +20018,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-32",
           "title": "逻辑思维基本要求",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -20026,7 +20026,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-33",
           "title": "准确把握概念",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -20034,7 +20034,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-34",
           "title": "判断与推理（1）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -20042,7 +20042,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-35",
           "title": "判断与推理（2）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -20050,7 +20050,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-36",
           "title": "归纳与类比推理",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -20058,7 +20058,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-37",
           "title": "运用辩证思维方法（1）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -20066,7 +20066,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-38",
           "title": "运用辩证思维方法（2）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -20074,7 +20074,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-39",
           "title": "提高创新思维能力",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "春季"
         },
@@ -20082,7 +20082,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-40",
           "title": "辩证思维与创新思维主观题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "春季"
         }
@@ -23626,7 +23626,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-1",
           "title": "客观题命题底层逻辑",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23634,7 +23634,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-2",
           "title": "客观题第一题速记巧选——内容理解题【目标班】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23642,7 +23642,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-3",
           "title": "客观题第二题速记巧选——论证分析题【目标班】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23650,7 +23650,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-4",
           "title": "客观题第三题速记巧选——推理判断题【目标班】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23658,7 +23658,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-5",
           "title": "信息性阅读高考真题精选带练 【目标班】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23666,7 +23666,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-6",
           "title": "高考热门考点之人物塑造手法【目标班】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23674,7 +23674,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-7",
           "title": "高考热门考点之情节安排手法【目标班】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23682,7 +23682,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-8",
           "title": "高考必拿三分鉴赏选择题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23690,7 +23690,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-9",
           "title": "高考热门考点之人物作用分析【目标班】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23698,7 +23698,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-10",
           "title": "高考热门考点之线索作用【目标班】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23706,7 +23706,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-11",
           "title": "高考必会考点之情节作用分析及开头结尾作用【目标班】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23722,7 +23722,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-13",
           "title": "高考必会考点之关键词句理解",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23730,7 +23730,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-14",
           "title": "高考必会考点之标题的作用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23738,7 +23738,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-15",
           "title": "考前急救之修辞手法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23746,7 +23746,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-16",
           "title": "考前急救之表现手法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23754,7 +23754,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-17",
           "title": "高考必拿三分鉴赏选择题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23762,7 +23762,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-18",
           "title": "考前急救之线索作用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23770,7 +23770,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-19",
           "title": "高考热门考点之概括内容",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23778,7 +23778,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-20",
           "title": "高考热门考点之梳理文本",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23786,7 +23786,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-21",
           "title": "高考冲刺之主题探究",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23794,7 +23794,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-22",
           "title": "高考冲刺之理解词句及标题含义",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23802,7 +23802,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-23",
           "title": "散文阅读高考真题精选带练",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23810,7 +23810,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-24",
           "title": "高考必拿分——鉴赏选择题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23818,7 +23818,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-25",
           "title": "逆袭提分之情感主旨探究",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23826,7 +23826,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-26",
           "title": "逆袭提分之写作手法赏析【目标班】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23834,7 +23834,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-27",
           "title": "文言通关第一关——一词多义和通假字",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23842,7 +23842,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-28",
           "title": "文言通关第二关——古今异义和偏义复词",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23850,7 +23850,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-29",
           "title": "文言通关第三关——词类活用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23858,7 +23858,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-30",
           "title": "文言文高考选文特征综述【目标班】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23866,7 +23866,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-31",
           "title": "文言通关第四关——断句辨析【目标班】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23874,7 +23874,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-32",
           "title": "文言通关第五关——文化常识【目标班】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23882,7 +23882,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-33",
           "title": "文言通关第六关——文意理解【目标班】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23890,7 +23890,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-34",
           "title": "文言通关第七关——文言巧译（上）【目标班】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23898,7 +23898,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-35",
           "title": "文言通关第七关——文言巧译（下）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23906,7 +23906,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-36",
           "title": "考前急救之修辞手法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23914,7 +23914,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-37",
           "title": "考前急救之表现手法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23922,7 +23922,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-38",
           "title": "考前急救之描写方法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23930,7 +23930,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-39",
           "title": "考前急救之抒情方法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23938,7 +23938,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-40",
           "title": "古诗高考选文特征综述",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23946,7 +23946,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-41",
           "title": "提分利器之人物形象题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23954,7 +23954,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-42",
           "title": "提分利器之意象意境题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23962,7 +23962,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-43",
           "title": "提分利器之情感分析题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23970,7 +23970,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-44",
           "title": "提分利器之手法赏析题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23978,7 +23978,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-45",
           "title": "古诗阅读高考真题精选带练（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23986,7 +23986,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-46",
           "title": "古诗阅读高考真题精选带练（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -23994,7 +23994,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-47",
           "title": "提分必备之一般简答题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24002,7 +24002,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-48",
           "title": "提分干货之句子成分与常考病句类型",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24010,7 +24010,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-49",
           "title": "提分加倍之语言表达连贯",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24018,7 +24018,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-50",
           "title": "提分加倍之语言表达得体",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24026,7 +24026,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-51",
           "title": "语言文字运用高考真题精选带练（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24034,7 +24034,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-52",
           "title": "语言文字运用高考真题精选带练（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24042,7 +24042,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-53",
           "title": "作文解惑之审题立意【目标班】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24050,7 +24050,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-54",
           "title": "作文解惑之行文结构【目标班】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24058,7 +24058,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-55",
           "title": "作文解惑之素材选用【目标班】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24066,7 +24066,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-56",
           "title": "作文解惑之语言优化",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24074,7 +24074,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-57",
           "title": "考场作文50+——时评类",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24082,7 +24082,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-58",
           "title": "考场作文50+——主旋律类",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24090,7 +24090,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-59",
           "title": "考场作文50+——逻辑思辨类",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24098,7 +24098,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-60",
           "title": "议论文写作高考真题精选带练",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24106,7 +24106,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-62",
           "title": "信息性阅读高考选文特征综述",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -24114,7 +24114,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-63",
           "title": "快速破题——小说客观题综合解题方法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -24122,7 +24122,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-64",
           "title": "系统梳理——描写艺术赏析(上）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -24130,7 +24130,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-65",
           "title": "系统梳理——描写艺术赏析（下）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -24138,7 +24138,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-66",
           "title": "思路拆解——语言风格特点",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -24146,7 +24146,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-67",
           "title": "思路拆解——文体特征分析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -24154,7 +24154,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-68",
           "title": "思路拆解——五要素循环答题法",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -24162,7 +24162,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-69",
           "title": "秒出答案——选择题综合技巧",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -24170,7 +24170,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-70",
           "title": "应试技巧——句段作用分析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -24178,7 +24178,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-71",
           "title": "应试技巧——结构特色赏析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -24186,7 +24186,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-72",
           "title": "答题公式——双文本类新题型【目标班】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -24194,7 +24194,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-73",
           "title": "秒出答案——选择题综合（上）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -24202,7 +24202,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-74",
           "title": "秒出答案——选择题综合（下）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -24210,7 +24210,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-75",
           "title": "文言文阅读要领与文本分析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -24218,7 +24218,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-76",
           "title": "文言文阅读文意理解",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -24226,7 +24226,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-77",
           "title": "秒出答案——客观题综合",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -24234,7 +24234,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-78",
           "title": "高考必得分——诗歌选择题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -24242,7 +24242,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-79",
           "title": "高分技巧——内容理解与情感探究【目标班】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -24250,7 +24250,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-80",
           "title": "高分技巧——语言风格赏析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -24258,7 +24258,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-81",
           "title": "答题技巧——扩展语句",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -24266,7 +24266,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-82",
           "title": "答题技巧——压缩语段",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -24274,7 +24274,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-83",
           "title": "作文速提第一步——结构优化（上）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -24282,7 +24282,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-84",
           "title": "作文速提第一步——结构优化（下）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -24290,7 +24290,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-85",
           "title": "作文速提第二步——素材精用【目标班】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -24298,7 +24298,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-86",
           "title": "作文速提第三步——论证升级【目标班】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -24306,7 +24306,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-87",
           "title": "作文速提第四步——语言点睛【目标班】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -24314,7 +24314,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-88",
           "title": "作文实战50+——民族自信",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -24322,7 +24322,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-89",
           "title": "作文实战50+——青年担当",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -24330,7 +24330,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-90",
           "title": "作文实战50+——科技创新",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -24338,7 +24338,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-91",
           "title": "作文实战50+——传统文化",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         }
@@ -24356,7 +24356,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-2",
           "title": "指对不等式(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "一轮"
         },
@@ -24364,7 +24364,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-3",
           "title": "函数不等式与超越不等式(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24372,7 +24372,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-4",
           "title": "均值不等式及其直接应用(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "一轮"
         },
@@ -24380,7 +24380,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-5",
           "title": "均值不等式的拓展(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "一轮"
         },
@@ -24388,7 +24388,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-6",
           "title": "配凑法(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24396,7 +24396,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-7",
           "title": "轮换对称型速算技巧(二轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -24404,7 +24404,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-8",
           "title": "数论常识在高考中的应用(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "一轮"
         },
@@ -24412,7 +24412,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-9",
           "title": "二次函数根的分布模型(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24420,7 +24420,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-10",
           "title": "恒成立与恒定性命题应试技巧(上)(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24428,7 +24428,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-11",
           "title": "恒成立与恒定性命题应试技巧(下)(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24436,7 +24436,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-12",
           "title": "应试思维在数学考试中的应用(二轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -24444,7 +24444,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-13",
           "title": "分式型函数值域和最值(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "一轮"
         },
@@ -24452,7 +24452,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-14",
           "title": "二次比一次型分式最值速算技巧(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24460,7 +24460,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-15",
           "title": "二次比二次型分式最值速算技巧(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24468,7 +24468,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-16",
           "title": "复合函数与分段函数单调性(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "一轮"
         },
@@ -24476,7 +24476,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-17",
           "title": "函数图像的变换和叠加(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "精英班",
           "quarter": "一轮"
         },
@@ -24492,7 +24492,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-19",
           "title": "导函数原型构造问题(二轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "二轮"
         },
@@ -24500,7 +24500,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-20",
           "title": "导数可分解型讨论单调性(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24508,7 +24508,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-21",
           "title": "导数不可分解型讨论单调性(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24516,7 +24516,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-22",
           "title": "导数超越函数型讨论单调性(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24524,7 +24524,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-23",
           "title": "具体函数的最值与值域(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "一轮"
         },
@@ -24532,7 +24532,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-24",
           "title": "单调性与极最值的简单应用(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24540,7 +24540,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-25",
           "title": "单调性与极最值的初阶综合(二轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -24548,7 +24548,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-26",
           "title": "双函数最值构造(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24556,7 +24556,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-27",
           "title": "导数可因式分解型(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24564,7 +24564,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-28",
           "title": "端点恒成立(上)(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24572,7 +24572,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-29",
           "title": "端点恒成立(下)(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "一轮"
         },
@@ -24580,7 +24580,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-30",
           "title": "中间点恒成立(上)(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "精英班",
           "quarter": "一轮"
         },
@@ -24588,7 +24588,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-31",
           "title": "中间点恒成立(下)(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "精英班",
           "quarter": "一轮"
         },
@@ -24596,7 +24596,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-32",
           "title": "参变分离法(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24604,7 +24604,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-33",
           "title": "幂指函数恒成立问题速解技巧(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24612,7 +24612,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-34",
           "title": "恒成立与零点存在性中的同构问题(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24620,7 +24620,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-35",
           "title": "主元法消参(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "一轮"
         },
@@ -24628,7 +24628,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-36",
           "title": "隐零点的方程消参(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "一轮"
         },
@@ -24636,7 +24636,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-37",
           "title": "极值点偏移经典模型(上)(二轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "二轮"
         },
@@ -24644,7 +24644,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-38",
           "title": "同角齐次式——利用辅助角公式解题(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "一轮"
         },
@@ -24652,7 +24652,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-39",
           "title": "非齐次式——换元化为二次函数(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "一轮"
         },
@@ -24660,7 +24660,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-40",
           "title": "Asin(ωx+φ)的图像(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "一轮"
         },
@@ -24668,7 +24668,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-41",
           "title": "三角函数图像变换模型与技巧(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "一轮"
         },
@@ -24676,7 +24676,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-42",
           "title": "图像求值速算技巧(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24684,7 +24684,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-43",
           "title": "w的性质(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "一轮"
         },
@@ -24700,7 +24700,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-45",
           "title": "几何法——利用三角形外接圆速算(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24708,7 +24708,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-46",
           "title": "几何法——利用阿氏圆速算(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "一轮"
         },
@@ -24724,7 +24724,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-48",
           "title": "等比数列的基本公式与性质(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24732,7 +24732,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-49",
           "title": "通项型数列选择速解技巧(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24740,7 +24740,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-50",
           "title": "累加法与累乘法(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "一轮"
         },
@@ -24748,7 +24748,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-51",
           "title": "一阶线性递推求通项(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "一轮"
         },
@@ -24756,7 +24756,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-52",
           "title": "利用辅助数列求通项(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "一轮"
         },
@@ -24764,7 +24764,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-53",
           "title": "无辅助数列递推求通项(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "一轮"
         },
@@ -24772,7 +24772,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-54",
           "title": "二阶线性递推特征根方程求通项·基础(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "精英班",
           "quarter": "一轮"
         },
@@ -24780,7 +24780,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-55",
           "title": "二阶线性递推特征根方程求通项·拓展(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "精英班",
           "quarter": "一轮"
         },
@@ -24788,7 +24788,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-56",
           "title": "项与和的递推求通项(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "一轮"
         },
@@ -24796,7 +24796,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-57",
           "title": "错位相减公式法速算技巧(二轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "二轮"
         },
@@ -24804,7 +24804,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-58",
           "title": "内切球(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24812,7 +24812,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-59",
           "title": "平行的判定与性质应用(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "一轮"
         },
@@ -24820,7 +24820,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-60",
           "title": "垂直的判定与性质应用(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "一轮"
         },
@@ -24828,7 +24828,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-61",
           "title": "存在性探究问题(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "目标班",
           "quarter": "一轮"
         },
@@ -24836,7 +24836,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-62",
           "title": "投影点存在模型与完全对称模型(二轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "目标班",
           "quarter": "二轮"
         },
@@ -24844,7 +24844,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-63",
           "title": "线圆相离最值模型(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24852,7 +24852,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-64",
           "title": "动态直线问题(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "一轮"
         },
@@ -24860,7 +24860,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-65",
           "title": "圆锥曲线标准方程与解答第1小问(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "一轮"
         },
@@ -24868,7 +24868,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-66",
           "title": "抛物线的定义及标准方程(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "目标班",
           "quarter": "一轮"
         },
@@ -24876,7 +24876,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-67",
           "title": "抛物线的几何性质进阶(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "一轮"
         },
@@ -24884,7 +24884,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-68",
           "title": "抛物线焦半径公式(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24892,7 +24892,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-69",
           "title": "利用平面几何关系确定轨迹(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24900,7 +24900,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-70",
           "title": "利用立体几何关系确定轨迹(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24908,7 +24908,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-71",
           "title": "截圆锥得圆锥曲线的证明与定量计算(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "一轮"
         },
@@ -24916,7 +24916,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-72",
           "title": "新定义曲线(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "精英班",
           "quarter": "一轮"
         },
@@ -24924,7 +24924,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-73",
           "title": "向量点乘条件的代数处理(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24932,7 +24932,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-74",
           "title": "向量点乘双根速算技巧(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "一轮"
         },
@@ -24940,7 +24940,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-75",
           "title": "向量共线条件的代数处理(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24948,7 +24948,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-76",
           "title": "弦长、距离与面积条件的基础代数处理(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24956,7 +24956,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-77",
           "title": "弦长、距离与面积条件的进阶代数处理(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "精英班",
           "quarter": "一轮"
         },
@@ -24964,7 +24964,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-78",
           "title": "第一类定值(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24972,7 +24972,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-79",
           "title": "第二类定值(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "一轮"
         },
@@ -24980,7 +24980,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-80",
           "title": "第一类定点(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -24988,7 +24988,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-81",
           "title": "第二类定点(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "精英班",
           "quarter": "一轮"
         },
@@ -24996,7 +24996,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-82",
           "title": "较难定值定点的非对称代数处理·上(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "精英班",
           "quarter": "一轮"
         },
@@ -25004,7 +25004,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-83",
           "title": "较难定值定点的非对称代数处理·下(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "精英班",
           "quarter": "一轮"
         },
@@ -25012,7 +25012,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-84",
           "title": "动点基础问题(二轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -25020,7 +25020,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-85",
           "title": "新高考中的跨模块综合问题·下(一轮)",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "精英班",
           "quarter": "一轮"
         }
@@ -25030,7 +25030,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-1",
           "title": "单词练习窍门",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25038,7 +25038,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-2",
           "title": "听力高频场景词",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25046,7 +25046,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-3",
           "title": "听力排坑",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25054,7 +25054,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-4",
           "title": "英语语法概念体系",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25062,7 +25062,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-5",
           "title": "名词/形容词/副词",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25070,7 +25070,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-6",
           "title": "冠词/代词",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25078,7 +25078,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-7",
           "title": "谓语动词",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25086,7 +25086,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-8",
           "title": "非谓语动词",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25094,7 +25094,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-9",
           "title": "并列连词",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25102,7 +25102,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-10",
           "title": "名词性从句",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25110,7 +25110,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-11",
           "title": "定语从句",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25118,7 +25118,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-12",
           "title": "状语从句",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25126,7 +25126,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-13",
           "title": "平行并列结构",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25134,7 +25134,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-14",
           "title": "理解固定搭配",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25142,7 +25142,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-15",
           "title": "名动形副词形变化（上）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25150,7 +25150,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-16",
           "title": "名动形副词形变化（中）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25158,7 +25158,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-17",
           "title": "名动形副词形变化（下）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25166,7 +25166,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-18",
           "title": "靠主题做题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25174,7 +25174,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-19",
           "title": "靠句间线索做题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25182,7 +25182,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-20",
           "title": "名词题解题技巧",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25190,7 +25190,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-21",
           "title": "动词题解题技巧",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25198,7 +25198,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-22",
           "title": "形副题解题技巧",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25206,7 +25206,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-23",
           "title": "连词题解题技巧",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25214,7 +25214,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-24",
           "title": "介词题解题技巧",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25222,7 +25222,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-25",
           "title": "“括号法”拆解英语句子",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25230,7 +25230,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-26",
           "title": "“主题词重复法”秒懂英语文章",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25238,7 +25238,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-27",
           "title": "“细节词对应法”秒杀阅读题目",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25246,7 +25246,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-28",
           "title": "“快速做题步骤”挑战高考难题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25254,7 +25254,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-29",
           "title": "段落主旨题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25262,7 +25262,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-30",
           "title": "全文主旨题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25270,7 +25270,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-31",
           "title": "标题题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25278,7 +25278,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-32",
           "title": "结构题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25286,7 +25286,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-33",
           "title": "出处题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25294,7 +25294,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-34",
           "title": "续写题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25302,7 +25302,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-35",
           "title": "细节题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25310,7 +25310,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-36",
           "title": "“题干不给力”细节题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25318,7 +25318,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-37",
           "title": "原因题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25326,7 +25326,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-38",
           "title": "例子题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25334,7 +25334,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-39",
           "title": "词义题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25342,7 +25342,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-40",
           "title": "态度题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25350,7 +25350,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-41",
           "title": "应用文技能",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25358,7 +25358,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-42",
           "title": "记叙文技能",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25366,7 +25366,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-43",
           "title": "说明文技能",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25374,7 +25374,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-44",
           "title": "议论文观点论述技巧",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25382,7 +25382,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-45",
           "title": "议论文观点对比技巧",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25390,7 +25390,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-46",
           "title": "议论文现象解释技巧",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25398,7 +25398,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-47",
           "title": "议论文问题解决技巧",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25406,7 +25406,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-48",
           "title": "议论文大众批驳技巧",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25414,7 +25414,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-49",
           "title": "七选五技巧之形",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25422,7 +25422,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-50",
           "title": "七选五技巧之意",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25430,7 +25430,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-51",
           "title": "七选五技巧之情",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25438,7 +25438,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-52",
           "title": "话题一致",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25446,7 +25446,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-53",
           "title": "代词指代",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25454,7 +25454,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-54",
           "title": "数字列举",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25462,7 +25462,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-55",
           "title": "句式相同",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25470,7 +25470,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-56",
           "title": "总分结构",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25478,7 +25478,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-57",
           "title": "建议类",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25486,7 +25486,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-58",
           "title": "故事类",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25494,7 +25494,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-59",
           "title": "介绍类",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         }
@@ -25512,7 +25512,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-2",
           "title": "初速度为零的匀加速直线运动",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25520,7 +25520,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-3",
           "title": "匀变速直线运动的进阶公式",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "一轮"
         },
@@ -25528,7 +25528,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-4",
           "title": "运动图像问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25536,7 +25536,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-5",
           "title": "竖直上抛运动",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25544,7 +25544,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-6",
           "title": "追及相遇问题【二轮】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -25568,7 +25568,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-9",
           "title": "多物体平衡问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "一轮"
         },
@@ -25576,7 +25576,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-10",
           "title": "全反力与摩擦角问题【二轮】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -25592,7 +25592,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-12",
           "title": "超重与失重问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25600,7 +25600,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-13",
           "title": "倾斜弹力动力学问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25608,7 +25608,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-14",
           "title": "斜面动力学问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25616,7 +25616,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-15",
           "title": "弹簧动力学常规问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25624,7 +25624,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-16",
           "title": "弹簧动力学进阶问题【二轮】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -25632,7 +25632,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-17",
           "title": "板块动力学问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25640,7 +25640,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-18",
           "title": "含有滑轮的连接体问题【二轮】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -25656,7 +25656,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-20",
           "title": "平抛运动公式",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25664,7 +25664,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-21",
           "title": "平抛运动的正交分解进阶【二轮】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -25680,7 +25680,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-23",
           "title": "水平圆周运动之摩擦力问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25688,7 +25688,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-24",
           "title": "水平圆周运动之斜弹力问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25696,7 +25696,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-25",
           "title": "圆周运动的脱轨问题【二轮】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -25712,7 +25712,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-27",
           "title": "卫星环绕问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25720,7 +25720,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-28",
           "title": "地表重力问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25728,7 +25728,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-29",
           "title": "天体质量与密度问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "一轮"
         },
@@ -25736,7 +25736,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-30",
           "title": "多星问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "一轮"
         },
@@ -25744,7 +25744,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-31",
           "title": "动能定理",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25752,7 +25752,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-32",
           "title": "功率与机车启动问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25760,7 +25760,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-33",
           "title": "机械能守恒定律",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25768,7 +25768,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-34",
           "title": "机械能守恒的圆周运动问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25776,7 +25776,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-35",
           "title": "连接体的能量问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "一轮"
         },
@@ -25784,7 +25784,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-36",
           "title": "弹簧系统的能量问题【二轮】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -25792,7 +25792,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-37",
           "title": "传送带能量问题【二轮】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -25800,7 +25800,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-38",
           "title": "板块能量问题【二轮】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -25808,7 +25808,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-39",
           "title": "动量定理与平均作用力问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25824,7 +25824,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-41",
           "title": "反冲问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25832,7 +25832,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-42",
           "title": "完全非弹性碰撞问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25840,7 +25840,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-43",
           "title": "弹性碰撞问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25848,7 +25848,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-44",
           "title": "类碰撞问题【二轮】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -25856,7 +25856,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-45",
           "title": "多次碰撞问题【二轮】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -25864,7 +25864,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-46",
           "title": "简谐运动的描述和图像",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25872,7 +25872,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-47",
           "title": "简谐运动的力和能量问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25880,7 +25880,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-48",
           "title": "机械振动综合问题【二轮】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -25888,7 +25888,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-49",
           "title": "波动图像问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25896,7 +25896,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-50",
           "title": "波振图像综合问题【二轮】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -25904,7 +25904,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-51",
           "title": "波的叠加与干涉",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "一轮"
         },
@@ -25912,7 +25912,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-52",
           "title": "库仑定律",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25920,7 +25920,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-53",
           "title": "电场强度",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25928,7 +25928,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-54",
           "title": "电势能与电势",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25936,7 +25936,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-55",
           "title": "电势差",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25944,7 +25944,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-56",
           "title": "电场中的能量综合问题【二轮】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -25960,7 +25960,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-58",
           "title": "带电粒子在电场中的直线运动",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25968,7 +25968,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-59",
           "title": "带电粒子在电场中的曲线运动",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -25976,7 +25976,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-60",
           "title": "带电粒子在Eg复合场中的直线运动【二轮】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -25984,7 +25984,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-61",
           "title": "带电粒子在Eg复合场中的类抛运动【二轮】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -25992,7 +25992,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-62",
           "title": "带电粒子在Eg复合场中的圆周运动【二轮】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26008,7 +26008,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-64",
           "title": "闭合电路欧姆定律",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26016,7 +26016,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-65",
           "title": "直流电路动态分析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26024,7 +26024,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-66",
           "title": "电路中的图像问题【二轮】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26040,7 +26040,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-68",
           "title": "安培力问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26048,7 +26048,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-69",
           "title": "洛伦兹力问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26056,7 +26056,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-70",
           "title": "磁场中的粒子源问题【二轮】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26064,7 +26064,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-71",
           "title": "磁聚焦问题【二轮】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26072,7 +26072,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-72",
           "title": "质谱仪问题【二轮】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26080,7 +26080,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-73",
           "title": "回旋加速器问题【二轮】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26088,7 +26088,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-74",
           "title": "霍尔效应问题【二轮】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26096,7 +26096,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-75",
           "title": "带电粒子在BEg复合场中的直线运动【二轮】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26104,7 +26104,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-76",
           "title": "电场磁场拼接问题【二轮】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26120,7 +26120,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-78",
           "title": "感生电动势问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26128,7 +26128,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-79",
           "title": "动生电动势问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26136,7 +26136,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-80",
           "title": "棒阻问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "一轮"
         },
@@ -26144,7 +26144,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-81",
           "title": "框阻问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "精英班",
           "quarter": "一轮"
         },
@@ -26152,7 +26152,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-82",
           "title": "无外力双棒问题【二轮】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26168,7 +26168,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-84",
           "title": "理想变压器问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26176,7 +26176,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-85",
           "title": "远距离输电问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26184,7 +26184,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-86",
           "title": "折射问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26192,7 +26192,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-87",
           "title": "全反射问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26200,7 +26200,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-88",
           "title": "几何光学问题【二轮】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26208,7 +26208,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-89",
           "title": "双缝干涉问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26216,7 +26216,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-90",
           "title": "薄膜干涉问题【二轮】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26232,7 +26232,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-92",
           "title": "理想气体状态方程",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26240,7 +26240,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-93",
           "title": "液柱问题【二轮】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26248,7 +26248,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-94",
           "title": "气缸问题【二轮】",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26256,7 +26256,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-95",
           "title": "热力学定律问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26264,7 +26264,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-96",
           "title": "光电效应",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26272,7 +26272,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-97",
           "title": "原子结构",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26298,7 +26298,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-2",
           "title": "物质的分类进阶、胶体分散系",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26306,7 +26306,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-3",
           "title": "化学计量基本概念",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26314,7 +26314,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-4",
           "title": "阿伏加德罗常数相关正误判断",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26322,7 +26322,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-5",
           "title": "离子反应、离子方程式与离子共存",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26338,7 +26338,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-7",
           "title": "氧化还原方程式基础配平",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26346,7 +26346,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-8",
           "title": "氧化还原方程式进阶配平",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26354,7 +26354,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-9",
           "title": "氧化性还原性、得失电子守恒计算",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26370,7 +26370,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-11",
           "title": "钠元素性质总述",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26378,7 +26378,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-12",
           "title": "碳酸钠、碳酸氢钠性质详解",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26386,7 +26386,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-13",
           "title": "铝元素性质总述",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26394,7 +26394,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-14",
           "title": "铁元素性质总述",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26402,7 +26402,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-15",
           "title": "铁盐的转化、铁离子检验",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26418,7 +26418,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-17",
           "title": "卤族元素",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26426,7 +26426,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-18",
           "title": "硫元素性质总述",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26434,7 +26434,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-19",
           "title": "硫酸、硫化物和硫代硫酸盐等",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26442,7 +26442,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-20",
           "title": "氮气、氨气和铵盐",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26450,7 +26450,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-21",
           "title": "氮氧化物和硝酸",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26458,7 +26458,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-22",
           "title": "硅元素及其化合物",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26474,7 +26474,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-24",
           "title": "燃烧热和盖斯定律",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26482,7 +26482,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-25",
           "title": "化学反应速率的定义及计算",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26490,7 +26490,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-26",
           "title": "化学反应速率的影响因素",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26498,7 +26498,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-27",
           "title": "催化剂与反应历程",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26514,7 +26514,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-29",
           "title": "影响平衡移动的因素",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26522,7 +26522,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-30",
           "title": "化学平衡常数",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26530,7 +26530,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-31",
           "title": "化学平衡图像",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26538,7 +26538,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-32",
           "title": "影响电离平衡的因素",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26546,7 +26546,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-33",
           "title": "弱电解质判断与酸性强弱比较",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26554,7 +26554,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-34",
           "title": "pH的定义及计算",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26562,7 +26562,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-35",
           "title": "盐类水解定义及影响因素",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26570,7 +26570,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-36",
           "title": "盐类水解的应用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26578,7 +26578,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-37",
           "title": "沉淀溶解平衡概念及影响因素",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26586,7 +26586,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-38",
           "title": "计算水溶液中的常数",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26594,7 +26594,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-39",
           "title": "守恒和排序（1）三大守恒",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26602,7 +26602,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-40",
           "title": "守恒和排序（2）微粒浓度排序",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26610,7 +26610,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-41",
           "title": "水溶液图像",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26618,7 +26618,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-42",
           "title": "酸碱中和滴定",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26626,7 +26626,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-43",
           "title": "电化学装置和应用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26634,7 +26634,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-44",
           "title": "电极方程式书写",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26642,7 +26642,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-45",
           "title": "离子交换膜和复杂电池装置问题突破",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26650,7 +26650,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-46",
           "title": "有机物命名",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26658,7 +26658,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-47",
           "title": "原子共线共面",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26666,7 +26666,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-48",
           "title": "烃和卤代烃",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26674,7 +26674,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-49",
           "title": "醇和酚",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26682,7 +26682,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-50",
           "title": "醛和酮、酸和酯",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26690,7 +26690,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-51",
           "title": "信息反应",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26698,7 +26698,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-52",
           "title": "有机合成与推断",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26706,7 +26706,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-53",
           "title": "原子核外电子排布",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26722,7 +26722,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-55",
           "title": "VSEPR与杂化轨道理论",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26730,7 +26730,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-56",
           "title": "电子式、结构式、共价键参数",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26738,7 +26738,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-57",
           "title": "分子极性、分子间作用力和配合物",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26746,7 +26746,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-58",
           "title": "晶体类型、熔沸点",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26754,7 +26754,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-59",
           "title": "晶胞模型",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26762,7 +26762,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-60",
           "title": "晶体计算",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -26770,7 +26770,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-61",
           "title": "化学实验常用仪器",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26778,7 +26778,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-62",
           "title": "近年热门仪器考查",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26786,7 +26786,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-63",
           "title": "化学实验的基本操作（上）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26794,7 +26794,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-64",
           "title": "化学实验的基本操作（下）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26802,7 +26802,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-65",
           "title": "气体发生装置",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26810,7 +26810,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-66",
           "title": "气体净化装置、气体除杂",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26818,7 +26818,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-67",
           "title": "气体收集及尾气处理装置",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26826,7 +26826,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-68",
           "title": "物质检验",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26834,7 +26834,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-69",
           "title": "气体制备实验",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26842,7 +26842,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-70",
           "title": "溶液配制与中和热测定",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26850,7 +26850,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-71",
           "title": "滴定实验",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26858,7 +26858,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-72",
           "title": "热重分析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26866,7 +26866,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-73",
           "title": "有机实验",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26874,7 +26874,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-74",
           "title": "有机物除杂与检验",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26882,7 +26882,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-75",
           "title": "课内工业流程",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26890,7 +26890,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-76",
           "title": "原料处理与条件控制",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26898,7 +26898,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-77",
           "title": "调整pH及Ksp计算",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26906,7 +26906,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-78",
           "title": "循环流程和绿色化学",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26914,7 +26914,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-79",
           "title": "氧化还原基本概念",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26922,7 +26922,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-80",
           "title": "定量离子方程式正误判断",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26930,7 +26930,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-81",
           "title": "化学计量",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26938,7 +26938,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-82",
           "title": "反应热计算、盖斯定律应用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26946,7 +26946,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-83",
           "title": "反应速率与平衡判据",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26954,7 +26954,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-84",
           "title": "平衡图像分析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26962,7 +26962,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-85",
           "title": "电解质溶液图像",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26970,7 +26970,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-86",
           "title": "电化学模型分析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26978,7 +26978,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-87",
           "title": "文字解释结构问题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26986,7 +26986,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-88",
           "title": "晶体模型分析",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -26994,7 +26994,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-89",
           "title": "官能团性质和有机反应类型",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -27002,7 +27002,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-90",
           "title": "有机推断",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         }
@@ -27020,7 +27020,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-2",
           "title": "脂质",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27036,7 +27036,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-4",
           "title": "细胞器（下）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27044,7 +27044,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-5",
           "title": "细胞核",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27052,7 +27052,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-6",
           "title": "酶的本质和特性",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27060,7 +27060,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-7",
           "title": "ATP的结构和利用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27068,7 +27068,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-8",
           "title": "细胞呼吸的原理",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27076,7 +27076,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-9",
           "title": "光合色素的提取和分离",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27084,7 +27084,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-10",
           "title": "光合作用的原理",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27092,7 +27092,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-11",
           "title": "有丝分裂的观察实验",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27100,7 +27100,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-12",
           "title": "细胞分化",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27108,7 +27108,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-13",
           "title": "细胞的衰老、死亡和癌变",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27116,7 +27116,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-14",
           "title": "一对相对性状的杂交实验",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27124,7 +27124,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-15",
           "title": "遗传的重要概念",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27132,7 +27132,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-16",
           "title": "两对相对性状的杂交实验",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27140,7 +27140,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-17",
           "title": "伴性遗传",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27148,7 +27148,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-18",
           "title": "人类遗传病与优生优育",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27156,7 +27156,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-19",
           "title": "肺炎链球菌转化实验",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27164,7 +27164,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-20",
           "title": "噬菌体侵染细菌实验",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27172,7 +27172,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-21",
           "title": "DNA的结构",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27180,7 +27180,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-22",
           "title": "DNA的复制",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27188,7 +27188,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-23",
           "title": "遗传信息的翻译",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27196,7 +27196,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-24",
           "title": "基因突变",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27204,7 +27204,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-25",
           "title": "基因重组",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27212,7 +27212,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-26",
           "title": "染色体变异",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27220,7 +27220,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-27",
           "title": "内环境及其成分",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27228,7 +27228,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-28",
           "title": "内环境的稳态及失调",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27236,7 +27236,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-29",
           "title": "神经系统的基本结构和功能",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27244,7 +27244,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-30",
           "title": "反射与反射弧",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27252,7 +27252,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-31",
           "title": "内分泌系统的组成和功能",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27260,7 +27260,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-32",
           "title": "体温调节",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27268,7 +27268,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-33",
           "title": "水盐调节",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27276,7 +27276,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-34",
           "title": "免疫系统的组成和功能",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27284,7 +27284,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-35",
           "title": "免疫失调及免疫应用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27292,7 +27292,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-36",
           "title": "生长素的产生、运输和分布",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27300,7 +27300,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-37",
           "title": "环境因素参与调节植物的生命活动",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27308,7 +27308,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-38",
           "title": "种群的数量特征",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27316,7 +27316,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-39",
           "title": "群落及其演替",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27324,7 +27324,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-40",
           "title": "生态系统的结构",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27332,7 +27332,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-41",
           "title": "物质循环和信息传递",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27340,7 +27340,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-42",
           "title": "生态系统的稳定性",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27348,7 +27348,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-43",
           "title": "生物多样性和生态工程",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27356,7 +27356,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-44",
           "title": "果酒和果醋的制作",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27364,7 +27364,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-45",
           "title": "培养基",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27372,7 +27372,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-46",
           "title": "植物组织培养技术",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27380,7 +27380,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-47",
           "title": "动物细胞培养及应用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27388,7 +27388,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-48",
           "title": "核移植技术和克隆动物",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27396,7 +27396,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-49",
           "title": "体内受精和早期胚胎发育",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27404,7 +27404,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-50",
           "title": "体外受精、胚胎分割和胚胎移植",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27412,7 +27412,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-51",
           "title": "基因工程的应用",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         }
@@ -27422,7 +27422,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-1",
           "title": "商周政治制度",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27430,7 +27430,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-2",
           "title": "先秦诸子百家思想",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27438,7 +27438,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-3",
           "title": "秦汉专制主义政治制度",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27446,7 +27446,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-4",
           "title": "西汉初年政治生态",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27454,7 +27454,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-5",
           "title": "汉武帝时期的制度建设",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27462,7 +27462,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-6",
           "title": "隋唐政治制度",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27470,7 +27470,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-7",
           "title": "北宋政治制度创新",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27478,7 +27478,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-8",
           "title": "明朝初年政治创新",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27486,7 +27486,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-9",
           "title": "明中后期经济发展",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27494,7 +27494,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-10",
           "title": "两次鸦片战争的冲击",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27502,7 +27502,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-11",
           "title": "太平天国运动",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27510,7 +27510,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-12",
           "title": "洋务运动",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27518,7 +27518,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-13",
           "title": "甲午战争后的晚清社会",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27526,7 +27526,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-14",
           "title": "八国联军侵华和清末新政",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27534,7 +27534,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-15",
           "title": "中华民国初期的社会",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27542,7 +27542,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-16",
           "title": "中国共产党的早期革命斗争",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27550,7 +27550,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-17",
           "title": "国民革命和中共成熟",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27558,7 +27558,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-18",
           "title": "南京国民政府统治",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27566,7 +27566,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-19",
           "title": "抗日战争",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27574,7 +27574,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-20",
           "title": "新中国初期的恢复与过渡",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27582,7 +27582,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-21",
           "title": "社会主义全面建设",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27590,7 +27590,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-22",
           "title": "新中国的外交",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27598,7 +27598,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-23",
           "title": "改革开放",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27606,7 +27606,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-24",
           "title": "新航路开辟",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27614,7 +27614,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-25",
           "title": "早期殖民扩张",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27622,7 +27622,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-26",
           "title": "欧洲的思想解放运动",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27630,7 +27630,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-27",
           "title": "英美资本主义制度",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27638,7 +27638,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-28",
           "title": "法德资本主义制度",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27646,7 +27646,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-29",
           "title": "选择题解题技巧（1）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27654,7 +27654,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-30",
           "title": "选择题解题技巧（2）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27662,7 +27662,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-31",
           "title": "选择题解题技巧（3）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -27670,7 +27670,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-32",
           "title": "选择题解题技巧（4）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -27678,7 +27678,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-33",
           "title": "选择题解题技巧（5）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -27686,7 +27686,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-34",
           "title": "选择题解题技巧（6）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -27694,7 +27694,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-35",
           "title": "选择题解题技巧（7）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -27702,7 +27702,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-36",
           "title": "选择题解题技巧（8）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -27710,7 +27710,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-37",
           "title": "选择题解题技巧（9）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -27718,7 +27718,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-38",
           "title": "选择题解题技巧（10）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -27726,7 +27726,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-39",
           "title": "小论文解题技巧1",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -27734,7 +27734,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-40",
           "title": "小论文解题技巧2",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -27742,7 +27742,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-41",
           "title": "小论文解题技巧3",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -27750,7 +27750,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-42",
           "title": "小论文解题技巧4",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -27758,7 +27758,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-43",
           "title": "小论文解题技巧5",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -27766,7 +27766,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-44",
           "title": "小论文解题技巧6",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -27774,7 +27774,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-45",
           "title": "小论文解题技巧7",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         }
@@ -27784,7 +27784,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-1",
           "title": "大气圈高频考法及解题思路（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27792,7 +27792,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-2",
           "title": "大气圈高频考法及解题思路（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27800,7 +27800,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-3",
           "title": "大气圈高频考法及解题思路（三）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27808,7 +27808,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-4",
           "title": "大气圈高频考法及解题思路（四）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27816,7 +27816,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-5",
           "title": "大气圈高频考法及解题思路（五）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27824,7 +27824,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-6",
           "title": "水圈高频考法及解题思路（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27832,7 +27832,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-7",
           "title": "水圈高频考法及解题思路（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27840,7 +27840,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-8",
           "title": "水圈高频考法及解题思路（三）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27848,7 +27848,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-9",
           "title": "水圈高频考法及解题思路（四）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27856,7 +27856,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-10",
           "title": "岩石圈高频考法及解题思路（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27864,7 +27864,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-11",
           "title": "岩石圈高频考法及解题思路（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27872,7 +27872,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-12",
           "title": "岩石圈高频考法及解题思路（三）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27880,7 +27880,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-13",
           "title": "生物圈高频考法及解题思路（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27888,7 +27888,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-14",
           "title": "生物圈高频考法及解题思路（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27896,7 +27896,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-15",
           "title": "地球运动高频考法及解题思路（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27904,7 +27904,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-16",
           "title": "地球运动高频考法及解题思路（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27912,7 +27912,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-17",
           "title": "地球运动高频考法及解题思路（三）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27920,7 +27920,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-18",
           "title": "地球运动高频考法及解题思路（四）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27928,7 +27928,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-19",
           "title": "人口高频考法及解题思路（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27936,7 +27936,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-20",
           "title": "人口高频考法及解题思路（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27944,7 +27944,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-21",
           "title": "聚落高频考法及解题思路（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27952,7 +27952,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-22",
           "title": "聚落高频考法及解题思路（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27960,7 +27960,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-23",
           "title": "农业高频考法及解题思路（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27968,7 +27968,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-24",
           "title": "农业高频考法及解题思路（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27976,7 +27976,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-25",
           "title": "工业高频考法及解题思路（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27984,7 +27984,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-26",
           "title": "工业高频考法及解题思路（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -27992,7 +27992,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-27",
           "title": "服务业高频考法及解题思路（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -28000,7 +28000,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-28",
           "title": "服务业高频考法及解题思路（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -28008,7 +28008,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-29",
           "title": "交通高频考法及解题思路（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -28016,7 +28016,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-30",
           "title": "交通高频考法及解题思路（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -28024,7 +28024,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-31",
           "title": "实用选择题技巧方法（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28032,7 +28032,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-32",
           "title": "实用选择题技巧方法（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28040,7 +28040,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-33",
           "title": "实用选择题技巧方法（三）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28048,7 +28048,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-34",
           "title": "实用选择题技巧方法（四）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28056,7 +28056,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-35",
           "title": "实用选择题技巧方法（五）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28064,7 +28064,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-36",
           "title": "实用选择题技巧方法（六）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28072,7 +28072,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-37",
           "title": "高考地理核心答题模板解题训练（一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28080,7 +28080,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-38",
           "title": "高考地理核心答题模板解题训练（二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28088,7 +28088,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-39",
           "title": "高考地理核心答题模板解题训练（三）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28096,7 +28096,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-40",
           "title": "高考地理核心答题模板解题训练（四）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28104,7 +28104,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-41",
           "title": "高考地理核心答题模板解题训练（五）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28112,7 +28112,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-42",
           "title": "高考地理核心答题模板解题训练（六）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28120,7 +28120,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-43",
           "title": "高考地理核心答题模板解题训练（七）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28128,7 +28128,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-44",
           "title": "高考地理核心答题模板解题训练（八）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28136,7 +28136,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-45",
           "title": "高考地理核心答题模板解题训练（九）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28144,7 +28144,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-46",
           "title": "高考地理核心答题模板解题训练（十）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28152,7 +28152,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-47",
           "title": "高考地理核心答题模板解题训练（十一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28160,7 +28160,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-48",
           "title": "高考地理核心答题模板解题训练（十二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28168,7 +28168,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-49",
           "title": "高考地理核心答题模板解题训练（十三）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28176,7 +28176,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-50",
           "title": "高考地理核心答题模板解题训练（十四）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28184,7 +28184,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-51",
           "title": "高考地理核心答题模板解题训练（十五）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28192,7 +28192,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-52",
           "title": "高考地理核心答题模板解题训练（十六）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28200,7 +28200,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-53",
           "title": "高考地理核心答题模板解题训练（十七）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28208,7 +28208,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-54",
           "title": "高考地理核心答题模板解题训练（十八）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28216,7 +28216,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-55",
           "title": "高考地理核心答题模板解题训练（十九）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28224,7 +28224,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-56",
           "title": "高考地理核心答题模板解题训练（二十）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28232,7 +28232,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-57",
           "title": "高考地理核心答题模板解题训练（二十一）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28240,7 +28240,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-58",
           "title": "高考地理核心答题模板解题训练（二十二）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28248,7 +28248,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-59",
           "title": "高考地理核心答题模板解题训练（二十三）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28256,7 +28256,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-60",
           "title": "高考地理核心答题模板解题训练（二十四）",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         }
@@ -28266,7 +28266,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-1",
           "title": "必修一史实类错误",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -28274,7 +28274,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-2",
           "title": "必修一标准论述",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -28282,7 +28282,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-3",
           "title": "基本经济制度高频选项",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -28290,7 +28290,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-4",
           "title": "经济发展高频选项",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -28298,7 +28298,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-5",
           "title": "党的领导高频选项",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -28306,7 +28306,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-6",
           "title": "人民当家作主高频选项",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -28314,7 +28314,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-7",
           "title": "全面依法治国高频选项",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -28322,7 +28322,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-8",
           "title": "哲学总论及唯物论高频选项",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -28330,7 +28330,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-9",
           "title": "辩证法与认识论高频选项",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -28338,7 +28338,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-10",
           "title": "历史唯物主义高频选项",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -28346,7 +28346,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-11",
           "title": "文化传承与创新高频选项",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -28354,7 +28354,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-12",
           "title": "各具特色的国家高频选项",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -28362,7 +28362,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-13",
           "title": "国际政治高频选项",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -28370,7 +28370,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-14",
           "title": "国际经济高频选项",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -28378,7 +28378,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-15",
           "title": "权利与合同高频选项",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -28386,7 +28386,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-16",
           "title": "家庭与就业高频选项",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -28394,7 +28394,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-17",
           "title": "经营与诉讼高频选项",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -28402,7 +28402,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-18",
           "title": "逻辑规则高频选项",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -28410,7 +28410,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-19",
           "title": "逻辑推理高频选项",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -28418,7 +28418,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-20",
           "title": "辩证思维高频选项",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -28426,7 +28426,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-21",
           "title": "创新思维高频选项",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -28434,7 +28434,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-22",
           "title": "所有制类主观题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -28442,7 +28442,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-23",
           "title": "市场经济类主观题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -28450,7 +28450,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-24",
           "title": "经济发展类主观题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -28458,7 +28458,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-25",
           "title": "党的领导类主观题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -28466,7 +28466,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-26",
           "title": "全过程人民民主类主观题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -28474,7 +28474,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-27",
           "title": "国家治理与社会治理类主观题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -28482,7 +28482,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-28",
           "title": "法治要求与国家机关类主观题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -28490,7 +28490,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-29",
           "title": "哲学原理方法论梳理",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -28498,7 +28498,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-30",
           "title": "文化类主观题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
@@ -28506,7 +28506,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-31",
           "title": "国际政治类主观题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28514,7 +28514,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-32",
           "title": "国际经济类主观题",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28522,7 +28522,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-33",
           "title": "法律类主观题思路",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28530,7 +28530,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-34",
           "title": "逻辑类主观题类型",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28538,7 +28538,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-35",
           "title": "辩证思维答题要点梳理",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 3,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28546,7 +28546,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-36",
           "title": "创新思维答题要点梳理",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28554,7 +28554,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-37",
           "title": "经济传导题常见错误",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28562,7 +28562,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-38",
           "title": "经济图表题常见难点",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28570,7 +28570,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-39",
           "title": "哲学引文题常见难点",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28578,7 +28578,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-40",
           "title": "哲学漫画题常见错误",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28586,7 +28586,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-41",
           "title": "财产与合同常见难点",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28594,7 +28594,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-42",
           "title": "纠纷与责任常见难点",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28602,7 +28602,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-43",
           "title": "逻辑判断常见难点",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28610,7 +28610,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-44",
           "title": "三段论常见错误",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         },
@@ -28618,7 +28618,7 @@ export const annualCourseLibrary = {
           "id": "uploaded-video-45",
           "title": "假言推理常见难点",
           "outlineCode": "",
-          "difficulty": 1,
+          "difficulty": 4,
           "layered": "通用",
           "quarter": "二轮"
         }
