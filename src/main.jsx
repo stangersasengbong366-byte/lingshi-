@@ -1431,7 +1431,7 @@ function SalesPage({ products, selectedProduct, selectedSubjects, selectedBonusS
                       value={selectedVideoTracks[subject] ?? "目标班"}
                       onChange={(track) => onVideoTrackChange(subject, track)}
                     />
-                  ) : <span className="subject-track-status">{hasVideo ? "不分层" : "无知识视频"}</span>}
+                  ) : <span className="subject-track-status">{hasVideo ? "通用" : "无知识视频"}</span>}
                 </div>
               );
             })}
@@ -2650,10 +2650,10 @@ function CourseParsedTables({ subject, liveRows, videoRows, custom = false }) {
       <ParsedCourseTable
         title={`${subject}｜${prefix}知识视频大纲`}
         emptyText="当前筛选范围内暂无知识视频"
-        columns={["视频大纲", "难度星级", "是否分层", "所属阶段"]}
+        columns={["视频大纲", "难度星级", "适用班型", "所属阶段"]}
         rows={videoRows}
         renderRow={(row, index) => (
-          <tr key={`${row.title}-${index}`}><td>{row.title}</td><td>{row.difficulty || "-"}</td><td>{row.layered || "-"}</td><td>{row.quarter || "-"}</td></tr>
+          <tr key={`${row.title}-${index}`}><td>{row.title}</td><td>{row.difficulty || "-"}</td><td>{normalizeVideoTrack(row.layered)}</td><td>{row.quarter || "-"}</td></tr>
         )}
       />
     </div>
@@ -2835,13 +2835,13 @@ function LegacyCourseUploadBoard({ grade, uploadNames, parsedData, selectedSubje
         <ParsedCourseTable
           title={`${selectedSubject}｜知识视频大纲`}
           emptyText="上传知识视频总表后，这里展示该科知识视频大纲"
-          columns={["视频大纲", "难度星级", "是否分层", "所属季度"]}
+          columns={["视频大纲", "难度星级", "适用班型", "所属季度"]}
           rows={videoRows}
           renderRow={(row, index) => (
             <tr key={`${row.title}-${index}`}>
               <td>{row.title}</td>
               <td>{row.difficulty || "-"}</td>
-              <td>{row.layered || "-"}</td>
+              <td>{normalizeVideoTrack(row.layered)}</td>
               <td>{row.quarter || "-"}</td>
             </tr>
           )}
@@ -5216,7 +5216,7 @@ function CourseDetailOverview({ product, plan, subjects }) {
           <span>{plan.subject.slice(0, 1)}</span>
           <div>
             <strong>{plan.subject}正课大纲</strong>
-            <small>{videoCount ? `学法直播 + ${product.unlayeredVideoSubjects?.includes(plan.subject) ? "不分层" : plan.videoTrack || "目标班"}知识视频` : "学法直播课程"}</small>
+            <small>{videoCount ? `学法直播 + ${product.unlayeredVideoSubjects?.includes(plan.subject) ? "通用" : plan.videoTrack || "目标班"}知识视频` : "学法直播课程"}</small>
           </div>
         </div>
         <div className="detail-course-price">
