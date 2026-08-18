@@ -77,6 +77,8 @@ export const initialProducts = [
     core: { liveLessons: 26, liveDuration: "2h", knowledgeVideos: 60, videoDuration: "30min", servicePeriod: "秋季+寒假" },
     pricing: { originalPerSubject: 5600, singlePerSubject: 4580, twoPerSubject: 4380, threePlusPerSubject: 4080 },
     humanitiesPricing: { originalPerSubject: 4200, fixedPerSubject: 2700 },
+    pricingMode: "tiered-excluding-biology",
+    manualQuoteSubjects: ["生物"],
     humanitiesSubjects: ["生物", "历史", "地理", "政治"],
     subjectProfiles: {
       default: { liveLessons: 26, knowledgeVideos: 60, summary: ["学法直播26节（秋16+寒10）", "知识视频60节（秋40+寒20）"] },

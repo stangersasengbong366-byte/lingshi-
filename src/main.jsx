@@ -3948,6 +3948,7 @@ function SummaryBenefitLayout({ product, plans, giftPlan, physicalGiftItems, sub
             <p>原价 <del>¥{formatPrice(originalTotal)}</del><em>限时优惠</em></p>
             <strong>¥{formatPrice(pricing.currentTotal)}</strong>
             <small>已选 {subjects.length} 科：{subjects.join("、")}</small>
+            {pricing.pricingNotice ? <small className="price-calculation-note">{pricing.pricingNotice}</small> : null}
             <div>查看完整权益</div>
           </aside>
         </div>
@@ -5195,6 +5196,7 @@ function CourseDetailOverview({ product, plan, subjects }) {
   const pricing = getProductPricing(product, subjects);
   const originalPrice = pricing.getSubjectOriginal(plan.subject);
   const currentPrice = pricing.getSubjectCurrent(plan.subject);
+  const requiresManualQuote = pricing.manualQuoteSubjects?.includes(plan.subject);
   const isBonus = Boolean(plan.isBonus);
   return (
     <section className="detail-course-overview">
@@ -5207,10 +5209,10 @@ function CourseDetailOverview({ product, plan, subjects }) {
           </div>
         </div>
         <div className="detail-course-price">
-          {isBonus ? <del>正课加赠</del> : <del>原价 ¥{formatPrice(originalPrice)}</del>}
-          <span>{isBonus ? plan.bonusType : "到手价"}</span>
-          <strong>¥{formatPrice(isBonus ? 0 : currentPrice)}</strong>
-          <em>/科</em>
+          {isBonus ? <del>正课加赠</del> : requiresManualQuote ? <del>生物单科 ¥{formatPrice(currentPrice)}</del> : <del>原价 ¥{formatPrice(originalPrice)}</del>}
+          <span>{isBonus ? plan.bonusType : requiresManualQuote ? "联报价格" : "到手价"}</span>
+          <strong>{requiresManualQuote ? "请单独计算" : `¥${formatPrice(isBonus ? 0 : currentPrice)}`}</strong>
+          {requiresManualQuote ? null : <em>/科</em>}
         </div>
       </header>
       <div className="detail-course-metrics">

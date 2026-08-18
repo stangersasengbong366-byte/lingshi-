@@ -58,6 +58,7 @@ test("纯文综组合全部按一口价，不触发非文综阶梯", () => {
 test("高一秋冬衔接卡生物采用4200原价、2700实付独立体系", () => {
   const product = {
     grade: "高一",
+    stage: "秋冬衔接卡",
     pricing: { originalPerSubject: 5600, singlePerSubject: 4580, twoPerSubject: 4380, threePlusPerSubject: 4080 },
     humanitiesPricing: { originalPerSubject: 4200, fixedPerSubject: 2700 },
     humanitiesSubjects: ["生物", "历史", "地理", "政治"],
@@ -65,4 +66,21 @@ test("高一秋冬衔接卡生物采用4200原价、2700实付独立体系", () 
   const pricing = getProductPricing(product, ["生物"]);
   assert.equal(pricing.originalTotal, 4200);
   assert.equal(pricing.currentTotal, 2700);
+});
+
+test("高一秋冬衔接卡常规科参与联报，生物联报时不计入总价", () => {
+  const product = {
+    grade: "高一",
+    stage: "秋冬衔接卡",
+    pricing: { originalPerSubject: 5600, singlePerSubject: 4580, twoPerSubject: 4380, threePlusPerSubject: 4080 },
+    humanitiesPricing: { originalPerSubject: 4200, fixedPerSubject: 2700 },
+    humanitiesSubjects: ["生物", "历史", "地理", "政治"],
+  };
+  const pricing = getProductPricing(product, ["数学", "化学", "生物"]);
+  assert.equal(pricing.currentTotal, 8760);
+  assert.equal(pricing.originalTotal, 11200);
+  assert.equal(pricing.getSubjectCurrent("数学"), 4380);
+  assert.equal(pricing.getSubjectCurrent("生物"), 2700);
+  assert.equal(pricing.needsManualBiologyQuote, true);
+  assert.deepEqual(pricing.manualQuoteSubjects, ["生物"]);
 });
