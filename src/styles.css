@@ -2236,6 +2236,20 @@ textarea {
   font-weight: 800;
 }
 
+.reference-price-card .price-basis-alert {
+  display: block;
+  width: fit-content;
+  margin-top: 12px;
+  padding: 6px 9px;
+  color: #713f12;
+  background: #fef3c7;
+  border: 1px solid rgba(253, 230, 138, 0.9);
+  border-radius: 7px;
+  font-size: 13px;
+  line-height: 1.35;
+  font-weight: 900;
+}
+
 .reference-price-card > p {
   display: flex;
   margin: 14px 0 0;

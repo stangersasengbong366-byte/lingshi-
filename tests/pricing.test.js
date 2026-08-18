@@ -84,3 +84,16 @@ test("高一秋冬衔接卡常规科参与联报，生物联报时不计入总�
   assert.equal(pricing.needsManualBiologyQuote, true);
   assert.deepEqual(pricing.manualQuoteSubjects, ["生物"]);
 });
+
+test("高一秋冬衔接卡数学加生物时，价格卡明确标注数学单科价", () => {
+  const product = {
+    grade: "高一",
+    stage: "秋冬衔接卡",
+    pricing: { originalPerSubject: 5600, singlePerSubject: 4580, twoPerSubject: 4380, threePlusPerSubject: 4080 },
+    humanitiesPricing: { originalPerSubject: 4200, fixedPerSubject: 2700 },
+    humanitiesSubjects: ["生物", "历史", "地理", "政治"],
+  };
+  const pricing = getProductPricing(product, ["数学", "生物"]);
+  assert.equal(pricing.currentTotal, 4580);
+  assert.equal(pricing.priceBasisLabel, "¥4,580 为数学单科到手价");
+});

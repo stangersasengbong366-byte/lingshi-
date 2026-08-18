@@ -57,6 +57,13 @@ export function getProductPricing(product, subjectsOrCount) {
       getSubjectCurrent: (subject) => subject === "生物" ? biologyCurrent : selectedPerSubject,
       needsManualBiologyQuote,
       manualQuoteSubjects: needsManualBiologyQuote ? ["生物"] : [],
+      priceBasisLabel: needsManualBiologyQuote
+        ? standardSubjects.length === 1
+          ? `¥${selectedPerSubject.toLocaleString("zh-CN")} 为${standardSubjects[0]}单科到手价`
+          : `当前总价仅含${standardSubjects.join("、")}联报名价格`
+        : isBiologyOnly
+          ? `生物单科一口价 ¥${biologyCurrent.toLocaleString("zh-CN")}`
+          : "",
       pricingNotice: needsManualBiologyQuote
         ? "生物不适用于联报名价格计算体系，请老师单独计算。"
         : isBiologyOnly

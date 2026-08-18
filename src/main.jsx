@@ -3945,6 +3945,7 @@ function SummaryBenefitLayout({ product, plans, giftPlan, physicalGiftItems, sub
 
           <aside className="reference-price-card">
             <span>{getProductDisplayStage(product)} · {selectedSubjectLabel}</span>
+            {pricing.priceBasisLabel ? <b className="price-basis-alert">{pricing.priceBasisLabel}</b> : null}
             <p>原价 <del>¥{formatPrice(originalTotal)}</del><em>限时优惠</em></p>
             <strong>¥{formatPrice(pricing.currentTotal)}</strong>
             <small>已选 {subjects.length} 科：{subjects.join("、")}</small>
