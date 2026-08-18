@@ -72,6 +72,7 @@ import { mergeCloudProductChanges } from "./domain/productMerge";
 import { isPublicEntrySearch } from "./domain/accessRules";
 import { resolveProductCourseLibrary } from "./domain/courseLibraryRules";
 import { applyVideoPhaseLimits } from "./domain/coursePhaseRules";
+import { filterVideoRowsByTrack, normalizeVideoTrack } from "./domain/videoTrackRules";
 import { getSaleableSubjects, getVideoAvailabilityOverride } from "./domain/productSubjectRules";
 import {
   getGiftRuleThreshold,
@@ -1892,14 +1893,13 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onDelete, onUpd
   };
 
   const updateGiftOverride = (key, field, value) => {
-    const current = draft.giftOverrides?.[key] ?? {};
-    setDraft({
-      ...draft,
+    setDraft((currentDraft) => ({
+      ...currentDraft,
       giftOverrides: {
-        ...(draft.giftOverrides ?? {}),
-        [key]: { ...current, [field]: value },
+        ...(currentDraft.giftOverrides ?? {}),
+        [key]: { ...(currentDraft.giftOverrides?.[key] ?? {}), [field]: value },
       },
-    });
+    }));
   };
 
   const handleUploadName = async (slot, event) => {
@@ -3067,7 +3067,12 @@ function GiftOutlineTable({ items, selectedKeys, expandedKey, uploadNames, onTog
                   <label className="gift-edit-image">
                     {getGiftImage(item) ? <img src={assetUrl(getGiftImage(item))} alt="" /> : <ImagePlus size={22} />}
                     <span>点击替换赠课配图</span>
-                    <input type="file" accept="image/png,image/jpeg,image/webp" onChange={(event) => onImageChange(key, event.target.files?.[0])} />
+                    <input type="file" accept="image/png,image/jpeg,image/webp" onChange={(event) => {
+                      const input = event.currentTarget;
+                      const file = input.files?.[0];
+                      onImageChange(key, file);
+                      input.value = "";
+                    }} />
                   </label>
                   <strong>重新上传课程明细</strong>
                   <span>可替换为新的九科表格；名称、价值也可以直接在左侧修改。</span>
@@ -4763,23 +4768,6 @@ function resolveParsedCoursePlan(product, subject, profile, forcedPhases, videoT
   };
 }
 
-function filterVideoRowsByTrack(rows, videoTrack) {
-  const normalizedRows = rows.map((row) => ({ ...row, normalizedTrack: normalizeVideoTrack(row.layered) }));
-  const hasExplicitTracks = normalizedRows.some((row) => row.normalizedTrack === "目标班" || row.normalizedTrack === "菁英班");
-  if (!hasExplicitTracks) return rows;
-
-  return normalizedRows
-    .filter((row) => row.normalizedTrack === "通用" || row.normalizedTrack === videoTrack)
-    .map(({ normalizedTrack, ...row }) => row);
-}
-
-function normalizeVideoTrack(value) {
-  const label = String(value || "").trim();
-  if (/目标/.test(label)) return "目标班";
-  if (/菁英|精英/.test(label)) return "菁英班";
-  return "通用";
-}
-
 function phaseMatches(phase, selectedPhases) {
   if (!String(phase || "").trim()) return !selectedPhases?.length;
   if (!selectedPhases?.length) return true;
@@ -5104,10 +5092,9 @@ function getGiftDisplayName(item) {
 }
 
 function getGiftImage(item) {
-  const libraryImage = getGiftLibraryMatch(item)?.image;
-  if (libraryImage) return libraryImage;
-  if (/^(data:|blob:|https?:)/.test(item?.image || "")) return item.image;
-  return item?.image || "";
+  // 后台上传图属于显式覆盖，必须优先于系统素材库默认图。
+  if (item?.image) return item.image;
+  return getGiftLibraryMatch(item)?.image || "";
 }
 
 function decorateGiftItem(item, extra = {}) {
@@ -5848,18 +5835,14 @@ function buildShareSnapshotProducts(products, selectedProduct) {
   const selectedOverrides = Object.fromEntries(
     Object.entries(selectedProduct.giftOverrides ?? {})
       .filter(([key]) => !selectedKeys.length || selectedKeys.includes(key))
-      .map(([key, override]) => {
-        const itemName = override?.name || key.replace(/^[^-]+-/, "");
-        const libraryImage = getGiftLibraryMatch({ ...override, name: itemName })?.image;
-        return [key, libraryImage ? { ...override, image: libraryImage } : override];
-      }),
+      .map(([key, override]) => [key, override]),
   );
   const compactItem = (item) => {
     const sourceKey = item._sourceKey || `${item.type}-${item.name}`;
     const overrideImage = selectedOverrides[sourceKey]?.image;
     const libraryImage = getGiftLibraryMatch(item)?.image;
-    const nextItem = { ...item, image: libraryImage || item.image || "" };
-    if (overrideImage && nextItem.image === overrideImage) delete nextItem.image;
+    const nextItem = { ...item, image: item.image || libraryImage || "" };
+    if (overrideImage) delete nextItem.image;
     return nextItem;
   };
   const selectedSnapshot = {
