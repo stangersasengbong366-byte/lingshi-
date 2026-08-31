@@ -128,6 +128,10 @@ function loadStoredProducts() {
   return storedProductsCache;
 }
 
+function loadBundledFallbackProducts() {
+  return initialProducts.map(migrateStoredProduct);
+}
+
 function migrateStoredProduct(product) {
   const isG1Autumn = String(product.grade).includes("高一") && `${product.stage}${product.name}`.includes("秋实");
   const migrated = isG1Autumn && product.productProfileVersion !== "2026-07-17-authoritative-v1" ? {
@@ -762,10 +766,20 @@ function App() {
       })
       .catch((error) => {
         console.error("Supabase产品读取失败", error);
-        setProducts([]);
-        setSelectedProductId(undefined);
-        setSyncStatus(error?.isMissingTable ? "Supabase数据表未创建" : `Supabase连接失败：${error?.message || "请检查网络或密钥"}`);
-        setCloudLoadState("error");
+        // Supabase 被限流或临时不可用时，销售端继续展示随版本发布的基础配置。
+        // 此分支只读，不保存回 localStorage，更不会覆盖云端正式/草稿配置。
+        const fallbackProducts = loadBundledFallbackProducts();
+        const selectableProducts = publicView
+          ? fallbackProducts.filter((product) => product.status === "在售")
+          : fallbackProducts;
+        setProducts(fallbackProducts);
+        setSelectedProductId((current) => (
+          selectableProducts.some((product) => product.id === current)
+            ? current
+            : selectableProducts[0]?.id
+        ));
+        setSyncStatus("Supabase 暂不可用，当前使用随页面发布的基础配置（只读）");
+        setCloudLoadState("fallback");
       });
     return () => {
       cancelled = true;
@@ -853,6 +867,10 @@ function App() {
   };
 
   const updateProduct = async (nextProduct) => {
+    if (cloudLoadState === "fallback") {
+      setSyncStatus("当前为基础配置只读模式；云端恢复或迁移完成前无法保存修改。");
+      return { cloudSaved: false, error: new Error("基础配置只读模式") };
+    }
     const nextProducts = products.map((item) => {
       if (item.id === nextProduct.id) return nextProduct;
       if (item.grade !== nextProduct.grade) return item;
@@ -896,6 +914,10 @@ function App() {
   };
 
   const publishProducts = async (nextProduct) => {
+    if (cloudLoadState === "fallback") {
+      setSyncStatus("当前为基础配置只读模式；云端恢复或迁移完成前无法发布。");
+      return;
+    }
     const nextProducts = nextProduct
       ? products.map((item) => (item.id === nextProduct.id ? nextProduct : item))
       : products;
@@ -907,6 +929,10 @@ function App() {
   };
 
   const addProduct = async () => {
+    if (cloudLoadState === "fallback") {
+      setSyncStatus("当前为基础配置只读模式；云端恢复或迁移完成前无法新增产品。");
+      return null;
+    }
     const nextProduct = createNewProduct(selectedProduct);
     const nextProducts = [...products, nextProduct];
     setProducts(nextProducts);
@@ -930,6 +956,10 @@ function App() {
   };
 
   const deleteProduct = async (productId) => {
+    if (cloudLoadState === "fallback") {
+      setSyncStatus("当前为基础配置只读模式；云端恢复或迁移完成前无法删除产品。");
+      return;
+    }
     const target = products.find((product) => product.id === productId);
     if (!target) return;
     if (products.length <= 1) {
