@@ -29,6 +29,7 @@ import {
   Upload,
 } from "lucide-react";
 import { initialProducts, moduleLibrary } from "./data/products";
+import { publishedProductSnapshot } from "./data/publishedProductSnapshot";
 import { courseCatalog, courseSubjects } from "./data/courseCatalog";
 import { giftCatalog } from "./data/giftCatalog";
 import { teachingAids as bundledTeachingAids } from "./data/teachingAidCatalog";
@@ -124,16 +125,17 @@ function loadStoredProducts() {
   try {
     const stored = JSON.parse(window.localStorage.getItem(PRODUCTS_STORAGE_KEY) || "[]");
     storedProductsCache = !Array.isArray(stored) || !stored.length
-      ? initialProducts.map(migrateStoredProduct)
+      ? loadBundledFallbackProducts()
       : stored.map(migrateStoredProduct);
   } catch {
-    storedProductsCache = initialProducts.map(migrateStoredProduct);
+    storedProductsCache = loadBundledFallbackProducts();
   }
   return storedProductsCache;
 }
 
 function loadBundledFallbackProducts() {
-  return initialProducts.map(migrateStoredProduct);
+  const products = publishedProductSnapshot.length ? publishedProductSnapshot : initialProducts;
+  return products.map((product) => migrateStoredProduct(structuredClone(product)));
 }
 
 function migrateStoredProduct(product) {
