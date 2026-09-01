@@ -90,6 +90,7 @@ let storedProductsCache;
 const APP_BUILD_VERSION = __APP_BUILD_VERSION__;
 const VERSION_RELOAD_KEY = "youdao-benefits-version-reload";
 const ADMIN_ACCESS_SESSION_KEY = "youdao-benefits-admin-access";
+const ADMIN_ACCESS_PASSWORD_SESSION_KEY = "youdao-benefits-admin-write-password";
 const ADMIN_ACCESS_PASSWORD_HASH = "8cc7e8cb6aee0f3833a012e019c4812150ed9a8a958610bed305eda827576042";
 
 async function hashAccessPassword(value) {
@@ -411,6 +412,26 @@ async function loadCloudProducts(configId) {
 }
 
 async function saveCloudProducts(products, configId = CLOUD_PRODUCTS_DRAFT_ID) {
+  if (cloudProductsEnabled) {
+    let password;
+    try {
+      password = window.sessionStorage.getItem(ADMIN_ACCESS_PASSWORD_SESSION_KEY);
+    } catch {
+      password = null;
+    }
+    if (!password) throw new Error("请刷新后重新输入后台密码，再保存配置");
+    const compactProducts = products.map(compactProductCourseData);
+    const response = await fetch(`${CLOUDFLARE_CONFIG_API_URL}/configs/${encodeURIComponent(configId)}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Admin-Password": password,
+      },
+      body: JSON.stringify({ products: compactProducts, version: Date.now() }),
+    });
+    if (!response.ok) throw await createCloudError(response, "Cloudflare产品配置保存失败");
+    return;
+  }
   if (!cloudConfigEnabled) throw new Error("云端配置未连接");
   const compactProducts = products.map(compactProductCourseData);
   const response = await fetch(`${SUPABASE_URL}/rest/v1/${CLOUD_CONFIG_TABLE}?on_conflict=id`, {
@@ -430,6 +451,17 @@ async function saveCloudProducts(products, configId = CLOUD_PRODUCTS_DRAFT_ID) {
 }
 
 async function saveCloudProductChanges(nextProducts, { upsertIds = [], deleteIds = [], configIds = [] }) {
+  if (cloudProductsEnabled) {
+    let mergedDraft = null;
+    for (const configId of configIds) {
+      const latestProducts = await loadCloudProducts(configId);
+      if (!latestProducts) throw new Error(`${configId} Cloudflare产品配置不存在`);
+      const mergedProducts = mergeCloudProductChanges(latestProducts, nextProducts, { upsertIds, deleteIds });
+      await saveCloudProducts(mergedProducts, configId);
+      if (configId === CLOUD_PRODUCTS_DRAFT_ID) mergedDraft = mergedProducts;
+    }
+    return mergedDraft;
+  }
   const changedProducts = nextProducts.filter((product) => upsertIds.includes(product.id));
   const uploadedGrades = new Set();
   for (const product of changedProducts) {
@@ -777,7 +809,7 @@ function App() {
         if (!publicView) saveStoredProducts(nextProducts);
         setSelectedProductId((current) => selectableProducts.some((product) => product.id === current) ? current : selectableProducts[0]?.id);
         setSyncStatus(cloudProductsEnabled
-          ? "Cloudflare 基础配置已同步（只读）"
+          ? "Cloudflare 配置已同步"
           : publicView ? "Supabase正式版已同步" : "Supabase草稿已同步");
         setCloudLoadState("ready");
       })
@@ -884,7 +916,7 @@ function App() {
   };
 
   const updateProduct = async (nextProduct) => {
-    if (cloudLoadState === "fallback" || cloudProductsEnabled) {
+    if (cloudLoadState === "fallback") {
       setSyncStatus("当前为基础配置只读模式；云端恢复或迁移完成前无法保存修改。");
       return { cloudSaved: false, error: new Error("基础配置只读模式") };
     }
@@ -931,7 +963,7 @@ function App() {
   };
 
   const publishProducts = async (nextProduct) => {
-    if (cloudLoadState === "fallback" || cloudProductsEnabled) {
+    if (cloudLoadState === "fallback") {
       setSyncStatus("当前为基础配置只读模式；云端恢复或迁移完成前无法发布。");
       return;
     }
@@ -946,7 +978,7 @@ function App() {
   };
 
   const addProduct = async () => {
-    if (cloudLoadState === "fallback" || cloudProductsEnabled) {
+    if (cloudLoadState === "fallback") {
       setSyncStatus("当前为基础配置只读模式；云端恢复或迁移完成前无法新增产品。");
       return null;
     }
@@ -973,7 +1005,7 @@ function App() {
   };
 
   const deleteProduct = async (productId) => {
-    if (cloudLoadState === "fallback" || cloudProductsEnabled) {
+    if (cloudLoadState === "fallback") {
       setSyncStatus("当前为基础配置只读模式；云端恢复或迁移完成前无法删除产品。");
       return;
     }
@@ -1004,12 +1036,12 @@ function App() {
     }
   };
 
-  if (cloudConfigEnabled && cloudLoadState === "loading" && !shortCode) {
-    return <main className="public-empty-state"><strong>正在同步 Supabase</strong><span>正在读取最新产品、价格、课时与课程大纲，请稍候。</span></main>;
+  if ((cloudProductsEnabled || cloudConfigEnabled) && cloudLoadState === "loading" && !shortCode) {
+    return <main className="public-empty-state"><strong>正在同步 {cloudProductsEnabled ? "Cloudflare" : "Supabase"}</strong><span>正在读取最新产品、价格、课时与课程大纲，请稍候。</span></main>;
   }
 
-  if (cloudConfigEnabled && cloudLoadState === "error" && !shortCode) {
-    return <main className="public-empty-state"><strong>Supabase 云端连接失败</strong><span>为避免展示旧数据，当前已停止使用本地缓存，请刷新后重试。</span></main>;
+  if ((cloudProductsEnabled || cloudConfigEnabled) && cloudLoadState === "error" && !shortCode) {
+    return <main className="public-empty-state"><strong>{cloudProductsEnabled ? "Cloudflare" : "Supabase"} 云端连接失败</strong><span>为避免展示旧数据，当前已停止使用本地缓存，请刷新后重试。</span></main>;
   }
 
   if (shortLinkStatus === "loading") {
@@ -1109,6 +1141,7 @@ function AdminAccessGate({ onAuthorized }) {
     }
     try {
       window.sessionStorage.setItem(ADMIN_ACCESS_SESSION_KEY, "authorized");
+      window.sessionStorage.setItem(ADMIN_ACCESS_PASSWORD_SESSION_KEY, password);
     } catch {
       // 隐私模式下仍允许本次页面会话进入，刷新后需要重新验证。
     }
@@ -1152,7 +1185,8 @@ function RootApp() {
   const [authorized, setAuthorized] = useState(() => {
     if (isPublicEntry) return true;
     try {
-      return window.sessionStorage.getItem(ADMIN_ACCESS_SESSION_KEY) === "authorized";
+      return window.sessionStorage.getItem(ADMIN_ACCESS_SESSION_KEY) === "authorized"
+        && Boolean(window.sessionStorage.getItem(ADMIN_ACCESS_PASSWORD_SESSION_KEY));
     } catch {
       return false;
     }
