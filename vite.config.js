@@ -26,6 +26,11 @@ export default defineConfig({
       output: {
         manualChunks(id) {
           if (id.includes("/node_modules/html2canvas/")) return "html2canvas";
+          // 课程底表体积较大，拆离首屏应用代码，便于浏览器并行下载和长期缓存。
+          if (id.includes("/src/data/annualCourseLibrary.js")) return "annual-course-library";
+          if (id.includes("/src/data/courseCatalog.js")) return "course-catalog";
+          if (id.includes("/src/data/g1AutumnCourseData.js")) return "g1-autumn-course-data";
+          if (id.includes("/src/data/g1AutumnGiftData.js")) return "g1-autumn-gift-data";
           return undefined;
         },
         chunkFileNames(chunkInfo) {

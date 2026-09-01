@@ -60,7 +60,6 @@ import {
   CLOUD_PRODUCTS_LEGACY_ID,
   CLOUD_PRODUCTS_PUBLISHED_ID,
   CLOUD_SHORT_LINK_PREFIX,
-  CLOUD_TEACHING_AIDS_ID,
   CLOUD_TEACHING_AID_PREFIX,
   CLOUD_VISIT_PREFIX,
   cloudConfigEnabled,
@@ -490,22 +489,12 @@ async function loadCloudTeachingAids(grade, subjects = []) {
   const normalizedSubjects = [...new Set(subjects)].sort();
   const cacheKey = `${grade}|${normalizedSubjects.join("|") || "*"}`;
   if (teachingAidRequestCache.has(cacheKey)) return teachingAidRequestCache.get(cacheKey);
-  if (cloudProductsEnabled) {
-    const request = fetch(`${CLOUDFLARE_CONFIG_API_URL}/configs/${CLOUD_TEACHING_AIDS_ID}`, { cache: "force-cache" })
-      .then(async (response) => {
-        if (!response.ok) throw await createCloudError(response, "Cloudflare 教辅读取失败");
-        const payload = await response.json();
-        const items = Array.isArray(payload?.payload?.items) ? payload.payload.items : [];
-        return items.filter((item) => item?.grade === grade && item?.subject && item?.name
-          && (!subjects.length || subjects.includes(item.subject)));
-      })
-      .catch((error) => {
-        teachingAidRequestCache.delete(cacheKey);
-        throw error;
-      });
-    teachingAidRequestCache.set(cacheKey, request);
-    return request;
-  }
+  // 教辅图片随 GitHub Pages 一起发布。Cloudflare KV 只保存可编辑的产品配置，
+  // 避免每次打开页面再为静态教辅目录发起一次无效的数据库请求。
+  if (cloudProductsEnabled) return bundledTeachingAids.filter((item) => (
+    item?.grade === grade && item?.subject && item?.name
+      && (!subjects.length || subjects.includes(item.subject))
+  ));
   const subjectFilter = subjects.length
     ? `&payload-%3E%3Esubject=in.(${subjects.map(encodeURIComponent).join(",")})`
     : "";
@@ -640,6 +629,9 @@ function App() {
   const fallbackShareParams = shortCode ? getShareParams() : null;
   const directShareParams = shortCode ? null : getShareParams();
   const salesOnly = getSalesOnlyMode();
+  // 销售/运营入口可以先用随版本发布的基础配置渲染，再静默获取最新配置；
+  // 只有用户专属分享页必须等待云端，以免短链错误地展示成默认产品。
+  const isShareEntry = Boolean(shortCode || fallbackShareParams || directShareParams);
   const [shareParams, setShareParams] = useState(fallbackShareParams ?? directShareParams);
   const [shortLinkStatus, setShortLinkStatus] = useState(shortCode && !fallbackShareParams ? "loading" : "ready");
   const publicView = Boolean(shareParams || shortCode || salesOnly);
@@ -654,7 +646,9 @@ function App() {
   const [teachingAids, setTeachingAids] = useState(bundledTeachingAids);
   const [usageCount, setUsageCount] = useState(null);
   const [salesFeedback, setSalesFeedback] = useState([]);
-  const [cloudLoadState, setCloudLoadState] = useState(cloudProductsEnabled || cloudConfigEnabled ? "loading" : "ready");
+  const [cloudLoadState, setCloudLoadState] = useState(() => (
+    (cloudProductsEnabled || cloudConfigEnabled) && isShareEntry ? "loading" : "ready"
+  ));
   const activeProducts = useMemo(() => products.filter((item) => item.status === "在售"), [products]);
   const availableProducts = !publicView && activePage === "admin" ? products : activeProducts;
   const isCustomerShare = Boolean(shortCode || shareParams);
@@ -1302,7 +1296,7 @@ function AppHeader({ activePage, onPageChange, syncStatus, salesOnly }) {
           <span>销售选择产品后，自动生成用户可读清单</span>
         </div>
       </div>
-      <div className={cloudConfigEnabled ? "cloud-status enabled" : "cloud-status"}>
+      <div className={cloudProductsEnabled || cloudConfigEnabled ? "cloud-status enabled" : "cloud-status"}>
         {syncStatus}
       </div>
       {!salesOnly ? <nav className="page-tabs" aria-label="页面切换">
@@ -2359,7 +2353,7 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onDelete, onUpd
             <strong>{syncStatus}</strong>
             <span>点击“保存并同步”后，配置会同时写入云端正式版本；销售和家长链接刷新后即可看到最新内容。</span>
           </div>
-          <em>{cloudConfigEnabled ? "Supabase 已配置" : "仅本地模式"}</em>
+          <em>{cloudProductsEnabled ? "Cloudflare KV 已连接" : cloudConfigEnabled ? "Supabase 已配置" : "仅本地模式"}</em>
           {syncStatus.includes("数据表未创建") ? (
             <button type="button" onClick={copySupabaseSchema}>
               {schemaCopied ? "建表内容已复制" : "复制一次性建表内容"}
