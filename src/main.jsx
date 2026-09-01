@@ -62,6 +62,8 @@ import {
   CLOUD_TEACHING_AID_PREFIX,
   CLOUD_VISIT_PREFIX,
   cloudConfigEnabled,
+  cloudProductsEnabled,
+  CLOUDFLARE_CONFIG_API_URL,
   PRODUCTS_STORAGE_KEY,
   PUBLIC_SITE_URL,
   SUPABASE_ANON_KEY,
@@ -379,6 +381,19 @@ async function saveCloudGradeCourseLibrary(product) {
 }
 
 async function loadCloudProducts(configId) {
+  if (cloudProductsEnabled) {
+    const response = await fetch(`${CLOUDFLARE_CONFIG_API_URL}/configs/${encodeURIComponent(configId)}`, {
+      cache: "no-store",
+    });
+    if (!response.ok) throw await createCloudError(response, "Cloudflare产品配置读取失败");
+    const record = await response.json();
+    const products = Array.isArray(record?.payload?.products) ? record.payload.products : record?.payload;
+    if (!Array.isArray(products)) return null;
+    return products.map((product) => normalizeProductShape({
+      ...product,
+      ...resolveProductCourseLibrary(product, null, annualCourseLibrary[product.grade]),
+    }));
+  }
   if (!cloudConfigEnabled) return null;
   const response = await fetch(`${SUPABASE_URL}/rest/v1/${CLOUD_CONFIG_TABLE}?id=eq.${encodeURIComponent(configId)}&select=id,payload,updated_at&limit=1`, {
     headers: getSupabaseHeaders(),
@@ -580,7 +595,7 @@ function App() {
   const publicView = Boolean(shareParams || shortCode || salesOnly);
   const [activePage, setActivePage] = useState(() => salesOnly ? "sales" : "admin");
   const [products, setProducts] = useState(loadStoredProducts);
-  const [syncStatus, setSyncStatus] = useState(cloudConfigEnabled ? "正在同步云端配置" : "本地配置");
+  const [syncStatus, setSyncStatus] = useState(cloudProductsEnabled || cloudConfigEnabled ? "正在同步云端配置" : "本地配置");
   const [selectedProductId, setSelectedProductId] = useState(() => shareParams?.productId ?? loadStoredProducts()[0]?.id ?? initialProducts[0].id);
   const [selectedSubjects, setSelectedSubjects] = useState(() => shareParams?.subjects ?? [shareParams?.subject ?? "数学"]);
   const [selectedBonusSubjects, setSelectedBonusSubjects] = useState(() => shareParams?.bonusSubjects ?? []);
@@ -588,7 +603,7 @@ function App() {
   const [teachingAids, setTeachingAids] = useState([]);
   const [usageCount, setUsageCount] = useState(null);
   const [salesFeedback, setSalesFeedback] = useState([]);
-  const [cloudLoadState, setCloudLoadState] = useState(cloudConfigEnabled ? "loading" : "ready");
+  const [cloudLoadState, setCloudLoadState] = useState(cloudProductsEnabled || cloudConfigEnabled ? "loading" : "ready");
   const activeProducts = useMemo(() => products.filter((item) => item.status === "在售"), [products]);
   const availableProducts = !publicView && activePage === "admin" ? products : activeProducts;
   const isCustomerShare = Boolean(shortCode || shareParams);
@@ -692,7 +707,7 @@ function App() {
   }, [selectedProduct?.id, selectedProduct?.grade, selectedProduct?.stage, selectedProduct?.name, selectedSubjects.join("|")]);
 
   React.useEffect(() => {
-    if (!cloudConfigEnabled || !selectedProduct?.grade) return undefined;
+    if (!cloudConfigEnabled || cloudProductsEnabled || !selectedProduct?.grade) return undefined;
     let cancelled = false;
     let frameId = 0;
     let timerId = 0;
@@ -739,7 +754,7 @@ function App() {
   }, [shareParams?.viewMode]);
 
   React.useEffect(() => {
-    if (!cloudConfigEnabled) return undefined;
+    if (!cloudProductsEnabled && !cloudConfigEnabled) return undefined;
     if (shortCode && shortLinkStatus === "loading") return undefined;
     if (shortCode && Array.isArray(shareParams?.products) && shareParams.products.length) return undefined;
     let cancelled = false;
@@ -761,11 +776,13 @@ function App() {
         setProducts(nextProducts);
         if (!publicView) saveStoredProducts(nextProducts);
         setSelectedProductId((current) => selectableProducts.some((product) => product.id === current) ? current : selectableProducts[0]?.id);
-        setSyncStatus(publicView ? "Supabase正式版已同步" : "Supabase草稿已同步");
+        setSyncStatus(cloudProductsEnabled
+          ? "Cloudflare 基础配置已同步（只读）"
+          : publicView ? "Supabase正式版已同步" : "Supabase草稿已同步");
         setCloudLoadState("ready");
       })
       .catch((error) => {
-        console.error("Supabase产品读取失败", error);
+        console.error("云端产品读取失败", error);
         // Supabase 被限流或临时不可用时，销售端继续展示随版本发布的基础配置。
         // 此分支只读，不保存回 localStorage，更不会覆盖云端正式/草稿配置。
         const fallbackProducts = loadBundledFallbackProducts();
@@ -778,7 +795,7 @@ function App() {
             ? current
             : selectableProducts[0]?.id
         ));
-        setSyncStatus("Supabase 暂不可用，当前使用随页面发布的基础配置（只读）");
+        setSyncStatus("云端暂不可用，当前使用随页面发布的基础配置（只读）");
         setCloudLoadState("fallback");
       });
     return () => {
@@ -787,7 +804,7 @@ function App() {
   }, [publicView, shortCode, shortLinkStatus, shareParams?.productId]);
 
   React.useEffect(() => {
-    if (!cloudConfigEnabled || !selectedProduct?.grade) return undefined;
+    if (!cloudConfigEnabled || cloudProductsEnabled || !selectedProduct?.grade) return undefined;
     let cancelled = false;
     const grade = selectedProduct.grade;
     loadCloudGradeCourseLibrary(grade)
@@ -808,7 +825,7 @@ function App() {
   }, [selectedProduct?.grade]);
 
   React.useEffect(() => {
-    if (!cloudConfigEnabled || !selectedProduct?.id) return undefined;
+    if (!cloudConfigEnabled || cloudProductsEnabled || !selectedProduct?.id) return undefined;
     let cancelled = false;
     const productId = selectedProduct.id;
     loadCloudProductMedia(productId)
@@ -823,7 +840,7 @@ function App() {
   }, [selectedProduct?.id]);
 
   React.useEffect(() => {
-    if (!cloudConfigEnabled) return undefined;
+    if (!cloudConfigEnabled || cloudProductsEnabled) return undefined;
     let cancelled = false;
     const sessionKey = "youdao-benefits-visit-recorded";
     const refreshUsage = async () => {
@@ -848,7 +865,7 @@ function App() {
   }, []);
 
   React.useEffect(() => {
-    if (!cloudConfigEnabled || activePage !== "admin" || publicView) return undefined;
+    if (!cloudConfigEnabled || cloudProductsEnabled || activePage !== "admin" || publicView) return undefined;
     let cancelled = false;
     loadCloudFeedback()
       .then((items) => !cancelled && setSalesFeedback(items))
@@ -867,7 +884,7 @@ function App() {
   };
 
   const updateProduct = async (nextProduct) => {
-    if (cloudLoadState === "fallback") {
+    if (cloudLoadState === "fallback" || cloudProductsEnabled) {
       setSyncStatus("当前为基础配置只读模式；云端恢复或迁移完成前无法保存修改。");
       return { cloudSaved: false, error: new Error("基础配置只读模式") };
     }
@@ -914,7 +931,7 @@ function App() {
   };
 
   const publishProducts = async (nextProduct) => {
-    if (cloudLoadState === "fallback") {
+    if (cloudLoadState === "fallback" || cloudProductsEnabled) {
       setSyncStatus("当前为基础配置只读模式；云端恢复或迁移完成前无法发布。");
       return;
     }
@@ -929,7 +946,7 @@ function App() {
   };
 
   const addProduct = async () => {
-    if (cloudLoadState === "fallback") {
+    if (cloudLoadState === "fallback" || cloudProductsEnabled) {
       setSyncStatus("当前为基础配置只读模式；云端恢复或迁移完成前无法新增产品。");
       return null;
     }
@@ -956,7 +973,7 @@ function App() {
   };
 
   const deleteProduct = async (productId) => {
-    if (cloudLoadState === "fallback") {
+    if (cloudLoadState === "fallback" || cloudProductsEnabled) {
       setSyncStatus("当前为基础配置只读模式；云端恢复或迁移完成前无法删除产品。");
       return;
     }
