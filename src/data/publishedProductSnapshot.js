@@ -211,10 +211,10 @@ export const publishedProductSnapshot = [
     "giftOverrides": {
       "赠课-高一暑期学法知识汇总": {
         "detail": "升高一暑期衔接内容，筑牢基础",
-        "image": "cloud-media:root.giftOverrides.赠课-高一暑期学法知识汇总.image"
+        "image": "/assets/gifts/summer-review.jpg"
       },
       "赠课-新高一入门知识精讲": {
-        "image": "cloud-media:root.giftOverrides.赠课-新高一入门知识精讲.image"
+        "image": "/assets/gifts/freshman-foundation.jpg"
       }
     }
   },
@@ -480,7 +480,7 @@ export const publishedProductSnapshot = [
         "name": "高二 暑期学法知识汇总 ",
         "lessonCount": "10节 2h/节",
         "displayOrder": 1,
-        "image": "cloud-media:root.giftOverrides.赠课-暑期学法知识汇总 - 高二.image",
+        "image": "/assets/gifts/summer-review.jpg",
         "detail": "升高二 完整暑期学法直播内容，助力升学筑牢基础"
       }
     },
@@ -1016,14 +1016,14 @@ export const publishedProductSnapshot = [
         "lessonCount": "非文综30节；文综20节",
         "displayOrder": 1,
         "detail": "对应高二年级核心知识内容",
-        "image": "cloud-media:root.giftOverrides.赠课-高二核心知识点_按科目拆分_仅课程大纲 (1).image"
+        "image": "/assets/gifts/summer-review.jpg"
       },
       "赠课-高三0轮核心学法精讲_按科目拆分_仅课程大纲": {
         "name": "高三0轮核心学法精讲",
         "value": "399",
         "lessonCount": "4节-2h/节",
         "displayOrder": 2,
-        "image": "cloud-media:root.giftOverrides.赠课-高三0轮核心学法精讲_按科目拆分_仅课程大纲.image",
+        "image": "/assets/gifts/summer-review.jpg",
         "detail": "对应学科赠课",
         "rule": "买即赠对应学科",
         "subjectCourses": {
@@ -1088,7 +1088,7 @@ export const publishedProductSnapshot = [
         "mainContent": "1、轻松备战高三的指导说明\n2、正面管教孩子的娱乐诱惑\n3、科学衡量孩子的模考结果\n4、高效学习策略告别孩子拖延症\n5、适应性的应考训练指南\n6、改善亲子关系全攻略",
         "detail": "6节 2h/节",
         "lessonCount": "6节 2h/节",
-        "image": "cloud-media:root.giftOverrides.赠课-高三家长成长计划.image"
+        "image": "/assets/gifts/parent-growth-plan.jpg"
       }
     },
     "salesNote": "",
@@ -1097,4 +1097,3 @@ export const publishedProductSnapshot = [
     "customPhysicalGiftItems": []
   }
 ];
-

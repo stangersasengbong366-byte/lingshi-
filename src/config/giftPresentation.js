@@ -5,7 +5,7 @@ export const giftCategoryMeta = {
 };
 
 export const giftImageLibrary = [
-  { names: ["暑期学法知识视频包", "暑期重难点精华课"], category: "学科类赠课", image: "/assets/gifts/summer-review.jpg" },
+  { names: ["暑期学法知识视频包", "暑期重难点精华课", "高一暑期学法知识汇总", "暑期学法知识汇总 - 高二", "高二核心知识点", "高三0轮核心学法精讲"], category: "学科类赠课", image: "/assets/gifts/summer-review.jpg" },
   { names: ["新高一入门知识精讲", "入门知识精讲"], category: "学科类赠课", image: "/assets/gifts/freshman-foundation.jpg" },
   { names: ["高一选科宝典", "选科宝典"], category: "升学赋能包", image: "/assets/gifts/subject-selection-guide.jpg" },
   { names: ["高一家长成长计划", "家长成长计划"], category: "升学赋能包", image: "/assets/gifts/parent-growth-plan.jpg" },

@@ -5207,7 +5207,9 @@ function getGiftDisplayName(item) {
 
 function getGiftImage(item) {
   // 后台上传图属于显式覆盖，必须优先于系统素材库默认图。
-  if (item?.image) return item.image;
+  // 旧 Supabase 已下线时会遗留 cloud-media 引用；该引用在其他设备上无法访问，
+  // 必须降级为随 GitHub Pages 发布的稳定素材，不能渲染为空白卡片。
+  if (item?.image && !String(item.image).startsWith("cloud-media:")) return item.image;
   return getGiftLibraryMatch(item)?.image || "";
 }
 
