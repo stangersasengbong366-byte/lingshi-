@@ -1,4 +1,4 @@
-export const annualCourseLibraryVersion = "2026-2027-v5";
+export const annualCourseLibraryVersion = "2026-2027-v6";
 
 export const annualCourseLibrary = {
   "高一": {
@@ -9975,7 +9975,7 @@ export const annualCourseLibrary = {
           "annualNo": 26
         },
         {
-          "id": "uploaded-live-67",
+          "id": "uploaded-live-70",
           "no": 27,
           "grade": "高二",
           "quarter": "寒假",
@@ -9990,7 +9990,7 @@ export const annualCourseLibrary = {
           "annualNo": 27
         },
         {
-          "id": "uploaded-live-68",
+          "id": "uploaded-live-71",
           "no": 28,
           "grade": "高二",
           "quarter": "寒假",
@@ -10005,7 +10005,7 @@ export const annualCourseLibrary = {
           "annualNo": 28
         },
         {
-          "id": "uploaded-live-69",
+          "id": "uploaded-live-72",
           "no": 29,
           "grade": "高二",
           "quarter": "寒假",
@@ -10020,7 +10020,7 @@ export const annualCourseLibrary = {
           "annualNo": 29
         },
         {
-          "id": "uploaded-live-70",
+          "id": "uploaded-live-73",
           "no": 30,
           "grade": "高二",
           "quarter": "寒假",
@@ -10035,7 +10035,7 @@ export const annualCourseLibrary = {
           "annualNo": 30
         },
         {
-          "id": "uploaded-live-71",
+          "id": "uploaded-live-74",
           "no": 31,
           "grade": "高二",
           "quarter": "寒假",
@@ -10050,7 +10050,7 @@ export const annualCourseLibrary = {
           "annualNo": 31
         },
         {
-          "id": "uploaded-live-72",
+          "id": "uploaded-live-75",
           "no": 32,
           "grade": "高二",
           "quarter": "寒假",
@@ -10065,7 +10065,7 @@ export const annualCourseLibrary = {
           "annualNo": 32
         },
         {
-          "id": "uploaded-live-73",
+          "id": "uploaded-live-76",
           "no": 33,
           "grade": "高二",
           "quarter": "寒假",
@@ -10080,7 +10080,7 @@ export const annualCourseLibrary = {
           "annualNo": 33
         },
         {
-          "id": "uploaded-live-74",
+          "id": "uploaded-live-77",
           "no": 34,
           "grade": "高二",
           "quarter": "寒假",
@@ -10095,7 +10095,7 @@ export const annualCourseLibrary = {
           "annualNo": 34
         },
         {
-          "id": "uploaded-live-75",
+          "id": "uploaded-live-78",
           "no": 35,
           "grade": "高二",
           "quarter": "寒假",
@@ -10110,7 +10110,7 @@ export const annualCourseLibrary = {
           "annualNo": 35
         },
         {
-          "id": "uploaded-live-76",
+          "id": "uploaded-live-79",
           "no": 36,
           "grade": "高二",
           "quarter": "寒假",
@@ -10123,6 +10123,246 @@ export const annualCourseLibrary = {
           "title": "【综合提升】融会贯通：语文能力融合进阶与升级",
           "live": "【综合提升】融会贯通：语文能力融合进阶与升级",
           "annualNo": 36
+        },
+        {
+          "id": "uploaded-live-80",
+          "no": 37,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "2月27日 18:00-20:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【古诗进阶II】诗理入微：诗歌鉴赏机理解析",
+          "live": "【古诗进阶II】诗理入微：诗歌鉴赏机理解析",
+          "annualNo": 37
+        },
+        {
+          "id": "uploaded-live-81",
+          "no": 38,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "3月6日 18:00-20:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【古诗进阶II】意象密码：诗歌核心符号系统精析",
+          "live": "【古诗进阶II】意象密码：诗歌核心符号系统精析",
+          "annualNo": 38
+        },
+        {
+          "id": "uploaded-live-82",
+          "no": 39,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "3月13日 18:00-20:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【小说进阶II】叙事迷宫：小说叙事结构解构与拓展",
+          "live": "【小说进阶II】叙事迷宫：小说叙事结构解构与拓展",
+          "annualNo": 39
+        },
+        {
+          "id": "uploaded-live-83",
+          "no": 40,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "3月20日 18:00-20:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【小说进阶II】思接千载：小说认知图式深化与进阶",
+          "live": "【小说进阶II】思接千载：小说认知图式深化与进阶",
+          "annualNo": 40
+        },
+        {
+          "id": "uploaded-live-84",
+          "no": 41,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "3月27日 18:00-20:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【文言进阶II】语法经纬：文言语法矩阵解析与解码",
+          "live": "【文言进阶II】语法经纬：文言语法矩阵解析与解码",
+          "annualNo": 41
+        },
+        {
+          "id": "uploaded-live-85",
+          "no": 42,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "4月3日 18:00-20:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【文言进阶II】古今通译：文言文本阐释系统化整合",
+          "live": "【文言进阶II】古今通译：文言文本阐释系统化整合",
+          "annualNo": 42
+        },
+        {
+          "id": "uploaded-live-86",
+          "no": 43,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "4月10日 18:00-20:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【写作进阶II】文质彬彬：写作表达范式精淬与重构",
+          "live": "【写作进阶II】文质彬彬：写作表达范式精淬与重构",
+          "annualNo": 43
+        },
+        {
+          "id": "uploaded-live-87",
+          "no": 44,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "4月17日 18:00-20:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【写作进阶II】立意高远：文本架构策略与升华心法",
+          "live": "【写作进阶II】立意高远：文本架构策略与升华心法",
+          "annualNo": 44
+        },
+        {
+          "id": "uploaded-live-88",
+          "no": 45,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "4月24日 18:00-20:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【散文进阶II】形神兼备：散文核心维度研习与构建",
+          "live": "【散文进阶II】形神兼备：散文核心维度研习与构建",
+          "annualNo": 45
+        },
+        {
+          "id": "uploaded-live-89",
+          "no": 46,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月1日 18:00-20:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【散文进阶II】文心雕龙：散文专项路径与认知升维",
+          "live": "【散文进阶II】文心雕龙：散文专项路径与认知升维",
+          "annualNo": 46
+        },
+        {
+          "id": "uploaded-live-90",
+          "no": 47,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月3日 18:00-20:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【语用进阶II】符号密码：语言符号运作机理与迁移",
+          "live": "【语用进阶II】符号密码：语言符号运作机理与迁移",
+          "annualNo": 47
+        },
+        {
+          "id": "uploaded-live-91",
+          "no": 48,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月15日 18:00-20:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【语用进阶II】触类旁通：语用能力整合与迁移应用",
+          "live": "【语用进阶II】触类旁通：语用能力整合与迁移应用",
+          "annualNo": 48
+        },
+        {
+          "id": "uploaded-live-92",
+          "no": 49,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月22日 18:00-20:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【写作进阶II】精益求精：写作技巧分项精进与突破",
+          "live": "【写作进阶II】精益求精：写作技巧分项精进与突破",
+          "annualNo": 49
+        },
+        {
+          "id": "uploaded-live-93",
+          "no": 50,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月29日 18:00-20:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【写作进阶II】出神入化：创作思维高阶演化与迭代",
+          "live": "【写作进阶II】出神入化：创作思维高阶演化与迭代",
+          "annualNo": 50
+        },
+        {
+          "id": "uploaded-live-94",
+          "no": 51,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "6月5日 18:00-20:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【综合提升】知行合一：知识谱系重构与范式熔铸·上",
+          "live": "【综合提升】知行合一：知识谱系重构与范式熔铸·上",
+          "annualNo": 51
+        },
+        {
+          "id": "uploaded-live-95",
+          "no": 52,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "6月12日 18:00-20:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【综合提升】知行合一：知识谱系重构与范式熔铸·下",
+          "live": "【综合提升】知行合一：知识谱系重构与范式熔铸·下",
+          "annualNo": 52
         }
       ],
       "数学": [
@@ -10520,45 +10760,45 @@ export const annualCourseLibrary = {
           "id": "uploaded-live-67",
           "no": 27,
           "grade": "高二",
-          "quarter": "寒假",
+          "quarter": "秋季",
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "1月29日 15:30-17:30",
+          "phase1": "",
           "phase2": "",
           "phase3": "",
-          "title": "导数的概念与几何意义",
-          "live": "导数的概念与几何意义",
+          "title": "【高二】2026年1-6月学习指南（数学）",
+          "live": "【高二】2026年1-6月学习指南（数学）",
           "annualNo": 27
         },
         {
           "id": "uploaded-live-68",
           "no": 28,
           "grade": "高二",
-          "quarter": "寒假",
+          "quarter": "秋季",
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "1月30日 15:30-17:30",
+          "phase1": "",
           "phase2": "",
           "phase3": "",
-          "title": "导数的计算",
-          "live": "导数的计算",
+          "title": "高二数学期末复习规划—上篇",
+          "live": "高二数学期末复习规划—上篇",
           "annualNo": 28
         },
         {
           "id": "uploaded-live-69",
           "no": 29,
           "grade": "高二",
-          "quarter": "寒假",
+          "quarter": "秋季",
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "1月31日 15:30-17:30",
+          "phase1": "",
           "phase2": "",
           "phase3": "",
-          "title": "导数与函数的单调性、极值（上）",
-          "live": "导数与函数的单调性、极值（上）",
+          "title": "高二数学期末复习规划—下篇",
+          "live": "高二数学期末复习规划—下篇",
           "annualNo": 29
         },
         {
@@ -10569,11 +10809,11 @@ export const annualCourseLibrary = {
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "2月1日 15:30-17:30",
+          "phase1": "1月29日 15:30-17:30",
           "phase2": "",
           "phase3": "",
-          "title": "导数与函数的单调性、极值（下）",
-          "live": "导数与函数的单调性、极值（下）",
+          "title": "导数的概念与几何意义",
+          "live": "导数的概念与几何意义",
           "annualNo": 30
         },
         {
@@ -10584,11 +10824,11 @@ export const annualCourseLibrary = {
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "2月2日 15:30-17:30",
+          "phase1": "1月30日 15:30-17:30",
           "phase2": "",
           "phase3": "",
-          "title": "函数的极值与最值",
-          "live": "函数的极值与最值",
+          "title": "导数的计算",
+          "live": "导数的计算",
           "annualNo": 31
         },
         {
@@ -10599,11 +10839,11 @@ export const annualCourseLibrary = {
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "2月3日 15:30-17:30",
+          "phase1": "1月31日 15:30-17:30",
           "phase2": "",
           "phase3": "",
-          "title": "导数的应用",
-          "live": "导数的应用",
+          "title": "导数与函数的单调性、极值（上）",
+          "live": "导数与函数的单调性、极值（上）",
           "annualNo": 32
         },
         {
@@ -10614,11 +10854,11 @@ export const annualCourseLibrary = {
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "2月4日 15:30-17:30",
+          "phase1": "2月1日 15:30-17:30",
           "phase2": "",
           "phase3": "",
-          "title": "基本计数原理",
-          "live": "基本计数原理",
+          "title": "导数与函数的单调性、极值（下）",
+          "live": "导数与函数的单调性、极值（下）",
           "annualNo": 33
         },
         {
@@ -10629,11 +10869,11 @@ export const annualCourseLibrary = {
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "2月10日 15:30-17:30",
+          "phase1": "2月2日 15:30-17:30",
           "phase2": "",
           "phase3": "",
-          "title": "排列组合初步",
-          "live": "排列组合初步",
+          "title": "函数的极值与最值",
+          "live": "函数的极值与最值",
           "annualNo": 34
         },
         {
@@ -10644,11 +10884,11 @@ export const annualCourseLibrary = {
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "2月11日 15:30-17:30",
+          "phase1": "2月3日 15:30-17:30",
           "phase2": "",
           "phase3": "",
-          "title": "二项式定理初步",
-          "live": "二项式定理初步",
+          "title": "导数的应用",
+          "live": "导数的应用",
           "annualNo": 35
         },
         {
@@ -10659,12 +10899,297 @@ export const annualCourseLibrary = {
           "date": "",
           "time": "",
           "early": "",
+          "phase1": "2月4日 15:30-17:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "基本计数原理",
+          "live": "基本计数原理",
+          "annualNo": 36
+        },
+        {
+          "id": "uploaded-live-77",
+          "no": 37,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "2月10日 15:30-17:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "排列组合初步",
+          "live": "排列组合初步",
+          "annualNo": 37
+        },
+        {
+          "id": "uploaded-live-78",
+          "no": 38,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "2月11日 15:30-17:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "二项式定理初步",
+          "live": "二项式定理初步",
+          "annualNo": 38
+        },
+        {
+          "id": "uploaded-live-79",
+          "no": 39,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
           "phase1": "2月12日 15:30-17:30",
           "phase2": "",
           "phase3": "",
           "title": "综合复习",
           "live": "综合复习",
-          "annualNo": 36
+          "annualNo": 39
+        },
+        {
+          "id": "uploaded-live-80",
+          "no": 40,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "2月27日 15:30-17:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "导数运算与几何意义进阶",
+          "live": "导数运算与几何意义进阶",
+          "annualNo": 40
+        },
+        {
+          "id": "uploaded-live-81",
+          "no": 41,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "3月6日 15:30-17:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "函数的单调性进阶",
+          "live": "函数的单调性进阶",
+          "annualNo": 41
+        },
+        {
+          "id": "uploaded-live-82",
+          "no": 42,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "3月13日 15:30-17:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "利用参变分离法研究零点与恒成立问题",
+          "live": "利用参变分离法研究零点与恒成立问题",
+          "annualNo": 42
+        },
+        {
+          "id": "uploaded-live-83",
+          "no": 43,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "3月20日 15:30-17:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "复杂恒成立问题",
+          "live": "复杂恒成立问题",
+          "annualNo": 43
+        },
+        {
+          "id": "uploaded-live-84",
+          "no": 44,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "3月27日 15:30-17:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "导数选择填空提升",
+          "live": "导数选择填空提升",
+          "annualNo": 44
+        },
+        {
+          "id": "uploaded-live-85",
+          "no": 45,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "4月3日 15:30-17:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "排列组合1",
+          "live": "排列组合1",
+          "annualNo": 45
+        },
+        {
+          "id": "uploaded-live-86",
+          "no": 46,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "4月10日 15:30-17:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "排列组合2",
+          "live": "排列组合2",
+          "annualNo": 46
+        },
+        {
+          "id": "uploaded-live-87",
+          "no": 47,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "4月17日 15:30-17:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "二项式定理进阶",
+          "live": "二项式定理进阶",
+          "annualNo": 47
+        },
+        {
+          "id": "uploaded-live-88",
+          "no": 48,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "4月24日 15:30-17:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "条件概率和全概率公式",
+          "live": "条件概率和全概率公式",
+          "annualNo": 48
+        },
+        {
+          "id": "uploaded-live-89",
+          "no": 49,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月1日 15:30-17:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "离散型随机变量及其数字特征",
+          "live": "离散型随机变量及其数字特征",
+          "annualNo": 49
+        },
+        {
+          "id": "uploaded-live-90",
+          "no": 50,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月3日 15:30-17:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "随机变量的经典分布",
+          "live": "随机变量的经典分布",
+          "annualNo": 50
+        },
+        {
+          "id": "uploaded-live-91",
+          "no": 51,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月15日 15:30-17:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "统计综合",
+          "live": "统计综合",
+          "annualNo": 51
+        },
+        {
+          "id": "uploaded-live-92",
+          "no": 52,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月22日 15:30-17:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "零轮复习之基本函数与运算",
+          "live": "零轮复习之基本函数与运算",
+          "annualNo": 52
+        },
+        {
+          "id": "uploaded-live-93",
+          "no": 53,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月29日 15:30-17:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "零轮复习之解不等式",
+          "live": "零轮复习之解不等式",
+          "annualNo": 53
+        },
+        {
+          "id": "uploaded-live-94",
+          "no": 54,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "6月5日 15:30-17:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "零轮复习之逻辑转化与化归能力",
+          "live": "零轮复习之逻辑转化与化归能力",
+          "annualNo": 54
+        },
+        {
+          "id": "uploaded-live-95",
+          "no": 55,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "6月12日 15:30-17:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "综合复习",
+          "live": "综合复习",
+          "annualNo": 55
         }
       ],
       "英语": [
@@ -11062,45 +11587,45 @@ export const annualCourseLibrary = {
           "id": "uploaded-live-66",
           "no": 27,
           "grade": "高二",
-          "quarter": "寒假",
+          "quarter": "秋季",
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "1月29日 20:30-22:30",
+          "phase1": "",
           "phase2": "",
           "phase3": "",
-          "title": "【一轮复习】语法：基础知识填坑",
-          "live": "【一轮复习】语法：基础知识填坑",
+          "title": "【高二】2027年1-6月英语学习指南",
+          "live": "【高二】2027年1-6月英语学习指南",
           "annualNo": 27
         },
         {
           "id": "uploaded-live-67",
           "no": 28,
           "grade": "高二",
-          "quarter": "寒假",
+          "quarter": "秋季",
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "1月30日 20:30-22:30",
+          "phase1": "",
           "phase2": "",
           "phase3": "",
-          "title": "【一轮复习】语法：高频考点扫雷",
-          "live": "【一轮复习】语法：高频考点扫雷",
+          "title": "【高二上】英语期末复习规划--上篇",
+          "live": "【高二上】英语期末复习规划--上篇",
           "annualNo": 28
         },
         {
           "id": "uploaded-live-68",
           "no": 29,
           "grade": "高二",
-          "quarter": "寒假",
+          "quarter": "秋季",
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "1月31日 20:30-22:30",
+          "phase1": "",
           "phase2": "",
           "phase3": "",
-          "title": "【一轮复习】语法：能力验收",
-          "live": "【一轮复习】语法：能力验收",
+          "title": "【高二上】英语期末复习规划--下篇",
+          "live": "【高二上】英语期末复习规划--下篇",
           "annualNo": 29
         },
         {
@@ -11111,11 +11636,11 @@ export const annualCourseLibrary = {
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "2月1日 20:30-22:30",
+          "phase1": "1月29日 20:30-22:30",
           "phase2": "",
           "phase3": "",
-          "title": "【一轮复习】完形记叙文：脉络构筑",
-          "live": "【一轮复习】完形记叙文：脉络构筑",
+          "title": "【一轮复习】语法：基础知识填坑",
+          "live": "【一轮复习】语法：基础知识填坑",
           "annualNo": 30
         },
         {
@@ -11126,11 +11651,11 @@ export const annualCourseLibrary = {
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "2月2日 20:30-22:30",
+          "phase1": "1月30日 20:30-22:30",
           "phase2": "",
           "phase3": "",
-          "title": "【一轮复习】完形记叙文：难点解码",
-          "live": "【一轮复习】完形记叙文：难点解码",
+          "title": "【一轮复习】语法：高频考点扫雷",
+          "live": "【一轮复习】语法：高频考点扫雷",
           "annualNo": 31
         },
         {
@@ -11141,11 +11666,11 @@ export const annualCourseLibrary = {
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "2月3日 20:30-22:30",
+          "phase1": "1月31日 20:30-22:30",
           "phase2": "",
           "phase3": "",
-          "title": "【一轮复习】完形记叙文：速度升华",
-          "live": "【一轮复习】完形记叙文：速度升华",
+          "title": "【一轮复习】语法：能力验收",
+          "live": "【一轮复习】语法：能力验收",
           "annualNo": 32
         },
         {
@@ -11156,11 +11681,11 @@ export const annualCourseLibrary = {
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "2月4日 20:30-22:30",
+          "phase1": "2月1日 20:30-22:30",
           "phase2": "",
           "phase3": "",
-          "title": "【一轮复习】完形记叙文：能力验收",
-          "live": "【一轮复习】完形记叙文：能力验收",
+          "title": "【一轮复习】完形记叙文：脉络构筑",
+          "live": "【一轮复习】完形记叙文：脉络构筑",
           "annualNo": 33
         },
         {
@@ -11171,11 +11696,11 @@ export const annualCourseLibrary = {
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "2月10日 20:30-22:30",
+          "phase1": "2月2日 20:30-22:30",
           "phase2": "",
           "phase3": "",
-          "title": "【一轮复习】应用文：最新考情速递1",
-          "live": "【一轮复习】应用文：最新考情速递1",
+          "title": "【一轮复习】完形记叙文：难点解码",
+          "live": "【一轮复习】完形记叙文：难点解码",
           "annualNo": 34
         },
         {
@@ -11186,11 +11711,11 @@ export const annualCourseLibrary = {
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "2月11日 20:30-22:30",
+          "phase1": "2月3日 20:30-22:30",
           "phase2": "",
           "phase3": "",
-          "title": "【一轮复习】应用文：最新考情速递2",
-          "live": "【一轮复习】应用文：最新考情速递2",
+          "title": "【一轮复习】完形记叙文：速度升华",
+          "live": "【一轮复习】完形记叙文：速度升华",
           "annualNo": 35
         },
         {
@@ -11201,12 +11726,297 @@ export const annualCourseLibrary = {
           "date": "",
           "time": "",
           "early": "",
+          "phase1": "2月4日 20:30-22:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "【一轮复习】完形记叙文：能力验收",
+          "live": "【一轮复习】完形记叙文：能力验收",
+          "annualNo": 36
+        },
+        {
+          "id": "uploaded-live-76",
+          "no": 37,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "2月10日 20:30-22:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "【一轮复习】应用文：最新考情速递1",
+          "live": "【一轮复习】应用文：最新考情速递1",
+          "annualNo": 37
+        },
+        {
+          "id": "uploaded-live-77",
+          "no": 38,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "2月11日 20:30-22:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "【一轮复习】应用文：最新考情速递2",
+          "live": "【一轮复习】应用文：最新考情速递2",
+          "annualNo": 38
+        },
+        {
+          "id": "uploaded-live-78",
+          "no": 39,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
           "phase1": "2月12日 20:30-22:30",
           "phase2": "",
           "phase3": "",
           "title": "【一轮复习】读后续写：能力提升",
           "live": "【一轮复习】读后续写：能力提升",
-          "annualNo": 36
+          "annualNo": 39
+        },
+        {
+          "id": "uploaded-live-79",
+          "no": 40,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "2月28日 8:00-10:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【一轮复习】应用文：综合训练1",
+          "live": "【一轮复习】应用文：综合训练1",
+          "annualNo": 40
+        },
+        {
+          "id": "uploaded-live-80",
+          "no": 41,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "3月7日 8:00-10:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【一轮复习】应用文：综合训练2",
+          "live": "【一轮复习】应用文：综合训练2",
+          "annualNo": 41
+        },
+        {
+          "id": "uploaded-live-81",
+          "no": 42,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "3月14日 8:00-10:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【一轮复习】读后续写：新题速递1",
+          "live": "【一轮复习】读后续写：新题速递1",
+          "annualNo": 42
+        },
+        {
+          "id": "uploaded-live-82",
+          "no": 43,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "3月21日 8:00-10:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【一轮复习】读后续写：新题速递2",
+          "live": "【一轮复习】读后续写：新题速递2",
+          "annualNo": 43
+        },
+        {
+          "id": "uploaded-live-83",
+          "no": 44,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "3月28日 8:00-10:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【一轮复习】阅读：结构拆解1",
+          "live": "【一轮复习】阅读：结构拆解1",
+          "annualNo": 44
+        },
+        {
+          "id": "uploaded-live-84",
+          "no": 45,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "4月4日 8:00-10:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【一轮复习】阅读：结构拆解2",
+          "live": "【一轮复习】阅读：结构拆解2",
+          "annualNo": 45
+        },
+        {
+          "id": "uploaded-live-85",
+          "no": 46,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "4月11日 8:00-10:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【一轮复习】阅读：结构拆解3",
+          "live": "【一轮复习】阅读：结构拆解3",
+          "annualNo": 46
+        },
+        {
+          "id": "uploaded-live-86",
+          "no": 47,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "4月18日 8:00-10:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【一轮复习】阅读：综合验收",
+          "live": "【一轮复习】阅读：综合验收",
+          "annualNo": 47
+        },
+        {
+          "id": "uploaded-live-87",
+          "no": 48,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "4月25日 8:00-10:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【一轮复习】完形说明文：深度解析",
+          "live": "【一轮复习】完形说明文：深度解析",
+          "annualNo": 48
+        },
+        {
+          "id": "uploaded-live-88",
+          "no": 49,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月2日 8:00-10:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【一轮复习】完形说明文：难点解码",
+          "live": "【一轮复习】完形说明文：难点解码",
+          "annualNo": 49
+        },
+        {
+          "id": "uploaded-live-89",
+          "no": 50,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月4日 8:00-10:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【一轮复习】完形说明文：速度升华",
+          "live": "【一轮复习】完形说明文：速度升华",
+          "annualNo": 50
+        },
+        {
+          "id": "uploaded-live-90",
+          "no": 51,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月16日 8:00-10:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【一轮复习】完形说明文：能力验收",
+          "live": "【一轮复习】完形说明文：能力验收",
+          "annualNo": 51
+        },
+        {
+          "id": "uploaded-live-91",
+          "no": 52,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月23日 8:00-10:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【一轮复习】7选5：说明文",
+          "live": "【一轮复习】7选5：说明文",
+          "annualNo": 52
+        },
+        {
+          "id": "uploaded-live-92",
+          "no": 53,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月30日 8:00-10:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【一轮复习】7选5：记叙文",
+          "live": "【一轮复习】7选5：记叙文",
+          "annualNo": 53
+        },
+        {
+          "id": "uploaded-live-93",
+          "no": 54,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "6月6日 8:00-10:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【一轮复习】综合模拟1",
+          "live": "【一轮复习】综合模拟1",
+          "annualNo": 54
+        },
+        {
+          "id": "uploaded-live-94",
+          "no": 55,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "6月13日 8:00-10:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【一轮复习】综合模拟2",
+          "live": "【一轮复习】综合模拟2",
+          "annualNo": 55
         }
       ],
       "物理": [
@@ -11604,45 +12414,45 @@ export const annualCourseLibrary = {
           "id": "uploaded-live-67",
           "no": 27,
           "grade": "高二",
-          "quarter": "寒假",
+          "quarter": "秋季",
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "1月29日 13:00-15:00",
+          "phase1": "",
           "phase2": "",
           "phase3": "",
-          "title": "感生电动势",
-          "live": "感生电动势",
+          "title": "【高二】2027年1-6月学习指南（物理）",
+          "live": "【高二】2027年1-6月学习指南（物理）",
           "annualNo": 27
         },
         {
           "id": "uploaded-live-68",
           "no": 28,
           "grade": "高二",
-          "quarter": "寒假",
+          "quarter": "秋季",
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "1月30日 13:00-15:00",
+          "phase1": "",
           "phase2": "",
           "phase3": "",
-          "title": "动生电动势",
-          "live": "动生电动势",
+          "title": "高二物理期末复习规划—上篇",
+          "live": "高二物理期末复习规划—上篇",
           "annualNo": 28
         },
         {
           "id": "uploaded-live-69",
           "no": 29,
           "grade": "高二",
-          "quarter": "寒假",
+          "quarter": "秋季",
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "1月31日 13:00-15:00",
+          "phase1": "",
           "phase2": "",
           "phase3": "",
-          "title": "交变电流",
-          "live": "交变电流",
+          "title": "高二物理期末复习规划—下篇",
+          "live": "高二物理期末复习规划—下篇",
           "annualNo": 29
         },
         {
@@ -11653,11 +12463,11 @@ export const annualCourseLibrary = {
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "2月1日 13:00-15:00",
+          "phase1": "1月29日 13:00-15:00",
           "phase2": "",
           "phase3": "",
-          "title": "远距离输电",
-          "live": "远距离输电",
+          "title": "感生电动势",
+          "live": "感生电动势",
           "annualNo": 30
         },
         {
@@ -11668,11 +12478,11 @@ export const annualCourseLibrary = {
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "2月2日 13:00-15:00",
+          "phase1": "1月30日 13:00-15:00",
           "phase2": "",
           "phase3": "",
-          "title": "机械振动",
-          "live": "机械振动",
+          "title": "动生电动势",
+          "live": "动生电动势",
           "annualNo": 31
         },
         {
@@ -11683,11 +12493,11 @@ export const annualCourseLibrary = {
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "2月3日 13:00-15:00",
+          "phase1": "1月31日 13:00-15:00",
           "phase2": "",
           "phase3": "",
-          "title": "机械波",
-          "live": "机械波",
+          "title": "交变电流",
+          "live": "交变电流",
           "annualNo": 32
         },
         {
@@ -11698,11 +12508,11 @@ export const annualCourseLibrary = {
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "2月4日 13:00-15:00",
+          "phase1": "2月1日 13:00-15:00",
           "phase2": "",
           "phase3": "",
-          "title": "几何光学",
-          "live": "几何光学",
+          "title": "远距离输电",
+          "live": "远距离输电",
           "annualNo": 33
         },
         {
@@ -11713,11 +12523,11 @@ export const annualCourseLibrary = {
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "2月10日 13:00-15:00",
+          "phase1": "2月2日 13:00-15:00",
           "phase2": "",
           "phase3": "",
-          "title": "物理光学",
-          "live": "物理光学",
+          "title": "机械振动",
+          "live": "机械振动",
           "annualNo": 34
         },
         {
@@ -11728,11 +12538,11 @@ export const annualCourseLibrary = {
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "2月11日 13:00-15:00",
+          "phase1": "2月3日 13:00-15:00",
           "phase2": "",
           "phase3": "",
-          "title": "热学",
-          "live": "热学",
+          "title": "机械波",
+          "live": "机械波",
           "annualNo": 35
         },
         {
@@ -11743,12 +12553,297 @@ export const annualCourseLibrary = {
           "date": "",
           "time": "",
           "early": "",
+          "phase1": "2月4日 13:00-15:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "几何光学",
+          "live": "几何光学",
+          "annualNo": 36
+        },
+        {
+          "id": "uploaded-live-77",
+          "no": 37,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "2月10日 13:00-15:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "物理光学",
+          "live": "物理光学",
+          "annualNo": 37
+        },
+        {
+          "id": "uploaded-live-78",
+          "no": 38,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "2月11日 13:00-15:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "热学",
+          "live": "热学",
+          "annualNo": 38
+        },
+        {
+          "id": "uploaded-live-79",
+          "no": 39,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
           "phase1": "2月12日 13:00-15:00",
           "phase2": "",
           "phase3": "",
           "title": "原子物理学",
           "live": "原子物理学",
-          "annualNo": 36
+          "annualNo": 39
+        },
+        {
+          "id": "uploaded-live-80",
+          "no": 40,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "2月27日 20:30-22:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "电磁感应综合应用——无外力",
+          "live": "电磁感应综合应用——无外力",
+          "annualNo": 40
+        },
+        {
+          "id": "uploaded-live-81",
+          "no": 41,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "3月6日 20:30-22:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "电磁感应综合应用——有外力",
+          "live": "电磁感应综合应用——有外力",
+          "annualNo": 41
+        },
+        {
+          "id": "uploaded-live-82",
+          "no": 42,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "3月13日 20:30-22:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "交变电流综合问题",
+          "live": "交变电流综合问题",
+          "annualNo": 42
+        },
+        {
+          "id": "uploaded-live-83",
+          "no": 43,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "3月20日 20:30-22:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "变压器综合问题",
+          "live": "变压器综合问题",
+          "annualNo": 43
+        },
+        {
+          "id": "uploaded-live-84",
+          "no": 44,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "3月27日 20:30-22:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "机械振动综合问题",
+          "live": "机械振动综合问题",
+          "annualNo": 44
+        },
+        {
+          "id": "uploaded-live-85",
+          "no": 45,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "4月3日 20:30-22:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "机械波综合问题",
+          "live": "机械波综合问题",
+          "annualNo": 45
+        },
+        {
+          "id": "uploaded-live-86",
+          "no": 46,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "4月10日 20:30-22:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "光学综合问题1",
+          "live": "光学综合问题1",
+          "annualNo": 46
+        },
+        {
+          "id": "uploaded-live-87",
+          "no": 47,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "4月17日 20:30-22:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "光学综合问题2",
+          "live": "光学综合问题2",
+          "annualNo": 47
+        },
+        {
+          "id": "uploaded-live-88",
+          "no": 48,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "4月24日 20:30-22:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "气体实验定律典型问题",
+          "live": "气体实验定律典型问题",
+          "annualNo": 48
+        },
+        {
+          "id": "uploaded-live-89",
+          "no": 49,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月1日 20:30-22:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "理想气体状态方程典型问题",
+          "live": "理想气体状态方程典型问题",
+          "annualNo": 49
+        },
+        {
+          "id": "uploaded-live-90",
+          "no": 50,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月3日 20:30-22:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "波粒二象性及光电效应",
+          "live": "波粒二象性及光电效应",
+          "annualNo": 50
+        },
+        {
+          "id": "uploaded-live-91",
+          "no": 51,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月15日 20:30-22:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "原子结构与原子核",
+          "live": "原子结构与原子核",
+          "annualNo": 51
+        },
+        {
+          "id": "uploaded-live-92",
+          "no": 52,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月22日 20:30-22:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "直线运动1：运动公式",
+          "live": "直线运动1：运动公式",
+          "annualNo": 52
+        },
+        {
+          "id": "uploaded-live-93",
+          "no": 53,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月29日 20:30-22:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "直线运动2：运动图像",
+          "live": "直线运动2：运动图像",
+          "annualNo": 53
+        },
+        {
+          "id": "uploaded-live-94",
+          "no": 54,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "6月5日 20:30-22:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "相互作用1：受力分析",
+          "live": "相互作用1：受力分析",
+          "annualNo": 54
+        },
+        {
+          "id": "uploaded-live-95",
+          "no": 55,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "6月12日 20:30-22:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "相互作用2：动态平衡",
+          "live": "相互作用2：动态平衡",
+          "annualNo": 55
         }
       ],
       "化学": [
@@ -12146,45 +13241,45 @@ export const annualCourseLibrary = {
           "id": "uploaded-live-67",
           "no": 27,
           "grade": "高二",
-          "quarter": "寒假",
+          "quarter": "秋季",
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "1月29日 10:30-12:30",
-          "phase2": "",
-          "phase3": "",
-          "title": "反应原理复习",
-          "live": "反应原理复习",
+          "phase1": "",
+          "phase2": "/",
+          "phase3": "/",
+          "title": "【高二】2026年1-6月学习指南（化学）",
+          "live": "【高二】2026年1-6月学习指南（化学）",
           "annualNo": 27
         },
         {
           "id": "uploaded-live-68",
           "no": 28,
           "grade": "高二",
-          "quarter": "寒假",
+          "quarter": "秋季",
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "1月30日 10:30-12:30",
+          "phase1": "",
           "phase2": "",
           "phase3": "",
-          "title": "原子结构",
-          "live": "原子结构",
+          "title": "高二化学期末复习规划—上篇",
+          "live": "高二化学期末复习规划—上篇",
           "annualNo": 28
         },
         {
           "id": "uploaded-live-69",
           "no": 29,
           "grade": "高二",
-          "quarter": "寒假",
+          "quarter": "秋季",
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "1月31日 10:30-12:30",
+          "phase1": "",
           "phase2": "",
           "phase3": "",
-          "title": "元素周期律",
-          "live": "元素周期律",
+          "title": "高二化学期末复习规划—下篇",
+          "live": "高二化学期末复习规划—下篇",
           "annualNo": 29
         },
         {
@@ -12195,11 +13290,11 @@ export const annualCourseLibrary = {
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "2月1日 10:30-12:30",
+          "phase1": "1月29日 10:30-12:30",
           "phase2": "",
           "phase3": "",
-          "title": "VSEPR模型与杂化理论",
-          "live": "VSEPR模型与杂化理论",
+          "title": "反应原理复习",
+          "live": "反应原理复习",
           "annualNo": 30
         },
         {
@@ -12210,11 +13305,11 @@ export const annualCourseLibrary = {
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "2月2日 10:30-12:30",
+          "phase1": "1月30日 10:30-12:30",
           "phase2": "",
           "phase3": "",
-          "title": "化学键与分子性质",
-          "live": "化学键与分子性质",
+          "title": "原子结构",
+          "live": "原子结构",
           "annualNo": 31
         },
         {
@@ -12225,11 +13320,11 @@ export const annualCourseLibrary = {
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "2月3日 10:30-12:30",
+          "phase1": "1月31日 10:30-12:30",
           "phase2": "",
           "phase3": "",
-          "title": "晶体结构初步",
-          "live": "晶体结构初步",
+          "title": "元素周期律",
+          "live": "元素周期律",
           "annualNo": 32
         },
         {
@@ -12240,11 +13335,11 @@ export const annualCourseLibrary = {
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "2月4日 10:30-12:30",
+          "phase1": "2月1日 10:30-12:30",
           "phase2": "",
           "phase3": "",
-          "title": "晶胞与堆积",
-          "live": "晶胞与堆积",
+          "title": "VSEPR模型与杂化理论",
+          "live": "VSEPR模型与杂化理论",
           "annualNo": 33
         },
         {
@@ -12255,11 +13350,11 @@ export const annualCourseLibrary = {
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "2月10日 10:30-12:30",
+          "phase1": "2月2日 10:30-12:30",
           "phase2": "",
           "phase3": "",
-          "title": "有机物表示、不饱和度",
-          "live": "有机物表示、不饱和度",
+          "title": "化学键与分子性质",
+          "live": "化学键与分子性质",
           "annualNo": 34
         },
         {
@@ -12270,11 +13365,11 @@ export const annualCourseLibrary = {
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "2月11日 10:30-12:30",
+          "phase1": "2月3日 10:30-12:30",
           "phase2": "",
           "phase3": "",
-          "title": "有机物研究方法",
-          "live": "有机物研究方法",
+          "title": "晶体结构初步",
+          "live": "晶体结构初步",
           "annualNo": 35
         },
         {
@@ -12285,12 +13380,297 @@ export const annualCourseLibrary = {
           "date": "",
           "time": "",
           "early": "",
+          "phase1": "2月4日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "晶胞与堆积",
+          "live": "晶胞与堆积",
+          "annualNo": 36
+        },
+        {
+          "id": "uploaded-live-77",
+          "no": 37,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "2月10日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "有机物表示、不饱和度",
+          "live": "有机物表示、不饱和度",
+          "annualNo": 37
+        },
+        {
+          "id": "uploaded-live-78",
+          "no": 38,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "2月11日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "有机物研究方法",
+          "live": "有机物研究方法",
+          "annualNo": 38
+        },
+        {
+          "id": "uploaded-live-79",
+          "no": 39,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
           "phase1": "2月12日 10:30-12:30",
           "phase2": "",
           "phase3": "",
           "title": "等效氢、有机物命名",
           "live": "等效氢、有机物命名",
-          "annualNo": 36
+          "annualNo": 39
+        },
+        {
+          "id": "uploaded-live-80",
+          "no": 40,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "2月28日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "原子结构综合",
+          "live": "原子结构综合",
+          "annualNo": 40
+        },
+        {
+          "id": "uploaded-live-81",
+          "no": 41,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "3月7日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "分子结构综合",
+          "live": "分子结构综合",
+          "annualNo": 41
+        },
+        {
+          "id": "uploaded-live-82",
+          "no": 42,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "3月14日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "晶体结构综合",
+          "live": "晶体结构综合",
+          "annualNo": 42
+        },
+        {
+          "id": "uploaded-live-83",
+          "no": 43,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "3月21日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "烃类的性质",
+          "live": "烃类的性质",
+          "annualNo": 43
+        },
+        {
+          "id": "uploaded-live-84",
+          "no": 44,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "3月28日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "卤代烃、醇酚的性质",
+          "live": "卤代烃、醇酚的性质",
+          "annualNo": 44
+        },
+        {
+          "id": "uploaded-live-85",
+          "no": 45,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "4月4日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "醛酮的性质",
+          "live": "醛酮的性质",
+          "annualNo": 45
+        },
+        {
+          "id": "uploaded-live-86",
+          "no": 46,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "4月11日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "酸酯、酰胺的性质",
+          "live": "酸酯、酰胺的性质",
+          "annualNo": 46
+        },
+        {
+          "id": "uploaded-live-87",
+          "no": 47,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "4月18日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "有机实验",
+          "live": "有机实验",
+          "annualNo": 47
+        },
+        {
+          "id": "uploaded-live-88",
+          "no": 48,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "4月25日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "有机推断基础",
+          "live": "有机推断基础",
+          "annualNo": 48
+        },
+        {
+          "id": "uploaded-live-89",
+          "no": 49,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月2日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "有机推断进阶",
+          "live": "有机推断进阶",
+          "annualNo": 49
+        },
+        {
+          "id": "uploaded-live-90",
+          "no": 50,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月4日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "有机合成",
+          "live": "有机合成",
+          "annualNo": 50
+        },
+        {
+          "id": "uploaded-live-91",
+          "no": 51,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月16日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "有机结构强化训练",
+          "live": "有机结构强化训练",
+          "annualNo": 51
+        },
+        {
+          "id": "uploaded-live-92",
+          "no": 52,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月23日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "0轮复习（1）：氧化还原",
+          "live": "0轮复习（1）：氧化还原",
+          "annualNo": 52
+        },
+        {
+          "id": "uploaded-live-93",
+          "no": 53,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月30日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "0轮复习（2）：离子反应",
+          "live": "0轮复习（2）：离子反应",
+          "annualNo": 53
+        },
+        {
+          "id": "uploaded-live-94",
+          "no": 54,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "6月6日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "0轮复习（3）：阿伏加德罗常数",
+          "live": "0轮复习（3）：阿伏加德罗常数",
+          "annualNo": 54
+        },
+        {
+          "id": "uploaded-live-95",
+          "no": 55,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "6月13日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "0轮复习（4）：反应原理",
+          "live": "0轮复习（4）：反应原理",
+          "annualNo": 55
         }
       ],
       "生物": [
@@ -12685,14 +14065,14 @@ export const annualCourseLibrary = {
           "annualNo": 26
         },
         {
-          "id": "uploaded-live-67",
+          "id": "uploaded-live-70",
           "no": 27,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "1月29日 8:00-10:00",
+          "phase1": "1月29日 08:00-10:00",
           "phase2": "",
           "phase3": "",
           "title": "生态工程的“四把钥匙”——守护绿水青山",
@@ -12700,14 +14080,14 @@ export const annualCourseLibrary = {
           "annualNo": 27
         },
         {
-          "id": "uploaded-live-68",
+          "id": "uploaded-live-71",
           "no": 28,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "1月30日 8:00-10:00",
+          "phase1": "1月30日 08:00-10:00",
           "phase2": "",
           "phase3": "",
           "title": "罐坛里的“古法酿造”——传统发酵的智慧",
@@ -12715,14 +14095,14 @@ export const annualCourseLibrary = {
           "annualNo": 28
         },
         {
-          "id": "uploaded-live-69",
+          "id": "uploaded-live-72",
           "no": 29,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "1月31日 8:00-10:00",
+          "phase1": "1月31日 08:00-10:00",
           "phase2": "",
           "phase3": "",
           "title": "实验室的“微生摇篮”——微生物培养的规范",
@@ -12730,14 +14110,14 @@ export const annualCourseLibrary = {
           "annualNo": 29
         },
         {
-          "id": "uploaded-live-70",
+          "id": "uploaded-live-73",
           "no": 30,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "2月1日 8:00-10:00",
+          "phase1": "2月1日 08:00-10:00",
           "phase2": "",
           "phase3": "",
           "title": "实验室的“精准筛检”——微生物的筛选与计数",
@@ -12745,14 +14125,14 @@ export const annualCourseLibrary = {
           "annualNo": 30
         },
         {
-          "id": "uploaded-live-71",
+          "id": "uploaded-live-74",
           "no": 31,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "2月2日 8:00-10:00",
+          "phase1": "2月2日 08:00-10:00",
           "phase2": "",
           "phase3": "",
           "title": "工厂里的\"量产密码\"——发酵工程的升级",
@@ -12760,14 +14140,14 @@ export const annualCourseLibrary = {
           "annualNo": 31
         },
         {
-          "id": "uploaded-live-72",
+          "id": "uploaded-live-75",
           "no": 32,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "2月3日 8:00-10:00",
+          "phase1": "2月3日 08:00-10:00",
           "phase2": "",
           "phase3": "",
           "title": "植物细胞的“重生术”与“融合技”",
@@ -12775,14 +14155,14 @@ export const annualCourseLibrary = {
           "annualNo": 32
         },
         {
-          "id": "uploaded-live-73",
+          "id": "uploaded-live-76",
           "no": 33,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "2月4日 8:00-10:00",
+          "phase1": "2月4日 08:00-10:00",
           "phase2": "",
           "phase3": "",
           "title": "动物细胞的体外“殖养”",
@@ -12790,14 +14170,14 @@ export const annualCourseLibrary = {
           "annualNo": 33
         },
         {
-          "id": "uploaded-live-74",
+          "id": "uploaded-live-77",
           "no": 34,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "2月10日 8:00-10:00",
+          "phase1": "2月10日 08:00-10:00",
           "phase2": "",
           "phase3": "",
           "title": "动物细胞的“核移接”",
@@ -12805,14 +14185,14 @@ export const annualCourseLibrary = {
           "annualNo": 34
         },
         {
-          "id": "uploaded-live-75",
+          "id": "uploaded-live-78",
           "no": 35,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "2月11日 8:00-10:00",
+          "phase1": "2月11日 08:00-10:00",
           "phase2": "",
           "phase3": "",
           "title": "胚胎的成长轨迹发育原理",
@@ -12820,19 +14200,259 @@ export const annualCourseLibrary = {
           "annualNo": 35
         },
         {
-          "id": "uploaded-live-76",
+          "id": "uploaded-live-79",
           "no": 36,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "2月12日 8:00-10:00",
+          "phase1": "2月12日 08:00-10:00",
           "phase2": "",
           "phase3": "",
           "title": "胚胎的精准分身与着床之旅",
           "live": "胚胎的精准分身与着床之旅",
           "annualNo": 36
+        },
+        {
+          "id": "uploaded-live-80",
+          "no": 37,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "2月27日 10:00-12:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "从坛罐发酵到工厂量产",
+          "live": "从坛罐发酵到工厂量产",
+          "annualNo": 37
+        },
+        {
+          "id": "uploaded-live-81",
+          "no": 38,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "3月6日 10:00-12:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "微生物定向筛选与数量清点",
+          "live": "微生物定向筛选与数量清点",
+          "annualNo": 38
+        },
+        {
+          "id": "uploaded-live-82",
+          "no": 39,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "3月13日 10:00-12:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "克隆真是Ctrl+C和Ctrl+V吗？",
+          "live": "克隆真是Ctrl+C和Ctrl+V吗？",
+          "annualNo": 39
+        },
+        {
+          "id": "uploaded-live-83",
+          "no": 40,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "3月2日 10:00-12:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "抗体的\"精准制造\"与\"免疫检测\"",
+          "live": "抗体的\"精准制造\"与\"免疫检测\"",
+          "annualNo": 40
+        },
+        {
+          "id": "uploaded-live-84",
+          "no": 41,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "3月27日 10:00-12:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "基因手术三件利器",
+          "live": "基因手术三件利器",
+          "annualNo": 41
+        },
+        {
+          "id": "uploaded-live-85",
+          "no": 42,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "4月3日 10:00-12:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "给基因做手术的四步流程",
+          "live": "给基因做手术的四步流程",
+          "annualNo": 42
+        },
+        {
+          "id": "uploaded-live-86",
+          "no": 43,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "4月1日 10:00-12:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "转基因技术——造福人类还是制造噩梦？",
+          "live": "转基因技术——造福人类还是制造噩梦？",
+          "annualNo": 43
+        },
+        {
+          "id": "uploaded-live-87",
+          "no": 44,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "4月17日 10:00-12:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "基因编辑“从上天发牌到自己洗牌”",
+          "live": "基因编辑“从上天发牌到自己洗牌”",
+          "annualNo": 44
+        },
+        {
+          "id": "uploaded-live-88",
+          "no": 45,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "4月24日 10:00-12:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "由一变万,基因是怎么扩增的?",
+          "live": "由一变万,基因是怎么扩增的?",
+          "annualNo": 45
+        },
+        {
+          "id": "uploaded-live-89",
+          "no": 46,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月1日 10:00-12:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "由一变万后，基因如何定向改造？",
+          "live": "由一变万后，基因如何定向改造？",
+          "annualNo": 46
+        },
+        {
+          "id": "uploaded-live-90",
+          "no": 47,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月3日 10:00-12:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "由一变万后，基因如何片段拼接？",
+          "live": "由一变万后，基因如何片段拼接？",
+          "annualNo": 47
+        },
+        {
+          "id": "uploaded-live-91",
+          "no": 48,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月15日 10:00-12:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "电泳：分子\"分家\"与图谱解读",
+          "live": "电泳：分子\"分家\"与图谱解读",
+          "annualNo": 48
+        },
+        {
+          "id": "uploaded-live-92",
+          "no": 49,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月22日 10:00-12:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "必修一：核心考点的串讲与突破",
+          "live": "必修一：核心考点的串讲与突破",
+          "annualNo": 49
+        },
+        {
+          "id": "uploaded-live-93",
+          "no": 50,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月29日 10:00-12:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "必修一：重难点的深化与应用",
+          "live": "必修一：重难点的深化与应用",
+          "annualNo": 50
+        },
+        {
+          "id": "uploaded-live-94",
+          "no": 51,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "6月5日 10:00-12:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "一轮复习：选择题的\"陷阱规避\"与快解",
+          "live": "一轮复习：选择题的\"陷阱规避\"与快解",
+          "annualNo": 51
+        },
+        {
+          "id": "uploaded-live-95",
+          "no": 52,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "6月12日 10:00-12:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "一轮复习：大题的\"逻辑构建\"与表述",
+          "live": "一轮复习：大题的\"逻辑构建\"与表述",
+          "annualNo": 52
         }
       ],
       "历史": [
@@ -13225,6 +14845,396 @@ export const annualCourseLibrary = {
           "title": "综合复习与学习规划",
           "live": "综合复习与学习规划",
           "annualNo": 26
+        },
+        {
+          "id": "uploaded-live-60",
+          "no": 27,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "1月29日 13:00-15:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【方法篇】中国早期国家",
+          "live": "【方法篇】中国早期国家",
+          "annualNo": 27
+        },
+        {
+          "id": "uploaded-live-61",
+          "no": 28,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "1月30日 13:00-15:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【方法篇】诸侯纷争",
+          "live": "【方法篇】诸侯纷争",
+          "annualNo": 28
+        },
+        {
+          "id": "uploaded-live-62",
+          "no": 29,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "1月31日 13:00-15:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【方法篇】秦汉国家建设",
+          "live": "【方法篇】秦汉国家建设",
+          "annualNo": 29
+        },
+        {
+          "id": "uploaded-live-63",
+          "no": 30,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "2月1日 13:00-15:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【方法篇】秦汉经济与文化",
+          "live": "【方法篇】秦汉经济与文化",
+          "annualNo": 30
+        },
+        {
+          "id": "uploaded-live-64",
+          "no": 31,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "2月2日 13:00-15:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【方法篇】魏晋南北朝",
+          "live": "【方法篇】魏晋南北朝",
+          "annualNo": 31
+        },
+        {
+          "id": "uploaded-live-65",
+          "no": 32,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "2月3日 13:00-15:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【方法篇】隋唐制度创新",
+          "live": "【方法篇】隋唐制度创新",
+          "annualNo": 32
+        },
+        {
+          "id": "uploaded-live-66",
+          "no": 33,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "2月4日 13:00-15:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【方法篇】隋唐经济与文化",
+          "live": "【方法篇】隋唐经济与文化",
+          "annualNo": 33
+        },
+        {
+          "id": "uploaded-live-67",
+          "no": 34,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "2月10日 13:00-15:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【方法篇】宋到元回归大一统",
+          "live": "【方法篇】宋到元回归大一统",
+          "annualNo": 34
+        },
+        {
+          "id": "uploaded-live-68",
+          "no": 35,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "2月11日 13:00-15:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【方法篇】宋元经济与文化",
+          "live": "【方法篇】宋元经济与文化",
+          "annualNo": 35
+        },
+        {
+          "id": "uploaded-live-69",
+          "no": 36,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "2月12日 13:00-15:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【方法篇】明清君主专制达到顶峰",
+          "live": "【方法篇】明清君主专制达到顶峰",
+          "annualNo": 36
+        },
+        {
+          "id": "uploaded-live-70",
+          "no": 37,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "2月27日 10:00-12:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【方法篇】明清经济与文化",
+          "live": "【方法篇】明清经济与文化",
+          "annualNo": 37
+        },
+        {
+          "id": "uploaded-live-71",
+          "no": 38,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "3月6日 10:00-12:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【方法篇】两次鸦片战争",
+          "live": "【方法篇】两次鸦片战争",
+          "annualNo": 38
+        },
+        {
+          "id": "uploaded-live-72",
+          "no": 39,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "3月13日 10:00-12:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【方法篇】太平天国与洋务运动",
+          "live": "【方法篇】太平天国与洋务运动",
+          "annualNo": 39
+        },
+        {
+          "id": "uploaded-live-73",
+          "no": 40,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "3月20日 10:00-12:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【方法篇】甲午中日战争及社会变迁",
+          "live": "【方法篇】甲午中日战争及社会变迁",
+          "annualNo": 40
+        },
+        {
+          "id": "uploaded-live-74",
+          "no": 41,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "3月27日 10:00-12:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【方法篇】八国联军侵华与清末新政",
+          "live": "【方法篇】八国联军侵华与清末新政",
+          "annualNo": 41
+        },
+        {
+          "id": "uploaded-live-75",
+          "no": 42,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "4月3日 10:00-12:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【方法篇】辛亥革命与北洋政府",
+          "live": "【方法篇】辛亥革命与北洋政府",
+          "annualNo": 42
+        },
+        {
+          "id": "uploaded-live-76",
+          "no": 43,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "4月10日 10:00-12:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【方法篇】新文化运动与五四运动",
+          "live": "【方法篇】新文化运动与五四运动",
+          "annualNo": 43
+        },
+        {
+          "id": "uploaded-live-77",
+          "no": 44,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "4月17日 10:00-12:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【方法篇】国民革命与土地革命",
+          "live": "【方法篇】国民革命与土地革命",
+          "annualNo": 44
+        },
+        {
+          "id": "uploaded-live-78",
+          "no": 45,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "4月24日 10:00-12:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【方法篇】抗日战争与解放战争",
+          "live": "【方法篇】抗日战争与解放战争",
+          "annualNo": 45
+        },
+        {
+          "id": "uploaded-live-79",
+          "no": 46,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月1日 10:00-12:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【方法篇】近代中国经济变迁",
+          "live": "【方法篇】近代中国经济变迁",
+          "annualNo": 46
+        },
+        {
+          "id": "uploaded-live-80",
+          "no": 47,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月3日 10:00-12:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【方法篇】新中国的经济建设",
+          "live": "【方法篇】新中国的经济建设",
+          "annualNo": 47
+        },
+        {
+          "id": "uploaded-live-81",
+          "no": 48,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月15日 10:00-12:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【方法篇】新中国的内政外交",
+          "live": "【方法篇】新中国的内政外交",
+          "annualNo": 48
+        },
+        {
+          "id": "uploaded-live-82",
+          "no": 49,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月22日 10:00-12:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【方法篇】改革开发",
+          "live": "【方法篇】改革开发",
+          "annualNo": 49
+        },
+        {
+          "id": "uploaded-live-83",
+          "no": 50,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月29日 10:00-12:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【方法篇】新中国的科教文卫",
+          "live": "【方法篇】新中国的科教文卫",
+          "annualNo": 50
+        },
+        {
+          "id": "uploaded-live-84",
+          "no": 51,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "6月5日 10:00-12:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【规划篇】中国史综合训练1",
+          "live": "【规划篇】中国史综合训练1",
+          "annualNo": 51
+        },
+        {
+          "id": "uploaded-live-85",
+          "no": 52,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "6月12日 10:00-12:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【规划篇】中国史综合训练2",
+          "live": "【规划篇】中国史综合训练2",
+          "annualNo": 52
         }
       ],
       "地理": [
@@ -13617,6 +15627,441 @@ export const annualCourseLibrary = {
           "title": "【技巧篇】自然环境的整体性与差异性题型重难点突破（二）",
           "live": "【技巧篇】自然环境的整体性与差异性题型重难点突破（二）",
           "annualNo": 26
+        },
+        {
+          "id": "uploaded-live-57",
+          "no": 27,
+          "grade": "高二",
+          "quarter": "秋季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "",
+          "phase2": "/",
+          "phase3": "/",
+          "title": "【高二】2026年1-6月学习指南（地理）",
+          "live": "【高二】2026年1-6月学习指南（地理）",
+          "annualNo": 27
+        },
+        {
+          "id": "uploaded-live-58",
+          "no": 28,
+          "grade": "高二",
+          "quarter": "秋季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "",
+          "phase2": "",
+          "phase3": "",
+          "title": "高二地理期末复习规划—上篇",
+          "live": "高二地理期末复习规划—上篇",
+          "annualNo": 28
+        },
+        {
+          "id": "uploaded-live-59",
+          "no": 29,
+          "grade": "高二",
+          "quarter": "秋季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "",
+          "phase2": "",
+          "phase3": "",
+          "title": "高二地理期末复习规划—下篇",
+          "live": "高二地理期末复习规划—下篇",
+          "annualNo": 29
+        },
+        {
+          "id": "uploaded-live-60",
+          "no": 30,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "1月29日 08:00-10:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "区域地理核心知识1：区域整体性和关联性",
+          "live": "区域地理核心知识1：区域整体性和关联性",
+          "annualNo": 30
+        },
+        {
+          "id": "uploaded-live-61",
+          "no": 31,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "1月30日 08:00-10:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "区域地理核心知识2 ：生态脆弱区的综合治理",
+          "live": "区域地理核心知识2 ：生态脆弱区的综合治理",
+          "annualNo": 31
+        },
+        {
+          "id": "uploaded-live-62",
+          "no": 32,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "1月31日 08:00-10:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "区域地理核心知识3：资源枯竭型城市的发展与转型",
+          "live": "区域地理核心知识3：资源枯竭型城市的发展与转型",
+          "annualNo": 32
+        },
+        {
+          "id": "uploaded-live-63",
+          "no": 33,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "2月1日 08:00-10:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "区域地理核心知识4：城市的辐射功能与产业结构变化",
+          "live": "区域地理核心知识4：城市的辐射功能与产业结构变化",
+          "annualNo": 33
+        },
+        {
+          "id": "uploaded-live-64",
+          "no": 34,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "2月2日 08:00-10:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "区域地理核心知识5：流域内的协调发展与资源的跨区域调配",
+          "live": "区域地理核心知识5：流域内的协调发展与资源的跨区域调配",
+          "annualNo": 34
+        },
+        {
+          "id": "uploaded-live-65",
+          "no": 35,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "2月3日 08:00-10:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "区域地理核心知识6：产业转移与国际合作",
+          "live": "区域地理核心知识6：产业转移与国际合作",
+          "annualNo": 35
+        },
+        {
+          "id": "uploaded-live-66",
+          "no": 36,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "2月4日 08:00-10:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "中国地理核心知识1：中国地理概况",
+          "live": "中国地理核心知识1：中国地理概况",
+          "annualNo": 36
+        },
+        {
+          "id": "uploaded-live-67",
+          "no": 37,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "2月10日 08:00-10:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "中国地理核心知识2：中国自然地理总结",
+          "live": "中国地理核心知识2：中国自然地理总结",
+          "annualNo": 37
+        },
+        {
+          "id": "uploaded-live-68",
+          "no": 38,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "2月11日 08:00-10:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "中国地理核心知识3：中国的农业发展",
+          "live": "中国地理核心知识3：中国的农业发展",
+          "annualNo": 38
+        },
+        {
+          "id": "uploaded-live-69",
+          "no": 39,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "2月12日 08:00-10:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "中国地理核心知识4：中国的工业发展",
+          "live": "中国地理核心知识4：中国的工业发展",
+          "annualNo": 39
+        },
+        {
+          "id": "uploaded-live-70",
+          "no": 40,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "2月27日 13:00-15:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "选必二区域综合复习1",
+          "live": "选必二区域综合复习1",
+          "annualNo": 40
+        },
+        {
+          "id": "uploaded-live-71",
+          "no": 41,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "3月6日 13:00-15:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "选必二区域综合复习2",
+          "live": "选必二区域综合复习2",
+          "annualNo": 41
+        },
+        {
+          "id": "uploaded-live-72",
+          "no": 42,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "3月13日 13:00-15:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "选必二区域综合复习3",
+          "live": "选必二区域综合复习3",
+          "annualNo": 42
+        },
+        {
+          "id": "uploaded-live-73",
+          "no": 43,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "3月20日 13:00-15:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "选必二区域综合复习4",
+          "live": "选必二区域综合复习4",
+          "annualNo": 43
+        },
+        {
+          "id": "uploaded-live-74",
+          "no": 44,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "3月27日 13:00-15:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "国家安全核心知识1：自然环境与人类社会",
+          "live": "国家安全核心知识1：自然环境与人类社会",
+          "annualNo": 44
+        },
+        {
+          "id": "uploaded-live-75",
+          "no": 45,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "4月3日 13:00-15:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "国家安全核心知识2：资源安全与国家安全",
+          "live": "国家安全核心知识2：资源安全与国家安全",
+          "annualNo": 45
+        },
+        {
+          "id": "uploaded-live-76",
+          "no": 46,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "4月10日 13:00-15:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "国家安全核心知识3：环境安全与国家安全",
+          "live": "国家安全核心知识3：环境安全与国家安全",
+          "annualNo": 46
+        },
+        {
+          "id": "uploaded-live-77",
+          "no": 47,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "4月17日 13:00-15:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "国家安全核心知识4：保障国家安全的资源、环境战略与行动",
+          "live": "国家安全核心知识4：保障国家安全的资源、环境战略与行动",
+          "annualNo": 47
+        },
+        {
+          "id": "uploaded-live-78",
+          "no": 48,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "4月24日 13:00-15:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "世界地理核心知识1：世界区域地理学习方法",
+          "live": "世界地理核心知识1：世界区域地理学习方法",
+          "annualNo": 48
+        },
+        {
+          "id": "uploaded-live-79",
+          "no": 49,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月1日 13:00-15:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "世界地理核心知识2：世界区域题型解析",
+          "live": "世界地理核心知识2：世界区域题型解析",
+          "annualNo": 49
+        },
+        {
+          "id": "uploaded-live-80",
+          "no": 50,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月3日 13:00-15:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "世界地理核心知识3：世界重点国家的区域地理知识",
+          "live": "世界地理核心知识3：世界重点国家的区域地理知识",
+          "annualNo": 50
+        },
+        {
+          "id": "uploaded-live-81",
+          "no": 51,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月15日 13:00-15:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "世界地理核心知识4：经典题目与世界地理",
+          "live": "世界地理核心知识4：经典题目与世界地理",
+          "annualNo": 51
+        },
+        {
+          "id": "uploaded-live-82",
+          "no": 52,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月22日 13:00-15:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "0轮复习1：选择题答题技巧、主观题答题模板、答题思路详解",
+          "live": "0轮复习1：选择题答题技巧、主观题答题模板、答题思路详解",
+          "annualNo": 52
+        },
+        {
+          "id": "uploaded-live-83",
+          "no": 53,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月29日 13:00-15:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "0轮复习2：选择题答题技巧、主观题答题模板、答题思路详解",
+          "live": "0轮复习2：选择题答题技巧、主观题答题模板、答题思路详解",
+          "annualNo": 53
+        },
+        {
+          "id": "uploaded-live-84",
+          "no": 54,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "6月5日 13:00-15:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "0轮复习3：选择题答题技巧、主观题答题模板、答题思路详解",
+          "live": "0轮复习3：选择题答题技巧、主观题答题模板、答题思路详解",
+          "annualNo": 54
+        },
+        {
+          "id": "uploaded-live-85",
+          "no": 55,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "6月12日 13:00-15:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "0轮复习4：选择题答题技巧、主观题答题模板、答题思路详解",
+          "live": "0轮复习4：选择题答题技巧、主观题答题模板、答题思路详解",
+          "annualNo": 55
         }
       ],
       "政治": [
@@ -14009,6 +16454,396 @@ export const annualCourseLibrary = {
           "title": "选必二《法律与生活》预习之初识民法典",
           "live": "选必二《法律与生活》预习之初识民法典",
           "annualNo": 26
+        },
+        {
+          "id": "uploaded-live-60",
+          "no": 27,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "1月29日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "法律中的主体及权利全梳理",
+          "live": "法律中的主体及权利全梳理",
+          "annualNo": 27
+        },
+        {
+          "id": "uploaded-live-61",
+          "no": 28,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "1月30日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "法律精讲之调解、仲裁与诉讼",
+          "live": "法律精讲之调解、仲裁与诉讼",
+          "annualNo": 28
+        },
+        {
+          "id": "uploaded-live-62",
+          "no": 29,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "1月31日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "法律精讲之诉讼权利与诉讼程序",
+          "live": "法律精讲之诉讼权利与诉讼程序",
+          "annualNo": 29
+        },
+        {
+          "id": "uploaded-live-63",
+          "no": 30,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "2月1日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "法律疑难选择题解题思路",
+          "live": "法律疑难选择题解题思路",
+          "annualNo": 30
+        },
+        {
+          "id": "uploaded-live-64",
+          "no": 31,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "2月2日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "法律主观题方法之案例破解",
+          "live": "法律主观题方法之案例破解",
+          "annualNo": 31
+        },
+        {
+          "id": "uploaded-live-65",
+          "no": 32,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "2月3日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "法律主观题方法之线索理清",
+          "live": "法律主观题方法之线索理清",
+          "annualNo": 32
+        },
+        {
+          "id": "uploaded-live-66",
+          "no": 33,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "2月4日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "形式逻辑体系构建及考法与预览",
+          "live": "形式逻辑体系构建及考法与预览",
+          "annualNo": 33
+        },
+        {
+          "id": "uploaded-live-67",
+          "no": 34,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "2月10日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "逻辑精讲之逻辑思维基本要求",
+          "live": "逻辑精讲之逻辑思维基本要求",
+          "annualNo": 34
+        },
+        {
+          "id": "uploaded-live-68",
+          "no": 35,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "2月11日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "逻辑精讲之判断与推理",
+          "live": "逻辑精讲之判断与推理",
+          "annualNo": 35
+        },
+        {
+          "id": "uploaded-live-69",
+          "no": 36,
+          "grade": "高二",
+          "quarter": "寒假",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "2月12日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "逻辑题型精讲之逻辑错误类",
+          "live": "逻辑题型精讲之逻辑错误类",
+          "annualNo": 36
+        },
+        {
+          "id": "uploaded-live-70",
+          "no": 37,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "2月28日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "逻辑题型精讲之推理类选择题",
+          "live": "逻辑题型精讲之推理类选择题",
+          "annualNo": 37
+        },
+        {
+          "id": "uploaded-live-71",
+          "no": 38,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "3月7日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "辩证思维核心知识精讲",
+          "live": "辩证思维核心知识精讲",
+          "annualNo": 38
+        },
+        {
+          "id": "uploaded-live-72",
+          "no": 39,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "3月14日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "辩证思维主线梳理",
+          "live": "辩证思维主线梳理",
+          "annualNo": 39
+        },
+        {
+          "id": "uploaded-live-73",
+          "no": 40,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "3月21日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "辩证思维主观题类型及答题要点",
+          "live": "辩证思维主观题类型及答题要点",
+          "annualNo": 40
+        },
+        {
+          "id": "uploaded-live-74",
+          "no": 41,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "3月28日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "创新思维核心知识精讲及主线梳理",
+          "live": "创新思维核心知识精讲及主线梳理",
+          "annualNo": 41
+        },
+        {
+          "id": "uploaded-live-75",
+          "no": 42,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "4月4日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "创新思维主观题类型及答题要点",
+          "live": "创新思维主观题类型及答题要点",
+          "annualNo": 42
+        },
+        {
+          "id": "uploaded-live-76",
+          "no": 43,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "4月11日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "法律复习之人身权利相关题型",
+          "live": "法律复习之人身权利相关题型",
+          "annualNo": 43
+        },
+        {
+          "id": "uploaded-live-77",
+          "no": 44,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "4月18日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "法律复习之财产权相关题型",
+          "live": "法律复习之财产权相关题型",
+          "annualNo": 44
+        },
+        {
+          "id": "uploaded-live-78",
+          "no": 45,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "4月25日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "法律复习之合同相关题型",
+          "live": "法律复习之合同相关题型",
+          "annualNo": 45
+        },
+        {
+          "id": "uploaded-live-79",
+          "no": 46,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月2日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "法律复习之婚姻与家庭相关题型",
+          "live": "法律复习之婚姻与家庭相关题型",
+          "annualNo": 46
+        },
+        {
+          "id": "uploaded-live-80",
+          "no": 47,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月4日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "法律复习之财产继承相关题型",
+          "live": "法律复习之财产继承相关题型",
+          "annualNo": 47
+        },
+        {
+          "id": "uploaded-live-81",
+          "no": 48,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月16日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "法律复习之就业相关题型",
+          "live": "法律复习之就业相关题型",
+          "annualNo": 48
+        },
+        {
+          "id": "uploaded-live-82",
+          "no": 49,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月23日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "法律复习之创业相关题型",
+          "live": "法律复习之创业相关题型",
+          "annualNo": 49
+        },
+        {
+          "id": "uploaded-live-83",
+          "no": 50,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "5月30日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "一轮复习准备工作之七册教材的命题角度",
+          "live": "一轮复习准备工作之七册教材的命题角度",
+          "annualNo": 50
+        },
+        {
+          "id": "uploaded-live-84",
+          "no": 51,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "6月6日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "一轮复习准备工作之选择题备考方式",
+          "live": "一轮复习准备工作之选择题备考方式",
+          "annualNo": 51
+        },
+        {
+          "id": "uploaded-live-85",
+          "no": 52,
+          "grade": "高二",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "6月13日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "一轮复习准备工作之主观题备考方式",
+          "live": "一轮复习准备工作之主观题备考方式",
+          "annualNo": 52
         }
       ]
     },
@@ -14336,326 +17171,6 @@ export const annualCourseLibrary = {
         },
         {
           "id": "uploaded-video-42",
-          "title": "快速破题——选择题综合解题方法",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-43",
-          "title": "秒出答案——选择题综合技巧",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-44",
-          "title": "信息性阅读高考选文特点详解",
-          "outlineCode": "",
-          "difficulty": 1,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-45",
-          "title": "快速破题——选择题综合解题方法",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-46",
-          "title": "体系精讲——线索及关键物象解析",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-47",
-          "title": "体系精讲——描写手法鉴赏讲解(上）",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-48",
-          "title": "体系精讲——描写手法鉴赏讲解（下）",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-49",
-          "title": "思路剖析——语言风格特征解析",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-50",
-          "title": "满分攻略——开放性探究题型指导",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-51",
-          "title": "答题范式——双文本类新题型指导",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-52",
-          "title": "快速破题——选择题综合解题方法",
-          "outlineCode": "",
-          "difficulty": 1,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-53",
-          "title": "快速破题——选择题解题综合指导（上）",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-54",
-          "title": "快速破题——选择题解题综合指导（下）",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-55",
-          "title": "应试策略——句段作用解析",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-56",
-          "title": "应试策略——文章结构特色鉴赏",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-57",
-          "title": "应试策略——语言风格鉴赏分析",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-58",
-          "title": "应试策略——主旨内涵探究题型",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-59",
-          "title": "应试策略——拓展延伸题",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-60",
-          "title": "答题范式——双文本类新题型指导",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-61",
-          "title": "高效攻克——文言文句子翻译综合指导",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-62",
-          "title": "文言文主观新题型指导指导方案",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-63",
-          "title": "高分方法——内容解读与情感探析",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-64",
-          "title": "高分方法——语言风格鉴赏分析",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-65",
-          "title": "高分方法——诗句表达作用解析",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-66",
-          "title": "答题方法——语句扩展题型指导",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-67",
-          "title": "答题方法——语段压缩方法讲解",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-68",
-          "title": "答题方法——结构理解类转换题型",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-69",
-          "title": "答题方法——数据分析类转换题型",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-70",
-          "title": "答题方法——逻辑推断题型讲解",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-71",
-          "title": "作文提速第一步——文章结构优化指导（上）",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-72",
-          "title": "作文提速第一步——文章结构优化指导（下）",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-73",
-          "title": "作文提速第二步——写作素材精准运用",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-74",
-          "title": "作文提速第三步——论证思路升级方法",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-75",
-          "title": "作文提速第四步——语言点睛",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-76",
-          "title": "实力提分之文章开头写作指导",
-          "outlineCode": "",
-          "difficulty": 1,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-77",
-          "title": "实力提分之文章结尾写作指导",
-          "outlineCode": "",
-          "difficulty": 1,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-78",
-          "title": "作文实战演练50+——民族自信",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-79",
-          "title": "作文实战演练50+——青年担当主题写作",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-80",
-          "title": "作文实战演练50+——科技创新主题写作",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-81",
-          "title": "作文实战演练50+——传统文化主题写作",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-82",
           "title": "信息性阅读热题新题精选精析（一）",
           "outlineCode": "",
           "difficulty": 3,
@@ -14663,7 +17178,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-83",
+          "id": "uploaded-video-43",
           "title": "信息性阅读热题新题精选精析（二）",
           "outlineCode": "",
           "difficulty": 3,
@@ -14671,7 +17186,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-84",
+          "id": "uploaded-video-44",
           "title": "信息性阅读迁移探究类题目策略与思路",
           "outlineCode": "",
           "difficulty": 2,
@@ -14679,7 +17194,15 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-85",
+          "id": "uploaded-video-45",
+          "title": "信息性阅读高考真题精选带练（一）",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-46",
           "title": "信息性阅读高考真题精选带练（二）",
           "outlineCode": "",
           "difficulty": 3,
@@ -14687,7 +17210,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-86",
+          "id": "uploaded-video-47",
           "title": "小说之情节作用分析要点与方法",
           "outlineCode": "",
           "difficulty": 3,
@@ -14695,7 +17218,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-87",
+          "id": "uploaded-video-48",
           "title": "小说之情节安排效果探究与把握",
           "outlineCode": "",
           "difficulty": 3,
@@ -14703,7 +17226,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-88",
+          "id": "uploaded-video-49",
           "title": "文学类文本阅读热题新题精选精析（一）",
           "outlineCode": "",
           "difficulty": 4,
@@ -14711,7 +17234,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-89",
+          "id": "uploaded-video-50",
           "title": "小说综合类题目之双文本类题型剖析",
           "outlineCode": "",
           "difficulty": 4,
@@ -14719,7 +17242,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-90",
+          "id": "uploaded-video-51",
           "title": "小说综合类题目之语言风格赏析方法",
           "outlineCode": "",
           "difficulty": 3,
@@ -14727,7 +17250,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-91",
+          "id": "uploaded-video-52",
           "title": "小说综合类题目之文体特征分析要点",
           "outlineCode": "",
           "difficulty": 3,
@@ -14735,7 +17258,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-92",
+          "id": "uploaded-video-53",
           "title": "小说综合类题目之作用效果分析策略",
           "outlineCode": "",
           "difficulty": 2,
@@ -14743,7 +17266,39 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-93",
+          "id": "uploaded-video-54",
+          "title": "小说阅读高考真题精选带练（一）",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-55",
+          "title": "小说阅读高考真题精选带练（二）",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-56",
+          "title": "文学类文本阅读热题新题精选精析（二）",
+          "outlineCode": "",
+          "difficulty": 4,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-57",
+          "title": "散文综合类题目之语言风格赏析要点",
+          "outlineCode": "",
+          "difficulty": 2,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-58",
           "title": "散文综合类题目之线索及其作用探究",
           "outlineCode": "",
           "difficulty": 2,
@@ -14751,7 +17306,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-94",
+          "id": "uploaded-video-59",
           "title": "散文综合类题目之标题含义作用解读",
           "outlineCode": "",
           "difficulty": 3,
@@ -14759,7 +17314,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-95",
+          "id": "uploaded-video-60",
           "title": "散文之词句赏析技巧与要点",
           "outlineCode": "",
           "difficulty": 4,
@@ -14767,7 +17322,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-96",
+          "id": "uploaded-video-61",
           "title": "散文之主题探究思路与方法",
           "outlineCode": "",
           "difficulty": 2,
@@ -14775,7 +17330,15 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-97",
+          "id": "uploaded-video-62",
+          "title": "散文阅读高考真题精选带练（一）",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-63",
           "title": "散文阅读高考真题精选带练（二）",
           "outlineCode": "",
           "difficulty": 3,
@@ -14783,7 +17346,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-98",
+          "id": "uploaded-video-64",
           "title": "文言文之判断句",
           "outlineCode": "",
           "difficulty": 3,
@@ -14791,7 +17354,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-99",
+          "id": "uploaded-video-65",
           "title": "文言文之被动句",
           "outlineCode": "",
           "difficulty": 3,
@@ -14799,7 +17362,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-100",
+          "id": "uploaded-video-66",
           "title": "文言文之省略句",
           "outlineCode": "",
           "difficulty": 3,
@@ -14807,12 +17370,284 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-101",
+          "id": "uploaded-video-67",
           "title": "文言文之倒装句",
           "outlineCode": "",
           "difficulty": 3,
           "layered": "通用",
           "quarter": "寒假"
+        },
+        {
+          "id": "uploaded-video-68",
+          "title": "名号称谓与古代官职",
+          "outlineCode": "",
+          "difficulty": 2,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-69",
+          "title": "天文地理与宗法礼制",
+          "outlineCode": "",
+          "difficulty": 4,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-70",
+          "title": "文言文阅读热题新题精选精析（一）",
+          "outlineCode": "",
+          "difficulty": 4,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-71",
+          "title": "文言文阅读热题新题精选精析（二）",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-72",
+          "title": "文言文阅读高考真题精选带练（一）",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-73",
+          "title": "文言文阅读高考真题精选带练（二）",
+          "outlineCode": "",
+          "difficulty": 4,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-74",
+          "title": "文言文阅读高考真题精选带练（三）",
+          "outlineCode": "",
+          "difficulty": 4,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-75",
+          "title": "文言文阅读高考真题精选带练（四）",
+          "outlineCode": "",
+          "difficulty": 4,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-76",
+          "title": "古代诗歌阅读热题新题精选精析（一）",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-77",
+          "title": "古代诗歌阅读热题新题精选精析（二）",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-78",
+          "title": "边塞战争诗",
+          "outlineCode": "",
+          "difficulty": 2,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-79",
+          "title": "古代诗歌阅读之炼字炼句题",
+          "outlineCode": "",
+          "difficulty": 2,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-80",
+          "title": "古代诗歌阅读之手法赏析题",
+          "outlineCode": "",
+          "difficulty": 2,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-81",
+          "title": "古代诗歌阅读高考真题精选带练（一）",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-82",
+          "title": "古代诗歌阅读高考真题精选带练（二）",
+          "outlineCode": "",
+          "difficulty": 4,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-83",
+          "title": "语言文字运用热题新题精选精析（一）",
+          "outlineCode": "",
+          "difficulty": 4,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-84",
+          "title": "语言文字运用热题新题精选精析（二）",
+          "outlineCode": "",
+          "difficulty": 4,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-85",
+          "title": "图文转换方法与技巧",
+          "outlineCode": "",
+          "difficulty": 2,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-86",
+          "title": "扩展语句策略与方法",
+          "outlineCode": "",
+          "difficulty": 2,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-87",
+          "title": "压缩语段技巧与要点",
+          "outlineCode": "",
+          "difficulty": 2,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-88",
+          "title": "语言文字运用高考真题精选带练（一）",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-89",
+          "title": "语言文字运用高考真题精选带练（二）",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-90",
+          "title": "议论文之论点与分论点设计方法与技巧",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-91",
+          "title": "议论文论据选用与素材积累（上）",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-92",
+          "title": "议论文论据选用与素材积累（下）",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-93",
+          "title": "议论文语言升格与文采优化（上）",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-94",
+          "title": "议论文语言升格与文采优化（下）",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-95",
+          "title": "议论文高频主题之传统文化",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-96",
+          "title": "议论文高频主题之科技文明",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-97",
+          "title": "高考作文与模拟热题新题精选精析（一）",
+          "outlineCode": "",
+          "difficulty": 4,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-98",
+          "title": "高考作文与模拟热题新题精选精析（二）",
+          "outlineCode": "",
+          "difficulty": 4,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-99",
+          "title": "议论文写作高考真题精选带练（一）",
+          "outlineCode": "",
+          "difficulty": 4,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-100",
+          "title": "议论文写作高考真题精选带练（二）",
+          "outlineCode": "",
+          "difficulty": 4,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-101",
+          "title": "议论文写作高考真题精选带练（三）",
+          "outlineCode": "",
+          "difficulty": 4,
+          "layered": "通用",
+          "quarter": "春季"
         }
       ],
       "数学": [
@@ -15852,7 +18687,7 @@ export const annualCourseLibrary = {
         },
         {
           "id": "uploaded-video-3",
-          "title": "【学】宾语从句功能与用途",
+          "title": "【学】宾从/表从功能与用途",
           "outlineCode": "",
           "difficulty": 3,
           "layered": "通用",
@@ -15860,7 +18695,7 @@ export const annualCourseLibrary = {
         },
         {
           "id": "uploaded-video-4",
-          "title": "【学】主语从句的功能用途",
+          "title": "【学】主从/同从功能与用途",
           "outlineCode": "",
           "difficulty": 3,
           "layered": "通用",
@@ -16012,7 +18847,7 @@ export const annualCourseLibrary = {
         },
         {
           "id": "uploaded-video-23",
-          "title": "完形二星难度真题训练1",
+          "title": "完形星级难度真题训练1",
           "outlineCode": "",
           "difficulty": 4,
           "layered": "通用",
@@ -16020,7 +18855,7 @@ export const annualCourseLibrary = {
         },
         {
           "id": "uploaded-video-24",
-          "title": "完形二星难度真题训练2",
+          "title": "完形星级难度真题训练2",
           "outlineCode": "",
           "difficulty": 4,
           "layered": "通用",
@@ -16028,7 +18863,7 @@ export const annualCourseLibrary = {
         },
         {
           "id": "uploaded-video-25",
-          "title": "完形二星难度真题训练3",
+          "title": "完形星级难度真题训练3",
           "outlineCode": "",
           "difficulty": 4,
           "layered": "通用",
@@ -16076,7 +18911,7 @@ export const annualCourseLibrary = {
         },
         {
           "id": "uploaded-video-31",
-          "title": "造句公式=主干+修饰",
+          "title": "写作内功修炼1",
           "outlineCode": "",
           "difficulty": 3,
           "layered": "通用",
@@ -16084,7 +18919,7 @@ export const annualCourseLibrary = {
         },
         {
           "id": "uploaded-video-32",
-          "title": "定语从句写作1",
+          "title": "写作内功修炼2",
           "outlineCode": "",
           "difficulty": 3,
           "layered": "通用",
@@ -16092,7 +18927,7 @@ export const annualCourseLibrary = {
         },
         {
           "id": "uploaded-video-33",
-          "title": "定语从句写作2",
+          "title": "写作内功修炼3",
           "outlineCode": "",
           "difficulty": 3,
           "layered": "通用",
@@ -16100,7 +18935,7 @@ export const annualCourseLibrary = {
         },
         {
           "id": "uploaded-video-34",
-          "title": "名词性从句写作1",
+          "title": "写作内功修炼4",
           "outlineCode": "",
           "difficulty": 3,
           "layered": "通用",
@@ -16108,7 +18943,7 @@ export const annualCourseLibrary = {
         },
         {
           "id": "uploaded-video-35",
-          "title": "名词性从句写作2",
+          "title": "写作内功修炼5",
           "outlineCode": "",
           "difficulty": 3,
           "layered": "通用",
@@ -16116,7 +18951,7 @@ export const annualCourseLibrary = {
         },
         {
           "id": "uploaded-video-36",
-          "title": "非谓语写作1",
+          "title": "写作内功修炼6",
           "outlineCode": "",
           "difficulty": 3,
           "layered": "通用",
@@ -16124,7 +18959,7 @@ export const annualCourseLibrary = {
         },
         {
           "id": "uploaded-video-37",
-          "title": "非谓语写作2",
+          "title": "写作内功修炼7",
           "outlineCode": "",
           "difficulty": 4,
           "layered": "通用",
@@ -16132,7 +18967,7 @@ export const annualCourseLibrary = {
         },
         {
           "id": "uploaded-video-38",
-          "title": "应用文篇章升级训练",
+          "title": "写作内功修炼8",
           "outlineCode": "",
           "difficulty": 4,
           "layered": "通用",
@@ -16140,7 +18975,7 @@ export const annualCourseLibrary = {
         },
         {
           "id": "uploaded-video-39",
-          "title": "【听力入门】变音现象",
+          "title": "听口能力储备1",
           "outlineCode": "",
           "difficulty": 3,
           "layered": "通用",
@@ -16148,7 +18983,7 @@ export const annualCourseLibrary = {
         },
         {
           "id": "uploaded-video-40",
-          "title": "【听力入门】技巧",
+          "title": "听口能力储备2",
           "outlineCode": "",
           "difficulty": 3,
           "layered": "通用",
@@ -16164,7 +18999,7 @@ export const annualCourseLibrary = {
         },
         {
           "id": "uploaded-video-43",
-          "title": "全国甲卷-阅读A篇-文化交流",
+          "title": "新高考卷2-阅读A篇-体育活动",
           "outlineCode": "",
           "difficulty": 2,
           "layered": "通用",
@@ -16172,15 +19007,15 @@ export const annualCourseLibrary = {
         },
         {
           "id": "uploaded-video-44",
-          "title": "新高考卷1-阅读B篇-中国文化",
+          "title": "全国甲卷-阅读A篇-文化交流",
           "outlineCode": "",
-          "difficulty": 3,
+          "difficulty": 2,
           "layered": "通用",
-          "quarter": "寒假"
+          "quarter": "春季"
         },
         {
           "id": "uploaded-video-45",
-          "title": "北京卷-阅读B篇-个人成长",
+          "title": "新高考卷1-阅读B篇-中国文化",
           "outlineCode": "",
           "difficulty": 3,
           "layered": "通用",
@@ -16188,318 +19023,6 @@ export const annualCourseLibrary = {
         },
         {
           "id": "uploaded-video-46",
-          "title": "新高考卷1-阅读C篇-生活与学习",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-47",
-          "title": "新高考卷2-阅读C篇-技术创新",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-49",
-          "title": "新高考卷1-阅读D篇-科学研究",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-50",
-          "title": "新高考卷2-阅读D篇-书籍推荐",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-51",
-          "title": "新高考卷1-七选五-社会现象",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-52",
-          "title": "新高考卷2-七选五-经验心得",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-53",
-          "title": "北京卷-七选五-科普知识",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-54",
-          "title": "新高考卷1-完形填空-哲理感悟1",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-55",
-          "title": "新高考卷1-完形填空-哲理感悟2",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-56",
-          "title": "新高考卷2-完形填空-旅居经历1",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-57",
-          "title": "新高考卷2-完形填空-旅居经历2",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-58",
-          "title": "全国卷-完形填空-亲情故事1",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-59",
-          "title": "全国卷-完形填空-亲情故事2",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-60",
-          "title": "浙江卷-语法填空-商业社会",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-61",
-          "title": "九省联考-语法填空-校园生活",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-62",
-          "title": "上海卷首考-词性辨析-沟通交流1",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-63",
-          "title": "上海卷首考-词性辨析-沟通交流2",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-64",
-          "title": "应用文五育话题之德育",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-65",
-          "title": "应用文五育话题之智育",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-66",
-          "title": "应用文五育话题之体育",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-67",
-          "title": "应用文五育话题之美育",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-68",
-          "title": "应用文五育话题之劳育",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-69",
-          "title": "应用文介绍类之活动介绍",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-70",
-          "title": "应用文介绍类之人物介绍",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-71",
-          "title": "应用文热点话题之人工智能",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-72",
-          "title": "应用文热点话题之移动支付",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-73",
-          "title": "应用文热点话题之新能源汽车",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-74",
-          "title": "应用文热点话题之智能芯片",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-75",
-          "title": "应用文热点话题之航空航天",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-76",
-          "title": "读后续写高分要素：动作链",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-77",
-          "title": "读后续写高分要素：情感结",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-78",
-          "title": "读后续写高分要素：合理过渡",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-79",
-          "title": "读后续写高分要素：升华结尾1",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-80",
-          "title": "读后续写高分要素：升华结尾2",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-81",
-          "title": "听力真题训练",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-82",
-          "title": "口语真题训练",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-83",
-          "title": "新高考卷1-阅读A篇-环境保护",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-84",
-          "title": "全国甲卷-阅读A篇-文化交流",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-85",
-          "title": "新高考卷1-阅读B篇-中国文化",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-86",
           "title": "北京卷-阅读B篇-个人成长",
           "outlineCode": "",
           "difficulty": 3,
@@ -16507,7 +19030,15 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-87",
+          "id": "uploaded-video-47",
+          "title": "浙江卷-阅读B篇-社会变迁",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-48",
           "title": "新高考卷1-阅读C篇-生活与学习",
           "outlineCode": "",
           "difficulty": 3,
@@ -16515,7 +19046,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-88",
+          "id": "uploaded-video-49",
           "title": "新高考卷2-阅读C篇-技术创新",
           "outlineCode": "",
           "difficulty": 3,
@@ -16523,7 +19054,23 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-89",
+          "id": "uploaded-video-50",
+          "title": "全国甲卷-阅读C篇-医疗发展",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-51",
+          "title": "北京卷-阅读C篇-宇宙探索",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-52",
           "title": "新高考卷1-阅读D篇-科学研究",
           "outlineCode": "",
           "difficulty": 4,
@@ -16531,7 +19078,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-90",
+          "id": "uploaded-video-53",
           "title": "新高考卷2-阅读D篇-书籍推荐",
           "outlineCode": "",
           "difficulty": 4,
@@ -16539,7 +19086,55 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-91",
+          "id": "uploaded-video-54",
+          "title": "全国甲卷-阅读D篇-文学素养",
+          "outlineCode": "",
+          "difficulty": 4,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-55",
+          "title": "北京卷-阅读D篇-人类发展",
+          "outlineCode": "",
+          "difficulty": 4,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-56",
+          "title": "新高考卷1-七选五-社会现象",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-57",
+          "title": "新高考卷2-七选五-经验心得",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-58",
+          "title": "北京卷-七选五-科普知识",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-59",
+          "title": "浙江卷-七选五-方法指南",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-60",
           "title": "新高考卷1-完形填空-哲理感悟1",
           "outlineCode": "",
           "difficulty": 3,
@@ -16547,7 +19142,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-92",
+          "id": "uploaded-video-61",
           "title": "新高考卷1-完形填空-哲理感悟2",
           "outlineCode": "",
           "difficulty": 3,
@@ -16555,7 +19150,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-93",
+          "id": "uploaded-video-62",
           "title": "新高考卷2-完形填空-旅居经历1",
           "outlineCode": "",
           "difficulty": 3,
@@ -16563,7 +19158,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-94",
+          "id": "uploaded-video-63",
           "title": "新高考卷2-完形填空-旅居经历2",
           "outlineCode": "",
           "difficulty": 3,
@@ -16571,7 +19166,175 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-95",
+          "id": "uploaded-video-64",
+          "title": "全国卷-完形填空-亲情故事1",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-65",
+          "title": "全国卷-完形填空-亲情故事2",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-66",
+          "title": "北京卷-完形填空-勇于尝新1",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-67",
+          "title": "北京卷-完形填空-勇于尝新2",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-68",
+          "title": "语法填空解题-动词/时态",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-69",
+          "title": "语法填空解题-名词、代词/时态",
+          "outlineCode": "",
+          "difficulty": 2,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-70",
+          "title": "语法填空解题-形容词、副词/时态",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-71",
+          "title": "语法填空解题-连词/非谓语",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-72",
+          "title": "语法填空解题-介词、冠词/非谓语",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-73",
+          "title": "11选10/非谓语难点1",
+          "outlineCode": "",
+          "difficulty": 4,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-74",
+          "title": "11选10/表语从句",
+          "outlineCode": "",
+          "difficulty": 4,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-75",
+          "title": "语法综合运用/同位语从句",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-76",
+          "title": "浙江卷-语法填空-商业社会",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-77",
+          "title": "九省联考-语法填空-校园生活",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-78",
+          "title": "应用文五育话题之德育",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-79",
+          "title": "应用文五育话题之智育",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-80",
+          "title": "应用文五育话题之体育",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-81",
+          "title": "应用文五育话题之美育",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-82",
+          "title": "应用文五育话题之劳育",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-83",
+          "title": "应用文介绍类之活动介绍",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-84",
+          "title": "应用文介绍类之人物介绍",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-85",
           "title": "应用文热点话题之人工智能",
           "outlineCode": "",
           "difficulty": 3,
@@ -16579,7 +19342,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-96",
+          "id": "uploaded-video-86",
           "title": "应用文热点话题之移动支付",
           "outlineCode": "",
           "difficulty": 3,
@@ -16587,7 +19350,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-97",
+          "id": "uploaded-video-87",
           "title": "应用文热点话题之新能源汽车",
           "outlineCode": "",
           "difficulty": 3,
@@ -16595,7 +19358,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-98",
+          "id": "uploaded-video-88",
           "title": "应用文热点话题之智能芯片",
           "outlineCode": "",
           "difficulty": 3,
@@ -16603,7 +19366,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-99",
+          "id": "uploaded-video-89",
           "title": "应用文热点话题之航空航天",
           "outlineCode": "",
           "difficulty": 3,
@@ -16611,7 +19374,47 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-100",
+          "id": "uploaded-video-90",
+          "title": "读后续写高分：个人成长/动作链",
+          "outlineCode": "",
+          "difficulty": 4,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-91",
+          "title": "读后续写高分：认知觉醒/情感结",
+          "outlineCode": "",
+          "difficulty": 4,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-92",
+          "title": "读后续写高分：乐于奉献/合理过渡",
+          "outlineCode": "",
+          "difficulty": 4,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-93",
+          "title": "读后续写高分：野生动物/升华结尾1",
+          "outlineCode": "",
+          "difficulty": 4,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-94",
+          "title": "读后续写高分：户外遇险/升华结尾2",
+          "outlineCode": "",
+          "difficulty": 4,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-95",
           "title": "读后续写之幸运得救",
           "outlineCode": "",
           "difficulty": 4,
@@ -16619,7 +19422,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-101",
+          "id": "uploaded-video-96",
           "title": "读后续写之陌生温情",
           "outlineCode": "",
           "difficulty": 4,
@@ -16627,12 +19430,44 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-102",
+          "id": "uploaded-video-97",
           "title": "读后续写之直面挑战",
           "outlineCode": "",
           "difficulty": 4,
           "layered": "通用",
           "quarter": "寒假"
+        },
+        {
+          "id": "uploaded-video-98",
+          "title": "概要写作新题1",
+          "outlineCode": "",
+          "difficulty": 4,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-99",
+          "title": "概要写作新题2",
+          "outlineCode": "",
+          "difficulty": 4,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-100",
+          "title": "听力真题训练",
+          "outlineCode": "",
+          "difficulty": 2,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-101",
+          "title": "口语真题训练",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
         }
       ],
       "物理": [
@@ -16958,38 +19793,46 @@ export const annualCourseLibrary = {
         },
         {
           "id": "uploaded-video-41",
+          "title": "电磁感应现象及应用",
+          "outlineCode": "",
+          "difficulty": 1,
+          "layered": "通用",
+          "quarter": "寒假"
+        },
+        {
+          "id": "uploaded-video-42",
           "title": "简谐运动",
           "outlineCode": "",
           "difficulty": 1,
           "layered": "通用",
-          "quarter": "春季"
+          "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-42",
+          "id": "uploaded-video-43",
           "title": "描述简谐运动的物理量",
           "outlineCode": "",
           "difficulty": 2,
           "layered": "通用",
-          "quarter": "春季"
+          "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-43",
+          "id": "uploaded-video-44",
           "title": "简谐运动的振动图像",
           "outlineCode": "",
           "difficulty": 2,
           "layered": "通用",
-          "quarter": "春季"
+          "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-44",
+          "id": "uploaded-video-45",
           "title": "简谐运动的回复力和能量",
           "outlineCode": "",
           "difficulty": 2,
           "layered": "通用",
-          "quarter": "春季"
+          "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-45",
+          "id": "uploaded-video-46",
           "title": "单摆",
           "outlineCode": "",
           "difficulty": 2,
@@ -16997,327 +19840,15 @@ export const annualCourseLibrary = {
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-46",
-          "title": "波的形成",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
           "id": "uploaded-video-47",
-          "title": "波的图像",
+          "title": "用单摆测重力加速度",
           "outlineCode": "",
-          "difficulty": 3,
+          "difficulty": 2,
           "layered": "通用",
           "quarter": "春季"
         },
         {
           "id": "uploaded-video-48",
-          "title": "振动图像和波的图像",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-49",
-          "title": "机械波的多解问题",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-50",
-          "title": "波的干涉",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-51",
-          "title": "光的折射",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-52",
-          "title": "全反射",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-53",
-          "title": "光的干涉",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-54",
-          "title": "电磁感应现象及应用",
-          "outlineCode": "",
-          "difficulty": 1,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-55",
-          "title": "楞次定律与右手定则",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-56",
-          "title": "电磁感应定律",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-57",
-          "title": "动生电动势",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-58",
-          "title": "电阻导棒模型-能量问题",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-59",
-          "title": "线框模型-图像问题",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-60",
-          "title": "互感和自感",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-61",
-          "title": "交变电流",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-62",
-          "title": "交变电流的描述",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-63",
-          "title": "变压器的原理",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-64",
-          "title": "含变压器交流电路的综合问题",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-65",
-          "title": "电能的输送",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-66",
-          "title": "常见传感器的工作原理及应用",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-67",
-          "title": "分子动理论的基本内容",
-          "outlineCode": "",
-          "difficulty": 1,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-68",
-          "title": "分子动能和分子势能",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-69",
-          "title": "气体的等温、等压和等容变化",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-70",
-          "title": "理想气体状态方程",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-71",
-          "title": "热力学第一定律",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-72",
-          "title": "热力学第一定律的应用",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-73",
-          "title": "普朗克黑体辐射理论",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-74",
-          "title": "光电效应",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-75",
-          "title": "光电效应方程",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-76",
-          "title": "原子的核式结构模型",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-77",
-          "title": "氢原子光谱",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-78",
-          "title": "玻尔原子理论",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-79",
-          "title": "氢原子的能级跃迁",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-80",
-          "title": "波粒二象性和量子力学概述",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-81",
-          "title": "电磁感应现象及应用",
-          "outlineCode": "",
-          "difficulty": 1,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-82",
-          "title": "简谐运动",
-          "outlineCode": "",
-          "difficulty": 1,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-83",
-          "title": "描述简谐运动的物理量",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-84",
-          "title": "简谐运动的振动图像",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-85",
-          "title": "简谐运动的回复力和能量",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "寒假"
-        },
-        {
-          "id": "uploaded-video-86",
           "title": "阻尼振动、受迫振动与共振",
           "outlineCode": "",
           "difficulty": 2,
@@ -17325,7 +19856,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-87",
+          "id": "uploaded-video-49",
           "title": "波的形成",
           "outlineCode": "",
           "difficulty": 3,
@@ -17333,7 +19864,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-88",
+          "id": "uploaded-video-50",
           "title": "波的图像",
           "outlineCode": "",
           "difficulty": 3,
@@ -17341,7 +19872,23 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-89",
+          "id": "uploaded-video-51",
+          "title": "振动图像和波的图像",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-52",
+          "title": "机械波的多解问题",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-53",
           "title": "波的反射、折射、衍射与多普勒效应",
           "outlineCode": "",
           "difficulty": 2,
@@ -17349,7 +19896,15 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-90",
+          "id": "uploaded-video-54",
+          "title": "波的干涉",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-55",
           "title": "光的折射",
           "outlineCode": "",
           "difficulty": 2,
@@ -17357,7 +19912,39 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-91",
+          "id": "uploaded-video-56",
+          "title": "测定玻璃的折射率",
+          "outlineCode": "",
+          "difficulty": 2,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-57",
+          "title": "全反射",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-58",
+          "title": "光的干涉",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-59",
+          "title": "用双缝干涉测量光的波长",
+          "outlineCode": "",
+          "difficulty": 2,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-60",
           "title": "光的衍射",
           "outlineCode": "",
           "difficulty": 2,
@@ -17365,7 +19952,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-92",
+          "id": "uploaded-video-61",
           "title": "光的偏振 激光",
           "outlineCode": "",
           "difficulty": 2,
@@ -17373,7 +19960,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-93",
+          "id": "uploaded-video-62",
           "title": "楞次定律与右手定则",
           "outlineCode": "",
           "difficulty": 2,
@@ -17381,7 +19968,79 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-94",
+          "id": "uploaded-video-63",
+          "title": "电磁感应定律",
+          "outlineCode": "",
+          "difficulty": 2,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-64",
+          "title": "动生电动势",
+          "outlineCode": "",
+          "difficulty": 2,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-65",
+          "title": "电阻导棒模型-动力学问题",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-66",
+          "title": "电阻导棒模型-能量问题",
+          "outlineCode": "",
+          "difficulty": 4,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-67",
+          "title": "电阻导棒模型-电量与动量问题",
+          "outlineCode": "",
+          "difficulty": 4,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-68",
+          "title": "线框模型-图像问题",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-69",
+          "title": "感生电场与涡流",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-70",
+          "title": "电磁阻尼和电磁驱动",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-71",
+          "title": "互感和自感",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-72",
           "title": "交变电流",
           "outlineCode": "",
           "difficulty": 2,
@@ -17389,7 +20048,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-95",
+          "id": "uploaded-video-73",
           "title": "交变电流的描述",
           "outlineCode": "",
           "difficulty": 2,
@@ -17397,7 +20056,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-96",
+          "id": "uploaded-video-74",
           "title": "变压器的原理",
           "outlineCode": "",
           "difficulty": 2,
@@ -17405,7 +20064,47 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-97",
+          "id": "uploaded-video-75",
+          "title": "含变压器交流电路的综合问题",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-76",
+          "title": "电能的输送",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-77",
+          "title": "电磁振荡",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-78",
+          "title": "电磁场与电磁波、电磁波谱",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-79",
+          "title": "常见传感器的工作原理及应用",
+          "outlineCode": "",
+          "difficulty": 2,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-80",
           "title": "分子动理论的基本内容",
           "outlineCode": "",
           "difficulty": 1,
@@ -17413,7 +20112,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-98",
+          "id": "uploaded-video-81",
           "title": "用油膜法估测油酸分子的大小",
           "outlineCode": "",
           "difficulty": 2,
@@ -17421,7 +20120,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-99",
+          "id": "uploaded-video-82",
           "title": "分子运动速率分布规律",
           "outlineCode": "",
           "difficulty": 2,
@@ -17429,12 +20128,148 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-100",
+          "id": "uploaded-video-83",
           "title": "分子动能和分子势能",
           "outlineCode": "",
           "difficulty": 2,
           "layered": "通用",
           "quarter": "寒假"
+        },
+        {
+          "id": "uploaded-video-84",
+          "title": "气体的等温、等压和等容变化",
+          "outlineCode": "",
+          "difficulty": 2,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-85",
+          "title": "理想气体状态方程",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-86",
+          "title": "热力学第一定律",
+          "outlineCode": "",
+          "difficulty": 2,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-87",
+          "title": "热力学第一定律的应用",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-88",
+          "title": "热力学第二定律",
+          "outlineCode": "",
+          "difficulty": 2,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-89",
+          "title": "普朗克黑体辐射理论",
+          "outlineCode": "",
+          "difficulty": 2,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-90",
+          "title": "光电效应",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-91",
+          "title": "光电效应方程",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-92",
+          "title": "原子的核式结构模型",
+          "outlineCode": "",
+          "difficulty": 2,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-93",
+          "title": "氢原子光谱",
+          "outlineCode": "",
+          "difficulty": 2,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-94",
+          "title": "玻尔原子理论",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-95",
+          "title": "氢原子的能级跃迁",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-96",
+          "title": "波粒二象性和量子力学概述",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-97",
+          "title": "原子核的组成",
+          "outlineCode": "",
+          "difficulty": 2,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-98",
+          "title": "放射性元素的衰变和半衰期",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-99",
+          "title": "核力与结合能",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "春季"
+        },
+        {
+          "id": "uploaded-video-100",
+          "title": "核裂变、核聚变与粒子物理概述",
+          "outlineCode": "",
+          "difficulty": 2,
+          "layered": "通用",
+          "quarter": "春季"
         }
       ],
       "化学": [
@@ -19683,86 +22518,6 @@ export const annualCourseLibrary = {
           "difficulty": 2,
           "layered": "通用",
           "quarter": "寒春"
-        },
-        {
-          "id": "uploaded-video-41",
-          "title": "世界自然地理与人文地理",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "寒春"
-        },
-        {
-          "id": "uploaded-video-42",
-          "title": "东亚",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "寒春"
-        },
-        {
-          "id": "uploaded-video-43",
-          "title": "东南亚",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "寒春"
-        },
-        {
-          "id": "uploaded-video-44",
-          "title": "南亚",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "寒春"
-        },
-        {
-          "id": "uploaded-video-45",
-          "title": "中亚、西亚和北非、撒哈拉以南的非洲",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "寒春"
-        },
-        {
-          "id": "uploaded-video-46",
-          "title": "欧洲西部",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "寒春"
-        },
-        {
-          "id": "uploaded-video-47",
-          "title": "欧洲东部和北亚",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "寒春"
-        },
-        {
-          "id": "uploaded-video-48",
-          "title": "北美洲",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "寒春"
-        },
-        {
-          "id": "uploaded-video-49",
-          "title": "南美洲",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "寒春"
-        },
-        {
-          "id": "uploaded-video-50",
-          "title": "大洋洲、极地地区",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "通用",
-          "quarter": "寒春"
         }
       ],
       "政治": [
@@ -20093,7 +22848,7 @@ export const annualCourseLibrary = {
     "live": {
       "语文": [
         {
-          "id": "uploaded-live-79",
+          "id": "uploaded-live-98",
           "no": 1,
           "grade": "高三",
           "quarter": "一轮",
@@ -20108,7 +22863,7 @@ export const annualCourseLibrary = {
           "annualNo": 1
         },
         {
-          "id": "uploaded-live-80",
+          "id": "uploaded-live-99",
           "no": 2,
           "grade": "高三",
           "quarter": "一轮",
@@ -20123,7 +22878,7 @@ export const annualCourseLibrary = {
           "annualNo": 2
         },
         {
-          "id": "uploaded-live-81",
+          "id": "uploaded-live-100",
           "no": 3,
           "grade": "高三",
           "quarter": "一轮",
@@ -20138,7 +22893,7 @@ export const annualCourseLibrary = {
           "annualNo": 3
         },
         {
-          "id": "uploaded-live-82",
+          "id": "uploaded-live-101",
           "no": 4,
           "grade": "高三",
           "quarter": "一轮",
@@ -20153,7 +22908,7 @@ export const annualCourseLibrary = {
           "annualNo": 4
         },
         {
-          "id": "uploaded-live-83",
+          "id": "uploaded-live-102",
           "no": 5,
           "grade": "高三",
           "quarter": "一轮",
@@ -20168,7 +22923,7 @@ export const annualCourseLibrary = {
           "annualNo": 5
         },
         {
-          "id": "uploaded-live-84",
+          "id": "uploaded-live-103",
           "no": 6,
           "grade": "高三",
           "quarter": "一轮",
@@ -20183,7 +22938,7 @@ export const annualCourseLibrary = {
           "annualNo": 6
         },
         {
-          "id": "uploaded-live-85",
+          "id": "uploaded-live-104",
           "no": 7,
           "grade": "高三",
           "quarter": "一轮",
@@ -20198,7 +22953,7 @@ export const annualCourseLibrary = {
           "annualNo": 7
         },
         {
-          "id": "uploaded-live-86",
+          "id": "uploaded-live-105",
           "no": 8,
           "grade": "高三",
           "quarter": "一轮",
@@ -20213,7 +22968,7 @@ export const annualCourseLibrary = {
           "annualNo": 8
         },
         {
-          "id": "uploaded-live-87",
+          "id": "uploaded-live-106",
           "no": 9,
           "grade": "高三",
           "quarter": "一轮",
@@ -20228,7 +22983,7 @@ export const annualCourseLibrary = {
           "annualNo": 9
         },
         {
-          "id": "uploaded-live-88",
+          "id": "uploaded-live-107",
           "no": 10,
           "grade": "高三",
           "quarter": "一轮",
@@ -20243,7 +22998,7 @@ export const annualCourseLibrary = {
           "annualNo": 10
         },
         {
-          "id": "uploaded-live-89",
+          "id": "uploaded-live-108",
           "no": 11,
           "grade": "高三",
           "quarter": "一轮",
@@ -20258,7 +23013,7 @@ export const annualCourseLibrary = {
           "annualNo": 11
         },
         {
-          "id": "uploaded-live-90",
+          "id": "uploaded-live-109",
           "no": 12,
           "grade": "高三",
           "quarter": "一轮",
@@ -20273,7 +23028,7 @@ export const annualCourseLibrary = {
           "annualNo": 12
         },
         {
-          "id": "uploaded-live-91",
+          "id": "uploaded-live-110",
           "no": 13,
           "grade": "高三",
           "quarter": "一轮",
@@ -20288,7 +23043,7 @@ export const annualCourseLibrary = {
           "annualNo": 13
         },
         {
-          "id": "uploaded-live-92",
+          "id": "uploaded-live-111",
           "no": 14,
           "grade": "高三",
           "quarter": "一轮",
@@ -20303,7 +23058,7 @@ export const annualCourseLibrary = {
           "annualNo": 14
         },
         {
-          "id": "uploaded-live-93",
+          "id": "uploaded-live-112",
           "no": 15,
           "grade": "高三",
           "quarter": "一轮",
@@ -20318,7 +23073,7 @@ export const annualCourseLibrary = {
           "annualNo": 15
         },
         {
-          "id": "uploaded-live-94",
+          "id": "uploaded-live-113",
           "no": 16,
           "grade": "高三",
           "quarter": "一轮",
@@ -20333,7 +23088,7 @@ export const annualCourseLibrary = {
           "annualNo": 16
         },
         {
-          "id": "uploaded-live-95",
+          "id": "uploaded-live-114",
           "no": 17,
           "grade": "高三",
           "quarter": "一轮",
@@ -20348,7 +23103,7 @@ export const annualCourseLibrary = {
           "annualNo": 17
         },
         {
-          "id": "uploaded-live-96",
+          "id": "uploaded-live-115",
           "no": 18,
           "grade": "高三",
           "quarter": "一轮",
@@ -20363,7 +23118,7 @@ export const annualCourseLibrary = {
           "annualNo": 18
         },
         {
-          "id": "uploaded-live-97",
+          "id": "uploaded-live-116",
           "no": 19,
           "grade": "高三",
           "quarter": "一轮",
@@ -20378,7 +23133,7 @@ export const annualCourseLibrary = {
           "annualNo": 19
         },
         {
-          "id": "uploaded-live-98",
+          "id": "uploaded-live-117",
           "no": 20,
           "grade": "高三",
           "quarter": "一轮",
@@ -20393,7 +23148,7 @@ export const annualCourseLibrary = {
           "annualNo": 20
         },
         {
-          "id": "uploaded-live-99",
+          "id": "uploaded-live-118",
           "no": 21,
           "grade": "高三",
           "quarter": "一轮",
@@ -20408,7 +23163,7 @@ export const annualCourseLibrary = {
           "annualNo": 21
         },
         {
-          "id": "uploaded-live-100",
+          "id": "uploaded-live-119",
           "no": 22,
           "grade": "高三",
           "quarter": "一轮",
@@ -20423,7 +23178,7 @@ export const annualCourseLibrary = {
           "annualNo": 22
         },
         {
-          "id": "uploaded-live-101",
+          "id": "uploaded-live-120",
           "no": 23,
           "grade": "高三",
           "quarter": "一轮",
@@ -20438,7 +23193,7 @@ export const annualCourseLibrary = {
           "annualNo": 23
         },
         {
-          "id": "uploaded-live-102",
+          "id": "uploaded-live-121",
           "no": 24,
           "grade": "高三",
           "quarter": "一轮",
@@ -20453,7 +23208,7 @@ export const annualCourseLibrary = {
           "annualNo": 24
         },
         {
-          "id": "uploaded-live-103",
+          "id": "uploaded-live-122",
           "no": 25,
           "grade": "高三",
           "quarter": "一轮",
@@ -20468,7 +23223,7 @@ export const annualCourseLibrary = {
           "annualNo": 25
         },
         {
-          "id": "uploaded-live-104",
+          "id": "uploaded-live-123",
           "no": 26,
           "grade": "高三",
           "quarter": "一轮",
@@ -20485,7 +23240,7 @@ export const annualCourseLibrary = {
       ],
       "数学": [
         {
-          "id": "uploaded-live-79",
+          "id": "uploaded-live-98",
           "no": 1,
           "grade": "高三",
           "quarter": "一轮",
@@ -20500,7 +23255,7 @@ export const annualCourseLibrary = {
           "annualNo": 1
         },
         {
-          "id": "uploaded-live-80",
+          "id": "uploaded-live-99",
           "no": 2,
           "grade": "高三",
           "quarter": "一轮",
@@ -20515,7 +23270,7 @@ export const annualCourseLibrary = {
           "annualNo": 2
         },
         {
-          "id": "uploaded-live-81",
+          "id": "uploaded-live-100",
           "no": 3,
           "grade": "高三",
           "quarter": "一轮",
@@ -20530,7 +23285,7 @@ export const annualCourseLibrary = {
           "annualNo": 3
         },
         {
-          "id": "uploaded-live-82",
+          "id": "uploaded-live-101",
           "no": 4,
           "grade": "高三",
           "quarter": "一轮",
@@ -20545,7 +23300,7 @@ export const annualCourseLibrary = {
           "annualNo": 4
         },
         {
-          "id": "uploaded-live-83",
+          "id": "uploaded-live-102",
           "no": 5,
           "grade": "高三",
           "quarter": "一轮",
@@ -20560,7 +23315,7 @@ export const annualCourseLibrary = {
           "annualNo": 5
         },
         {
-          "id": "uploaded-live-84",
+          "id": "uploaded-live-103",
           "no": 6,
           "grade": "高三",
           "quarter": "一轮",
@@ -20575,7 +23330,7 @@ export const annualCourseLibrary = {
           "annualNo": 6
         },
         {
-          "id": "uploaded-live-85",
+          "id": "uploaded-live-104",
           "no": 7,
           "grade": "高三",
           "quarter": "一轮",
@@ -20590,7 +23345,7 @@ export const annualCourseLibrary = {
           "annualNo": 7
         },
         {
-          "id": "uploaded-live-86",
+          "id": "uploaded-live-105",
           "no": 8,
           "grade": "高三",
           "quarter": "一轮",
@@ -20605,7 +23360,7 @@ export const annualCourseLibrary = {
           "annualNo": 8
         },
         {
-          "id": "uploaded-live-87",
+          "id": "uploaded-live-106",
           "no": 9,
           "grade": "高三",
           "quarter": "一轮",
@@ -20620,7 +23375,7 @@ export const annualCourseLibrary = {
           "annualNo": 9
         },
         {
-          "id": "uploaded-live-88",
+          "id": "uploaded-live-107",
           "no": 10,
           "grade": "高三",
           "quarter": "一轮",
@@ -20635,7 +23390,7 @@ export const annualCourseLibrary = {
           "annualNo": 10
         },
         {
-          "id": "uploaded-live-89",
+          "id": "uploaded-live-108",
           "no": 11,
           "grade": "高三",
           "quarter": "一轮",
@@ -20650,7 +23405,7 @@ export const annualCourseLibrary = {
           "annualNo": 11
         },
         {
-          "id": "uploaded-live-90",
+          "id": "uploaded-live-109",
           "no": 12,
           "grade": "高三",
           "quarter": "一轮",
@@ -20665,7 +23420,7 @@ export const annualCourseLibrary = {
           "annualNo": 12
         },
         {
-          "id": "uploaded-live-91",
+          "id": "uploaded-live-110",
           "no": 13,
           "grade": "高三",
           "quarter": "一轮",
@@ -20680,7 +23435,7 @@ export const annualCourseLibrary = {
           "annualNo": 13
         },
         {
-          "id": "uploaded-live-92",
+          "id": "uploaded-live-111",
           "no": 14,
           "grade": "高三",
           "quarter": "一轮",
@@ -20695,7 +23450,7 @@ export const annualCourseLibrary = {
           "annualNo": 14
         },
         {
-          "id": "uploaded-live-93",
+          "id": "uploaded-live-112",
           "no": 15,
           "grade": "高三",
           "quarter": "一轮",
@@ -20710,7 +23465,7 @@ export const annualCourseLibrary = {
           "annualNo": 15
         },
         {
-          "id": "uploaded-live-94",
+          "id": "uploaded-live-113",
           "no": 16,
           "grade": "高三",
           "quarter": "一轮",
@@ -20725,7 +23480,7 @@ export const annualCourseLibrary = {
           "annualNo": 16
         },
         {
-          "id": "uploaded-live-95",
+          "id": "uploaded-live-114",
           "no": 17,
           "grade": "高三",
           "quarter": "一轮",
@@ -20740,7 +23495,7 @@ export const annualCourseLibrary = {
           "annualNo": 17
         },
         {
-          "id": "uploaded-live-96",
+          "id": "uploaded-live-115",
           "no": 18,
           "grade": "高三",
           "quarter": "一轮",
@@ -20755,7 +23510,7 @@ export const annualCourseLibrary = {
           "annualNo": 18
         },
         {
-          "id": "uploaded-live-97",
+          "id": "uploaded-live-116",
           "no": 19,
           "grade": "高三",
           "quarter": "一轮",
@@ -20770,7 +23525,7 @@ export const annualCourseLibrary = {
           "annualNo": 19
         },
         {
-          "id": "uploaded-live-98",
+          "id": "uploaded-live-117",
           "no": 20,
           "grade": "高三",
           "quarter": "一轮",
@@ -20785,7 +23540,7 @@ export const annualCourseLibrary = {
           "annualNo": 20
         },
         {
-          "id": "uploaded-live-99",
+          "id": "uploaded-live-118",
           "no": 21,
           "grade": "高三",
           "quarter": "一轮",
@@ -20800,7 +23555,7 @@ export const annualCourseLibrary = {
           "annualNo": 21
         },
         {
-          "id": "uploaded-live-100",
+          "id": "uploaded-live-119",
           "no": 22,
           "grade": "高三",
           "quarter": "一轮",
@@ -20815,7 +23570,7 @@ export const annualCourseLibrary = {
           "annualNo": 22
         },
         {
-          "id": "uploaded-live-101",
+          "id": "uploaded-live-120",
           "no": 23,
           "grade": "高三",
           "quarter": "一轮",
@@ -20830,7 +23585,7 @@ export const annualCourseLibrary = {
           "annualNo": 23
         },
         {
-          "id": "uploaded-live-102",
+          "id": "uploaded-live-121",
           "no": 24,
           "grade": "高三",
           "quarter": "一轮",
@@ -20845,7 +23600,7 @@ export const annualCourseLibrary = {
           "annualNo": 24
         },
         {
-          "id": "uploaded-live-103",
+          "id": "uploaded-live-122",
           "no": 25,
           "grade": "高三",
           "quarter": "一轮",
@@ -20860,7 +23615,7 @@ export const annualCourseLibrary = {
           "annualNo": 25
         },
         {
-          "id": "uploaded-live-104",
+          "id": "uploaded-live-123",
           "no": 26,
           "grade": "高三",
           "quarter": "一轮",
@@ -20877,7 +23632,7 @@ export const annualCourseLibrary = {
       ],
       "英语": [
         {
-          "id": "uploaded-live-78",
+          "id": "uploaded-live-97",
           "no": 1,
           "grade": "高三",
           "quarter": "一轮",
@@ -20892,7 +23647,7 @@ export const annualCourseLibrary = {
           "annualNo": 1
         },
         {
-          "id": "uploaded-live-79",
+          "id": "uploaded-live-98",
           "no": 2,
           "grade": "高三",
           "quarter": "一轮",
@@ -20907,7 +23662,7 @@ export const annualCourseLibrary = {
           "annualNo": 2
         },
         {
-          "id": "uploaded-live-80",
+          "id": "uploaded-live-99",
           "no": 3,
           "grade": "高三",
           "quarter": "一轮",
@@ -20922,7 +23677,7 @@ export const annualCourseLibrary = {
           "annualNo": 3
         },
         {
-          "id": "uploaded-live-81",
+          "id": "uploaded-live-100",
           "no": 4,
           "grade": "高三",
           "quarter": "一轮",
@@ -20937,7 +23692,7 @@ export const annualCourseLibrary = {
           "annualNo": 4
         },
         {
-          "id": "uploaded-live-82",
+          "id": "uploaded-live-101",
           "no": 5,
           "grade": "高三",
           "quarter": "一轮",
@@ -20952,7 +23707,7 @@ export const annualCourseLibrary = {
           "annualNo": 5
         },
         {
-          "id": "uploaded-live-83",
+          "id": "uploaded-live-102",
           "no": 6,
           "grade": "高三",
           "quarter": "一轮",
@@ -20967,7 +23722,7 @@ export const annualCourseLibrary = {
           "annualNo": 6
         },
         {
-          "id": "uploaded-live-84",
+          "id": "uploaded-live-103",
           "no": 7,
           "grade": "高三",
           "quarter": "一轮",
@@ -20982,7 +23737,7 @@ export const annualCourseLibrary = {
           "annualNo": 7
         },
         {
-          "id": "uploaded-live-85",
+          "id": "uploaded-live-104",
           "no": 8,
           "grade": "高三",
           "quarter": "一轮",
@@ -20997,7 +23752,7 @@ export const annualCourseLibrary = {
           "annualNo": 8
         },
         {
-          "id": "uploaded-live-86",
+          "id": "uploaded-live-105",
           "no": 9,
           "grade": "高三",
           "quarter": "一轮",
@@ -21012,7 +23767,7 @@ export const annualCourseLibrary = {
           "annualNo": 9
         },
         {
-          "id": "uploaded-live-87",
+          "id": "uploaded-live-106",
           "no": 10,
           "grade": "高三",
           "quarter": "一轮",
@@ -21027,7 +23782,7 @@ export const annualCourseLibrary = {
           "annualNo": 10
         },
         {
-          "id": "uploaded-live-88",
+          "id": "uploaded-live-107",
           "no": 11,
           "grade": "高三",
           "quarter": "寒假",
@@ -21042,7 +23797,7 @@ export const annualCourseLibrary = {
           "annualNo": 11
         },
         {
-          "id": "uploaded-live-89",
+          "id": "uploaded-live-108",
           "no": 12,
           "grade": "高三",
           "quarter": "寒假",
@@ -21057,7 +23812,7 @@ export const annualCourseLibrary = {
           "annualNo": 12
         },
         {
-          "id": "uploaded-live-90",
+          "id": "uploaded-live-109",
           "no": 13,
           "grade": "高三",
           "quarter": "寒假",
@@ -21072,7 +23827,7 @@ export const annualCourseLibrary = {
           "annualNo": 13
         },
         {
-          "id": "uploaded-live-91",
+          "id": "uploaded-live-110",
           "no": 14,
           "grade": "高三",
           "quarter": "寒假",
@@ -21087,7 +23842,7 @@ export const annualCourseLibrary = {
           "annualNo": 14
         },
         {
-          "id": "uploaded-live-92",
+          "id": "uploaded-live-111",
           "no": 15,
           "grade": "高三",
           "quarter": "寒假",
@@ -21102,7 +23857,7 @@ export const annualCourseLibrary = {
           "annualNo": 15
         },
         {
-          "id": "uploaded-live-93",
+          "id": "uploaded-live-112",
           "no": 16,
           "grade": "高三",
           "quarter": "寒假",
@@ -21117,7 +23872,7 @@ export const annualCourseLibrary = {
           "annualNo": 16
         },
         {
-          "id": "uploaded-live-94",
+          "id": "uploaded-live-113",
           "no": 17,
           "grade": "高三",
           "quarter": "寒假",
@@ -21132,7 +23887,7 @@ export const annualCourseLibrary = {
           "annualNo": 17
         },
         {
-          "id": "uploaded-live-95",
+          "id": "uploaded-live-114",
           "no": 18,
           "grade": "高三",
           "quarter": "寒假",
@@ -21147,7 +23902,7 @@ export const annualCourseLibrary = {
           "annualNo": 18
         },
         {
-          "id": "uploaded-live-96",
+          "id": "uploaded-live-115",
           "no": 19,
           "grade": "高三",
           "quarter": "寒假",
@@ -21162,7 +23917,7 @@ export const annualCourseLibrary = {
           "annualNo": 19
         },
         {
-          "id": "uploaded-live-97",
+          "id": "uploaded-live-116",
           "no": 20,
           "grade": "高三",
           "quarter": "寒假",
@@ -21177,7 +23932,7 @@ export const annualCourseLibrary = {
           "annualNo": 20
         },
         {
-          "id": "uploaded-live-98",
+          "id": "uploaded-live-117",
           "no": 21,
           "grade": "高三",
           "quarter": "寒假",
@@ -21192,7 +23947,7 @@ export const annualCourseLibrary = {
           "annualNo": 21
         },
         {
-          "id": "uploaded-live-99",
+          "id": "uploaded-live-118",
           "no": 22,
           "grade": "高三",
           "quarter": "寒假",
@@ -21207,7 +23962,7 @@ export const annualCourseLibrary = {
           "annualNo": 22
         },
         {
-          "id": "uploaded-live-100",
+          "id": "uploaded-live-119",
           "no": 23,
           "grade": "高三",
           "quarter": "寒假",
@@ -21222,7 +23977,7 @@ export const annualCourseLibrary = {
           "annualNo": 23
         },
         {
-          "id": "uploaded-live-101",
+          "id": "uploaded-live-120",
           "no": 24,
           "grade": "高三",
           "quarter": "寒假",
@@ -21237,7 +23992,7 @@ export const annualCourseLibrary = {
           "annualNo": 24
         },
         {
-          "id": "uploaded-live-102",
+          "id": "uploaded-live-121",
           "no": 25,
           "grade": "高三",
           "quarter": "寒假",
@@ -21252,7 +24007,7 @@ export const annualCourseLibrary = {
           "annualNo": 25
         },
         {
-          "id": "uploaded-live-103",
+          "id": "uploaded-live-122",
           "no": 26,
           "grade": "高三",
           "quarter": "寒假",
@@ -21269,7 +24024,7 @@ export const annualCourseLibrary = {
       ],
       "物理": [
         {
-          "id": "uploaded-live-79",
+          "id": "uploaded-live-98",
           "no": 1,
           "grade": "高三",
           "quarter": "一轮",
@@ -21284,7 +24039,7 @@ export const annualCourseLibrary = {
           "annualNo": 1
         },
         {
-          "id": "uploaded-live-80",
+          "id": "uploaded-live-99",
           "no": 2,
           "grade": "高三",
           "quarter": "一轮",
@@ -21299,7 +24054,7 @@ export const annualCourseLibrary = {
           "annualNo": 2
         },
         {
-          "id": "uploaded-live-81",
+          "id": "uploaded-live-100",
           "no": 3,
           "grade": "高三",
           "quarter": "一轮",
@@ -21314,7 +24069,7 @@ export const annualCourseLibrary = {
           "annualNo": 3
         },
         {
-          "id": "uploaded-live-82",
+          "id": "uploaded-live-101",
           "no": 4,
           "grade": "高三",
           "quarter": "一轮",
@@ -21329,7 +24084,7 @@ export const annualCourseLibrary = {
           "annualNo": 4
         },
         {
-          "id": "uploaded-live-83",
+          "id": "uploaded-live-102",
           "no": 5,
           "grade": "高三",
           "quarter": "一轮",
@@ -21344,7 +24099,7 @@ export const annualCourseLibrary = {
           "annualNo": 5
         },
         {
-          "id": "uploaded-live-84",
+          "id": "uploaded-live-103",
           "no": 6,
           "grade": "高三",
           "quarter": "一轮",
@@ -21359,7 +24114,7 @@ export const annualCourseLibrary = {
           "annualNo": 6
         },
         {
-          "id": "uploaded-live-85",
+          "id": "uploaded-live-104",
           "no": 7,
           "grade": "高三",
           "quarter": "一轮",
@@ -21374,7 +24129,7 @@ export const annualCourseLibrary = {
           "annualNo": 7
         },
         {
-          "id": "uploaded-live-86",
+          "id": "uploaded-live-105",
           "no": 8,
           "grade": "高三",
           "quarter": "一轮",
@@ -21389,7 +24144,7 @@ export const annualCourseLibrary = {
           "annualNo": 8
         },
         {
-          "id": "uploaded-live-87",
+          "id": "uploaded-live-106",
           "no": 9,
           "grade": "高三",
           "quarter": "一轮",
@@ -21404,7 +24159,7 @@ export const annualCourseLibrary = {
           "annualNo": 9
         },
         {
-          "id": "uploaded-live-88",
+          "id": "uploaded-live-107",
           "no": 10,
           "grade": "高三",
           "quarter": "一轮",
@@ -21419,7 +24174,7 @@ export const annualCourseLibrary = {
           "annualNo": 10
         },
         {
-          "id": "uploaded-live-89",
+          "id": "uploaded-live-108",
           "no": 11,
           "grade": "高三",
           "quarter": "一轮",
@@ -21434,7 +24189,7 @@ export const annualCourseLibrary = {
           "annualNo": 11
         },
         {
-          "id": "uploaded-live-90",
+          "id": "uploaded-live-109",
           "no": 12,
           "grade": "高三",
           "quarter": "一轮",
@@ -21449,7 +24204,7 @@ export const annualCourseLibrary = {
           "annualNo": 12
         },
         {
-          "id": "uploaded-live-91",
+          "id": "uploaded-live-110",
           "no": 13,
           "grade": "高三",
           "quarter": "一轮",
@@ -21464,7 +24219,7 @@ export const annualCourseLibrary = {
           "annualNo": 13
         },
         {
-          "id": "uploaded-live-92",
+          "id": "uploaded-live-111",
           "no": 14,
           "grade": "高三",
           "quarter": "一轮",
@@ -21479,7 +24234,7 @@ export const annualCourseLibrary = {
           "annualNo": 14
         },
         {
-          "id": "uploaded-live-93",
+          "id": "uploaded-live-112",
           "no": 15,
           "grade": "高三",
           "quarter": "一轮",
@@ -21494,7 +24249,7 @@ export const annualCourseLibrary = {
           "annualNo": 15
         },
         {
-          "id": "uploaded-live-94",
+          "id": "uploaded-live-113",
           "no": 16,
           "grade": "高三",
           "quarter": "一轮",
@@ -21509,7 +24264,7 @@ export const annualCourseLibrary = {
           "annualNo": 16
         },
         {
-          "id": "uploaded-live-95",
+          "id": "uploaded-live-114",
           "no": 17,
           "grade": "高三",
           "quarter": "一轮",
@@ -21524,7 +24279,7 @@ export const annualCourseLibrary = {
           "annualNo": 17
         },
         {
-          "id": "uploaded-live-96",
+          "id": "uploaded-live-115",
           "no": 18,
           "grade": "高三",
           "quarter": "一轮",
@@ -21539,7 +24294,7 @@ export const annualCourseLibrary = {
           "annualNo": 18
         },
         {
-          "id": "uploaded-live-97",
+          "id": "uploaded-live-116",
           "no": 19,
           "grade": "高三",
           "quarter": "一轮",
@@ -21554,7 +24309,7 @@ export const annualCourseLibrary = {
           "annualNo": 19
         },
         {
-          "id": "uploaded-live-98",
+          "id": "uploaded-live-117",
           "no": 20,
           "grade": "高三",
           "quarter": "一轮",
@@ -21569,7 +24324,7 @@ export const annualCourseLibrary = {
           "annualNo": 20
         },
         {
-          "id": "uploaded-live-99",
+          "id": "uploaded-live-118",
           "no": 21,
           "grade": "高三",
           "quarter": "一轮",
@@ -21584,7 +24339,7 @@ export const annualCourseLibrary = {
           "annualNo": 21
         },
         {
-          "id": "uploaded-live-100",
+          "id": "uploaded-live-119",
           "no": 22,
           "grade": "高三",
           "quarter": "一轮",
@@ -21599,7 +24354,7 @@ export const annualCourseLibrary = {
           "annualNo": 22
         },
         {
-          "id": "uploaded-live-101",
+          "id": "uploaded-live-120",
           "no": 23,
           "grade": "高三",
           "quarter": "一轮",
@@ -21614,7 +24369,7 @@ export const annualCourseLibrary = {
           "annualNo": 23
         },
         {
-          "id": "uploaded-live-102",
+          "id": "uploaded-live-121",
           "no": 24,
           "grade": "高三",
           "quarter": "一轮",
@@ -21629,7 +24384,7 @@ export const annualCourseLibrary = {
           "annualNo": 24
         },
         {
-          "id": "uploaded-live-103",
+          "id": "uploaded-live-122",
           "no": 25,
           "grade": "高三",
           "quarter": "一轮",
@@ -21644,7 +24399,7 @@ export const annualCourseLibrary = {
           "annualNo": 25
         },
         {
-          "id": "uploaded-live-104",
+          "id": "uploaded-live-123",
           "no": 26,
           "grade": "高三",
           "quarter": "一轮",
@@ -21661,7 +24416,7 @@ export const annualCourseLibrary = {
       ],
       "化学": [
         {
-          "id": "uploaded-live-79",
+          "id": "uploaded-live-98",
           "no": 1,
           "grade": "高三",
           "quarter": "一轮",
@@ -21676,7 +24431,7 @@ export const annualCourseLibrary = {
           "annualNo": 1
         },
         {
-          "id": "uploaded-live-80",
+          "id": "uploaded-live-99",
           "no": 2,
           "grade": "高三",
           "quarter": "一轮",
@@ -21691,7 +24446,7 @@ export const annualCourseLibrary = {
           "annualNo": 2
         },
         {
-          "id": "uploaded-live-81",
+          "id": "uploaded-live-100",
           "no": 3,
           "grade": "高三",
           "quarter": "一轮",
@@ -21706,7 +24461,7 @@ export const annualCourseLibrary = {
           "annualNo": 3
         },
         {
-          "id": "uploaded-live-82",
+          "id": "uploaded-live-101",
           "no": 4,
           "grade": "高三",
           "quarter": "一轮",
@@ -21721,7 +24476,7 @@ export const annualCourseLibrary = {
           "annualNo": 4
         },
         {
-          "id": "uploaded-live-83",
+          "id": "uploaded-live-102",
           "no": 5,
           "grade": "高三",
           "quarter": "一轮",
@@ -21736,7 +24491,7 @@ export const annualCourseLibrary = {
           "annualNo": 5
         },
         {
-          "id": "uploaded-live-84",
+          "id": "uploaded-live-103",
           "no": 6,
           "grade": "高三",
           "quarter": "一轮",
@@ -21751,7 +24506,7 @@ export const annualCourseLibrary = {
           "annualNo": 6
         },
         {
-          "id": "uploaded-live-85",
+          "id": "uploaded-live-104",
           "no": 7,
           "grade": "高三",
           "quarter": "一轮",
@@ -21766,7 +24521,7 @@ export const annualCourseLibrary = {
           "annualNo": 7
         },
         {
-          "id": "uploaded-live-86",
+          "id": "uploaded-live-105",
           "no": 8,
           "grade": "高三",
           "quarter": "一轮",
@@ -21781,7 +24536,7 @@ export const annualCourseLibrary = {
           "annualNo": 8
         },
         {
-          "id": "uploaded-live-87",
+          "id": "uploaded-live-106",
           "no": 9,
           "grade": "高三",
           "quarter": "一轮",
@@ -21796,7 +24551,7 @@ export const annualCourseLibrary = {
           "annualNo": 9
         },
         {
-          "id": "uploaded-live-88",
+          "id": "uploaded-live-107",
           "no": 10,
           "grade": "高三",
           "quarter": "一轮",
@@ -21811,7 +24566,7 @@ export const annualCourseLibrary = {
           "annualNo": 10
         },
         {
-          "id": "uploaded-live-89",
+          "id": "uploaded-live-108",
           "no": 11,
           "grade": "高三",
           "quarter": "一轮",
@@ -21826,7 +24581,7 @@ export const annualCourseLibrary = {
           "annualNo": 11
         },
         {
-          "id": "uploaded-live-90",
+          "id": "uploaded-live-109",
           "no": 12,
           "grade": "高三",
           "quarter": "一轮",
@@ -21841,7 +24596,7 @@ export const annualCourseLibrary = {
           "annualNo": 12
         },
         {
-          "id": "uploaded-live-91",
+          "id": "uploaded-live-110",
           "no": 13,
           "grade": "高三",
           "quarter": "一轮",
@@ -21856,7 +24611,7 @@ export const annualCourseLibrary = {
           "annualNo": 13
         },
         {
-          "id": "uploaded-live-92",
+          "id": "uploaded-live-111",
           "no": 14,
           "grade": "高三",
           "quarter": "一轮",
@@ -21871,7 +24626,7 @@ export const annualCourseLibrary = {
           "annualNo": 14
         },
         {
-          "id": "uploaded-live-93",
+          "id": "uploaded-live-112",
           "no": 15,
           "grade": "高三",
           "quarter": "一轮",
@@ -21886,7 +24641,7 @@ export const annualCourseLibrary = {
           "annualNo": 15
         },
         {
-          "id": "uploaded-live-94",
+          "id": "uploaded-live-113",
           "no": 16,
           "grade": "高三",
           "quarter": "一轮",
@@ -21901,7 +24656,7 @@ export const annualCourseLibrary = {
           "annualNo": 16
         },
         {
-          "id": "uploaded-live-95",
+          "id": "uploaded-live-114",
           "no": 17,
           "grade": "高三",
           "quarter": "一轮",
@@ -21916,7 +24671,7 @@ export const annualCourseLibrary = {
           "annualNo": 17
         },
         {
-          "id": "uploaded-live-96",
+          "id": "uploaded-live-115",
           "no": 18,
           "grade": "高三",
           "quarter": "一轮",
@@ -21931,7 +24686,7 @@ export const annualCourseLibrary = {
           "annualNo": 18
         },
         {
-          "id": "uploaded-live-97",
+          "id": "uploaded-live-116",
           "no": 19,
           "grade": "高三",
           "quarter": "一轮",
@@ -21946,7 +24701,7 @@ export const annualCourseLibrary = {
           "annualNo": 19
         },
         {
-          "id": "uploaded-live-98",
+          "id": "uploaded-live-117",
           "no": 20,
           "grade": "高三",
           "quarter": "一轮",
@@ -21961,7 +24716,7 @@ export const annualCourseLibrary = {
           "annualNo": 20
         },
         {
-          "id": "uploaded-live-99",
+          "id": "uploaded-live-118",
           "no": 21,
           "grade": "高三",
           "quarter": "一轮",
@@ -21976,7 +24731,7 @@ export const annualCourseLibrary = {
           "annualNo": 21
         },
         {
-          "id": "uploaded-live-100",
+          "id": "uploaded-live-119",
           "no": 22,
           "grade": "高三",
           "quarter": "一轮",
@@ -21991,7 +24746,7 @@ export const annualCourseLibrary = {
           "annualNo": 22
         },
         {
-          "id": "uploaded-live-101",
+          "id": "uploaded-live-120",
           "no": 23,
           "grade": "高三",
           "quarter": "一轮",
@@ -22006,7 +24761,7 @@ export const annualCourseLibrary = {
           "annualNo": 23
         },
         {
-          "id": "uploaded-live-102",
+          "id": "uploaded-live-121",
           "no": 24,
           "grade": "高三",
           "quarter": "一轮",
@@ -22021,7 +24776,7 @@ export const annualCourseLibrary = {
           "annualNo": 24
         },
         {
-          "id": "uploaded-live-103",
+          "id": "uploaded-live-122",
           "no": 25,
           "grade": "高三",
           "quarter": "一轮",
@@ -22036,7 +24791,7 @@ export const annualCourseLibrary = {
           "annualNo": 25
         },
         {
-          "id": "uploaded-live-104",
+          "id": "uploaded-live-123",
           "no": 26,
           "grade": "高三",
           "quarter": "一轮",
@@ -22053,7 +24808,7 @@ export const annualCourseLibrary = {
       ],
       "生物": [
         {
-          "id": "uploaded-live-78",
+          "id": "uploaded-live-97",
           "no": 1,
           "grade": "高三",
           "quarter": "一轮",
@@ -22068,7 +24823,7 @@ export const annualCourseLibrary = {
           "annualNo": 1
         },
         {
-          "id": "uploaded-live-79",
+          "id": "uploaded-live-98",
           "no": 2,
           "grade": "高三",
           "quarter": "一轮",
@@ -22083,7 +24838,7 @@ export const annualCourseLibrary = {
           "annualNo": 2
         },
         {
-          "id": "uploaded-live-80",
+          "id": "uploaded-live-99",
           "no": 3,
           "grade": "高三",
           "quarter": "一轮",
@@ -22098,7 +24853,7 @@ export const annualCourseLibrary = {
           "annualNo": 3
         },
         {
-          "id": "uploaded-live-81",
+          "id": "uploaded-live-100",
           "no": 4,
           "grade": "高三",
           "quarter": "一轮",
@@ -22113,7 +24868,7 @@ export const annualCourseLibrary = {
           "annualNo": 4
         },
         {
-          "id": "uploaded-live-82",
+          "id": "uploaded-live-101",
           "no": 5,
           "grade": "高三",
           "quarter": "一轮",
@@ -22128,7 +24883,7 @@ export const annualCourseLibrary = {
           "annualNo": 5
         },
         {
-          "id": "uploaded-live-83",
+          "id": "uploaded-live-102",
           "no": 6,
           "grade": "高三",
           "quarter": "一轮",
@@ -22143,7 +24898,7 @@ export const annualCourseLibrary = {
           "annualNo": 6
         },
         {
-          "id": "uploaded-live-84",
+          "id": "uploaded-live-103",
           "no": 7,
           "grade": "高三",
           "quarter": "一轮",
@@ -22158,7 +24913,7 @@ export const annualCourseLibrary = {
           "annualNo": 7
         },
         {
-          "id": "uploaded-live-85",
+          "id": "uploaded-live-104",
           "no": 8,
           "grade": "高三",
           "quarter": "一轮",
@@ -22173,7 +24928,7 @@ export const annualCourseLibrary = {
           "annualNo": 8
         },
         {
-          "id": "uploaded-live-86",
+          "id": "uploaded-live-105",
           "no": 9,
           "grade": "高三",
           "quarter": "一轮",
@@ -22188,7 +24943,7 @@ export const annualCourseLibrary = {
           "annualNo": 9
         },
         {
-          "id": "uploaded-live-87",
+          "id": "uploaded-live-106",
           "no": 10,
           "grade": "高三",
           "quarter": "一轮",
@@ -22203,7 +24958,7 @@ export const annualCourseLibrary = {
           "annualNo": 10
         },
         {
-          "id": "uploaded-live-88",
+          "id": "uploaded-live-107",
           "no": 11,
           "grade": "高三",
           "quarter": "一轮",
@@ -22218,7 +24973,7 @@ export const annualCourseLibrary = {
           "annualNo": 11
         },
         {
-          "id": "uploaded-live-89",
+          "id": "uploaded-live-108",
           "no": 12,
           "grade": "高三",
           "quarter": "一轮",
@@ -22233,7 +24988,7 @@ export const annualCourseLibrary = {
           "annualNo": 12
         },
         {
-          "id": "uploaded-live-90",
+          "id": "uploaded-live-109",
           "no": 13,
           "grade": "高三",
           "quarter": "一轮",
@@ -22248,7 +25003,7 @@ export const annualCourseLibrary = {
           "annualNo": 13
         },
         {
-          "id": "uploaded-live-91",
+          "id": "uploaded-live-110",
           "no": 14,
           "grade": "高三",
           "quarter": "一轮",
@@ -22263,7 +25018,7 @@ export const annualCourseLibrary = {
           "annualNo": 14
         },
         {
-          "id": "uploaded-live-92",
+          "id": "uploaded-live-111",
           "no": 15,
           "grade": "高三",
           "quarter": "一轮",
@@ -22278,7 +25033,7 @@ export const annualCourseLibrary = {
           "annualNo": 15
         },
         {
-          "id": "uploaded-live-93",
+          "id": "uploaded-live-112",
           "no": 16,
           "grade": "高三",
           "quarter": "一轮",
@@ -22293,7 +25048,7 @@ export const annualCourseLibrary = {
           "annualNo": 16
         },
         {
-          "id": "uploaded-live-94",
+          "id": "uploaded-live-113",
           "no": 17,
           "grade": "高三",
           "quarter": "一轮",
@@ -22308,7 +25063,7 @@ export const annualCourseLibrary = {
           "annualNo": 17
         },
         {
-          "id": "uploaded-live-95",
+          "id": "uploaded-live-114",
           "no": 18,
           "grade": "高三",
           "quarter": "一轮",
@@ -22323,7 +25078,7 @@ export const annualCourseLibrary = {
           "annualNo": 18
         },
         {
-          "id": "uploaded-live-96",
+          "id": "uploaded-live-115",
           "no": 19,
           "grade": "高三",
           "quarter": "一轮",
@@ -22338,7 +25093,7 @@ export const annualCourseLibrary = {
           "annualNo": 19
         },
         {
-          "id": "uploaded-live-97",
+          "id": "uploaded-live-116",
           "no": 20,
           "grade": "高三",
           "quarter": "一轮",
@@ -22353,7 +25108,7 @@ export const annualCourseLibrary = {
           "annualNo": 20
         },
         {
-          "id": "uploaded-live-98",
+          "id": "uploaded-live-117",
           "no": 21,
           "grade": "高三",
           "quarter": "一轮",
@@ -22368,7 +25123,7 @@ export const annualCourseLibrary = {
           "annualNo": 21
         },
         {
-          "id": "uploaded-live-99",
+          "id": "uploaded-live-118",
           "no": 22,
           "grade": "高三",
           "quarter": "一轮",
@@ -22383,7 +25138,7 @@ export const annualCourseLibrary = {
           "annualNo": 22
         },
         {
-          "id": "uploaded-live-100",
+          "id": "uploaded-live-119",
           "no": 23,
           "grade": "高三",
           "quarter": "一轮",
@@ -22398,7 +25153,7 @@ export const annualCourseLibrary = {
           "annualNo": 23
         },
         {
-          "id": "uploaded-live-101",
+          "id": "uploaded-live-120",
           "no": 24,
           "grade": "高三",
           "quarter": "一轮",
@@ -22413,7 +25168,7 @@ export const annualCourseLibrary = {
           "annualNo": 24
         },
         {
-          "id": "uploaded-live-102",
+          "id": "uploaded-live-121",
           "no": 25,
           "grade": "高三",
           "quarter": "一轮",
@@ -22428,7 +25183,7 @@ export const annualCourseLibrary = {
           "annualNo": 25
         },
         {
-          "id": "uploaded-live-103",
+          "id": "uploaded-live-122",
           "no": 26,
           "grade": "高三",
           "quarter": "一轮",
@@ -22445,7 +25200,7 @@ export const annualCourseLibrary = {
       ],
       "历史": [
         {
-          "id": "uploaded-live-59",
+          "id": "uploaded-live-88",
           "no": 1,
           "grade": "高三",
           "quarter": "一轮",
@@ -22460,7 +25215,7 @@ export const annualCourseLibrary = {
           "annualNo": 1
         },
         {
-          "id": "uploaded-live-60",
+          "id": "uploaded-live-89",
           "no": 2,
           "grade": "高三",
           "quarter": "一轮",
@@ -22475,7 +25230,7 @@ export const annualCourseLibrary = {
           "annualNo": 2
         },
         {
-          "id": "uploaded-live-61",
+          "id": "uploaded-live-90",
           "no": 3,
           "grade": "高三",
           "quarter": "一轮",
@@ -22490,7 +25245,7 @@ export const annualCourseLibrary = {
           "annualNo": 3
         },
         {
-          "id": "uploaded-live-62",
+          "id": "uploaded-live-91",
           "no": 4,
           "grade": "高三",
           "quarter": "一轮",
@@ -22505,7 +25260,7 @@ export const annualCourseLibrary = {
           "annualNo": 4
         },
         {
-          "id": "uploaded-live-63",
+          "id": "uploaded-live-92",
           "no": 5,
           "grade": "高三",
           "quarter": "一轮",
@@ -22520,7 +25275,7 @@ export const annualCourseLibrary = {
           "annualNo": 5
         },
         {
-          "id": "uploaded-live-64",
+          "id": "uploaded-live-93",
           "no": 6,
           "grade": "高三",
           "quarter": "一轮",
@@ -22535,7 +25290,7 @@ export const annualCourseLibrary = {
           "annualNo": 6
         },
         {
-          "id": "uploaded-live-65",
+          "id": "uploaded-live-94",
           "no": 7,
           "grade": "高三",
           "quarter": "一轮",
@@ -22550,7 +25305,7 @@ export const annualCourseLibrary = {
           "annualNo": 7
         },
         {
-          "id": "uploaded-live-66",
+          "id": "uploaded-live-95",
           "no": 8,
           "grade": "高三",
           "quarter": "一轮",
@@ -22565,7 +25320,7 @@ export const annualCourseLibrary = {
           "annualNo": 8
         },
         {
-          "id": "uploaded-live-67",
+          "id": "uploaded-live-96",
           "no": 9,
           "grade": "高三",
           "quarter": "一轮",
@@ -22580,7 +25335,7 @@ export const annualCourseLibrary = {
           "annualNo": 9
         },
         {
-          "id": "uploaded-live-68",
+          "id": "uploaded-live-97",
           "no": 10,
           "grade": "高三",
           "quarter": "一轮",
@@ -22595,7 +25350,7 @@ export const annualCourseLibrary = {
           "annualNo": 10
         },
         {
-          "id": "uploaded-live-69",
+          "id": "uploaded-live-98",
           "no": 11,
           "grade": "高三",
           "quarter": "一轮",
@@ -22610,7 +25365,7 @@ export const annualCourseLibrary = {
           "annualNo": 11
         },
         {
-          "id": "uploaded-live-70",
+          "id": "uploaded-live-99",
           "no": 12,
           "grade": "高三",
           "quarter": "一轮",
@@ -22625,7 +25380,7 @@ export const annualCourseLibrary = {
           "annualNo": 12
         },
         {
-          "id": "uploaded-live-71",
+          "id": "uploaded-live-100",
           "no": 13,
           "grade": "高三",
           "quarter": "一轮",
@@ -22640,7 +25395,7 @@ export const annualCourseLibrary = {
           "annualNo": 13
         },
         {
-          "id": "uploaded-live-72",
+          "id": "uploaded-live-101",
           "no": 14,
           "grade": "高三",
           "quarter": "一轮",
@@ -22655,7 +25410,7 @@ export const annualCourseLibrary = {
           "annualNo": 14
         },
         {
-          "id": "uploaded-live-73",
+          "id": "uploaded-live-102",
           "no": 15,
           "grade": "高三",
           "quarter": "一轮",
@@ -22670,7 +25425,7 @@ export const annualCourseLibrary = {
           "annualNo": 15
         },
         {
-          "id": "uploaded-live-74",
+          "id": "uploaded-live-103",
           "no": 16,
           "grade": "高三",
           "quarter": "一轮",
@@ -22685,7 +25440,7 @@ export const annualCourseLibrary = {
           "annualNo": 16
         },
         {
-          "id": "uploaded-live-75",
+          "id": "uploaded-live-104",
           "no": 17,
           "grade": "高三",
           "quarter": "一轮",
@@ -22700,7 +25455,7 @@ export const annualCourseLibrary = {
           "annualNo": 17
         },
         {
-          "id": "uploaded-live-76",
+          "id": "uploaded-live-105",
           "no": 18,
           "grade": "高三",
           "quarter": "一轮",
@@ -22715,7 +25470,7 @@ export const annualCourseLibrary = {
           "annualNo": 18
         },
         {
-          "id": "uploaded-live-77",
+          "id": "uploaded-live-106",
           "no": 19,
           "grade": "高三",
           "quarter": "一轮",
@@ -22730,7 +25485,7 @@ export const annualCourseLibrary = {
           "annualNo": 19
         },
         {
-          "id": "uploaded-live-78",
+          "id": "uploaded-live-107",
           "no": 20,
           "grade": "高三",
           "quarter": "一轮",
@@ -22745,7 +25500,7 @@ export const annualCourseLibrary = {
           "annualNo": 20
         },
         {
-          "id": "uploaded-live-79",
+          "id": "uploaded-live-108",
           "no": 21,
           "grade": "高三",
           "quarter": "一轮",
@@ -22760,7 +25515,7 @@ export const annualCourseLibrary = {
           "annualNo": 21
         },
         {
-          "id": "uploaded-live-80",
+          "id": "uploaded-live-109",
           "no": 22,
           "grade": "高三",
           "quarter": "一轮",
@@ -22775,7 +25530,7 @@ export const annualCourseLibrary = {
           "annualNo": 22
         },
         {
-          "id": "uploaded-live-81",
+          "id": "uploaded-live-110",
           "no": 23,
           "grade": "高三",
           "quarter": "一轮",
@@ -22790,7 +25545,7 @@ export const annualCourseLibrary = {
           "annualNo": 23
         },
         {
-          "id": "uploaded-live-82",
+          "id": "uploaded-live-111",
           "no": 24,
           "grade": "高三",
           "quarter": "一轮",
@@ -22805,7 +25560,7 @@ export const annualCourseLibrary = {
           "annualNo": 24
         },
         {
-          "id": "uploaded-live-83",
+          "id": "uploaded-live-112",
           "no": 25,
           "grade": "高三",
           "quarter": "一轮",
@@ -22820,7 +25575,7 @@ export const annualCourseLibrary = {
           "annualNo": 25
         },
         {
-          "id": "uploaded-live-84",
+          "id": "uploaded-live-113",
           "no": 26,
           "grade": "高三",
           "quarter": "一轮",
@@ -22837,7 +25592,7 @@ export const annualCourseLibrary = {
       ],
       "地理": [
         {
-          "id": "uploaded-live-59",
+          "id": "uploaded-live-88",
           "no": 1,
           "grade": "高三",
           "quarter": "一轮",
@@ -22852,7 +25607,7 @@ export const annualCourseLibrary = {
           "annualNo": 1
         },
         {
-          "id": "uploaded-live-60",
+          "id": "uploaded-live-89",
           "no": 2,
           "grade": "高三",
           "quarter": "一轮",
@@ -22867,7 +25622,7 @@ export const annualCourseLibrary = {
           "annualNo": 2
         },
         {
-          "id": "uploaded-live-61",
+          "id": "uploaded-live-90",
           "no": 3,
           "grade": "高三",
           "quarter": "一轮",
@@ -22882,7 +25637,7 @@ export const annualCourseLibrary = {
           "annualNo": 3
         },
         {
-          "id": "uploaded-live-62",
+          "id": "uploaded-live-91",
           "no": 4,
           "grade": "高三",
           "quarter": "一轮",
@@ -22897,7 +25652,7 @@ export const annualCourseLibrary = {
           "annualNo": 4
         },
         {
-          "id": "uploaded-live-63",
+          "id": "uploaded-live-92",
           "no": 5,
           "grade": "高三",
           "quarter": "一轮",
@@ -22912,7 +25667,7 @@ export const annualCourseLibrary = {
           "annualNo": 5
         },
         {
-          "id": "uploaded-live-64",
+          "id": "uploaded-live-93",
           "no": 6,
           "grade": "高三",
           "quarter": "一轮",
@@ -22927,7 +25682,7 @@ export const annualCourseLibrary = {
           "annualNo": 6
         },
         {
-          "id": "uploaded-live-65",
+          "id": "uploaded-live-94",
           "no": 7,
           "grade": "高三",
           "quarter": "一轮",
@@ -22942,7 +25697,7 @@ export const annualCourseLibrary = {
           "annualNo": 7
         },
         {
-          "id": "uploaded-live-66",
+          "id": "uploaded-live-95",
           "no": 8,
           "grade": "高三",
           "quarter": "一轮",
@@ -22957,7 +25712,7 @@ export const annualCourseLibrary = {
           "annualNo": 8
         },
         {
-          "id": "uploaded-live-67",
+          "id": "uploaded-live-96",
           "no": 9,
           "grade": "高三",
           "quarter": "一轮",
@@ -22972,7 +25727,7 @@ export const annualCourseLibrary = {
           "annualNo": 9
         },
         {
-          "id": "uploaded-live-68",
+          "id": "uploaded-live-97",
           "no": 10,
           "grade": "高三",
           "quarter": "一轮",
@@ -22987,7 +25742,7 @@ export const annualCourseLibrary = {
           "annualNo": 10
         },
         {
-          "id": "uploaded-live-69",
+          "id": "uploaded-live-98",
           "no": 11,
           "grade": "高三",
           "quarter": "一轮",
@@ -23002,7 +25757,7 @@ export const annualCourseLibrary = {
           "annualNo": 11
         },
         {
-          "id": "uploaded-live-70",
+          "id": "uploaded-live-99",
           "no": 12,
           "grade": "高三",
           "quarter": "一轮",
@@ -23017,7 +25772,7 @@ export const annualCourseLibrary = {
           "annualNo": 12
         },
         {
-          "id": "uploaded-live-71",
+          "id": "uploaded-live-100",
           "no": 13,
           "grade": "高三",
           "quarter": "一轮",
@@ -23032,7 +25787,7 @@ export const annualCourseLibrary = {
           "annualNo": 13
         },
         {
-          "id": "uploaded-live-72",
+          "id": "uploaded-live-101",
           "no": 14,
           "grade": "高三",
           "quarter": "一轮",
@@ -23047,7 +25802,7 @@ export const annualCourseLibrary = {
           "annualNo": 14
         },
         {
-          "id": "uploaded-live-73",
+          "id": "uploaded-live-102",
           "no": 15,
           "grade": "高三",
           "quarter": "一轮",
@@ -23062,7 +25817,7 @@ export const annualCourseLibrary = {
           "annualNo": 15
         },
         {
-          "id": "uploaded-live-74",
+          "id": "uploaded-live-103",
           "no": 16,
           "grade": "高三",
           "quarter": "一轮",
@@ -23077,7 +25832,7 @@ export const annualCourseLibrary = {
           "annualNo": 16
         },
         {
-          "id": "uploaded-live-75",
+          "id": "uploaded-live-104",
           "no": 17,
           "grade": "高三",
           "quarter": "一轮",
@@ -23092,7 +25847,7 @@ export const annualCourseLibrary = {
           "annualNo": 17
         },
         {
-          "id": "uploaded-live-76",
+          "id": "uploaded-live-105",
           "no": 18,
           "grade": "高三",
           "quarter": "一轮",
@@ -23107,7 +25862,7 @@ export const annualCourseLibrary = {
           "annualNo": 18
         },
         {
-          "id": "uploaded-live-77",
+          "id": "uploaded-live-106",
           "no": 19,
           "grade": "高三",
           "quarter": "一轮",
@@ -23122,7 +25877,7 @@ export const annualCourseLibrary = {
           "annualNo": 19
         },
         {
-          "id": "uploaded-live-78",
+          "id": "uploaded-live-107",
           "no": 20,
           "grade": "高三",
           "quarter": "一轮",
@@ -23137,7 +25892,7 @@ export const annualCourseLibrary = {
           "annualNo": 20
         },
         {
-          "id": "uploaded-live-79",
+          "id": "uploaded-live-108",
           "no": 21,
           "grade": "高三",
           "quarter": "一轮",
@@ -23152,7 +25907,7 @@ export const annualCourseLibrary = {
           "annualNo": 21
         },
         {
-          "id": "uploaded-live-80",
+          "id": "uploaded-live-109",
           "no": 22,
           "grade": "高三",
           "quarter": "一轮",
@@ -23167,7 +25922,7 @@ export const annualCourseLibrary = {
           "annualNo": 22
         },
         {
-          "id": "uploaded-live-81",
+          "id": "uploaded-live-110",
           "no": 23,
           "grade": "高三",
           "quarter": "一轮",
@@ -23182,7 +25937,7 @@ export const annualCourseLibrary = {
           "annualNo": 23
         },
         {
-          "id": "uploaded-live-82",
+          "id": "uploaded-live-111",
           "no": 24,
           "grade": "高三",
           "quarter": "一轮",
@@ -23197,7 +25952,7 @@ export const annualCourseLibrary = {
           "annualNo": 24
         },
         {
-          "id": "uploaded-live-83",
+          "id": "uploaded-live-112",
           "no": 25,
           "grade": "高三",
           "quarter": "一轮",
@@ -23212,7 +25967,7 @@ export const annualCourseLibrary = {
           "annualNo": 25
         },
         {
-          "id": "uploaded-live-84",
+          "id": "uploaded-live-113",
           "no": 26,
           "grade": "高三",
           "quarter": "一轮",
@@ -23229,7 +25984,7 @@ export const annualCourseLibrary = {
       ],
       "政治": [
         {
-          "id": "uploaded-live-59",
+          "id": "uploaded-live-88",
           "no": 1,
           "grade": "高三",
           "quarter": "一轮",
@@ -23244,7 +25999,7 @@ export const annualCourseLibrary = {
           "annualNo": 1
         },
         {
-          "id": "uploaded-live-60",
+          "id": "uploaded-live-89",
           "no": 2,
           "grade": "高三",
           "quarter": "一轮",
@@ -23259,7 +26014,7 @@ export const annualCourseLibrary = {
           "annualNo": 2
         },
         {
-          "id": "uploaded-live-61",
+          "id": "uploaded-live-90",
           "no": 3,
           "grade": "高三",
           "quarter": "一轮",
@@ -23274,7 +26029,7 @@ export const annualCourseLibrary = {
           "annualNo": 3
         },
         {
-          "id": "uploaded-live-62",
+          "id": "uploaded-live-91",
           "no": 4,
           "grade": "高三",
           "quarter": "一轮",
@@ -23289,7 +26044,7 @@ export const annualCourseLibrary = {
           "annualNo": 4
         },
         {
-          "id": "uploaded-live-63",
+          "id": "uploaded-live-92",
           "no": 5,
           "grade": "高三",
           "quarter": "一轮",
@@ -23304,7 +26059,7 @@ export const annualCourseLibrary = {
           "annualNo": 5
         },
         {
-          "id": "uploaded-live-64",
+          "id": "uploaded-live-93",
           "no": 6,
           "grade": "高三",
           "quarter": "一轮",
@@ -23319,7 +26074,7 @@ export const annualCourseLibrary = {
           "annualNo": 6
         },
         {
-          "id": "uploaded-live-65",
+          "id": "uploaded-live-94",
           "no": 7,
           "grade": "高三",
           "quarter": "一轮",
@@ -23334,7 +26089,7 @@ export const annualCourseLibrary = {
           "annualNo": 7
         },
         {
-          "id": "uploaded-live-66",
+          "id": "uploaded-live-95",
           "no": 8,
           "grade": "高三",
           "quarter": "一轮",
@@ -23349,7 +26104,7 @@ export const annualCourseLibrary = {
           "annualNo": 8
         },
         {
-          "id": "uploaded-live-67",
+          "id": "uploaded-live-96",
           "no": 9,
           "grade": "高三",
           "quarter": "一轮",
@@ -23364,7 +26119,7 @@ export const annualCourseLibrary = {
           "annualNo": 9
         },
         {
-          "id": "uploaded-live-68",
+          "id": "uploaded-live-97",
           "no": 10,
           "grade": "高三",
           "quarter": "一轮",
@@ -23379,7 +26134,7 @@ export const annualCourseLibrary = {
           "annualNo": 10
         },
         {
-          "id": "uploaded-live-69",
+          "id": "uploaded-live-98",
           "no": 11,
           "grade": "高三",
           "quarter": "一轮",
@@ -23394,7 +26149,7 @@ export const annualCourseLibrary = {
           "annualNo": 11
         },
         {
-          "id": "uploaded-live-70",
+          "id": "uploaded-live-99",
           "no": 12,
           "grade": "高三",
           "quarter": "一轮",
@@ -23409,7 +26164,7 @@ export const annualCourseLibrary = {
           "annualNo": 12
         },
         {
-          "id": "uploaded-live-71",
+          "id": "uploaded-live-100",
           "no": 13,
           "grade": "高三",
           "quarter": "一轮",
@@ -23424,7 +26179,7 @@ export const annualCourseLibrary = {
           "annualNo": 13
         },
         {
-          "id": "uploaded-live-72",
+          "id": "uploaded-live-101",
           "no": 14,
           "grade": "高三",
           "quarter": "一轮",
@@ -23439,7 +26194,7 @@ export const annualCourseLibrary = {
           "annualNo": 14
         },
         {
-          "id": "uploaded-live-73",
+          "id": "uploaded-live-102",
           "no": 15,
           "grade": "高三",
           "quarter": "一轮",
@@ -23454,7 +26209,7 @@ export const annualCourseLibrary = {
           "annualNo": 15
         },
         {
-          "id": "uploaded-live-74",
+          "id": "uploaded-live-103",
           "no": 16,
           "grade": "高三",
           "quarter": "一轮",
@@ -23469,7 +26224,7 @@ export const annualCourseLibrary = {
           "annualNo": 16
         },
         {
-          "id": "uploaded-live-75",
+          "id": "uploaded-live-104",
           "no": 17,
           "grade": "高三",
           "quarter": "一轮",
@@ -23484,7 +26239,7 @@ export const annualCourseLibrary = {
           "annualNo": 17
         },
         {
-          "id": "uploaded-live-76",
+          "id": "uploaded-live-105",
           "no": 18,
           "grade": "高三",
           "quarter": "一轮",
@@ -23499,7 +26254,7 @@ export const annualCourseLibrary = {
           "annualNo": 18
         },
         {
-          "id": "uploaded-live-77",
+          "id": "uploaded-live-106",
           "no": 19,
           "grade": "高三",
           "quarter": "一轮",
@@ -23514,7 +26269,7 @@ export const annualCourseLibrary = {
           "annualNo": 19
         },
         {
-          "id": "uploaded-live-78",
+          "id": "uploaded-live-107",
           "no": 20,
           "grade": "高三",
           "quarter": "一轮",
@@ -23529,7 +26284,7 @@ export const annualCourseLibrary = {
           "annualNo": 20
         },
         {
-          "id": "uploaded-live-79",
+          "id": "uploaded-live-108",
           "no": 21,
           "grade": "高三",
           "quarter": "一轮",
@@ -23544,7 +26299,7 @@ export const annualCourseLibrary = {
           "annualNo": 21
         },
         {
-          "id": "uploaded-live-80",
+          "id": "uploaded-live-109",
           "no": 22,
           "grade": "高三",
           "quarter": "一轮",
@@ -23559,7 +26314,7 @@ export const annualCourseLibrary = {
           "annualNo": 22
         },
         {
-          "id": "uploaded-live-81",
+          "id": "uploaded-live-110",
           "no": 23,
           "grade": "高三",
           "quarter": "一轮",
@@ -23574,7 +26329,7 @@ export const annualCourseLibrary = {
           "annualNo": 23
         },
         {
-          "id": "uploaded-live-82",
+          "id": "uploaded-live-111",
           "no": 24,
           "grade": "高三",
           "quarter": "一轮",
@@ -23589,7 +26344,7 @@ export const annualCourseLibrary = {
           "annualNo": 24
         },
         {
-          "id": "uploaded-live-83",
+          "id": "uploaded-live-112",
           "no": 25,
           "grade": "高三",
           "quarter": "一轮",
@@ -23604,7 +26359,7 @@ export const annualCourseLibrary = {
           "annualNo": 25
         },
         {
-          "id": "uploaded-live-84",
+          "id": "uploaded-live-113",
           "no": 26,
           "grade": "高三",
           "quarter": "一轮",
@@ -24347,7 +27102,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-1",
           "title": "高次不等式与分式不等式(一轮)",
-          "outlineCode": "",
+          "outlineCode": "1.1.1.1",
           "difficulty": 1,
           "layered": "目标班",
           "quarter": "一轮"
@@ -24355,7 +27110,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-2",
           "title": "指对不等式(一轮)",
-          "outlineCode": "",
+          "outlineCode": "1.1.1.2",
           "difficulty": 2,
           "layered": "目标班",
           "quarter": "一轮"
@@ -24363,7 +27118,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-3",
           "title": "函数不等式与超越不等式(一轮)",
-          "outlineCode": "",
+          "outlineCode": "1.1.1.3",
           "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
@@ -24371,7 +27126,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-4",
           "title": "均值不等式及其直接应用(一轮)",
-          "outlineCode": "",
+          "outlineCode": "1.1.2.1",
           "difficulty": 2,
           "layered": "目标班",
           "quarter": "一轮"
@@ -24379,7 +27134,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-5",
           "title": "均值不等式的拓展(一轮)",
-          "outlineCode": "",
+          "outlineCode": "1.1.2.2",
           "difficulty": 3,
           "layered": "精英班",
           "quarter": "一轮"
@@ -24387,23 +27142,23 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-6",
           "title": "配凑法(一轮)",
-          "outlineCode": "",
+          "outlineCode": "1.1.2.3",
           "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
         {
           "id": "uploaded-video-7",
-          "title": "轮换对称型速算技巧(二轮)",
-          "outlineCode": "",
+          "title": "高考数学必备小初数学常识(一轮)",
+          "outlineCode": "1.2.1.1",
           "difficulty": 2,
           "layered": "通用",
-          "quarter": "二轮"
+          "quarter": "一轮"
         },
         {
           "id": "uploaded-video-8",
           "title": "数论常识在高考中的应用(一轮)",
-          "outlineCode": "",
+          "outlineCode": "1.2.1.2",
           "difficulty": 3,
           "layered": "精英班",
           "quarter": "一轮"
@@ -24411,7 +27166,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-9",
           "title": "二次函数根的分布模型(一轮)",
-          "outlineCode": "",
+          "outlineCode": "1.2.1.3",
           "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
@@ -24419,7 +27174,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-10",
           "title": "恒成立与恒定性命题应试技巧(上)(一轮)",
-          "outlineCode": "",
+          "outlineCode": "1.2.2.1",
           "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
@@ -24427,23 +27182,23 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-11",
           "title": "恒成立与恒定性命题应试技巧(下)(一轮)",
-          "outlineCode": "",
+          "outlineCode": "1.2.2.2",
           "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
         },
         {
           "id": "uploaded-video-12",
-          "title": "应试思维在数学考试中的应用(二轮)",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "二轮"
+          "title": "对勾函数图像、值域和最值(一轮)",
+          "outlineCode": "2.1.1.1",
+          "difficulty": 1,
+          "layered": "目标班",
+          "quarter": "一轮"
         },
         {
           "id": "uploaded-video-13",
           "title": "分式型函数值域和最值(一轮)",
-          "outlineCode": "",
+          "outlineCode": "2.1.1.2",
           "difficulty": 2,
           "layered": "目标班",
           "quarter": "一轮"
@@ -24451,7 +27206,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-14",
           "title": "二次比一次型分式最值速算技巧(一轮)",
-          "outlineCode": "",
+          "outlineCode": "2.1.1.3",
           "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
@@ -24459,7 +27214,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-15",
           "title": "二次比二次型分式最值速算技巧(一轮)",
-          "outlineCode": "",
+          "outlineCode": "2.1.1.4",
           "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
@@ -24467,7 +27222,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-16",
           "title": "复合函数与分段函数单调性(一轮)",
-          "outlineCode": "",
+          "outlineCode": "2.2.1.1",
           "difficulty": 2,
           "layered": "目标班",
           "quarter": "一轮"
@@ -24475,7 +27230,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-17",
           "title": "函数图像的变换和叠加(一轮)",
-          "outlineCode": "",
+          "outlineCode": "2.2.1.2",
           "difficulty": 4,
           "layered": "精英班",
           "quarter": "一轮"
@@ -24483,23 +27238,23 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-18",
           "title": "导数的概念与计算(一轮)",
-          "outlineCode": "",
+          "outlineCode": "3.1.1.1",
           "difficulty": 1,
           "layered": "目标班",
           "quarter": "一轮"
         },
         {
           "id": "uploaded-video-19",
-          "title": "导函数原型构造问题(二轮)",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "精英班",
-          "quarter": "二轮"
+          "title": "无参数求单调区间(一轮)",
+          "outlineCode": "3.2.1.1",
+          "difficulty": 1,
+          "layered": "目标班",
+          "quarter": "一轮"
         },
         {
           "id": "uploaded-video-20",
           "title": "导数可分解型讨论单调性(一轮)",
-          "outlineCode": "",
+          "outlineCode": "3.2.1.2",
           "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
@@ -24507,7 +27262,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-21",
           "title": "导数不可分解型讨论单调性(一轮)",
-          "outlineCode": "",
+          "outlineCode": "3.2.1.3",
           "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
@@ -24515,7 +27270,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-22",
           "title": "导数超越函数型讨论单调性(一轮)",
-          "outlineCode": "",
+          "outlineCode": "3.2.1.4",
           "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
@@ -24523,7 +27278,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-23",
           "title": "具体函数的最值与值域(一轮)",
-          "outlineCode": "",
+          "outlineCode": "3.3.1.1",
           "difficulty": 2,
           "layered": "目标班",
           "quarter": "一轮"
@@ -24531,23 +27286,23 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-24",
           "title": "单调性与极最值的简单应用(一轮)",
-          "outlineCode": "",
+          "outlineCode": "3.3.1.2",
           "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
         },
         {
           "id": "uploaded-video-25",
-          "title": "单调性与极最值的初阶综合(二轮)",
-          "outlineCode": "",
+          "title": "单函数单调性构造(一轮)",
+          "outlineCode": "3.3.2.1",
           "difficulty": 3,
           "layered": "通用",
-          "quarter": "二轮"
+          "quarter": "一轮"
         },
         {
           "id": "uploaded-video-26",
           "title": "双函数最值构造(一轮)",
-          "outlineCode": "",
+          "outlineCode": "3.3.2.2",
           "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
@@ -24555,7 +27310,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-27",
           "title": "导数可因式分解型(一轮)",
-          "outlineCode": "",
+          "outlineCode": "3.4.1.1",
           "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
@@ -24563,7 +27318,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-28",
           "title": "端点恒成立(上)(一轮)",
-          "outlineCode": "",
+          "outlineCode": "3.4.1.2",
           "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
@@ -24571,7 +27326,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-29",
           "title": "端点恒成立(下)(一轮)",
-          "outlineCode": "",
+          "outlineCode": "3.4.1.3",
           "difficulty": 3,
           "layered": "精英班",
           "quarter": "一轮"
@@ -24579,7 +27334,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-30",
           "title": "中间点恒成立(上)(一轮)",
-          "outlineCode": "",
+          "outlineCode": "3.4.1.4",
           "difficulty": 4,
           "layered": "精英班",
           "quarter": "一轮"
@@ -24587,7 +27342,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-31",
           "title": "中间点恒成立(下)(一轮)",
-          "outlineCode": "",
+          "outlineCode": "3.4.1.5",
           "difficulty": 4,
           "layered": "精英班",
           "quarter": "一轮"
@@ -24595,7 +27350,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-32",
           "title": "参变分离法(一轮)",
-          "outlineCode": "",
+          "outlineCode": "3.4.1.6",
           "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
@@ -24603,7 +27358,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-33",
           "title": "幂指函数恒成立问题速解技巧(一轮)",
-          "outlineCode": "",
+          "outlineCode": "3.4.1.7",
           "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
@@ -24611,7 +27366,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-34",
           "title": "恒成立与零点存在性中的同构问题(一轮)",
-          "outlineCode": "",
+          "outlineCode": "3.4.1.8",
           "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
@@ -24619,7 +27374,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-35",
           "title": "主元法消参(一轮)",
-          "outlineCode": "",
+          "outlineCode": "3.4.2.1",
           "difficulty": 3,
           "layered": "精英班",
           "quarter": "一轮"
@@ -24627,23 +27382,23 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-36",
           "title": "隐零点的方程消参(一轮)",
-          "outlineCode": "",
+          "outlineCode": "3.4.2.2",
           "difficulty": 3,
           "layered": "精英班",
           "quarter": "一轮"
         },
         {
           "id": "uploaded-video-37",
-          "title": "极值点偏移经典模型(上)(二轮)",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "精英班",
-          "quarter": "二轮"
+          "title": "利用诱导公式解决问题(一轮)",
+          "outlineCode": "4.1.1.1",
+          "difficulty": 2,
+          "layered": "目标班",
+          "quarter": "一轮"
         },
         {
           "id": "uploaded-video-38",
           "title": "同角齐次式——利用辅助角公式解题(一轮)",
-          "outlineCode": "",
+          "outlineCode": "4.1.2.1",
           "difficulty": 2,
           "layered": "目标班",
           "quarter": "一轮"
@@ -24651,7 +27406,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-39",
           "title": "非齐次式——换元化为二次函数(一轮)",
-          "outlineCode": "",
+          "outlineCode": "4.1.2.2",
           "difficulty": 2,
           "layered": "目标班",
           "quarter": "一轮"
@@ -24659,7 +27414,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-40",
           "title": "Asin(ωx+φ)的图像(一轮)",
-          "outlineCode": "",
+          "outlineCode": "4.2.1.1",
           "difficulty": 2,
           "layered": "目标班",
           "quarter": "一轮"
@@ -24667,7 +27422,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-41",
           "title": "三角函数图像变换模型与技巧(一轮)",
-          "outlineCode": "",
+          "outlineCode": "4.2.1.2",
           "difficulty": 2,
           "layered": "目标班",
           "quarter": "一轮"
@@ -24675,7 +27430,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-42",
           "title": "图像求值速算技巧(一轮)",
-          "outlineCode": "",
+          "outlineCode": "4.2.2.1",
           "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
@@ -24683,7 +27438,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-43",
           "title": "w的性质(一轮)",
-          "outlineCode": "",
+          "outlineCode": "4.2.2.2",
           "difficulty": 3,
           "layered": "精英班",
           "quarter": "一轮"
@@ -24691,7 +27446,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-44",
           "title": "正余弦定理和面积公式(一轮)",
-          "outlineCode": "",
+          "outlineCode": "5.1.1.1",
           "difficulty": 1,
           "layered": "目标班",
           "quarter": "一轮"
@@ -24699,7 +27454,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-45",
           "title": "几何法——利用三角形外接圆速算(一轮)",
-          "outlineCode": "",
+          "outlineCode": "5.1.3.1",
           "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
@@ -24707,23 +27462,23 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-46",
           "title": "几何法——利用阿氏圆速算(一轮)",
-          "outlineCode": "",
+          "outlineCode": "5.1.3.2",
           "difficulty": 3,
           "layered": "精英班",
           "quarter": "一轮"
         },
         {
           "id": "uploaded-video-47",
-          "title": "向量的数量积(二轮)",
-          "outlineCode": "",
-          "difficulty": 1,
-          "layered": "目标班",
-          "quarter": "二轮"
+          "title": "等差数列的基本公式与性质(一轮)",
+          "outlineCode": "6.1.1.1",
+          "difficulty": 2,
+          "layered": "通用",
+          "quarter": "一轮"
         },
         {
           "id": "uploaded-video-48",
           "title": "等比数列的基本公式与性质(一轮)",
-          "outlineCode": "",
+          "outlineCode": "6.1.2.1",
           "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
@@ -24731,7 +27486,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-49",
           "title": "通项型数列选择速解技巧(一轮)",
-          "outlineCode": "",
+          "outlineCode": "6.2.1.1",
           "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
@@ -24739,7 +27494,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-50",
           "title": "累加法与累乘法(一轮)",
-          "outlineCode": "",
+          "outlineCode": "6.2.2.1",
           "difficulty": 2,
           "layered": "目标班",
           "quarter": "一轮"
@@ -24747,7 +27502,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-51",
           "title": "一阶线性递推求通项(一轮)",
-          "outlineCode": "",
+          "outlineCode": "6.2.2.2",
           "difficulty": 2,
           "layered": "目标班",
           "quarter": "一轮"
@@ -24755,7 +27510,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-52",
           "title": "利用辅助数列求通项(一轮)",
-          "outlineCode": "",
+          "outlineCode": "6.2.2.3",
           "difficulty": 2,
           "layered": "目标班",
           "quarter": "一轮"
@@ -24763,7 +27518,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-53",
           "title": "无辅助数列递推求通项(一轮)",
-          "outlineCode": "",
+          "outlineCode": "6.2.2.4",
           "difficulty": 3,
           "layered": "精英班",
           "quarter": "一轮"
@@ -24771,7 +27526,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-54",
           "title": "二阶线性递推特征根方程求通项·基础(一轮)",
-          "outlineCode": "",
+          "outlineCode": "6.2.2.5",
           "difficulty": 4,
           "layered": "精英班",
           "quarter": "一轮"
@@ -24779,7 +27534,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-55",
           "title": "二阶线性递推特征根方程求通项·拓展(一轮)",
-          "outlineCode": "",
+          "outlineCode": "6.2.2.6",
           "difficulty": 4,
           "layered": "精英班",
           "quarter": "一轮"
@@ -24787,23 +27542,23 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-56",
           "title": "项与和的递推求通项(一轮)",
-          "outlineCode": "",
+          "outlineCode": "6.2.3.1",
           "difficulty": 2,
           "layered": "目标班",
           "quarter": "一轮"
         },
         {
           "id": "uploaded-video-57",
-          "title": "错位相减公式法速算技巧(二轮)",
-          "outlineCode": "",
-          "difficulty": 2,
+          "title": "常见几何体基础(一轮)",
+          "outlineCode": "7.1.1.1",
+          "difficulty": 1,
           "layered": "目标班",
-          "quarter": "二轮"
+          "quarter": "一轮"
         },
         {
           "id": "uploaded-video-58",
           "title": "内切球(一轮)",
-          "outlineCode": "",
+          "outlineCode": "7.1.1.2",
           "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
@@ -24811,7 +27566,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-59",
           "title": "平行的判定与性质应用(一轮)",
-          "outlineCode": "",
+          "outlineCode": "7.2.1.1",
           "difficulty": 2,
           "layered": "目标班",
           "quarter": "一轮"
@@ -24819,7 +27574,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-60",
           "title": "垂直的判定与性质应用(一轮)",
-          "outlineCode": "",
+          "outlineCode": "7.2.1.2",
           "difficulty": 2,
           "layered": "目标班",
           "quarter": "一轮"
@@ -24827,23 +27582,23 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-61",
           "title": "存在性探究问题(一轮)",
-          "outlineCode": "",
+          "outlineCode": "7.2.1.3",
           "difficulty": 3,
           "layered": "目标班",
           "quarter": "一轮"
         },
         {
           "id": "uploaded-video-62",
-          "title": "投影点存在模型与完全对称模型(二轮)",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "目标班",
-          "quarter": "二轮"
+          "title": "配极模型(一轮)",
+          "outlineCode": "9.1.1.1",
+          "difficulty": 2,
+          "layered": "通用",
+          "quarter": "一轮"
         },
         {
           "id": "uploaded-video-63",
           "title": "线圆相离最值模型(一轮)",
-          "outlineCode": "",
+          "outlineCode": "9.1.1.2",
           "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
@@ -24851,7 +27606,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-64",
           "title": "动态直线问题(一轮)",
-          "outlineCode": "",
+          "outlineCode": "9.1.1.3",
           "difficulty": 3,
           "layered": "精英班",
           "quarter": "一轮"
@@ -24859,7 +27614,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-65",
           "title": "圆锥曲线标准方程与解答第1小问(一轮)",
-          "outlineCode": "",
+          "outlineCode": "9.2.1.1",
           "difficulty": 2,
           "layered": "目标班",
           "quarter": "一轮"
@@ -24867,7 +27622,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-66",
           "title": "抛物线的定义及标准方程(一轮)",
-          "outlineCode": "",
+          "outlineCode": "9.2.1.2",
           "difficulty": 2,
           "layered": "目标班",
           "quarter": "一轮"
@@ -24875,7 +27630,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-67",
           "title": "抛物线的几何性质进阶(一轮)",
-          "outlineCode": "",
+          "outlineCode": "9.2.1.3",
           "difficulty": 3,
           "layered": "精英班",
           "quarter": "一轮"
@@ -24883,7 +27638,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-68",
           "title": "抛物线焦半径公式(一轮)",
-          "outlineCode": "",
+          "outlineCode": "9.2.1.4",
           "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
@@ -24891,7 +27646,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-69",
           "title": "利用平面几何关系确定轨迹(一轮)",
-          "outlineCode": "",
+          "outlineCode": "9.2.2.1",
           "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
@@ -24899,7 +27654,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-70",
           "title": "利用立体几何关系确定轨迹(一轮)",
-          "outlineCode": "",
+          "outlineCode": "9.2.2.2",
           "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
@@ -24907,7 +27662,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-71",
           "title": "截圆锥得圆锥曲线的证明与定量计算(一轮)",
-          "outlineCode": "",
+          "outlineCode": "9.2.2.3",
           "difficulty": 3,
           "layered": "精英班",
           "quarter": "一轮"
@@ -24915,7 +27670,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-72",
           "title": "新定义曲线(一轮)",
-          "outlineCode": "",
+          "outlineCode": "9.2.2.4",
           "difficulty": 4,
           "layered": "精英班",
           "quarter": "一轮"
@@ -24923,7 +27678,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-73",
           "title": "向量点乘条件的代数处理(一轮)",
-          "outlineCode": "",
+          "outlineCode": "9.3.1.1",
           "difficulty": 2,
           "layered": "通用",
           "quarter": "一轮"
@@ -24931,7 +27686,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-74",
           "title": "向量点乘双根速算技巧(一轮)",
-          "outlineCode": "",
+          "outlineCode": "9.3.1.2",
           "difficulty": 3,
           "layered": "精英班",
           "quarter": "一轮"
@@ -24939,7 +27694,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-75",
           "title": "向量共线条件的代数处理(一轮)",
-          "outlineCode": "",
+          "outlineCode": "9.3.1.3",
           "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
@@ -24947,7 +27702,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-76",
           "title": "弦长、距离与面积条件的基础代数处理(一轮)",
-          "outlineCode": "",
+          "outlineCode": "9.3.1.4",
           "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
@@ -24955,7 +27710,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-77",
           "title": "弦长、距离与面积条件的进阶代数处理(一轮)",
-          "outlineCode": "",
+          "outlineCode": "9.3.1.5",
           "difficulty": 4,
           "layered": "精英班",
           "quarter": "一轮"
@@ -24963,7 +27718,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-78",
           "title": "第一类定值(一轮)",
-          "outlineCode": "",
+          "outlineCode": "9.3.2.1",
           "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
@@ -24971,7 +27726,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-79",
           "title": "第二类定值(一轮)",
-          "outlineCode": "",
+          "outlineCode": "9.3.2.2",
           "difficulty": 3,
           "layered": "精英班",
           "quarter": "一轮"
@@ -24979,7 +27734,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-80",
           "title": "第一类定点(一轮)",
-          "outlineCode": "",
+          "outlineCode": "9.3.2.3",
           "difficulty": 3,
           "layered": "通用",
           "quarter": "一轮"
@@ -24987,7 +27742,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-81",
           "title": "第二类定点(一轮)",
-          "outlineCode": "",
+          "outlineCode": "9.3.2.4",
           "difficulty": 4,
           "layered": "精英班",
           "quarter": "一轮"
@@ -24995,7 +27750,7 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-82",
           "title": "较难定值定点的非对称代数处理·上(一轮)",
-          "outlineCode": "",
+          "outlineCode": "9.3.2.5",
           "difficulty": 4,
           "layered": "精英班",
           "quarter": "一轮"
@@ -25003,23 +27758,23 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-83",
           "title": "较难定值定点的非对称代数处理·下(一轮)",
-          "outlineCode": "",
+          "outlineCode": "9.3.2.6",
           "difficulty": 4,
           "layered": "精英班",
           "quarter": "一轮"
         },
         {
           "id": "uploaded-video-84",
-          "title": "动点基础问题(二轮)",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "通用",
-          "quarter": "二轮"
+          "title": "新高考中的跨模块综合问题·上(一轮)",
+          "outlineCode": "9.5.4.1",
+          "difficulty": 4,
+          "layered": "精英班",
+          "quarter": "一轮"
         },
         {
           "id": "uploaded-video-85",
           "title": "新高考中的跨模块综合问题·下(一轮)",
-          "outlineCode": "",
+          "outlineCode": "9.5.4.2",
           "difficulty": 4,
           "layered": "精英班",
           "quarter": "一轮"
@@ -28135,126 +30890,6 @@ export const annualCourseLibrary = {
         {
           "id": "uploaded-video-45",
           "title": "高考地理核心答题模板解题训练（九）",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "通用",
-          "quarter": "二轮"
-        },
-        {
-          "id": "uploaded-video-46",
-          "title": "高考地理核心答题模板解题训练（十）",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "通用",
-          "quarter": "二轮"
-        },
-        {
-          "id": "uploaded-video-47",
-          "title": "高考地理核心答题模板解题训练（十一）",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "通用",
-          "quarter": "二轮"
-        },
-        {
-          "id": "uploaded-video-48",
-          "title": "高考地理核心答题模板解题训练（十二）",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "通用",
-          "quarter": "二轮"
-        },
-        {
-          "id": "uploaded-video-49",
-          "title": "高考地理核心答题模板解题训练（十三）",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "通用",
-          "quarter": "二轮"
-        },
-        {
-          "id": "uploaded-video-50",
-          "title": "高考地理核心答题模板解题训练（十四）",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "通用",
-          "quarter": "二轮"
-        },
-        {
-          "id": "uploaded-video-51",
-          "title": "高考地理核心答题模板解题训练（十五）",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "通用",
-          "quarter": "二轮"
-        },
-        {
-          "id": "uploaded-video-52",
-          "title": "高考地理核心答题模板解题训练（十六）",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "通用",
-          "quarter": "二轮"
-        },
-        {
-          "id": "uploaded-video-53",
-          "title": "高考地理核心答题模板解题训练（十七）",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "通用",
-          "quarter": "二轮"
-        },
-        {
-          "id": "uploaded-video-54",
-          "title": "高考地理核心答题模板解题训练（十八）",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "通用",
-          "quarter": "二轮"
-        },
-        {
-          "id": "uploaded-video-55",
-          "title": "高考地理核心答题模板解题训练（十九）",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "通用",
-          "quarter": "二轮"
-        },
-        {
-          "id": "uploaded-video-56",
-          "title": "高考地理核心答题模板解题训练（二十）",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "通用",
-          "quarter": "二轮"
-        },
-        {
-          "id": "uploaded-video-57",
-          "title": "高考地理核心答题模板解题训练（二十一）",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "通用",
-          "quarter": "二轮"
-        },
-        {
-          "id": "uploaded-video-58",
-          "title": "高考地理核心答题模板解题训练（二十二）",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "通用",
-          "quarter": "二轮"
-        },
-        {
-          "id": "uploaded-video-59",
-          "title": "高考地理核心答题模板解题训练（二十三）",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "通用",
-          "quarter": "二轮"
-        },
-        {
-          "id": "uploaded-video-60",
-          "title": "高考地理核心答题模板解题训练（二十四）",
           "outlineCode": "",
           "difficulty": 4,
           "layered": "通用",

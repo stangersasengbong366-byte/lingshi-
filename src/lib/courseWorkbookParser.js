@@ -189,6 +189,13 @@ function parseSimpleVideoRows(rows) {
   const index = createHeaderIndex(header);
   return body.map((row, rowIndex) => {
     const rawTitle = clean(row[index["视频大纲"]] || row[index["视频名称"]]);
+    const rawQuarter = clean(
+      row[index["所属季度"]]
+      || row[index["（夏/秋/冬/春）"]]
+      || row[index["夏/秋/冬/春"]]
+      || row[index["季度"]]
+      || row[index["季节"]],
+    );
     return {
       id: `uploaded-video-${rowIndex + 1}`,
       title: stripOutlineCode(rawTitle),
@@ -201,15 +208,11 @@ function parseSimpleVideoRows(rows) {
         || row[index["1星/2星/3星/4星"]],
       ),
       layered: normalizeCourseTrack(row[index["整合后"]] || row[index["是否分层"]]),
-      quarter: normalizeCoursePhase(
-        row[index["所属季度"]]
-        || row[index["（夏/秋/冬/春）"]]
-        || row[index["夏/秋/冬/春"]]
-        || row[index["季度"]]
-        || row[index["季节"]],
-      ),
+      quarter: normalizeCoursePhase(rawQuarter),
+      isGift: /赠课/.test(rawQuarter),
     };
-  }).filter((row) => row.title && row.quarter && !/赠课/.test(clean(row[index["所属季度"]])));
+  }).filter((row) => row.title && row.quarter && !row.isGift)
+    .map(({ isGift, ...row }) => row);
 }
 
 function createHeaderIndex(header) {

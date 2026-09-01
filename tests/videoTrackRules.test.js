@@ -11,9 +11,9 @@ test("高三一轮数学严格按通用加所选班型映射", () => {
     return counts;
   }, {});
 
-  assert.deepEqual(rawCounts, { 目标班: 21, 通用: 31, 菁英班: 24 });
-  assert.equal(filterVideoRowsByTrack(rows, "目标班").length, 52);
-  assert.equal(filterVideoRowsByTrack(rows, "菁英班").length, 55);
+  assert.deepEqual(rawCounts, { 目标班: 25, 通用: 35, 菁英班: 25 });
+  assert.equal(filterVideoRowsByTrack(rows, "目标班").length, 60);
+  assert.equal(filterVideoRowsByTrack(rows, "菁英班").length, 60);
   assert.ok(filterVideoRowsByTrack(rows, "目标班").every((row) => normalizeVideoTrack(row.layered) !== "菁英班"));
   assert.ok(filterVideoRowsByTrack(rows, "菁英班").every((row) => normalizeVideoTrack(row.layered) !== "目标班"));
 });
