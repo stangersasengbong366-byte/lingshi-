@@ -31,6 +31,7 @@ import {
 import { initialProducts, moduleLibrary } from "./data/products";
 import { courseCatalog, courseSubjects } from "./data/courseCatalog";
 import { giftCatalog } from "./data/giftCatalog";
+import { teachingAids as bundledTeachingAids } from "./data/teachingAidCatalog";
 import { annualCourseLibrary, annualCourseLibraryVersion } from "./data/annualCourseLibrary";
 import { parseCourseWorkbookSheets } from "./lib/courseWorkbookParser";
 import {
@@ -59,6 +60,7 @@ import {
   CLOUD_PRODUCTS_LEGACY_ID,
   CLOUD_PRODUCTS_PUBLISHED_ID,
   CLOUD_SHORT_LINK_PREFIX,
+  CLOUD_TEACHING_AIDS_ID,
   CLOUD_TEACHING_AID_PREFIX,
   CLOUD_VISIT_PREFIX,
   cloudConfigEnabled,
@@ -488,6 +490,22 @@ async function loadCloudTeachingAids(grade, subjects = []) {
   const normalizedSubjects = [...new Set(subjects)].sort();
   const cacheKey = `${grade}|${normalizedSubjects.join("|") || "*"}`;
   if (teachingAidRequestCache.has(cacheKey)) return teachingAidRequestCache.get(cacheKey);
+  if (cloudProductsEnabled) {
+    const request = fetch(`${CLOUDFLARE_CONFIG_API_URL}/configs/${CLOUD_TEACHING_AIDS_ID}`, { cache: "force-cache" })
+      .then(async (response) => {
+        if (!response.ok) throw await createCloudError(response, "Cloudflare 教辅读取失败");
+        const payload = await response.json();
+        const items = Array.isArray(payload?.payload?.items) ? payload.payload.items : [];
+        return items.filter((item) => item?.grade === grade && item?.subject && item?.name
+          && (!subjects.length || subjects.includes(item.subject)));
+      })
+      .catch((error) => {
+        teachingAidRequestCache.delete(cacheKey);
+        throw error;
+      });
+    teachingAidRequestCache.set(cacheKey, request);
+    return request;
+  }
   const subjectFilter = subjects.length
     ? `&payload-%3E%3Esubject=in.(${subjects.map(encodeURIComponent).join(",")})`
     : "";
@@ -632,7 +650,8 @@ function App() {
   const [selectedSubjects, setSelectedSubjects] = useState(() => shareParams?.subjects ?? [shareParams?.subject ?? "数学"]);
   const [selectedBonusSubjects, setSelectedBonusSubjects] = useState(() => shareParams?.bonusSubjects ?? []);
   const [selectedVideoTracks, setSelectedVideoTracks] = useState(() => shareParams?.videoTracks ?? {});
-  const [teachingAids, setTeachingAids] = useState([]);
+  // 教辅目录随静态站点一起发布，Cloudflare/Supabase 暂不可用时也能正常展示。
+  const [teachingAids, setTeachingAids] = useState(bundledTeachingAids);
   const [usageCount, setUsageCount] = useState(null);
   const [salesFeedback, setSalesFeedback] = useState([]);
   const [cloudLoadState, setCloudLoadState] = useState(cloudProductsEnabled || cloudConfigEnabled ? "loading" : "ready");
@@ -739,7 +758,7 @@ function App() {
   }, [selectedProduct?.id, selectedProduct?.grade, selectedProduct?.stage, selectedProduct?.name, selectedSubjects.join("|")]);
 
   React.useEffect(() => {
-    if (!cloudConfigEnabled || cloudProductsEnabled || !selectedProduct?.grade) return undefined;
+    if ((!cloudConfigEnabled && !cloudProductsEnabled) || !selectedProduct?.grade) return undefined;
     let cancelled = false;
     let frameId = 0;
     let timerId = 0;
@@ -747,7 +766,7 @@ function App() {
     const load = () => {
       loadCloudTeachingAids(selectedProduct.grade, requestedSubjects)
         .then((items) => {
-          if (!cancelled) setTeachingAids(items);
+          if (!cancelled) setTeachingAids(items.length ? items : bundledTeachingAids);
         })
         .catch((error) => console.error("云端教辅读取失败", error));
     };

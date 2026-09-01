@@ -4,7 +4,7 @@ const ALLOWED_ORIGINS = new Set([
   "http://127.0.0.1:5173",
 ]);
 
-const readableConfigIds = new Set(["products_published", "products_draft"]);
+const readableConfigIds = new Set(["products_published", "products_draft", "teaching_aids_26h2"]);
 
 function corsHeaders(request) {
   const origin = request.headers.get("Origin");
@@ -43,7 +43,11 @@ export default {
       if (!env.ADMIN_PASSWORD_HASH || received !== env.ADMIN_PASSWORD_HASH) return json(request, { error: "unauthorized" }, 401, "no-store");
       try {
         const payload = await request.json();
-        if (!Array.isArray(payload?.products)) return json(request, { error: "invalid_payload" }, 400, "no-store");
+        const isProductConfig = configId === "products_published" || configId === "products_draft";
+        const isTeachingAidConfig = configId === "teaching_aids_26h2";
+        if ((isProductConfig && !Array.isArray(payload?.products)) || (isTeachingAidConfig && !Array.isArray(payload?.items))) {
+          return json(request, { error: "invalid_payload" }, 400, "no-store");
+        }
         await env.BENEFIT_CONFIGS.put(configId, JSON.stringify({ ...payload, updatedAt: new Date().toISOString() }));
         return json(request, { ok: true, id: configId }, 200, "no-store");
       } catch {

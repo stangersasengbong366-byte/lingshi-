@@ -8,6 +8,7 @@ export const CLOUD_CONFIG_TABLE = "benefit_configs";
 export const CLOUD_PRODUCTS_LEGACY_ID = "products";
 export const CLOUD_PRODUCTS_DRAFT_ID = "products_draft";
 export const CLOUD_PRODUCTS_PUBLISHED_ID = "products_published";
+export const CLOUD_TEACHING_AIDS_ID = "teaching_aids_26h2";
 export const CLOUD_SHORT_LINK_PREFIX = "share_";
 export const CLOUD_TEACHING_AID_PREFIX = "teaching_aid_";
 export const CLOUD_FEEDBACK_PREFIX = "feedback_";
