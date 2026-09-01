@@ -422,14 +422,30 @@ async function saveCloudProducts(products, configId = CLOUD_PRODUCTS_DRAFT_ID) {
     }
     if (!password) throw new Error("请刷新后重新输入后台密码，再保存配置");
     const compactProducts = products.map(compactProductCourseData);
-    const response = await fetch(`${CLOUDFLARE_CONFIG_API_URL}/configs/${encodeURIComponent(configId)}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Admin-Password": password,
-      },
-      body: JSON.stringify({ products: compactProducts, version: Date.now() }),
-    });
+    const requestUrl = `${CLOUDFLARE_CONFIG_API_URL}/configs/${encodeURIComponent(configId)}`;
+    let response;
+    let lastNetworkError;
+    // Cloudflare 跨境网络偶有瞬时连接中断。PUT 为覆盖式幂等写入，
+    // 对同一份配置重试不会造成重复产品或覆盖其他产品。
+    for (let attempt = 0; attempt < 3; attempt += 1) {
+      try {
+        response = await fetch(requestUrl, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            "X-Admin-Password": password,
+          },
+          body: JSON.stringify({ products: compactProducts, version: Date.now() }),
+        });
+        if (response.ok || response.status < 500) break;
+      } catch (error) {
+        lastNetworkError = error;
+      }
+      if (attempt < 2) await new Promise((resolve) => window.setTimeout(resolve, 500 * (attempt + 1)));
+    }
+    if (!response) {
+      throw new Error(`Cloudflare 网络连接失败，已自动重试 3 次：${lastNetworkError?.message ?? "请检查网络后重试"}`);
+    }
     if (!response.ok) throw await createCloudError(response, "Cloudflare产品配置保存失败");
     return;
   }
