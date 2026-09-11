@@ -1,6 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { getSaleableSubjects, getVideoAvailabilityOverride } from "../src/domain/productSubjectRules.js";
+import { publishedProductSnapshot } from "../src/data/publishedProductSnapshot.js";
 
 const allSubjects = ["语文", "数学", "英语", "物理", "化学", "生物", "历史", "地理", "政治"];
 
@@ -30,6 +31,14 @@ test("高三一轮卡全科可售且没有视频禁用覆盖", () => {
   const product = { grade: "高三", stage: "一轮卡" };
   assert.deepEqual(getSaleableSubjects(product, ["语文", "数学"], allSubjects), allSubjects);
   for (const subject of allSubjects) assert.equal(getVideoAvailabilityOverride(product, subject), null);
+});
+
+test("高三一轮卡不继承高一生物的寒假视频限制", () => {
+  const product = publishedProductSnapshot.find((item) => item.name === "高三一轮卡");
+  assert.ok(product);
+  assert.equal(product.subjectVideoPhases?.生物, undefined);
+  assert.equal(product.subjectVideoPhaseLimits?.生物, undefined);
+  assert.equal(product.subjectProfiles?.humanities, undefined);
 });
 
 test("秋冬衔接卡仅售非文综，高一生物保留且仅走独立视频体系", () => {

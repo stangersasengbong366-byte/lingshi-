@@ -580,20 +580,6 @@ export const publishedProductSnapshot = [
     "videoPhases": [
       "一轮"
     ],
-    "subjectVideoPhases": {
-      "生物": [
-        "寒假"
-      ]
-    },
-    "videoPhaseLimits": {
-      "秋季": 40,
-      "寒假": 20
-    },
-    "subjectVideoPhaseLimits": {
-      "生物": {
-        "寒假": 20
-      }
-    },
     "subtitle": "",
     "core": {
       "liveLessons": 26,
@@ -629,14 +615,6 @@ export const publishedProductSnapshot = [
         "summary": [
           "学法直播26节",
           "知识视频60节"
-        ]
-      },
-      "humanities": {
-        "liveLessons": 26,
-        "knowledgeVideos": 20,
-        "summary": [
-          "学法直播26节（秋16+寒10）",
-          "高一生物仅含冬季知识视频20节"
         ]
       }
     },
