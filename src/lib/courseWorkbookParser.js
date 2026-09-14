@@ -2,16 +2,21 @@ const gradePattern = /高[一二三]/;
 
 export function parseCourseWorkbookSheets(workbook, type, grade, subjects) {
   return Object.fromEntries(subjects.map((subject) => {
-    const sheetName = type === "live"
-      ? findLiveSheetName(workbook.SheetNames, subject)
-      : findVideoSheetName(workbook.SheetNames, grade, subject);
-    const sheet = sheetName ? workbook.Sheets[sheetName] : null;
-    if (!sheet) return [subject, []];
-    const rows = workbook.sheetToRows(sheet);
-    const parsed = type === "live"
-      ? parseLiveRows(rows, grade)
-      : parseVideoRows(rows);
-    return [subject, parsed];
+    if (type === "live") {
+      const sheetName = findLiveSheetName(workbook.SheetNames, subject);
+      const sheet = sheetName ? workbook.Sheets[sheetName] : null;
+      return [subject, sheet ? parseLiveRows(workbook.sheetToRows(sheet), grade) : []];
+    }
+    const sheetNames = findVideoSheetNames(workbook.SheetNames, grade, subject);
+    const parsedSheets = sheetNames.map((sheetName) => parseVideoRows(
+      workbook.sheetToRows(workbook.Sheets[sheetName]),
+      inferSheetTrack(sheetName),
+    ));
+    if (parsedSheets.length <= 1) return [subject, parsedSheets[0] ?? []];
+    return [subject, [
+      ...parsedSheets[0],
+      ...parsedSheets.slice(1).flatMap((rows) => rows.filter((row) => row.layered !== "通用")),
+    ]];
   }));
 }
 
@@ -22,6 +27,10 @@ export function findLiveSheetName(sheetNames, subject) {
 }
 
 export function findVideoSheetName(sheetNames, grade, subject) {
+  return findVideoSheetNames(sheetNames, grade, subject)[0];
+}
+
+export function findVideoSheetNames(sheetNames, grade, subject) {
   const exactCandidates = [
     `${subject}-${grade}`,
     `${grade}${subject}`,
@@ -29,8 +38,9 @@ export function findVideoSheetName(sheetNames, grade, subject) {
     `${subject}${grade}`,
     subject,
   ];
-  return exactCandidates.find((candidate) => sheetNames.includes(candidate))
-    ?? sheetNames.find((name) => name.includes(grade) && name.includes(subject) && !name.includes("强基"));
+  const exact = exactCandidates.find((candidate) => sheetNames.includes(candidate));
+  if (exact) return [exact];
+  return sheetNames.filter((name) => name.includes(grade) && name.includes(subject) && !name.includes("强基"));
 }
 
 export function parseLiveRows(rows, requestedGrade) {
@@ -80,9 +90,9 @@ export function parseLiveRows(rows, requestedGrade) {
   }).filter(Boolean);
 }
 
-export function parseVideoRows(rows) {
+export function parseVideoRows(rows, sheetTrack = "") {
   const detailHeaderIndex = rows.findIndex((row) => row.some((cell) => clean(cell).startsWith("视频名称")));
-  if (detailHeaderIndex < 0) return parseSimpleVideoRows(rows);
+  if (detailHeaderIndex < 0) return parseSimpleVideoRows(rows, sheetTrack);
   const detailHeader = rows[detailHeaderIndex];
   const groupHeader = rows[Math.max(0, detailHeaderIndex - 1)] ?? [];
   const titleIndexes = detailHeader
@@ -157,9 +167,7 @@ function parseSimpleLiveRows(rows, requestedGrade) {
     if (rowQuarter) currentQuarter = rowQuarter;
     const title = clean(row[index["课程大纲"]] || row[index["课程大纲标题"]]);
     if (currentGrade !== requestedGrade || !currentQuarter || !title) return null;
-    const quarter = requestedGrade === "高三" && ["暑期", "秋季"].includes(currentQuarter)
-      ? "一轮"
-      : currentQuarter;
+    const quarter = currentQuarter;
     const scheduleColumns = [
       ["早鸟期-上课日期", "早鸟期-上课时间"],
       ["一期-上课日期", "一期-上课时间"],
@@ -184,7 +192,7 @@ function parseSimpleLiveRows(rows, requestedGrade) {
   }).filter(Boolean).map((row, index) => ({ ...row, no: index + 1, annualNo: index + 1 }));
 }
 
-function parseSimpleVideoRows(rows) {
+function parseSimpleVideoRows(rows, sheetTrack = "") {
   const [header = [], ...body] = rows;
   const index = createHeaderIndex(header);
   return body.map((row, rowIndex) => {
@@ -207,12 +215,24 @@ function parseSimpleVideoRows(rows) {
         || row[index["（1星/2星/3星/4星）"]]
         || row[index["1星/2星/3星/4星"]],
       ),
-      layered: normalizeCourseTrack(row[index["整合后"]] || row[index["是否分层"]]),
+      layered: normalizeSimpleVideoTrack(row[index["整合后"]] || row[index["是否分层"]], sheetTrack),
       quarter: normalizeCoursePhase(rawQuarter),
       isGift: /赠课/.test(rawQuarter),
     };
   }).filter((row) => row.title && row.quarter && !row.isGift)
     .map(({ isGift, ...row }) => row);
+}
+
+function inferSheetTrack(sheetName) {
+  if (/目标/.test(sheetName)) return "目标班";
+  if (/菁英|精英/.test(sheetName)) return "精英班";
+  return "";
+}
+
+function normalizeSimpleVideoTrack(value, sheetTrack) {
+  const text = clean(value);
+  if (sheetTrack && /是|不同/.test(text)) return sheetTrack;
+  return normalizeCourseTrack(text);
 }
 
 function createHeaderIndex(header) {

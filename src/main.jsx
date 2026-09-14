@@ -75,7 +75,7 @@ import { formatPrice, getProductPricing } from "./domain/pricing";
 import { mergeCloudProductChanges } from "./domain/productMerge";
 import { isPublicEntrySearch } from "./domain/accessRules";
 import { resolveProductCourseLibrary } from "./domain/courseLibraryRules";
-import { applyVideoPhaseLimits } from "./domain/coursePhaseRules";
+import { applyLivePhaseLimits, applyVideoPhaseLimits } from "./domain/coursePhaseRules";
 import { filterVideoRowsByTrack, normalizeVideoTrack } from "./domain/videoTrackRules";
 import { getSaleableSubjects, getVideoAvailabilityOverride } from "./domain/productSubjectRules";
 import {
@@ -4776,7 +4776,11 @@ function resolveCoursePlan(product, subject, forcedPhases, videoTrack = "目标�
     const shouldClearVideos = profile.knowledgeVideos === 0;
     const coveragePhases = forcedPhases?.length ? forcedPhases : product.coveragePhases?.length ? product.coveragePhases : getDefaultCoveragePhases(product);
     const videoPhases = getVideoCoveragePhases(product, coveragePhases, subject);
-    const rawLessons = basePlan.lessons.filter((lesson) => phaseMatches(lesson.quarter, coveragePhases));
+    const rawLessons = applyLivePhaseLimits(
+      product,
+      basePlan.lessons.filter((lesson) => phaseMatches(lesson.quarter, getLiveCoveragePhases(product, coveragePhases))),
+      profile.liveLessons,
+    );
     const phaseVideoRows = shouldClearVideos
       ? []
       : basePlan.videoLibrary.filter((video) => phaseMatches(video.quarter, videoPhases));
@@ -4839,7 +4843,11 @@ function resolveParsedCoursePlan(product, subject, profile, forcedPhases, videoT
   const videoRows = uploadedVideoRows;
 
   const coveragePhases = forcedPhases?.length ? forcedPhases : product.coveragePhases?.length ? product.coveragePhases : getDefaultCoveragePhases(product);
-  const filteredLive = liveRows.filter((lesson) => phaseMatches(lesson.quarter, coveragePhases));
+  const filteredLive = applyLivePhaseLimits(
+    product,
+    liveRows.filter((lesson) => phaseMatches(lesson.quarter, getLiveCoveragePhases(product, coveragePhases))),
+    profile.liveLessons,
+  );
   let filteredVideos = applyVideoPhaseLimits(
     product,
     subject,
@@ -4900,11 +4908,14 @@ function getVideoCoveragePhases(product, coveragePhases, subject) {
   if (subject && product.subjectVideoPhases?.[subject]?.length) {
     return product.subjectVideoPhases[subject];
   }
-  // 全年课程库始终跟随产品覆盖阶段；仅个性化课表允许保留独立的视频范围。
-  if (product.courseSourceMode === "custom" && product.videoPhases?.length) {
+  if (product.videoPhases?.length) {
     return product.videoPhases;
   }
   return coveragePhases;
+}
+
+function getLiveCoveragePhases(product, coveragePhases) {
+  return product.livePhases?.length ? product.livePhases : coveragePhases;
 }
 
 function getCourseStageCounts(parsedData, coveragePhases) {

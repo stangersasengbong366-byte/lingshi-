@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { applyVideoPhaseLimits } from "../src/domain/coursePhaseRules.js";
+import { applyLivePhaseLimits, applyVideoPhaseLimits } from "../src/domain/coursePhaseRules.js";
 
 const rows = [
   ...Array.from({ length: 55 }, (_, index) => ({ title: `秋${index + 1}`, quarter: "秋季" })),
@@ -21,4 +21,15 @@ test("高一生物独立体系只取寒假20条", () => {
   }, "生物", rows, 20);
   assert.equal(selected.length, 20);
   assert.ok(selected.every((row) => row.quarter === "寒假"));
+});
+
+test("学法直播按产品各阶段课时上限映射", () => {
+  const liveRows = [
+    ...Array.from({ length: 16 }, (_, index) => ({ title: `秋${index + 1}`, quarter: "秋季" })),
+    ...Array.from({ length: 13 }, (_, index) => ({ title: `寒${index + 1}`, quarter: "寒假" })),
+    ...Array.from({ length: 16 }, (_, index) => ({ title: `春${index + 1}`, quarter: "春季" })),
+  ];
+  const selected = applyLivePhaseLimits({ livePhaseLimits: { 秋季: 16, 寒假: 10, 春季: 16 } }, liveRows, 42);
+  assert.equal(selected.length, 42);
+  assert.equal(selected.filter((row) => row.quarter === "寒假").length, 10);
 });

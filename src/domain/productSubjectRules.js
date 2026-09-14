@@ -17,12 +17,19 @@ export function isAutumnWinterBridgeCard(product) {
   return includesLabel(product, "秋冬衔接");
 }
 
+export function isFullSystemDirectCard(product) {
+  return includesLabel(product, "全体系直通");
+}
+
 export function getSaleableSubjects(product, configuredSubjects, allSubjects = configuredSubjects) {
   const subjects = Array.isArray(configuredSubjects) ? configuredSubjects : [];
   const completeSubjects = Array.isArray(allSubjects) ? allSubjects : subjects;
   const grade = String(product?.grade ?? "");
   if (isAutumnWinterBridgeCard(product)) {
     return completeSubjects.filter((subject) => !humanities.includes(subject));
+  }
+  if ((grade.includes("高一") || grade.includes("高二")) && isFullSystemDirectCard(product)) {
+    return completeSubjects;
   }
   // 历史云端数据可能保留“秋实卡”stage，但产品名已经是“决胜卡”；
   // 半年/决胜卡规则优先，避免旧字段把可售科目错误截断。
