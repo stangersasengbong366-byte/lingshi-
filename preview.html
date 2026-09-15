@@ -26,6 +26,8 @@
 
     body {
       margin: 0;
+      min-width: 100%;
+      overflow-x: auto;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
       color: var(--text);
       background:
@@ -36,12 +38,14 @@
 
     .page {
       width: 100%;
+      min-width: max-content;
       min-height: 100vh;
-      padding: 22px 22px 28px;
+      padding: 28px clamp(18px, 2.4vw, 46px) 40px;
     }
 
     .poster {
-      width: min(1880px, 100%);
+      width: max(1960px, var(--poster-width, 100%));
+      max-width: none;
       margin: 0 auto;
       position: relative;
     }
@@ -168,17 +172,18 @@
       border: 1px solid #d8e7ff;
       border-radius: 16px;
       box-shadow: var(--shadow);
-      overflow-x: auto;
-      overflow-y: hidden;
+      overflow: visible;
+      scrollbar-color: #a9c8f8 #edf5ff;
+      scrollbar-width: thin;
     }
 
     table {
-      width: 100%;
+      width: max-content;
       border-collapse: separate;
       border-spacing: 0;
-      min-width: 1540px;
-      table-layout: auto;
-      font-size: clamp(13px, .98vw, 18px);
+      min-width: 100%;
+      table-layout: fixed;
+      font-size: clamp(14px, .88vw, 17px);
     }
 
     th, td {
@@ -186,15 +191,24 @@
       border-bottom: 1px solid var(--line);
       text-align: center;
       vertical-align: middle;
-      padding: 10px 14px;
-      line-height: 1.35;
+      padding: 12px 14px;
+      line-height: 1.45;
       font-weight: 650;
       white-space: pre-line;
+      text-wrap: pretty;
+    }
+
+    .class-name-row td {
+      padding-top: 16px;
+      padding-bottom: 16px;
+      line-height: 1.55;
+      font-size: .96em;
+      overflow-wrap: anywhere;
     }
 
     .product-content-row td {
-      padding-top: 14px;
-      padding-bottom: 14px;
+      padding-top: 22px;
+      padding-bottom: 22px;
     }
 
     .product-content-row .row-title {
@@ -203,9 +217,17 @@
 
     .product-content-cell {
       font-size: clamp(14px, .95vw, 17px);
-      line-height: 1.6;
+      line-height: 1.8;
       letter-spacing: 0;
       word-break: break-word;
+      overflow-wrap: normal;
+    }
+
+    .service-period-row td {
+      padding-top: 16px;
+      padding-bottom: 16px;
+      font-size: .94em;
+      line-height: 1.65;
       overflow-wrap: anywhere;
     }
 
@@ -223,7 +245,12 @@
     thead th:first-child {
       background: linear-gradient(180deg, #2b77ff, #1250cf);
       width: 13%;
-      min-width: 170px;
+      width: 196px;
+      min-width: 196px;
+      max-width: 196px;
+      position: sticky;
+      left: 0;
+      z-index: 5;
     }
 
     thead th.youdao-head {
@@ -259,15 +286,30 @@
 
     .row-title {
       width: 13%;
-      min-width: 170px;
+      width: 196px;
+      min-width: 196px;
+      max-width: 196px;
       font-weight: 900;
       background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
       color: #061a3d;
+      position: sticky;
+      left: 0;
+      z-index: 3;
+      box-shadow: 1px 0 0 var(--line);
     }
 
     thead th:not(:first-child),
     tbody td:not(.row-title) {
-      min-width: 165px;
+      width: 202px;
+      min-width: 202px;
+      max-width: 202px;
+    }
+
+    thead th.youdao-head,
+    tbody td.youdao-col {
+      width: 218px;
+      min-width: 218px;
+      max-width: 218px;
     }
 
     .youdao-col {
@@ -493,7 +535,7 @@
     .module-layout {
       display: grid;
       grid-template-columns: minmax(0, 3.45fr) minmax(320px, 1.1fr);
-      gap: 16px;
+      gap: 18px;
       margin-top: 14px;
       align-items: stretch;
     }
@@ -517,7 +559,7 @@
       border-radius: 14px;
       box-shadow: var(--shadow);
       overflow: hidden;
-      min-height: 184px;
+      min-height: 210px;
     }
 
     .panel-title {
@@ -556,7 +598,7 @@
     }
 
     .panel-body {
-      padding: 22px 24px 24px;
+      padding: 26px 24px 28px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -659,7 +701,7 @@
       font-size: clamp(18px, 1.28vw, 26px);
       color: #ff4d00;
       font-weight: 950;
-      line-height: 1.55;
+      line-height: 1.7;
       text-align: center;
       margin: 0 0 14px;
       white-space: pre-line;
@@ -1109,7 +1151,14 @@
 
     body.exporting .poster.export-capture {
       box-sizing: border-box;
-      padding: 28px 32px 36px;
+      width: var(--export-width, 2400px) !important;
+      max-width: none !important;
+      padding: 44px 54px 58px;
+      background: linear-gradient(180deg, #eef7ff 0%, #ffffff 48%, #f7fbff 100%);
+    }
+
+    body.exporting .comparison-card {
+      overflow: visible !important;
     }
 
     body.exporting .grade-switch,
@@ -1162,7 +1211,7 @@
 
     [hidden] { display: none !important; }
 
-    @media (max-width: 1200px) {
+    @media (max-width: 1480px) {
       header { padding: 0 12px 12px; }
       .gift-detail-grid { grid-template-columns: 1fr 1fr; }
       .module-layout { grid-template-columns: 1fr; }
@@ -1170,7 +1219,24 @@
       .service-flow { grid-template-columns: repeat(3, 1fr); }
       .service-flow::before { display: none; }
       .comparison-card { overflow-x: auto; }
-      table { min-width: 1180px; }
+      table { min-width: max-content; }
+      .choice-panel { min-height: 520px; }
+    }
+
+    body.exporting .module-layout {
+      grid-template-columns: minmax(0, 3.45fr) minmax(320px, 1.1fr) !important;
+    }
+
+    body.exporting .content-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    }
+
+    body.exporting table {
+      min-width: 100% !important;
+    }
+
+    body.exporting .choice-panel {
+      min-height: 100% !important;
     }
 
     @media (max-width: 720px) {
@@ -1298,6 +1364,7 @@
       { label: "单科价格 / 每课时", key: "singleSubjectHourlyPrice", highlight: true, strongYoudao: true },
       { label: "3科联报价格", key: "comboPrice", strongYoudao: true },
       { label: "3科联报价格 / 每课时", key: "comboHourlyPrice", highlight: true, strongYoudao: true },
+      { label: "辅导服务周期", key: "servicePeriod" },
     ];
 
     const params = new URLSearchParams(window.location.search);
@@ -1509,6 +1576,20 @@
         tableRows.push({ label: "赠送亮点", key: "__giftSummary", dynamic: true, isGiftSummary: true });
       }
       tableRows.push(...buildDynamicRows(products));
+
+      const table = document.querySelector(".comparison-card table");
+      const tableWidth = 196 + products.reduce((width, product) => (
+        width + (product.isYoudao ? 218 : 202)
+      ), 0);
+      if (table) {
+        table.style.width = `max(100%, ${tableWidth}px)`;
+      }
+      const poster = document.querySelector(".poster");
+      if (poster) {
+        poster.style.setProperty("--poster-width", `${tableWidth}px`);
+        poster.style.setProperty("--export-width", `${Math.max(2400, tableWidth + 140)}px`);
+      }
+
       const headCells = [
         "<th>对比项</th>",
         ...products.map((product) => {
@@ -1525,7 +1606,9 @@
         const cells = products.map((product) => renderProductCell(product, row));
         const rowClasses = [
           row.highlight ? "highlight-row" : "",
+          row.key === "className" ? "class-name-row" : "",
           row.key === "productContent" ? "product-content-row" : "",
+          /服务.*(期|周期)|辅导.*(期|周期)/.test(row.label || "") ? "service-period-row" : "",
         ].filter(Boolean).join(" ");
         return `<tr${rowClasses ? ` class="${rowClasses}"` : ""}><td class="row-title">${escapeHtml(row.label)}</td>${cells.join("")}</tr>`;
       }).join("");
@@ -1580,7 +1663,10 @@
         const summaryClass = value === "/" ? "gift-summary-text is-empty" : "gift-summary-text";
         return `<td${classes ? ` class="${classes}"` : ""}><span class="${summaryClass}">${escapeHtml(value)}</span></td>`;
       }
-      return `<td${classes ? ` class="${classes}"` : ""}>${formatTableText(value)}${contentBadge}${thumbsUp}</td>`;
+      const formattedValue = /服务.*(期|周期)|辅导.*(期|周期)/.test(row.label || "")
+        ? formatServicePeriodText(value)
+        : formatTableText(value);
+      return `<td${classes ? ` class="${classes}"` : ""}>${formattedValue}${contentBadge}${thumbsUp}</td>`;
     }
 
     function getDynamicFieldValue(product, fieldKey) {
@@ -1740,13 +1826,11 @@
 
     function countGiftItems(value) {
       const text = String(value || "").replace(/\r/g, "\n");
-      const lines = text
-        .split("\n")
-        .map((line) => line.trim())
-        .filter(Boolean);
-
-      const numberedLines = lines.filter((line) => /^(?:\d+[、.．）)]|[①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮]|[-•●■◆])\s*/.test(line));
-      return numberedLines.length;
+      const numberedItems = text.match(
+        /(?:^|[\n；;：:])\s*(?:\d{1,2}[、.．）)]|[①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮])\s*/g
+      );
+      if (numberedItems?.length) return numberedItems.length;
+      return text.trim() ? 1 : 0;
     }
 
     function buildGiftSummary(count) {
@@ -1763,6 +1847,12 @@
         .replace(/\\n/g, "<br>")
         .replace(/\/n/g, "<br>")
         .replace(/\n/g, "<br>");
+    }
+
+    function formatServicePeriodText(value) {
+      return formatTableText(value)
+        .replace(/报名日(?:起)?[-—–]?\s*/g, "报名日起<br>")
+        .replace(/(\d{4}\.\d{1,2}\.\d{1,2})[-—–](?=\d{4}\.\d{1,2}\.\d{1,2})/g, "$1<br>至 ");
     }
 
     function normalizeItems(items) {
