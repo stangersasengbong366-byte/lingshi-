@@ -75,7 +75,7 @@ import { formatPrice, getProductPricing } from "./domain/pricing";
 import { mergeCloudProductChanges } from "./domain/productMerge";
 import { isPublicEntrySearch } from "./domain/accessRules";
 import { resolveProductCourseLibrary } from "./domain/courseLibraryRules";
-import { applyLivePhaseLimits, applyVideoPhaseLimits } from "./domain/coursePhaseRules";
+import { applyLivePhaseLimits, applyVideoPhaseLimits, getAdminCoursePhaseOptions } from "./domain/coursePhaseRules";
 import { filterVideoRowsByTrack, normalizeVideoTrack } from "./domain/videoTrackRules";
 import { getSaleableSubjects, getVideoAvailabilityOverride } from "./domain/productSubjectRules";
 import {
@@ -1974,8 +1974,10 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onDelete, onUpd
   const changeCourseSourceMode = (mode) => {
     setCourseSourceMode(mode);
     const coveragePhases = draft.coveragePhases?.length ? draft.coveragePhases : getDefaultCoveragePhases(draft);
+    const liveCoveragePhases = draft.livePhases?.length ? draft.livePhases : coveragePhases;
+    const videoCoveragePhases = draft.videoPhases?.length ? draft.videoPhases : coveragePhases;
     if (mode === "custom") {
-      const stageCounts = getCourseStageCounts(customCourseData, coveragePhases);
+      const stageCounts = getCourseStageCounts(customCourseData, liveCoveragePhases, videoCoveragePhases);
       setDraft({
         ...draft,
         courseSourceMode: "custom",
@@ -1988,7 +1990,7 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onDelete, onUpd
       return;
     }
     const nextAnnualData = annualCourseLibrary[draft.grade] ?? annualCourseData;
-    const stageCounts = getCourseStageCounts(nextAnnualData, coveragePhases);
+    const stageCounts = getCourseStageCounts(nextAnnualData, liveCoveragePhases, videoCoveragePhases);
     setAnnualCourseData(nextAnnualData);
     setDraft({
       ...draft,
@@ -2024,7 +2026,9 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onDelete, onUpd
       setter((data) => {
         const merged = { ...data, [type]: parsed };
         const phases = draft.coveragePhases?.length ? draft.coveragePhases : getDefaultCoveragePhases(draft);
-        const stageCounts = getCourseStageCounts(merged, phases);
+        const liveCoveragePhases = draft.livePhases?.length ? draft.livePhases : phases;
+        const videoCoveragePhases = draft.videoPhases?.length ? draft.videoPhases : phases;
+        const stageCounts = getCourseStageCounts(merged, liveCoveragePhases, videoCoveragePhases);
         setDraft((current) => ({
           ...current,
           ...(source === "custom" ? { courseSourceMode: "custom" } : {}),
@@ -2097,6 +2101,28 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onDelete, onUpd
       ...draft,
       coveragePhases: next,
       videoPhases: next,
+      core: {
+        ...draft.core,
+        liveLessons: stageCounts.live,
+        knowledgeVideos: stageCounts.video,
+      },
+    });
+  };
+
+  const toggleSplitCoursePhase = (field, phase, fallbackPhases) => {
+    const current = draft[field]?.length ? draft[field] : fallbackPhases;
+    if (current.length === 1 && current.includes(phase)) return;
+    const next = current.includes(phase) ? current.filter((item) => item !== phase) : [...current, phase];
+    const nextLivePhases = field === "livePhases"
+      ? next
+      : (draft.livePhases?.length ? draft.livePhases : getAdminCoursePhaseOptions(draft.grade).live);
+    const nextVideoPhases = field === "videoPhases"
+      ? next
+      : (draft.videoPhases?.length ? draft.videoPhases : getAdminCoursePhaseOptions(draft.grade).video);
+    const stageCounts = getCourseStageCounts(parsedCourseData, nextLivePhases, nextVideoPhases);
+    setDraft({
+      ...draft,
+      [field]: next,
       core: {
         ...draft.core,
         liveLessons: stageCounts.live,
@@ -2468,6 +2494,10 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onDelete, onUpd
             onUpload={handleUploadName}
             coveragePhases={draft.coveragePhases?.length ? draft.coveragePhases : getDefaultCoveragePhases(draft)}
             onPhaseToggle={toggleCoveragePhase}
+            livePhases={draft.livePhases}
+            videoPhases={draft.videoPhases}
+            onLivePhaseToggle={(phase, fallbackPhases) => toggleSplitCoursePhase("livePhases", phase, fallbackPhases)}
+            onVideoPhaseToggle={(phase, fallbackPhases) => toggleSplitCoursePhase("videoPhases", phase, fallbackPhases)}
             sourceMode={courseSourceMode}
             onSourceModeChange={changeCourseSourceMode}
           />
@@ -2630,13 +2660,16 @@ function CourseProductBrief({ product, uploadedSubjectCount }) {
   );
 }
 
-function CourseUploadBoard({ grade, annualUploadNames, annualData, customUploadNames, customData, selectedSubject, onSubjectChange, onUpload, coveragePhases, onPhaseToggle, sourceMode, onSourceModeChange }) {
+function CourseUploadBoard({ grade, annualUploadNames, annualData, customUploadNames, customData, selectedSubject, onSubjectChange, onUpload, coveragePhases, onPhaseToggle, livePhases, videoPhases, onLivePhaseToggle, onVideoPhaseToggle, sourceMode, onSourceModeChange }) {
   const [previewTrack, setPreviewTrack] = useState("目标班");
+  const phaseOptions = getAdminCoursePhaseOptions(grade);
   const allCoursePhases = getGradeCoursePhases(grade);
-  const annualLiveRows = filterCourseRowsByPhase(annualData.live?.[selectedSubject], coveragePhases);
-  const annualVideoRows = filterVideoRowsByTrack(filterCourseRowsByPhase(annualData.video?.[selectedSubject], coveragePhases), previewTrack);
-  const customLiveRows = filterCourseRowsByPhase(customData.live?.[selectedSubject], coveragePhases);
-  const customVideoRows = filterVideoRowsByTrack(filterCourseRowsByPhase(customData.video?.[selectedSubject], coveragePhases), previewTrack);
+  const selectedLivePhases = phaseOptions.split && livePhases?.length ? livePhases : phaseOptions.split ? phaseOptions.live : coveragePhases;
+  const selectedVideoPhases = phaseOptions.split && videoPhases?.length ? videoPhases : phaseOptions.split ? phaseOptions.video : coveragePhases;
+  const annualLiveRows = filterCourseRowsByPhase(annualData.live?.[selectedSubject], selectedLivePhases);
+  const annualVideoRows = filterVideoRowsByTrack(filterCourseRowsByPhase(annualData.video?.[selectedSubject], selectedVideoPhases), previewTrack);
+  const customLiveRows = filterCourseRowsByPhase(customData.live?.[selectedSubject], selectedLivePhases);
+  const customVideoRows = filterVideoRowsByTrack(filterCourseRowsByPhase(customData.video?.[selectedSubject], selectedVideoPhases), previewTrack);
   const annualSubjectCount = countParsedCourseSubjects(annualData);
   const customSubjectCount = countParsedCourseSubjects(customData);
   const customReady = customSubjectCount > 0;
@@ -2660,7 +2693,26 @@ function CourseUploadBoard({ grade, annualUploadNames, annualData, customUploadN
           <UploadSlot label="知识视频全年大纲" name={annualUploadNames.video} onChange={(event) => onUpload("annual-video", event)} />
         </div>
 
-        <div className="course-phase-config simplified">
+        {phaseOptions.split ? <div className="split-course-phase-config">
+          <CoursePhaseFilter
+            title="学法直播阶段"
+            description="按底表季节字段筛选，不转换为轮次"
+            phases={phaseOptions.live}
+            selectedPhases={selectedLivePhases}
+            getCount={(phase) => filterCourseRowsByPhase(annualData.live?.[selectedSubject], [phase]).length}
+            countLabel="直播"
+            onToggle={(phase) => onLivePhaseToggle(phase, phaseOptions.live)}
+          />
+          <CoursePhaseFilter
+            title="知识视频阶段"
+            description="按底表一轮 / 二轮字段筛选"
+            phases={phaseOptions.video}
+            selectedPhases={selectedVideoPhases}
+            getCount={(phase) => filterVideoRowsByTrack(filterCourseRowsByPhase(annualData.video?.[selectedSubject], [phase]), previewTrack).length}
+            countLabel="视频"
+            onToggle={(phase) => onVideoPhaseToggle(phase, phaseOptions.video)}
+          />
+        </div> : <div className="course-phase-config simplified">
           <div>
             <strong>筛选产品阶段</strong>
             <span>{grade === "高三" ? "选择一轮或二轮" : "可组合多个季节"}</span>
@@ -2678,11 +2730,11 @@ function CourseUploadBoard({ grade, annualUploadNames, annualData, customUploadN
               );
             })}
           </div>
-        </div>
+        </div>}
 
         <CoursePreviewControls selectedSubject={selectedSubject} onSubjectChange={onSubjectChange} previewTrack={previewTrack} onTrackChange={setPreviewTrack} parsedSubjectCount={annualSubjectCount} />
         <div className="course-stage-result">
-          已筛选 <strong>{coveragePhases.join(" + ")}</strong>，当前科目匹配 <strong>{annualLiveRows.length} 节直播</strong>、<strong>{annualVideoRows.length} 条知识视频</strong>
+          已筛选直播 <strong>{selectedLivePhases.join(" + ")}</strong>、视频 <strong>{selectedVideoPhases.join(" + ")}</strong>，当前科目匹配 <strong>{annualLiveRows.length} 节直播</strong>、<strong>{annualVideoRows.length} 条知识视频</strong>
         </div>
         <CourseParsedTables subject={selectedSubject} liveRows={annualLiveRows} videoRows={annualVideoRows} />
       </section>
@@ -2714,6 +2766,28 @@ function CourseUploadBoard({ grade, annualUploadNames, annualData, customUploadN
           </div>
         ) : null}
       </section>
+    </div>
+  );
+}
+
+function CoursePhaseFilter({ title, description, phases, selectedPhases, getCount, countLabel, onToggle }) {
+  return (
+    <div className="course-phase-config simplified">
+      <div>
+        <strong>{title}</strong>
+        <span>{description}</span>
+      </div>
+      <div className="phase-checks">
+        {phases.map((phase) => {
+          const active = selectedPhases.includes(phase);
+          return (
+            <button type="button" className={active ? "active" : ""} key={phase} onClick={() => onToggle(phase)}>
+              <Check size={14} />
+              <span>{phase}<small>{getCount(phase)}{countLabel}</small></span>
+            </button>
+          );
+        })}
+      </div>
     </div>
   );
 }
@@ -4918,13 +4992,13 @@ function getLiveCoveragePhases(product, coveragePhases) {
   return product.livePhases?.length ? product.livePhases : coveragePhases;
 }
 
-function getCourseStageCounts(parsedData, coveragePhases) {
+function getCourseStageCounts(parsedData, livePhases, videoPhases = livePhases) {
   const counts = courseSubjects.map((subject) => {
     const live = (parsedData.live?.[subject] ?? [])
-      .filter((row) => phaseMatches(row.quarter, coveragePhases)).length;
+      .filter((row) => phaseMatches(row.quarter, livePhases)).length;
     const video = filterVideoRowsByTrack(
       (parsedData.video?.[subject] ?? [])
-        .filter((row) => phaseMatches(row.quarter, coveragePhases)),
+        .filter((row) => phaseMatches(row.quarter, videoPhases)),
       "目标班",
     ).length;
     return { live, video };

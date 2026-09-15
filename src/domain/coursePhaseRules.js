@@ -1,3 +1,21 @@
+const seasonalPhases = ["暑期", "秋季", "寒假", "春季"];
+const roundPhases = ["一轮", "二轮"];
+
+export function getAdminCoursePhaseOptions(grade) {
+  if (grade === "高三") {
+    return {
+      split: true,
+      live: seasonalPhases,
+      video: roundPhases,
+    };
+  }
+  return {
+    split: false,
+    live: seasonalPhases,
+    video: seasonalPhases,
+  };
+}
+
 export function applyVideoPhaseLimits(product, subject, rows, entitlement) {
   const limits = product.subjectVideoPhaseLimits?.[subject] ?? product.videoPhaseLimits;
   if (!limits || !Object.keys(limits).length) return rows.slice(0, entitlement || undefined);

@@ -7207,6 +7207,11 @@ html.share-fixed-canvas .share-result .benefit-sheet.poster {
   border-color: #dce9fb;
 }
 
+.split-course-phase-config {
+  display: grid;
+  gap: 8px;
+}
+
 .course-parse-preview.compact {
   padding: 10px;
   background: #ffffff;

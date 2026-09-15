@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { applyLivePhaseLimits, applyVideoPhaseLimits } from "../src/domain/coursePhaseRules.js";
+import { applyLivePhaseLimits, applyVideoPhaseLimits, getAdminCoursePhaseOptions } from "../src/domain/coursePhaseRules.js";
 
 const rows = [
   ...Array.from({ length: 55 }, (_, index) => ({ title: `秋${index + 1}`, quarter: "秋季" })),
@@ -32,4 +32,20 @@ test("学法直播按产品各阶段课时上限映射", () => {
   const selected = applyLivePhaseLimits({ livePhaseLimits: { 秋季: 16, 寒假: 10, 春季: 16 } }, liveRows, 42);
   assert.equal(selected.length, 42);
   assert.equal(selected.filter((row) => row.quarter === "寒假").length, 10);
+});
+
+test("高三后台分别按季节筛选直播、按轮次筛选知识视频", () => {
+  assert.deepEqual(getAdminCoursePhaseOptions("高三"), {
+    split: true,
+    live: ["暑期", "秋季", "寒假", "春季"],
+    video: ["一轮", "二轮"],
+  });
+});
+
+test("高一高二继续使用统一季度筛选", () => {
+  assert.deepEqual(getAdminCoursePhaseOptions("高二"), {
+    split: false,
+    live: ["暑期", "秋季", "寒假", "春季"],
+    video: ["暑期", "秋季", "寒假", "春季"],
+  });
 });
