@@ -1,10 +1,10 @@
 export const standardCoursePhaseCounts = {
   高一: {
-    live: { 暑期: 10, 秋季: 26, 寒假: 10, 春季: 16 },
+    live: { 暑期: 10, 秋季: 16, 寒假: 10, 春季: 16 },
     video: { 暑期: 0, 秋季: 40, 寒假: 20, 春季: 40 },
   },
   高二: {
-    live: { 暑期: 10, 秋季: 26, 寒假: 10, 春季: 16 },
+    live: { 暑期: 10, 秋季: 16, 寒假: 10, 春季: 16 },
     video: { 暑期: 0, 秋季: 40, 寒假: 20, 春季: 40 },
   },
   高三: {
@@ -49,9 +49,10 @@ export function getCourseCountIssues({ grade, product, subject, type, phases, ro
 export function getCanonicalProductCourseRules(product) {
   const gradeRules = standardCoursePhaseCounts[product?.grade];
   if (!gradeRules) return product;
-  const livePhases = product.livePhases?.length
-    ? product.livePhases
-    : product.coveragePhases ?? [];
+  const coveragePhases = product.coveragePhases ?? [];
+  const livePhases = product.grade !== "高三" && coveragePhases.includes("秋季")
+    ? ["暑期", ...coveragePhases]
+    : (product.livePhases?.length ? product.livePhases : coveragePhases);
   const videoPhases = product.videoPhases?.length
     ? product.videoPhases
     : product.coveragePhases ?? [];

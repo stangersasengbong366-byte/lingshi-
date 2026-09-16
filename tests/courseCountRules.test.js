@@ -9,7 +9,7 @@ import {
 
 test("高一高二正课阶段数量使用统一标准", () => {
   assert.equal(getExpectedCoursePhaseCount("高一", "live", "暑期"), 10);
-  assert.equal(getExpectedCoursePhaseCount("高二", "live", "秋季"), 26);
+  assert.equal(getExpectedCoursePhaseCount("高二", "live", "秋季"), 16);
   assert.equal(getExpectedCoursePhaseCount("高一", "video", "暑期"), 0);
   assert.equal(getExpectedCoursePhaseCount("高二", "video", "春季"), 40);
 });
@@ -34,9 +34,22 @@ test("后台能准确报告课程阶段数量不足或超出", () => {
     phases: ["秋季", "寒假"],
     rows,
   }), [
-    { grade: "高一", type: "live", phase: "秋季", expected: 26, actual: 16, difference: -10 },
     { grade: "高一", type: "live", phase: "寒假", expected: 10, actual: 13, difference: 3 },
   ]);
+});
+
+test("高一高二秋季产品直播自动包含暑期10节和秋季16节", () => {
+  const product = getCanonicalProductCourseRules({
+    grade: "高一",
+    name: "高一秋冬衔接卡",
+    coveragePhases: ["秋季", "寒假"],
+    videoPhases: ["秋季", "寒假"],
+    core: {},
+  });
+  assert.deepEqual(product.livePhases, ["暑期", "秋季", "寒假"]);
+  assert.deepEqual(product.livePhaseLimits, { 暑期: 10, 秋季: 16, 寒假: 10 });
+  assert.equal(product.core.liveLessons, 36);
+  assert.equal(product.core.knowledgeVideos, 60);
 });
 
 test("高三名校直通卡固定为一轮16节加二轮18节", () => {
