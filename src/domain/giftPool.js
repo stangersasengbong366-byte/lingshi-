@@ -48,3 +48,10 @@ export function preserveGiftPoolOnProductDelete(products, productId, preservedIt
     } : product),
   };
 }
+
+export function collectPoolDeletedKeys(products, currentProduct, field) {
+  return new Set([
+    ...products.flatMap((product) => product?.[field] ?? []),
+    ...(currentProduct?.[field] ?? []),
+  ].filter((item) => item?.grade === currentProduct?.grade).map((item) => item.key));
+}

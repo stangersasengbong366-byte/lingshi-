@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { preserveGiftPoolOnProductDelete } from "../src/domain/giftPool.js";
+import { collectPoolDeletedKeys, preserveGiftPoolOnProductDelete } from "../src/domain/giftPool.js";
 
 test("删除产品时把赠课和实物迁移到对应共享资源池", () => {
   const result = preserveGiftPoolOnProductDelete([
@@ -21,4 +21,15 @@ test("删除产品时把赠课和实物迁移到对应共享资源池", () => {
   assert.deepEqual(result.products[0].physicalGiftPoolItems, [
     { type: "实物赠礼", name: "学习礼包", detail: "已配置实物", poolGrade: "高一" },
   ]);
+});
+
+test("尚未保存的实物删除记录立即参与资源池过滤", () => {
+  const keys = collectPoolDeletedKeys([
+    { id: "cloud-copy", grade: "高一", physicalGiftPoolDeletedItems: [] },
+  ], {
+    id: "editing-draft",
+    grade: "高一",
+    physicalGiftPoolDeletedItems: [{ grade: "高一", key: "实物赠礼-学习礼包" }],
+  }, "physicalGiftPoolDeletedItems");
+  assert.deepEqual([...keys], ["实物赠礼-学习礼包"]);
 });

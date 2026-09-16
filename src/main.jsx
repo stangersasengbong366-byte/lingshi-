@@ -73,7 +73,7 @@ import {
 } from "./config/runtime";
 import { formatPrice, getProductPricing } from "./domain/pricing";
 import { mergeCloudProductChanges } from "./domain/productMerge";
-import { preserveGiftPoolOnProductDelete } from "./domain/giftPool";
+import { collectPoolDeletedKeys, preserveGiftPoolOnProductDelete } from "./domain/giftPool";
 import { isPublicEntrySearch } from "./domain/accessRules";
 import { resolveProductCourseLibrary } from "./domain/courseLibraryRules";
 import { applyLivePhaseLimits, applyVideoPhaseLimits, getAdminCoursePhaseOptions } from "./domain/coursePhaseRules";
@@ -967,7 +967,7 @@ function App() {
   };
 
   const updateProduct = async (nextProduct) => {
-    const nextProducts = products.map((item) => {
+    let nextProducts = products.map((item) => {
       if (item.id === nextProduct.id) return nextProduct;
       if (item.grade !== nextProduct.grade) return item;
       const sharedCourseLibrary = {
@@ -984,7 +984,32 @@ function App() {
         parsedCourseData: nextProduct.annualCourseData,
       };
     });
-    const changedProductIds = [nextProduct.id];
+    const deletedCourseGiftKeys = new Set((nextProduct.giftPoolDeletedItems ?? [])
+      .filter((item) => item.grade === nextProduct.grade).map((item) => item.key));
+    const deletedPhysicalGiftKeys = new Set((nextProduct.physicalGiftPoolDeletedItems ?? [])
+      .filter((item) => item.grade === nextProduct.grade).map((item) => item.key));
+    const globallyDeletedKeys = new Set([...deletedCourseGiftKeys, ...deletedPhysicalGiftKeys]);
+    const removeDeletedOverrides = (overrides = {}) => Object.fromEntries(
+      Object.entries(overrides).filter(([key]) => !globallyDeletedKeys.has(key)),
+    );
+    let changedProductIds = [nextProduct.id];
+    if (globallyDeletedKeys.size) {
+      nextProducts = nextProducts.map((item) => item.grade === nextProduct.grade ? {
+        ...item,
+        customGiftItems: (item.customGiftItems ?? []).filter((gift) => !deletedCourseGiftKeys.has(getGiftItemKey(gift))),
+        giftPoolItems: (item.giftPoolItems ?? []).filter((gift) => !deletedCourseGiftKeys.has(getGiftItemKey(gift))),
+        giftSelections: Array.isArray(item.giftSelections)
+          ? item.giftSelections.filter((key) => !deletedCourseGiftKeys.has(key))
+          : item.giftSelections,
+        customPhysicalItems: (item.customPhysicalItems ?? []).filter((gift) => !deletedPhysicalGiftKeys.has(getGiftItemKey(gift))),
+        physicalGiftPoolItems: (item.physicalGiftPoolItems ?? []).filter((gift) => !deletedPhysicalGiftKeys.has(getGiftItemKey(gift))),
+        physicalGiftSelections: Array.isArray(item.physicalGiftSelections)
+          ? item.physicalGiftSelections.filter((key) => !deletedPhysicalGiftKeys.has(key))
+          : item.physicalGiftSelections,
+        giftOverrides: removeDeletedOverrides(item.giftOverrides),
+      } : item);
+      changedProductIds = nextProducts.filter((item) => item.grade === nextProduct.grade).map((item) => item.id);
+    }
     setProducts(nextProducts);
     saveStoredProducts(nextProducts);
     setSelectedProductId(nextProduct.id);
@@ -5350,9 +5375,7 @@ function getGradePhysicalGiftCandidates(products, product) {
     .filter(([id]) => gradePrefix && id.startsWith(gradePrefix))
     .flatMap(([, plan]) => plan?.items ?? [])
     .filter((item) => item.type !== "赠课");
-  const globallyDeleted = new Set(products.flatMap((item) => (
-    item.physicalGiftPoolDeletedItems ?? []
-  )).filter((item) => item.grade === product.grade).map((item) => item.key));
+  const globallyDeleted = collectPoolDeletedKeys(products, product, "physicalGiftPoolDeletedItems");
   return uniqueGiftItems(applyGiftOverrides(product, [
     ...catalogItems,
     ...products
