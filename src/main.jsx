@@ -386,9 +386,20 @@ async function saveCloudGradeCourseLibrary(product) {
 
 async function loadCloudProducts(configId) {
   if (cloudProductsEnabled) {
-    const response = await fetch(`${CLOUDFLARE_CONFIG_API_URL}/configs/${encodeURIComponent(configId)}`, {
-      cache: "no-store",
-    });
+    let response;
+    let lastNetworkError;
+    for (let attempt = 0; attempt < 3; attempt += 1) {
+      try {
+        response = await fetch(`${CLOUDFLARE_CONFIG_API_URL}/configs/${encodeURIComponent(configId)}?t=${Date.now()}`, {
+          cache: "no-store",
+        });
+        if (response.ok || response.status < 500) break;
+      } catch (error) {
+        lastNetworkError = error;
+      }
+      if (attempt < 2) await new Promise((resolve) => window.setTimeout(resolve, 500 * (attempt + 1)));
+    }
+    if (!response) throw new Error(`Cloudflare 网络连接失败，已自动重试 3 次：${lastNetworkError?.message ?? "请检查网络后重试"}`);
     if (!response.ok) throw await createCloudError(response, "Cloudflare产品配置读取失败");
     const record = await response.json();
     const products = Array.isArray(record?.payload?.products) ? record.payload.products : record?.payload;
@@ -432,12 +443,10 @@ async function saveCloudProducts(products, configId = CLOUD_PRODUCTS_DRAFT_ID) {
     for (let attempt = 0; attempt < 3; attempt += 1) {
       try {
         response = await fetch(requestUrl, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            "X-Admin-Password": password,
-          },
-          body: JSON.stringify({ products: compactProducts, version: Date.now() }),
+          method: "POST",
+          // 使用简单请求，避免部分电脑/企业网络拦截 OPTIONS 预检。
+          headers: { "Content-Type": "text/plain;charset=UTF-8" },
+          body: JSON.stringify({ products: compactProducts, version: Date.now(), adminPassword: password }),
         });
         if (response.ok || response.status < 500) break;
       } catch (error) {
@@ -846,8 +855,8 @@ function App() {
       })
       .catch((error) => {
         console.error("云端产品读取失败", error);
-        // Supabase 被限流或临时不可用时，销售端继续展示随版本发布的基础配置。
-        // 此分支只读，不保存回 localStorage，更不会覆盖云端正式/草稿配置。
+        // 云端临时不可用时先展示随版本发布的基础配置。运营端仍可编辑；
+        // 点击保存时会重新读取云端并按产品 ID 合并，避免覆盖其他电脑的新修改。
         const fallbackProducts = loadBundledFallbackProducts();
         const selectableProducts = publicView
           ? fallbackProducts.filter((product) => product.status === "在售")
@@ -858,7 +867,7 @@ function App() {
             ? current
             : selectableProducts[0]?.id
         ));
-        setSyncStatus("云端暂不可用，当前使用随页面发布的基础配置（只读）");
+        setSyncStatus("云端连接暂时异常；当前可继续编辑，保存时将自动重连");
         setCloudLoadState("fallback");
       });
     return () => {
@@ -947,10 +956,6 @@ function App() {
   };
 
   const updateProduct = async (nextProduct) => {
-    if (cloudLoadState === "fallback") {
-      setSyncStatus("当前为基础配置只读模式；云端恢复或迁移完成前无法保存修改。");
-      return { cloudSaved: false, error: new Error("基础配置只读模式") };
-    }
     const nextProducts = products.map((item) => {
       if (item.id === nextProduct.id) return nextProduct;
       if (item.grade !== nextProduct.grade) return item;
@@ -994,10 +999,6 @@ function App() {
   };
 
   const publishProducts = async (nextProduct) => {
-    if (cloudLoadState === "fallback") {
-      setSyncStatus("当前为基础配置只读模式；云端恢复或迁移完成前无法发布。");
-      return;
-    }
     const nextProducts = nextProduct
       ? products.map((item) => (item.id === nextProduct.id ? nextProduct : item))
       : products;
@@ -1009,10 +1010,6 @@ function App() {
   };
 
   const addProduct = async () => {
-    if (cloudLoadState === "fallback") {
-      setSyncStatus("当前为基础配置只读模式；云端恢复或迁移完成前无法新增产品。");
-      return null;
-    }
     const nextProduct = createNewProduct(selectedProduct);
     const nextProducts = [...products, nextProduct];
     setProducts(nextProducts);
@@ -1036,10 +1033,6 @@ function App() {
   };
 
   const deleteProduct = async (productId) => {
-    if (cloudLoadState === "fallback") {
-      setSyncStatus("当前为基础配置只读模式；云端恢复或迁移完成前无法删除产品。");
-      return;
-    }
     const target = products.find((product) => product.id === productId);
     if (!target) return;
     if (products.length <= 1) {

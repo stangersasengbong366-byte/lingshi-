@@ -9,7 +9,7 @@ const readableConfigIds = new Set(["products_published", "products_draft", "teac
 function corsHeaders(request) {
   const origin = request.headers.get("Origin");
   return {
-    "Access-Control-Allow-Methods": "GET, PUT, OPTIONS",
+    "Access-Control-Allow-Methods": "GET, POST, PUT, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type, X-Admin-Password",
     ...(origin && ALLOWED_ORIGINS.has(origin) ? { "Access-Control-Allow-Origin": origin, Vary: "Origin" } : {}),
   };
@@ -37,18 +37,27 @@ export default {
     const configId = match?.[1];
     if (!configId || !readableConfigIds.has(configId)) return json(request, { error: "not_found" }, 404, "no-store");
 
-    if (request.method === "PUT") {
-      const passwordHash = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(request.headers.get("X-Admin-Password") || ""));
+    if (request.method === "PUT" || request.method === "POST") {
+      let payload;
+      try {
+        payload = await request.json();
+      } catch {
+        return json(request, { error: "invalid_payload" }, 400, "no-store");
+      }
+      // POST + text/plain 属于浏览器简单请求，可绕开部分企业网络会拦截的
+      // CORS OPTIONS 预检；保留 PUT 兼容旧页面。
+      const password = request.headers.get("X-Admin-Password") || payload?.adminPassword || "";
+      const passwordHash = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(password));
       const received = Array.from(new Uint8Array(passwordHash), (byte) => byte.toString(16).padStart(2, "0")).join("");
       if (!env.ADMIN_PASSWORD_HASH || received !== env.ADMIN_PASSWORD_HASH) return json(request, { error: "unauthorized" }, 401, "no-store");
       try {
-        const payload = await request.json();
         const isProductConfig = configId === "products_published" || configId === "products_draft";
         const isTeachingAidConfig = configId === "teaching_aids_26h2";
         if ((isProductConfig && !Array.isArray(payload?.products)) || (isTeachingAidConfig && !Array.isArray(payload?.items))) {
           return json(request, { error: "invalid_payload" }, 400, "no-store");
         }
-        await env.BENEFIT_CONFIGS.put(configId, JSON.stringify({ ...payload, updatedAt: new Date().toISOString() }));
+        const { adminPassword: _adminPassword, ...storedPayload } = payload;
+        await env.BENEFIT_CONFIGS.put(configId, JSON.stringify({ ...storedPayload, updatedAt: new Date().toISOString() }));
         return json(request, { ok: true, id: configId }, 200, "no-store");
       } catch {
         return json(request, { error: "invalid_payload" }, 400, "no-store");
