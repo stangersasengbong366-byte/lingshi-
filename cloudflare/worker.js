@@ -6,6 +6,10 @@ const ALLOWED_ORIGINS = new Set([
 
 const readableConfigIds = new Set(["products_published", "products_draft", "teaching_aids_26h2"]);
 
+function isReadableConfigId(configId) {
+  return readableConfigIds.has(configId) || /^course_library_g[123]$/.test(configId);
+}
+
 function corsHeaders(request) {
   const origin = request.headers.get("Origin");
   return {
@@ -35,7 +39,7 @@ export default {
 
     const match = url.pathname.match(/^\/configs\/([a-z0-9_-]+)$/);
     const configId = match?.[1];
-    if (!configId || !readableConfigIds.has(configId)) return json(request, { error: "not_found" }, 404, "no-store");
+    if (!configId || !isReadableConfigId(configId)) return json(request, { error: "not_found" }, 404, "no-store");
 
     if (request.method === "PUT" || request.method === "POST") {
       let payload;
@@ -53,7 +57,11 @@ export default {
       try {
         const isProductConfig = configId === "products_published" || configId === "products_draft";
         const isTeachingAidConfig = configId === "teaching_aids_26h2";
+        const isCourseLibraryConfig = /^course_library_g[123]$/.test(configId);
         if ((isProductConfig && !Array.isArray(payload?.products)) || (isTeachingAidConfig && !Array.isArray(payload?.items))) {
+          return json(request, { error: "invalid_payload" }, 400, "no-store");
+        }
+        if (isCourseLibraryConfig && (!payload?.grade || !payload?.data?.live || !payload?.data?.video)) {
           return json(request, { error: "invalid_payload" }, 400, "no-store");
         }
         const { adminPassword: _adminPassword, ...storedPayload } = payload;

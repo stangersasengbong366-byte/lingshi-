@@ -2,102 +2,6 @@
 // Used only when the cloud configuration endpoint is unavailable.
 export const publishedProductSnapshot = [
   {
-    "id": "g1-autumn-card",
-    "name": "新高一秋实卡",
-    "grade": "高一",
-    "stage": "秋实卡",
-    "courseKey": "秋实卡",
-    "term": "26H2 秋季",
-    "status": "下线",
-    "coveragePhases": [
-      "秋季"
-    ],
-    "videoPhases": [
-      "秋季"
-    ],
-    "videoSubjects": [
-      "语文",
-      "数学",
-      "英语",
-      "物理",
-      "化学"
-    ],
-    "unlayeredVideoSubjects": [
-      "语文"
-    ],
-    "layeredVideoSubjects": [
-      "数学",
-      "英语",
-      "物理",
-      "化学"
-    ],
-    "subtitle": "新高一秋季系统学习，学法直播讲透方法，知识视频分层补足基础。",
-    "core": {
-      "liveLessons": 16,
-      "liveDuration": "2h",
-      "knowledgeVideos": 40,
-      "videoDuration": "30min",
-      "servicePeriod": "4个月"
-    },
-    "serviceDateRange": "2026.09.01-2026.12.31",
-    "courseValidity": "即日起至2029.08.31",
-    "salePeriod": "2026.07.26起",
-    "priceNote": "",
-    "pricing": {
-      "originalPerSubject": 3600,
-      "singlePerSubject": 2780,
-      "twoPerSubject": 2680,
-      "threePlusPerSubject": 2580
-    },
-    "humanitiesPricing": {
-      "originalPerSubject": 2200,
-      "fixedPerSubject": 900
-    },
-    "productProfileVersion": "2026-07-17-authoritative-v1",
-    "videoReleasePlan": "购买后立即开放3节试听，其余视频自8月起分批释放",
-    "subjectProfiles": {
-      "default": {
-        "liveLessons": 16,
-        "knowledgeVideos": 40,
-        "summary": [
-          "学法直播16节",
-          "知识视频40节"
-        ]
-      }
-    },
-    "humanitiesSubjects": [
-      "生物",
-      "历史",
-      "地理",
-      "政治"
-    ],
-    "salesNote": "学法直播负责大招教学和提分方法，知识视频用于补充直播中不熟的基础点，形成直播提分+视频补基的组合学习。",
-    "giftModuleIds": [],
-    "lessons": [],
-    "customGiftItems": [],
-    "giftSelections": null,
-    "disableDefaultCourseCatalog": true,
-    "customPhysicalItems": [],
-    "courseSourceMode": "grade",
-    "customCourseData": {
-      "live": {},
-      "video": {}
-    },
-    "customCourseUploadNames": {
-      "live": "",
-      "video": ""
-    },
-    "giftOverrides": {
-      "赠课-高一暑期重难点精华课": {
-        "value": "499"
-      }
-    },
-    "physicalGiftSelections": [
-      "文创单品-秋实学习草稿本",
-      "文创单品-有道领世极境拾音坞"
-    ]
-  },
-  {
     "id": "g1-autumn-winter-bridge-card",
     "name": "高一秋冬衔接卡",
     "grade": "高一",
@@ -129,7 +33,7 @@ export const publishedProductSnapshot = [
     },
     "subtitle": "衔接秋季与寒假两阶段课程，连续巩固本学期知识并提前衔接冬季学习。",
     "core": {
-      "liveLessons": 26,
+      "liveLessons": 36,
       "liveDuration": "2h",
       "knowledgeVideos": 60,
       "videoDuration": "30min",
@@ -181,7 +85,10 @@ export const publishedProductSnapshot = [
       "赠课-高一家长成长计划·第一期",
       "赠课-高一暑期学法知识汇总"
     ],
-    "physicalGiftSelections": [],
+    "physicalGiftSelections": [
+      "文创单品-有道领世极境拾音坞",
+      "文创单品-草稿本"
+    ],
     "customGiftItems": [
       {
         "type": "赠课",
@@ -206,13 +113,18 @@ export const publishedProductSnapshot = [
       "video": ""
     },
     "deletedGiftKeys": [
-      "赠课-暑期学法知识汇总-高一"
+      "赠课-暑期学法知识汇总-高一",
+      "赠课-中考XX冲刺课",
+      "赠课-高一上生史地政半年卡",
+      "赠课-高一上生史地政夏研卡",
+      "赠课-2026初高衔接预备营",
+      "赠课-高一暑期重难点精华课"
     ],
     "giftOverrides": {
       "赠课-高一暑期学法知识汇总": {
-        "detail": "对应学科赠课",
+        "detail": "高一暑期10节学法直播",
         "image": "cloud-media:root.giftOverrides.赠课-高一暑期学法知识汇总.image",
-        "value": "￥799",
+        "value": "￥999",
         "rule": "买即赠对应学科",
         "subjectCourses": {
           "语文": [
@@ -327,17 +239,87 @@ export const publishedProductSnapshot = [
       },
       "赠课-新高一入门知识精讲": {
         "image": "/assets/gifts/freshman-foundation.jpg",
-        "lessonCount": "8*30min"
+        "lessonCount": "8*30min",
+        "value": "¥299",
+        "detail": "高一入门阶段知识视频 8节，赠对应老师"
+      },
+      "文创单品-草稿本": {
+        "name": "讲义、习题、草稿本",
+        "value": "¥199",
+        "detail": "赠送对应科目讲义习题草稿本"
       }
     },
     "livePhases": [
       "秋季",
       "寒假"
     ],
-    "annualCourseVersion": "2026-2027-v7",
+    "annualCourseVersion": "uploaded-2026-2027-v8",
     "livePhaseLimits": {
-      "秋季": 16,
+      "秋季": 26,
       "寒假": 10
+    },
+    "giftPoolItems": [],
+    "giftPoolDeletedItems": [
+      {
+        "grade": "高一",
+        "key": "赠课-中考XX冲刺课"
+      },
+      {
+        "grade": "高一",
+        "key": "赠课-高一上生史地政半年卡"
+      },
+      {
+        "grade": "高一",
+        "key": "赠课-高一上生史地政夏研卡"
+      },
+      {
+        "grade": "高一",
+        "key": "赠课-2026初高衔接预备营"
+      },
+      {
+        "grade": "高一",
+        "key": "赠课-高一暑期重难点精华课"
+      }
+    ],
+    "physicalGiftPoolItems": [],
+    "physicalGiftPoolDeletedItems": [
+      {
+        "grade": "高一",
+        "key": "随课教辅-纸质版知识视频-讲义"
+      },
+      {
+        "grade": "高一",
+        "key": "随课教辅-纸质版规划服务-讲义"
+      },
+      {
+        "grade": "高一",
+        "key": "随课教辅-纸质版配套习题"
+      },
+      {
+        "grade": "高一",
+        "key": "文创单品-秋实学习草稿本"
+      },
+      {
+        "grade": "高一",
+        "key": "升学礼包-马上高中·午福临门升学礼包"
+      },
+      {
+        "grade": "高一",
+        "key": "文创单品-实物单品"
+      },
+      {
+        "grade": "高一",
+        "key": "文创单品-升学礼包"
+      },
+      {
+        "grade": "高一",
+        "key": "文创单品-自研书"
+      }
+    ],
+    "annualCourseOrigin": "uploaded",
+    "annualCourseUploadNames": {
+      "live": "销转侧【26-27学法直播大纲 】.xlsx",
+      "video": "销转侧【26-27知识视频大纲】.xlsx"
     }
   },
   {
@@ -362,7 +344,7 @@ export const publishedProductSnapshot = [
     },
     "subtitle": "衔接秋季与寒假两阶段课程，连续巩固本学期知识并提前衔接冬季学习。",
     "core": {
-      "liveLessons": 26,
+      "liveLessons": 36,
       "liveDuration": "2h",
       "knowledgeVideos": 60,
       "videoDuration": "30min",
@@ -595,14 +577,16 @@ export const publishedProductSnapshot = [
       },
       "赠课-高二 家长成长计划·第一期": {
         "detail": "家长成长心理必修课",
-        "mainContent": "1、科学制定目标，高效管理时间\n2、克服自卑，在自信中成长\n3、别让“情绪”左右孩子的人生\n4、高中生的同伴沟通法则\n5、让文化自信在孩子心中落叶生根"
+        "mainContent": "1、科学制定目标，高效管理时间\n2、克服自卑，在自信中成长\n3、别让“情绪”左右孩子的人生\n4、高中生的同伴沟通法则\n5、让文化自信在孩子心中落叶生根",
+        "value": "¥149",
+        "image": "cloud-media:root.giftOverrides.赠课-高二 家长成长计划·第一期.image"
       },
       "赠课-暑期学法知识汇总 - 高二": {
         "value": "999",
         "name": "高二 暑期学法知识汇总 ",
         "lessonCount": "10节 2h/节",
         "displayOrder": 1,
-        "image": "/assets/gifts/summer-review.jpg",
+        "image": "cloud-media:root.giftOverrides.赠课-暑期学法知识汇总 - 高二.image",
         "detail": "升高二 完整暑期学法直播内容，助力升学筑牢基础"
       }
     },
@@ -618,84 +602,20 @@ export const publishedProductSnapshot = [
       "秋季",
       "寒假"
     ],
-    "annualCourseVersion": "2026-2027-v7",
+    "annualCourseVersion": "uploaded-2026-2027-v8",
     "livePhaseLimits": {
-      "秋季": 16,
+      "秋季": 26,
       "寒假": 10
+    },
+    "giftPoolItems": [],
+    "giftPoolDeletedItems": [],
+    "physicalGiftPoolItems": [],
+    "physicalGiftPoolDeletedItems": [],
+    "annualCourseOrigin": "uploaded",
+    "annualCourseUploadNames": {
+      "live": "销转侧【26-27学法直播大纲 】.xlsx",
+      "video": "销转侧【26-27知识视频大纲】.xlsx"
     }
-  },
-  {
-    "id": "product-1788253630604-xtzpc",
-    "name": "高二秋实卡",
-    "grade": "高二",
-    "stage": "秋实卡",
-    "courseKey": "秋实卡",
-    "term": "",
-    "status": "下线",
-    "coveragePhases": [
-      "秋季"
-    ],
-    "videoPhases": [
-      "秋季"
-    ],
-    "videoPhaseLimits": {
-      "秋季": 40,
-      "寒假": 20
-    },
-    "subtitle": "",
-    "core": {
-      "liveLessons": 16,
-      "liveDuration": "2h",
-      "knowledgeVideos": 40,
-      "videoDuration": "30min",
-      "servicePeriod": "覆盖完整高二上学期"
-    },
-    "pricing": {
-      "originalPerSubject": 3600,
-      "singlePerSubject": 2780,
-      "twoPerSubject": 2680,
-      "threePlusPerSubject": 2580
-    },
-    "humanitiesPricing": {
-      "originalPerSubject": 0,
-      "fixedPerSubject": 0
-    },
-    "humanitiesSubjects": [],
-    "subjectProfiles": {
-      "default": {
-        "liveLessons": 16,
-        "knowledgeVideos": 40,
-        "summary": [
-          "学法直播16节",
-          "知识视频40节"
-        ]
-      }
-    },
-    "courseSourceMode": "grade",
-    "giftSelections": [
-      "赠课-高二 家长成长计划·第一期",
-      "赠课-26H2_高二_各科勾选5节课程大纲"
-    ],
-    "physicalGiftSelections": [
-      "文创单品-秋实学习草稿本",
-      "文创单品-有道领世极境拾音坞"
-    ],
-    "customGiftItems": [],
-    "customPhysicalItems": [],
-    "deletedGiftKeys": [],
-    "giftOverrides": {},
-    "customCourseData": {
-      "live": {},
-      "video": {}
-    },
-    "customCourseUploadNames": {
-      "live": "",
-      "video": ""
-    },
-    "salesNote": "",
-    "annualCourseOrigin": "bundled",
-    "annualCourseVersion": "2026-2027-v5",
-    "customPhysicalGiftItems": []
   },
   {
     "id": "product-1788253872835-ou7xk",
@@ -715,7 +635,7 @@ export const publishedProductSnapshot = [
     ],
     "subtitle": "",
     "core": {
-      "liveLessons": 30,
+      "liveLessons": 34,
       "liveDuration": "2h",
       "knowledgeVideos": 120,
       "videoDuration": "30min",
@@ -741,16 +661,16 @@ export const publishedProductSnapshot = [
         "liveLessons": 30,
         "knowledgeVideos": 120,
         "summary": [
-          "学法直播30节（一轮 mini 12节+二轮18节）",
-          "知识视频120节（一轮60+二轮60）"
+          "学法直播30节",
+          "知识视频120节"
         ]
       }
     },
     "courseSourceMode": "grade",
     "giftSelections": [
       "赠课-高二核心知识点_按科目拆分_仅课程大纲 (1)",
-      "赠课-高三0轮核心学法精讲_按科目拆分_仅课程大纲",
-      "赠课-高三家长成长计划"
+      "赠课-高三家长成长计划",
+      "赠课-高考总复习系统补充包"
     ],
     "physicalGiftSelections": [
       "文创单品-秋实学习草稿本",
@@ -1101,6 +1021,18 @@ export const publishedProductSnapshot = [
         "category": "升学赋能包",
         "rule": "买即赠对应学科",
         "image": ""
+      },
+      {
+        "type": "赠课",
+        "name": "高考总复习系统补充包",
+        "detail": "14节*2h",
+        "value": "¥1099",
+        "lessonCount": "14节*2h",
+        "mainContent": "",
+        "displayOrder": 1,
+        "category": "学科类赠课",
+        "rule": "买即赠对应学科",
+        "image": "cloud-media:root.customGiftItems.3.image"
       }
     ],
     "customPhysicalItems": [],
@@ -1117,8 +1049,8 @@ export const publishedProductSnapshot = [
     ],
     "giftOverrides": {
       "赠课-高二核心知识点_按科目拆分_仅课程大纲 (1)": {
-        "name": "高二核心知识点",
-        "value": "899",
+        "name": "高二核心知识点汇总",
+        "value": "¥899",
         "lessonCount": "非文综30节；文综20节",
         "displayOrder": 1,
         "detail": "对应高二年级核心知识内容",
@@ -1195,14 +1127,164 @@ export const publishedProductSnapshot = [
         "detail": "6节 2h/节",
         "lessonCount": "6节 2h/节",
         "image": "/assets/gifts/parent-growth-plan.jpg"
+      },
+      "赠课-高考总复习系统补充包": {
+        "detail": "打通一轮基础，顺滑衔接二轮冲刺。",
+        "value": "¥1099",
+        "rule": "买即赠对应学科",
+        "subjectCourses": {
+          "语文": [
+            "【古诗阅读】吃透根基，解锁高考古诗破题法",
+            "【小说阅读】深挖要义，搞定高考小说核心分析",
+            "【文言文阅读】通解精髓，拿下高考文言必考点",
+            "【散文阅读】细品旨趣，找准高考散文答题关键",
+            "【语用】夯实应用基础，稳拿高考语用必得分",
+            "【信息性阅读】解构文本核心，练就高考快解技巧",
+            "【作文】精修写作体系，搭好高考作文高分框架",
+            "【作文】精修写作体系，练会高考作文升格技巧",
+            "【综合训练】语文核心能力联动与答题范式优化",
+            "【综合训练】语文知识体系闭环与应试素养升华",
+            "【古诗阅读】诗歌核心重难点攻坚 诗意精准解码",
+            "【古诗阅读】诗歌专项能力拔高 核心技法深层破译",
+            "【小说阅读】小说解题思路指引文本精读品鉴",
+            "【小说阅读】小说文本深度深究核心考点突破"
+          ],
+          "数学": [
+            "函数的值域求法与最值速算技巧",
+            "基本不等式与多元最值",
+            "二次恒成立模型与非导数恒成立",
+            "奇偶性与对称性",
+            "单调性有关的函数性质综合",
+            "周期性与函数性质综合",
+            "函数图像与零点数形结合",
+            "导数基础与极值最值",
+            "导数恒成立原创技巧(上)—端点恒成立",
+            "导数恒成立原创技巧(下)—中间点恒成立",
+            "三角函数及图像",
+            "三角恒等变换与解三角形求值",
+            "解三角形最值与范围问题",
+            "平面向量初阶与应用技巧"
+          ],
+          "英语": [
+            "手拿把掐高频核心词",
+            "轻松拿捏长难句（上）",
+            "轻松拿捏长难句（下）",
+            "完形填空：破局入门",
+            "完形填空：脉络构筑",
+            "完形填空：难点解码",
+            "完形填空：速度升华",
+            "完形填空：游刃有余",
+            "应用文高分导学",
+            "书面表达高阶题型导学",
+            "把握段落主旨（上）",
+            "把握段落主旨（下）",
+            "直击文章主旨（上）",
+            "直击文章主旨（下）"
+          ],
+          "物理": [
+            "【一轮】牛顿定律1：斜力问题",
+            "【一轮】牛顿定律2：多物体问题",
+            "【一轮】牛顿定律3：水平传送带",
+            "【一轮】曲线运动1：抛体运动",
+            "【一轮】曲线运动2：匀速圆周运动",
+            "【一轮】天体运动1：环绕规律",
+            "【一轮】天体运动2：变轨规律",
+            "【一轮】机械能1：动能定理",
+            "【一轮】机械能2：机械能守恒",
+            "【一轮】机械能3：功能图像",
+            "【一轮】动量1：动量守恒定律",
+            "【一轮】动量2：完非弹与反冲",
+            "【一轮】动量3：弹碰",
+            "【一轮】力学实验"
+          ],
+          "化学": [
+            "氧化还原基础",
+            "钠、镁、铝",
+            "铁、铜",
+            "氯、硅",
+            "硫、氮",
+            "元素化合物综合应用",
+            "陌生方程式配平",
+            "元素化合物综合实验",
+            "元素周期律与化学键",
+            "物质的量",
+            "物质分类、离子反应",
+            "反应热",
+            "速率",
+            "原电池与电解池"
+          ],
+          "生物": [
+            "元素与化合物",
+            "细胞的结构与功能",
+            "细胞代谢的基础",
+            "细胞呼吸",
+            "光合作用（一）",
+            "光合作用（二）",
+            "细胞的生命历程",
+            "基因的分离定律",
+            "基因的自由组合定律一",
+            "基因的自由组合定律二",
+            "减数分裂",
+            "伴性遗传",
+            "基因的本质",
+            "基因的表达"
+          ],
+          "历史": [
+            "文明起源和商周政治制度",
+            "高考中的先秦思想解析",
+            "封建王朝的建立",
+            "古代官僚政治三大阶段",
+            "高考稳定考点:唐末变革",
+            "明清政治在高考中的两个侧面",
+            "白银与明清国运起伏",
+            "两次鸦片战争高频考点",
+            "选择题错误选项避坑（1）",
+            "选择题错误选项避坑（2）",
+            "甲午战争在选择题中的分隔作用",
+            "书上讲得少，考试考得多的清末新政",
+            "北洋政府时期的政治",
+            "中共革命史专题"
+          ],
+          "地理": [
+            "【一轮复习】等值线与经纬网",
+            "【一轮复习】大气的受热过程",
+            "【一轮复习】大气运动与大气环流",
+            "【一轮复习】全球气候分布与影响因素",
+            "【一轮复习】天气系统及其影响",
+            "【一轮复习】水循环与陆地水特征",
+            "【一轮复习】海水性质与洋流分布",
+            "【一轮复习】岩石圈的物质循环",
+            "【一轮复习】地质作用与地表形态",
+            "【一轮复习】自然地理环境的整体性与差异性",
+            "【一轮复习】地球自转及其地理意义",
+            "【一轮复习】地球公转及其地理意义",
+            "【一轮复习】地球运动知识综合运用",
+            "【一轮复习】自然灾害与地理信息技术"
+          ],
+          "政治": [
+            "必修2：经济制度精讲及经济主观题模板01",
+            "必修2：经济发展精讲及经济主观题模板02",
+            "必修2：经济传导题精讲及经济主观题模板03",
+            "必修4：哲学总论及哲学漫画引文题精讲",
+            "必修4：哲学原理方法论精讲及题型破解01",
+            "必修4：哲学原理方法论精讲及题型破解02",
+            "必修4：哲学原理方法论精讲及题型破解03",
+            "必修1：中国特色社会主义知识主线及题型破解",
+            "选必1：国际经济类主观题及选择题易错点（上）",
+            "选必1：国际经济类主观题及选择题易错点（下）",
+            "必修3：政治主观题01党的领导答题模板应用",
+            "必修3：政治主观题02人民当家作主答题模板应用",
+            "必修3：政治主观题03全面依法治国答题模板应用",
+            "必修4：文化主观题01文化功能类主观题应用"
+          ]
+        }
       }
     },
     "salesNote": "",
-    "annualCourseOrigin": "bundled",
-    "annualCourseVersion": "2026-2027-v7",
+    "annualCourseOrigin": "uploaded",
+    "annualCourseVersion": "uploaded-2026-2027-v8",
     "customPhysicalGiftItems": [],
     "livePhases": [
-      "暑期",
       "秋季",
       "寒假",
       "春季"
@@ -1213,8 +1295,21 @@ export const publishedProductSnapshot = [
     },
     "liveCourseMode": "g3-mini-plus-second-round",
     "liveCourseSegments": {
-      "mini": 12,
+      "mini": 16,
       "secondRound": 18
+    },
+    "giftPoolItems": [],
+    "giftPoolDeletedItems": [],
+    "physicalGiftPoolItems": [],
+    "physicalGiftPoolDeletedItems": [],
+    "annualCourseUploadNames": {
+      "live": "销转侧【26-27学法直播大纲 】.xlsx",
+      "video": "销转侧【26-27知识视频大纲】.xlsx"
+    },
+    "livePhaseLimits": {
+      "秋季": 16,
+      "寒假": 10,
+      "春季": 8
     }
   },
   {
@@ -1242,11 +1337,11 @@ export const publishedProductSnapshot = [
     },
     "subtitle": "",
     "core": {
-      "liveLessons": 42,
+      "liveLessons": 52,
       "liveDuration": "2h",
       "knowledgeVideos": 100,
       "videoDuration": "30min",
-      "servicePeriod": ""
+      "servicePeriod": "2026.9.1-2027.6.30"
     },
     "pricing": {
       "originalPerSubject": 9200,
@@ -1269,8 +1364,8 @@ export const publishedProductSnapshot = [
         "liveLessons": 42,
         "knowledgeVideos": 100,
         "summary": [
-          "学法直播42节（秋16+寒10+春16）",
-          "知识视频100节（秋40+寒20+春40）"
+          "学法直播42节",
+          "知识视频100节"
         ]
       }
     },
@@ -1283,8 +1378,8 @@ export const publishedProductSnapshot = [
       "赠课-新高一入门知识精讲"
     ],
     "physicalGiftSelections": [
-      "文创单品-秋实学习草稿本",
-      "文创单品-有道领世极境拾音坞"
+      "文创单品-有道领世极境拾音坞",
+      "文创单品-草稿本"
     ],
     "customGiftItems": [
       {
@@ -1305,7 +1400,8 @@ export const publishedProductSnapshot = [
     "giftOverrides": {
       "赠课-新高一入门知识精讲": {
         "mainContent": "",
-        "detail": "高一入门阶段知识视频 20 节"
+        "detail": "高一入门阶段知识视频 20 节",
+        "value": "¥799"
       }
     },
     "customCourseData": {
@@ -1317,8 +1413,7 @@ export const publishedProductSnapshot = [
       "video": ""
     },
     "salesNote": "",
-    "annualCourseOrigin": "bundled",
-    "annualCourseVersion": "2026-2027-v7",
+    "annualCourseVersion": "uploaded-2026-2027-v8",
     "customPhysicalGiftItems": [],
     "livePhases": [
       "秋季",
@@ -1326,9 +1421,18 @@ export const publishedProductSnapshot = [
       "春季"
     ],
     "livePhaseLimits": {
-      "秋季": 16,
+      "秋季": 26,
       "寒假": 10,
       "春季": 16
+    },
+    "giftPoolItems": [],
+    "giftPoolDeletedItems": [],
+    "physicalGiftPoolItems": [],
+    "physicalGiftPoolDeletedItems": [],
+    "annualCourseOrigin": "uploaded",
+    "annualCourseUploadNames": {
+      "live": "销转侧【26-27学法直播大纲 】.xlsx",
+      "video": "销转侧【26-27知识视频大纲】.xlsx"
     }
   },
   {
@@ -1356,7 +1460,7 @@ export const publishedProductSnapshot = [
     },
     "subtitle": "",
     "core": {
-      "liveLessons": 42,
+      "liveLessons": 52,
       "liveDuration": "2h",
       "knowledgeVideos": 100,
       "videoDuration": "30min",
@@ -1412,8 +1516,8 @@ export const publishedProductSnapshot = [
     "deletedGiftKeys": [],
     "giftOverrides": {
       "赠课-高一重难点知识汇总": {
-        "detail": "对应学科赠课",
-        "value": "￥499",
+        "detail": "高一入门基础知识20节",
+        "value": "¥499",
         "rule": "买即赠对应学科",
         "subjectCourses": {
           "语文": [
@@ -1594,7 +1698,12 @@ export const publishedProductSnapshot = [
             "唯物辩证法"
           ]
         },
-        "lessonCount": "20节*30min"
+        "lessonCount": "20节*30min",
+        "image": "cloud-media:root.giftOverrides.赠课-高一重难点知识汇总.image"
+      },
+      "赠课-暑期学法知识汇总 - 高二": {
+        "image": "cloud-media:root.giftOverrides.赠课-暑期学法知识汇总 - 高二.image",
+        "value": "¥999"
       }
     },
     "customCourseData": {
@@ -1606,8 +1715,8 @@ export const publishedProductSnapshot = [
       "video": ""
     },
     "salesNote": "",
-    "annualCourseOrigin": "bundled",
-    "annualCourseVersion": "2026-2027-v7",
+    "annualCourseOrigin": "uploaded",
+    "annualCourseVersion": "uploaded-2026-2027-v8",
     "customPhysicalGiftItems": [],
     "livePhases": [
       "秋季",
@@ -1615,9 +1724,17 @@ export const publishedProductSnapshot = [
       "春季"
     ],
     "livePhaseLimits": {
-      "秋季": 16,
+      "秋季": 26,
       "寒假": 10,
       "春季": 16
+    },
+    "giftPoolItems": [],
+    "giftPoolDeletedItems": [],
+    "physicalGiftPoolItems": [],
+    "physicalGiftPoolDeletedItems": [],
+    "annualCourseUploadNames": {
+      "live": "销转侧【26-27学法直播大纲 】.xlsx",
+      "video": "销转侧【26-27知识视频大纲】.xlsx"
     }
   }
 ];

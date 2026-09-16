@@ -32,3 +32,27 @@ test("运营端可用无需预检的 POST 请求保存 Cloudflare 配置", async
   assert.deepEqual(stored.products, [{ id: "product-1" }]);
   assert.equal("adminPassword" in stored, false);
 });
+
+test("运营端可把年级课程库独立保存到 Cloudflare KV", async () => {
+  const records = new Map();
+  const env = {
+    ADMIN_PASSWORD_HASH: await sha256("lingshi2026"),
+    BENEFIT_CONFIGS: {
+      get: async (key) => records.get(key) ?? null,
+      put: async (key, value) => records.set(key, value),
+    },
+  };
+  const payload = {
+    grade: "高一",
+    data: { live: { 数学: [{ title: "测试直播" }] }, video: { 数学: [{ title: "测试视频" }] } },
+    uploadNames: { live: "直播.xlsx", video: "视频.xlsx" },
+    version: "uploaded-test",
+  };
+  const response = await worker.fetch(new Request("https://example.com/configs/course_library_g1", {
+    method: "POST",
+    headers: { "Content-Type": "text/plain;charset=UTF-8" },
+    body: JSON.stringify({ ...payload, adminPassword: "lingshi2026" }),
+  }), env);
+  assert.equal(response.status, 200);
+  assert.deepEqual(JSON.parse(records.get("course_library_g1")).data, payload.data);
+});

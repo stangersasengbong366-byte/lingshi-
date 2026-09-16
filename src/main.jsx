@@ -77,6 +77,7 @@ import { collectPoolDeletedKeys, preserveGiftPoolOnProductDelete } from "./domai
 import { isPublicEntrySearch } from "./domain/accessRules";
 import { resolveProductCourseLibrary } from "./domain/courseLibraryRules";
 import { applyLivePhaseLimits, applyVideoPhaseLimits, getAdminCoursePhaseOptions } from "./domain/coursePhaseRules";
+import { getCanonicalProductCourseRules, getCourseCountIssues } from "./domain/courseCountRules";
 import { filterVideoRowsByTrack, normalizeVideoTrack } from "./domain/videoTrackRules";
 import { getSaleableSubjects, getVideoAvailabilityOverride } from "./domain/productSubjectRules";
 import {
@@ -184,7 +185,7 @@ function migrateStoredProduct(product) {
 }
 
 function normalizeProductShape(product) {
-  return {
+  return getCanonicalProductCourseRules({
     ...product,
     core: {
       liveLessons: 0,
@@ -207,7 +208,7 @@ function normalizeProductShape(product) {
     giftPoolDeletedItems: Array.isArray(product?.giftPoolDeletedItems) ? product.giftPoolDeletedItems : [],
     physicalGiftPoolItems: Array.isArray(product?.physicalGiftPoolItems) ? product.physicalGiftPoolItems : [],
     physicalGiftPoolDeletedItems: Array.isArray(product?.physicalGiftPoolDeletedItems) ? product.physicalGiftPoolDeletedItems : [],
-  };
+  });
 }
 
 function getProductDisplayStage(product) {
@@ -284,6 +285,10 @@ const CLOUD_PRODUCT_MEDIA_PREFIX = "product_media_";
 const cloudCourseLibraryCache = new Map();
 const cloudProductMediaCache = new Map();
 
+function getCloudCourseLibraryId(grade) {
+  return `${CLOUD_COURSE_LIBRARY_PREFIX}${({ 高一: "g1", 高二: "g2", 高三: "g3" })[grade] ?? grade}`;
+}
+
 function externalizeProductMedia(value, media = {}, path = "root") {
   if (typeof value === "string" && value.startsWith("data:image/")) {
     const token = `cloud-media:${path}`;
@@ -349,8 +354,29 @@ async function saveCloudProductMedia(product) {
 }
 
 async function loadCloudGradeCourseLibrary(grade) {
-  if (!cloudConfigEnabled || !grade) return null;
+  if ((!cloudProductsEnabled && !cloudConfigEnabled) || !grade) return null;
   if (cloudCourseLibraryCache.has(grade)) return cloudCourseLibraryCache.get(grade);
+  if (cloudProductsEnabled) {
+    const request = (async () => {
+      for (const endpoint of CLOUDFLARE_CONFIG_API_URLS) {
+        try {
+          const response = await fetch(`${endpoint}/configs/${getCloudCourseLibraryId(grade)}?t=${Date.now()}`, { cache: "no-store" });
+          if (response.status === 404) continue;
+          if (!response.ok) throw await createCloudError(response, "Cloudflare年级课程库读取失败");
+          const record = await response.json();
+          return record?.payload ?? null;
+        } catch (error) {
+          if (endpoint === CLOUDFLARE_CONFIG_API_URLS.at(-1)) throw error;
+        }
+      }
+      return null;
+    })().catch((error) => {
+      cloudCourseLibraryCache.delete(grade);
+      throw error;
+    });
+    cloudCourseLibraryCache.set(grade, request);
+    return request;
+  }
   const request = fetch(`${SUPABASE_URL}/rest/v1/${CLOUD_CONFIG_TABLE}?id=eq.${encodeURIComponent(`${CLOUD_COURSE_LIBRARY_PREFIX}${grade}`)}&select=id,payload,updated_at&limit=1`, {
     headers: getSupabaseHeaders(),
     // 年级课表更新频率低且每个会话只请求一次；禁用浏览器磁盘缓存，
@@ -376,6 +402,26 @@ async function saveCloudGradeCourseLibrary(product) {
     uploadNames: product.annualCourseUploadNames ?? product.courseUploadNames ?? {},
     version: product.annualCourseVersion ?? `uploaded-${Date.now()}`,
   };
+  if (cloudProductsEnabled) {
+    const password = window.sessionStorage.getItem(ADMIN_ACCESS_PASSWORD_SESSION_KEY);
+    if (!password) throw new Error("请刷新后重新输入后台密码，再保存课程库");
+    let lastError;
+    for (const endpoint of CLOUDFLARE_CONFIG_API_URLS) {
+      try {
+        const response = await fetch(`${endpoint}/configs/${getCloudCourseLibraryId(product.grade)}`, {
+          method: "POST",
+          headers: { "Content-Type": "text/plain;charset=UTF-8" },
+          body: JSON.stringify({ ...payload, adminPassword: password }),
+        });
+        if (!response.ok) throw await createCloudError(response, "Cloudflare年级课程库保存失败");
+        cloudCourseLibraryCache.set(product.grade, Promise.resolve(payload));
+        return;
+      } catch (error) {
+        lastError = error;
+      }
+    }
+    throw lastError ?? new Error("Cloudflare年级课程库保存失败");
+  }
   const response = await fetch(`${SUPABASE_URL}/rest/v1/${CLOUD_CONFIG_TABLE}?on_conflict=id`, {
     method: "POST",
     headers: { ...getSupabaseHeaders(), "Content-Type": "application/json", Prefer: "resolution=merge-duplicates" },
@@ -413,9 +459,11 @@ async function loadCloudProducts(configId) {
     const record = await response.json();
     const products = Array.isArray(record?.payload?.products) ? record.payload.products : record?.payload;
     if (!Array.isArray(products)) return null;
+    const sharedLibraries = Object.fromEntries(await Promise.all([...new Set(products.map((product) => product.grade))]
+      .map(async (grade) => [grade, await loadCloudGradeCourseLibrary(grade).catch(() => null)])));
     return products.map((product) => normalizeProductShape({
       ...product,
-      ...resolveProductCourseLibrary(product, null, annualCourseLibrary[product.grade]),
+      ...resolveProductCourseLibrary(product, sharedLibraries[product.grade], annualCourseLibrary[product.grade]),
     }));
   }
   if (!cloudConfigEnabled) return null;
@@ -491,6 +539,13 @@ async function saveCloudProducts(products, configId = CLOUD_PRODUCTS_DRAFT_ID) {
 
 async function saveCloudProductChanges(nextProducts, { upsertIds = [], deleteIds = [], configIds = [] }) {
   if (cloudProductsEnabled) {
+    const changedProducts = nextProducts.filter((product) => upsertIds.includes(product.id));
+    const uploadedGrades = new Set();
+    for (const product of changedProducts) {
+      if (product.annualCourseOrigin !== "uploaded" || uploadedGrades.has(product.grade)) continue;
+      await saveCloudGradeCourseLibrary(product);
+      uploadedGrades.add(product.grade);
+    }
     let mergedDraft = null;
     for (const configId of configIds) {
       const latestProducts = await loadCloudProducts(configId);
@@ -1934,11 +1989,36 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onDelete, onUpd
     : { live: uploadNames.annualLive ?? "", video: uploadNames.annualVideo ?? "" };
   const parsedLiveCount = Object.values(parsedCourseData.live ?? {}).reduce((total, rows) => total + (rows?.length ?? 0), 0);
   const parsedVideoCount = Object.values(parsedCourseData.video ?? {}).reduce((total, rows) => total + (rows?.length ?? 0), 0);
+  const validationPhaseOptions = getAdminCoursePhaseOptions(draft.grade);
+  const validationCoverage = draft.coveragePhases?.length ? draft.coveragePhases : getDefaultCoveragePhases(draft);
+  const validationLivePhases = validationPhaseOptions.split
+    ? (draft.livePhases?.length ? draft.livePhases : validationPhaseOptions.live)
+    : validationCoverage;
+  const validationVideoPhases = validationPhaseOptions.split
+    ? (draft.videoPhases?.length ? draft.videoPhases : validationPhaseOptions.video)
+    : validationCoverage;
+  const adminCourseCountIssues = courseSubjects.flatMap((subject) => [
+    ...getCourseCountIssues({
+      product: draft,
+      subject,
+      type: "live",
+      phases: validationLivePhases,
+      rows: parsedCourseData.live?.[subject] ?? [],
+    }),
+    ...["目标班", "菁英班"].flatMap((track) => getCourseCountIssues({
+      product: draft,
+      subject,
+      type: "video",
+      phases: validationVideoPhases,
+      rows: filterVideoRowsByTrack(parsedCourseData.video?.[subject] ?? [], track),
+    })),
+  ]);
   const publishChecks = [
     { label: "产品信息", ready: Boolean(draft.name?.trim() && draft.grade && draft.core?.servicePeriod) },
     { label: "价格", ready: Boolean(draft.pricing?.singlePerSubject && draft.pricing?.twoPerSubject && draft.pricing?.threePlusPerSubject) },
     { label: "学法直播", ready: Boolean(activeCourseUploadNames.live && parsedLiveCount) },
     { label: "知识视频", ready: !Number(draft.core?.knowledgeVideos) || Boolean(activeCourseUploadNames.video && parsedVideoCount) },
+    { label: "课时数量", ready: adminCourseCountIssues.length === 0 },
     { label: "赠送规则", ready: Boolean(selectedGiftKeys.length || selectedPhysicalGiftKeys.length) },
   ];
   const missingPublishItems = publishChecks.filter((item) => !item.ready);
@@ -2581,6 +2661,7 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onDelete, onUpd
           icon={BookOpen}
         >
           <CourseUploadBoard
+            product={draft}
             grade={draft.grade}
             annualUploadNames={{ live: uploadNames.annualLive ?? "", video: uploadNames.annualVideo ?? "" }}
             annualData={annualCourseData}
@@ -2758,7 +2839,7 @@ function CourseProductBrief({ product, uploadedSubjectCount }) {
   );
 }
 
-function CourseUploadBoard({ grade, annualUploadNames, annualData, customUploadNames, customData, selectedSubject, onSubjectChange, onUpload, coveragePhases, onPhaseToggle, livePhases, videoPhases, onLivePhaseToggle, onVideoPhaseToggle, sourceMode, onSourceModeChange }) {
+function CourseUploadBoard({ product, grade, annualUploadNames, annualData, customUploadNames, customData, selectedSubject, onSubjectChange, onUpload, coveragePhases, onPhaseToggle, livePhases, videoPhases, onLivePhaseToggle, onVideoPhaseToggle, sourceMode, onSourceModeChange }) {
   const [previewTrack, setPreviewTrack] = useState("目标班");
   const phaseOptions = getAdminCoursePhaseOptions(grade);
   const allCoursePhases = getGradeCoursePhases(grade);
@@ -2771,6 +2852,23 @@ function CourseUploadBoard({ grade, annualUploadNames, annualData, customUploadN
   const annualSubjectCount = countParsedCourseSubjects(annualData);
   const customSubjectCount = countParsedCourseSubjects(customData);
   const customReady = customSubjectCount > 0;
+  const validationData = sourceMode === "custom" ? customData : annualData;
+  const courseCountIssues = courseSubjects.flatMap((subject) => [
+    ...getCourseCountIssues({
+      product,
+      subject,
+      type: "live",
+      phases: selectedLivePhases,
+      rows: validationData.live?.[subject] ?? [],
+    }),
+    ...getCourseCountIssues({
+      product,
+      subject,
+      type: "video",
+      phases: selectedVideoPhases,
+      rows: filterVideoRowsByTrack(validationData.video?.[subject] ?? [], previewTrack),
+    }),
+  ]);
 
   return (
     <div className="course-upload-board simplified-course-board">
@@ -2790,6 +2888,23 @@ function CourseUploadBoard({ grade, annualUploadNames, annualData, customUploadN
           <UploadSlot label="学法直播全年大纲" name={annualUploadNames.live} onChange={(event) => onUpload("annual-live", event)} />
           <UploadSlot label="知识视频全年大纲" name={annualUploadNames.video} onChange={(event) => onUpload("annual-video", event)} />
         </div>
+
+        {courseCountIssues.length ? (
+          <div className="course-stage-warning course-count-error" role="alert">
+            <strong>课程数量校验失败：共 {courseCountIssues.length} 项不符合标准</strong>
+            <span>系统只展示底表实际读取到的课程，不会自动补足。请修正源表后重新上传。</span>
+            <ul>
+              {courseCountIssues.slice(0, 18).map((issue) => (
+                <li key={`${issue.subject}-${issue.type}-${issue.phase}`}>
+                  {issue.subject} · {issue.type === "live" ? "学法直播" : "知识视频"} · {issue.phase}：应有 {issue.expected} 节，实际 {issue.actual} 节
+                </li>
+              ))}
+            </ul>
+            {courseCountIssues.length > 18 ? <em>另有 {courseCountIssues.length - 18} 项，请切换科目和阶段继续核对。</em> : null}
+          </div>
+        ) : (
+          <div className="course-stage-result course-count-pass">课程数量校验通过，所选阶段与标准一致。</div>
+        )}
 
         {phaseOptions.split ? <div className="split-course-phase-config">
           <CoursePhaseFilter

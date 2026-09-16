@@ -44,7 +44,18 @@ export function applyLivePhaseLimits(product, rows, entitlement) {
     const miniCount = Number(product.liveCourseSegments?.mini ?? 12);
     const secondRoundCount = Number(product.liveCourseSegments?.secondRound ?? 18);
     const total = miniCount + secondRoundCount;
-    return renumberLiveRows(rows.slice(-total)).map((row, index) => ({
+    const phaseLimits = product.livePhaseLimits ?? {};
+    const used = {};
+    const phaseSelected = rows.filter((row) => {
+      const limit = Number(phaseLimits[row.quarter]);
+      if (!Number.isFinite(limit)) return false;
+      used[row.quarter] = used[row.quarter] ?? 0;
+      if (used[row.quarter] >= limit) return false;
+      used[row.quarter] += 1;
+      return true;
+    });
+    const selected = phaseSelected.length === total ? phaseSelected : rows.slice(-total);
+    return renumberLiveRows(selected).map((row, index) => ({
       ...row,
       courseSegment: index < miniCount ? "一轮 mini" : "二轮",
     }));

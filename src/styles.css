@@ -7388,6 +7388,14 @@ html.share-fixed-canvas .share-result .benefit-sheet.poster {
 }
 
 .course-stage-warning span { color: #835d46; }
+.course-count-error { align-items: flex-start; }
+.course-count-error ul { margin: 8px 0 0; padding-left: 20px; color: #8a3d21; columns: 2; column-gap: 28px; }
+.course-count-error li { margin: 3px 0; break-inside: avoid; }
+.course-count-error em { color: #8a3d21; font-style: normal; font-weight: 700; }
+.course-count-pass { border-color: #9fd9bc; background: #f2fbf6; color: #18794e; }
+@media (max-width: 760px) {
+  .course-count-error ul { columns: 1; }
+}
 .course-stage-result {
   color: #315376;
   background: #f2f8ff;
