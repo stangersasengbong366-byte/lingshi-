@@ -34,6 +34,18 @@ test("学法直播按产品各阶段课时上限映射", () => {
   assert.equal(selected.filter((row) => row.quarter === "寒假").length, 10);
 });
 
+test("高三直播按暑期12、寒假10、春季8取课，不按总数截断春季内容", () => {
+  const liveRows = [
+    ...Array.from({ length: 12 }, (_, index) => ({ title: `暑${index + 1}`, quarter: "暑期" })),
+    ...Array.from({ length: 13 }, (_, index) => ({ title: `寒${index + 1}`, quarter: "寒假" })),
+    ...Array.from({ length: 8 }, (_, index) => ({ title: `春${index + 1}`, quarter: "春季" })),
+  ];
+  const selected = applyLivePhaseLimits({ livePhaseLimits: { 暑期: 12, 寒假: 10, 春季: 8 } }, liveRows, 30);
+  assert.equal(selected.length, 30);
+  assert.equal(selected.filter((row) => row.quarter === "寒假").length, 10);
+  assert.equal(selected.filter((row) => row.quarter === "春季").length, 8);
+});
+
 test("高三后台分别按季节筛选直播、按轮次筛选知识视频", () => {
   assert.deepEqual(getAdminCoursePhaseOptions("高三"), {
     split: true,

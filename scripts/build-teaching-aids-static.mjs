@@ -26,6 +26,10 @@ function images(sheet) {
   } catch { return new Map(); }
 }
 const wb = XLSX.readFile(workbookPath); const items = [];
+function normalizeTeachingAidType(type, name) {
+  if (/学业规划|方法指导/.test(name)) return "学法课讲义";
+  return type;
+}
 for (const [index, subjectSheet] of wb.SheetNames.entries()) {
   if (!/^高中(语文|数学|英语|物理|化学|生物|历史|地理|政治)$/.test(subjectSheet)) continue;
   const rows = XLSX.utils.sheet_to_json(wb.Sheets[subjectSheet], { header: 1, defval: "" });
@@ -35,12 +39,23 @@ for (const [index, subjectSheet] of wb.SheetNames.entries()) {
     const limit = end < 0 ? headers.length : end;
     const find = (label) => headers.findIndex((value, i) => i >= start && i < limit && value === label);
     const typeCol = find("类型"), nameCol = find("名称"), imageCol = find("封面图");
+    let previousType = "";
     for (let row = 3; row < rows.length; row += 1) {
-      const type = String(rows[row]?.[typeCol] ?? "").trim(), name = String(rows[row]?.[nameCol] ?? "").trim();
+      const rawType = String(rows[row]?.[typeCol] ?? "").trim();
+      const name = String(rows[row]?.[nameCol] ?? "").trim();
+      if (rawType) previousType = rawType;
+      const type = rawType || previousType;
       if (!grade || !type || !name) continue;
       const imagePath = pictureMap.get(`${row}:${imageCol}`); let image = "";
       if (imagePath) { const file = `${grade}-${subjectSheet.slice(2)}-${row + 1}${extname(imagePath).toLowerCase()}`; copyFileSync(imagePath, join(outDir, file)); image = `/assets/teaching-aids/26h2/${file}`; }
-      items.push({ grade, period: "26H2", subject: subjectSheet.slice(2), type, name, image, source: `${subjectSheet}!${XLSX.utils.encode_cell({ r: row, c: typeCol })}:${XLSX.utils.encode_cell({ r: row, c: imageCol })}` });
+      const typeParts = type.split(/\n+/).map((value) => value.trim()).filter(Boolean);
+      const nameParts = name.split(/\n+/).map((value) => value.trim()).filter(Boolean);
+      const pairCount = typeParts.length === nameParts.length ? nameParts.length : 1;
+      for (let part = 0; part < pairCount; part += 1) {
+        const itemName = pairCount > 1 ? nameParts[part] : name;
+        const itemType = normalizeTeachingAidType(pairCount > 1 ? typeParts[part] : type, itemName);
+        items.push({ grade, period: "26H2", subject: subjectSheet.slice(2), type: itemType, name: itemName, image, source: `${subjectSheet}!${XLSX.utils.encode_cell({ r: row, c: typeCol })}:${XLSX.utils.encode_cell({ r: row, c: imageCol })}` });
+      }
     }
   }
 }

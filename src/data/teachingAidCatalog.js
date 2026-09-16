@@ -490,8 +490,8 @@ export const teachingAids = [
     "grade": "高一",
     "period": "26H2",
     "subject": "生物",
-    "type": "视频讲义\n配套习题",
-    "name": "高一生物精讲精练（下）\n高一生物精讲精练（下）·配套习题",
+    "type": "视频讲义",
+    "name": "高一生物精讲精练（下）",
     "image": "",
     "source": "高中生物!A4:C4"
   },
@@ -500,9 +500,27 @@ export const teachingAids = [
     "period": "26H2",
     "subject": "生物",
     "type": "配套习题",
+    "name": "高一生物精讲精练（下）·配套习题",
+    "image": "",
+    "source": "高中生物!A4:C4"
+  },
+  {
+    "grade": "高一",
+    "period": "26H2",
+    "subject": "生物",
+    "type": "学法课讲义",
     "name": "高一生物学业规划与方法指导·暑期（上）",
     "image": "/assets/teaching-aids/26h2/高一-生物-5.png",
     "source": "高中生物!A5:C5"
+  },
+  {
+    "grade": "高一",
+    "period": "26H2",
+    "subject": "生物",
+    "type": "学法课讲义",
+    "name": "高一生物学业规划与方法指导·秋季（上）",
+    "image": "/assets/teaching-aids/26h2/高一-生物-6.png",
+    "source": "高中生物!A6:C6"
   },
   {
     "grade": "高二",

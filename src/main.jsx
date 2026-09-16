@@ -1229,10 +1229,10 @@ function createNewProduct(template) {
   const grade = template?.grade ?? "高一";
   const stage = grade === "高三" ? "一轮卡" : "秋实卡";
   const coveragePhases = grade === "高三" ? ["一轮"] : ["秋季"];
+  const livePhases = grade === "高三" ? ["暑期", "秋季"] : coveragePhases;
   const annualData = annualCourseLibrary[grade] ?? { live: {}, video: {} };
-  const stageCounts = getCourseStageCounts(annualData, coveragePhases);
+  const stageCounts = getCourseStageCounts(annualData, livePhases, coveragePhases);
   return {
-    ...(template ?? initialProducts[0]),
     id: `product-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
     name: `${grade}新产品`,
     grade,
@@ -1241,13 +1241,15 @@ function createNewProduct(template) {
     term: "",
     status: "待上线",
     coveragePhases,
+    livePhases,
     videoPhases: coveragePhases,
     subtitle: "",
     salesNote: "",
     core: {
-      ...(template?.core ?? {}),
       liveLessons: stageCounts.live,
+      liveDuration: template?.core?.liveDuration ?? "2h",
       knowledgeVideos: stageCounts.video,
+      videoDuration: template?.core?.videoDuration ?? "30min",
       servicePeriod: "",
     },
     pricing: {
@@ -1255,6 +1257,18 @@ function createNewProduct(template) {
       singlePerSubject: 0,
       twoPerSubject: 0,
       threePlusPerSubject: 0,
+    },
+    humanitiesPricing: {
+      originalPerSubject: 0,
+      fixedPerSubject: 0,
+    },
+    humanitiesSubjects: [],
+    subjectProfiles: {
+      default: {
+        liveLessons: stageCounts.live,
+        knowledgeVideos: stageCounts.video,
+        summary: [`学法直播${stageCounts.live}节`, stageCounts.video ? `知识视频${stageCounts.video}节` : "无知识视频"],
+      },
     },
     courseSourceMode: "grade",
     annualCourseData: annualData,
@@ -1267,6 +1281,7 @@ function createNewProduct(template) {
     physicalGiftSelections: [],
     customGiftItems: [],
     customPhysicalGiftItems: [],
+    deletedGiftKeys: [],
     giftOverrides: {},
   };
 }
@@ -1948,7 +1963,8 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onDelete, onUpd
     const nextStage = grade === "高三" ? "一轮卡" : draft.grade === "高三" ? "秋实卡" : draft.stage;
     const nextGradeProduct = { ...draft, grade, stage: nextStage, courseKey: nextStage };
     const coveragePhases = getDefaultCoveragePhases(nextGradeProduct);
-    const stageCounts = getCourseStageCounts(nextAnnualData, coveragePhases);
+    const livePhases = grade === "高三" ? ["暑期", "秋季"] : coveragePhases;
+    const stageCounts = getCourseStageCounts(nextAnnualData, livePhases, coveragePhases);
     if (courseSourceMode === "grade") setAnnualCourseData(nextAnnualData);
     setParsedSubject("语文");
     setDraft({
@@ -1957,7 +1973,26 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onDelete, onUpd
       stage: nextStage,
       courseKey: nextStage,
       coveragePhases,
+      livePhases,
       videoPhases: coveragePhases,
+      videoPhaseLimits: undefined,
+      livePhaseLimits: undefined,
+      subjectVideoPhases: undefined,
+      subjectVideoPhaseLimits: undefined,
+      availableSubjects: undefined,
+      videoSubjects: undefined,
+      unlayeredVideoSubjects: undefined,
+      layeredVideoSubjects: undefined,
+      humanitiesSubjects: [],
+      pricingMode: undefined,
+      manualQuoteSubjects: undefined,
+      giftSelections: [],
+      physicalGiftSelections: [],
+      customGiftItems: [],
+      customPhysicalItems: [],
+      customPhysicalGiftItems: [],
+      deletedGiftKeys: [],
+      giftOverrides: {},
       ...(courseSourceMode === "grade" ? {
         annualCourseData: nextAnnualData,
         annualCourseOrigin: "bundled",
