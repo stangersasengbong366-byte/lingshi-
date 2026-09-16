@@ -65,7 +65,7 @@ import {
   CLOUD_VISIT_PREFIX,
   cloudConfigEnabled,
   cloudProductsEnabled,
-  CLOUDFLARE_CONFIG_API_URL,
+  CLOUDFLARE_CONFIG_API_URLS,
   PRODUCTS_STORAGE_KEY,
   PUBLIC_SITE_URL,
   SUPABASE_ANON_KEY,
@@ -388,18 +388,22 @@ async function loadCloudProducts(configId) {
   if (cloudProductsEnabled) {
     let response;
     let lastNetworkError;
-    for (let attempt = 0; attempt < 3; attempt += 1) {
-      try {
-        response = await fetch(`${CLOUDFLARE_CONFIG_API_URL}/configs/${encodeURIComponent(configId)}?t=${Date.now()}`, {
-          cache: "no-store",
-        });
-        if (response.ok || response.status < 500) break;
-      } catch (error) {
-        lastNetworkError = error;
+    for (const endpoint of CLOUDFLARE_CONFIG_API_URLS) {
+      for (let attempt = 0; attempt < 2; attempt += 1) {
+        try {
+          response = await fetch(`${endpoint}/configs/${encodeURIComponent(configId)}?t=${Date.now()}`, {
+            cache: "no-store",
+          });
+          if (response.ok || response.status < 500) break;
+        } catch (error) {
+          lastNetworkError = error;
+          response = undefined;
+        }
+        if (attempt < 1) await new Promise((resolve) => window.setTimeout(resolve, 400));
       }
-      if (attempt < 2) await new Promise((resolve) => window.setTimeout(resolve, 500 * (attempt + 1)));
+      if (response?.ok || (response && response.status < 500)) break;
     }
-    if (!response) throw new Error(`Cloudflare 网络连接失败，已自动重试 3 次：${lastNetworkError?.message ?? "请检查网络后重试"}`);
+    if (!response) throw new Error(`Cloudflare 主备线路均连接失败：${lastNetworkError?.message ?? "请检查网络后重试"}`);
     if (!response.ok) throw await createCloudError(response, "Cloudflare产品配置读取失败");
     const record = await response.json();
     const products = Array.isArray(record?.payload?.products) ? record.payload.products : record?.payload;
@@ -435,27 +439,29 @@ async function saveCloudProducts(products, configId = CLOUD_PRODUCTS_DRAFT_ID) {
     }
     if (!password) throw new Error("请刷新后重新输入后台密码，再保存配置");
     const compactProducts = products.map(compactProductCourseData);
-    const requestUrl = `${CLOUDFLARE_CONFIG_API_URL}/configs/${encodeURIComponent(configId)}`;
     let response;
     let lastNetworkError;
-    // Cloudflare 跨境网络偶有瞬时连接中断。PUT 为覆盖式幂等写入，
-    // 对同一份配置重试不会造成重复产品或覆盖其他产品。
-    for (let attempt = 0; attempt < 3; attempt += 1) {
-      try {
-        response = await fetch(requestUrl, {
-          method: "POST",
-          // 使用简单请求，避免部分电脑/企业网络拦截 OPTIONS 预检。
-          headers: { "Content-Type": "text/plain;charset=UTF-8" },
-          body: JSON.stringify({ products: compactProducts, version: Date.now(), adminPassword: password }),
-        });
-        if (response.ok || response.status < 500) break;
-      } catch (error) {
-        lastNetworkError = error;
+    // 主线路不可达时自动切到备用 Worker；两个入口共用同一 KV 数据库。
+    for (const endpoint of CLOUDFLARE_CONFIG_API_URLS) {
+      for (let attempt = 0; attempt < 2; attempt += 1) {
+        try {
+          response = await fetch(`${endpoint}/configs/${encodeURIComponent(configId)}`, {
+            method: "POST",
+            // 使用简单请求，避免部分电脑/企业网络拦截 OPTIONS 预检。
+            headers: { "Content-Type": "text/plain;charset=UTF-8" },
+            body: JSON.stringify({ products: compactProducts, version: Date.now(), adminPassword: password }),
+          });
+          if (response.ok || response.status < 500) break;
+        } catch (error) {
+          lastNetworkError = error;
+          response = undefined;
+        }
+        if (attempt < 1) await new Promise((resolve) => window.setTimeout(resolve, 400));
       }
-      if (attempt < 2) await new Promise((resolve) => window.setTimeout(resolve, 500 * (attempt + 1)));
+      if (response?.ok || (response && response.status < 500)) break;
     }
     if (!response) {
-      throw new Error(`Cloudflare 网络连接失败，已自动重试 3 次：${lastNetworkError?.message ?? "请检查网络后重试"}`);
+      throw new Error(`Cloudflare 主备线路均连接失败：${lastNetworkError?.message ?? "请检查网络后重试"}`);
     }
     if (!response.ok) throw await createCloudError(response, "Cloudflare产品配置保存失败");
     return;

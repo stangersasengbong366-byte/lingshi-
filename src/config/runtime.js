@@ -3,6 +3,12 @@ export const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
 export const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
 export const CLOUDFLARE_CONFIG_API_URL = import.meta.env.VITE_CLOUDFLARE_CONFIG_API_URL
   || "https://lingshi-benefits-api.stangersasengbong366.workers.dev";
+export const CLOUDFLARE_CONFIG_API_BACKUP_URL = import.meta.env.VITE_CLOUDFLARE_CONFIG_API_BACKUP_URL
+  || "https://lingshi-benefits-api-pages.stangersasengbong366.workers.dev";
+export const CLOUDFLARE_CONFIG_API_URLS = [...new Set([
+  CLOUDFLARE_CONFIG_API_URL,
+  CLOUDFLARE_CONFIG_API_BACKUP_URL,
+].filter(Boolean))];
 export const PUBLIC_SITE_URL = import.meta.env.VITE_PUBLIC_SITE_URL || "https://stangersasengbong366-byte.github.io/lingshi-/";
 export const CLOUD_CONFIG_TABLE = "benefit_configs";
 export const CLOUD_PRODUCTS_LEGACY_ID = "products";
@@ -14,7 +20,7 @@ export const CLOUD_TEACHING_AID_PREFIX = "teaching_aid_";
 export const CLOUD_FEEDBACK_PREFIX = "feedback_";
 export const CLOUD_VISIT_PREFIX = "visit_";
 export const cloudConfigEnabled = Boolean(SUPABASE_URL && SUPABASE_ANON_KEY);
-export const cloudProductsEnabled = Boolean(CLOUDFLARE_CONFIG_API_URL);
+export const cloudProductsEnabled = CLOUDFLARE_CONFIG_API_URLS.length > 0;
 
 export function assetUrl(path) {
   if (!path) return "";

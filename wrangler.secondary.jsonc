@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "lingshi-benefits-api-pages",
+  "main": "cloudflare/worker.js",
+  "compatibility_date": "2026-09-16",
+  "kv_namespaces": [
+    {
+      "binding": "BENEFIT_CONFIGS",
+      "id": "d80b3b3575d244f78b34d3164713ad51"
+    }
+  ]
+}
