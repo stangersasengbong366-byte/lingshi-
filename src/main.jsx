@@ -1895,11 +1895,12 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onDelete, onUpd
   const [salesLinkCopied, setSalesLinkCopied] = useState(false);
   const [schemaCopied, setSchemaCopied] = useState(false);
   const deletedGiftKeys = new Set(draft.deletedGiftKeys ?? []);
-  const courseGiftItems = getGradeGiftCandidates(products, draft)
+  const productsWithDraft = products.map((product) => product.id === draft.id ? draft : product);
+  const courseGiftItems = getGradeGiftCandidates(productsWithDraft, draft)
     .filter((item) => item.type === "赠课" && !deletedGiftKeys.has(getGiftItemKey(item)));
   const defaultSelectedGiftKeys = getAdminGiftCandidates(draft).filter((item) => item.type === "赠课").map(getGiftItemKey);
   const selectedGiftKeys = normalizeSelectedGiftKeys(draft.giftSelections ?? defaultSelectedGiftKeys, courseGiftItems);
-  const physicalGiftItems = getGradePhysicalGiftCandidates(products, draft);
+  const physicalGiftItems = getGradePhysicalGiftCandidates(productsWithDraft, draft);
   const defaultPhysicalGiftKeys = physicalGiftItems.map(getGiftItemKey);
   const selectedPhysicalGiftKeys = normalizeSelectedGiftKeys(draft.physicalGiftSelections ?? defaultPhysicalGiftKeys, physicalGiftItems);
   const parsedCourseData = courseSourceMode === "custom" ? customCourseData : annualCourseData;
@@ -2274,12 +2275,12 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onDelete, onUpd
     setNewPhysicalGift({ name: "", detail: "", value: "", rule: "买满1科赠", image: "" });
   };
 
-  const deletePhysicalGift = (key) => {
+  const deletePhysicalGift = async (key) => {
     const item = physicalGiftItems.find((gift) => getGiftItemKey(gift) === key);
-    if (!item || !window.confirm(`确认从实物赠礼池删除“${item.name}”吗？保存配置后将同步到云端。`)) return;
+    if (!item || !window.confirm(`确认彻底删除“${item.name}”吗？删除后会立即清理数据，并同步到销售端。`)) return;
     const nextOverrides = { ...(draft.giftOverrides ?? {}) };
     delete nextOverrides[key];
-    setDraft({
+    const nextDraft = {
       ...draft,
       customPhysicalItems: (draft.customPhysicalItems ?? []).filter((gift) => getGiftItemKey(gift) !== key),
       physicalGiftSelections: selectedPhysicalGiftKeys.filter((itemKey) => itemKey !== key),
@@ -2288,25 +2289,30 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onDelete, onUpd
         ...(draft.physicalGiftPoolDeletedItems ?? []).filter((deleted) => !(deleted.grade === draft.grade && deleted.key === key)),
         { grade: draft.grade, key },
       ],
-    });
+    };
+    setDraft(nextDraft);
+    setSaveState("saving");
+    const result = await onUpdate(buildDraftProduct(nextDraft));
+    setSaveState(result?.cloudSaved ? "saved" : "local-only");
+    window.setTimeout(() => setSaveState("idle"), 1600);
   };
 
-  const buildDraftProduct = () => {
+  const buildDraftProduct = (sourceDraft = draft) => {
     const annualCourseUploadNames = { live: uploadNames.annualLive ?? "", video: uploadNames.annualVideo ?? "" };
     const customCourseUploadNames = { live: uploadNames.customLive ?? "", video: uploadNames.customVideo ?? "" };
     const resolvedCourseData = courseSourceMode === "custom" ? customCourseData : annualCourseData;
     const resolvedUploadNames = courseSourceMode === "custom" ? customCourseUploadNames : annualCourseUploadNames;
     return {
-      ...draft,
+      ...sourceDraft,
       subjectProfiles: {
-        ...(draft.subjectProfiles ?? {}),
+        ...(sourceDraft.subjectProfiles ?? {}),
         default: {
-          ...(draft.subjectProfiles?.default ?? {}),
-          liveLessons: draft.core.liveLessons,
-          knowledgeVideos: draft.core.knowledgeVideos,
+          ...(sourceDraft.subjectProfiles?.default ?? {}),
+          liveLessons: sourceDraft.core.liveLessons,
+          knowledgeVideos: sourceDraft.core.knowledgeVideos,
           summary: [
-            `学法直播${draft.core.liveLessons}节`,
-            draft.core.knowledgeVideos ? `知识视频${draft.core.knowledgeVideos}节` : "无知识视频",
+            `学法直播${sourceDraft.core.liveLessons}节`,
+            sourceDraft.core.knowledgeVideos ? `知识视频${sourceDraft.core.knowledgeVideos}节` : "无知识视频",
           ],
         },
       },
