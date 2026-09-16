@@ -205,6 +205,8 @@ function normalizeProductShape(product) {
     customPhysicalItems: Array.isArray(product?.customPhysicalItems) ? product.customPhysicalItems : [],
     giftPoolItems: Array.isArray(product?.giftPoolItems) ? product.giftPoolItems : [],
     giftPoolDeletedItems: Array.isArray(product?.giftPoolDeletedItems) ? product.giftPoolDeletedItems : [],
+    physicalGiftPoolItems: Array.isArray(product?.physicalGiftPoolItems) ? product.physicalGiftPoolItems : [],
+    physicalGiftPoolDeletedItems: Array.isArray(product?.physicalGiftPoolDeletedItems) ? product.physicalGiftPoolDeletedItems : [],
   };
 }
 
@@ -1050,7 +1052,8 @@ function App() {
     }
     if (!window.confirm(`确认删除“${target.name}”吗？删除后无法恢复。`)) return;
     const preservedGiftItems = getAdminGiftCandidates(target).filter((item) => item.type === "赠课");
-    const preserved = preserveGiftPoolOnProductDelete(products, productId, preservedGiftItems);
+    const preservedPhysicalItems = getGradePhysicalGiftCandidates(products, target);
+    const preserved = preserveGiftPoolOnProductDelete(products, productId, preservedGiftItems, preservedPhysicalItems);
     const nextProducts = preserved.products;
     setProducts(nextProducts);
     saveStoredProducts(nextProducts);
@@ -2265,8 +2268,27 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onDelete, onUpd
       ...draft,
       customPhysicalItems: [...(draft.customPhysicalItems ?? []), item],
       physicalGiftSelections: [...selectedPhysicalGiftKeys, getGiftItemKey(item)],
+      physicalGiftPoolDeletedItems: (draft.physicalGiftPoolDeletedItems ?? [])
+        .filter((deleted) => !(deleted.grade === draft.grade && deleted.key === getGiftItemKey(item))),
     });
     setNewPhysicalGift({ name: "", detail: "", value: "", rule: "买满1科赠", image: "" });
+  };
+
+  const deletePhysicalGift = (key) => {
+    const item = physicalGiftItems.find((gift) => getGiftItemKey(gift) === key);
+    if (!item || !window.confirm(`确认从实物赠礼池删除“${item.name}”吗？保存配置后将同步到云端。`)) return;
+    const nextOverrides = { ...(draft.giftOverrides ?? {}) };
+    delete nextOverrides[key];
+    setDraft({
+      ...draft,
+      customPhysicalItems: (draft.customPhysicalItems ?? []).filter((gift) => getGiftItemKey(gift) !== key),
+      physicalGiftSelections: selectedPhysicalGiftKeys.filter((itemKey) => itemKey !== key),
+      giftOverrides: nextOverrides,
+      physicalGiftPoolDeletedItems: [
+        ...(draft.physicalGiftPoolDeletedItems ?? []).filter((deleted) => !(deleted.grade === draft.grade && deleted.key === key)),
+        { grade: draft.grade, key },
+      ],
+    });
   };
 
   const buildDraftProduct = () => {
@@ -2619,6 +2641,7 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onDelete, onUpd
             onToggle={togglePhysicalGiftSelection}
             onItemChange={updateGiftOverride}
             onImageChange={updatePhysicalGiftImage}
+            onDelete={deletePhysicalGift}
           />
           <GiftTriggerGuide physical />
           <div className="gift-import-box physical-create-box">
@@ -3364,13 +3387,13 @@ function PhysicalGiftAdmin({ items, selectedKeys, onToggle, grade, stage, teachi
   );
 }
 
-function PhysicalGiftRuleTable({ items, selectedKeys, onToggle, onItemChange, onImageChange }) {
+function PhysicalGiftRuleTable({ items, selectedKeys, onToggle, onItemChange, onImageChange, onDelete }) {
   if (!items.length) {
     return <div className="admin-empty"><PackageCheck size={20} /><strong>实物赠礼待配置</strong><span>在下方新增实物并设置触发规则。</span></div>;
   }
   return (
     <div className="physical-rule-table">
-      <div className="physical-rule-head"><span /><strong>配图</strong><strong>实物名称</strong><strong>价值</strong><strong>赠礼明细</strong><strong>触发规则</strong></div>
+      <div className="physical-rule-head"><span /><strong>配图</strong><strong>实物名称</strong><strong>价值</strong><strong>赠礼明细</strong><strong>触发规则</strong><strong>操作</strong></div>
       {items.map((item) => {
         const key = getGiftItemKey(item);
         const selected = selectedKeys.includes(key);
@@ -3387,6 +3410,7 @@ function PhysicalGiftRuleTable({ items, selectedKeys, onToggle, onItemChange, on
             <select aria-label="触发规则" value={normalizePhysicalRule(item.rule)} onChange={(event) => onItemChange(key, "rule", event.target.value)}>
               {physicalGiftRuleOptions.map((rule) => <option key={rule}>{rule}</option>)}
             </select>
+            <button type="button" className="outline-delete-button" aria-label={`删除${item.name}`} onClick={() => onDelete(key)}><Trash2 size={14} />删除</button>
           </div>
         );
       })}
@@ -5315,11 +5339,23 @@ function getAdminPhysicalGiftCandidates(product) {
 }
 
 function getGradePhysicalGiftCandidates(products, product) {
+  const gradePrefix = { 高一: "g1-", 高二: "g2-", 高三: "g3-" }[product.grade];
+  const catalogItems = Object.entries(giftCatalog)
+    .filter(([id]) => gradePrefix && id.startsWith(gradePrefix))
+    .flatMap(([, plan]) => plan?.items ?? [])
+    .filter((item) => item.type !== "赠课");
+  const globallyDeleted = new Set(products.flatMap((item) => (
+    item.physicalGiftPoolDeletedItems ?? []
+  )).filter((item) => item.grade === product.grade).map((item) => item.key));
   return uniqueGiftItems(applyGiftOverrides(product, [
+    ...catalogItems,
     ...products
+      .filter((item) => item.grade === product.grade)
       .flatMap((item) => getAdminPhysicalGiftCandidates(item)),
+    ...products.flatMap((item) => (item.physicalGiftPoolItems ?? []).filter((gift) => gift.poolGrade === product.grade)),
     ...(product.customPhysicalItems ?? []),
-  ])).map((item) => decorateGiftItem(item, { category: "实物赠送" }));
+  ])).filter((item) => !globallyDeleted.has(getGiftItemKey(item)))
+    .map((item) => decorateGiftItem(item, { category: "实物赠送" }));
 }
 
 function getGiftLibraryMatch(item) {
@@ -6105,6 +6141,11 @@ function buildShareSnapshotProducts(products, selectedProduct) {
     .filter((item) => item.poolGrade === selectedProduct.grade)
     .filter((item) => !Array.isArray(selectedGiftKeys) || isGiftItemSelected(selectedGiftKeys, item))
     .map(compactItem);
+  const sharedPhysicalGiftPoolItems = products
+    .flatMap((product) => product.physicalGiftPoolItems ?? [])
+    .filter((item) => item.poolGrade === selectedProduct.grade)
+    .filter((item) => !Array.isArray(selectedPhysicalKeys) || isGiftItemSelected(selectedPhysicalKeys, item))
+    .map(compactItem);
   const selectedSnapshot = {
     ...selectedProduct,
     giftOverrides: selectedOverrides,
@@ -6112,6 +6153,7 @@ function buildShareSnapshotProducts(products, selectedProduct) {
       .filter((item) => !Array.isArray(selectedGiftKeys) || isGiftItemSelected(selectedGiftKeys, item))
       .map(compactItem),
     giftPoolItems: sharedGiftPoolItems,
+    physicalGiftPoolItems: sharedPhysicalGiftPoolItems,
     customPhysicalItems: (selectedProduct.customPhysicalItems ?? [])
       .filter((item) => !Array.isArray(selectedPhysicalKeys) || isGiftItemSelected(selectedPhysicalKeys, item))
       .map(compactItem),

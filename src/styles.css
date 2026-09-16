@@ -8259,7 +8259,7 @@ html.share-fixed-canvas .share-result .benefit-sheet.poster {
 .physical-rule-head,
 .physical-rule-row {
   display: grid;
-  grid-template-columns: 42px 74px minmax(130px, 0.8fr) minmax(90px, 0.45fr) minmax(180px, 1.2fr) minmax(180px, 0.9fr);
+  grid-template-columns: 42px 74px minmax(130px, 0.8fr) minmax(90px, 0.45fr) minmax(180px, 1.2fr) minmax(180px, 0.9fr) 76px;
   align-items: center;
   gap: 10px;
   padding: 10px 12px;
