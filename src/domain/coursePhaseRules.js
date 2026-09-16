@@ -32,6 +32,17 @@ export function applyVideoPhaseLimits(product, subject, rows, entitlement) {
 }
 
 export function applyLivePhaseLimits(product, rows, entitlement) {
+  if (product.liveCourseMode === "g3-mini-plus-second-round") {
+    const miniCount = Number(product.liveCourseSegments?.mini ?? 12);
+    const secondRoundCount = Number(product.liveCourseSegments?.secondRound ?? 18);
+    const total = miniCount + secondRoundCount;
+    return rows.slice(-total).map((row, index) => ({
+      ...row,
+      sourceNo: row.sourceNo ?? row.no,
+      no: index + 1,
+      courseSegment: index < miniCount ? "一轮 mini" : "二轮",
+    }));
+  }
   const limits = product.livePhaseLimits;
   if (!limits || !Object.keys(limits).length) return rows.slice(0, entitlement || undefined);
   const used = {};

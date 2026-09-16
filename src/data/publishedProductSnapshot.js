@@ -334,11 +334,11 @@ export const publishedProductSnapshot = [
       "秋季",
       "寒假"
     ],
+    "annualCourseVersion": "2026-2027-v7",
     "livePhaseLimits": {
       "秋季": 16,
       "寒假": 10
-    },
-    "annualCourseVersion": "2026-2027-v7"
+    }
   },
   {
     "id": "g2-autumn-winter-bridge-card",
@@ -618,11 +618,11 @@ export const publishedProductSnapshot = [
       "秋季",
       "寒假"
     ],
+    "annualCourseVersion": "2026-2027-v7",
     "livePhaseLimits": {
       "秋季": 16,
       "寒假": 10
-    },
-    "annualCourseVersion": "2026-2027-v7"
+    }
   },
   {
     "id": "product-1788253630604-xtzpc",
@@ -741,7 +741,7 @@ export const publishedProductSnapshot = [
         "liveLessons": 30,
         "knowledgeVideos": 120,
         "summary": [
-          "学法直播30节（一轮mini+二轮）",
+          "学法直播30节（一轮 mini 12节+二轮18节）",
           "知识视频120节（一轮60+二轮60）"
         ]
       }
@@ -1203,6 +1203,7 @@ export const publishedProductSnapshot = [
     "customPhysicalGiftItems": [],
     "livePhases": [
       "暑期",
+      "秋季",
       "寒假",
       "春季"
     ],
@@ -1210,10 +1211,10 @@ export const publishedProductSnapshot = [
       "一轮": 60,
       "二轮": 60
     },
-    "livePhaseLimits": {
-      "暑期": 12,
-      "寒假": 10,
-      "春季": 8
+    "liveCourseMode": "g3-mini-plus-second-round",
+    "liveCourseSegments": {
+      "mini": 12,
+      "secondRound": 18
     }
   },
   {

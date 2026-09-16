@@ -46,6 +46,25 @@ test("高三直播按暑期12、寒假10、春季8取课，不按总数截断春
   assert.equal(selected.filter((row) => row.quarter === "春季").length, 8);
 });
 
+test("高三名校直通卡取一轮 mini 12节加完整二轮18节并重新编号", () => {
+  const liveRows = Array.from({ length: 49 }, (_, index) => ({
+    no: index + 1,
+    title: `原始第${index + 1}节`,
+  }));
+  const selected = applyLivePhaseLimits({
+    liveCourseMode: "g3-mini-plus-second-round",
+    liveCourseSegments: { mini: 12, secondRound: 18 },
+  }, liveRows, 30);
+  assert.equal(selected.length, 30);
+  assert.equal(selected[0].title, "原始第20节");
+  assert.equal(selected[0].no, 1);
+  assert.equal(selected[0].sourceNo, 20);
+  assert.equal(selected[11].courseSegment, "一轮 mini");
+  assert.equal(selected[12].courseSegment, "二轮");
+  assert.equal(selected[29].no, 30);
+  assert.equal(selected[29].title, "原始第49节");
+});
+
 test("高三后台分别按季节筛选直播、按轮次筛选知识视频", () => {
   assert.deepEqual(getAdminCoursePhaseOptions("高三"), {
     split: true,
