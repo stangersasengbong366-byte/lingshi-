@@ -73,6 +73,7 @@ import {
 } from "./config/runtime";
 import { formatPrice, getProductPricing } from "./domain/pricing";
 import { mergeCloudProductChanges } from "./domain/productMerge";
+import { preserveGiftPoolOnProductDelete } from "./domain/giftPool";
 import { isPublicEntrySearch } from "./domain/accessRules";
 import { resolveProductCourseLibrary } from "./domain/courseLibraryRules";
 import { applyLivePhaseLimits, applyVideoPhaseLimits, getAdminCoursePhaseOptions } from "./domain/coursePhaseRules";
@@ -202,6 +203,8 @@ function normalizeProductShape(product) {
     },
     customGiftItems: Array.isArray(product?.customGiftItems) ? product.customGiftItems : [],
     customPhysicalItems: Array.isArray(product?.customPhysicalItems) ? product.customPhysicalItems : [],
+    giftPoolItems: Array.isArray(product?.giftPoolItems) ? product.giftPoolItems : [],
+    giftPoolDeletedItems: Array.isArray(product?.giftPoolDeletedItems) ? product.giftPoolDeletedItems : [],
   };
 }
 
@@ -1046,13 +1049,16 @@ function App() {
       return;
     }
     if (!window.confirm(`确认删除“${target.name}”吗？删除后无法恢复。`)) return;
-    const nextProducts = products.filter((product) => product.id !== productId);
+    const preservedGiftItems = getAdminGiftCandidates(target).filter((item) => item.type === "赠课");
+    const preserved = preserveGiftPoolOnProductDelete(products, productId, preservedGiftItems);
+    const nextProducts = preserved.products;
     setProducts(nextProducts);
     saveStoredProducts(nextProducts);
     setSelectedProductId((current) => current === productId ? nextProducts[0]?.id : current);
     setSyncStatus("正在删除并同步云端");
     try {
       const mergedProducts = await saveCloudProductChanges(nextProducts, {
+        upsertIds: preserved.carrierId ? [preserved.carrierId] : [],
         deleteIds: [productId],
         configIds: [CLOUD_PRODUCTS_DRAFT_ID, CLOUD_PRODUCTS_PUBLISHED_ID],
       });
@@ -2208,6 +2214,10 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onDelete, onUpd
       giftSelections: selectedGiftKeys.filter((itemKey) => itemKey !== key),
       giftOverrides: nextOverrides,
       deletedGiftKeys: [...new Set([...(draft.deletedGiftKeys ?? []), key])],
+      giftPoolDeletedItems: [
+        ...(draft.giftPoolDeletedItems ?? []).filter((item) => !(item.grade === draft.grade && item.key === key)),
+        { grade: draft.grade, key },
+      ],
     });
   };
 
@@ -5280,12 +5290,21 @@ function getAdminGiftCandidates(product) {
 }
 
 function getGradeGiftCandidates(products, product) {
+  const gradePrefix = { 高一: "g1-", 高二: "g2-", 高三: "g3-" }[product.grade];
+  const catalogItems = Object.entries(giftCatalog)
+    .filter(([id]) => gradePrefix && id.startsWith(gradePrefix))
+    .flatMap(([, plan]) => plan?.items ?? []);
+  const globalDeletedKeys = new Set(products.flatMap((item) => (
+    item.giftPoolDeletedItems ?? []
+  )).filter((item) => item.grade === product.grade).map((item) => item.key));
   return uniqueGiftItems(applyGiftOverrides(product, [
+    ...catalogItems,
     ...products
       .filter((item) => item.grade === product.grade)
       .flatMap((item) => getAdminGiftCandidates(item)),
+    ...products.flatMap((item) => (item.giftPoolItems ?? []).filter((gift) => gift.poolGrade === product.grade)),
     ...(product.customGiftItems ?? []),
-  ]));
+  ])).filter((item) => !globalDeletedKeys.has(getGiftItemKey(item)));
 }
 
 function getAdminPhysicalGiftCandidates(product) {
@@ -6081,12 +6100,18 @@ function buildShareSnapshotProducts(products, selectedProduct) {
     if (overrideImage) delete nextItem.image;
     return nextItem;
   };
+  const sharedGiftPoolItems = products
+    .flatMap((product) => product.giftPoolItems ?? [])
+    .filter((item) => item.poolGrade === selectedProduct.grade)
+    .filter((item) => !Array.isArray(selectedGiftKeys) || isGiftItemSelected(selectedGiftKeys, item))
+    .map(compactItem);
   const selectedSnapshot = {
     ...selectedProduct,
     giftOverrides: selectedOverrides,
     customGiftItems: (selectedProduct.customGiftItems ?? [])
       .filter((item) => !Array.isArray(selectedGiftKeys) || isGiftItemSelected(selectedGiftKeys, item))
       .map(compactItem),
+    giftPoolItems: sharedGiftPoolItems,
     customPhysicalItems: (selectedProduct.customPhysicalItems ?? [])
       .filter((item) => !Array.isArray(selectedPhysicalKeys) || isGiftItemSelected(selectedPhysicalKeys, item))
       .map(compactItem),
