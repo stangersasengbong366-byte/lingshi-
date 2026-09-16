@@ -32,6 +32,17 @@ test("学法直播按产品各阶段课时上限映射", () => {
   const selected = applyLivePhaseLimits({ livePhaseLimits: { 秋季: 16, 寒假: 10, 春季: 16 } }, liveRows, 42);
   assert.equal(selected.length, 42);
   assert.equal(selected.filter((row) => row.quarter === "寒假").length, 10);
+  assert.deepEqual(selected.map((row) => row.no), Array.from({ length: 42 }, (_, index) => index + 1));
+});
+
+test("所有产品学法直播筛选后统一从1连续编号并保留底表原始课次", () => {
+  const selected = applyLivePhaseLimits({}, [
+    { no: 13, title: "第一节" },
+    { no: 18, title: "第二节" },
+    { no: 29, title: "第三节" },
+  ], 3);
+  assert.deepEqual(selected.map((row) => row.no), [1, 2, 3]);
+  assert.deepEqual(selected.map((row) => row.sourceNo), [13, 18, 29]);
 });
 
 test("高三直播按暑期12、寒假10、春季8取课，不按总数截断春季内容", () => {

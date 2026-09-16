@@ -1,6 +1,14 @@
 const seasonalPhases = ["暑期", "秋季", "寒假", "春季"];
 const roundPhases = ["一轮", "二轮"];
 
+function renumberLiveRows(rows) {
+  return rows.map((row, index) => ({
+    ...row,
+    sourceNo: row.sourceNo ?? row.no,
+    no: index + 1,
+  }));
+}
+
 export function getAdminCoursePhaseOptions(grade) {
   if (grade === "高三") {
     return {
@@ -36,15 +44,15 @@ export function applyLivePhaseLimits(product, rows, entitlement) {
     const miniCount = Number(product.liveCourseSegments?.mini ?? 12);
     const secondRoundCount = Number(product.liveCourseSegments?.secondRound ?? 18);
     const total = miniCount + secondRoundCount;
-    return rows.slice(-total).map((row, index) => ({
+    return renumberLiveRows(rows.slice(-total)).map((row, index) => ({
       ...row,
-      sourceNo: row.sourceNo ?? row.no,
-      no: index + 1,
       courseSegment: index < miniCount ? "一轮 mini" : "二轮",
     }));
   }
   const limits = product.livePhaseLimits;
-  if (!limits || !Object.keys(limits).length) return rows.slice(0, entitlement || undefined);
+  if (!limits || !Object.keys(limits).length) {
+    return renumberLiveRows(rows.slice(0, entitlement || undefined));
+  }
   const used = {};
   const selected = rows.filter((row) => {
     const limit = Number(limits[row.quarter]);
@@ -54,5 +62,5 @@ export function applyLivePhaseLimits(product, rows, entitlement) {
     used[row.quarter] += 1;
     return true;
   });
-  return selected.slice(0, entitlement || undefined);
+  return renumberLiveRows(selected.slice(0, entitlement || undefined));
 }
