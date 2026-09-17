@@ -786,6 +786,18 @@ function App() {
 
   React.useEffect(() => {
     if (!shortCode || directShareParams) return undefined;
+    // 新版链接会直接携带产品、科目、班型等必要参数，不再依赖已下线的
+    // Supabase 短链记录。遇到历史链接同时带有这些参数时，优先即时还原，
+    // 避免等待短链服务超时后才展示内容。
+    if (fallbackShareParams) {
+      setShareParams(fallbackShareParams);
+      setSelectedProductId(fallbackShareParams.productId);
+      setSelectedSubjects(fallbackShareParams.subjects);
+      setSelectedBonusSubjects(fallbackShareParams.bonusSubjects ?? []);
+      setSelectedVideoTracks(fallbackShareParams.videoTracks ?? {});
+      setShortLinkStatus("ready");
+      return undefined;
+    }
     let cancelled = false;
     loadShortShareState(shortCode)
       .then((state) => {
@@ -1501,12 +1513,17 @@ function SalesPage({ products, selectedProduct, selectedSubjects, selectedBonusS
       return;
     }
     try {
-      const shareState = {
-        ...buildShareState(selectedProduct, selectedSubjects, viewMode, selectedVideoTracks, selectedBonusSubjects),
-        products: buildShareSnapshotProducts(products, selectedProduct),
-      };
-      const code = await createShortShareLink(shareState);
-      await navigator.clipboard.writeText(buildShortShareUrl(code, shareState));
+      // 用户分享链接不保存产品快照。产品快照会在配置更新后变成旧内容，且旧
+      // Supabase 已不可用。链接只保存销售选择，打开时从 Cloudflare 正式版读取
+      // 同一产品 ID 的最新配置，保证跨设备展示一致。
+      const shareState = buildShareState(
+        selectedProduct,
+        selectedSubjects,
+        viewMode,
+        selectedVideoTracks,
+        selectedBonusSubjects,
+      );
+      await navigator.clipboard.writeText(buildDirectShareUrl(shareState));
       setLinkCopied(true);
       window.setTimeout(() => setLinkCopied(false), 1600);
     } catch (error) {
@@ -6332,11 +6349,10 @@ function buildShareSnapshotProducts(products, selectedProduct) {
   return [selectedSnapshot, ...poolProducts];
 }
 
-function buildShortShareUrl(code, shareState) {
+function buildDirectShareUrl(shareState) {
   const url = new URL(PUBLIC_SITE_URL);
   url.search = "";
   url.hash = "";
-  url.searchParams.set("s", code);
   if (shareState?.productId) {
     url.searchParams.set("share", "1");
     url.searchParams.set("product", shareState.productId);
