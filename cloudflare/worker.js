@@ -7,7 +7,9 @@ const ALLOWED_ORIGINS = new Set([
 const readableConfigIds = new Set(["products_published", "products_draft", "teaching_aids_26h2"]);
 
 function isReadableConfigId(configId) {
-  return readableConfigIds.has(configId) || /^course_library_g[123]$/.test(configId);
+  return readableConfigIds.has(configId)
+    || /^course_library_g[123]$/.test(configId)
+    || /^product_media_[a-z0-9_-]+$/.test(configId);
 }
 
 function corsHeaders(request) {
@@ -58,10 +60,14 @@ export default {
         const isProductConfig = configId === "products_published" || configId === "products_draft";
         const isTeachingAidConfig = configId === "teaching_aids_26h2";
         const isCourseLibraryConfig = /^course_library_g[123]$/.test(configId);
+        const isProductMediaConfig = /^product_media_[a-z0-9_-]+$/.test(configId);
         if ((isProductConfig && !Array.isArray(payload?.products)) || (isTeachingAidConfig && !Array.isArray(payload?.items))) {
           return json(request, { error: "invalid_payload" }, 400, "no-store");
         }
         if (isCourseLibraryConfig && (!payload?.grade || !payload?.data?.live || !payload?.data?.video)) {
+          return json(request, { error: "invalid_payload" }, 400, "no-store");
+        }
+        if (isProductMediaConfig && (!payload?.productId || !payload?.media || typeof payload.media !== "object")) {
           return json(request, { error: "invalid_payload" }, 400, "no-store");
         }
         const { adminPassword: _adminPassword, ...storedPayload } = payload;

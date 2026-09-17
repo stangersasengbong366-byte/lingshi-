@@ -289,6 +289,10 @@ function getCloudCourseLibraryId(grade) {
   return `${CLOUD_COURSE_LIBRARY_PREFIX}${({ 高一: "g1", 高二: "g2", 高三: "g3" })[grade] ?? grade}`;
 }
 
+function getCloudProductMediaId(productId) {
+  return `${CLOUD_PRODUCT_MEDIA_PREFIX}${productId}`;
+}
+
 function externalizeProductMedia(value, media = {}, path = "root") {
   if (typeof value === "string" && value.startsWith("data:image/")) {
     const token = `cloud-media:${path}`;
@@ -320,8 +324,29 @@ function hydrateProductMedia(value, media) {
 }
 
 async function loadCloudProductMedia(productId) {
-  if (!cloudConfigEnabled || !productId) return null;
+  if ((!cloudConfigEnabled && !cloudProductsEnabled) || !productId) return null;
   if (cloudProductMediaCache.has(productId)) return cloudProductMediaCache.get(productId);
+  if (cloudProductsEnabled) {
+    const request = (async () => {
+      for (const endpoint of CLOUDFLARE_CONFIG_API_URLS) {
+        try {
+          const response = await fetch(`${endpoint}/configs/${getCloudProductMediaId(productId)}?t=${Date.now()}`, { cache: "no-store" });
+          if (response.status === 404) continue;
+          if (!response.ok) throw await createCloudError(response, "Cloudflare产品图片读取失败");
+          const record = await response.json();
+          return record?.payload?.media ?? null;
+        } catch (error) {
+          if (endpoint === CLOUDFLARE_CONFIG_API_URLS.at(-1)) throw error;
+        }
+      }
+      return null;
+    })().catch((error) => {
+      cloudProductMediaCache.delete(productId);
+      throw error;
+    });
+    cloudProductMediaCache.set(productId, request);
+    return request;
+  }
   const request = fetch(`${SUPABASE_URL}/rest/v1/${CLOUD_CONFIG_TABLE}?id=eq.${encodeURIComponent(`${CLOUD_PRODUCT_MEDIA_PREFIX}${productId}`)}&select=id,payload,updated_at&limit=1`, {
     headers: getSupabaseHeaders(),
     cache: "force-cache",
@@ -340,6 +365,26 @@ async function loadCloudProductMedia(productId) {
 async function saveCloudProductMedia(product) {
   const { media } = externalizeProductMedia(product);
   if (!product?.id || !Object.keys(media).length) return;
+  if (cloudProductsEnabled) {
+    const password = window.sessionStorage.getItem(ADMIN_ACCESS_PASSWORD_SESSION_KEY);
+    if (!password) throw new Error("请刷新后重新输入后台密码，再保存课程卡片图片");
+    let lastError;
+    for (const endpoint of CLOUDFLARE_CONFIG_API_URLS) {
+      try {
+        const response = await fetch(`${endpoint}/configs/${getCloudProductMediaId(product.id)}`, {
+          method: "POST",
+          headers: { "Content-Type": "text/plain;charset=UTF-8" },
+          body: JSON.stringify({ productId: product.id, media, version: Date.now(), adminPassword: password }),
+        });
+        if (!response.ok) throw await createCloudError(response, "Cloudflare课程卡片图片保存失败");
+        cloudProductMediaCache.set(product.id, Promise.resolve(media));
+        return;
+      } catch (error) {
+        lastError = error;
+      }
+    }
+    throw lastError ?? new Error("Cloudflare课程卡片图片保存失败");
+  }
   const response = await fetch(`${SUPABASE_URL}/rest/v1/${CLOUD_CONFIG_TABLE}?on_conflict=id`, {
     method: "POST",
     headers: { ...getSupabaseHeaders(), "Content-Type": "application/json", Prefer: "resolution=merge-duplicates" },
@@ -542,6 +587,7 @@ async function saveCloudProductChanges(nextProducts, { upsertIds = [], deleteIds
     const changedProducts = nextProducts.filter((product) => upsertIds.includes(product.id));
     const uploadedGrades = new Set();
     for (const product of changedProducts) {
+      await saveCloudProductMedia(product);
       if (product.annualCourseOrigin !== "uploaded" || uploadedGrades.has(product.grade)) continue;
       await saveCloudGradeCourseLibrary(product);
       uploadedGrades.add(product.grade);
@@ -975,7 +1021,7 @@ function App() {
   }, [selectedProduct?.grade]);
 
   React.useEffect(() => {
-    if (!cloudConfigEnabled || cloudProductsEnabled || !selectedProduct?.id) return undefined;
+    if ((!cloudConfigEnabled && !cloudProductsEnabled) || !selectedProduct?.id) return undefined;
     let cancelled = false;
     const productId = selectedProduct.id;
     loadCloudProductMedia(productId)

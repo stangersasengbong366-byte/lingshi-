@@ -56,3 +56,27 @@ test("运营端可把年级课程库独立保存到 Cloudflare KV", async () => 
   assert.equal(response.status, 200);
   assert.deepEqual(JSON.parse(records.get("course_library_g1")).data, payload.data);
 });
+
+test("课程卡片图片单独写入 Cloudflare KV，避免产品配置压缩后丢失", async () => {
+  const records = new Map();
+  const env = {
+    ADMIN_PASSWORD_HASH: await sha256("lingshi2026"),
+    BENEFIT_CONFIGS: {
+      get: async (key) => records.get(key) ?? null,
+      put: async (key, value) => records.set(key, value),
+    },
+  };
+  const payload = {
+    productId: "product-1",
+    media: { "cloud-media:root.customGiftItems.0.image": "data:image/png;base64,abc" },
+  };
+  const write = await worker.fetch(new Request("https://example.com/configs/product_media_product-1", {
+    method: "POST",
+    headers: { "Content-Type": "text/plain;charset=UTF-8" },
+    body: JSON.stringify({ ...payload, adminPassword: "lingshi2026" }),
+  }), env);
+  assert.equal(write.status, 200);
+  const read = await worker.fetch(new Request("https://example.com/configs/product_media_product-1"), env);
+  assert.equal(read.status, 200);
+  assert.deepEqual((await read.json()).payload.media, payload.media);
+});
