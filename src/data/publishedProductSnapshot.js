@@ -558,7 +558,8 @@ export const publishedProductSnapshot = [
             "文化主线01：古今中外、文化功能",
             "文化主线02：文化创造、文化发展"
           ]
-        }
+        },
+        "image": "cloud-media:root.customGiftItems.2.image"
       }
     ],
     "customPhysicalItems": [],
