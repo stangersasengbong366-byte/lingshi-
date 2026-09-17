@@ -46,9 +46,14 @@ export function applyLivePhaseLimits(product, rows, entitlement) {
     const total = miniCount + secondRoundCount;
     const phaseLimits = product.livePhaseLimits ?? {};
     const used = {};
+    const seen = {};
+    const offsets = product.livePhaseOffsets ?? {};
     const phaseSelected = rows.filter((row) => {
       const limit = Number(phaseLimits[row.quarter]);
       if (!Number.isFinite(limit)) return false;
+      seen[row.quarter] = (seen[row.quarter] ?? 0) + 1;
+      const offset = Math.max(0, Number(offsets[row.quarter]) || 0);
+      if (seen[row.quarter] <= offset) return false;
       used[row.quarter] = used[row.quarter] ?? 0;
       if (used[row.quarter] >= limit) return false;
       used[row.quarter] += 1;
@@ -65,9 +70,14 @@ export function applyLivePhaseLimits(product, rows, entitlement) {
     return renumberLiveRows(rows.slice(0, entitlement || undefined));
   }
   const used = {};
+  const seen = {};
+  const offsets = product.livePhaseOffsets ?? {};
   const selected = rows.filter((row) => {
     const limit = Number(limits[row.quarter]);
     if (!Number.isFinite(limit)) return true;
+    seen[row.quarter] = (seen[row.quarter] ?? 0) + 1;
+    const offset = Math.max(0, Number(offsets[row.quarter]) || 0);
+    if (seen[row.quarter] <= offset) return false;
     used[row.quarter] = used[row.quarter] ?? 0;
     if (used[row.quarter] >= limit) return false;
     used[row.quarter] += 1;

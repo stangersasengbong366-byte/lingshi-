@@ -95,6 +95,8 @@ export function getCanonicalProductCourseRules(product) {
     ...(isG3Direct ? {
       liveCourseMode: "g3-mini-plus-second-round",
       liveCourseSegments: { mini: 12, secondRound: 18 },
+      // 名校直通卡的一轮 mini 从秋季第 5 节开始，前 4 节不属于该卡型权益。
+      livePhaseOffsets: { 秋季: 4 },
     } : {}),
   };
 }

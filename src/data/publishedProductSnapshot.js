@@ -1298,6 +1298,9 @@ export const publishedProductSnapshot = [
       "秋季": 12,
       "寒假": 10,
       "春季": 8
+    },
+    "livePhaseOffsets": {
+      "秋季": 4
     }
   },
   {

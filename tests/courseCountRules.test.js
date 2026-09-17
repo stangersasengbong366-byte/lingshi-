@@ -63,6 +63,7 @@ test("高三名校直通卡固定为一轮 mini 12节加二轮18节", () => {
   assert.deepEqual(product.livePhases, ["秋季", "寒假", "春季"]);
   assert.deepEqual(product.livePhaseLimits, { 秋季: 12, 寒假: 10, 春季: 8 });
   assert.deepEqual(product.liveCourseSegments, { mini: 12, secondRound: 18 });
+  assert.deepEqual(product.livePhaseOffsets, { 秋季: 4 });
   assert.equal(product.core.liveLessons, 30);
   assert.equal(product.core.knowledgeVideos, 120);
 });

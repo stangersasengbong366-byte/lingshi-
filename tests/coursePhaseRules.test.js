@@ -94,6 +94,26 @@ test("高三名校直通卡按秋12寒10春8精确截取30节", () => {
   assert.equal(selected[29].no, 30);
 });
 
+test("高三名校直通卡跳过秋季前4节后仍完整展示30节", () => {
+  const liveRows = [
+    ...Array.from({ length: 16 }, (_, index) => ({ no: index + 1, quarter: "秋季", title: `秋${index + 1}` })),
+    ...Array.from({ length: 10 }, (_, index) => ({ no: index + 17, quarter: "寒假", title: `寒${index + 1}` })),
+    ...Array.from({ length: 8 }, (_, index) => ({ no: index + 27, quarter: "春季", title: `春${index + 1}` })),
+  ];
+  const selected = applyLivePhaseLimits({
+    liveCourseMode: "g3-mini-plus-second-round",
+    liveCourseSegments: { mini: 12, secondRound: 18 },
+    livePhaseLimits: { 秋季: 12, 寒假: 10, 春季: 8 },
+    livePhaseOffsets: { 秋季: 4 },
+  }, liveRows, 30);
+  assert.equal(selected.length, 30);
+  assert.equal(selected[0].title, "秋5");
+  assert.equal(selected[0].sourceNo, 5);
+  assert.equal(selected[11].title, "秋16");
+  assert.equal(selected[12].title, "寒1");
+  assert.equal(selected[29].title, "春8");
+});
+
 test("高三后台分别按季节筛选直播、按轮次筛选知识视频", () => {
   assert.deepEqual(getAdminCoursePhaseOptions("高三"), {
     split: true,
