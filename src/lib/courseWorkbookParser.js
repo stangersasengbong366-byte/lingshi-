@@ -69,7 +69,7 @@ export function parseLiveRows(rows, requestedGrade) {
     if (phaseCell) currentPhase = phaseCell;
     const lessonNo = parseLessonNumber(row[lessonIndex]);
     const title = clean(row[titleIndex]);
-    if (currentGrade !== requestedGrade || !title || lessonNo < 1 || !currentPhase) return null;
+    if (currentGrade !== requestedGrade || !title || lessonNo < 1 || !currentPhase || isNonEntitledLiveRow(title)) return null;
     const schedules = dateColumns.map((dateColumn, scheduleIndex) => formatSchedule(row[dateColumn], row[timeColumns[scheduleIndex]])).filter(Boolean);
     return {
       id: `annual-live-${requestedGrade}-${offset + 1}`,
@@ -166,7 +166,7 @@ function parseSimpleLiveRows(rows, requestedGrade) {
     const rowQuarter = normalizeCoursePhase(row[index["季度"]] || row[index["季节"]]);
     if (rowQuarter) currentQuarter = rowQuarter;
     const title = clean(row[index["课程大纲"]] || row[index["课程大纲标题"]]);
-    if (currentGrade !== requestedGrade || !currentQuarter || !title) return null;
+    if (currentGrade !== requestedGrade || !currentQuarter || !title || isNonEntitledLiveRow(title)) return null;
     const quarter = currentQuarter;
     const scheduleColumns = [
       ["早鸟期-上课日期", "早鸟期-上课时间"],
@@ -190,6 +190,12 @@ function parseSimpleLiveRows(rows, requestedGrade) {
       live: title,
     };
   }).filter(Boolean).map((row, index) => ({ ...row, no: index + 1, annualNo: index + 1 }));
+}
+
+// 学习指南、期末复习规划属于运营提醒/衔接内容，不计入产品承诺的学法直播课时。
+// 课表中可能保留这些排期，解析时统一排除，避免把暑期 10 节正课误读为 12 节。
+function isNonEntitledLiveRow(title) {
+  return /学习指南|期末复习规划/.test(clean(title));
 }
 
 function parseSimpleVideoRows(rows, sheetTrack = "") {

@@ -2,10 +2,11 @@ import fs from "node:fs";
 import path from "node:path";
 import XLSX from "xlsx";
 import { parseCourseWorkbookSheets } from "../src/lib/courseWorkbookParser.js";
+import { annualCourseLibrary } from "../src/data/annualCourseLibrary.js";
 
 const [livePath, videoPath] = process.argv.slice(2);
-if (!livePath || !videoPath) {
-  throw new Error("请提供学法直播全年总表和知识视频全年总表路径");
+if (!livePath) {
+  throw new Error("请提供学法直播全年总表路径；知识视频总表可选，省略时保留当前知识视频课程库");
 }
 
 const grades = ["高一", "高二", "高三"];
@@ -21,13 +22,15 @@ function loadWorkbook(filePath) {
 }
 
 const liveWorkbook = loadWorkbook(livePath);
-const videoWorkbook = loadWorkbook(videoPath);
+const videoWorkbook = videoPath ? loadWorkbook(videoPath) : null;
 const library = Object.fromEntries(grades.map((grade) => [grade, {
   live: parseCourseWorkbookSheets(liveWorkbook, "live", grade, subjects),
-  video: parseCourseWorkbookSheets(videoWorkbook, "video", grade, subjects),
+  video: videoWorkbook
+    ? parseCourseWorkbookSheets(videoWorkbook, "video", grade, subjects)
+    : annualCourseLibrary[grade].video,
 }]));
 
-const output = `export const annualCourseLibraryVersion = "2026-2027-v9";\n\nexport const annualCourseLibrary = ${JSON.stringify(library, null, 2)};\n`;
+const output = `export const annualCourseLibraryVersion = "2026-2027-v10";\n\nexport const annualCourseLibrary = ${JSON.stringify(library, null, 2)};\n`;
 const outputPath = path.resolve("src/data/annualCourseLibrary.js");
 fs.writeFileSync(outputPath, output);
 

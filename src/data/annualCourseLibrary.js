@@ -1,42 +1,12 @@
-export const annualCourseLibraryVersion = "2026-2027-v9";
+export const annualCourseLibraryVersion = "2026-2027-v10";
 
 export const annualCourseLibrary = {
   "高一": {
     "live": {
       "语文": [
         {
-          "id": "uploaded-live-1",
-          "no": 1,
-          "grade": "高一",
-          "quarter": "暑期",
-          "date": "6月27日",
-          "time": "15:30-16:30",
-          "early": "6月27日 15:30-16:30",
-          "phase1": "",
-          "phase2": "",
-          "phase3": "",
-          "title": "【新高一】2026年7-12月（语文）学习指南",
-          "live": "【新高一】2026年7-12月（语文）学习指南",
-          "annualNo": 1
-        },
-        {
-          "id": "uploaded-live-2",
-          "no": 2,
-          "grade": "高一",
-          "quarter": "暑期",
-          "date": "7月24日",
-          "time": "15:30-16:30",
-          "early": "7月24日 15:30-16:30",
-          "phase1": "",
-          "phase2": "",
-          "phase3": "",
-          "title": "【新高一】2026年7-12月（语文）学习指南",
-          "live": "【新高一】2026年7-12月（语文）学习指南",
-          "annualNo": 2
-        },
-        {
           "id": "uploaded-live-3",
-          "no": 3,
+          "no": 1,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月1日",
@@ -47,11 +17,11 @@ export const annualCourseLibrary = {
           "phase3": "8月6日 15:30-17:30",
           "title": "【古诗阅读】一节课速通高中古诗基础",
           "live": "【古诗阅读】一节课速通高中古诗基础",
-          "annualNo": 3
+          "annualNo": 1
         },
         {
           "id": "uploaded-live-4",
-          "no": 4,
+          "no": 2,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月2日",
@@ -62,11 +32,11 @@ export const annualCourseLibrary = {
           "phase3": "8月7日 15:30-17:30",
           "title": "【小说阅读】一节课速通高中小说基础",
           "live": "【小说阅读】一节课速通高中小说基础",
-          "annualNo": 4
+          "annualNo": 2
         },
         {
           "id": "uploaded-live-5",
-          "no": 5,
+          "no": 3,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月3日",
@@ -77,11 +47,11 @@ export const annualCourseLibrary = {
           "phase3": "8月8日 15:30-17:30",
           "title": "【文言文阅读】一节课速通高中文言文基础",
           "live": "【文言文阅读】一节课速通高中文言文基础",
-          "annualNo": 5
+          "annualNo": 3
         },
         {
           "id": "uploaded-live-6",
-          "no": 6,
+          "no": 4,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月4日",
@@ -92,11 +62,11 @@ export const annualCourseLibrary = {
           "phase3": "8月9日 15:30-17:30",
           "title": "【散文阅读】一节课速通高中散文基础",
           "live": "【散文阅读】一节课速通高中散文基础",
-          "annualNo": 6
+          "annualNo": 4
         },
         {
           "id": "uploaded-live-7",
-          "no": 7,
+          "no": 5,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月5日",
@@ -107,11 +77,11 @@ export const annualCourseLibrary = {
           "phase3": "8月10日 15:30-17:30",
           "title": "【语用】一节课速通语言文字应用基础",
           "live": "【语用】一节课速通语言文字应用基础",
-          "annualNo": 7
+          "annualNo": 5
         },
         {
           "id": "uploaded-live-8",
-          "no": 8,
+          "no": 6,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月7日",
@@ -122,11 +92,11 @@ export const annualCourseLibrary = {
           "phase3": "8月12日 15:30-17:30",
           "title": "【信息性阅读】一节课速通信息类文本阅读基础",
           "live": "【信息性阅读】一节课速通信息类文本阅读基础",
-          "annualNo": 8
+          "annualNo": 6
         },
         {
           "id": "uploaded-live-9",
-          "no": 9,
+          "no": 7,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月8日",
@@ -137,11 +107,11 @@ export const annualCourseLibrary = {
           "phase3": "8月13日 15:30-17:30",
           "title": "【作文】一节课洞悉高中作文基础（上）",
           "live": "【作文】一节课洞悉高中作文基础（上）",
-          "annualNo": 9
+          "annualNo": 7
         },
         {
           "id": "uploaded-live-10",
-          "no": 10,
+          "no": 8,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月9日",
@@ -152,11 +122,11 @@ export const annualCourseLibrary = {
           "phase3": "8月14日 15:30-17:30",
           "title": "【作文】一节课洞悉高中作文基础（下）",
           "live": "【作文】一节课洞悉高中作文基础（下）",
-          "annualNo": 10
+          "annualNo": 8
         },
         {
           "id": "uploaded-live-11",
-          "no": 11,
+          "no": 9,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月10日",
@@ -167,11 +137,11 @@ export const annualCourseLibrary = {
           "phase3": "8月15日 15:30-17:30",
           "title": "【综合训练】语文版块知识融合",
           "live": "【综合训练】语文版块知识融合",
-          "annualNo": 11
+          "annualNo": 9
         },
         {
           "id": "uploaded-live-12",
-          "no": 12,
+          "no": 10,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月11日",
@@ -182,11 +152,11 @@ export const annualCourseLibrary = {
           "phase3": "8月16日 15:30-17:30",
           "title": "【综合训练】语文核心素养融会提升",
           "live": "【综合训练】语文核心素养融会提升",
-          "annualNo": 12
+          "annualNo": 10
         },
         {
           "id": "uploaded-live-13",
-          "no": 13,
+          "no": 11,
           "grade": "高一",
           "quarter": "秋季",
           "date": "8月29日",
@@ -197,11 +167,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【古诗阅读】诗歌技法深研诗意探寻（一阶）",
           "live": "【古诗阅读】诗歌技法深研诗意探寻（一阶）",
-          "annualNo": 13
+          "annualNo": 11
         },
         {
           "id": "uploaded-live-14",
-          "no": 14,
+          "no": 12,
           "grade": "高一",
           "quarter": "秋季",
           "date": "9月5日",
@@ -212,11 +182,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【古诗阅读】诗歌核心技法专攻突破（一阶）",
           "live": "【古诗阅读】诗歌核心技法专攻突破（一阶）",
-          "annualNo": 14
+          "annualNo": 12
         },
         {
           "id": "uploaded-live-15",
-          "no": 15,
+          "no": 13,
           "grade": "高一",
           "quarter": "秋季",
           "date": "9月12日",
@@ -227,11 +197,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【小说阅读】小说高分方略精研打磨（一阶）",
           "live": "【小说阅读】小说高分方略精研打磨（一阶）",
-          "annualNo": 15
+          "annualNo": 13
         },
         {
           "id": "uploaded-live-16",
-          "no": 16,
+          "no": 14,
           "grade": "高一",
           "quarter": "秋季",
           "date": "9月26日",
@@ -242,11 +212,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【小说阅读】小说思路指引高效提升（一阶）",
           "live": "【小说阅读】小说思路指引高效提升（一阶）",
-          "annualNo": 16
+          "annualNo": 14
         },
         {
           "id": "uploaded-live-17",
-          "no": 17,
+          "no": 15,
           "grade": "高一",
           "quarter": "秋季",
           "date": "10月1日",
@@ -257,11 +227,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【文言文阅读】文言核心技法精确剖析（一阶）",
           "live": "【文言文阅读】文言核心技法精确剖析（一阶）",
-          "annualNo": 17
+          "annualNo": 15
         },
         {
           "id": "uploaded-live-18",
-          "no": 18,
+          "no": 16,
           "grade": "高一",
           "quarter": "秋季",
           "date": "10月3日",
@@ -272,11 +242,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【文言文阅读】文言高分方略扎实掌握（一阶）",
           "live": "【文言文阅读】文言高分方略扎实掌握（一阶）",
-          "annualNo": 18
+          "annualNo": 16
         },
         {
           "id": "uploaded-live-19",
-          "no": 19,
+          "no": 17,
           "grade": "高一",
           "quarter": "秋季",
           "date": "10月17日",
@@ -287,11 +257,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【作文】作文提分技巧悉心打磨（一阶）",
           "live": "【作文】作文提分技巧悉心打磨（一阶）",
-          "annualNo": 19
+          "annualNo": 17
         },
         {
           "id": "uploaded-live-20",
-          "no": 20,
+          "no": 18,
           "grade": "高一",
           "quarter": "秋季",
           "date": "10月24日",
@@ -302,11 +272,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【作文】作文高分方略科学搭建（一阶）",
           "live": "【作文】作文高分方略科学搭建（一阶）",
-          "annualNo": 20
+          "annualNo": 18
         },
         {
           "id": "uploaded-live-21",
-          "no": 21,
+          "no": 19,
           "grade": "高一",
           "quarter": "秋季",
           "date": "10月31日",
@@ -317,11 +287,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【散文阅读】散文专攻突破深度探析（一阶）",
           "live": "【散文阅读】散文专攻突破深度探析（一阶）",
-          "annualNo": 21
+          "annualNo": 19
         },
         {
           "id": "uploaded-live-22",
-          "no": 22,
+          "no": 20,
           "grade": "高一",
           "quarter": "秋季",
           "date": "11月7日",
@@ -332,11 +302,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【散文阅读】散文思路指引高分提升（一阶）",
           "live": "【散文阅读】散文思路指引高分提升（一阶）",
-          "annualNo": 22
+          "annualNo": 20
         },
         {
           "id": "uploaded-live-23",
-          "no": 23,
+          "no": 21,
           "grade": "高一",
           "quarter": "秋季",
           "date": "11月14日",
@@ -347,11 +317,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【语用】语用核心技法深度剖析（一阶）",
           "live": "【语用】语用核心技法深度剖析（一阶）",
-          "annualNo": 23
+          "annualNo": 21
         },
         {
           "id": "uploaded-live-24",
-          "no": 24,
+          "no": 22,
           "grade": "高一",
           "quarter": "秋季",
           "date": "11月21日",
@@ -362,11 +332,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【语用】语用专攻突破扎实掌握（一阶）",
           "live": "【语用】语用专攻突破扎实掌握（一阶）",
-          "annualNo": 24
+          "annualNo": 22
         },
         {
           "id": "uploaded-live-25",
-          "no": 25,
+          "no": 23,
           "grade": "高一",
           "quarter": "秋季",
           "date": "11月28日",
@@ -377,11 +347,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【作文】作文提分技巧逐个攻坚（一阶）",
           "live": "【作文】作文提分技巧逐个攻坚（一阶）",
-          "annualNo": 25
+          "annualNo": 23
         },
         {
           "id": "uploaded-live-26",
-          "no": 26,
+          "no": 24,
           "grade": "高一",
           "quarter": "秋季",
           "date": "12月5日",
@@ -392,11 +362,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【作文】作文高分思维进阶训练（一阶）",
           "live": "【作文】作文高分思维进阶训练（一阶）",
-          "annualNo": 26
+          "annualNo": 24
         },
         {
           "id": "uploaded-live-27",
-          "no": 27,
+          "no": 25,
           "grade": "高一",
           "quarter": "秋季",
           "date": "12月12日",
@@ -407,11 +377,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【综合】知识融会思路指引（上）",
           "live": "【综合】知识融会思路指引（上）",
-          "annualNo": 27
+          "annualNo": 25
         },
         {
           "id": "uploaded-live-28",
-          "no": 28,
+          "no": 26,
           "grade": "高一",
           "quarter": "秋季",
           "date": "12月19日",
@@ -422,11 +392,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【综合】知识融会思路指引（下）",
           "live": "【综合】知识融会思路指引（下）",
-          "annualNo": 28
+          "annualNo": 26
         },
         {
-          "id": "uploaded-live-30",
-          "no": 29,
+          "id": "uploaded-live-29",
+          "no": 27,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -437,11 +407,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【古诗鉴赏】诗心独运：诗歌鉴赏核心素养筑基",
           "live": "【古诗鉴赏】诗心独运：诗歌鉴赏核心素养筑基",
-          "annualNo": 29
+          "annualNo": 27
         },
         {
-          "id": "uploaded-live-31",
-          "no": 30,
+          "id": "uploaded-live-30",
+          "no": 28,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -452,11 +422,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【小说品读】叙事解码：小说文本高分解读进阶",
           "live": "【小说品读】叙事解码：小说文本高分解读进阶",
-          "annualNo": 30
+          "annualNo": 28
         },
         {
-          "id": "uploaded-live-32",
-          "no": 31,
+          "id": "uploaded-live-31",
+          "no": 29,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -467,11 +437,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【文言精读】字句珠玑：文言文解读能力进阶",
           "live": "【文言精读】字句珠玑：文言文解读能力进阶",
-          "annualNo": 31
+          "annualNo": 29
         },
         {
-          "id": "uploaded-live-33",
-          "no": 32,
+          "id": "uploaded-live-32",
+          "no": 30,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -482,11 +452,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【散文赏析】笔底生情：散文答题精准度提升",
           "live": "【散文赏析】笔底生情：散文答题精准度提升",
-          "annualNo": 32
+          "annualNo": 30
         },
         {
-          "id": "uploaded-live-34",
-          "no": 33,
+          "id": "uploaded-live-33",
+          "no": 31,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -497,11 +467,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【语用实践】言为心声：语言运用核心素养深化",
           "live": "【语用实践】言为心声：语言运用核心素养深化",
-          "annualNo": 33
+          "annualNo": 31
         },
         {
-          "id": "uploaded-live-35",
-          "no": 34,
+          "id": "uploaded-live-34",
+          "no": 32,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -512,11 +482,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【信息阅读】慧眼识真：非连续性文本处理强化",
           "live": "【信息阅读】慧眼识真：非连续性文本处理强化",
-          "annualNo": 34
+          "annualNo": 32
         },
         {
-          "id": "uploaded-live-36",
-          "no": 35,
+          "id": "uploaded-live-35",
+          "no": 33,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -527,11 +497,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【名著研读】经典常谈：名著文本阐释能力训练",
           "live": "【名著研读】经典常谈：名著文本阐释能力训练",
-          "annualNo": 35
+          "annualNo": 33
         },
         {
-          "id": "uploaded-live-37",
-          "no": 36,
+          "id": "uploaded-live-36",
+          "no": 34,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -542,11 +512,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【写作进阶】妙笔生花：高分写作核心能力·上",
           "live": "【写作进阶】妙笔生花：高分写作核心能力·上",
-          "annualNo": 36
+          "annualNo": 34
         },
         {
-          "id": "uploaded-live-38",
-          "no": 37,
+          "id": "uploaded-live-37",
+          "no": 35,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -557,11 +527,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【写作进阶】妙笔生花：高分写作核心能力·下",
           "live": "【写作进阶】妙笔生花：高分写作核心能力·下",
-          "annualNo": 37
+          "annualNo": 35
         },
         {
-          "id": "uploaded-live-39",
-          "no": 38,
+          "id": "uploaded-live-38",
+          "no": 36,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -572,11 +542,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【综合提升】融会贯通：语文核心能力整合强化",
           "live": "【综合提升】融会贯通：语文核心能力整合强化",
-          "annualNo": 38
+          "annualNo": 36
         },
         {
-          "id": "uploaded-live-40",
-          "no": 39,
+          "id": "uploaded-live-39",
+          "no": 37,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -587,11 +557,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【古诗进阶I】诗法精微：诗歌鉴赏方法论精要",
           "live": "【古诗进阶I】诗法精微：诗歌鉴赏方法论精要",
-          "annualNo": 39
+          "annualNo": 37
         },
         {
-          "id": "uploaded-live-41",
-          "no": 40,
+          "id": "uploaded-live-40",
+          "no": 38,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -602,11 +572,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【古诗进阶I】炼字赏句：诗歌核心技法深度研习",
           "live": "【古诗进阶I】炼字赏句：诗歌核心技法深度研习",
-          "annualNo": 40
+          "annualNo": 38
         },
         {
-          "id": "uploaded-live-42",
-          "no": 41,
+          "id": "uploaded-live-41",
+          "no": 39,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -617,11 +587,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【小说进阶I】叙事奥义：小说深度研习与策略优化",
           "live": "【小说进阶I】叙事奥义：小说深度研习与策略优化",
-          "annualNo": 41
+          "annualNo": 39
         },
         {
-          "id": "uploaded-live-43",
-          "no": 42,
+          "id": "uploaded-live-42",
+          "no": 40,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -632,11 +602,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【小说进阶I】文心探微：小说理解与能力进阶",
           "live": "【小说进阶I】文心探微：小说理解与能力进阶",
-          "annualNo": 42
+          "annualNo": 40
         },
         {
-          "id": "uploaded-live-44",
-          "no": 43,
+          "id": "uploaded-live-43",
+          "no": 41,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -647,11 +617,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【文言进阶I】古文言津：文言核心技法精析",
           "live": "【文言进阶I】古文言津：文言核心技法精析",
-          "annualNo": 43
+          "annualNo": 41
         },
         {
-          "id": "uploaded-live-45",
-          "no": 44,
+          "id": "uploaded-live-44",
+          "no": 42,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -662,11 +632,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【文言进阶I】破万卷：文言文理解系统突破",
           "live": "【文言进阶I】破万卷：文言文理解系统突破",
-          "annualNo": 44
+          "annualNo": 42
         },
         {
-          "id": "uploaded-live-46",
-          "no": 45,
+          "id": "uploaded-live-45",
+          "no": 43,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -677,11 +647,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【写作进阶I】文以载道：写作技巧精要与提升路径",
           "live": "【写作进阶I】文以载道：写作技巧精要与提升路径",
-          "annualNo": 45
+          "annualNo": 43
         },
         {
-          "id": "uploaded-live-47",
-          "no": 46,
+          "id": "uploaded-live-46",
+          "no": 44,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -692,11 +662,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【写作进阶I】思接千载：高分写作思维建构与表达",
           "live": "【写作进阶I】思接千载：高分写作思维建构与表达",
-          "annualNo": 46
+          "annualNo": 44
         },
         {
-          "id": "uploaded-live-48",
-          "no": 47,
+          "id": "uploaded-live-47",
+          "no": 45,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -707,11 +677,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【散文进阶I】形散神聚：散文文本深析与鉴赏",
           "live": "【散文进阶I】形散神聚：散文文本深析与鉴赏",
-          "annualNo": 47
+          "annualNo": 45
         },
         {
-          "id": "uploaded-live-49",
-          "no": 48,
+          "id": "uploaded-live-48",
+          "no": 46,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -722,11 +692,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【散文进阶I】文情并茂：散文理解策略与能力提升",
           "live": "【散文进阶I】文情并茂：散文理解策略与能力提升",
-          "annualNo": 48
+          "annualNo": 46
         },
         {
-          "id": "uploaded-live-50",
-          "no": 49,
+          "id": "uploaded-live-49",
+          "no": 47,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -737,11 +707,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【语用进阶I】辞达而已：语用核心原理深度研习",
           "live": "【语用进阶I】辞达而已：语用核心原理深度研习",
-          "annualNo": 49
+          "annualNo": 47
         },
         {
-          "id": "uploaded-live-51",
-          "no": 50,
+          "id": "uploaded-live-50",
+          "no": 48,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -752,11 +722,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【语用进阶I】言近旨远：语用能力系统精进",
           "live": "【语用进阶I】言近旨远：语用能力系统精进",
-          "annualNo": 50
+          "annualNo": 48
         },
         {
-          "id": "uploaded-live-52",
-          "no": 51,
+          "id": "uploaded-live-51",
+          "no": 49,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -767,11 +737,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【写作进阶I】笔耕不辍：写作技巧分项精进与突破",
           "live": "【写作进阶I】笔耕不辍：写作技巧分项精进与突破",
-          "annualNo": 51
+          "annualNo": 49
         },
         {
-          "id": "uploaded-live-53",
-          "no": 52,
+          "id": "uploaded-live-52",
+          "no": 50,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -782,11 +752,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【写作进阶I】思如泉涌：写作思维跃升与优化实践",
           "live": "【写作进阶I】思如泉涌：写作思维跃升与优化实践",
-          "annualNo": 52
+          "annualNo": 50
         },
         {
-          "id": "uploaded-live-54",
-          "no": 53,
+          "id": "uploaded-live-53",
+          "no": 51,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -797,11 +767,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【综合提升】知行合一：知识整合策略与能力·上",
           "live": "【综合提升】知行合一：知识整合策略与能力·上",
-          "annualNo": 53
+          "annualNo": 51
         },
         {
-          "id": "uploaded-live-55",
-          "no": 54,
+          "id": "uploaded-live-54",
+          "no": 52,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -812,43 +782,13 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【综合提升】知行合一：知识整合策略与能力·下",
           "live": "【综合提升】知行合一：知识整合策略与能力·下",
-          "annualNo": 54
+          "annualNo": 52
         }
       ],
       "数学": [
         {
-          "id": "uploaded-live-1",
-          "no": 1,
-          "grade": "高一",
-          "quarter": "暑期",
-          "date": "6月27日",
-          "time": "20:00-21:00",
-          "early": "6月27日 20:00-21:00",
-          "phase1": "6月27日 20:00-21:00",
-          "phase2": "6月27日 20:00-21:00",
-          "phase3": "6月27日 20:00-21:00",
-          "title": "【新高一】2026年7-12月（数学）学习指南",
-          "live": "【新高一】2026年7-12月（数学）学习指南",
-          "annualNo": 1
-        },
-        {
-          "id": "uploaded-live-2",
-          "no": 2,
-          "grade": "高一",
-          "quarter": "暑期",
-          "date": "7月24日",
-          "time": "20:00-21:00",
-          "early": "7月24日 20:00-21:00",
-          "phase1": "7月24日 20:00-21:00",
-          "phase2": "7月24日 20:00-21:00 胡源-13:00-14:00",
-          "phase3": "7月24日 20:00-21:00",
-          "title": "【新高一】2026年7-12月（数学）学习指南",
-          "live": "【新高一】2026年7-12月（数学）学习指南",
-          "annualNo": 2
-        },
-        {
           "id": "uploaded-live-3",
-          "no": 3,
+          "no": 1,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月1日",
@@ -859,11 +799,11 @@ export const annualCourseLibrary = {
           "phase3": "8月6日 13:00-15:00",
           "title": "集合的概念与关系",
           "live": "集合的概念与关系",
-          "annualNo": 3
+          "annualNo": 1
         },
         {
           "id": "uploaded-live-4",
-          "no": 4,
+          "no": 2,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月2日",
@@ -874,11 +814,11 @@ export const annualCourseLibrary = {
           "phase3": "8月7日 13:00-15:00",
           "title": "集合间的运算",
           "live": "集合间的运算",
-          "annualNo": 4
+          "annualNo": 2
         },
         {
           "id": "uploaded-live-5",
-          "no": 5,
+          "no": 3,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月3日",
@@ -889,11 +829,11 @@ export const annualCourseLibrary = {
           "phase3": "8月8日 13:00-15:00",
           "title": "解不等式",
           "live": "解不等式",
-          "annualNo": 5
+          "annualNo": 3
         },
         {
           "id": "uploaded-live-6",
-          "no": 6,
+          "no": 4,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月4日",
@@ -904,11 +844,11 @@ export const annualCourseLibrary = {
           "phase3": "8月9日 13:00-15:00",
           "title": "恒成立与存在性问题",
           "live": "恒成立与存在性问题",
-          "annualNo": 6
+          "annualNo": 4
         },
         {
           "id": "uploaded-live-7",
-          "no": 7,
+          "no": 5,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月5日",
@@ -919,11 +859,11 @@ export const annualCourseLibrary = {
           "phase3": "8月10日 13:00-15:00",
           "title": "充分必要条件与新高考逻辑思维",
           "live": "充分必要条件与新高考逻辑思维",
-          "annualNo": 7
+          "annualNo": 5
         },
         {
           "id": "uploaded-live-8",
-          "no": 8,
+          "no": 6,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月7日",
@@ -934,11 +874,11 @@ export const annualCourseLibrary = {
           "phase3": "8月12日 13:00-15:00",
           "title": "函数三要素(上)",
           "live": "函数三要素(上)",
-          "annualNo": 8
+          "annualNo": 6
         },
         {
           "id": "uploaded-live-9",
-          "no": 9,
+          "no": 7,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月8日",
@@ -949,11 +889,11 @@ export const annualCourseLibrary = {
           "phase3": "8月13日 13:00-15:00",
           "title": "函数三要素(下)",
           "live": "函数三要素(下)",
-          "annualNo": 9
+          "annualNo": 7
         },
         {
           "id": "uploaded-live-10",
-          "no": 10,
+          "no": 8,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月9日",
@@ -964,11 +904,11 @@ export const annualCourseLibrary = {
           "phase3": "8月14日 13:00-15:00",
           "title": "函数的单调性",
           "live": "函数的单调性",
-          "annualNo": 10
+          "annualNo": 8
         },
         {
           "id": "uploaded-live-11",
-          "no": 11,
+          "no": 9,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月10日",
@@ -979,11 +919,11 @@ export const annualCourseLibrary = {
           "phase3": "8月15日 13:00-15:00",
           "title": "函数的奇偶性",
           "live": "函数的奇偶性",
-          "annualNo": 11
+          "annualNo": 9
         },
         {
           "id": "uploaded-live-12",
-          "no": 12,
+          "no": 10,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月11日",
@@ -994,11 +934,11 @@ export const annualCourseLibrary = {
           "phase3": "8月16日 13:00-15:00",
           "title": "考试实战训练",
           "live": "考试实战训练",
-          "annualNo": 12
+          "annualNo": 10
         },
         {
           "id": "uploaded-live-13",
-          "no": 13,
+          "no": 11,
           "grade": "高一",
           "quarter": "秋季",
           "date": "同1期",
@@ -1009,11 +949,11 @@ export const annualCourseLibrary = {
           "phase3": "同1期",
           "title": "不等式延拓",
           "live": "不等式延拓",
-          "annualNo": 13
+          "annualNo": 11
         },
         {
           "id": "uploaded-live-14",
-          "no": 14,
+          "no": 12,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -1024,11 +964,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "集合延拓",
           "live": "集合延拓",
-          "annualNo": 14
+          "annualNo": 12
         },
         {
           "id": "uploaded-live-15",
-          "no": 15,
+          "no": 13,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -1039,11 +979,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "逻辑延拓",
           "live": "逻辑延拓",
-          "annualNo": 15
+          "annualNo": 13
         },
         {
           "id": "uploaded-live-16",
-          "no": 16,
+          "no": 14,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -1054,11 +994,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "均值不等式与多元最值（上）",
           "live": "均值不等式与多元最值（上）",
-          "annualNo": 16
+          "annualNo": 14
         },
         {
           "id": "uploaded-live-17",
-          "no": 17,
+          "no": 15,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -1069,11 +1009,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "均值不等式与多元最值（下）",
           "live": "均值不等式与多元最值（下）",
-          "annualNo": 17
+          "annualNo": 15
         },
         {
           "id": "uploaded-live-18",
-          "no": 18,
+          "no": 16,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -1084,11 +1024,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "函数的三要素延拓",
           "live": "函数的三要素延拓",
-          "annualNo": 18
+          "annualNo": 16
         },
         {
           "id": "uploaded-live-19",
-          "no": 19,
+          "no": 17,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -1099,11 +1039,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "函数的单调性延拓",
           "live": "函数的单调性延拓",
-          "annualNo": 19
+          "annualNo": 17
         },
         {
           "id": "uploaded-live-20",
-          "no": 20,
+          "no": 18,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -1114,11 +1054,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "函数的奇偶性延拓",
           "live": "函数的奇偶性延拓",
-          "annualNo": 20
+          "annualNo": 18
         },
         {
           "id": "uploaded-live-21",
-          "no": 21,
+          "no": 19,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -1129,11 +1069,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "函数性质综合应用",
           "live": "函数性质综合应用",
-          "annualNo": 21
+          "annualNo": 19
         },
         {
           "id": "uploaded-live-22",
-          "no": 22,
+          "no": 20,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -1144,11 +1084,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "指数运算与指数函数",
           "live": "指数运算与指数函数",
-          "annualNo": 22
+          "annualNo": 20
         },
         {
           "id": "uploaded-live-23",
-          "no": 23,
+          "no": 21,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -1159,11 +1099,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "对数运算与对数函数",
           "live": "对数运算与对数函数",
-          "annualNo": 23
+          "annualNo": 21
         },
         {
           "id": "uploaded-live-24",
-          "no": 24,
+          "no": 22,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -1174,11 +1114,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "指对函数的综合应用",
           "live": "指对函数的综合应用",
-          "annualNo": 24
+          "annualNo": 22
         },
         {
           "id": "uploaded-live-25",
-          "no": 25,
+          "no": 23,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -1189,11 +1129,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "函数零点",
           "live": "函数零点",
-          "annualNo": 25
+          "annualNo": 23
         },
         {
           "id": "uploaded-live-26",
-          "no": 26,
+          "no": 24,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -1204,11 +1144,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "三角函数的概念与运算",
           "live": "三角函数的概念与运算",
-          "annualNo": 26
+          "annualNo": 24
         },
         {
           "id": "uploaded-live-27",
-          "no": 27,
+          "no": 25,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -1219,11 +1159,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "三角函数的图像与性质（上）",
           "live": "三角函数的图像与性质（上）",
-          "annualNo": 27
+          "annualNo": 25
         },
         {
           "id": "uploaded-live-28",
-          "no": 28,
+          "no": 26,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -1234,26 +1174,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "三角函数的图像与性质（下）",
           "live": "三角函数的图像与性质（下）",
-          "annualNo": 28
+          "annualNo": 26
         },
         {
           "id": "uploaded-live-29",
-          "no": 29,
-          "grade": "高一",
-          "quarter": "寒假",
-          "date": "/",
-          "time": "",
-          "early": "/",
-          "phase1": "",
-          "phase2": "/",
-          "phase3": "/",
-          "title": "【高一】2026年1-6月学习指南·下（数学）",
-          "live": "【高一】2026年1-6月学习指南·下（数学）",
-          "annualNo": 29
-        },
-        {
-          "id": "uploaded-live-30",
-          "no": 30,
+          "no": 27,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -1264,11 +1189,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "平面向量的概念与基本运算",
           "live": "平面向量的概念与基本运算",
-          "annualNo": 30
+          "annualNo": 27
         },
         {
-          "id": "uploaded-live-31",
-          "no": 31,
+          "id": "uploaded-live-30",
+          "no": 28,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -1279,11 +1204,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "向量的数量积",
           "live": "向量的数量积",
-          "annualNo": 31
+          "annualNo": 28
         },
         {
-          "id": "uploaded-live-32",
-          "no": 32,
+          "id": "uploaded-live-31",
+          "no": 29,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -1294,11 +1219,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "正余弦定理及解三角形",
           "live": "正余弦定理及解三角形",
-          "annualNo": 32
+          "annualNo": 29
         },
         {
-          "id": "uploaded-live-33",
-          "no": 33,
+          "id": "uploaded-live-32",
+          "no": 30,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -1309,11 +1234,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "解三角形求值问题",
           "live": "解三角形求值问题",
-          "annualNo": 33
+          "annualNo": 30
         },
         {
-          "id": "uploaded-live-34",
-          "no": 34,
+          "id": "uploaded-live-33",
+          "no": 31,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -1324,11 +1249,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "空间几何体",
           "live": "空间几何体",
-          "annualNo": 34
+          "annualNo": 31
         },
         {
-          "id": "uploaded-live-35",
-          "no": 35,
+          "id": "uploaded-live-34",
+          "no": 32,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -1339,11 +1264,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "点、线、面的位置关系",
           "live": "点、线、面的位置关系",
-          "annualNo": 35
+          "annualNo": 32
         },
         {
-          "id": "uploaded-live-36",
-          "no": 36,
+          "id": "uploaded-live-35",
+          "no": 33,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -1354,11 +1279,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "空间中的平行关系",
           "live": "空间中的平行关系",
-          "annualNo": 36
+          "annualNo": 33
         },
         {
-          "id": "uploaded-live-37",
-          "no": 37,
+          "id": "uploaded-live-36",
+          "no": 34,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -1369,11 +1294,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "空间中的垂直关系——线面垂直",
           "live": "空间中的垂直关系——线面垂直",
-          "annualNo": 37
+          "annualNo": 34
         },
         {
-          "id": "uploaded-live-38",
-          "no": 38,
+          "id": "uploaded-live-37",
+          "no": 35,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -1384,11 +1309,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "空间中的垂直关系——面面垂直",
           "live": "空间中的垂直关系——面面垂直",
-          "annualNo": 38
+          "annualNo": 35
         },
         {
-          "id": "uploaded-live-39",
-          "no": 39,
+          "id": "uploaded-live-38",
+          "no": 36,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -1399,11 +1324,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "综合复习",
           "live": "综合复习",
-          "annualNo": 39
+          "annualNo": 36
         },
         {
-          "id": "uploaded-live-40",
-          "no": 40,
+          "id": "uploaded-live-39",
+          "no": 37,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -1414,11 +1339,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "平面向量的线性运算进阶",
           "live": "平面向量的线性运算进阶",
-          "annualNo": 40
+          "annualNo": 37
         },
         {
-          "id": "uploaded-live-41",
-          "no": 41,
+          "id": "uploaded-live-40",
+          "no": 38,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -1429,11 +1354,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "平面向量的数量积进阶",
           "live": "平面向量的数量积进阶",
-          "annualNo": 41
+          "annualNo": 38
         },
         {
-          "id": "uploaded-live-42",
-          "no": 42,
+          "id": "uploaded-live-41",
+          "no": 39,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -1444,11 +1369,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "平面向量的综合应用",
           "live": "平面向量的综合应用",
-          "annualNo": 42
+          "annualNo": 39
         },
         {
-          "id": "uploaded-live-43",
-          "no": 43,
+          "id": "uploaded-live-42",
+          "no": 40,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -1459,11 +1384,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "正余弦定理的题型归纳(上)",
           "live": "正余弦定理的题型归纳(上)",
-          "annualNo": 43
+          "annualNo": 40
         },
         {
-          "id": "uploaded-live-44",
-          "no": 44,
+          "id": "uploaded-live-43",
+          "no": 41,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -1474,11 +1399,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "正余弦定理的题型归纳(下)",
           "live": "正余弦定理的题型归纳(下)",
-          "annualNo": 44
+          "annualNo": 41
         },
         {
-          "id": "uploaded-live-45",
-          "no": 45,
+          "id": "uploaded-live-44",
+          "no": 42,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -1489,11 +1414,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "解三角形重难点突破",
           "live": "解三角形重难点突破",
-          "annualNo": 45
+          "annualNo": 42
         },
         {
-          "id": "uploaded-live-46",
-          "no": 46,
+          "id": "uploaded-live-45",
+          "no": 43,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -1504,11 +1429,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "期中复习课",
           "live": "期中复习课",
-          "annualNo": 46
+          "annualNo": 43
         },
         {
-          "id": "uploaded-live-47",
-          "no": 47,
+          "id": "uploaded-live-46",
+          "no": 44,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -1519,11 +1444,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "球与空间几何体的计算",
           "live": "球与空间几何体的计算",
-          "annualNo": 47
+          "annualNo": 44
         },
         {
-          "id": "uploaded-live-48",
-          "no": 48,
+          "id": "uploaded-live-47",
+          "no": 45,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -1534,11 +1459,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "与球有关的难点突破",
           "live": "与球有关的难点突破",
-          "annualNo": 48
+          "annualNo": 45
         },
         {
-          "id": "uploaded-live-49",
-          "no": 49,
+          "id": "uploaded-live-48",
+          "no": 46,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -1549,11 +1474,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "空间中的平行与截面问题",
           "live": "空间中的平行与截面问题",
-          "annualNo": 49
+          "annualNo": 46
         },
         {
-          "id": "uploaded-live-50",
-          "no": 50,
+          "id": "uploaded-live-49",
+          "no": 47,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -1564,11 +1489,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "空间中的垂直与探究性问题",
           "live": "空间中的垂直与探究性问题",
-          "annualNo": 50
+          "annualNo": 47
         },
         {
-          "id": "uploaded-live-51",
-          "no": 51,
+          "id": "uploaded-live-50",
+          "no": 48,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -1579,11 +1504,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "立体几何之角度问题1",
           "live": "立体几何之角度问题1",
-          "annualNo": 51
+          "annualNo": 48
         },
         {
-          "id": "uploaded-live-52",
-          "no": 52,
+          "id": "uploaded-live-51",
+          "no": 49,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -1594,11 +1519,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "立体几何之角度问题2",
           "live": "立体几何之角度问题2",
-          "annualNo": 52
+          "annualNo": 49
         },
         {
-          "id": "uploaded-live-53",
-          "no": 53,
+          "id": "uploaded-live-52",
+          "no": 50,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -1609,11 +1534,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "统计",
           "live": "统计",
-          "annualNo": 53
+          "annualNo": 50
         },
         {
-          "id": "uploaded-live-54",
-          "no": 54,
+          "id": "uploaded-live-53",
+          "no": 51,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -1624,28 +1549,28 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "概率",
           "live": "概率",
-          "annualNo": 54
+          "annualNo": 51
+        },
+        {
+          "id": "uploaded-live-54",
+          "no": 52,
+          "grade": "高一",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "6月12日 20:30-22:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "期末复习课",
+          "live": "期末复习课",
+          "annualNo": 52
         }
       ],
       "英语": [
         {
-          "id": "uploaded-live-1",
-          "no": 1,
-          "grade": "高一",
-          "quarter": "暑期",
-          "date": "6月27日",
-          "time": "18:30-19:30",
-          "early": "6月27日 18:30-19:30",
-          "phase1": "同早鸟期",
-          "phase2": "",
-          "phase3": "",
-          "title": "【高一】2026年7-12月学习指南（英语）",
-          "live": "【高一】2026年7-12月学习指南（英语）",
-          "annualNo": 1
-        },
-        {
           "id": "uploaded-live-3",
-          "no": 2,
+          "no": 1,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月1日",
@@ -1656,11 +1581,11 @@ export const annualCourseLibrary = {
           "phase3": "8月6日 18:00-20:00",
           "title": "英语基本功夯实1",
           "live": "英语基本功夯实1",
-          "annualNo": 2
+          "annualNo": 1
         },
         {
           "id": "uploaded-live-4",
-          "no": 3,
+          "no": 2,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月2日",
@@ -1671,11 +1596,11 @@ export const annualCourseLibrary = {
           "phase3": "8月7日 18:00-20:00",
           "title": "英语基本功夯实2",
           "live": "英语基本功夯实2",
-          "annualNo": 3
+          "annualNo": 2
         },
         {
           "id": "uploaded-live-5",
-          "no": 4,
+          "no": 3,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月3日",
@@ -1686,11 +1611,11 @@ export const annualCourseLibrary = {
           "phase3": "8月8日 18:00-20:00",
           "title": "英语基本功夯实3",
           "live": "英语基本功夯实3",
-          "annualNo": 4
+          "annualNo": 3
         },
         {
           "id": "uploaded-live-6",
-          "no": 5,
+          "no": 4,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月4日",
@@ -1701,11 +1626,11 @@ export const annualCourseLibrary = {
           "phase3": "8月9日 18:00-20:00",
           "title": "英语基本功夯实4",
           "live": "英语基本功夯实4",
-          "annualNo": 5
+          "annualNo": 4
         },
         {
           "id": "uploaded-live-7",
-          "no": 6,
+          "no": 5,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月5日",
@@ -1716,11 +1641,11 @@ export const annualCourseLibrary = {
           "phase3": "8月10日 18:00-20:00",
           "title": "断句法读句子：主干+修饰",
           "live": "断句法读句子：主干+修饰",
-          "annualNo": 6
+          "annualNo": 5
         },
         {
           "id": "uploaded-live-8",
-          "no": 7,
+          "no": 6,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月7日",
@@ -1731,11 +1656,11 @@ export const annualCourseLibrary = {
           "phase3": "8月12日 18:00-20:00",
           "title": "断句法读句子：主干+介短",
           "live": "断句法读句子：主干+介短",
-          "annualNo": 7
+          "annualNo": 6
         },
         {
           "id": "uploaded-live-9",
-          "no": 8,
+          "no": 7,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月8日",
@@ -1746,11 +1671,11 @@ export const annualCourseLibrary = {
           "phase3": "8月13日 18:00-20:00",
           "title": "断句法读句子：主干+非谓",
           "live": "断句法读句子：主干+非谓",
-          "annualNo": 8
+          "annualNo": 7
         },
         {
           "id": "uploaded-live-10",
-          "no": 9,
+          "no": 8,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月9日",
@@ -1761,11 +1686,11 @@ export const annualCourseLibrary = {
           "phase3": "8月14日 18:00-20:00",
           "title": "断句法读句子：主干+从句",
           "live": "断句法读句子：主干+从句",
-          "annualNo": 9
+          "annualNo": 8
         },
         {
           "id": "uploaded-live-11",
-          "no": 10,
+          "no": 9,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月10日",
@@ -1776,11 +1701,11 @@ export const annualCourseLibrary = {
           "phase3": "8月15日 18:00-20:00",
           "title": "结构法破解阅读长难句",
           "live": "结构法破解阅读长难句",
-          "annualNo": 10
+          "annualNo": 9
         },
         {
           "id": "uploaded-live-12",
-          "no": 11,
+          "no": 10,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月11日",
@@ -1791,11 +1716,11 @@ export const annualCourseLibrary = {
           "phase3": "8月16日 18:00-20:00",
           "title": "结构法破解完形长难句",
           "live": "结构法破解完形长难句",
-          "annualNo": 11
+          "annualNo": 10
         },
         {
           "id": "uploaded-live-13",
-          "no": 12,
+          "no": 11,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -1806,11 +1731,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "阅读理解：段落主旨（上）",
           "live": "阅读理解：段落主旨（上）",
-          "annualNo": 12
+          "annualNo": 11
         },
         {
           "id": "uploaded-live-14",
-          "no": 13,
+          "no": 12,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -1821,11 +1746,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "阅读理解：段落主旨（下）",
           "live": "阅读理解：段落主旨（下）",
-          "annualNo": 13
+          "annualNo": 12
         },
         {
           "id": "uploaded-live-15",
-          "no": 14,
+          "no": 13,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -1836,11 +1761,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "阅读理解：文章主旨（上）",
           "live": "阅读理解：文章主旨（上）",
-          "annualNo": 14
+          "annualNo": 13
         },
         {
           "id": "uploaded-live-16",
-          "no": 15,
+          "no": 14,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -1851,11 +1776,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "阅读理解：文章主旨（下）",
           "live": "阅读理解：文章主旨（下）",
-          "annualNo": 15
+          "annualNo": 14
         },
         {
           "id": "uploaded-live-17",
-          "no": 16,
+          "no": 15,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -1866,11 +1791,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "阅读理解：细节对应（上）",
           "live": "阅读理解：细节对应（上）",
-          "annualNo": 16
+          "annualNo": 15
         },
         {
           "id": "uploaded-live-18",
-          "no": 17,
+          "no": 16,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -1881,11 +1806,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "阅读理解：细节对应（下）",
           "live": "阅读理解：细节对应（下）",
-          "annualNo": 17
+          "annualNo": 16
         },
         {
           "id": "uploaded-live-19",
-          "no": 18,
+          "no": 17,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -1896,11 +1821,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "应用文规律和解题技巧",
           "live": "应用文规律和解题技巧",
-          "annualNo": 18
+          "annualNo": 17
         },
         {
           "id": "uploaded-live-20",
-          "no": 19,
+          "no": 18,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -1911,11 +1836,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "记叙文规律和解题技巧（上）",
           "live": "记叙文规律和解题技巧（上）",
-          "annualNo": 19
+          "annualNo": 18
         },
         {
           "id": "uploaded-live-21",
-          "no": 20,
+          "no": 19,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -1926,11 +1851,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "记叙文规律和解题技巧（下）",
           "live": "记叙文规律和解题技巧（下）",
-          "annualNo": 20
+          "annualNo": 19
         },
         {
           "id": "uploaded-live-22",
-          "no": 21,
+          "no": 20,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -1941,11 +1866,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "说明文规律和解题技巧（上）",
           "live": "说明文规律和解题技巧（上）",
-          "annualNo": 21
+          "annualNo": 20
         },
         {
           "id": "uploaded-live-23",
-          "no": 22,
+          "no": 21,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -1956,11 +1881,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "说明文规律和解题技巧（中）",
           "live": "说明文规律和解题技巧（中）",
-          "annualNo": 22
+          "annualNo": 21
         },
         {
           "id": "uploaded-live-24",
-          "no": 23,
+          "no": 22,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -1971,11 +1896,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "说明文规律和解题技巧（下）",
           "live": "说明文规律和解题技巧（下）",
-          "annualNo": 23
+          "annualNo": 22
         },
         {
           "id": "uploaded-live-25",
-          "no": 24,
+          "no": 23,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -1986,11 +1911,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "套路写作文：申请信",
           "live": "套路写作文：申请信",
-          "annualNo": 24
+          "annualNo": 23
         },
         {
           "id": "uploaded-live-26",
-          "no": 25,
+          "no": 24,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -2001,11 +1926,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "套路写作文：建议信",
           "live": "套路写作文：建议信",
-          "annualNo": 25
+          "annualNo": 24
         },
         {
           "id": "uploaded-live-27",
-          "no": 26,
+          "no": 25,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -2016,11 +1941,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "套路写作文：感谢信",
           "live": "套路写作文：感谢信",
-          "annualNo": 26
+          "annualNo": 25
         },
         {
           "id": "uploaded-live-28",
-          "no": 27,
+          "no": 26,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -2031,26 +1956,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "套路写作文：道歉信",
           "live": "套路写作文：道歉信",
-          "annualNo": 27
+          "annualNo": 26
         },
         {
           "id": "uploaded-live-29",
-          "no": 28,
-          "grade": "高一",
-          "quarter": "寒假",
-          "date": "/",
-          "time": "",
-          "early": "/",
-          "phase1": "",
-          "phase2": "/",
-          "phase3": "/",
-          "title": "【高一】2027年1-6月学习指南（英语）",
-          "live": "【高一】2027年1-6月学习指南（英语）",
-          "annualNo": 28
-        },
-        {
-          "id": "uploaded-live-30",
-          "no": 29,
+          "no": 27,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -2061,11 +1971,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【语法入门】动词的用法：谓语全梳理",
           "live": "【语法入门】动词的用法：谓语全梳理",
-          "annualNo": 29
+          "annualNo": 27
         },
         {
-          "id": "uploaded-live-31",
-          "no": 30,
+          "id": "uploaded-live-30",
+          "no": 28,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -2076,11 +1986,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【语法入门】动词的考法：谓语外刊练",
           "live": "【语法入门】动词的考法：谓语外刊练",
-          "annualNo": 30
+          "annualNo": 28
         },
         {
-          "id": "uploaded-live-32",
-          "no": 31,
+          "id": "uploaded-live-31",
+          "no": 29,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -2091,11 +2001,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【语法高分】动词的用法：非谓语全梳理",
           "live": "【语法高分】动词的用法：非谓语全梳理",
-          "annualNo": 31
+          "annualNo": 29
         },
         {
-          "id": "uploaded-live-33",
-          "no": 32,
+          "id": "uploaded-live-32",
+          "no": 30,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -2106,11 +2016,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【语法高分】动词的用法：非谓语外刊练",
           "live": "【语法高分】动词的用法：非谓语外刊练",
-          "annualNo": 32
+          "annualNo": 30
         },
         {
-          "id": "uploaded-live-34",
-          "no": 33,
+          "id": "uploaded-live-33",
+          "no": 31,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -2121,11 +2031,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【完形入门】高频话题温情类",
           "live": "【完形入门】高频话题温情类",
-          "annualNo": 33
+          "annualNo": 31
         },
         {
-          "id": "uploaded-live-35",
-          "no": 34,
+          "id": "uploaded-live-34",
+          "no": 32,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -2136,11 +2046,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【完形入门】高频话题友情类",
           "live": "【完形入门】高频话题友情类",
-          "annualNo": 34
+          "annualNo": 32
         },
         {
-          "id": "uploaded-live-36",
-          "no": 35,
+          "id": "uploaded-live-35",
+          "no": 33,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -2151,11 +2061,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【完形入门】高频话题亲情类",
           "live": "【完形入门】高频话题亲情类",
-          "annualNo": 35
+          "annualNo": 33
         },
         {
-          "id": "uploaded-live-37",
-          "no": 36,
+          "id": "uploaded-live-36",
+          "no": 34,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -2166,11 +2076,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【七选五入门】 七选五命题特征",
           "live": "【七选五入门】 七选五命题特征",
-          "annualNo": 36
+          "annualNo": 34
         },
         {
-          "id": "uploaded-live-38",
-          "no": 37,
+          "id": "uploaded-live-37",
+          "no": 35,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -2181,11 +2091,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【七选五入门】 七选五解题技巧",
           "live": "【七选五入门】 七选五解题技巧",
-          "annualNo": 37
+          "annualNo": 35
         },
         {
-          "id": "uploaded-live-39",
-          "no": 38,
+          "id": "uploaded-live-38",
+          "no": 36,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -2196,11 +2106,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【写作入门】读后续写初探",
           "live": "【写作入门】读后续写初探",
-          "annualNo": 38
+          "annualNo": 36
         },
         {
-          "id": "uploaded-live-40",
-          "no": 39,
+          "id": "uploaded-live-39",
+          "no": 37,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -2211,11 +2121,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【语法高分】语法填空综合训练：实词",
           "live": "【语法高分】语法填空综合训练：实词",
-          "annualNo": 39
+          "annualNo": 37
         },
         {
-          "id": "uploaded-live-41",
-          "no": 40,
+          "id": "uploaded-live-40",
+          "no": 38,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -2226,11 +2136,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【语法高分】语法填空综合训练：虚词",
           "live": "【语法高分】语法填空综合训练：虚词",
-          "annualNo": 40
+          "annualNo": 38
         },
         {
-          "id": "uploaded-live-42",
-          "no": 41,
+          "id": "uploaded-live-41",
+          "no": 39,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -2241,11 +2151,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【降维打击】语法填空外刊特训1",
           "live": "【降维打击】语法填空外刊特训1",
-          "annualNo": 41
+          "annualNo": 39
         },
         {
-          "id": "uploaded-live-43",
-          "no": 42,
+          "id": "uploaded-live-42",
+          "no": 40,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -2256,11 +2166,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【降维打击】语法填空外刊特训2",
           "live": "【降维打击】语法填空外刊特训2",
-          "annualNo": 42
+          "annualNo": 40
         },
         {
-          "id": "uploaded-live-44",
-          "no": 43,
+          "id": "uploaded-live-43",
+          "no": 41,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -2271,11 +2181,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【完形强化】完形综合训练二星难度",
           "live": "【完形强化】完形综合训练二星难度",
-          "annualNo": 43
+          "annualNo": 41
         },
         {
-          "id": "uploaded-live-45",
-          "no": 44,
+          "id": "uploaded-live-44",
+          "no": 42,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -2286,11 +2196,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【完形强化】完形综合训练三星难度",
           "live": "【完形强化】完形综合训练三星难度",
-          "annualNo": 44
+          "annualNo": 42
         },
         {
-          "id": "uploaded-live-46",
-          "no": 45,
+          "id": "uploaded-live-45",
+          "no": 43,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -2301,11 +2211,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【完形强化】完形综合训练四星难度",
           "live": "【完形强化】完形综合训练四星难度",
-          "annualNo": 45
+          "annualNo": 43
         },
         {
-          "id": "uploaded-live-47",
-          "no": 46,
+          "id": "uploaded-live-46",
+          "no": 44,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -2316,11 +2226,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【完形抢分】完形综合训练考场模拟",
           "live": "【完形抢分】完形综合训练考场模拟",
-          "annualNo": 46
+          "annualNo": 44
         },
         {
-          "id": "uploaded-live-48",
-          "no": 47,
+          "id": "uploaded-live-47",
+          "no": 45,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -2331,11 +2241,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【阅读高分】阅读B篇训练",
           "live": "【阅读高分】阅读B篇训练",
-          "annualNo": 47
+          "annualNo": 45
         },
         {
-          "id": "uploaded-live-49",
-          "no": 48,
+          "id": "uploaded-live-48",
+          "no": 46,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -2346,11 +2256,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【阅读高分】阅读C篇训练",
           "live": "【阅读高分】阅读C篇训练",
-          "annualNo": 48
+          "annualNo": 46
         },
         {
-          "id": "uploaded-live-50",
-          "no": 49,
+          "id": "uploaded-live-49",
+          "no": 47,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -2361,11 +2271,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【阅读抢分】阅读综合训练考场模拟上",
           "live": "【阅读抢分】阅读综合训练考场模拟上",
-          "annualNo": 49
+          "annualNo": 47
         },
         {
-          "id": "uploaded-live-51",
-          "no": 50,
+          "id": "uploaded-live-50",
+          "no": 48,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -2376,11 +2286,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【阅读抢分】阅读综合训练考场模拟下",
           "live": "【阅读抢分】阅读综合训练考场模拟下",
-          "annualNo": 50
+          "annualNo": 48
         },
         {
-          "id": "uploaded-live-52",
-          "no": 51,
+          "id": "uploaded-live-51",
+          "no": 49,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -2391,11 +2301,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【写作入门】应用文高分攻略：德育智育",
           "live": "【写作入门】应用文高分攻略：德育智育",
-          "annualNo": 51
+          "annualNo": 49
         },
         {
-          "id": "uploaded-live-53",
-          "no": 52,
+          "id": "uploaded-live-52",
+          "no": 50,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -2406,11 +2316,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【写作入门】应用文高分攻略：科技热点",
           "live": "【写作入门】应用文高分攻略：科技热点",
-          "annualNo": 52
+          "annualNo": 50
         },
         {
-          "id": "uploaded-live-54",
-          "no": 53,
+          "id": "uploaded-live-53",
+          "no": 51,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -2421,11 +2331,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【写作入门】应用文高分攻略：传统文化",
           "live": "【写作入门】应用文高分攻略：传统文化",
-          "annualNo": 53
+          "annualNo": 51
         },
         {
-          "id": "uploaded-live-55",
-          "no": 54,
+          "id": "uploaded-live-54",
+          "no": 52,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -2436,43 +2346,13 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【写作入门】读后续写句型升级",
           "live": "【写作入门】读后续写句型升级",
-          "annualNo": 54
+          "annualNo": 52
         }
       ],
       "物理": [
         {
-          "id": "uploaded-live-1",
-          "no": 1,
-          "grade": "高一",
-          "quarter": "暑期",
-          "date": "6月27日",
-          "time": "11:00-12:00",
-          "early": "6月27日 11:00-12:00",
-          "phase1": "6月27日 11:00-12:00",
-          "phase2": "6月27日 11:00-12:00",
-          "phase3": "6月27日 11:00-12:00",
-          "title": "【新高一】2026年7-12月物理学习指南",
-          "live": "【新高一】2026年7-12月物理学习指南",
-          "annualNo": 1
-        },
-        {
-          "id": "uploaded-live-2",
-          "no": 2,
-          "grade": "高一",
-          "quarter": "暑期",
-          "date": "7月24日",
-          "time": "11:00-12:00",
-          "early": "7月24日 11:00-12:00",
-          "phase1": "7月24日 11:00-12:00",
-          "phase2": "7月24日 11:00-12:00",
-          "phase3": "7月24日 11:00-12:00",
-          "title": "【新高一】2026年7-12月物理学习指南",
-          "live": "【新高一】2026年7-12月物理学习指南",
-          "annualNo": 2
-        },
-        {
           "id": "uploaded-live-3",
-          "no": 3,
+          "no": 1,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月1日",
@@ -2483,11 +2363,11 @@ export const annualCourseLibrary = {
           "phase3": "8月6日 10:30-12:30",
           "title": "运动的描述",
           "live": "运动的描述",
-          "annualNo": 3
+          "annualNo": 1
         },
         {
           "id": "uploaded-live-4",
-          "no": 4,
+          "no": 2,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月2日",
@@ -2498,11 +2378,11 @@ export const annualCourseLibrary = {
           "phase3": "8月7日 10:30-12:30",
           "title": "加速度与运动学图像",
           "live": "加速度与运动学图像",
-          "annualNo": 4
+          "annualNo": 2
         },
         {
           "id": "uploaded-live-5",
-          "no": 5,
+          "no": 3,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月3日",
@@ -2513,11 +2393,11 @@ export const annualCourseLibrary = {
           "phase3": "8月8日 10:30-12:30",
           "title": "匀变速直线运动基本公式",
           "live": "匀变速直线运动基本公式",
-          "annualNo": 5
+          "annualNo": 3
         },
         {
           "id": "uploaded-live-6",
-          "no": 6,
+          "no": 4,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月4日",
@@ -2528,11 +2408,11 @@ export const annualCourseLibrary = {
           "phase3": "8月9日 10:30-12:30",
           "title": "自由落体运动基础",
           "live": "自由落体运动基础",
-          "annualNo": 6
+          "annualNo": 4
         },
         {
           "id": "uploaded-live-7",
-          "no": 7,
+          "no": 5,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月5日",
@@ -2543,11 +2423,11 @@ export const annualCourseLibrary = {
           "phase3": "8月10日 10:30-12:30",
           "title": "重力与弹力",
           "live": "重力与弹力",
-          "annualNo": 7
+          "annualNo": 5
         },
         {
           "id": "uploaded-live-8",
-          "no": 8,
+          "no": 6,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月7日",
@@ -2558,11 +2438,11 @@ export const annualCourseLibrary = {
           "phase3": "8月12日 10:30-12:30",
           "title": "摩擦力",
           "live": "摩擦力",
-          "annualNo": 8
+          "annualNo": 6
         },
         {
           "id": "uploaded-live-9",
-          "no": 9,
+          "no": 7,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月8日",
@@ -2573,11 +2453,11 @@ export const annualCourseLibrary = {
           "phase3": "8月13日 10:30-12:30",
           "title": "力的合成",
           "live": "力的合成",
-          "annualNo": 9
+          "annualNo": 7
         },
         {
           "id": "uploaded-live-10",
-          "no": 10,
+          "no": 8,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月9日",
@@ -2588,11 +2468,11 @@ export const annualCourseLibrary = {
           "phase3": "8月14日 10:30-12:30",
           "title": "力的分解",
           "live": "力的分解",
-          "annualNo": 10
+          "annualNo": 8
         },
         {
           "id": "uploaded-live-11",
-          "no": 11,
+          "no": 9,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月10日",
@@ -2603,11 +2483,11 @@ export const annualCourseLibrary = {
           "phase3": "8月15日 10:30-12:30",
           "title": "牛顿运动定律",
           "live": "牛顿运动定律",
-          "annualNo": 11
+          "annualNo": 9
         },
         {
           "id": "uploaded-live-12",
-          "no": 12,
+          "no": 10,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月11日",
@@ -2618,11 +2498,11 @@ export const annualCourseLibrary = {
           "phase3": "8月16日 10:30-12:30",
           "title": "牛顿运动定律的应用",
           "live": "牛顿运动定律的应用",
-          "annualNo": 12
+          "annualNo": 10
         },
         {
           "id": "uploaded-live-13",
-          "no": 13,
+          "no": 11,
           "grade": "高一",
           "quarter": "秋季",
           "date": "8月30日",
@@ -2633,11 +2513,11 @@ export const annualCourseLibrary = {
           "phase3": "8月30日 10:30-12:30",
           "title": "运动学概念梳理",
           "live": "运动学概念梳理",
-          "annualNo": 13
+          "annualNo": 11
         },
         {
           "id": "uploaded-live-14",
-          "no": 14,
+          "no": 12,
           "grade": "高一",
           "quarter": "秋季",
           "date": "9月6日",
@@ -2648,11 +2528,11 @@ export const annualCourseLibrary = {
           "phase3": "9月6日 10:30-12:30",
           "title": "运动学基本公式",
           "live": "运动学基本公式",
-          "annualNo": 14
+          "annualNo": 12
         },
         {
           "id": "uploaded-live-15",
-          "no": 15,
+          "no": 13,
           "grade": "高一",
           "quarter": "秋季",
           "date": "9月13日",
@@ -2663,11 +2543,11 @@ export const annualCourseLibrary = {
           "phase3": "9月13日 10:30-12:30",
           "title": "运动学图像",
           "live": "运动学图像",
-          "annualNo": 15
+          "annualNo": 13
         },
         {
           "id": "uploaded-live-16",
-          "no": 16,
+          "no": 14,
           "grade": "高一",
           "quarter": "秋季",
           "date": "9月26日",
@@ -2678,11 +2558,11 @@ export const annualCourseLibrary = {
           "phase3": "9月26日 10:30-12:30",
           "title": "自由落体与竖直上抛",
           "live": "自由落体与竖直上抛",
-          "annualNo": 16
+          "annualNo": 14
         },
         {
           "id": "uploaded-live-17",
-          "no": 17,
+          "no": 15,
           "grade": "高一",
           "quarter": "秋季",
           "date": "10月2日",
@@ -2693,11 +2573,11 @@ export const annualCourseLibrary = {
           "phase3": "10月2日 10:30-12:30",
           "title": "运动学综合",
           "live": "运动学综合",
-          "annualNo": 17
+          "annualNo": 15
         },
         {
           "id": "uploaded-live-18",
-          "no": 18,
+          "no": 16,
           "grade": "高一",
           "quarter": "秋季",
           "date": "10月4日",
@@ -2708,11 +2588,11 @@ export const annualCourseLibrary = {
           "phase3": "10月4日 10:30-12:30",
           "title": "追及相遇问题",
           "live": "追及相遇问题",
-          "annualNo": 18
+          "annualNo": 16
         },
         {
           "id": "uploaded-live-19",
-          "no": 19,
+          "no": 17,
           "grade": "高一",
           "quarter": "秋季",
           "date": "10月18日",
@@ -2723,11 +2603,11 @@ export const annualCourseLibrary = {
           "phase3": "10月18日 10:30-12:30",
           "title": "弹力和摩擦力",
           "live": "弹力和摩擦力",
-          "annualNo": 19
+          "annualNo": 17
         },
         {
           "id": "uploaded-live-20",
-          "no": 20,
+          "no": 18,
           "grade": "高一",
           "quarter": "秋季",
           "date": "10月25日",
@@ -2738,11 +2618,11 @@ export const annualCourseLibrary = {
           "phase3": "10月25日 10:30-12:30",
           "title": "力的合成与分解",
           "live": "力的合成与分解",
-          "annualNo": 20
+          "annualNo": 18
         },
         {
           "id": "uploaded-live-21",
-          "no": 21,
+          "no": 19,
           "grade": "高一",
           "quarter": "秋季",
           "date": "11月1日",
@@ -2753,11 +2633,11 @@ export const annualCourseLibrary = {
           "phase3": "11月1日 10:30-12:30",
           "title": "共点力平衡与整体隔离",
           "live": "共点力平衡与整体隔离",
-          "annualNo": 21
+          "annualNo": 19
         },
         {
           "id": "uploaded-live-22",
-          "no": 22,
+          "no": 20,
           "grade": "高一",
           "quarter": "秋季",
           "date": "11月8日",
@@ -2768,11 +2648,11 @@ export const annualCourseLibrary = {
           "phase3": "11月8日 10:30-12:30",
           "title": "动态平衡问题（1）",
           "live": "动态平衡问题（1）",
-          "annualNo": 22
+          "annualNo": 20
         },
         {
           "id": "uploaded-live-23",
-          "no": 23,
+          "no": 21,
           "grade": "高一",
           "quarter": "秋季",
           "date": "11月15日",
@@ -2783,11 +2663,11 @@ export const annualCourseLibrary = {
           "phase3": "11月15日 10:30-12:30",
           "title": "动态平衡问题（2）",
           "live": "动态平衡问题（2）",
-          "annualNo": 23
+          "annualNo": 21
         },
         {
           "id": "uploaded-live-24",
-          "no": 24,
+          "no": 22,
           "grade": "高一",
           "quarter": "秋季",
           "date": "11月22日",
@@ -2798,11 +2678,11 @@ export const annualCourseLibrary = {
           "phase3": "11月22日 10:30-12:30",
           "title": "牛顿定律及其基本应用",
           "live": "牛顿定律及其基本应用",
-          "annualNo": 24
+          "annualNo": 22
         },
         {
           "id": "uploaded-live-25",
-          "no": 25,
+          "no": 23,
           "grade": "高一",
           "quarter": "秋季",
           "date": "11月29日",
@@ -2813,11 +2693,11 @@ export const annualCourseLibrary = {
           "phase3": "11月29日 10:30-12:30",
           "title": "单物体动力学模型",
           "live": "单物体动力学模型",
-          "annualNo": 25
+          "annualNo": 23
         },
         {
           "id": "uploaded-live-26",
-          "no": 26,
+          "no": 24,
           "grade": "高一",
           "quarter": "秋季",
           "date": "12月6日",
@@ -2828,11 +2708,11 @@ export const annualCourseLibrary = {
           "phase3": "12月6日 10:30-12:30",
           "title": "多物体动力学模型",
           "live": "多物体动力学模型",
-          "annualNo": 26
+          "annualNo": 24
         },
         {
           "id": "uploaded-live-27",
-          "no": 27,
+          "no": 25,
           "grade": "高一",
           "quarter": "秋季",
           "date": "12月13日",
@@ -2843,11 +2723,11 @@ export const annualCourseLibrary = {
           "phase3": "12月13日 10:30-12:30",
           "title": "牛顿定律的突变和临界问题",
           "live": "牛顿定律的突变和临界问题",
-          "annualNo": 27
+          "annualNo": 25
         },
         {
           "id": "uploaded-live-28",
-          "no": 28,
+          "no": 26,
           "grade": "高一",
           "quarter": "秋季",
           "date": "12月20日",
@@ -2858,11 +2738,11 @@ export const annualCourseLibrary = {
           "phase3": "12月20日 10:30-12:30",
           "title": "传送带模型",
           "live": "传送带模型",
-          "annualNo": 28
+          "annualNo": 26
         },
         {
-          "id": "uploaded-live-30",
-          "no": 29,
+          "id": "uploaded-live-29",
+          "no": 27,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -2873,11 +2753,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "圆周运动",
           "live": "圆周运动",
-          "annualNo": 29
+          "annualNo": 27
         },
         {
-          "id": "uploaded-live-31",
-          "no": 30,
+          "id": "uploaded-live-30",
+          "no": 28,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -2888,11 +2768,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "圆周运动的规律",
           "live": "圆周运动的规律",
-          "annualNo": 30
+          "annualNo": 28
         },
         {
-          "id": "uploaded-live-32",
-          "no": 31,
+          "id": "uploaded-live-31",
+          "no": 29,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -2903,11 +2783,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "万有引力定律",
           "live": "万有引力定律",
-          "annualNo": 31
+          "annualNo": 29
         },
         {
-          "id": "uploaded-live-33",
-          "no": 32,
+          "id": "uploaded-live-32",
+          "no": 30,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -2918,11 +2798,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "万有引力定律的应用1",
           "live": "万有引力定律的应用1",
-          "annualNo": 32
+          "annualNo": 30
         },
         {
-          "id": "uploaded-live-34",
-          "no": 33,
+          "id": "uploaded-live-33",
+          "no": 31,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -2933,11 +2813,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "万有引力定律的应用2",
           "live": "万有引力定律的应用2",
-          "annualNo": 33
+          "annualNo": 31
         },
         {
-          "id": "uploaded-live-35",
-          "no": 34,
+          "id": "uploaded-live-34",
+          "no": 32,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -2948,11 +2828,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "功和功率",
           "live": "功和功率",
-          "annualNo": 34
+          "annualNo": 32
         },
         {
-          "id": "uploaded-live-36",
-          "no": 35,
+          "id": "uploaded-live-35",
+          "no": 33,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -2963,11 +2843,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "动能定理",
           "live": "动能定理",
-          "annualNo": 35
+          "annualNo": 33
         },
         {
-          "id": "uploaded-live-37",
-          "no": 36,
+          "id": "uploaded-live-36",
+          "no": 34,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -2978,11 +2858,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "机械能守恒定律",
           "live": "机械能守恒定律",
-          "annualNo": 36
+          "annualNo": 34
         },
         {
-          "id": "uploaded-live-38",
-          "no": 37,
+          "id": "uploaded-live-37",
+          "no": 35,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -2993,11 +2873,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "动量定理",
           "live": "动量定理",
-          "annualNo": 37
+          "annualNo": 35
         },
         {
-          "id": "uploaded-live-39",
-          "no": 38,
+          "id": "uploaded-live-38",
+          "no": 36,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -3008,11 +2888,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "动量守恒定律",
           "live": "动量守恒定律",
-          "annualNo": 38
+          "annualNo": 36
         },
         {
-          "id": "uploaded-live-40",
-          "no": 39,
+          "id": "uploaded-live-39",
+          "no": 37,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -3023,11 +2903,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "平抛运动典型问题1",
           "live": "平抛运动典型问题1",
-          "annualNo": 39
+          "annualNo": 37
         },
         {
-          "id": "uploaded-live-41",
-          "no": 40,
+          "id": "uploaded-live-40",
+          "no": 38,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -3038,11 +2918,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "平抛运动典型问题2",
           "live": "平抛运动典型问题2",
-          "annualNo": 40
+          "annualNo": 38
         },
         {
-          "id": "uploaded-live-42",
-          "no": 41,
+          "id": "uploaded-live-41",
+          "no": 39,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -3053,11 +2933,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "圆周运动典型问题1",
           "live": "圆周运动典型问题1",
-          "annualNo": 41
+          "annualNo": 39
         },
         {
-          "id": "uploaded-live-43",
-          "no": 42,
+          "id": "uploaded-live-42",
+          "no": 40,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -3068,11 +2948,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "圆周运动典型问题2",
           "live": "圆周运动典型问题2",
-          "annualNo": 42
+          "annualNo": 40
         },
         {
-          "id": "uploaded-live-44",
-          "no": 43,
+          "id": "uploaded-live-43",
+          "no": 41,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -3083,11 +2963,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "曲线运动进阶问题",
           "live": "曲线运动进阶问题",
-          "annualNo": 43
+          "annualNo": 41
         },
         {
-          "id": "uploaded-live-45",
-          "no": 44,
+          "id": "uploaded-live-44",
+          "no": 42,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -3098,11 +2978,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "天体运动典型问题1",
           "live": "天体运动典型问题1",
-          "annualNo": 44
+          "annualNo": 42
         },
         {
-          "id": "uploaded-live-46",
-          "no": 45,
+          "id": "uploaded-live-45",
+          "no": 43,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -3113,11 +2993,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "天体运动典型问题2",
           "live": "天体运动典型问题2",
-          "annualNo": 45
+          "annualNo": 43
         },
         {
-          "id": "uploaded-live-47",
-          "no": 46,
+          "id": "uploaded-live-46",
+          "no": 44,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -3128,11 +3008,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "天体运动进阶问题",
           "live": "天体运动进阶问题",
-          "annualNo": 46
+          "annualNo": 44
         },
         {
-          "id": "uploaded-live-48",
-          "no": 47,
+          "id": "uploaded-live-47",
+          "no": 45,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -3143,11 +3023,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "功和功率典型问题",
           "live": "功和功率典型问题",
-          "annualNo": 47
+          "annualNo": 45
         },
         {
-          "id": "uploaded-live-49",
-          "no": 48,
+          "id": "uploaded-live-48",
+          "no": 46,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -3158,11 +3038,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "动能定理典型问题",
           "live": "动能定理典型问题",
-          "annualNo": 48
+          "annualNo": 46
         },
         {
-          "id": "uploaded-live-50",
-          "no": 49,
+          "id": "uploaded-live-49",
+          "no": 47,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -3173,11 +3053,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "机械能守恒定律典型问题",
           "live": "机械能守恒定律典型问题",
-          "annualNo": 49
+          "annualNo": 47
         },
         {
-          "id": "uploaded-live-51",
-          "no": 50,
+          "id": "uploaded-live-50",
+          "no": 48,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -3188,11 +3068,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "能量守恒定律典型问题1",
           "live": "能量守恒定律典型问题1",
-          "annualNo": 50
+          "annualNo": 48
         },
         {
-          "id": "uploaded-live-52",
-          "no": 51,
+          "id": "uploaded-live-51",
+          "no": 49,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -3203,11 +3083,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "能量守恒定律典型问题2",
           "live": "能量守恒定律典型问题2",
-          "annualNo": 51
+          "annualNo": 49
         },
         {
-          "id": "uploaded-live-53",
-          "no": 52,
+          "id": "uploaded-live-52",
+          "no": 50,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -3218,11 +3098,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "功能关系综合问题1",
           "live": "功能关系综合问题1",
-          "annualNo": 52
+          "annualNo": 50
         },
         {
-          "id": "uploaded-live-54",
-          "no": 53,
+          "id": "uploaded-live-53",
+          "no": 51,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -3233,11 +3113,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "功能关系综合问题2",
           "live": "功能关系综合问题2",
-          "annualNo": 53
+          "annualNo": 51
         },
         {
-          "id": "uploaded-live-55",
-          "no": 54,
+          "id": "uploaded-live-54",
+          "no": 52,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -3248,43 +3128,13 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "必修2实验综合梳理",
           "live": "必修2实验综合梳理",
-          "annualNo": 54
+          "annualNo": 52
         }
       ],
       "化学": [
         {
-          "id": "uploaded-live-1",
-          "no": 1,
-          "grade": "高一",
-          "quarter": "暑期",
-          "date": "6月27日",
-          "time": "08:00-09:00",
-          "early": "6月27日 08:00-09:00",
-          "phase1": "6月27日 08:00-09:00",
-          "phase2": "6月27日 08:00-09:00",
-          "phase3": "6月27日 08:00-09:00",
-          "title": "【新高一】2026年7-12月化学学习指南",
-          "live": "【新高一】2026年7-12月化学学习指南",
-          "annualNo": 1
-        },
-        {
-          "id": "uploaded-live-2",
-          "no": 2,
-          "grade": "高一",
-          "quarter": "暑期",
-          "date": "7月24日",
-          "time": "08:00-09:00",
-          "early": "7月24日 08:00-09:00",
-          "phase1": "7月24日 08:00-09:00",
-          "phase2": "7月24日 08:00-09:00",
-          "phase3": "7月24日 08:00-09:00",
-          "title": "【新高一】2026年7-12月化学学习指南",
-          "live": "【新高一】2026年7-12月化学学习指南",
-          "annualNo": 2
-        },
-        {
           "id": "uploaded-live-3",
-          "no": 3,
+          "no": 1,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月1日",
@@ -3295,11 +3145,11 @@ export const annualCourseLibrary = {
           "phase3": "8月6日 20:30-22:30",
           "title": "物质的分类",
           "live": "物质的分类",
-          "annualNo": 3
+          "annualNo": 1
         },
         {
           "id": "uploaded-live-4",
-          "no": 4,
+          "no": 2,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月2日",
@@ -3310,11 +3160,11 @@ export const annualCourseLibrary = {
           "phase3": "8月7日 20:30-22:30",
           "title": "离子反应初步",
           "live": "离子反应初步",
-          "annualNo": 4
+          "annualNo": 2
         },
         {
           "id": "uploaded-live-5",
-          "no": 5,
+          "no": 3,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月3日",
@@ -3325,11 +3175,11 @@ export const annualCourseLibrary = {
           "phase3": "8月8日 20:30-22:30",
           "title": "离子反应的应用",
           "live": "离子反应的应用",
-          "annualNo": 5
+          "annualNo": 3
         },
         {
           "id": "uploaded-live-6",
-          "no": 6,
+          "no": 4,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月4日",
@@ -3340,11 +3190,11 @@ export const annualCourseLibrary = {
           "phase3": "8月9日 20:30-22:30",
           "title": "氧化还原反应初步",
           "live": "氧化还原反应初步",
-          "annualNo": 6
+          "annualNo": 4
         },
         {
           "id": "uploaded-live-7",
-          "no": 7,
+          "no": 5,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月5日",
@@ -3355,11 +3205,11 @@ export const annualCourseLibrary = {
           "phase3": "8月10日 20:30-22:30",
           "title": "氧化还原方程式书写",
           "live": "氧化还原方程式书写",
-          "annualNo": 7
+          "annualNo": 5
         },
         {
           "id": "uploaded-live-8",
-          "no": 8,
+          "no": 6,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月7日",
@@ -3370,11 +3220,11 @@ export const annualCourseLibrary = {
           "phase3": "8月12日 20:30-22:30",
           "title": "钠及其化合物初步",
           "live": "钠及其化合物初步",
-          "annualNo": 8
+          "annualNo": 6
         },
         {
           "id": "uploaded-live-9",
-          "no": 9,
+          "no": 7,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月8日",
@@ -3385,11 +3235,11 @@ export const annualCourseLibrary = {
           "phase3": "8月13日 20:30-22:30",
           "title": "氯及其化合物初步",
           "live": "氯及其化合物初步",
-          "annualNo": 9
+          "annualNo": 7
         },
         {
           "id": "uploaded-live-10",
-          "no": 10,
+          "no": 8,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月9日",
@@ -3400,11 +3250,11 @@ export const annualCourseLibrary = {
           "phase3": "8月14日 20:30-22:30",
           "title": "物质的量与阿伏加德罗常数",
           "live": "物质的量与阿伏加德罗常数",
-          "annualNo": 10
+          "annualNo": 8
         },
         {
           "id": "uploaded-live-11",
-          "no": 11,
+          "no": 9,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月10日",
@@ -3415,11 +3265,11 @@ export const annualCourseLibrary = {
           "phase3": "8月15日 20:30-22:30",
           "title": "摩尔质量与气体摩尔体积",
           "live": "摩尔质量与气体摩尔体积",
-          "annualNo": 11
+          "annualNo": 9
         },
         {
           "id": "uploaded-live-12",
-          "no": 12,
+          "no": 10,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月11日",
@@ -3430,11 +3280,11 @@ export const annualCourseLibrary = {
           "phase3": "8月16日 20:30-22:30",
           "title": "开学考专题",
           "live": "开学考专题",
-          "annualNo": 12
+          "annualNo": 10
         },
         {
           "id": "uploaded-live-13",
-          "no": 13,
+          "no": 11,
           "grade": "高一",
           "quarter": "秋季",
           "date": "同1期",
@@ -3445,11 +3295,11 @@ export const annualCourseLibrary = {
           "phase3": "同1期",
           "title": "物质的分类与电解质",
           "live": "物质的分类与电解质",
-          "annualNo": 13
+          "annualNo": 11
         },
         {
           "id": "uploaded-live-14",
-          "no": 14,
+          "no": 12,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -3460,11 +3310,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "离子方程式常见错误与离子共存",
           "live": "离子方程式常见错误与离子共存",
-          "annualNo": 14
+          "annualNo": 12
         },
         {
           "id": "uploaded-live-15",
-          "no": 15,
+          "no": 13,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -3475,11 +3325,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "氧化还原反应的概念辨析",
           "live": "氧化还原反应的概念辨析",
-          "annualNo": 15
+          "annualNo": 13
         },
         {
           "id": "uploaded-live-16",
-          "no": 16,
+          "no": 14,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -3490,11 +3340,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "氧化还原反应规律与配平计算",
           "live": "氧化还原反应规律与配平计算",
-          "annualNo": 16
+          "annualNo": 14
         },
         {
           "id": "uploaded-live-17",
-          "no": 17,
+          "no": 15,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -3505,11 +3355,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "钠及其化合物",
           "live": "钠及其化合物",
-          "annualNo": 17
+          "annualNo": 15
         },
         {
           "id": "uploaded-live-18",
-          "no": 18,
+          "no": 16,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -3520,11 +3370,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "氯及其化合物",
           "live": "氯及其化合物",
-          "annualNo": 18
+          "annualNo": 16
         },
         {
           "id": "uploaded-live-19",
-          "no": 19,
+          "no": 17,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -3535,11 +3385,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "物质的量与摩尔质量",
           "live": "物质的量与摩尔质量",
-          "annualNo": 19
+          "annualNo": 17
         },
         {
           "id": "uploaded-live-20",
-          "no": 20,
+          "no": 18,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -3550,11 +3400,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "阿伏加德罗定律应用",
           "live": "阿伏加德罗定律应用",
-          "annualNo": 20
+          "annualNo": 18
         },
         {
           "id": "uploaded-live-21",
-          "no": 21,
+          "no": 19,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -3565,11 +3415,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "物质的量浓度计算",
           "live": "物质的量浓度计算",
-          "annualNo": 21
+          "annualNo": 19
         },
         {
           "id": "uploaded-live-22",
-          "no": 22,
+          "no": 20,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -3580,11 +3430,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "溶液配制实验",
           "live": "溶液配制实验",
-          "annualNo": 22
+          "annualNo": 20
         },
         {
           "id": "uploaded-live-23",
-          "no": 23,
+          "no": 21,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -3595,11 +3445,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "铁及其化合物",
           "live": "铁及其化合物",
-          "annualNo": 23
+          "annualNo": 21
         },
         {
           "id": "uploaded-live-24",
-          "no": 24,
+          "no": 22,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -3610,11 +3460,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "铝及其化合物",
           "live": "铝及其化合物",
-          "annualNo": 24
+          "annualNo": 22
         },
         {
           "id": "uploaded-live-25",
-          "no": 25,
+          "no": 23,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -3625,11 +3475,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "元素化合物性质与计算综合",
           "live": "元素化合物性质与计算综合",
-          "annualNo": 25
+          "annualNo": 23
         },
         {
           "id": "uploaded-live-26",
-          "no": 26,
+          "no": 24,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -3640,11 +3490,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "原子结构与周期表",
           "live": "原子结构与周期表",
-          "annualNo": 26
+          "annualNo": 24
         },
         {
           "id": "uploaded-live-27",
-          "no": 27,
+          "no": 25,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -3655,11 +3505,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "金属性与非金属性",
           "live": "金属性与非金属性",
-          "annualNo": 27
+          "annualNo": 25
         },
         {
           "id": "uploaded-live-28",
-          "no": 28,
+          "no": 26,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -3670,26 +3520,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "化学键与化合物的分类",
           "live": "化学键与化合物的分类",
-          "annualNo": 28
+          "annualNo": 26
         },
         {
           "id": "uploaded-live-29",
-          "no": 29,
-          "grade": "高一",
-          "quarter": "寒假",
-          "date": "/",
-          "time": "",
-          "early": "/",
-          "phase1": "",
-          "phase2": "/",
-          "phase3": "/",
-          "title": "【高一】2027年1-6月学习指南（化学）",
-          "live": "【高一】2027年1-6月学习指南（化学）",
-          "annualNo": 29
-        },
-        {
-          "id": "uploaded-live-30",
-          "no": 30,
+          "no": 27,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -3700,11 +3535,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "非金属通性与研究规律",
           "live": "非金属通性与研究规律",
-          "annualNo": 30
+          "annualNo": 27
         },
         {
-          "id": "uploaded-live-31",
-          "no": 31,
+          "id": "uploaded-live-30",
+          "no": 28,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -3715,11 +3550,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "硫元素及其化合物",
           "live": "硫元素及其化合物",
-          "annualNo": 31
+          "annualNo": 28
         },
         {
-          "id": "uploaded-live-32",
-          "no": 32,
+          "id": "uploaded-live-31",
+          "no": 29,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -3730,11 +3565,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "氮元素及其化合物",
           "live": "氮元素及其化合物",
-          "annualNo": 32
+          "annualNo": 29
         },
         {
-          "id": "uploaded-live-33",
-          "no": 33,
+          "id": "uploaded-live-32",
+          "no": 30,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -3745,11 +3580,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "非金属元素相关实验",
           "live": "非金属元素相关实验",
-          "annualNo": 33
+          "annualNo": 30
         },
         {
-          "id": "uploaded-live-34",
-          "no": 34,
+          "id": "uploaded-live-33",
+          "no": 31,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -3760,11 +3595,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "原电池的结构与形成条件",
           "live": "原电池的结构与形成条件",
-          "annualNo": 34
+          "annualNo": 31
         },
         {
-          "id": "uploaded-live-35",
-          "no": 35,
+          "id": "uploaded-live-34",
+          "no": 32,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -3775,11 +3610,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "化学反应速率的定义",
           "live": "化学反应速率的定义",
-          "annualNo": 35
+          "annualNo": 32
         },
         {
-          "id": "uploaded-live-36",
-          "no": 36,
+          "id": "uploaded-live-35",
+          "no": 33,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -3790,11 +3625,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "可逆反应与限度",
           "live": "可逆反应与限度",
-          "annualNo": 36
+          "annualNo": 33
         },
         {
-          "id": "uploaded-live-37",
-          "no": 37,
+          "id": "uploaded-live-36",
+          "no": 34,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -3805,11 +3640,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "有机化学简述",
           "live": "有机化学简述",
-          "annualNo": 37
+          "annualNo": 34
         },
         {
-          "id": "uploaded-live-38",
-          "no": 38,
+          "id": "uploaded-live-37",
+          "no": 35,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -3820,11 +3655,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "化学与工业",
           "live": "化学与工业",
-          "annualNo": 38
+          "annualNo": 35
         },
         {
-          "id": "uploaded-live-39",
-          "no": 39,
+          "id": "uploaded-live-38",
+          "no": 36,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -3835,11 +3670,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "开学考专题",
           "live": "开学考专题",
-          "annualNo": 39
+          "annualNo": 36
         },
         {
-          "id": "uploaded-live-40",
-          "no": 40,
+          "id": "uploaded-live-39",
+          "no": 37,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -3850,11 +3685,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "硫元素综合进阶",
           "live": "硫元素综合进阶",
-          "annualNo": 40
+          "annualNo": 37
         },
         {
-          "id": "uploaded-live-41",
-          "no": 41,
+          "id": "uploaded-live-40",
+          "no": 38,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -3865,11 +3700,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "氮元素综合进阶",
           "live": "氮元素综合进阶",
-          "annualNo": 41
+          "annualNo": 38
         },
         {
-          "id": "uploaded-live-42",
-          "no": 42,
+          "id": "uploaded-live-41",
+          "no": 39,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -3880,11 +3715,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "硅与无机非金属材料",
           "live": "硅与无机非金属材料",
-          "annualNo": 42
+          "annualNo": 39
         },
         {
-          "id": "uploaded-live-43",
-          "no": 43,
+          "id": "uploaded-live-42",
+          "no": 40,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -3895,11 +3730,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "无机推断与流程专题",
           "live": "无机推断与流程专题",
-          "annualNo": 43
+          "annualNo": 40
         },
         {
-          "id": "uploaded-live-44",
-          "no": 44,
+          "id": "uploaded-live-43",
+          "no": 41,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -3910,11 +3745,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "制备实验",
           "live": "制备实验",
-          "annualNo": 44
+          "annualNo": 41
         },
         {
-          "id": "uploaded-live-45",
-          "no": 45,
+          "id": "uploaded-live-44",
+          "no": 42,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -3925,11 +3760,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "反应的吸放热与原电池结构基础",
           "live": "反应的吸放热与原电池结构基础",
-          "annualNo": 45
+          "annualNo": 42
         },
         {
-          "id": "uploaded-live-46",
-          "no": 46,
+          "id": "uploaded-live-45",
+          "no": 43,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -3940,11 +3775,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "化学电源及电极方程式书写",
           "live": "化学电源及电极方程式书写",
-          "annualNo": 46
+          "annualNo": 43
         },
         {
-          "id": "uploaded-live-47",
-          "no": 47,
+          "id": "uploaded-live-46",
+          "no": 44,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -3955,11 +3790,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "化学反应速率及其影响因素",
           "live": "化学反应速率及其影响因素",
-          "annualNo": 47
+          "annualNo": 44
         },
         {
-          "id": "uploaded-live-48",
-          "no": 48,
+          "id": "uploaded-live-47",
+          "no": 45,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -3970,11 +3805,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "化学反应的限度与平衡",
           "live": "化学反应的限度与平衡",
-          "annualNo": 48
+          "annualNo": 45
         },
         {
-          "id": "uploaded-live-49",
-          "no": 49,
+          "id": "uploaded-live-48",
+          "no": 46,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -3985,11 +3820,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "甲烷与烷烃",
           "live": "甲烷与烷烃",
-          "annualNo": 49
+          "annualNo": 46
         },
         {
-          "id": "uploaded-live-50",
-          "no": 50,
+          "id": "uploaded-live-49",
+          "no": 47,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -4000,11 +3835,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "乙烯与苯",
           "live": "乙烯与苯",
-          "annualNo": 50
+          "annualNo": 47
         },
         {
-          "id": "uploaded-live-51",
-          "no": 51,
+          "id": "uploaded-live-50",
+          "no": 48,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -4015,11 +3850,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "乙醇与乙酸",
           "live": "乙醇与乙酸",
-          "annualNo": 51
+          "annualNo": 48
         },
         {
-          "id": "uploaded-live-52",
-          "no": 52,
+          "id": "uploaded-live-51",
+          "no": 49,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -4030,11 +3865,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "同分异构体书写",
           "live": "同分异构体书写",
-          "annualNo": 52
+          "annualNo": 49
         },
         {
-          "id": "uploaded-live-53",
-          "no": 53,
+          "id": "uploaded-live-52",
+          "no": 50,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -4045,11 +3880,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "三大营养物",
           "live": "三大营养物",
-          "annualNo": 53
+          "annualNo": 50
         },
         {
-          "id": "uploaded-live-54",
-          "no": 54,
+          "id": "uploaded-live-53",
+          "no": 51,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -4060,43 +3895,28 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "海洋资源的综合利用",
           "live": "海洋资源的综合利用",
-          "annualNo": 54
+          "annualNo": 51
+        },
+        {
+          "id": "uploaded-live-54",
+          "no": 52,
+          "grade": "高一",
+          "quarter": "春季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "6月13日 08:00-10:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "期末复习",
+          "live": "期末复习",
+          "annualNo": 52
         }
       ],
       "生物": [
         {
-          "id": "uploaded-live-1",
-          "no": 1,
-          "grade": "高一",
-          "quarter": "暑期",
-          "date": "6月27日",
-          "time": "14：00-15:00",
-          "early": "6月27日 14：00-15:00",
-          "phase1": "",
-          "phase2": "",
-          "phase3": "",
-          "title": "【新高一】2026年7-12月（生物）学习指南",
-          "live": "【新高一】2026年7-12月（生物）学习指南",
-          "annualNo": 1
-        },
-        {
-          "id": "uploaded-live-2",
-          "no": 2,
-          "grade": "高一",
-          "quarter": "暑期",
-          "date": "7月24日",
-          "time": "14：00-15:00",
-          "early": "7月24日 14：00-15:00",
-          "phase1": "",
-          "phase2": "",
-          "phase3": "",
-          "title": "【新高一】2026年7-12月（生物）学习指南",
-          "live": "【新高一】2026年7-12月（生物）学习指南",
-          "annualNo": 2
-        },
-        {
           "id": "uploaded-live-3",
-          "no": 3,
+          "no": 1,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月1日",
@@ -4107,11 +3927,11 @@ export const annualCourseLibrary = {
           "phase3": "8月6日 08:00-10:00",
           "title": "生命初探：生命的核心判据",
           "live": "生命初探：生命的核心判据",
-          "annualNo": 3
+          "annualNo": 1
         },
         {
           "id": "uploaded-live-4",
-          "no": 4,
+          "no": 2,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月2日",
@@ -4122,11 +3942,11 @@ export const annualCourseLibrary = {
           "phase3": "8月7日 08:00-10:00",
           "title": "生命基石：水与元素的奥秘",
           "live": "生命基石：水与元素的奥秘",
-          "annualNo": 4
+          "annualNo": 2
         },
         {
           "id": "uploaded-live-5",
-          "no": 5,
+          "no": 3,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月3日",
@@ -4137,11 +3957,11 @@ export const annualCourseLibrary = {
           "phase3": "8月8日 08:00-10:00",
           "title": "能量之源：糖脂的能量逻辑",
           "live": "能量之源：糖脂的能量逻辑",
-          "annualNo": 5
+          "annualNo": 3
         },
         {
           "id": "uploaded-live-6",
-          "no": 6,
+          "no": 4,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月4日",
@@ -4152,11 +3972,11 @@ export const annualCourseLibrary = {
           "phase3": "8月9日 08:00-10:00",
           "title": "生命支架：蛋白质的折叠密码",
           "live": "生命支架：蛋白质的折叠密码",
-          "annualNo": 6
+          "annualNo": 4
         },
         {
           "id": "uploaded-live-7",
-          "no": 7,
+          "no": 5,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月5日",
@@ -4167,11 +3987,11 @@ export const annualCourseLibrary = {
           "phase3": "8月10日 08:00-10:00",
           "title": "生命引擎：蛋白质的功能图谱",
           "live": "生命引擎：蛋白质的功能图谱",
-          "annualNo": 7
+          "annualNo": 5
         },
         {
           "id": "uploaded-live-8",
-          "no": 8,
+          "no": 6,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月7日",
@@ -4182,11 +4002,11 @@ export const annualCourseLibrary = {
           "phase3": "8月12日 08:00-10:00",
           "title": "遗传密钥：核酸的信息蓝图",
           "live": "遗传密钥：核酸的信息蓝图",
-          "annualNo": 8
+          "annualNo": 6
         },
         {
           "id": "uploaded-live-9",
-          "no": 9,
+          "no": 7,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月8日",
@@ -4197,11 +4017,11 @@ export const annualCourseLibrary = {
           "phase3": "8月13日 08:00-10:00",
           "title": "细胞边界：磷脂的膜界智慧",
           "live": "细胞边界：磷脂的膜界智慧",
-          "annualNo": 9
+          "annualNo": 7
         },
         {
           "id": "uploaded-live-10",
-          "no": 10,
+          "no": 8,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月9日",
@@ -4212,11 +4032,11 @@ export const annualCourseLibrary = {
           "phase3": "8月14日 08:00-10:00",
           "title": "能量工厂：ATP 与动力细胞器",
           "live": "能量工厂：ATP 与动力细胞器",
-          "annualNo": 10
+          "annualNo": 8
         },
         {
           "id": "uploaded-live-11",
-          "no": 11,
+          "no": 9,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月10日",
@@ -4227,11 +4047,11 @@ export const annualCourseLibrary = {
           "phase3": "8月15日 08:00-10:00",
           "title": "生命流水线：分泌蛋白的组装蓝图",
           "live": "生命流水线：分泌蛋白的组装蓝图",
-          "annualNo": 11
+          "annualNo": 9
         },
         {
           "id": "uploaded-live-12",
-          "no": 12,
+          "no": 10,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月11日",
@@ -4242,11 +4062,11 @@ export const annualCourseLibrary = {
           "phase3": "8月16日 08:00-10:00",
           "title": "细胞邮差：物质跨膜的递送途径",
           "live": "细胞邮差：物质跨膜的递送途径",
-          "annualNo": 12
+          "annualNo": 10
         },
         {
           "id": "uploaded-live-13",
-          "no": 13,
+          "no": 11,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -4257,11 +4077,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "细胞初探：解码生命的基本单位",
           "live": "细胞初探：解码生命的基本单位",
-          "annualNo": 13
+          "annualNo": 11
         },
         {
           "id": "uploaded-live-14",
-          "no": 14,
+          "no": 12,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -4272,11 +4092,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "糖、脂、水、盐的功能与作用",
           "live": "糖、脂、水、盐的功能与作用",
-          "annualNo": 14
+          "annualNo": 12
         },
         {
           "id": "uploaded-live-15",
-          "no": 15,
+          "no": 13,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -4287,11 +4107,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "小学加减运算蛋白质难题",
           "live": "小学加减运算蛋白质难题",
-          "annualNo": 15
+          "annualNo": 13
         },
         {
           "id": "uploaded-live-16",
-          "no": 16,
+          "no": 14,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -4302,11 +4122,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "破译生命的专属密码本",
           "live": "破译生命的专属密码本",
-          "annualNo": 16
+          "annualNo": 14
         },
         {
           "id": "uploaded-live-17",
-          "no": 17,
+          "no": 15,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -4317,11 +4137,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "细胞的边界与物质交换屏障",
           "live": "细胞的边界与物质交换屏障",
-          "annualNo": 17
+          "annualNo": 15
         },
         {
           "id": "uploaded-live-18",
-          "no": 18,
+          "no": 16,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -4332,11 +4152,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "麻雀虽小五脏俱全",
           "live": "麻雀虽小五脏俱全",
-          "annualNo": 18
+          "annualNo": 16
         },
         {
           "id": "uploaded-live-19",
-          "no": 19,
+          "no": 17,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -4347,11 +4167,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "井然有序与各司其职",
           "live": "井然有序与各司其职",
-          "annualNo": 19
+          "annualNo": 17
         },
         {
           "id": "uploaded-live-20",
-          "no": 20,
+          "no": 18,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -4362,11 +4182,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "细胞的调控与整合",
           "live": "细胞的调控与整合",
-          "annualNo": 20
+          "annualNo": 18
         },
         {
           "id": "uploaded-live-21",
-          "no": 21,
+          "no": 19,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -4377,11 +4197,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "神输鬼运与吐故纳新",
           "live": "神输鬼运与吐故纳新",
-          "annualNo": 21
+          "annualNo": 19
         },
         {
           "id": "uploaded-live-22",
-          "no": 22,
+          "no": 20,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -4392,11 +4212,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "细胞代谢的催化剂与能量通货",
           "live": "细胞代谢的催化剂与能量通货",
-          "annualNo": 22
+          "annualNo": 20
         },
         {
           "id": "uploaded-live-23",
-          "no": 23,
+          "no": 21,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -4407,11 +4227,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "细胞呼吸（一）",
           "live": "细胞呼吸（一）",
-          "annualNo": 23
+          "annualNo": 21
         },
         {
           "id": "uploaded-live-24",
-          "no": 24,
+          "no": 22,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -4422,11 +4242,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "细胞呼吸（二）",
           "live": "细胞呼吸（二）",
-          "annualNo": 24
+          "annualNo": 22
         },
         {
           "id": "uploaded-live-25",
-          "no": 25,
+          "no": 23,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -4437,11 +4257,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "光合作用（一）",
           "live": "光合作用（一）",
-          "annualNo": 25
+          "annualNo": 23
         },
         {
           "id": "uploaded-live-26",
-          "no": 26,
+          "no": 24,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -4452,11 +4272,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "光合作用（二）",
           "live": "光合作用（二）",
-          "annualNo": 26
+          "annualNo": 24
         },
         {
           "id": "uploaded-live-27",
-          "no": 27,
+          "no": 25,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -4467,11 +4287,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "光合与呼吸综合（一）",
           "live": "光合与呼吸综合（一）",
-          "annualNo": 27
+          "annualNo": 25
         },
         {
           "id": "uploaded-live-28",
-          "no": 28,
+          "no": 26,
           "grade": "高一",
           "quarter": "秋季",
           "date": "",
@@ -4482,11 +4302,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "光合与呼吸综合（二）",
           "live": "光合与呼吸综合（二）",
-          "annualNo": 28
+          "annualNo": 26
         },
         {
-          "id": "uploaded-live-30",
-          "no": 29,
+          "id": "uploaded-live-29",
+          "no": 27,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -4497,11 +4317,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "阉割豌豆的神父",
           "live": "阉割豌豆的神父",
-          "annualNo": 29
+          "annualNo": 27
         },
         {
-          "id": "uploaded-live-31",
-          "no": 30,
+          "id": "uploaded-live-30",
+          "no": 28,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -4512,11 +4332,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "配子法：遗传本质的密钥",
           "live": "配子法：遗传本质的密钥",
-          "annualNo": 30
+          "annualNo": 28
         },
         {
-          "id": "uploaded-live-32",
-          "no": 31,
+          "id": "uploaded-live-31",
+          "no": 29,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -4527,11 +4347,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "假说—演绎法的逻辑线",
           "live": "假说—演绎法的逻辑线",
-          "annualNo": 31
+          "annualNo": 29
         },
         {
-          "id": "uploaded-live-33",
-          "no": 32,
+          "id": "uploaded-live-32",
+          "no": 30,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -4542,11 +4362,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "自由组合的奥秘初见",
           "live": "自由组合的奥秘初见",
-          "annualNo": 32
+          "annualNo": 30
         },
         {
-          "id": "uploaded-live-34",
-          "no": 33,
+          "id": "uploaded-live-33",
+          "no": 31,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -4557,11 +4377,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "朴实无华的乘法原理",
           "live": "朴实无华的乘法原理",
-          "annualNo": 33
+          "annualNo": 31
         },
         {
-          "id": "uploaded-live-35",
-          "no": 34,
+          "id": "uploaded-live-34",
+          "no": 32,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -4572,11 +4392,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "基因互作的花样棋局",
           "live": "基因互作的花样棋局",
-          "annualNo": 34
+          "annualNo": 32
         },
         {
-          "id": "uploaded-live-36",
-          "no": 35,
+          "id": "uploaded-live-35",
+          "no": 33,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -4587,11 +4407,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "生命的“皓月繁星”",
           "live": "生命的“皓月繁星”",
-          "annualNo": 35
+          "annualNo": 33
         },
         {
-          "id": "uploaded-live-37",
-          "no": 36,
+          "id": "uploaded-live-36",
+          "no": 34,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -4602,11 +4422,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "染色体的聚散序曲",
           "live": "染色体的聚散序曲",
-          "annualNo": 36
+          "annualNo": 34
         },
         {
-          "id": "uploaded-live-38",
-          "no": 37,
+          "id": "uploaded-live-37",
+          "no": 35,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -4617,11 +4437,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "性染色体的“组队”法则",
           "live": "性染色体的“组队”法则",
-          "annualNo": 37
+          "annualNo": 35
         },
         {
-          "id": "uploaded-live-39",
-          "no": 38,
+          "id": "uploaded-live-38",
+          "no": 36,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -4632,11 +4452,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "性染色体上的“基因轨迹”",
           "live": "性染色体上的“基因轨迹”",
-          "annualNo": 38
+          "annualNo": 36
         },
         {
-          "id": "uploaded-live-40",
-          "no": 39,
+          "id": "uploaded-live-39",
+          "no": 37,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -4647,11 +4467,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "围猎遗传因子",
           "live": "围猎遗传因子",
-          "annualNo": 39
+          "annualNo": 37
         },
         {
-          "id": "uploaded-live-41",
-          "no": 40,
+          "id": "uploaded-live-40",
+          "no": 38,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -4662,11 +4482,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "遗传因子的“传递算术”",
           "live": "遗传因子的“传递算术”",
-          "annualNo": 40
+          "annualNo": 38
         },
         {
-          "id": "uploaded-live-42",
-          "no": 41,
+          "id": "uploaded-live-41",
+          "no": 39,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -4677,11 +4497,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "自由组合的比例密码",
           "live": "自由组合的比例密码",
-          "annualNo": 41
+          "annualNo": 39
         },
         {
-          "id": "uploaded-live-43",
-          "no": 42,
+          "id": "uploaded-live-42",
+          "no": 40,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -4692,11 +4512,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "自由组合的变数破解",
           "live": "自由组合的变数破解",
-          "annualNo": 42
+          "annualNo": 40
         },
         {
-          "id": "uploaded-live-44",
-          "no": 43,
+          "id": "uploaded-live-43",
+          "no": 41,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -4707,11 +4527,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "减数分裂的图像速判",
           "live": "减数分裂的图像速判",
-          "annualNo": 43
+          "annualNo": 41
         },
         {
-          "id": "uploaded-live-45",
-          "no": 44,
+          "id": "uploaded-live-44",
+          "no": 42,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -4722,11 +4542,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "减数分裂的错位追踪",
           "live": "减数分裂的错位追踪",
-          "annualNo": 44
+          "annualNo": 42
         },
         {
-          "id": "uploaded-live-46",
-          "no": 45,
+          "id": "uploaded-live-45",
+          "no": 43,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -4737,11 +4557,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "生物史上最励志“黑转粉”事件",
           "live": "生物史上最励志“黑转粉”事件",
-          "annualNo": 45
+          "annualNo": 43
         },
         {
-          "id": "uploaded-live-47",
-          "no": 46,
+          "id": "uploaded-live-46",
+          "no": 44,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -4752,11 +4572,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "遗传实验设计“五字”诀",
           "live": "遗传实验设计“五字”诀",
-          "annualNo": 46
+          "annualNo": 44
         },
         {
-          "id": "uploaded-live-48",
-          "no": 47,
+          "id": "uploaded-live-47",
+          "no": 45,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -4767,11 +4587,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "生命中最重要的三个字母",
           "live": "生命中最重要的三个字母",
-          "annualNo": 47
+          "annualNo": 45
         },
         {
-          "id": "uploaded-live-49",
-          "no": 48,
+          "id": "uploaded-live-48",
+          "no": 46,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -4782,11 +4602,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "破解DNA结构的“国际竞赛”",
           "live": "破解DNA结构的“国际竞赛”",
-          "annualNo": 48
+          "annualNo": 46
         },
         {
-          "id": "uploaded-live-50",
-          "no": 49,
+          "id": "uploaded-live-49",
+          "no": 47,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -4797,11 +4617,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "细胞皇庭的钦差大臣",
           "live": "细胞皇庭的钦差大臣",
-          "annualNo": 49
+          "annualNo": 47
         },
         {
-          "id": "uploaded-live-51",
-          "no": 50,
+          "id": "uploaded-live-50",
+          "no": 48,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -4812,11 +4632,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "破译生命的摩斯密码",
           "live": "破译生命的摩斯密码",
-          "annualNo": 50
+          "annualNo": 48
         },
         {
-          "id": "uploaded-live-52",
-          "no": 51,
+          "id": "uploaded-live-51",
+          "no": 49,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -4827,11 +4647,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "基因的“微变”与“重组”",
           "live": "基因的“微变”与“重组”",
-          "annualNo": 51
+          "annualNo": 49
         },
         {
-          "id": "uploaded-live-53",
-          "no": 52,
+          "id": "uploaded-live-52",
+          "no": 50,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -4842,11 +4662,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "染色体的“异变”与”病患“",
           "live": "染色体的“异变”与”病患“",
-          "annualNo": 52
+          "annualNo": 50
         },
         {
-          "id": "uploaded-live-54",
-          "no": 53,
+          "id": "uploaded-live-53",
+          "no": 51,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -4857,11 +4677,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "变异的妙用——育种之道",
           "live": "变异的妙用——育种之道",
-          "annualNo": 53
+          "annualNo": 51
         },
         {
-          "id": "uploaded-live-55",
-          "no": 54,
+          "id": "uploaded-live-54",
+          "no": 52,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -4872,43 +4692,13 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "变异的长河——生物进化",
           "live": "变异的长河——生物进化",
-          "annualNo": 54
+          "annualNo": 52
         }
       ],
       "历史": [
         {
-          "id": "uploaded-live-1",
-          "no": 1,
-          "grade": "高一",
-          "quarter": "暑期",
-          "date": "6月27日",
-          "time": "17:00-18:00",
-          "early": "6月27日 17:00-18:00",
-          "phase1": "同早鸟期",
-          "phase2": "",
-          "phase3": "",
-          "title": "【新高一】2026年7-12月（历史）学习指南",
-          "live": "【新高一】2026年7-12月（历史）学习指南",
-          "annualNo": 1
-        },
-        {
-          "id": "uploaded-live-2",
-          "no": 2,
-          "grade": "高一",
-          "quarter": "暑期",
-          "date": "7月24日",
-          "time": "17:00-18:00",
-          "early": "7月24日 17:00-18:00",
-          "phase1": "",
-          "phase2": "",
-          "phase3": "",
-          "title": "【新高一】2026年7-12月（历史）学习指南",
-          "live": "【新高一】2026年7-12月（历史）学习指南",
-          "annualNo": 2
-        },
-        {
           "id": "uploaded-live-3",
-          "no": 3,
+          "no": 1,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月1日",
@@ -4919,11 +4709,11 @@ export const annualCourseLibrary = {
           "phase3": "8月6日 10:30-12:30",
           "title": "高中历史的独特性",
           "live": "高中历史的独特性",
-          "annualNo": 3
+          "annualNo": 1
         },
         {
           "id": "uploaded-live-4",
-          "no": 4,
+          "no": 2,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月2日",
@@ -4934,11 +4724,11 @@ export const annualCourseLibrary = {
           "phase3": "8月7日 10:30-12:30",
           "title": "中国古代史决定高度（1）",
           "live": "中国古代史决定高度（1）",
-          "annualNo": 4
+          "annualNo": 2
         },
         {
           "id": "uploaded-live-5",
-          "no": 5,
+          "no": 3,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月3日",
@@ -4949,11 +4739,11 @@ export const annualCourseLibrary = {
           "phase3": "8月8日 10:30-12:30",
           "title": "中国古代史决定高度（2）",
           "live": "中国古代史决定高度（2）",
-          "annualNo": 5
+          "annualNo": 3
         },
         {
           "id": "uploaded-live-6",
-          "no": 6,
+          "no": 4,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月4日",
@@ -4964,11 +4754,11 @@ export const annualCourseLibrary = {
           "phase3": "8月9日 10:30-12:30",
           "title": "中国近代史稳定分数（1）",
           "live": "中国近代史稳定分数（1）",
-          "annualNo": 6
+          "annualNo": 4
         },
         {
           "id": "uploaded-live-7",
-          "no": 7,
+          "no": 5,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月5日",
@@ -4979,11 +4769,11 @@ export const annualCourseLibrary = {
           "phase3": "8月10日 10:30-12:30",
           "title": "中国近代史稳定分数（2）",
           "live": "中国近代史稳定分数（2）",
-          "annualNo": 7
+          "annualNo": 5
         },
         {
           "id": "uploaded-live-8",
-          "no": 8,
+          "no": 6,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月7日",
@@ -4994,11 +4784,11 @@ export const annualCourseLibrary = {
           "phase3": "8月12日 10:30-12:30",
           "title": "中国现代史考试考点（1）",
           "live": "中国现代史考试考点（1）",
-          "annualNo": 8
+          "annualNo": 6
         },
         {
           "id": "uploaded-live-9",
-          "no": 9,
+          "no": 7,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月8日",
@@ -5009,11 +4799,11 @@ export const annualCourseLibrary = {
           "phase3": "8月13日 10:30-12:30",
           "title": "中国现代史考试考点（2）",
           "live": "中国现代史考试考点（2）",
-          "annualNo": 9
+          "annualNo": 7
         },
         {
           "id": "uploaded-live-10",
-          "no": 10,
+          "no": 8,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月9日",
@@ -5024,11 +4814,11 @@ export const annualCourseLibrary = {
           "phase3": "8月14日 10:30-12:30",
           "title": "高中的历史选择题",
           "live": "高中的历史选择题",
-          "annualNo": 10
+          "annualNo": 8
         },
         {
           "id": "uploaded-live-11",
-          "no": 11,
+          "no": 9,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月10日",
@@ -5039,11 +4829,11 @@ export const annualCourseLibrary = {
           "phase3": "8月15日 10:30-12:30",
           "title": "高中的历史主观题（1）",
           "live": "高中的历史主观题（1）",
-          "annualNo": 11
+          "annualNo": 9
         },
         {
           "id": "uploaded-live-12",
-          "no": 12,
+          "no": 10,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月11日",
@@ -5054,11 +4844,11 @@ export const annualCourseLibrary = {
           "phase3": "8月16日 10:30-12:30",
           "title": "高中的历史主观题（2）",
           "live": "高中的历史主观题（2）",
-          "annualNo": 12
+          "annualNo": 10
         },
         {
           "id": "uploaded-live-13",
-          "no": 13,
+          "no": 11,
           "grade": "高一",
           "quarter": "秋季",
           "date": "8月30日",
@@ -5069,11 +4859,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "中华文明的起源",
           "live": "中华文明的起源",
-          "annualNo": 13
+          "annualNo": 11
         },
         {
           "id": "uploaded-live-14",
-          "no": 14,
+          "no": 12,
           "grade": "高一",
           "quarter": "秋季",
           "date": "9月6日",
@@ -5084,11 +4874,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "中华第一帝国——秦汉",
           "live": "中华第一帝国——秦汉",
-          "annualNo": 14
+          "annualNo": 12
         },
         {
           "id": "uploaded-live-15",
-          "no": 15,
+          "no": 13,
           "grade": "高一",
           "quarter": "秋季",
           "date": "9月13日",
@@ -5099,11 +4889,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "中华的崩溃与重构——魏晋到隋唐",
           "live": "中华的崩溃与重构——魏晋到隋唐",
-          "annualNo": 15
+          "annualNo": 13
         },
         {
           "id": "uploaded-live-16",
-          "no": 16,
+          "no": 14,
           "grade": "高一",
           "quarter": "秋季",
           "date": "9月27日",
@@ -5114,11 +4904,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "统一多民族国家的发展——宋元",
           "live": "统一多民族国家的发展——宋元",
-          "annualNo": 16
+          "annualNo": 14
         },
         {
           "id": "uploaded-live-17",
-          "no": 17,
+          "no": 15,
           "grade": "高一",
           "quarter": "秋季",
           "date": "10月2日",
@@ -5129,11 +4919,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "最后的帝国:明清",
           "live": "最后的帝国:明清",
-          "annualNo": 17
+          "annualNo": 15
         },
         {
           "id": "uploaded-live-18",
-          "no": 18,
+          "no": 16,
           "grade": "高一",
           "quarter": "秋季",
           "date": "10月4日",
@@ -5144,11 +4934,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "中国古代史线索总结课",
           "live": "中国古代史线索总结课",
-          "annualNo": 18
+          "annualNo": 16
         },
         {
           "id": "uploaded-live-19",
-          "no": 19,
+          "no": 17,
           "grade": "高一",
           "quarter": "秋季",
           "date": "10月18日",
@@ -5159,11 +4949,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "晚清的功过是非",
           "live": "晚清的功过是非",
-          "annualNo": 19
+          "annualNo": 17
         },
         {
           "id": "uploaded-live-20",
-          "no": 20,
+          "no": 18,
           "grade": "高一",
           "quarter": "秋季",
           "date": "10月25日",
@@ -5174,11 +4964,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "北洋时代",
           "live": "北洋时代",
-          "annualNo": 20
+          "annualNo": 18
         },
         {
           "id": "uploaded-live-21",
-          "no": 21,
+          "no": 19,
           "grade": "高一",
           "quarter": "秋季",
           "date": "11月1日",
@@ -5189,11 +4979,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "从上海到延安",
           "live": "从上海到延安",
-          "annualNo": 21
+          "annualNo": 19
         },
         {
           "id": "uploaded-live-22",
-          "no": 22,
+          "no": 20,
           "grade": "高一",
           "quarter": "秋季",
           "date": "11月8日",
@@ -5204,11 +4994,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "抗日战争",
           "live": "抗日战争",
-          "annualNo": 22
+          "annualNo": 20
         },
         {
           "id": "uploaded-live-23",
-          "no": 23,
+          "no": 21,
           "grade": "高一",
           "quarter": "秋季",
           "date": "11月15日",
@@ -5219,11 +5009,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "中国近代史线索总结课",
           "live": "中国近代史线索总结课",
-          "annualNo": 23
+          "annualNo": 21
         },
         {
           "id": "uploaded-live-24",
-          "no": 24,
+          "no": 22,
           "grade": "高一",
           "quarter": "秋季",
           "date": "11月22日",
@@ -5234,11 +5024,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "新中国的建立和探索",
           "live": "新中国的建立和探索",
-          "annualNo": 24
+          "annualNo": 22
         },
         {
           "id": "uploaded-live-25",
-          "no": 25,
+          "no": 23,
           "grade": "高一",
           "quarter": "秋季",
           "date": "11月29日",
@@ -5249,11 +5039,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "新中国的外交",
           "live": "新中国的外交",
-          "annualNo": 25
+          "annualNo": 23
         },
         {
           "id": "uploaded-live-26",
-          "no": 26,
+          "no": 24,
           "grade": "高一",
           "quarter": "秋季",
           "date": "12月6日",
@@ -5264,11 +5054,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "伟大转折改革开放",
           "live": "伟大转折改革开放",
-          "annualNo": 26
+          "annualNo": 24
         },
         {
           "id": "uploaded-live-27",
-          "no": 27,
+          "no": 25,
           "grade": "高一",
           "quarter": "秋季",
           "date": "12月13日",
@@ -5279,11 +5069,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "中国现代史的内在逻辑与解题妙法",
           "live": "中国现代史的内在逻辑与解题妙法",
-          "annualNo": 27
+          "annualNo": 25
         },
         {
           "id": "uploaded-live-28",
-          "no": 28,
+          "no": 26,
           "grade": "高一",
           "quarter": "秋季",
           "date": "12月20日",
@@ -5294,11 +5084,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "综合复习与学习规划",
           "live": "综合复习与学习规划",
-          "annualNo": 28
+          "annualNo": 26
         },
         {
-          "id": "uploaded-live-30",
-          "no": 29,
+          "id": "uploaded-live-29",
+          "no": 27,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -5309,11 +5099,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【方法篇】古代世界帝国对比",
           "live": "【方法篇】古代世界帝国对比",
-          "annualNo": 29
+          "annualNo": 27
         },
         {
-          "id": "uploaded-live-31",
-          "no": 30,
+          "id": "uploaded-live-30",
+          "no": 28,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -5324,11 +5114,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【方法篇】中古世纪的欧洲",
           "live": "【方法篇】中古世纪的欧洲",
-          "annualNo": 30
+          "annualNo": 28
         },
         {
-          "id": "uploaded-live-32",
-          "no": 31,
+          "id": "uploaded-live-31",
+          "no": 29,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -5339,11 +5129,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【方法篇】中古世纪的亚非拉",
           "live": "【方法篇】中古世纪的亚非拉",
-          "annualNo": 31
+          "annualNo": 29
         },
         {
-          "id": "uploaded-live-33",
-          "no": 32,
+          "id": "uploaded-live-32",
+          "no": 30,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -5354,11 +5144,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【方法篇】全球时代的来临",
           "live": "【方法篇】全球时代的来临",
-          "annualNo": 32
+          "annualNo": 30
         },
         {
-          "id": "uploaded-live-34",
-          "no": 33,
+          "id": "uploaded-live-33",
+          "no": 31,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -5369,11 +5159,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【方法篇】欧洲思想解放运动",
           "live": "【方法篇】欧洲思想解放运动",
-          "annualNo": 33
+          "annualNo": 31
         },
         {
-          "id": "uploaded-live-35",
-          "no": 34,
+          "id": "uploaded-live-34",
+          "no": 32,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -5384,11 +5174,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【方法篇】资本主义代议制民主之英美",
           "live": "【方法篇】资本主义代议制民主之英美",
-          "annualNo": 34
+          "annualNo": 32
         },
         {
-          "id": "uploaded-live-36",
-          "no": 35,
+          "id": "uploaded-live-35",
+          "no": 33,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -5399,11 +5189,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【方法篇】资本主义代议制民主之法德日俄",
           "live": "【方法篇】资本主义代议制民主之法德日俄",
-          "annualNo": 35
+          "annualNo": 33
         },
         {
-          "id": "uploaded-live-37",
-          "no": 36,
+          "id": "uploaded-live-36",
+          "no": 34,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -5414,11 +5204,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【方法篇】两次工业革命",
           "live": "【方法篇】两次工业革命",
-          "annualNo": 36
+          "annualNo": 34
         },
         {
-          "id": "uploaded-live-38",
-          "no": 37,
+          "id": "uploaded-live-37",
+          "no": 35,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -5429,11 +5219,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【规划篇】世界古代史题型梳理",
           "live": "【规划篇】世界古代史题型梳理",
-          "annualNo": 37
+          "annualNo": 35
         },
         {
-          "id": "uploaded-live-39",
-          "no": 38,
+          "id": "uploaded-live-38",
+          "no": 36,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -5444,11 +5234,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【规划篇】中古世界题型梳理",
           "live": "【规划篇】中古世界题型梳理",
-          "annualNo": 38
+          "annualNo": 36
         },
         {
-          "id": "uploaded-live-40",
-          "no": 39,
+          "id": "uploaded-live-39",
+          "no": 37,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -5459,11 +5249,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【规划篇】世界近代思想解放题型梳理",
           "live": "【规划篇】世界近代思想解放题型梳理",
-          "annualNo": 39
+          "annualNo": 37
         },
         {
-          "id": "uploaded-live-41",
-          "no": 40,
+          "id": "uploaded-live-40",
+          "no": 38,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -5474,11 +5264,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【规划篇】世界经济近代化题型梳理",
           "live": "【规划篇】世界经济近代化题型梳理",
-          "annualNo": 40
+          "annualNo": 38
         },
         {
-          "id": "uploaded-live-42",
-          "no": 41,
+          "id": "uploaded-live-41",
+          "no": 39,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -5489,11 +5279,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【规划篇】西方代议制民主题题型梳理",
           "live": "【规划篇】西方代议制民主题题型梳理",
-          "annualNo": 41
+          "annualNo": 39
         },
         {
-          "id": "uploaded-live-43",
-          "no": 42,
+          "id": "uploaded-live-42",
+          "no": 40,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -5504,11 +5294,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【方法篇】一战与战后国际关系",
           "live": "【方法篇】一战与战后国际关系",
-          "annualNo": 42
+          "annualNo": 40
         },
         {
-          "id": "uploaded-live-44",
-          "no": 43,
+          "id": "uploaded-live-43",
+          "no": 41,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -5519,11 +5309,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【方法篇】俄国（苏联）史",
           "live": "【方法篇】俄国（苏联）史",
-          "annualNo": 43
+          "annualNo": 41
         },
         {
-          "id": "uploaded-live-45",
-          "no": 44,
+          "id": "uploaded-live-44",
+          "no": 42,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -5534,11 +5324,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【方法篇】二战与战后秩序",
           "live": "【方法篇】二战与战后秩序",
-          "annualNo": 44
+          "annualNo": 42
         },
         {
-          "id": "uploaded-live-46",
-          "no": 45,
+          "id": "uploaded-live-45",
+          "no": 43,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -5549,11 +5339,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【方法篇】美苏冷战",
           "live": "【方法篇】美苏冷战",
-          "annualNo": 45
+          "annualNo": 43
         },
         {
-          "id": "uploaded-live-47",
-          "no": 46,
+          "id": "uploaded-live-46",
+          "no": 44,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -5564,11 +5354,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【规划篇】国际格局主观题题型",
           "live": "【规划篇】国际格局主观题题型",
-          "annualNo": 46
+          "annualNo": 44
         },
         {
-          "id": "uploaded-live-48",
-          "no": 47,
+          "id": "uploaded-live-47",
+          "no": 45,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -5579,11 +5369,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【方法篇】资本主义国家新变化",
           "live": "【方法篇】资本主义国家新变化",
-          "annualNo": 47
+          "annualNo": 45
         },
         {
-          "id": "uploaded-live-49",
-          "no": 48,
+          "id": "uploaded-live-48",
+          "no": 46,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -5594,11 +5384,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【方法篇】世界多极化趋势",
           "live": "【方法篇】世界多极化趋势",
-          "annualNo": 48
+          "annualNo": 46
         },
         {
-          "id": "uploaded-live-50",
-          "no": 49,
+          "id": "uploaded-live-49",
+          "no": 47,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -5609,11 +5399,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【方法篇】经济全球化",
           "live": "【方法篇】经济全球化",
-          "annualNo": 49
+          "annualNo": 47
         },
         {
-          "id": "uploaded-live-51",
-          "no": 50,
+          "id": "uploaded-live-50",
+          "no": 48,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -5624,11 +5414,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【规划篇】20世纪资本主义主观题",
           "live": "【规划篇】20世纪资本主义主观题",
-          "annualNo": 50
+          "annualNo": 48
         },
         {
-          "id": "uploaded-live-52",
-          "no": 51,
+          "id": "uploaded-live-51",
+          "no": 49,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -5639,11 +5429,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【规划篇】20世纪社会主义主观题",
           "live": "【规划篇】20世纪社会主义主观题",
-          "annualNo": 51
+          "annualNo": 49
         },
         {
-          "id": "uploaded-live-53",
-          "no": 52,
+          "id": "uploaded-live-52",
+          "no": 50,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -5654,11 +5444,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【规划篇】当今时代趋势主观题",
           "live": "【规划篇】当今时代趋势主观题",
-          "annualNo": 52
+          "annualNo": 50
         },
         {
-          "id": "uploaded-live-54",
-          "no": 53,
+          "id": "uploaded-live-53",
+          "no": 51,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -5669,11 +5459,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【综合篇】世界史综合训练1",
           "live": "【综合篇】世界史综合训练1",
-          "annualNo": 53
+          "annualNo": 51
         },
         {
-          "id": "uploaded-live-55",
-          "no": 54,
+          "id": "uploaded-live-54",
+          "no": 52,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -5684,43 +5474,13 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【综合篇】世界史综合训练2",
           "live": "【综合篇】世界史综合训练2",
-          "annualNo": 54
+          "annualNo": 52
         }
       ],
       "地理": [
         {
-          "id": "uploaded-live-1",
-          "no": 1,
-          "grade": "高一",
-          "quarter": "暑期",
-          "date": "6月27日",
-          "time": "09:30-10:30",
-          "early": "6月27日 09:30-10:30",
-          "phase1": "同早鸟期",
-          "phase2": "",
-          "phase3": "",
-          "title": "【新高一】2026年7-12月（地理）学习指南",
-          "live": "【新高一】2026年7-12月（地理）学习指南",
-          "annualNo": 1
-        },
-        {
-          "id": "uploaded-live-2",
-          "no": 2,
-          "grade": "高一",
-          "quarter": "暑期",
-          "date": "7月24日",
-          "time": "09:30-10:30",
-          "early": "7月24日 09:30-10:30",
-          "phase1": "",
-          "phase2": "",
-          "phase3": "",
-          "title": "【新高一】2026年7-12月（地理）学习指南",
-          "live": "【新高一】2026年7-12月（地理）学习指南",
-          "annualNo": 2
-        },
-        {
           "id": "uploaded-live-3",
-          "no": 3,
+          "no": 1,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月1日",
@@ -5731,11 +5491,11 @@ export const annualCourseLibrary = {
           "phase3": "8月6日 20:30-22:30",
           "title": "【初高衔接】刮风下雨为哪般-天气与气候（一）",
           "live": "【初高衔接】刮风下雨为哪般-天气与气候（一）",
-          "annualNo": 3
+          "annualNo": 1
         },
         {
           "id": "uploaded-live-4",
-          "no": 4,
+          "no": 2,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月2日",
@@ -5746,11 +5506,11 @@ export const annualCourseLibrary = {
           "phase3": "8月7日 20:30-22:30",
           "title": "【初高衔接】刮风下雨为哪般-天气与气候（二）",
           "live": "【初高衔接】刮风下雨为哪般-天气与气候（二）",
-          "annualNo": 4
+          "annualNo": 2
         },
         {
           "id": "uploaded-live-5",
-          "no": 5,
+          "no": 3,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月3日",
@@ -5761,11 +5521,11 @@ export const annualCourseLibrary = {
           "phase3": "8月8日 20:30-22:30",
           "title": "【初高衔接】江河湖海任我游-河流与海洋",
           "live": "【初高衔接】江河湖海任我游-河流与海洋",
-          "annualNo": 5
+          "annualNo": 3
         },
         {
           "id": "uploaded-live-6",
-          "no": 6,
+          "no": 4,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月4日",
@@ -5776,11 +5536,11 @@ export const annualCourseLibrary = {
           "phase3": "8月9日 20:30-22:30",
           "title": "【初高衔接】北京东京谁更早-国家与时差",
           "live": "【初高衔接】北京东京谁更早-国家与时差",
-          "annualNo": 6
+          "annualNo": 4
         },
         {
           "id": "uploaded-live-7",
-          "no": 7,
+          "no": 5,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月5日",
@@ -5791,11 +5551,11 @@ export const annualCourseLibrary = {
           "phase3": "8月10日 20:30-22:30",
           "title": "【初高衔接】高山幽谷平地丘-地形与等高线",
           "live": "【初高衔接】高山幽谷平地丘-地形与等高线",
-          "annualNo": 7
+          "annualNo": 5
         },
         {
           "id": "uploaded-live-8",
-          "no": 8,
+          "no": 6,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月7日",
@@ -5806,11 +5566,11 @@ export const annualCourseLibrary = {
           "phase3": "8月12日 20:30-22:30",
           "title": "【初高衔接】鬼斧神工自天成-地质与地貌",
           "live": "【初高衔接】鬼斧神工自天成-地质与地貌",
-          "annualNo": 8
+          "annualNo": 6
         },
         {
           "id": "uploaded-live-9",
-          "no": 9,
+          "no": 7,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月8日",
@@ -5821,11 +5581,11 @@ export const annualCourseLibrary = {
           "phase3": "8月13日 20:30-22:30",
           "title": "【初高衔接】集中精力促生产-农业与工业",
           "live": "【初高衔接】集中精力促生产-农业与工业",
-          "annualNo": 9
+          "annualNo": 7
         },
         {
           "id": "uploaded-live-10",
-          "no": 10,
+          "no": 8,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月9日",
@@ -5836,11 +5596,11 @@ export const annualCourseLibrary = {
           "phase3": "8月14日 20:30-22:30",
           "title": "【初高衔接】钢铁森林望田园-城市与乡村",
           "live": "【初高衔接】钢铁森林望田园-城市与乡村",
-          "annualNo": 10
+          "annualNo": 8
         },
         {
           "id": "uploaded-live-11",
-          "no": 11,
+          "no": 9,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月10日",
@@ -5851,11 +5611,11 @@ export const annualCourseLibrary = {
           "phase3": "8月15日 20:30-22:30",
           "title": "【初高衔接】看山看水看中国-中国地理",
           "live": "【初高衔接】看山看水看中国-中国地理",
-          "annualNo": 11
+          "annualNo": 9
         },
         {
           "id": "uploaded-live-12",
-          "no": 12,
+          "no": 10,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月11日",
@@ -5866,11 +5626,11 @@ export const annualCourseLibrary = {
           "phase3": "8月16日 20:30-22:30",
           "title": "【初高衔接】七洲四洋地球村-世界地理",
           "live": "【初高衔接】七洲四洋地球村-世界地理",
-          "annualNo": 12
+          "annualNo": 10
         },
         {
           "id": "uploaded-live-13",
-          "no": 13,
+          "no": 11,
           "grade": "高一",
           "quarter": "秋季",
           "date": "8月29日",
@@ -5881,11 +5641,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【方法篇】宇宙中的地球",
           "live": "【方法篇】宇宙中的地球",
-          "annualNo": 13
+          "annualNo": 11
         },
         {
           "id": "uploaded-live-14",
-          "no": 14,
+          "no": 12,
           "grade": "高一",
           "quarter": "秋季",
           "date": "9月5日",
@@ -5896,11 +5656,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【方法篇】地球上的大气-大气的组成与垂直分层",
           "live": "【方法篇】地球上的大气-大气的组成与垂直分层",
-          "annualNo": 14
+          "annualNo": 12
         },
         {
           "id": "uploaded-live-15",
-          "no": 15,
+          "no": 13,
           "grade": "高一",
           "quarter": "秋季",
           "date": "9月12日",
@@ -5911,11 +5671,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【方法篇】地球上的大气-大气的热力作用",
           "live": "【方法篇】地球上的大气-大气的热力作用",
-          "annualNo": 15
+          "annualNo": 13
         },
         {
           "id": "uploaded-live-16",
-          "no": 16,
+          "no": 14,
           "grade": "高一",
           "quarter": "秋季",
           "date": "9月26日",
@@ -5926,11 +5686,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【方法篇】地球上的大气-大气运动",
           "live": "【方法篇】地球上的大气-大气运动",
-          "annualNo": 16
+          "annualNo": 14
         },
         {
           "id": "uploaded-live-17",
-          "no": 17,
+          "no": 15,
           "grade": "高一",
           "quarter": "秋季",
           "date": "10月1日",
@@ -5941,11 +5701,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【方法篇】地球上的水-水循环",
           "live": "【方法篇】地球上的水-水循环",
-          "annualNo": 17
+          "annualNo": 15
         },
         {
           "id": "uploaded-live-18",
-          "no": 18,
+          "no": 16,
           "grade": "高一",
           "quarter": "秋季",
           "date": "10月3日",
@@ -5956,11 +5716,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【方法篇】地球上的水-陆地水",
           "live": "【方法篇】地球上的水-陆地水",
-          "annualNo": 18
+          "annualNo": 16
         },
         {
           "id": "uploaded-live-19",
-          "no": 19,
+          "no": 17,
           "grade": "高一",
           "quarter": "秋季",
           "date": "10月17日",
@@ -5971,11 +5731,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【方法篇】地球上的水-海洋水",
           "live": "【方法篇】地球上的水-海洋水",
-          "annualNo": 19
+          "annualNo": 17
         },
         {
           "id": "uploaded-live-20",
-          "no": 20,
+          "no": 18,
           "grade": "高一",
           "quarter": "秋季",
           "date": "10月24日",
@@ -5986,11 +5746,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【方法篇】地貌-地球内部的圈层结构",
           "live": "【方法篇】地貌-地球内部的圈层结构",
-          "annualNo": 20
+          "annualNo": 18
         },
         {
           "id": "uploaded-live-21",
-          "no": 21,
+          "no": 19,
           "grade": "高一",
           "quarter": "秋季",
           "date": "10月31日",
@@ -6001,11 +5761,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【方法篇】地貌-内力作用",
           "live": "【方法篇】地貌-内力作用",
-          "annualNo": 21
+          "annualNo": 19
         },
         {
           "id": "uploaded-live-22",
-          "no": 22,
+          "no": 20,
           "grade": "高一",
           "quarter": "秋季",
           "date": "11月7日",
@@ -6016,11 +5776,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【方法篇】地貌-外力作用",
           "live": "【方法篇】地貌-外力作用",
-          "annualNo": 22
+          "annualNo": 20
         },
         {
           "id": "uploaded-live-23",
-          "no": 23,
+          "no": 21,
           "grade": "高一",
           "quarter": "秋季",
           "date": "11月14日",
@@ -6031,11 +5791,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【方法篇】植被与土壤- 自然环境的整体性与差异性",
           "live": "【方法篇】植被与土壤- 自然环境的整体性与差异性",
-          "annualNo": 23
+          "annualNo": 21
         },
         {
           "id": "uploaded-live-24",
-          "no": 24,
+          "no": 22,
           "grade": "高一",
           "quarter": "秋季",
           "date": "11月21日",
@@ -6046,11 +5806,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【方法篇】植被与土壤- 土壤的组成与形成过程",
           "live": "【方法篇】植被与土壤- 土壤的组成与形成过程",
-          "annualNo": 24
+          "annualNo": 22
         },
         {
           "id": "uploaded-live-25",
-          "no": 25,
+          "no": 23,
           "grade": "高一",
           "quarter": "秋季",
           "date": "11月28日",
@@ -6061,11 +5821,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【方法篇】自然灾害- 自然灾害分类",
           "live": "【方法篇】自然灾害- 自然灾害分类",
-          "annualNo": 25
+          "annualNo": 23
         },
         {
           "id": "uploaded-live-26",
-          "no": 26,
+          "no": 24,
           "grade": "高一",
           "quarter": "秋季",
           "date": "12月5日",
@@ -6076,26 +5836,41 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【方法篇】自然灾害- 防灾减灾",
           "live": "【方法篇】自然灾害- 防灾减灾",
-          "annualNo": 26
+          "annualNo": 24
         },
         {
           "id": "uploaded-live-27",
-          "no": 27,
+          "no": 25,
           "grade": "高一",
-          "quarter": "寒假",
-          "date": "/",
-          "time": "",
-          "early": "/",
+          "quarter": "秋季",
+          "date": "12月12日",
+          "time": "10:00-12:00",
+          "early": "12月12日 10:00-12:00",
           "phase1": "",
-          "phase2": "/",
-          "phase3": "/",
-          "title": "【高一】2026年1-6月学习指南（地理）",
-          "live": "【高一】2026年1-6月学习指南（地理）",
-          "annualNo": 27
+          "phase2": "",
+          "phase3": "",
+          "title": "【复习篇】高一期末综合复习点睛（一）",
+          "live": "【复习篇】高一期末综合复习点睛（一）",
+          "annualNo": 25
         },
         {
           "id": "uploaded-live-28",
-          "no": 28,
+          "no": 26,
+          "grade": "高一",
+          "quarter": "秋季",
+          "date": "12月19日",
+          "time": "10:00-12:00",
+          "early": "12月19日 10:00-12:00",
+          "phase1": "",
+          "phase2": "",
+          "phase3": "",
+          "title": "【复习篇】高一期末综合复习点睛（二）",
+          "live": "【复习篇】高一期末综合复习点睛（二）",
+          "annualNo": 26
+        },
+        {
+          "id": "uploaded-live-29",
+          "no": 27,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -6106,11 +5881,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "必修二基础演练：人口基础知识点",
           "live": "必修二基础演练：人口基础知识点",
-          "annualNo": 28
+          "annualNo": 27
         },
         {
-          "id": "uploaded-live-29",
-          "no": 29,
+          "id": "uploaded-live-30",
+          "no": 28,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -6121,11 +5896,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "必修二基础演练：聚落基础知识点",
           "live": "必修二基础演练：聚落基础知识点",
-          "annualNo": 29
+          "annualNo": 28
         },
         {
-          "id": "uploaded-live-30",
-          "no": 30,
+          "id": "uploaded-live-31",
+          "no": 29,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -6136,11 +5911,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "必修二基础演练：农业基础知识点",
           "live": "必修二基础演练：农业基础知识点",
-          "annualNo": 30
+          "annualNo": 29
         },
         {
-          "id": "uploaded-live-31",
-          "no": 31,
+          "id": "uploaded-live-32",
+          "no": 30,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -6151,11 +5926,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "必修二基础演练：工业基础知识点",
           "live": "必修二基础演练：工业基础知识点",
-          "annualNo": 31
+          "annualNo": 30
         },
         {
-          "id": "uploaded-live-32",
-          "no": 32,
+          "id": "uploaded-live-33",
+          "no": 31,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -6166,11 +5941,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "必修二基础演练：服务业基础知识点",
           "live": "必修二基础演练：服务业基础知识点",
-          "annualNo": 32
+          "annualNo": 31
         },
         {
-          "id": "uploaded-live-33",
-          "no": 33,
+          "id": "uploaded-live-34",
+          "no": 32,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -6181,11 +5956,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "必修二基础演练：交通基础知识点",
           "live": "必修二基础演练：交通基础知识点",
-          "annualNo": 33
+          "annualNo": 32
         },
         {
-          "id": "uploaded-live-34",
-          "no": 34,
+          "id": "uploaded-live-35",
+          "no": 33,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -6196,11 +5971,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "自然地理重难点综合复习与拔高",
           "live": "自然地理重难点综合复习与拔高",
-          "annualNo": 34
+          "annualNo": 33
         },
         {
-          "id": "uploaded-live-35",
-          "no": 35,
+          "id": "uploaded-live-36",
+          "no": 34,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -6211,11 +5986,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "自然地理重难点综合复习与拔高",
           "live": "自然地理重难点综合复习与拔高",
-          "annualNo": 35
+          "annualNo": 34
         },
         {
-          "id": "uploaded-live-36",
-          "no": 36,
+          "id": "uploaded-live-37",
+          "no": 35,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -6226,11 +6001,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "自然地理重难点综合复习与拔高",
           "live": "自然地理重难点综合复习与拔高",
-          "annualNo": 36
+          "annualNo": 35
         },
         {
-          "id": "uploaded-live-37",
-          "no": 37,
+          "id": "uploaded-live-38",
+          "no": 36,
           "grade": "高一",
           "quarter": "寒假",
           "date": "",
@@ -6241,11 +6016,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "自然地理重难点综合复习与拔高",
           "live": "自然地理重难点综合复习与拔高",
-          "annualNo": 37
+          "annualNo": 36
         },
         {
-          "id": "uploaded-live-38",
-          "no": 38,
+          "id": "uploaded-live-39",
+          "no": 37,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -6256,11 +6031,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "必修二核心知识点：人口",
           "live": "必修二核心知识点：人口",
-          "annualNo": 38
+          "annualNo": 37
         },
         {
-          "id": "uploaded-live-39",
-          "no": 39,
+          "id": "uploaded-live-40",
+          "no": 38,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -6271,11 +6046,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "必修二核心知识点：人口",
           "live": "必修二核心知识点：人口",
-          "annualNo": 39
+          "annualNo": 38
         },
         {
-          "id": "uploaded-live-40",
-          "no": 40,
+          "id": "uploaded-live-41",
+          "no": 39,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -6286,11 +6061,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "必修二核心知识点：聚落（一）",
           "live": "必修二核心知识点：聚落（一）",
-          "annualNo": 40
+          "annualNo": 39
         },
         {
-          "id": "uploaded-live-41",
-          "no": 41,
+          "id": "uploaded-live-42",
+          "no": 40,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -6301,11 +6076,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "必修二核心知识点：聚落（二）",
           "live": "必修二核心知识点：聚落（二）",
-          "annualNo": 41
+          "annualNo": 40
         },
         {
-          "id": "uploaded-live-42",
-          "no": 42,
+          "id": "uploaded-live-43",
+          "no": 41,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -6316,11 +6091,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "必修二核心知识点：农业区位因素（一）",
           "live": "必修二核心知识点：农业区位因素（一）",
-          "annualNo": 42
+          "annualNo": 41
         },
         {
-          "id": "uploaded-live-43",
-          "no": 43,
+          "id": "uploaded-live-44",
+          "no": 42,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -6331,11 +6106,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "必修二核心知识点：农业区位因素（二）",
           "live": "必修二核心知识点：农业区位因素（二）",
-          "annualNo": 43
+          "annualNo": 42
         },
         {
-          "id": "uploaded-live-44",
-          "no": 44,
+          "id": "uploaded-live-45",
+          "no": 43,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -6346,11 +6121,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "必修二核心知识点：工业区位因素（一）",
           "live": "必修二核心知识点：工业区位因素（一）",
-          "annualNo": 44
+          "annualNo": 43
         },
         {
-          "id": "uploaded-live-45",
-          "no": 45,
+          "id": "uploaded-live-46",
+          "no": 44,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -6361,11 +6136,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "必修二核心知识点：工业区位因素（二）",
           "live": "必修二核心知识点：工业区位因素（二）",
-          "annualNo": 45
+          "annualNo": 44
         },
         {
-          "id": "uploaded-live-46",
-          "no": 46,
+          "id": "uploaded-live-47",
+          "no": 45,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -6376,11 +6151,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "必修二核心知识点：服务业区位因素（一）",
           "live": "必修二核心知识点：服务业区位因素（一）",
-          "annualNo": 46
+          "annualNo": 45
         },
         {
-          "id": "uploaded-live-47",
-          "no": 47,
+          "id": "uploaded-live-48",
+          "no": 46,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -6391,11 +6166,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "必修二核心知识点：服务业区位因素（二）",
           "live": "必修二核心知识点：服务业区位因素（二）",
-          "annualNo": 47
+          "annualNo": 46
         },
         {
-          "id": "uploaded-live-48",
-          "no": 48,
+          "id": "uploaded-live-49",
+          "no": 47,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -6406,11 +6181,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "必修二核心知识点：交通运输业概说",
           "live": "必修二核心知识点：交通运输业概说",
-          "annualNo": 48
+          "annualNo": 47
         },
         {
-          "id": "uploaded-live-49",
-          "no": 49,
+          "id": "uploaded-live-50",
+          "no": 48,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -6421,11 +6196,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "必修二核心知识点：交通运输方式的选择与交通运输业的发展趋势",
           "live": "必修二核心知识点：交通运输方式的选择与交通运输业的发展趋势",
-          "annualNo": 49
+          "annualNo": 48
         },
         {
-          "id": "uploaded-live-50",
-          "no": 50,
+          "id": "uploaded-live-51",
+          "no": 49,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -6436,11 +6211,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "人文地理重难点综合复习与拔高",
           "live": "人文地理重难点综合复习与拔高",
-          "annualNo": 50
+          "annualNo": 49
         },
         {
-          "id": "uploaded-live-51",
-          "no": 51,
+          "id": "uploaded-live-52",
+          "no": 50,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -6451,11 +6226,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "人文地理重难点综合复习与拔高",
           "live": "人文地理重难点综合复习与拔高",
-          "annualNo": 51
+          "annualNo": 50
         },
         {
-          "id": "uploaded-live-52",
-          "no": 52,
+          "id": "uploaded-live-53",
+          "no": 51,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -6466,11 +6241,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "人文地理重难点综合复习与拔高",
           "live": "人文地理重难点综合复习与拔高",
-          "annualNo": 52
+          "annualNo": 51
         },
         {
-          "id": "uploaded-live-53",
-          "no": 53,
+          "id": "uploaded-live-54",
+          "no": 52,
           "grade": "高一",
           "quarter": "春季",
           "date": "",
@@ -6481,43 +6256,13 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "人文地理重难点综合复习与拔高",
           "live": "人文地理重难点综合复习与拔高",
-          "annualNo": 53
+          "annualNo": 52
         }
       ],
       "政治": [
         {
-          "id": "uploaded-live-1",
-          "no": 1,
-          "grade": "高一",
-          "quarter": "暑期",
-          "date": "6月27日",
-          "time": "21:30-22:30",
-          "early": "6月27日 21:30-22:30",
-          "phase1": "同早鸟期",
-          "phase2": "",
-          "phase3": "",
-          "title": "【新高一】2026年7-12月（政治）学习指南",
-          "live": "【新高一】2026年7-12月（政治）学习指南",
-          "annualNo": 1
-        },
-        {
-          "id": "uploaded-live-2",
-          "no": 2,
-          "grade": "高一",
-          "quarter": "暑期",
-          "date": "7月24日",
-          "time": "21:30-22:30",
-          "early": "7月24日 21:30-22:30",
-          "phase1": "",
-          "phase2": "",
-          "phase3": "",
-          "title": "【新高一】2026年7-12月（政治）学习指南",
-          "live": "【新高一】2026年7-12月（政治）学习指南",
-          "annualNo": 2
-        },
-        {
           "id": "uploaded-live-3",
-          "no": 3,
+          "no": 1,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月1日",
@@ -6528,11 +6273,11 @@ export const annualCourseLibrary = {
           "phase3": "8月6日 08:00-10:00",
           "title": "一节课搞懂高中政治体系及学法",
           "live": "一节课搞懂高中政治体系及学法",
-          "annualNo": 3
+          "annualNo": 1
         },
         {
           "id": "uploaded-live-4",
-          "no": 4,
+          "no": 2,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月2日",
@@ -6543,11 +6288,11 @@ export const annualCourseLibrary = {
           "phase3": "8月7日 08:00-10:00",
           "title": "殊途同归：社会基本矛盾运动",
           "live": "殊途同归：社会基本矛盾运动",
-          "annualNo": 4
+          "annualNo": 2
         },
         {
           "id": "uploaded-live-5",
-          "no": 5,
+          "no": 3,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月3日",
@@ -6558,11 +6303,11 @@ export const annualCourseLibrary = {
           "phase3": "8月8日 08:00-10:00",
           "title": "破解秘密：资本主义基本矛盾",
           "live": "破解秘密：资本主义基本矛盾",
-          "annualNo": 5
+          "annualNo": 3
         },
         {
           "id": "uploaded-live-6",
-          "no": 6,
+          "no": 4,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月4日",
@@ -6573,11 +6318,11 @@ export const annualCourseLibrary = {
           "phase3": "8月9日 08:00-10:00",
           "title": "人类未来：科学社会主义诞生",
           "live": "人类未来：科学社会主义诞生",
-          "annualNo": 6
+          "annualNo": 4
         },
         {
           "id": "uploaded-live-7",
-          "no": 7,
+          "no": 5,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月5日",
@@ -6588,11 +6333,11 @@ export const annualCourseLibrary = {
           "phase3": "8月10日 08:00-10:00",
           "title": "看不见的手：市场机制及市场经济",
           "live": "看不见的手：市场机制及市场经济",
-          "annualNo": 7
+          "annualNo": 5
         },
         {
           "id": "uploaded-live-8",
-          "no": 8,
+          "no": 6,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月7日",
@@ -6603,11 +6348,11 @@ export const annualCourseLibrary = {
           "phase3": "8月12日 08:00-10:00",
           "title": "看得见的手：宏观调控及政府作用",
           "live": "看得见的手：宏观调控及政府作用",
-          "annualNo": 8
+          "annualNo": 6
         },
         {
           "id": "uploaded-live-9",
-          "no": 9,
+          "no": 7,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月8日",
@@ -6618,11 +6363,11 @@ export const annualCourseLibrary = {
           "phase3": "8月13日 08:00-10:00",
           "title": "财富分配：三次分配与个人收入",
           "live": "财富分配：三次分配与个人收入",
-          "annualNo": 9
+          "annualNo": 7
         },
         {
           "id": "uploaded-live-10",
-          "no": 10,
+          "no": 8,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月9日",
@@ -6633,11 +6378,11 @@ export const annualCourseLibrary = {
           "phase3": "8月14日 08:00-10:00",
           "title": "财富创造：国企改革与民企发展",
           "live": "财富创造：国企改革与民企发展",
-          "annualNo": 10
+          "annualNo": 8
         },
         {
           "id": "uploaded-live-11",
-          "no": 11,
+          "no": 9,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月10日",
@@ -6648,11 +6393,11 @@ export const annualCourseLibrary = {
           "phase3": "8月15日 08:00-10:00",
           "title": "货币演变：金融工具与货币政策",
           "live": "货币演变：金融工具与货币政策",
-          "annualNo": 11
+          "annualNo": 9
         },
         {
           "id": "uploaded-live-12",
-          "no": 12,
+          "no": 10,
           "grade": "高一",
           "quarter": "暑期",
           "date": "7月11日",
@@ -6663,11 +6408,11 @@ export const annualCourseLibrary = {
           "phase3": "8月16日 08:00-10:00",
           "title": "刺激消费：怎样让经济活起来",
           "live": "刺激消费：怎样让经济活起来",
-          "annualNo": 12
+          "annualNo": 10
         },
         {
           "id": "uploaded-live-13",
-          "no": 13,
+          "no": 11,
           "grade": "高一",
           "quarter": "秋季",
           "date": "8月29日",
@@ -6678,11 +6423,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "中特题型01史实主线题（上）人类社会",
           "live": "中特题型01史实主线题（上）人类社会",
-          "annualNo": 13
+          "annualNo": 11
         },
         {
           "id": "uploaded-live-14",
-          "no": 14,
+          "no": 12,
           "grade": "高一",
           "quarter": "秋季",
           "date": "9月5日",
@@ -6693,11 +6438,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "中特题型01史实主线题（中）爱国五史",
           "live": "中特题型01史实主线题（中）爱国五史",
-          "annualNo": 14
+          "annualNo": 12
         },
         {
           "id": "uploaded-live-15",
-          "no": 15,
+          "no": 13,
           "grade": "高一",
           "quarter": "秋季",
           "date": "9月12日",
@@ -6708,11 +6453,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "中特题型01史实主线题（下）伟大新时代",
           "live": "中特题型01史实主线题（下）伟大新时代",
-          "annualNo": 15
+          "annualNo": 13
         },
         {
           "id": "uploaded-live-16",
-          "no": 16,
+          "no": 14,
           "grade": "高一",
           "quarter": "秋季",
           "date": "9月26日",
@@ -6723,11 +6468,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "中特题型02措施做法类主观题模板",
           "live": "中特题型02措施做法类主观题模板",
-          "annualNo": 16
+          "annualNo": 14
         },
         {
           "id": "uploaded-live-17",
-          "no": 17,
+          "no": 15,
           "grade": "高一",
           "quarter": "秋季",
           "date": "10月1日",
@@ -6738,11 +6483,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "中特题型03开放创新类、小论文主观题",
           "live": "中特题型03开放创新类、小论文主观题",
-          "annualNo": 17
+          "annualNo": 15
         },
         {
           "id": "uploaded-live-18",
-          "no": 18,
+          "no": 16,
           "grade": "高一",
           "quarter": "秋季",
           "date": "10月3日",
@@ -6753,11 +6498,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "经济题型01所有制之国企改革专题",
           "live": "经济题型01所有制之国企改革专题",
-          "annualNo": 18
+          "annualNo": 16
         },
         {
           "id": "uploaded-live-19",
-          "no": 19,
+          "no": 17,
           "grade": "高一",
           "quarter": "秋季",
           "date": "10月17日",
@@ -6768,11 +6513,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "经济题型02所有制之集体经济专题",
           "live": "经济题型02所有制之集体经济专题",
-          "annualNo": 19
+          "annualNo": 17
         },
         {
           "id": "uploaded-live-20",
-          "no": 20,
+          "no": 18,
           "grade": "高一",
           "quarter": "秋季",
           "date": "10月24日",
@@ -6783,11 +6528,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "经济题型03所有制之民营经济专题",
           "live": "经济题型03所有制之民营经济专题",
-          "annualNo": 20
+          "annualNo": 18
         },
         {
           "id": "uploaded-live-21",
-          "no": 21,
+          "no": 19,
           "grade": "高一",
           "quarter": "秋季",
           "date": "10月31日",
@@ -6798,11 +6543,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "经济题型04社会主义市场经济中的市场机制",
           "live": "经济题型04社会主义市场经济中的市场机制",
-          "annualNo": 21
+          "annualNo": 19
         },
         {
           "id": "uploaded-live-22",
-          "no": 22,
+          "no": 20,
           "grade": "高一",
           "quarter": "秋季",
           "date": "11月7日",
@@ -6813,11 +6558,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "经济题型05社会主义市场经济中的政府作用",
           "live": "经济题型05社会主义市场经济中的政府作用",
-          "annualNo": 22
+          "annualNo": 20
         },
         {
           "id": "uploaded-live-23",
-          "no": 23,
+          "no": 21,
           "grade": "高一",
           "quarter": "秋季",
           "date": "11月14日",
@@ -6828,11 +6573,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "主观题精讲：经济现象分析类",
           "live": "主观题精讲：经济现象分析类",
-          "annualNo": 23
+          "annualNo": 21
         },
         {
           "id": "uploaded-live-24",
-          "no": 24,
+          "no": 22,
           "grade": "高一",
           "quarter": "秋季",
           "date": "11月21日",
@@ -6843,11 +6588,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "经济题型06新发展理念、新发展格局",
           "live": "经济题型06新发展理念、新发展格局",
-          "annualNo": 24
+          "annualNo": 22
         },
         {
           "id": "uploaded-live-25",
-          "no": 25,
+          "no": 23,
           "grade": "高一",
           "quarter": "秋季",
           "date": "11月28日",
@@ -6858,11 +6603,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "经济题型07现代化经济体系",
           "live": "经济题型07现代化经济体系",
-          "annualNo": 25
+          "annualNo": 23
         },
         {
           "id": "uploaded-live-26",
-          "no": 26,
+          "no": 24,
           "grade": "高一",
           "quarter": "秋季",
           "date": "12月5日",
@@ -6873,11 +6618,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "主观题精讲：经济发展类",
           "live": "主观题精讲：经济发展类",
-          "annualNo": 26
+          "annualNo": 24
         },
         {
           "id": "uploaded-live-27",
-          "no": 27,
+          "no": 25,
           "grade": "高一",
           "quarter": "秋季",
           "date": "12月12日",
@@ -6888,11 +6633,26 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "经济题型08分配制度与社会保障体系",
           "live": "经济题型08分配制度与社会保障体系",
-          "annualNo": 27
+          "annualNo": 25
+        },
+        {
+          "id": "uploaded-live-28",
+          "no": 26,
+          "grade": "高一",
+          "quarter": "秋季",
+          "date": "12月19日",
+          "time": "13:00-15:00",
+          "early": "12月19日 13:00-15:00",
+          "phase1": "",
+          "phase2": "",
+          "phase3": "",
+          "title": "必修一二期末全梳理",
+          "live": "必修一二期末全梳理",
+          "annualNo": 26
         },
         {
           "id": "uploaded-live-29",
-          "no": 28,
+          "no": 27,
           "grade": "高一",
           "quarter": "寒假",
           "date": "1月29日",
@@ -6903,11 +6663,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "哲学入门：哲学是什么？怎么学？",
           "live": "哲学入门：哲学是什么？怎么学？",
-          "annualNo": 28
+          "annualNo": 27
         },
         {
           "id": "uploaded-live-30",
-          "no": 29,
+          "no": 28,
           "grade": "高一",
           "quarter": "寒假",
           "date": "1月30日",
@@ -6918,11 +6678,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "哲学入门：哲学家和哲学流派大梳理",
           "live": "哲学入门：哲学家和哲学流派大梳理",
-          "annualNo": 29
+          "annualNo": 28
         },
         {
           "id": "uploaded-live-31",
-          "no": 30,
+          "no": 29,
           "grade": "高一",
           "quarter": "寒假",
           "date": "1月31日",
@@ -6933,11 +6693,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "哲学精讲之辩证唯物论",
           "live": "哲学精讲之辩证唯物论",
-          "annualNo": 30
+          "annualNo": 29
         },
         {
           "id": "uploaded-live-32",
-          "no": 31,
+          "no": 30,
           "grade": "高一",
           "quarter": "寒假",
           "date": "2月1日",
@@ -6948,11 +6708,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "哲学精讲之唯物辩证法",
           "live": "哲学精讲之唯物辩证法",
-          "annualNo": 31
+          "annualNo": 30
         },
         {
           "id": "uploaded-live-33",
-          "no": 32,
+          "no": 31,
           "grade": "高一",
           "quarter": "寒假",
           "date": "2月2日",
@@ -6963,11 +6723,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "哲学精讲之认识论",
           "live": "哲学精讲之认识论",
-          "annualNo": 32
+          "annualNo": 31
         },
         {
           "id": "uploaded-live-34",
-          "no": 33,
+          "no": 32,
           "grade": "高一",
           "quarter": "寒假",
           "date": "2月3日",
@@ -6978,11 +6738,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "学完就用：国家治理篇（上）",
           "live": "学完就用：国家治理篇（上）",
-          "annualNo": 33
+          "annualNo": 32
         },
         {
           "id": "uploaded-live-35",
-          "no": 34,
+          "no": 33,
           "grade": "高一",
           "quarter": "寒假",
           "date": "2月4日",
@@ -6993,11 +6753,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "学完就用：国家治理篇（下）",
           "live": "学完就用：国家治理篇（下）",
-          "annualNo": 34
+          "annualNo": 33
         },
         {
           "id": "uploaded-live-36",
-          "no": 35,
+          "no": 34,
           "grade": "高一",
           "quarter": "寒假",
           "date": "2月10日",
@@ -7008,11 +6768,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "学完就用：基层治理篇（上）",
           "live": "学完就用：基层治理篇（上）",
-          "annualNo": 35
+          "annualNo": 34
         },
         {
           "id": "uploaded-live-37",
-          "no": 36,
+          "no": 35,
           "grade": "高一",
           "quarter": "寒假",
           "date": "2月11日",
@@ -7023,11 +6783,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "学完就用：基层治理篇（下）",
           "live": "学完就用：基层治理篇（下）",
-          "annualNo": 36
+          "annualNo": 35
         },
         {
           "id": "uploaded-live-38",
-          "no": 37,
+          "no": 36,
           "grade": "高一",
           "quarter": "寒假",
           "date": "2月12日",
@@ -7038,11 +6798,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "学个明白：必修三体系构建",
           "live": "学个明白：必修三体系构建",
-          "annualNo": 37
+          "annualNo": 36
         },
         {
           "id": "uploaded-live-39",
-          "no": 38,
+          "no": 37,
           "grade": "高一",
           "quarter": "春季",
           "date": "2月27日",
@@ -7053,11 +6813,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "题型突破：中国共产党的领导选择题",
           "live": "题型突破：中国共产党的领导选择题",
-          "annualNo": 38
+          "annualNo": 37
         },
         {
           "id": "uploaded-live-40",
-          "no": 39,
+          "no": 38,
           "grade": "高一",
           "quarter": "春季",
           "date": "3月6日",
@@ -7068,11 +6828,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "题型突破：党的领导两大类主观题",
           "live": "题型突破：党的领导两大类主观题",
-          "annualNo": 39
+          "annualNo": 38
         },
         {
           "id": "uploaded-live-41",
-          "no": 40,
+          "no": 39,
           "grade": "高一",
           "quarter": "春季",
           "date": "3月13日",
@@ -7083,11 +6843,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "题型突破：国家及人民民主选择题",
           "live": "题型突破：国家及人民民主选择题",
-          "annualNo": 40
+          "annualNo": 39
         },
         {
           "id": "uploaded-live-42",
-          "no": 41,
+          "no": 40,
           "grade": "高一",
           "quarter": "春季",
           "date": "3月20日",
@@ -7098,11 +6858,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "题型突破：全过程人民民主选择题",
           "live": "题型突破：全过程人民民主选择题",
-          "annualNo": 41
+          "annualNo": 40
         },
         {
           "id": "uploaded-live-43",
-          "no": 42,
+          "no": 41,
           "grade": "高一",
           "quarter": "春季",
           "date": "3月27日",
@@ -7113,11 +6873,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "题型突破：我国制度优势选择题",
           "live": "题型突破：我国制度优势选择题",
-          "annualNo": 42
+          "annualNo": 41
         },
         {
           "id": "uploaded-live-44",
-          "no": 43,
+          "no": 42,
           "grade": "高一",
           "quarter": "春季",
           "date": "4月3日",
@@ -7128,11 +6888,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "题型突破：国家机关类主观题",
           "live": "题型突破：国家机关类主观题",
-          "annualNo": 43
+          "annualNo": 42
         },
         {
           "id": "uploaded-live-45",
-          "no": 44,
+          "no": 43,
           "grade": "高一",
           "quarter": "春季",
           "date": "4月10日",
@@ -7143,11 +6903,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "题型突破：法治国家类主观题",
           "live": "题型突破：法治国家类主观题",
-          "annualNo": 44
+          "annualNo": 43
         },
         {
           "id": "uploaded-live-46",
-          "no": 45,
+          "no": 44,
           "grade": "高一",
           "quarter": "春季",
           "date": "4月17日",
@@ -7158,11 +6918,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "题型突破：科学立法类主观题",
           "live": "题型突破：科学立法类主观题",
-          "annualNo": 45
+          "annualNo": 44
         },
         {
           "id": "uploaded-live-47",
-          "no": 46,
+          "no": 45,
           "grade": "高一",
           "quarter": "春季",
           "date": "4月24日",
@@ -7173,11 +6933,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "题型突破：法治政府类主观题",
           "live": "题型突破：法治政府类主观题",
-          "annualNo": 46
+          "annualNo": 45
         },
         {
           "id": "uploaded-live-48",
-          "no": 47,
+          "no": 46,
           "grade": "高一",
           "quarter": "春季",
           "date": "5月1日",
@@ -7188,11 +6948,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "题型突破：法治社会类主观题",
           "live": "题型突破：法治社会类主观题",
-          "annualNo": 47
+          "annualNo": 46
         },
         {
           "id": "uploaded-live-49",
-          "no": 48,
+          "no": 47,
           "grade": "高一",
           "quarter": "春季",
           "date": "5月3日",
@@ -7203,11 +6963,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "题型升级：必修三难点主观题突破",
           "live": "题型升级：必修三难点主观题突破",
-          "annualNo": 48
+          "annualNo": 47
         },
         {
           "id": "uploaded-live-50",
-          "no": 49,
+          "no": 48,
           "grade": "高一",
           "quarter": "春季",
           "date": "5月15日",
@@ -7218,11 +6978,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "题型升级：2027年必修三难点命题趋势",
           "live": "题型升级：2027年必修三难点命题趋势",
-          "annualNo": 49
+          "annualNo": 48
         },
         {
           "id": "uploaded-live-51",
-          "no": 50,
+          "no": 49,
           "grade": "高一",
           "quarter": "春季",
           "date": "5月22日",
@@ -7233,11 +6993,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "哲学选择题之哲学总论",
           "live": "哲学选择题之哲学总论",
-          "annualNo": 50
+          "annualNo": 49
         },
         {
           "id": "uploaded-live-52",
-          "no": 51,
+          "no": 50,
           "grade": "高一",
           "quarter": "春季",
           "date": "5月29日",
@@ -7248,7 +7008,37 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "哲学主观题之辩证唯物主义",
           "live": "哲学主观题之辩证唯物主义",
+          "annualNo": 50
+        },
+        {
+          "id": "uploaded-live-53",
+          "no": 51,
+          "grade": "高一",
+          "quarter": "春季",
+          "date": "6月5日",
+          "time": "13:00-15:00",
+          "early": "6月5日 13:00-15:00",
+          "phase1": "",
+          "phase2": "",
+          "phase3": "",
+          "title": "期末大攻关：必修三整体梳理",
+          "live": "期末大攻关：必修三整体梳理",
           "annualNo": 51
+        },
+        {
+          "id": "uploaded-live-54",
+          "no": 52,
+          "grade": "高一",
+          "quarter": "春季",
+          "date": "6月12日",
+          "time": "13:00-15:00",
+          "early": "6月12日 13:00-15:00",
+          "phase1": "",
+          "phase2": "",
+          "phase3": "",
+          "title": "期末大攻关：必修四期末考法梳理",
+          "live": "期末大攻关：必修四期末考法梳理",
+          "annualNo": 52
         }
       ]
     },
@@ -12717,7 +12507,7 @@ export const annualCourseLibrary = {
     "live": {
       "语文": [
         {
-          "id": "uploaded-live-56",
+          "id": "uploaded-live-57",
           "no": 1,
           "grade": "高二",
           "quarter": "暑期",
@@ -12732,7 +12522,7 @@ export const annualCourseLibrary = {
           "annualNo": 1
         },
         {
-          "id": "uploaded-live-57",
+          "id": "uploaded-live-58",
           "no": 2,
           "grade": "高二",
           "quarter": "暑期",
@@ -12747,7 +12537,7 @@ export const annualCourseLibrary = {
           "annualNo": 2
         },
         {
-          "id": "uploaded-live-58",
+          "id": "uploaded-live-59",
           "no": 3,
           "grade": "高二",
           "quarter": "暑期",
@@ -12762,7 +12552,7 @@ export const annualCourseLibrary = {
           "annualNo": 3
         },
         {
-          "id": "uploaded-live-59",
+          "id": "uploaded-live-60",
           "no": 4,
           "grade": "高二",
           "quarter": "暑期",
@@ -12777,7 +12567,7 @@ export const annualCourseLibrary = {
           "annualNo": 4
         },
         {
-          "id": "uploaded-live-60",
+          "id": "uploaded-live-61",
           "no": 5,
           "grade": "高二",
           "quarter": "暑期",
@@ -12792,7 +12582,7 @@ export const annualCourseLibrary = {
           "annualNo": 5
         },
         {
-          "id": "uploaded-live-61",
+          "id": "uploaded-live-62",
           "no": 6,
           "grade": "高二",
           "quarter": "暑期",
@@ -12807,7 +12597,7 @@ export const annualCourseLibrary = {
           "annualNo": 6
         },
         {
-          "id": "uploaded-live-62",
+          "id": "uploaded-live-63",
           "no": 7,
           "grade": "高二",
           "quarter": "暑期",
@@ -12822,7 +12612,7 @@ export const annualCourseLibrary = {
           "annualNo": 7
         },
         {
-          "id": "uploaded-live-63",
+          "id": "uploaded-live-64",
           "no": 8,
           "grade": "高二",
           "quarter": "暑期",
@@ -12837,7 +12627,7 @@ export const annualCourseLibrary = {
           "annualNo": 8
         },
         {
-          "id": "uploaded-live-64",
+          "id": "uploaded-live-65",
           "no": 9,
           "grade": "高二",
           "quarter": "暑期",
@@ -12852,7 +12642,7 @@ export const annualCourseLibrary = {
           "annualNo": 9
         },
         {
-          "id": "uploaded-live-65",
+          "id": "uploaded-live-66",
           "no": 10,
           "grade": "高二",
           "quarter": "暑期",
@@ -12867,7 +12657,7 @@ export const annualCourseLibrary = {
           "annualNo": 10
         },
         {
-          "id": "uploaded-live-66",
+          "id": "uploaded-live-67",
           "no": 11,
           "grade": "高二",
           "quarter": "秋季",
@@ -12882,7 +12672,7 @@ export const annualCourseLibrary = {
           "annualNo": 11
         },
         {
-          "id": "uploaded-live-67",
+          "id": "uploaded-live-68",
           "no": 12,
           "grade": "高二",
           "quarter": "秋季",
@@ -12897,7 +12687,7 @@ export const annualCourseLibrary = {
           "annualNo": 12
         },
         {
-          "id": "uploaded-live-68",
+          "id": "uploaded-live-69",
           "no": 13,
           "grade": "高二",
           "quarter": "秋季",
@@ -12912,7 +12702,7 @@ export const annualCourseLibrary = {
           "annualNo": 13
         },
         {
-          "id": "uploaded-live-69",
+          "id": "uploaded-live-70",
           "no": 14,
           "grade": "高二",
           "quarter": "秋季",
@@ -12927,7 +12717,7 @@ export const annualCourseLibrary = {
           "annualNo": 14
         },
         {
-          "id": "uploaded-live-70",
+          "id": "uploaded-live-71",
           "no": 15,
           "grade": "高二",
           "quarter": "秋季",
@@ -12942,7 +12732,7 @@ export const annualCourseLibrary = {
           "annualNo": 15
         },
         {
-          "id": "uploaded-live-71",
+          "id": "uploaded-live-72",
           "no": 16,
           "grade": "高二",
           "quarter": "秋季",
@@ -12957,7 +12747,7 @@ export const annualCourseLibrary = {
           "annualNo": 16
         },
         {
-          "id": "uploaded-live-72",
+          "id": "uploaded-live-73",
           "no": 17,
           "grade": "高二",
           "quarter": "秋季",
@@ -12972,7 +12762,7 @@ export const annualCourseLibrary = {
           "annualNo": 17
         },
         {
-          "id": "uploaded-live-73",
+          "id": "uploaded-live-74",
           "no": 18,
           "grade": "高二",
           "quarter": "秋季",
@@ -12987,7 +12777,7 @@ export const annualCourseLibrary = {
           "annualNo": 18
         },
         {
-          "id": "uploaded-live-74",
+          "id": "uploaded-live-75",
           "no": 19,
           "grade": "高二",
           "quarter": "秋季",
@@ -13002,7 +12792,7 @@ export const annualCourseLibrary = {
           "annualNo": 19
         },
         {
-          "id": "uploaded-live-75",
+          "id": "uploaded-live-76",
           "no": 20,
           "grade": "高二",
           "quarter": "秋季",
@@ -13017,7 +12807,7 @@ export const annualCourseLibrary = {
           "annualNo": 20
         },
         {
-          "id": "uploaded-live-76",
+          "id": "uploaded-live-77",
           "no": 21,
           "grade": "高二",
           "quarter": "秋季",
@@ -13032,7 +12822,7 @@ export const annualCourseLibrary = {
           "annualNo": 21
         },
         {
-          "id": "uploaded-live-77",
+          "id": "uploaded-live-78",
           "no": 22,
           "grade": "高二",
           "quarter": "秋季",
@@ -13047,7 +12837,7 @@ export const annualCourseLibrary = {
           "annualNo": 22
         },
         {
-          "id": "uploaded-live-78",
+          "id": "uploaded-live-79",
           "no": 23,
           "grade": "高二",
           "quarter": "秋季",
@@ -13062,7 +12852,7 @@ export const annualCourseLibrary = {
           "annualNo": 23
         },
         {
-          "id": "uploaded-live-79",
+          "id": "uploaded-live-80",
           "no": 24,
           "grade": "高二",
           "quarter": "秋季",
@@ -13077,7 +12867,7 @@ export const annualCourseLibrary = {
           "annualNo": 24
         },
         {
-          "id": "uploaded-live-80",
+          "id": "uploaded-live-81",
           "no": 25,
           "grade": "高二",
           "quarter": "秋季",
@@ -13092,7 +12882,7 @@ export const annualCourseLibrary = {
           "annualNo": 25
         },
         {
-          "id": "uploaded-live-81",
+          "id": "uploaded-live-82",
           "no": 26,
           "grade": "高二",
           "quarter": "秋季",
@@ -13499,7 +13289,7 @@ export const annualCourseLibrary = {
       ],
       "数学": [
         {
-          "id": "uploaded-live-55",
+          "id": "uploaded-live-57",
           "no": 1,
           "grade": "高二",
           "quarter": "暑期",
@@ -13514,7 +13304,7 @@ export const annualCourseLibrary = {
           "annualNo": 1
         },
         {
-          "id": "uploaded-live-56",
+          "id": "uploaded-live-58",
           "no": 2,
           "grade": "高二",
           "quarter": "暑期",
@@ -13529,7 +13319,7 @@ export const annualCourseLibrary = {
           "annualNo": 2
         },
         {
-          "id": "uploaded-live-57",
+          "id": "uploaded-live-59",
           "no": 3,
           "grade": "高二",
           "quarter": "暑期",
@@ -13544,7 +13334,7 @@ export const annualCourseLibrary = {
           "annualNo": 3
         },
         {
-          "id": "uploaded-live-58",
+          "id": "uploaded-live-60",
           "no": 4,
           "grade": "高二",
           "quarter": "暑期",
@@ -13559,7 +13349,7 @@ export const annualCourseLibrary = {
           "annualNo": 4
         },
         {
-          "id": "uploaded-live-59",
+          "id": "uploaded-live-61",
           "no": 5,
           "grade": "高二",
           "quarter": "暑期",
@@ -13574,7 +13364,7 @@ export const annualCourseLibrary = {
           "annualNo": 5
         },
         {
-          "id": "uploaded-live-60",
+          "id": "uploaded-live-62",
           "no": 6,
           "grade": "高二",
           "quarter": "暑期",
@@ -13589,7 +13379,7 @@ export const annualCourseLibrary = {
           "annualNo": 6
         },
         {
-          "id": "uploaded-live-61",
+          "id": "uploaded-live-63",
           "no": 7,
           "grade": "高二",
           "quarter": "暑期",
@@ -13604,7 +13394,7 @@ export const annualCourseLibrary = {
           "annualNo": 7
         },
         {
-          "id": "uploaded-live-62",
+          "id": "uploaded-live-64",
           "no": 8,
           "grade": "高二",
           "quarter": "暑期",
@@ -13619,7 +13409,7 @@ export const annualCourseLibrary = {
           "annualNo": 8
         },
         {
-          "id": "uploaded-live-63",
+          "id": "uploaded-live-65",
           "no": 9,
           "grade": "高二",
           "quarter": "暑期",
@@ -13634,7 +13424,7 @@ export const annualCourseLibrary = {
           "annualNo": 9
         },
         {
-          "id": "uploaded-live-64",
+          "id": "uploaded-live-66",
           "no": 10,
           "grade": "高二",
           "quarter": "暑期",
@@ -13649,7 +13439,7 @@ export const annualCourseLibrary = {
           "annualNo": 10
         },
         {
-          "id": "uploaded-live-65",
+          "id": "uploaded-live-67",
           "no": 11,
           "grade": "高二",
           "quarter": "秋季",
@@ -13664,7 +13454,7 @@ export const annualCourseLibrary = {
           "annualNo": 11
         },
         {
-          "id": "uploaded-live-66",
+          "id": "uploaded-live-68",
           "no": 12,
           "grade": "高二",
           "quarter": "秋季",
@@ -13679,7 +13469,7 @@ export const annualCourseLibrary = {
           "annualNo": 12
         },
         {
-          "id": "uploaded-live-67",
+          "id": "uploaded-live-69",
           "no": 13,
           "grade": "高二",
           "quarter": "秋季",
@@ -13694,7 +13484,7 @@ export const annualCourseLibrary = {
           "annualNo": 13
         },
         {
-          "id": "uploaded-live-68",
+          "id": "uploaded-live-70",
           "no": 14,
           "grade": "高二",
           "quarter": "秋季",
@@ -13709,7 +13499,7 @@ export const annualCourseLibrary = {
           "annualNo": 14
         },
         {
-          "id": "uploaded-live-69",
+          "id": "uploaded-live-71",
           "no": 15,
           "grade": "高二",
           "quarter": "秋季",
@@ -13724,7 +13514,7 @@ export const annualCourseLibrary = {
           "annualNo": 15
         },
         {
-          "id": "uploaded-live-70",
+          "id": "uploaded-live-72",
           "no": 16,
           "grade": "高二",
           "quarter": "秋季",
@@ -13739,7 +13529,7 @@ export const annualCourseLibrary = {
           "annualNo": 16
         },
         {
-          "id": "uploaded-live-71",
+          "id": "uploaded-live-73",
           "no": 17,
           "grade": "高二",
           "quarter": "秋季",
@@ -13754,7 +13544,7 @@ export const annualCourseLibrary = {
           "annualNo": 17
         },
         {
-          "id": "uploaded-live-72",
+          "id": "uploaded-live-74",
           "no": 18,
           "grade": "高二",
           "quarter": "秋季",
@@ -13769,7 +13559,7 @@ export const annualCourseLibrary = {
           "annualNo": 18
         },
         {
-          "id": "uploaded-live-73",
+          "id": "uploaded-live-75",
           "no": 19,
           "grade": "高二",
           "quarter": "秋季",
@@ -13784,7 +13574,7 @@ export const annualCourseLibrary = {
           "annualNo": 19
         },
         {
-          "id": "uploaded-live-74",
+          "id": "uploaded-live-76",
           "no": 20,
           "grade": "高二",
           "quarter": "秋季",
@@ -13799,7 +13589,7 @@ export const annualCourseLibrary = {
           "annualNo": 20
         },
         {
-          "id": "uploaded-live-75",
+          "id": "uploaded-live-77",
           "no": 21,
           "grade": "高二",
           "quarter": "秋季",
@@ -13814,7 +13604,7 @@ export const annualCourseLibrary = {
           "annualNo": 21
         },
         {
-          "id": "uploaded-live-76",
+          "id": "uploaded-live-78",
           "no": 22,
           "grade": "高二",
           "quarter": "秋季",
@@ -13829,7 +13619,7 @@ export const annualCourseLibrary = {
           "annualNo": 22
         },
         {
-          "id": "uploaded-live-77",
+          "id": "uploaded-live-79",
           "no": 23,
           "grade": "高二",
           "quarter": "秋季",
@@ -13844,7 +13634,7 @@ export const annualCourseLibrary = {
           "annualNo": 23
         },
         {
-          "id": "uploaded-live-78",
+          "id": "uploaded-live-80",
           "no": 24,
           "grade": "高二",
           "quarter": "秋季",
@@ -13859,7 +13649,7 @@ export const annualCourseLibrary = {
           "annualNo": 24
         },
         {
-          "id": "uploaded-live-79",
+          "id": "uploaded-live-81",
           "no": 25,
           "grade": "高二",
           "quarter": "秋季",
@@ -13874,7 +13664,7 @@ export const annualCourseLibrary = {
           "annualNo": 25
         },
         {
-          "id": "uploaded-live-80",
+          "id": "uploaded-live-82",
           "no": 26,
           "grade": "高二",
           "quarter": "秋季",
@@ -13889,23 +13679,8 @@ export const annualCourseLibrary = {
           "annualNo": 26
         },
         {
-          "id": "uploaded-live-81",
+          "id": "uploaded-live-83",
           "no": 27,
-          "grade": "高二",
-          "quarter": "寒假",
-          "date": "/",
-          "time": "",
-          "early": "/",
-          "phase1": "",
-          "phase2": "/",
-          "phase3": "/",
-          "title": "【高二】2026年1-6月学习指南（数学）",
-          "live": "【高二】2026年1-6月学习指南（数学）",
-          "annualNo": 27
-        },
-        {
-          "id": "uploaded-live-82",
-          "no": 28,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -13916,11 +13691,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "导数的概念与几何意义",
           "live": "导数的概念与几何意义",
-          "annualNo": 28
+          "annualNo": 27
         },
         {
-          "id": "uploaded-live-83",
-          "no": 29,
+          "id": "uploaded-live-84",
+          "no": 28,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -13931,11 +13706,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "导数的计算",
           "live": "导数的计算",
-          "annualNo": 29
+          "annualNo": 28
         },
         {
-          "id": "uploaded-live-84",
-          "no": 30,
+          "id": "uploaded-live-85",
+          "no": 29,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -13946,11 +13721,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "导数与函数的单调性、极值（上）",
           "live": "导数与函数的单调性、极值（上）",
-          "annualNo": 30
+          "annualNo": 29
         },
         {
-          "id": "uploaded-live-85",
-          "no": 31,
+          "id": "uploaded-live-86",
+          "no": 30,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -13961,11 +13736,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "导数与函数的单调性、极值（下）",
           "live": "导数与函数的单调性、极值（下）",
-          "annualNo": 31
+          "annualNo": 30
         },
         {
-          "id": "uploaded-live-86",
-          "no": 32,
+          "id": "uploaded-live-87",
+          "no": 31,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -13976,11 +13751,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "函数的极值与最值",
           "live": "函数的极值与最值",
-          "annualNo": 32
+          "annualNo": 31
         },
         {
-          "id": "uploaded-live-87",
-          "no": 33,
+          "id": "uploaded-live-88",
+          "no": 32,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -13991,11 +13766,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "导数的应用",
           "live": "导数的应用",
-          "annualNo": 33
+          "annualNo": 32
         },
         {
-          "id": "uploaded-live-88",
-          "no": 34,
+          "id": "uploaded-live-89",
+          "no": 33,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -14006,11 +13781,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "基本计数原理",
           "live": "基本计数原理",
-          "annualNo": 34
+          "annualNo": 33
         },
         {
-          "id": "uploaded-live-89",
-          "no": 35,
+          "id": "uploaded-live-90",
+          "no": 34,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -14021,11 +13796,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "排列组合初步",
           "live": "排列组合初步",
-          "annualNo": 35
+          "annualNo": 34
         },
         {
-          "id": "uploaded-live-90",
-          "no": 36,
+          "id": "uploaded-live-91",
+          "no": 35,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -14036,11 +13811,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "二项式定理初步",
           "live": "二项式定理初步",
-          "annualNo": 36
+          "annualNo": 35
         },
         {
-          "id": "uploaded-live-91",
-          "no": 37,
+          "id": "uploaded-live-92",
+          "no": 36,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -14051,11 +13826,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "综合复习",
           "live": "综合复习",
-          "annualNo": 37
+          "annualNo": 36
         },
         {
-          "id": "uploaded-live-92",
-          "no": 38,
+          "id": "uploaded-live-93",
+          "no": 37,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -14066,11 +13841,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "导数运算与几何意义进阶",
           "live": "导数运算与几何意义进阶",
-          "annualNo": 38
+          "annualNo": 37
         },
         {
-          "id": "uploaded-live-93",
-          "no": 39,
+          "id": "uploaded-live-94",
+          "no": 38,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -14081,11 +13856,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "函数的单调性进阶",
           "live": "函数的单调性进阶",
-          "annualNo": 39
+          "annualNo": 38
         },
         {
-          "id": "uploaded-live-94",
-          "no": 40,
+          "id": "uploaded-live-95",
+          "no": 39,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -14096,11 +13871,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "利用参变分离法研究零点与恒成立问题",
           "live": "利用参变分离法研究零点与恒成立问题",
-          "annualNo": 40
+          "annualNo": 39
         },
         {
-          "id": "uploaded-live-95",
-          "no": 41,
+          "id": "uploaded-live-96",
+          "no": 40,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -14111,11 +13886,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "复杂恒成立问题",
           "live": "复杂恒成立问题",
-          "annualNo": 41
+          "annualNo": 40
         },
         {
-          "id": "uploaded-live-96",
-          "no": 42,
+          "id": "uploaded-live-97",
+          "no": 41,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -14126,11 +13901,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "导数选择填空提升",
           "live": "导数选择填空提升",
-          "annualNo": 42
+          "annualNo": 41
         },
         {
-          "id": "uploaded-live-97",
-          "no": 43,
+          "id": "uploaded-live-98",
+          "no": 42,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -14141,11 +13916,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "排列组合1",
           "live": "排列组合1",
-          "annualNo": 43
+          "annualNo": 42
         },
         {
-          "id": "uploaded-live-98",
-          "no": 44,
+          "id": "uploaded-live-99",
+          "no": 43,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -14156,11 +13931,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "排列组合2",
           "live": "排列组合2",
-          "annualNo": 44
+          "annualNo": 43
         },
         {
-          "id": "uploaded-live-99",
-          "no": 45,
+          "id": "uploaded-live-100",
+          "no": 44,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -14171,11 +13946,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "二项式定理进阶",
           "live": "二项式定理进阶",
-          "annualNo": 45
+          "annualNo": 44
         },
         {
-          "id": "uploaded-live-100",
-          "no": 46,
+          "id": "uploaded-live-101",
+          "no": 45,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -14186,11 +13961,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "条件概率和全概率公式",
           "live": "条件概率和全概率公式",
-          "annualNo": 46
+          "annualNo": 45
         },
         {
-          "id": "uploaded-live-101",
-          "no": 47,
+          "id": "uploaded-live-102",
+          "no": 46,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -14201,11 +13976,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "离散型随机变量及其数字特征",
           "live": "离散型随机变量及其数字特征",
-          "annualNo": 47
+          "annualNo": 46
         },
         {
-          "id": "uploaded-live-102",
-          "no": 48,
+          "id": "uploaded-live-103",
+          "no": 47,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -14216,11 +13991,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "随机变量的经典分布",
           "live": "随机变量的经典分布",
-          "annualNo": 48
+          "annualNo": 47
         },
         {
-          "id": "uploaded-live-103",
-          "no": 49,
+          "id": "uploaded-live-104",
+          "no": 48,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -14231,11 +14006,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "统计综合",
           "live": "统计综合",
-          "annualNo": 49
+          "annualNo": 48
         },
         {
-          "id": "uploaded-live-104",
-          "no": 50,
+          "id": "uploaded-live-105",
+          "no": 49,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -14246,11 +14021,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "零轮复习之基本函数与运算",
           "live": "零轮复习之基本函数与运算",
-          "annualNo": 50
+          "annualNo": 49
         },
         {
-          "id": "uploaded-live-105",
-          "no": 51,
+          "id": "uploaded-live-106",
+          "no": 50,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -14261,11 +14036,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "零轮复习之解不等式",
           "live": "零轮复习之解不等式",
-          "annualNo": 51
+          "annualNo": 50
         },
         {
-          "id": "uploaded-live-106",
-          "no": 52,
+          "id": "uploaded-live-107",
+          "no": 51,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -14276,11 +14051,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "零轮复习之逻辑转化与化归能力",
           "live": "零轮复习之逻辑转化与化归能力",
-          "annualNo": 52
+          "annualNo": 51
         },
         {
-          "id": "uploaded-live-107",
-          "no": 53,
+          "id": "uploaded-live-108",
+          "no": 52,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -14291,12 +14066,12 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "综合复习",
           "live": "综合复习",
-          "annualNo": 53
+          "annualNo": 52
         }
       ],
       "英语": [
         {
-          "id": "uploaded-live-56",
+          "id": "uploaded-live-57",
           "no": 1,
           "grade": "高二",
           "quarter": "暑期",
@@ -14311,7 +14086,7 @@ export const annualCourseLibrary = {
           "annualNo": 1
         },
         {
-          "id": "uploaded-live-57",
+          "id": "uploaded-live-58",
           "no": 2,
           "grade": "高二",
           "quarter": "暑期",
@@ -14326,7 +14101,7 @@ export const annualCourseLibrary = {
           "annualNo": 2
         },
         {
-          "id": "uploaded-live-58",
+          "id": "uploaded-live-59",
           "no": 3,
           "grade": "高二",
           "quarter": "暑期",
@@ -14341,7 +14116,7 @@ export const annualCourseLibrary = {
           "annualNo": 3
         },
         {
-          "id": "uploaded-live-59",
+          "id": "uploaded-live-60",
           "no": 4,
           "grade": "高二",
           "quarter": "暑期",
@@ -14356,7 +14131,7 @@ export const annualCourseLibrary = {
           "annualNo": 4
         },
         {
-          "id": "uploaded-live-60",
+          "id": "uploaded-live-61",
           "no": 5,
           "grade": "高二",
           "quarter": "暑期",
@@ -14371,7 +14146,7 @@ export const annualCourseLibrary = {
           "annualNo": 5
         },
         {
-          "id": "uploaded-live-61",
+          "id": "uploaded-live-62",
           "no": 6,
           "grade": "高二",
           "quarter": "暑期",
@@ -14386,7 +14161,7 @@ export const annualCourseLibrary = {
           "annualNo": 6
         },
         {
-          "id": "uploaded-live-62",
+          "id": "uploaded-live-63",
           "no": 7,
           "grade": "高二",
           "quarter": "暑期",
@@ -14401,7 +14176,7 @@ export const annualCourseLibrary = {
           "annualNo": 7
         },
         {
-          "id": "uploaded-live-63",
+          "id": "uploaded-live-64",
           "no": 8,
           "grade": "高二",
           "quarter": "暑期",
@@ -14416,7 +14191,7 @@ export const annualCourseLibrary = {
           "annualNo": 8
         },
         {
-          "id": "uploaded-live-64",
+          "id": "uploaded-live-65",
           "no": 9,
           "grade": "高二",
           "quarter": "暑期",
@@ -14431,7 +14206,7 @@ export const annualCourseLibrary = {
           "annualNo": 9
         },
         {
-          "id": "uploaded-live-65",
+          "id": "uploaded-live-66",
           "no": 10,
           "grade": "高二",
           "quarter": "暑期",
@@ -14446,7 +14221,7 @@ export const annualCourseLibrary = {
           "annualNo": 10
         },
         {
-          "id": "uploaded-live-66",
+          "id": "uploaded-live-67",
           "no": 11,
           "grade": "高二",
           "quarter": "秋季",
@@ -14461,7 +14236,7 @@ export const annualCourseLibrary = {
           "annualNo": 11
         },
         {
-          "id": "uploaded-live-67",
+          "id": "uploaded-live-68",
           "no": 12,
           "grade": "高二",
           "quarter": "秋季",
@@ -14476,7 +14251,7 @@ export const annualCourseLibrary = {
           "annualNo": 12
         },
         {
-          "id": "uploaded-live-68",
+          "id": "uploaded-live-69",
           "no": 13,
           "grade": "高二",
           "quarter": "秋季",
@@ -14491,7 +14266,7 @@ export const annualCourseLibrary = {
           "annualNo": 13
         },
         {
-          "id": "uploaded-live-69",
+          "id": "uploaded-live-70",
           "no": 14,
           "grade": "高二",
           "quarter": "秋季",
@@ -14506,7 +14281,7 @@ export const annualCourseLibrary = {
           "annualNo": 14
         },
         {
-          "id": "uploaded-live-70",
+          "id": "uploaded-live-71",
           "no": 15,
           "grade": "高二",
           "quarter": "秋季",
@@ -14521,7 +14296,7 @@ export const annualCourseLibrary = {
           "annualNo": 15
         },
         {
-          "id": "uploaded-live-71",
+          "id": "uploaded-live-72",
           "no": 16,
           "grade": "高二",
           "quarter": "秋季",
@@ -14536,7 +14311,7 @@ export const annualCourseLibrary = {
           "annualNo": 16
         },
         {
-          "id": "uploaded-live-72",
+          "id": "uploaded-live-73",
           "no": 17,
           "grade": "高二",
           "quarter": "秋季",
@@ -14551,7 +14326,7 @@ export const annualCourseLibrary = {
           "annualNo": 17
         },
         {
-          "id": "uploaded-live-73",
+          "id": "uploaded-live-74",
           "no": 18,
           "grade": "高二",
           "quarter": "秋季",
@@ -14566,7 +14341,7 @@ export const annualCourseLibrary = {
           "annualNo": 18
         },
         {
-          "id": "uploaded-live-74",
+          "id": "uploaded-live-75",
           "no": 19,
           "grade": "高二",
           "quarter": "秋季",
@@ -14581,7 +14356,7 @@ export const annualCourseLibrary = {
           "annualNo": 19
         },
         {
-          "id": "uploaded-live-75",
+          "id": "uploaded-live-76",
           "no": 20,
           "grade": "高二",
           "quarter": "秋季",
@@ -14596,7 +14371,7 @@ export const annualCourseLibrary = {
           "annualNo": 20
         },
         {
-          "id": "uploaded-live-76",
+          "id": "uploaded-live-77",
           "no": 21,
           "grade": "高二",
           "quarter": "秋季",
@@ -14611,7 +14386,7 @@ export const annualCourseLibrary = {
           "annualNo": 21
         },
         {
-          "id": "uploaded-live-77",
+          "id": "uploaded-live-78",
           "no": 22,
           "grade": "高二",
           "quarter": "秋季",
@@ -14626,7 +14401,7 @@ export const annualCourseLibrary = {
           "annualNo": 22
         },
         {
-          "id": "uploaded-live-78",
+          "id": "uploaded-live-79",
           "no": 23,
           "grade": "高二",
           "quarter": "秋季",
@@ -14641,23 +14416,53 @@ export const annualCourseLibrary = {
           "annualNo": 23
         },
         {
-          "id": "uploaded-live-79",
+          "id": "uploaded-live-80",
           "no": 24,
           "grade": "高二",
-          "quarter": "寒假",
+          "quarter": "秋季",
           "date": "",
           "time": "",
           "early": "",
-          "phase1": "",
-          "phase2": "/",
-          "phase3": "/",
-          "title": "【高二】2027年1-6月英语学习指南",
-          "live": "【高二】2027年1-6月英语学习指南",
+          "phase1": "12月6日 08:00-10:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【期末备考】语法通关之动词综合",
+          "live": "【期末备考】语法通关之动词综合",
           "annualNo": 24
         },
         {
-          "id": "uploaded-live-80",
+          "id": "uploaded-live-81",
           "no": 25,
+          "grade": "高二",
+          "quarter": "秋季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "12月13日 08:00-10:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【期末备考】语法通关之从句综合",
+          "live": "【期末备考】语法通关之从句综合",
+          "annualNo": 25
+        },
+        {
+          "id": "uploaded-live-82",
+          "no": 26,
+          "grade": "高二",
+          "quarter": "秋季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "12月20日 08:00-10:00",
+          "phase2": "",
+          "phase3": "",
+          "title": "【期末备考】高分冲刺",
+          "live": "【期末备考】高分冲刺",
+          "annualNo": 26
+        },
+        {
+          "id": "uploaded-live-83",
+          "no": 27,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -14668,11 +14473,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【一轮复习】语法：基础知识填坑",
           "live": "【一轮复习】语法：基础知识填坑",
-          "annualNo": 25
+          "annualNo": 27
         },
         {
-          "id": "uploaded-live-81",
-          "no": 26,
+          "id": "uploaded-live-84",
+          "no": 28,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -14683,11 +14488,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【一轮复习】语法：高频考点扫雷",
           "live": "【一轮复习】语法：高频考点扫雷",
-          "annualNo": 26
+          "annualNo": 28
         },
         {
-          "id": "uploaded-live-82",
-          "no": 27,
+          "id": "uploaded-live-85",
+          "no": 29,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -14698,11 +14503,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【一轮复习】语法：能力验收",
           "live": "【一轮复习】语法：能力验收",
-          "annualNo": 27
+          "annualNo": 29
         },
         {
-          "id": "uploaded-live-83",
-          "no": 28,
+          "id": "uploaded-live-86",
+          "no": 30,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -14713,11 +14518,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【一轮复习】完形记叙文：脉络构筑",
           "live": "【一轮复习】完形记叙文：脉络构筑",
-          "annualNo": 28
+          "annualNo": 30
         },
         {
-          "id": "uploaded-live-84",
-          "no": 29,
+          "id": "uploaded-live-87",
+          "no": 31,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -14728,11 +14533,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【一轮复习】完形记叙文：难点解码",
           "live": "【一轮复习】完形记叙文：难点解码",
-          "annualNo": 29
+          "annualNo": 31
         },
         {
-          "id": "uploaded-live-85",
-          "no": 30,
+          "id": "uploaded-live-88",
+          "no": 32,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -14743,11 +14548,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【一轮复习】完形记叙文：速度升华",
           "live": "【一轮复习】完形记叙文：速度升华",
-          "annualNo": 30
+          "annualNo": 32
         },
         {
-          "id": "uploaded-live-86",
-          "no": 31,
+          "id": "uploaded-live-89",
+          "no": 33,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -14758,11 +14563,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【一轮复习】完形记叙文：能力验收",
           "live": "【一轮复习】完形记叙文：能力验收",
-          "annualNo": 31
+          "annualNo": 33
         },
         {
-          "id": "uploaded-live-87",
-          "no": 32,
+          "id": "uploaded-live-90",
+          "no": 34,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -14773,11 +14578,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【一轮复习】应用文：最新考情速递1",
           "live": "【一轮复习】应用文：最新考情速递1",
-          "annualNo": 32
+          "annualNo": 34
         },
         {
-          "id": "uploaded-live-88",
-          "no": 33,
+          "id": "uploaded-live-91",
+          "no": 35,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -14788,11 +14593,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【一轮复习】应用文：最新考情速递2",
           "live": "【一轮复习】应用文：最新考情速递2",
-          "annualNo": 33
+          "annualNo": 35
         },
         {
-          "id": "uploaded-live-89",
-          "no": 34,
+          "id": "uploaded-live-92",
+          "no": 36,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -14803,11 +14608,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【一轮复习】读后续写：能力提升",
           "live": "【一轮复习】读后续写：能力提升",
-          "annualNo": 34
+          "annualNo": 36
         },
         {
-          "id": "uploaded-live-90",
-          "no": 35,
+          "id": "uploaded-live-93",
+          "no": 37,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -14818,11 +14623,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【一轮复习】应用文：综合训练1",
           "live": "【一轮复习】应用文：综合训练1",
-          "annualNo": 35
+          "annualNo": 37
         },
         {
-          "id": "uploaded-live-91",
-          "no": 36,
+          "id": "uploaded-live-94",
+          "no": 38,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -14833,11 +14638,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【一轮复习】应用文：综合训练2",
           "live": "【一轮复习】应用文：综合训练2",
-          "annualNo": 36
+          "annualNo": 38
         },
         {
-          "id": "uploaded-live-92",
-          "no": 37,
+          "id": "uploaded-live-95",
+          "no": 39,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -14848,11 +14653,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【一轮复习】读后续写：新题速递1",
           "live": "【一轮复习】读后续写：新题速递1",
-          "annualNo": 37
+          "annualNo": 39
         },
         {
-          "id": "uploaded-live-93",
-          "no": 38,
+          "id": "uploaded-live-96",
+          "no": 40,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -14863,11 +14668,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【一轮复习】读后续写：新题速递2",
           "live": "【一轮复习】读后续写：新题速递2",
-          "annualNo": 38
+          "annualNo": 40
         },
         {
-          "id": "uploaded-live-94",
-          "no": 39,
+          "id": "uploaded-live-97",
+          "no": 41,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -14878,11 +14683,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【一轮复习】阅读：结构拆解1",
           "live": "【一轮复习】阅读：结构拆解1",
-          "annualNo": 39
+          "annualNo": 41
         },
         {
-          "id": "uploaded-live-95",
-          "no": 40,
+          "id": "uploaded-live-98",
+          "no": 42,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -14893,11 +14698,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【一轮复习】阅读：结构拆解2",
           "live": "【一轮复习】阅读：结构拆解2",
-          "annualNo": 40
+          "annualNo": 42
         },
         {
-          "id": "uploaded-live-96",
-          "no": 41,
+          "id": "uploaded-live-99",
+          "no": 43,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -14908,11 +14713,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【一轮复习】阅读：结构拆解3",
           "live": "【一轮复习】阅读：结构拆解3",
-          "annualNo": 41
+          "annualNo": 43
         },
         {
-          "id": "uploaded-live-97",
-          "no": 42,
+          "id": "uploaded-live-100",
+          "no": 44,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -14923,11 +14728,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【一轮复习】阅读：综合验收",
           "live": "【一轮复习】阅读：综合验收",
-          "annualNo": 42
+          "annualNo": 44
         },
         {
-          "id": "uploaded-live-98",
-          "no": 43,
+          "id": "uploaded-live-101",
+          "no": 45,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -14938,11 +14743,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【一轮复习】完形说明文：深度解析",
           "live": "【一轮复习】完形说明文：深度解析",
-          "annualNo": 43
+          "annualNo": 45
         },
         {
-          "id": "uploaded-live-99",
-          "no": 44,
+          "id": "uploaded-live-102",
+          "no": 46,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -14953,11 +14758,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【一轮复习】完形说明文：难点解码",
           "live": "【一轮复习】完形说明文：难点解码",
-          "annualNo": 44
+          "annualNo": 46
         },
         {
-          "id": "uploaded-live-100",
-          "no": 45,
+          "id": "uploaded-live-103",
+          "no": 47,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -14968,11 +14773,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【一轮复习】完形说明文：速度升华",
           "live": "【一轮复习】完形说明文：速度升华",
-          "annualNo": 45
+          "annualNo": 47
         },
         {
-          "id": "uploaded-live-101",
-          "no": 46,
+          "id": "uploaded-live-104",
+          "no": 48,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -14983,11 +14788,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【一轮复习】完形说明文：能力验收",
           "live": "【一轮复习】完形说明文：能力验收",
-          "annualNo": 46
+          "annualNo": 48
         },
         {
-          "id": "uploaded-live-102",
-          "no": 47,
+          "id": "uploaded-live-105",
+          "no": 49,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -14998,11 +14803,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【一轮复习】7选5：说明文",
           "live": "【一轮复习】7选5：说明文",
-          "annualNo": 47
+          "annualNo": 49
         },
         {
-          "id": "uploaded-live-103",
-          "no": 48,
+          "id": "uploaded-live-106",
+          "no": 50,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -15013,11 +14818,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【一轮复习】7选5：记叙文",
           "live": "【一轮复习】7选5：记叙文",
-          "annualNo": 48
+          "annualNo": 50
         },
         {
-          "id": "uploaded-live-104",
-          "no": 49,
+          "id": "uploaded-live-107",
+          "no": 51,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -15028,11 +14833,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【一轮复习】综合模拟1",
           "live": "【一轮复习】综合模拟1",
-          "annualNo": 49
+          "annualNo": 51
         },
         {
-          "id": "uploaded-live-105",
-          "no": 50,
+          "id": "uploaded-live-108",
+          "no": 52,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -15043,12 +14848,12 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "【一轮复习】综合模拟2",
           "live": "【一轮复习】综合模拟2",
-          "annualNo": 50
+          "annualNo": 52
         }
       ],
       "物理": [
         {
-          "id": "uploaded-live-56",
+          "id": "uploaded-live-57",
           "no": 1,
           "grade": "高二",
           "quarter": "暑期",
@@ -15063,7 +14868,7 @@ export const annualCourseLibrary = {
           "annualNo": 1
         },
         {
-          "id": "uploaded-live-57",
+          "id": "uploaded-live-58",
           "no": 2,
           "grade": "高二",
           "quarter": "暑期",
@@ -15078,7 +14883,7 @@ export const annualCourseLibrary = {
           "annualNo": 2
         },
         {
-          "id": "uploaded-live-58",
+          "id": "uploaded-live-59",
           "no": 3,
           "grade": "高二",
           "quarter": "暑期",
@@ -15093,7 +14898,7 @@ export const annualCourseLibrary = {
           "annualNo": 3
         },
         {
-          "id": "uploaded-live-59",
+          "id": "uploaded-live-60",
           "no": 4,
           "grade": "高二",
           "quarter": "暑期",
@@ -15108,7 +14913,7 @@ export const annualCourseLibrary = {
           "annualNo": 4
         },
         {
-          "id": "uploaded-live-60",
+          "id": "uploaded-live-61",
           "no": 5,
           "grade": "高二",
           "quarter": "暑期",
@@ -15123,7 +14928,7 @@ export const annualCourseLibrary = {
           "annualNo": 5
         },
         {
-          "id": "uploaded-live-61",
+          "id": "uploaded-live-62",
           "no": 6,
           "grade": "高二",
           "quarter": "暑期",
@@ -15138,7 +14943,7 @@ export const annualCourseLibrary = {
           "annualNo": 6
         },
         {
-          "id": "uploaded-live-62",
+          "id": "uploaded-live-63",
           "no": 7,
           "grade": "高二",
           "quarter": "暑期",
@@ -15153,7 +14958,7 @@ export const annualCourseLibrary = {
           "annualNo": 7
         },
         {
-          "id": "uploaded-live-63",
+          "id": "uploaded-live-64",
           "no": 8,
           "grade": "高二",
           "quarter": "暑期",
@@ -15168,7 +14973,7 @@ export const annualCourseLibrary = {
           "annualNo": 8
         },
         {
-          "id": "uploaded-live-64",
+          "id": "uploaded-live-65",
           "no": 9,
           "grade": "高二",
           "quarter": "暑期",
@@ -15183,7 +14988,7 @@ export const annualCourseLibrary = {
           "annualNo": 9
         },
         {
-          "id": "uploaded-live-65",
+          "id": "uploaded-live-66",
           "no": 10,
           "grade": "高二",
           "quarter": "暑期",
@@ -15198,7 +15003,7 @@ export const annualCourseLibrary = {
           "annualNo": 10
         },
         {
-          "id": "uploaded-live-66",
+          "id": "uploaded-live-67",
           "no": 11,
           "grade": "高二",
           "quarter": "秋季",
@@ -15213,7 +15018,7 @@ export const annualCourseLibrary = {
           "annualNo": 11
         },
         {
-          "id": "uploaded-live-67",
+          "id": "uploaded-live-68",
           "no": 12,
           "grade": "高二",
           "quarter": "秋季",
@@ -15228,7 +15033,7 @@ export const annualCourseLibrary = {
           "annualNo": 12
         },
         {
-          "id": "uploaded-live-68",
+          "id": "uploaded-live-69",
           "no": 13,
           "grade": "高二",
           "quarter": "秋季",
@@ -15243,7 +15048,7 @@ export const annualCourseLibrary = {
           "annualNo": 13
         },
         {
-          "id": "uploaded-live-69",
+          "id": "uploaded-live-70",
           "no": 14,
           "grade": "高二",
           "quarter": "秋季",
@@ -15258,7 +15063,7 @@ export const annualCourseLibrary = {
           "annualNo": 14
         },
         {
-          "id": "uploaded-live-70",
+          "id": "uploaded-live-71",
           "no": 15,
           "grade": "高二",
           "quarter": "秋季",
@@ -15273,7 +15078,7 @@ export const annualCourseLibrary = {
           "annualNo": 15
         },
         {
-          "id": "uploaded-live-71",
+          "id": "uploaded-live-72",
           "no": 16,
           "grade": "高二",
           "quarter": "秋季",
@@ -15288,7 +15093,7 @@ export const annualCourseLibrary = {
           "annualNo": 16
         },
         {
-          "id": "uploaded-live-72",
+          "id": "uploaded-live-73",
           "no": 17,
           "grade": "高二",
           "quarter": "秋季",
@@ -15303,7 +15108,7 @@ export const annualCourseLibrary = {
           "annualNo": 17
         },
         {
-          "id": "uploaded-live-73",
+          "id": "uploaded-live-74",
           "no": 18,
           "grade": "高二",
           "quarter": "秋季",
@@ -15318,7 +15123,7 @@ export const annualCourseLibrary = {
           "annualNo": 18
         },
         {
-          "id": "uploaded-live-74",
+          "id": "uploaded-live-75",
           "no": 19,
           "grade": "高二",
           "quarter": "秋季",
@@ -15333,7 +15138,7 @@ export const annualCourseLibrary = {
           "annualNo": 19
         },
         {
-          "id": "uploaded-live-75",
+          "id": "uploaded-live-76",
           "no": 20,
           "grade": "高二",
           "quarter": "秋季",
@@ -15348,7 +15153,7 @@ export const annualCourseLibrary = {
           "annualNo": 20
         },
         {
-          "id": "uploaded-live-76",
+          "id": "uploaded-live-77",
           "no": 21,
           "grade": "高二",
           "quarter": "秋季",
@@ -15363,7 +15168,7 @@ export const annualCourseLibrary = {
           "annualNo": 21
         },
         {
-          "id": "uploaded-live-77",
+          "id": "uploaded-live-78",
           "no": 22,
           "grade": "高二",
           "quarter": "秋季",
@@ -15378,7 +15183,7 @@ export const annualCourseLibrary = {
           "annualNo": 22
         },
         {
-          "id": "uploaded-live-78",
+          "id": "uploaded-live-79",
           "no": 23,
           "grade": "高二",
           "quarter": "秋季",
@@ -15393,7 +15198,7 @@ export const annualCourseLibrary = {
           "annualNo": 23
         },
         {
-          "id": "uploaded-live-79",
+          "id": "uploaded-live-80",
           "no": 24,
           "grade": "高二",
           "quarter": "秋季",
@@ -15408,7 +15213,7 @@ export const annualCourseLibrary = {
           "annualNo": 24
         },
         {
-          "id": "uploaded-live-80",
+          "id": "uploaded-live-81",
           "no": 25,
           "grade": "高二",
           "quarter": "秋季",
@@ -15423,7 +15228,7 @@ export const annualCourseLibrary = {
           "annualNo": 25
         },
         {
-          "id": "uploaded-live-81",
+          "id": "uploaded-live-82",
           "no": 26,
           "grade": "高二",
           "quarter": "秋季",
@@ -15438,23 +15243,8 @@ export const annualCourseLibrary = {
           "annualNo": 26
         },
         {
-          "id": "uploaded-live-82",
-          "no": 27,
-          "grade": "高二",
-          "quarter": "寒假",
-          "date": "/",
-          "time": "",
-          "early": "/",
-          "phase1": "",
-          "phase2": "/",
-          "phase3": "/",
-          "title": "【高二】2027年1-6月学习指南（物理）",
-          "live": "【高二】2027年1-6月学习指南（物理）",
-          "annualNo": 27
-        },
-        {
           "id": "uploaded-live-83",
-          "no": 28,
+          "no": 27,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -15465,11 +15255,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "感生电动势",
           "live": "感生电动势",
-          "annualNo": 28
+          "annualNo": 27
         },
         {
           "id": "uploaded-live-84",
-          "no": 29,
+          "no": 28,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -15480,11 +15270,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "动生电动势",
           "live": "动生电动势",
-          "annualNo": 29
+          "annualNo": 28
         },
         {
           "id": "uploaded-live-85",
-          "no": 30,
+          "no": 29,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -15495,11 +15285,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "交变电流",
           "live": "交变电流",
-          "annualNo": 30
+          "annualNo": 29
         },
         {
           "id": "uploaded-live-86",
-          "no": 31,
+          "no": 30,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -15510,11 +15300,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "远距离输电",
           "live": "远距离输电",
-          "annualNo": 31
+          "annualNo": 30
         },
         {
           "id": "uploaded-live-87",
-          "no": 32,
+          "no": 31,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -15525,11 +15315,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "机械振动",
           "live": "机械振动",
-          "annualNo": 32
+          "annualNo": 31
         },
         {
           "id": "uploaded-live-88",
-          "no": 33,
+          "no": 32,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -15540,11 +15330,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "机械波",
           "live": "机械波",
-          "annualNo": 33
+          "annualNo": 32
         },
         {
           "id": "uploaded-live-89",
-          "no": 34,
+          "no": 33,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -15555,11 +15345,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "几何光学",
           "live": "几何光学",
-          "annualNo": 34
+          "annualNo": 33
         },
         {
           "id": "uploaded-live-90",
-          "no": 35,
+          "no": 34,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -15570,11 +15360,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "物理光学",
           "live": "物理光学",
-          "annualNo": 35
+          "annualNo": 34
         },
         {
           "id": "uploaded-live-91",
-          "no": 36,
+          "no": 35,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -15585,11 +15375,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "热学",
           "live": "热学",
-          "annualNo": 36
+          "annualNo": 35
         },
         {
           "id": "uploaded-live-92",
-          "no": 37,
+          "no": 36,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -15600,11 +15390,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "原子物理学",
           "live": "原子物理学",
-          "annualNo": 37
+          "annualNo": 36
         },
         {
           "id": "uploaded-live-93",
-          "no": 38,
+          "no": 37,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -15615,11 +15405,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "电磁感应综合应用——无外力",
           "live": "电磁感应综合应用——无外力",
-          "annualNo": 38
+          "annualNo": 37
         },
         {
           "id": "uploaded-live-94",
-          "no": 39,
+          "no": 38,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -15630,11 +15420,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "电磁感应综合应用——有外力",
           "live": "电磁感应综合应用——有外力",
-          "annualNo": 39
+          "annualNo": 38
         },
         {
           "id": "uploaded-live-95",
-          "no": 40,
+          "no": 39,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -15645,11 +15435,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "交变电流综合问题",
           "live": "交变电流综合问题",
-          "annualNo": 40
+          "annualNo": 39
         },
         {
           "id": "uploaded-live-96",
-          "no": 41,
+          "no": 40,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -15660,11 +15450,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "变压器综合问题",
           "live": "变压器综合问题",
-          "annualNo": 41
+          "annualNo": 40
         },
         {
           "id": "uploaded-live-97",
-          "no": 42,
+          "no": 41,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -15675,11 +15465,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "机械振动综合问题",
           "live": "机械振动综合问题",
-          "annualNo": 42
+          "annualNo": 41
         },
         {
           "id": "uploaded-live-98",
-          "no": 43,
+          "no": 42,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -15690,11 +15480,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "机械波综合问题",
           "live": "机械波综合问题",
-          "annualNo": 43
+          "annualNo": 42
         },
         {
           "id": "uploaded-live-99",
-          "no": 44,
+          "no": 43,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -15705,11 +15495,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "光学综合问题1",
           "live": "光学综合问题1",
-          "annualNo": 44
+          "annualNo": 43
         },
         {
           "id": "uploaded-live-100",
-          "no": 45,
+          "no": 44,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -15720,11 +15510,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "光学综合问题2",
           "live": "光学综合问题2",
-          "annualNo": 45
+          "annualNo": 44
         },
         {
           "id": "uploaded-live-101",
-          "no": 46,
+          "no": 45,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -15735,11 +15525,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "气体实验定律典型问题",
           "live": "气体实验定律典型问题",
-          "annualNo": 46
+          "annualNo": 45
         },
         {
           "id": "uploaded-live-102",
-          "no": 47,
+          "no": 46,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -15750,11 +15540,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "理想气体状态方程典型问题",
           "live": "理想气体状态方程典型问题",
-          "annualNo": 47
+          "annualNo": 46
         },
         {
           "id": "uploaded-live-103",
-          "no": 48,
+          "no": 47,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -15765,11 +15555,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "波粒二象性及光电效应",
           "live": "波粒二象性及光电效应",
-          "annualNo": 48
+          "annualNo": 47
         },
         {
           "id": "uploaded-live-104",
-          "no": 49,
+          "no": 48,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -15780,11 +15570,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "原子结构与原子核",
           "live": "原子结构与原子核",
-          "annualNo": 49
+          "annualNo": 48
         },
         {
           "id": "uploaded-live-105",
-          "no": 50,
+          "no": 49,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -15795,11 +15585,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "直线运动1：运动公式",
           "live": "直线运动1：运动公式",
-          "annualNo": 50
+          "annualNo": 49
         },
         {
           "id": "uploaded-live-106",
-          "no": 51,
+          "no": 50,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -15810,11 +15600,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "直线运动2：运动图像",
           "live": "直线运动2：运动图像",
-          "annualNo": 51
+          "annualNo": 50
         },
         {
           "id": "uploaded-live-107",
-          "no": 52,
+          "no": 51,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -15825,11 +15615,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "相互作用1：受力分析",
           "live": "相互作用1：受力分析",
-          "annualNo": 52
+          "annualNo": 51
         },
         {
           "id": "uploaded-live-108",
-          "no": 53,
+          "no": 52,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -15840,12 +15630,12 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "相互作用2：动态平衡",
           "live": "相互作用2：动态平衡",
-          "annualNo": 53
+          "annualNo": 52
         }
       ],
       "化学": [
         {
-          "id": "uploaded-live-55",
+          "id": "uploaded-live-57",
           "no": 1,
           "grade": "高二",
           "quarter": "暑期",
@@ -15860,7 +15650,7 @@ export const annualCourseLibrary = {
           "annualNo": 1
         },
         {
-          "id": "uploaded-live-56",
+          "id": "uploaded-live-58",
           "no": 2,
           "grade": "高二",
           "quarter": "暑期",
@@ -15875,7 +15665,7 @@ export const annualCourseLibrary = {
           "annualNo": 2
         },
         {
-          "id": "uploaded-live-57",
+          "id": "uploaded-live-59",
           "no": 3,
           "grade": "高二",
           "quarter": "暑期",
@@ -15890,7 +15680,7 @@ export const annualCourseLibrary = {
           "annualNo": 3
         },
         {
-          "id": "uploaded-live-58",
+          "id": "uploaded-live-60",
           "no": 4,
           "grade": "高二",
           "quarter": "暑期",
@@ -15905,7 +15695,7 @@ export const annualCourseLibrary = {
           "annualNo": 4
         },
         {
-          "id": "uploaded-live-59",
+          "id": "uploaded-live-61",
           "no": 5,
           "grade": "高二",
           "quarter": "暑期",
@@ -15920,7 +15710,7 @@ export const annualCourseLibrary = {
           "annualNo": 5
         },
         {
-          "id": "uploaded-live-60",
+          "id": "uploaded-live-62",
           "no": 6,
           "grade": "高二",
           "quarter": "暑期",
@@ -15935,7 +15725,7 @@ export const annualCourseLibrary = {
           "annualNo": 6
         },
         {
-          "id": "uploaded-live-61",
+          "id": "uploaded-live-63",
           "no": 7,
           "grade": "高二",
           "quarter": "暑期",
@@ -15950,7 +15740,7 @@ export const annualCourseLibrary = {
           "annualNo": 7
         },
         {
-          "id": "uploaded-live-62",
+          "id": "uploaded-live-64",
           "no": 8,
           "grade": "高二",
           "quarter": "暑期",
@@ -15965,7 +15755,7 @@ export const annualCourseLibrary = {
           "annualNo": 8
         },
         {
-          "id": "uploaded-live-63",
+          "id": "uploaded-live-65",
           "no": 9,
           "grade": "高二",
           "quarter": "暑期",
@@ -15980,7 +15770,7 @@ export const annualCourseLibrary = {
           "annualNo": 9
         },
         {
-          "id": "uploaded-live-64",
+          "id": "uploaded-live-66",
           "no": 10,
           "grade": "高二",
           "quarter": "暑期",
@@ -15995,7 +15785,7 @@ export const annualCourseLibrary = {
           "annualNo": 10
         },
         {
-          "id": "uploaded-live-65",
+          "id": "uploaded-live-67",
           "no": 11,
           "grade": "高二",
           "quarter": "秋季",
@@ -16010,7 +15800,7 @@ export const annualCourseLibrary = {
           "annualNo": 11
         },
         {
-          "id": "uploaded-live-66",
+          "id": "uploaded-live-68",
           "no": 12,
           "grade": "高二",
           "quarter": "秋季",
@@ -16025,7 +15815,7 @@ export const annualCourseLibrary = {
           "annualNo": 12
         },
         {
-          "id": "uploaded-live-67",
+          "id": "uploaded-live-69",
           "no": 13,
           "grade": "高二",
           "quarter": "秋季",
@@ -16040,7 +15830,7 @@ export const annualCourseLibrary = {
           "annualNo": 13
         },
         {
-          "id": "uploaded-live-68",
+          "id": "uploaded-live-70",
           "no": 14,
           "grade": "高二",
           "quarter": "秋季",
@@ -16055,7 +15845,7 @@ export const annualCourseLibrary = {
           "annualNo": 14
         },
         {
-          "id": "uploaded-live-69",
+          "id": "uploaded-live-71",
           "no": 15,
           "grade": "高二",
           "quarter": "秋季",
@@ -16070,7 +15860,7 @@ export const annualCourseLibrary = {
           "annualNo": 15
         },
         {
-          "id": "uploaded-live-70",
+          "id": "uploaded-live-72",
           "no": 16,
           "grade": "高二",
           "quarter": "秋季",
@@ -16085,7 +15875,7 @@ export const annualCourseLibrary = {
           "annualNo": 16
         },
         {
-          "id": "uploaded-live-71",
+          "id": "uploaded-live-73",
           "no": 17,
           "grade": "高二",
           "quarter": "秋季",
@@ -16100,7 +15890,7 @@ export const annualCourseLibrary = {
           "annualNo": 17
         },
         {
-          "id": "uploaded-live-72",
+          "id": "uploaded-live-74",
           "no": 18,
           "grade": "高二",
           "quarter": "秋季",
@@ -16115,7 +15905,7 @@ export const annualCourseLibrary = {
           "annualNo": 18
         },
         {
-          "id": "uploaded-live-73",
+          "id": "uploaded-live-75",
           "no": 19,
           "grade": "高二",
           "quarter": "秋季",
@@ -16130,7 +15920,7 @@ export const annualCourseLibrary = {
           "annualNo": 19
         },
         {
-          "id": "uploaded-live-74",
+          "id": "uploaded-live-76",
           "no": 20,
           "grade": "高二",
           "quarter": "秋季",
@@ -16145,7 +15935,7 @@ export const annualCourseLibrary = {
           "annualNo": 20
         },
         {
-          "id": "uploaded-live-75",
+          "id": "uploaded-live-77",
           "no": 21,
           "grade": "高二",
           "quarter": "秋季",
@@ -16160,7 +15950,7 @@ export const annualCourseLibrary = {
           "annualNo": 21
         },
         {
-          "id": "uploaded-live-76",
+          "id": "uploaded-live-78",
           "no": 22,
           "grade": "高二",
           "quarter": "秋季",
@@ -16175,7 +15965,7 @@ export const annualCourseLibrary = {
           "annualNo": 22
         },
         {
-          "id": "uploaded-live-77",
+          "id": "uploaded-live-79",
           "no": 23,
           "grade": "高二",
           "quarter": "秋季",
@@ -16190,7 +15980,7 @@ export const annualCourseLibrary = {
           "annualNo": 23
         },
         {
-          "id": "uploaded-live-78",
+          "id": "uploaded-live-80",
           "no": 24,
           "grade": "高二",
           "quarter": "秋季",
@@ -16205,7 +15995,7 @@ export const annualCourseLibrary = {
           "annualNo": 24
         },
         {
-          "id": "uploaded-live-79",
+          "id": "uploaded-live-81",
           "no": 25,
           "grade": "高二",
           "quarter": "秋季",
@@ -16220,22 +16010,22 @@ export const annualCourseLibrary = {
           "annualNo": 25
         },
         {
-          "id": "uploaded-live-80",
+          "id": "uploaded-live-82",
           "no": 26,
           "grade": "高二",
-          "quarter": "寒假",
-          "date": "/",
+          "quarter": "秋季",
+          "date": "",
           "time": "",
-          "early": "/",
-          "phase1": "",
-          "phase2": "/",
-          "phase3": "/",
-          "title": "【高二】2026年1-6月学习指南（化学）",
-          "live": "【高二】2026年1-6月学习指南（化学）",
+          "early": "",
+          "phase1": "12月20日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "高二上期末复习",
+          "live": "高二上期末复习",
           "annualNo": 26
         },
         {
-          "id": "uploaded-live-81",
+          "id": "uploaded-live-83",
           "no": 27,
           "grade": "高二",
           "quarter": "寒假",
@@ -16250,7 +16040,7 @@ export const annualCourseLibrary = {
           "annualNo": 27
         },
         {
-          "id": "uploaded-live-82",
+          "id": "uploaded-live-84",
           "no": 28,
           "grade": "高二",
           "quarter": "寒假",
@@ -16265,7 +16055,7 @@ export const annualCourseLibrary = {
           "annualNo": 28
         },
         {
-          "id": "uploaded-live-83",
+          "id": "uploaded-live-85",
           "no": 29,
           "grade": "高二",
           "quarter": "寒假",
@@ -16280,7 +16070,7 @@ export const annualCourseLibrary = {
           "annualNo": 29
         },
         {
-          "id": "uploaded-live-84",
+          "id": "uploaded-live-86",
           "no": 30,
           "grade": "高二",
           "quarter": "寒假",
@@ -16295,7 +16085,7 @@ export const annualCourseLibrary = {
           "annualNo": 30
         },
         {
-          "id": "uploaded-live-85",
+          "id": "uploaded-live-87",
           "no": 31,
           "grade": "高二",
           "quarter": "寒假",
@@ -16310,7 +16100,7 @@ export const annualCourseLibrary = {
           "annualNo": 31
         },
         {
-          "id": "uploaded-live-86",
+          "id": "uploaded-live-88",
           "no": 32,
           "grade": "高二",
           "quarter": "寒假",
@@ -16325,7 +16115,7 @@ export const annualCourseLibrary = {
           "annualNo": 32
         },
         {
-          "id": "uploaded-live-87",
+          "id": "uploaded-live-89",
           "no": 33,
           "grade": "高二",
           "quarter": "寒假",
@@ -16340,7 +16130,7 @@ export const annualCourseLibrary = {
           "annualNo": 33
         },
         {
-          "id": "uploaded-live-88",
+          "id": "uploaded-live-90",
           "no": 34,
           "grade": "高二",
           "quarter": "寒假",
@@ -16355,7 +16145,7 @@ export const annualCourseLibrary = {
           "annualNo": 34
         },
         {
-          "id": "uploaded-live-89",
+          "id": "uploaded-live-91",
           "no": 35,
           "grade": "高二",
           "quarter": "寒假",
@@ -16370,7 +16160,7 @@ export const annualCourseLibrary = {
           "annualNo": 35
         },
         {
-          "id": "uploaded-live-90",
+          "id": "uploaded-live-92",
           "no": 36,
           "grade": "高二",
           "quarter": "寒假",
@@ -16385,7 +16175,7 @@ export const annualCourseLibrary = {
           "annualNo": 36
         },
         {
-          "id": "uploaded-live-91",
+          "id": "uploaded-live-93",
           "no": 37,
           "grade": "高二",
           "quarter": "春季",
@@ -16400,7 +16190,7 @@ export const annualCourseLibrary = {
           "annualNo": 37
         },
         {
-          "id": "uploaded-live-92",
+          "id": "uploaded-live-94",
           "no": 38,
           "grade": "高二",
           "quarter": "春季",
@@ -16415,7 +16205,7 @@ export const annualCourseLibrary = {
           "annualNo": 38
         },
         {
-          "id": "uploaded-live-93",
+          "id": "uploaded-live-95",
           "no": 39,
           "grade": "高二",
           "quarter": "春季",
@@ -16430,7 +16220,7 @@ export const annualCourseLibrary = {
           "annualNo": 39
         },
         {
-          "id": "uploaded-live-94",
+          "id": "uploaded-live-96",
           "no": 40,
           "grade": "高二",
           "quarter": "春季",
@@ -16445,7 +16235,7 @@ export const annualCourseLibrary = {
           "annualNo": 40
         },
         {
-          "id": "uploaded-live-95",
+          "id": "uploaded-live-97",
           "no": 41,
           "grade": "高二",
           "quarter": "春季",
@@ -16460,7 +16250,7 @@ export const annualCourseLibrary = {
           "annualNo": 41
         },
         {
-          "id": "uploaded-live-96",
+          "id": "uploaded-live-98",
           "no": 42,
           "grade": "高二",
           "quarter": "春季",
@@ -16475,7 +16265,7 @@ export const annualCourseLibrary = {
           "annualNo": 42
         },
         {
-          "id": "uploaded-live-97",
+          "id": "uploaded-live-99",
           "no": 43,
           "grade": "高二",
           "quarter": "春季",
@@ -16490,7 +16280,7 @@ export const annualCourseLibrary = {
           "annualNo": 43
         },
         {
-          "id": "uploaded-live-98",
+          "id": "uploaded-live-100",
           "no": 44,
           "grade": "高二",
           "quarter": "春季",
@@ -16505,7 +16295,7 @@ export const annualCourseLibrary = {
           "annualNo": 44
         },
         {
-          "id": "uploaded-live-99",
+          "id": "uploaded-live-101",
           "no": 45,
           "grade": "高二",
           "quarter": "春季",
@@ -16520,7 +16310,7 @@ export const annualCourseLibrary = {
           "annualNo": 45
         },
         {
-          "id": "uploaded-live-100",
+          "id": "uploaded-live-102",
           "no": 46,
           "grade": "高二",
           "quarter": "春季",
@@ -16535,7 +16325,7 @@ export const annualCourseLibrary = {
           "annualNo": 46
         },
         {
-          "id": "uploaded-live-101",
+          "id": "uploaded-live-103",
           "no": 47,
           "grade": "高二",
           "quarter": "春季",
@@ -16550,7 +16340,7 @@ export const annualCourseLibrary = {
           "annualNo": 47
         },
         {
-          "id": "uploaded-live-102",
+          "id": "uploaded-live-104",
           "no": 48,
           "grade": "高二",
           "quarter": "春季",
@@ -16565,7 +16355,7 @@ export const annualCourseLibrary = {
           "annualNo": 48
         },
         {
-          "id": "uploaded-live-103",
+          "id": "uploaded-live-105",
           "no": 49,
           "grade": "高二",
           "quarter": "春季",
@@ -16580,7 +16370,7 @@ export const annualCourseLibrary = {
           "annualNo": 49
         },
         {
-          "id": "uploaded-live-104",
+          "id": "uploaded-live-106",
           "no": 50,
           "grade": "高二",
           "quarter": "春季",
@@ -16595,7 +16385,7 @@ export const annualCourseLibrary = {
           "annualNo": 50
         },
         {
-          "id": "uploaded-live-105",
+          "id": "uploaded-live-107",
           "no": 51,
           "grade": "高二",
           "quarter": "春季",
@@ -16610,7 +16400,7 @@ export const annualCourseLibrary = {
           "annualNo": 51
         },
         {
-          "id": "uploaded-live-106",
+          "id": "uploaded-live-108",
           "no": 52,
           "grade": "高二",
           "quarter": "春季",
@@ -16627,7 +16417,7 @@ export const annualCourseLibrary = {
       ],
       "生物": [
         {
-          "id": "uploaded-live-56",
+          "id": "uploaded-live-57",
           "no": 1,
           "grade": "高二",
           "quarter": "暑期",
@@ -16642,7 +16432,7 @@ export const annualCourseLibrary = {
           "annualNo": 1
         },
         {
-          "id": "uploaded-live-57",
+          "id": "uploaded-live-58",
           "no": 2,
           "grade": "高二",
           "quarter": "暑期",
@@ -16657,7 +16447,7 @@ export const annualCourseLibrary = {
           "annualNo": 2
         },
         {
-          "id": "uploaded-live-58",
+          "id": "uploaded-live-59",
           "no": 3,
           "grade": "高二",
           "quarter": "暑期",
@@ -16672,7 +16462,7 @@ export const annualCourseLibrary = {
           "annualNo": 3
         },
         {
-          "id": "uploaded-live-59",
+          "id": "uploaded-live-60",
           "no": 4,
           "grade": "高二",
           "quarter": "暑期",
@@ -16687,7 +16477,7 @@ export const annualCourseLibrary = {
           "annualNo": 4
         },
         {
-          "id": "uploaded-live-60",
+          "id": "uploaded-live-61",
           "no": 5,
           "grade": "高二",
           "quarter": "暑期",
@@ -16702,7 +16492,7 @@ export const annualCourseLibrary = {
           "annualNo": 5
         },
         {
-          "id": "uploaded-live-61",
+          "id": "uploaded-live-62",
           "no": 6,
           "grade": "高二",
           "quarter": "暑期",
@@ -16717,7 +16507,7 @@ export const annualCourseLibrary = {
           "annualNo": 6
         },
         {
-          "id": "uploaded-live-62",
+          "id": "uploaded-live-63",
           "no": 7,
           "grade": "高二",
           "quarter": "暑期",
@@ -16732,7 +16522,7 @@ export const annualCourseLibrary = {
           "annualNo": 7
         },
         {
-          "id": "uploaded-live-63",
+          "id": "uploaded-live-64",
           "no": 8,
           "grade": "高二",
           "quarter": "暑期",
@@ -16747,7 +16537,7 @@ export const annualCourseLibrary = {
           "annualNo": 8
         },
         {
-          "id": "uploaded-live-64",
+          "id": "uploaded-live-65",
           "no": 9,
           "grade": "高二",
           "quarter": "暑期",
@@ -16762,7 +16552,7 @@ export const annualCourseLibrary = {
           "annualNo": 9
         },
         {
-          "id": "uploaded-live-65",
+          "id": "uploaded-live-66",
           "no": 10,
           "grade": "高二",
           "quarter": "暑期",
@@ -16777,7 +16567,7 @@ export const annualCourseLibrary = {
           "annualNo": 10
         },
         {
-          "id": "uploaded-live-66",
+          "id": "uploaded-live-67",
           "no": 11,
           "grade": "高二",
           "quarter": "秋季",
@@ -16792,7 +16582,7 @@ export const annualCourseLibrary = {
           "annualNo": 11
         },
         {
-          "id": "uploaded-live-67",
+          "id": "uploaded-live-68",
           "no": 12,
           "grade": "高二",
           "quarter": "秋季",
@@ -16807,7 +16597,7 @@ export const annualCourseLibrary = {
           "annualNo": 12
         },
         {
-          "id": "uploaded-live-68",
+          "id": "uploaded-live-69",
           "no": 13,
           "grade": "高二",
           "quarter": "秋季",
@@ -16822,7 +16612,7 @@ export const annualCourseLibrary = {
           "annualNo": 13
         },
         {
-          "id": "uploaded-live-69",
+          "id": "uploaded-live-70",
           "no": 14,
           "grade": "高二",
           "quarter": "秋季",
@@ -16837,7 +16627,7 @@ export const annualCourseLibrary = {
           "annualNo": 14
         },
         {
-          "id": "uploaded-live-70",
+          "id": "uploaded-live-71",
           "no": 15,
           "grade": "高二",
           "quarter": "秋季",
@@ -16852,7 +16642,7 @@ export const annualCourseLibrary = {
           "annualNo": 15
         },
         {
-          "id": "uploaded-live-71",
+          "id": "uploaded-live-72",
           "no": 16,
           "grade": "高二",
           "quarter": "秋季",
@@ -16867,7 +16657,7 @@ export const annualCourseLibrary = {
           "annualNo": 16
         },
         {
-          "id": "uploaded-live-72",
+          "id": "uploaded-live-73",
           "no": 17,
           "grade": "高二",
           "quarter": "秋季",
@@ -16882,7 +16672,7 @@ export const annualCourseLibrary = {
           "annualNo": 17
         },
         {
-          "id": "uploaded-live-73",
+          "id": "uploaded-live-74",
           "no": 18,
           "grade": "高二",
           "quarter": "秋季",
@@ -16897,7 +16687,7 @@ export const annualCourseLibrary = {
           "annualNo": 18
         },
         {
-          "id": "uploaded-live-74",
+          "id": "uploaded-live-75",
           "no": 19,
           "grade": "高二",
           "quarter": "秋季",
@@ -16912,7 +16702,7 @@ export const annualCourseLibrary = {
           "annualNo": 19
         },
         {
-          "id": "uploaded-live-75",
+          "id": "uploaded-live-76",
           "no": 20,
           "grade": "高二",
           "quarter": "秋季",
@@ -16927,7 +16717,7 @@ export const annualCourseLibrary = {
           "annualNo": 20
         },
         {
-          "id": "uploaded-live-76",
+          "id": "uploaded-live-77",
           "no": 21,
           "grade": "高二",
           "quarter": "秋季",
@@ -16942,7 +16732,7 @@ export const annualCourseLibrary = {
           "annualNo": 21
         },
         {
-          "id": "uploaded-live-77",
+          "id": "uploaded-live-78",
           "no": 22,
           "grade": "高二",
           "quarter": "秋季",
@@ -16957,7 +16747,7 @@ export const annualCourseLibrary = {
           "annualNo": 22
         },
         {
-          "id": "uploaded-live-78",
+          "id": "uploaded-live-79",
           "no": 23,
           "grade": "高二",
           "quarter": "秋季",
@@ -16972,7 +16762,7 @@ export const annualCourseLibrary = {
           "annualNo": 23
         },
         {
-          "id": "uploaded-live-79",
+          "id": "uploaded-live-80",
           "no": 24,
           "grade": "高二",
           "quarter": "秋季",
@@ -16987,7 +16777,7 @@ export const annualCourseLibrary = {
           "annualNo": 24
         },
         {
-          "id": "uploaded-live-80",
+          "id": "uploaded-live-81",
           "no": 25,
           "grade": "高二",
           "quarter": "秋季",
@@ -17002,7 +16792,7 @@ export const annualCourseLibrary = {
           "annualNo": 25
         },
         {
-          "id": "uploaded-live-81",
+          "id": "uploaded-live-82",
           "no": 26,
           "grade": "高二",
           "quarter": "秋季",
@@ -17409,7 +17199,7 @@ export const annualCourseLibrary = {
       ],
       "历史": [
         {
-          "id": "uploaded-live-56",
+          "id": "uploaded-live-57",
           "no": 1,
           "grade": "高二",
           "quarter": "暑期",
@@ -17424,7 +17214,7 @@ export const annualCourseLibrary = {
           "annualNo": 1
         },
         {
-          "id": "uploaded-live-57",
+          "id": "uploaded-live-58",
           "no": 2,
           "grade": "高二",
           "quarter": "暑期",
@@ -17439,7 +17229,7 @@ export const annualCourseLibrary = {
           "annualNo": 2
         },
         {
-          "id": "uploaded-live-58",
+          "id": "uploaded-live-59",
           "no": 3,
           "grade": "高二",
           "quarter": "暑期",
@@ -17454,7 +17244,7 @@ export const annualCourseLibrary = {
           "annualNo": 3
         },
         {
-          "id": "uploaded-live-59",
+          "id": "uploaded-live-60",
           "no": 4,
           "grade": "高二",
           "quarter": "暑期",
@@ -17469,7 +17259,7 @@ export const annualCourseLibrary = {
           "annualNo": 4
         },
         {
-          "id": "uploaded-live-60",
+          "id": "uploaded-live-61",
           "no": 5,
           "grade": "高二",
           "quarter": "暑期",
@@ -17484,7 +17274,7 @@ export const annualCourseLibrary = {
           "annualNo": 5
         },
         {
-          "id": "uploaded-live-61",
+          "id": "uploaded-live-62",
           "no": 6,
           "grade": "高二",
           "quarter": "暑期",
@@ -17499,7 +17289,7 @@ export const annualCourseLibrary = {
           "annualNo": 6
         },
         {
-          "id": "uploaded-live-62",
+          "id": "uploaded-live-63",
           "no": 7,
           "grade": "高二",
           "quarter": "暑期",
@@ -17514,7 +17304,7 @@ export const annualCourseLibrary = {
           "annualNo": 7
         },
         {
-          "id": "uploaded-live-63",
+          "id": "uploaded-live-64",
           "no": 8,
           "grade": "高二",
           "quarter": "暑期",
@@ -17529,7 +17319,7 @@ export const annualCourseLibrary = {
           "annualNo": 8
         },
         {
-          "id": "uploaded-live-64",
+          "id": "uploaded-live-65",
           "no": 9,
           "grade": "高二",
           "quarter": "暑期",
@@ -17544,7 +17334,7 @@ export const annualCourseLibrary = {
           "annualNo": 9
         },
         {
-          "id": "uploaded-live-65",
+          "id": "uploaded-live-66",
           "no": 10,
           "grade": "高二",
           "quarter": "暑期",
@@ -17559,7 +17349,7 @@ export const annualCourseLibrary = {
           "annualNo": 10
         },
         {
-          "id": "uploaded-live-66",
+          "id": "uploaded-live-67",
           "no": 11,
           "grade": "高二",
           "quarter": "秋季",
@@ -17574,7 +17364,7 @@ export const annualCourseLibrary = {
           "annualNo": 11
         },
         {
-          "id": "uploaded-live-67",
+          "id": "uploaded-live-68",
           "no": 12,
           "grade": "高二",
           "quarter": "秋季",
@@ -17589,7 +17379,7 @@ export const annualCourseLibrary = {
           "annualNo": 12
         },
         {
-          "id": "uploaded-live-68",
+          "id": "uploaded-live-69",
           "no": 13,
           "grade": "高二",
           "quarter": "秋季",
@@ -17604,7 +17394,7 @@ export const annualCourseLibrary = {
           "annualNo": 13
         },
         {
-          "id": "uploaded-live-69",
+          "id": "uploaded-live-70",
           "no": 14,
           "grade": "高二",
           "quarter": "秋季",
@@ -17619,7 +17409,7 @@ export const annualCourseLibrary = {
           "annualNo": 14
         },
         {
-          "id": "uploaded-live-70",
+          "id": "uploaded-live-71",
           "no": 15,
           "grade": "高二",
           "quarter": "秋季",
@@ -17634,7 +17424,7 @@ export const annualCourseLibrary = {
           "annualNo": 15
         },
         {
-          "id": "uploaded-live-71",
+          "id": "uploaded-live-72",
           "no": 16,
           "grade": "高二",
           "quarter": "秋季",
@@ -17649,7 +17439,7 @@ export const annualCourseLibrary = {
           "annualNo": 16
         },
         {
-          "id": "uploaded-live-72",
+          "id": "uploaded-live-73",
           "no": 17,
           "grade": "高二",
           "quarter": "秋季",
@@ -17664,7 +17454,7 @@ export const annualCourseLibrary = {
           "annualNo": 17
         },
         {
-          "id": "uploaded-live-73",
+          "id": "uploaded-live-74",
           "no": 18,
           "grade": "高二",
           "quarter": "秋季",
@@ -17679,7 +17469,7 @@ export const annualCourseLibrary = {
           "annualNo": 18
         },
         {
-          "id": "uploaded-live-74",
+          "id": "uploaded-live-75",
           "no": 19,
           "grade": "高二",
           "quarter": "秋季",
@@ -17694,7 +17484,7 @@ export const annualCourseLibrary = {
           "annualNo": 19
         },
         {
-          "id": "uploaded-live-75",
+          "id": "uploaded-live-76",
           "no": 20,
           "grade": "高二",
           "quarter": "秋季",
@@ -17709,7 +17499,7 @@ export const annualCourseLibrary = {
           "annualNo": 20
         },
         {
-          "id": "uploaded-live-76",
+          "id": "uploaded-live-77",
           "no": 21,
           "grade": "高二",
           "quarter": "秋季",
@@ -17724,7 +17514,7 @@ export const annualCourseLibrary = {
           "annualNo": 21
         },
         {
-          "id": "uploaded-live-77",
+          "id": "uploaded-live-78",
           "no": 22,
           "grade": "高二",
           "quarter": "秋季",
@@ -17739,7 +17529,7 @@ export const annualCourseLibrary = {
           "annualNo": 22
         },
         {
-          "id": "uploaded-live-78",
+          "id": "uploaded-live-79",
           "no": 23,
           "grade": "高二",
           "quarter": "秋季",
@@ -17754,7 +17544,7 @@ export const annualCourseLibrary = {
           "annualNo": 23
         },
         {
-          "id": "uploaded-live-79",
+          "id": "uploaded-live-80",
           "no": 24,
           "grade": "高二",
           "quarter": "秋季",
@@ -17769,7 +17559,7 @@ export const annualCourseLibrary = {
           "annualNo": 24
         },
         {
-          "id": "uploaded-live-80",
+          "id": "uploaded-live-81",
           "no": 25,
           "grade": "高二",
           "quarter": "秋季",
@@ -17784,7 +17574,7 @@ export const annualCourseLibrary = {
           "annualNo": 25
         },
         {
-          "id": "uploaded-live-81",
+          "id": "uploaded-live-82",
           "no": 26,
           "grade": "高二",
           "quarter": "秋季",
@@ -18191,7 +17981,7 @@ export const annualCourseLibrary = {
       ],
       "地理": [
         {
-          "id": "uploaded-live-54",
+          "id": "uploaded-live-57",
           "no": 1,
           "grade": "高二",
           "quarter": "暑期",
@@ -18206,7 +17996,7 @@ export const annualCourseLibrary = {
           "annualNo": 1
         },
         {
-          "id": "uploaded-live-55",
+          "id": "uploaded-live-58",
           "no": 2,
           "grade": "高二",
           "quarter": "暑期",
@@ -18221,7 +18011,7 @@ export const annualCourseLibrary = {
           "annualNo": 2
         },
         {
-          "id": "uploaded-live-56",
+          "id": "uploaded-live-59",
           "no": 3,
           "grade": "高二",
           "quarter": "暑期",
@@ -18236,7 +18026,7 @@ export const annualCourseLibrary = {
           "annualNo": 3
         },
         {
-          "id": "uploaded-live-57",
+          "id": "uploaded-live-60",
           "no": 4,
           "grade": "高二",
           "quarter": "暑期",
@@ -18251,7 +18041,7 @@ export const annualCourseLibrary = {
           "annualNo": 4
         },
         {
-          "id": "uploaded-live-58",
+          "id": "uploaded-live-61",
           "no": 5,
           "grade": "高二",
           "quarter": "暑期",
@@ -18266,7 +18056,7 @@ export const annualCourseLibrary = {
           "annualNo": 5
         },
         {
-          "id": "uploaded-live-59",
+          "id": "uploaded-live-62",
           "no": 6,
           "grade": "高二",
           "quarter": "暑期",
@@ -18281,7 +18071,7 @@ export const annualCourseLibrary = {
           "annualNo": 6
         },
         {
-          "id": "uploaded-live-60",
+          "id": "uploaded-live-63",
           "no": 7,
           "grade": "高二",
           "quarter": "暑期",
@@ -18296,7 +18086,7 @@ export const annualCourseLibrary = {
           "annualNo": 7
         },
         {
-          "id": "uploaded-live-61",
+          "id": "uploaded-live-64",
           "no": 8,
           "grade": "高二",
           "quarter": "暑期",
@@ -18311,7 +18101,7 @@ export const annualCourseLibrary = {
           "annualNo": 8
         },
         {
-          "id": "uploaded-live-62",
+          "id": "uploaded-live-65",
           "no": 9,
           "grade": "高二",
           "quarter": "暑期",
@@ -18326,7 +18116,7 @@ export const annualCourseLibrary = {
           "annualNo": 9
         },
         {
-          "id": "uploaded-live-63",
+          "id": "uploaded-live-66",
           "no": 10,
           "grade": "高二",
           "quarter": "暑期",
@@ -18341,7 +18131,7 @@ export const annualCourseLibrary = {
           "annualNo": 10
         },
         {
-          "id": "uploaded-live-64",
+          "id": "uploaded-live-67",
           "no": 11,
           "grade": "高二",
           "quarter": "秋季",
@@ -18356,7 +18146,7 @@ export const annualCourseLibrary = {
           "annualNo": 11
         },
         {
-          "id": "uploaded-live-65",
+          "id": "uploaded-live-68",
           "no": 12,
           "grade": "高二",
           "quarter": "秋季",
@@ -18371,7 +18161,7 @@ export const annualCourseLibrary = {
           "annualNo": 12
         },
         {
-          "id": "uploaded-live-66",
+          "id": "uploaded-live-69",
           "no": 13,
           "grade": "高二",
           "quarter": "秋季",
@@ -18386,7 +18176,7 @@ export const annualCourseLibrary = {
           "annualNo": 13
         },
         {
-          "id": "uploaded-live-67",
+          "id": "uploaded-live-70",
           "no": 14,
           "grade": "高二",
           "quarter": "秋季",
@@ -18401,7 +18191,7 @@ export const annualCourseLibrary = {
           "annualNo": 14
         },
         {
-          "id": "uploaded-live-68",
+          "id": "uploaded-live-71",
           "no": 15,
           "grade": "高二",
           "quarter": "秋季",
@@ -18416,7 +18206,7 @@ export const annualCourseLibrary = {
           "annualNo": 15
         },
         {
-          "id": "uploaded-live-69",
+          "id": "uploaded-live-72",
           "no": 16,
           "grade": "高二",
           "quarter": "秋季",
@@ -18431,7 +18221,7 @@ export const annualCourseLibrary = {
           "annualNo": 16
         },
         {
-          "id": "uploaded-live-70",
+          "id": "uploaded-live-73",
           "no": 17,
           "grade": "高二",
           "quarter": "秋季",
@@ -18446,7 +18236,7 @@ export const annualCourseLibrary = {
           "annualNo": 17
         },
         {
-          "id": "uploaded-live-71",
+          "id": "uploaded-live-74",
           "no": 18,
           "grade": "高二",
           "quarter": "秋季",
@@ -18461,7 +18251,7 @@ export const annualCourseLibrary = {
           "annualNo": 18
         },
         {
-          "id": "uploaded-live-72",
+          "id": "uploaded-live-75",
           "no": 19,
           "grade": "高二",
           "quarter": "秋季",
@@ -18476,7 +18266,7 @@ export const annualCourseLibrary = {
           "annualNo": 19
         },
         {
-          "id": "uploaded-live-73",
+          "id": "uploaded-live-76",
           "no": 20,
           "grade": "高二",
           "quarter": "秋季",
@@ -18491,7 +18281,7 @@ export const annualCourseLibrary = {
           "annualNo": 20
         },
         {
-          "id": "uploaded-live-74",
+          "id": "uploaded-live-77",
           "no": 21,
           "grade": "高二",
           "quarter": "秋季",
@@ -18506,7 +18296,7 @@ export const annualCourseLibrary = {
           "annualNo": 21
         },
         {
-          "id": "uploaded-live-75",
+          "id": "uploaded-live-78",
           "no": 22,
           "grade": "高二",
           "quarter": "秋季",
@@ -18521,7 +18311,7 @@ export const annualCourseLibrary = {
           "annualNo": 22
         },
         {
-          "id": "uploaded-live-76",
+          "id": "uploaded-live-79",
           "no": 23,
           "grade": "高二",
           "quarter": "秋季",
@@ -18536,7 +18326,7 @@ export const annualCourseLibrary = {
           "annualNo": 23
         },
         {
-          "id": "uploaded-live-77",
+          "id": "uploaded-live-80",
           "no": 24,
           "grade": "高二",
           "quarter": "秋季",
@@ -18551,7 +18341,7 @@ export const annualCourseLibrary = {
           "annualNo": 24
         },
         {
-          "id": "uploaded-live-78",
+          "id": "uploaded-live-81",
           "no": 25,
           "grade": "高二",
           "quarter": "秋季",
@@ -18566,7 +18356,7 @@ export const annualCourseLibrary = {
           "annualNo": 25
         },
         {
-          "id": "uploaded-live-79",
+          "id": "uploaded-live-82",
           "no": 26,
           "grade": "高二",
           "quarter": "秋季",
@@ -18581,23 +18371,8 @@ export const annualCourseLibrary = {
           "annualNo": 26
         },
         {
-          "id": "uploaded-live-80",
+          "id": "uploaded-live-83",
           "no": 27,
-          "grade": "高二",
-          "quarter": "寒假",
-          "date": "/",
-          "time": "",
-          "early": "/",
-          "phase1": "",
-          "phase2": "/",
-          "phase3": "/",
-          "title": "【高二】2026年1-6月学习指南（地理）",
-          "live": "【高二】2026年1-6月学习指南（地理）",
-          "annualNo": 27
-        },
-        {
-          "id": "uploaded-live-81",
-          "no": 28,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -18608,11 +18383,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "区域地理核心知识1：区域整体性和关联性",
           "live": "区域地理核心知识1：区域整体性和关联性",
-          "annualNo": 28
+          "annualNo": 27
         },
         {
-          "id": "uploaded-live-82",
-          "no": 29,
+          "id": "uploaded-live-84",
+          "no": 28,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -18623,11 +18398,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "区域地理核心知识2 ：生态脆弱区的综合治理",
           "live": "区域地理核心知识2 ：生态脆弱区的综合治理",
-          "annualNo": 29
+          "annualNo": 28
         },
         {
-          "id": "uploaded-live-83",
-          "no": 30,
+          "id": "uploaded-live-85",
+          "no": 29,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -18638,11 +18413,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "区域地理核心知识3：资源枯竭型城市的发展与转型",
           "live": "区域地理核心知识3：资源枯竭型城市的发展与转型",
-          "annualNo": 30
+          "annualNo": 29
         },
         {
-          "id": "uploaded-live-84",
-          "no": 31,
+          "id": "uploaded-live-86",
+          "no": 30,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -18653,11 +18428,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "区域地理核心知识4：城市的辐射功能与产业结构变化",
           "live": "区域地理核心知识4：城市的辐射功能与产业结构变化",
-          "annualNo": 31
+          "annualNo": 30
         },
         {
-          "id": "uploaded-live-85",
-          "no": 32,
+          "id": "uploaded-live-87",
+          "no": 31,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -18668,11 +18443,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "区域地理核心知识5：流域内的协调发展与资源的跨区域调配",
           "live": "区域地理核心知识5：流域内的协调发展与资源的跨区域调配",
-          "annualNo": 32
+          "annualNo": 31
         },
         {
-          "id": "uploaded-live-86",
-          "no": 33,
+          "id": "uploaded-live-88",
+          "no": 32,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -18683,11 +18458,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "区域地理核心知识6：产业转移与国际合作",
           "live": "区域地理核心知识6：产业转移与国际合作",
-          "annualNo": 33
+          "annualNo": 32
         },
         {
-          "id": "uploaded-live-87",
-          "no": 34,
+          "id": "uploaded-live-89",
+          "no": 33,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -18698,11 +18473,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "中国地理核心知识1：中国地理概况",
           "live": "中国地理核心知识1：中国地理概况",
-          "annualNo": 34
+          "annualNo": 33
         },
         {
-          "id": "uploaded-live-88",
-          "no": 35,
+          "id": "uploaded-live-90",
+          "no": 34,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -18713,11 +18488,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "中国地理核心知识2：中国自然地理总结",
           "live": "中国地理核心知识2：中国自然地理总结",
-          "annualNo": 35
+          "annualNo": 34
         },
         {
-          "id": "uploaded-live-89",
-          "no": 36,
+          "id": "uploaded-live-91",
+          "no": 35,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -18728,11 +18503,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "中国地理核心知识3：中国的农业发展",
           "live": "中国地理核心知识3：中国的农业发展",
-          "annualNo": 36
+          "annualNo": 35
         },
         {
-          "id": "uploaded-live-90",
-          "no": 37,
+          "id": "uploaded-live-92",
+          "no": 36,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -18743,11 +18518,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "中国地理核心知识4：中国的工业发展",
           "live": "中国地理核心知识4：中国的工业发展",
-          "annualNo": 37
+          "annualNo": 36
         },
         {
-          "id": "uploaded-live-91",
-          "no": 38,
+          "id": "uploaded-live-93",
+          "no": 37,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -18758,11 +18533,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "选必二区域综合复习1",
           "live": "选必二区域综合复习1",
-          "annualNo": 38
+          "annualNo": 37
         },
         {
-          "id": "uploaded-live-92",
-          "no": 39,
+          "id": "uploaded-live-94",
+          "no": 38,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -18773,11 +18548,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "选必二区域综合复习2",
           "live": "选必二区域综合复习2",
-          "annualNo": 39
+          "annualNo": 38
         },
         {
-          "id": "uploaded-live-93",
-          "no": 40,
+          "id": "uploaded-live-95",
+          "no": 39,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -18788,11 +18563,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "选必二区域综合复习3",
           "live": "选必二区域综合复习3",
-          "annualNo": 40
+          "annualNo": 39
         },
         {
-          "id": "uploaded-live-94",
-          "no": 41,
+          "id": "uploaded-live-96",
+          "no": 40,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -18803,11 +18578,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "选必二区域综合复习4",
           "live": "选必二区域综合复习4",
-          "annualNo": 41
+          "annualNo": 40
         },
         {
-          "id": "uploaded-live-95",
-          "no": 42,
+          "id": "uploaded-live-97",
+          "no": 41,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -18818,11 +18593,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "国家安全核心知识1：自然环境与人类社会",
           "live": "国家安全核心知识1：自然环境与人类社会",
-          "annualNo": 42
+          "annualNo": 41
         },
         {
-          "id": "uploaded-live-96",
-          "no": 43,
+          "id": "uploaded-live-98",
+          "no": 42,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -18833,11 +18608,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "国家安全核心知识2：资源安全与国家安全",
           "live": "国家安全核心知识2：资源安全与国家安全",
-          "annualNo": 43
+          "annualNo": 42
         },
         {
-          "id": "uploaded-live-97",
-          "no": 44,
+          "id": "uploaded-live-99",
+          "no": 43,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -18848,11 +18623,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "国家安全核心知识3：环境安全与国家安全",
           "live": "国家安全核心知识3：环境安全与国家安全",
-          "annualNo": 44
+          "annualNo": 43
         },
         {
-          "id": "uploaded-live-98",
-          "no": 45,
+          "id": "uploaded-live-100",
+          "no": 44,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -18863,11 +18638,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "国家安全核心知识4：保障国家安全的资源、环境战略与行动",
           "live": "国家安全核心知识4：保障国家安全的资源、环境战略与行动",
-          "annualNo": 45
+          "annualNo": 44
         },
         {
-          "id": "uploaded-live-99",
-          "no": 46,
+          "id": "uploaded-live-101",
+          "no": 45,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -18878,11 +18653,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "世界地理核心知识1：世界区域地理学习方法",
           "live": "世界地理核心知识1：世界区域地理学习方法",
-          "annualNo": 46
+          "annualNo": 45
         },
         {
-          "id": "uploaded-live-100",
-          "no": 47,
+          "id": "uploaded-live-102",
+          "no": 46,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -18893,11 +18668,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "世界地理核心知识2：世界区域题型解析",
           "live": "世界地理核心知识2：世界区域题型解析",
-          "annualNo": 47
+          "annualNo": 46
         },
         {
-          "id": "uploaded-live-101",
-          "no": 48,
+          "id": "uploaded-live-103",
+          "no": 47,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -18908,11 +18683,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "世界地理核心知识3：世界重点国家的区域地理知识",
           "live": "世界地理核心知识3：世界重点国家的区域地理知识",
-          "annualNo": 48
+          "annualNo": 47
         },
         {
-          "id": "uploaded-live-102",
-          "no": 49,
+          "id": "uploaded-live-104",
+          "no": 48,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -18923,11 +18698,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "世界地理核心知识4：经典题目与世界地理",
           "live": "世界地理核心知识4：经典题目与世界地理",
-          "annualNo": 49
+          "annualNo": 48
         },
         {
-          "id": "uploaded-live-103",
-          "no": 50,
+          "id": "uploaded-live-105",
+          "no": 49,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -18938,11 +18713,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "0轮复习1：选择题答题技巧、主观题答题模板、答题思路详解",
           "live": "0轮复习1：选择题答题技巧、主观题答题模板、答题思路详解",
-          "annualNo": 50
+          "annualNo": 49
         },
         {
-          "id": "uploaded-live-104",
-          "no": 51,
+          "id": "uploaded-live-106",
+          "no": 50,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -18953,11 +18728,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "0轮复习2：选择题答题技巧、主观题答题模板、答题思路详解",
           "live": "0轮复习2：选择题答题技巧、主观题答题模板、答题思路详解",
-          "annualNo": 51
+          "annualNo": 50
         },
         {
-          "id": "uploaded-live-105",
-          "no": 52,
+          "id": "uploaded-live-107",
+          "no": 51,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -18968,11 +18743,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "0轮复习3：选择题答题技巧、主观题答题模板、答题思路详解",
           "live": "0轮复习3：选择题答题技巧、主观题答题模板、答题思路详解",
-          "annualNo": 52
+          "annualNo": 51
         },
         {
-          "id": "uploaded-live-106",
-          "no": 53,
+          "id": "uploaded-live-108",
+          "no": 52,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -18983,12 +18758,12 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "0轮复习4：选择题答题技巧、主观题答题模板、答题思路详解",
           "live": "0轮复习4：选择题答题技巧、主观题答题模板、答题思路详解",
-          "annualNo": 53
+          "annualNo": 52
         }
       ],
       "政治": [
         {
-          "id": "uploaded-live-53",
+          "id": "uploaded-live-57",
           "no": 1,
           "grade": "高二",
           "quarter": "暑期",
@@ -19003,7 +18778,7 @@ export const annualCourseLibrary = {
           "annualNo": 1
         },
         {
-          "id": "uploaded-live-54",
+          "id": "uploaded-live-58",
           "no": 2,
           "grade": "高二",
           "quarter": "暑期",
@@ -19018,7 +18793,7 @@ export const annualCourseLibrary = {
           "annualNo": 2
         },
         {
-          "id": "uploaded-live-55",
+          "id": "uploaded-live-59",
           "no": 3,
           "grade": "高二",
           "quarter": "暑期",
@@ -19033,7 +18808,7 @@ export const annualCourseLibrary = {
           "annualNo": 3
         },
         {
-          "id": "uploaded-live-56",
+          "id": "uploaded-live-60",
           "no": 4,
           "grade": "高二",
           "quarter": "暑期",
@@ -19048,7 +18823,7 @@ export const annualCourseLibrary = {
           "annualNo": 4
         },
         {
-          "id": "uploaded-live-57",
+          "id": "uploaded-live-61",
           "no": 5,
           "grade": "高二",
           "quarter": "暑期",
@@ -19063,7 +18838,7 @@ export const annualCourseLibrary = {
           "annualNo": 5
         },
         {
-          "id": "uploaded-live-58",
+          "id": "uploaded-live-62",
           "no": 6,
           "grade": "高二",
           "quarter": "暑期",
@@ -19078,7 +18853,7 @@ export const annualCourseLibrary = {
           "annualNo": 6
         },
         {
-          "id": "uploaded-live-59",
+          "id": "uploaded-live-63",
           "no": 7,
           "grade": "高二",
           "quarter": "暑期",
@@ -19093,7 +18868,7 @@ export const annualCourseLibrary = {
           "annualNo": 7
         },
         {
-          "id": "uploaded-live-60",
+          "id": "uploaded-live-64",
           "no": 8,
           "grade": "高二",
           "quarter": "暑期",
@@ -19108,7 +18883,7 @@ export const annualCourseLibrary = {
           "annualNo": 8
         },
         {
-          "id": "uploaded-live-61",
+          "id": "uploaded-live-65",
           "no": 9,
           "grade": "高二",
           "quarter": "暑期",
@@ -19123,7 +18898,7 @@ export const annualCourseLibrary = {
           "annualNo": 9
         },
         {
-          "id": "uploaded-live-62",
+          "id": "uploaded-live-66",
           "no": 10,
           "grade": "高二",
           "quarter": "暑期",
@@ -19138,7 +18913,7 @@ export const annualCourseLibrary = {
           "annualNo": 10
         },
         {
-          "id": "uploaded-live-63",
+          "id": "uploaded-live-67",
           "no": 11,
           "grade": "高二",
           "quarter": "秋季",
@@ -19153,7 +18928,7 @@ export const annualCourseLibrary = {
           "annualNo": 11
         },
         {
-          "id": "uploaded-live-64",
+          "id": "uploaded-live-68",
           "no": 12,
           "grade": "高二",
           "quarter": "秋季",
@@ -19168,7 +18943,7 @@ export const annualCourseLibrary = {
           "annualNo": 12
         },
         {
-          "id": "uploaded-live-65",
+          "id": "uploaded-live-69",
           "no": 13,
           "grade": "高二",
           "quarter": "秋季",
@@ -19183,7 +18958,7 @@ export const annualCourseLibrary = {
           "annualNo": 13
         },
         {
-          "id": "uploaded-live-66",
+          "id": "uploaded-live-70",
           "no": 14,
           "grade": "高二",
           "quarter": "秋季",
@@ -19198,7 +18973,7 @@ export const annualCourseLibrary = {
           "annualNo": 14
         },
         {
-          "id": "uploaded-live-67",
+          "id": "uploaded-live-71",
           "no": 15,
           "grade": "高二",
           "quarter": "秋季",
@@ -19213,7 +18988,7 @@ export const annualCourseLibrary = {
           "annualNo": 15
         },
         {
-          "id": "uploaded-live-68",
+          "id": "uploaded-live-72",
           "no": 16,
           "grade": "高二",
           "quarter": "秋季",
@@ -19228,7 +19003,7 @@ export const annualCourseLibrary = {
           "annualNo": 16
         },
         {
-          "id": "uploaded-live-69",
+          "id": "uploaded-live-73",
           "no": 17,
           "grade": "高二",
           "quarter": "秋季",
@@ -19243,7 +19018,7 @@ export const annualCourseLibrary = {
           "annualNo": 17
         },
         {
-          "id": "uploaded-live-70",
+          "id": "uploaded-live-74",
           "no": 18,
           "grade": "高二",
           "quarter": "秋季",
@@ -19258,7 +19033,7 @@ export const annualCourseLibrary = {
           "annualNo": 18
         },
         {
-          "id": "uploaded-live-71",
+          "id": "uploaded-live-75",
           "no": 19,
           "grade": "高二",
           "quarter": "秋季",
@@ -19273,7 +19048,7 @@ export const annualCourseLibrary = {
           "annualNo": 19
         },
         {
-          "id": "uploaded-live-72",
+          "id": "uploaded-live-76",
           "no": 20,
           "grade": "高二",
           "quarter": "秋季",
@@ -19288,7 +19063,7 @@ export const annualCourseLibrary = {
           "annualNo": 20
         },
         {
-          "id": "uploaded-live-73",
+          "id": "uploaded-live-77",
           "no": 21,
           "grade": "高二",
           "quarter": "秋季",
@@ -19303,8 +19078,53 @@ export const annualCourseLibrary = {
           "annualNo": 21
         },
         {
-          "id": "uploaded-live-74",
+          "id": "uploaded-live-78",
           "no": 22,
+          "grade": "高二",
+          "quarter": "秋季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "11月22日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "期末复习之哲学疑难选择题技巧方法",
+          "live": "期末复习之哲学疑难选择题技巧方法",
+          "annualNo": 22
+        },
+        {
+          "id": "uploaded-live-79",
+          "no": 23,
+          "grade": "高二",
+          "quarter": "秋季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "11月29日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "期末复习之文化疑难选择题技巧方法",
+          "live": "期末复习之文化疑难选择题技巧方法",
+          "annualNo": 23
+        },
+        {
+          "id": "uploaded-live-80",
+          "no": 24,
+          "grade": "高二",
+          "quarter": "秋季",
+          "date": "",
+          "time": "",
+          "early": "",
+          "phase1": "12月6日 10:30-12:30",
+          "phase2": "",
+          "phase3": "",
+          "title": "期末复习之国际疑难选择题技巧方法",
+          "live": "期末复习之国际疑难选择题技巧方法",
+          "annualNo": 24
+        },
+        {
+          "id": "uploaded-live-81",
+          "no": 25,
           "grade": "高二",
           "quarter": "秋季",
           "date": "",
@@ -19315,11 +19135,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "选必二《法律与生活》预习之法律知识体系",
           "live": "选必二《法律与生活》预习之法律知识体系",
-          "annualNo": 22
+          "annualNo": 25
         },
         {
-          "id": "uploaded-live-75",
-          "no": 23,
+          "id": "uploaded-live-82",
+          "no": 26,
           "grade": "高二",
           "quarter": "秋季",
           "date": "",
@@ -19330,11 +19150,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "选必二《法律与生活》预习之初识民法典",
           "live": "选必二《法律与生活》预习之初识民法典",
-          "annualNo": 23
+          "annualNo": 26
         },
         {
-          "id": "uploaded-live-77",
-          "no": 24,
+          "id": "uploaded-live-83",
+          "no": 27,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -19345,11 +19165,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "法律中的主体及权利全梳理",
           "live": "法律中的主体及权利全梳理",
-          "annualNo": 24
+          "annualNo": 27
         },
         {
-          "id": "uploaded-live-78",
-          "no": 25,
+          "id": "uploaded-live-84",
+          "no": 28,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -19360,11 +19180,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "法律精讲之调解、仲裁与诉讼",
           "live": "法律精讲之调解、仲裁与诉讼",
-          "annualNo": 25
+          "annualNo": 28
         },
         {
-          "id": "uploaded-live-79",
-          "no": 26,
+          "id": "uploaded-live-85",
+          "no": 29,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -19375,11 +19195,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "法律精讲之诉讼权利与诉讼程序",
           "live": "法律精讲之诉讼权利与诉讼程序",
-          "annualNo": 26
+          "annualNo": 29
         },
         {
-          "id": "uploaded-live-80",
-          "no": 27,
+          "id": "uploaded-live-86",
+          "no": 30,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -19390,11 +19210,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "法律疑难选择题解题思路",
           "live": "法律疑难选择题解题思路",
-          "annualNo": 27
+          "annualNo": 30
         },
         {
-          "id": "uploaded-live-81",
-          "no": 28,
+          "id": "uploaded-live-87",
+          "no": 31,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -19405,11 +19225,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "法律主观题方法之案例破解",
           "live": "法律主观题方法之案例破解",
-          "annualNo": 28
+          "annualNo": 31
         },
         {
-          "id": "uploaded-live-82",
-          "no": 29,
+          "id": "uploaded-live-88",
+          "no": 32,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -19420,11 +19240,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "法律主观题方法之线索理清",
           "live": "法律主观题方法之线索理清",
-          "annualNo": 29
+          "annualNo": 32
         },
         {
-          "id": "uploaded-live-83",
-          "no": 30,
+          "id": "uploaded-live-89",
+          "no": 33,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -19435,11 +19255,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "形式逻辑体系构建及考法与预览",
           "live": "形式逻辑体系构建及考法与预览",
-          "annualNo": 30
+          "annualNo": 33
         },
         {
-          "id": "uploaded-live-84",
-          "no": 31,
+          "id": "uploaded-live-90",
+          "no": 34,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -19450,11 +19270,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "逻辑精讲之逻辑思维基本要求",
           "live": "逻辑精讲之逻辑思维基本要求",
-          "annualNo": 31
+          "annualNo": 34
         },
         {
-          "id": "uploaded-live-85",
-          "no": 32,
+          "id": "uploaded-live-91",
+          "no": 35,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -19465,11 +19285,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "逻辑精讲之判断与推理",
           "live": "逻辑精讲之判断与推理",
-          "annualNo": 32
+          "annualNo": 35
         },
         {
-          "id": "uploaded-live-86",
-          "no": 33,
+          "id": "uploaded-live-92",
+          "no": 36,
           "grade": "高二",
           "quarter": "寒假",
           "date": "",
@@ -19480,11 +19300,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "逻辑题型精讲之逻辑错误类",
           "live": "逻辑题型精讲之逻辑错误类",
-          "annualNo": 33
+          "annualNo": 36
         },
         {
-          "id": "uploaded-live-87",
-          "no": 34,
+          "id": "uploaded-live-93",
+          "no": 37,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -19495,11 +19315,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "逻辑题型精讲之推理类选择题",
           "live": "逻辑题型精讲之推理类选择题",
-          "annualNo": 34
+          "annualNo": 37
         },
         {
-          "id": "uploaded-live-88",
-          "no": 35,
+          "id": "uploaded-live-94",
+          "no": 38,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -19510,11 +19330,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "辩证思维核心知识精讲",
           "live": "辩证思维核心知识精讲",
-          "annualNo": 35
+          "annualNo": 38
         },
         {
-          "id": "uploaded-live-89",
-          "no": 36,
+          "id": "uploaded-live-95",
+          "no": 39,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -19525,11 +19345,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "辩证思维主线梳理",
           "live": "辩证思维主线梳理",
-          "annualNo": 36
+          "annualNo": 39
         },
         {
-          "id": "uploaded-live-90",
-          "no": 37,
+          "id": "uploaded-live-96",
+          "no": 40,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -19540,11 +19360,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "辩证思维主观题类型及答题要点",
           "live": "辩证思维主观题类型及答题要点",
-          "annualNo": 37
+          "annualNo": 40
         },
         {
-          "id": "uploaded-live-91",
-          "no": 38,
+          "id": "uploaded-live-97",
+          "no": 41,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -19555,11 +19375,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "创新思维核心知识精讲及主线梳理",
           "live": "创新思维核心知识精讲及主线梳理",
-          "annualNo": 38
+          "annualNo": 41
         },
         {
-          "id": "uploaded-live-92",
-          "no": 39,
+          "id": "uploaded-live-98",
+          "no": 42,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -19570,11 +19390,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "创新思维主观题类型及答题要点",
           "live": "创新思维主观题类型及答题要点",
-          "annualNo": 39
+          "annualNo": 42
         },
         {
-          "id": "uploaded-live-93",
-          "no": 40,
+          "id": "uploaded-live-99",
+          "no": 43,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -19585,11 +19405,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "法律复习之人身权利相关题型",
           "live": "法律复习之人身权利相关题型",
-          "annualNo": 40
+          "annualNo": 43
         },
         {
-          "id": "uploaded-live-94",
-          "no": 41,
+          "id": "uploaded-live-100",
+          "no": 44,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -19600,11 +19420,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "法律复习之财产权相关题型",
           "live": "法律复习之财产权相关题型",
-          "annualNo": 41
+          "annualNo": 44
         },
         {
-          "id": "uploaded-live-95",
-          "no": 42,
+          "id": "uploaded-live-101",
+          "no": 45,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -19615,11 +19435,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "法律复习之合同相关题型",
           "live": "法律复习之合同相关题型",
-          "annualNo": 42
+          "annualNo": 45
         },
         {
-          "id": "uploaded-live-96",
-          "no": 43,
+          "id": "uploaded-live-102",
+          "no": 46,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -19630,11 +19450,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "法律复习之婚姻与家庭相关题型",
           "live": "法律复习之婚姻与家庭相关题型",
-          "annualNo": 43
+          "annualNo": 46
         },
         {
-          "id": "uploaded-live-97",
-          "no": 44,
+          "id": "uploaded-live-103",
+          "no": 47,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -19645,11 +19465,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "法律复习之财产继承相关题型",
           "live": "法律复习之财产继承相关题型",
-          "annualNo": 44
+          "annualNo": 47
         },
         {
-          "id": "uploaded-live-98",
-          "no": 45,
+          "id": "uploaded-live-104",
+          "no": 48,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -19660,11 +19480,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "法律复习之就业相关题型",
           "live": "法律复习之就业相关题型",
-          "annualNo": 45
+          "annualNo": 48
         },
         {
-          "id": "uploaded-live-99",
-          "no": 46,
+          "id": "uploaded-live-105",
+          "no": 49,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -19675,11 +19495,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "法律复习之创业相关题型",
           "live": "法律复习之创业相关题型",
-          "annualNo": 46
+          "annualNo": 49
         },
         {
-          "id": "uploaded-live-100",
-          "no": 47,
+          "id": "uploaded-live-106",
+          "no": 50,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -19690,11 +19510,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "一轮复习准备工作之七册教材的命题角度",
           "live": "一轮复习准备工作之七册教材的命题角度",
-          "annualNo": 47
+          "annualNo": 50
         },
         {
-          "id": "uploaded-live-101",
-          "no": 48,
+          "id": "uploaded-live-107",
+          "no": 51,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -19705,11 +19525,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "一轮复习准备工作之选择题备考方式",
           "live": "一轮复习准备工作之选择题备考方式",
-          "annualNo": 48
+          "annualNo": 51
         },
         {
-          "id": "uploaded-live-102",
-          "no": 49,
+          "id": "uploaded-live-108",
+          "no": 52,
           "grade": "高二",
           "quarter": "春季",
           "date": "",
@@ -19720,7 +19540,7 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "一轮复习准备工作之主观题备考方式",
           "live": "一轮复习准备工作之主观题备考方式",
-          "annualNo": 49
+          "annualNo": 52
         }
       ]
     },
@@ -26269,7 +26089,7 @@ export const annualCourseLibrary = {
     "live": {
       "语文": [
         {
-          "id": "uploaded-live-109",
+          "id": "uploaded-live-111",
           "no": 1,
           "grade": "高三",
           "quarter": "暑期",
@@ -26284,7 +26104,7 @@ export const annualCourseLibrary = {
           "annualNo": 1
         },
         {
-          "id": "uploaded-live-110",
+          "id": "uploaded-live-112",
           "no": 2,
           "grade": "高三",
           "quarter": "暑期",
@@ -26299,7 +26119,7 @@ export const annualCourseLibrary = {
           "annualNo": 2
         },
         {
-          "id": "uploaded-live-111",
+          "id": "uploaded-live-113",
           "no": 3,
           "grade": "高三",
           "quarter": "暑期",
@@ -26314,7 +26134,7 @@ export const annualCourseLibrary = {
           "annualNo": 3
         },
         {
-          "id": "uploaded-live-112",
+          "id": "uploaded-live-114",
           "no": 4,
           "grade": "高三",
           "quarter": "暑期",
@@ -26329,7 +26149,7 @@ export const annualCourseLibrary = {
           "annualNo": 4
         },
         {
-          "id": "uploaded-live-113",
+          "id": "uploaded-live-115",
           "no": 5,
           "grade": "高三",
           "quarter": "暑期",
@@ -26344,7 +26164,7 @@ export const annualCourseLibrary = {
           "annualNo": 5
         },
         {
-          "id": "uploaded-live-114",
+          "id": "uploaded-live-116",
           "no": 6,
           "grade": "高三",
           "quarter": "暑期",
@@ -26359,7 +26179,7 @@ export const annualCourseLibrary = {
           "annualNo": 6
         },
         {
-          "id": "uploaded-live-115",
+          "id": "uploaded-live-117",
           "no": 7,
           "grade": "高三",
           "quarter": "暑期",
@@ -26374,7 +26194,7 @@ export const annualCourseLibrary = {
           "annualNo": 7
         },
         {
-          "id": "uploaded-live-116",
+          "id": "uploaded-live-118",
           "no": 8,
           "grade": "高三",
           "quarter": "暑期",
@@ -26389,7 +26209,7 @@ export const annualCourseLibrary = {
           "annualNo": 8
         },
         {
-          "id": "uploaded-live-117",
+          "id": "uploaded-live-119",
           "no": 9,
           "grade": "高三",
           "quarter": "暑期",
@@ -26404,7 +26224,7 @@ export const annualCourseLibrary = {
           "annualNo": 9
         },
         {
-          "id": "uploaded-live-118",
+          "id": "uploaded-live-120",
           "no": 10,
           "grade": "高三",
           "quarter": "暑期",
@@ -26419,7 +26239,7 @@ export const annualCourseLibrary = {
           "annualNo": 10
         },
         {
-          "id": "uploaded-live-119",
+          "id": "uploaded-live-121",
           "no": 11,
           "grade": "高三",
           "quarter": "秋季",
@@ -26434,7 +26254,7 @@ export const annualCourseLibrary = {
           "annualNo": 11
         },
         {
-          "id": "uploaded-live-120",
+          "id": "uploaded-live-122",
           "no": 12,
           "grade": "高三",
           "quarter": "秋季",
@@ -26449,7 +26269,7 @@ export const annualCourseLibrary = {
           "annualNo": 12
         },
         {
-          "id": "uploaded-live-121",
+          "id": "uploaded-live-123",
           "no": 13,
           "grade": "高三",
           "quarter": "秋季",
@@ -26464,7 +26284,7 @@ export const annualCourseLibrary = {
           "annualNo": 13
         },
         {
-          "id": "uploaded-live-122",
+          "id": "uploaded-live-124",
           "no": 14,
           "grade": "高三",
           "quarter": "秋季",
@@ -26479,7 +26299,7 @@ export const annualCourseLibrary = {
           "annualNo": 14
         },
         {
-          "id": "uploaded-live-123",
+          "id": "uploaded-live-125",
           "no": 15,
           "grade": "高三",
           "quarter": "秋季",
@@ -26494,7 +26314,7 @@ export const annualCourseLibrary = {
           "annualNo": 15
         },
         {
-          "id": "uploaded-live-124",
+          "id": "uploaded-live-126",
           "no": 16,
           "grade": "高三",
           "quarter": "秋季",
@@ -26509,7 +26329,7 @@ export const annualCourseLibrary = {
           "annualNo": 16
         },
         {
-          "id": "uploaded-live-125",
+          "id": "uploaded-live-127",
           "no": 17,
           "grade": "高三",
           "quarter": "秋季",
@@ -26524,7 +26344,7 @@ export const annualCourseLibrary = {
           "annualNo": 17
         },
         {
-          "id": "uploaded-live-126",
+          "id": "uploaded-live-128",
           "no": 18,
           "grade": "高三",
           "quarter": "秋季",
@@ -26539,7 +26359,7 @@ export const annualCourseLibrary = {
           "annualNo": 18
         },
         {
-          "id": "uploaded-live-127",
+          "id": "uploaded-live-129",
           "no": 19,
           "grade": "高三",
           "quarter": "秋季",
@@ -26554,7 +26374,7 @@ export const annualCourseLibrary = {
           "annualNo": 19
         },
         {
-          "id": "uploaded-live-128",
+          "id": "uploaded-live-130",
           "no": 20,
           "grade": "高三",
           "quarter": "秋季",
@@ -26569,7 +26389,7 @@ export const annualCourseLibrary = {
           "annualNo": 20
         },
         {
-          "id": "uploaded-live-129",
+          "id": "uploaded-live-131",
           "no": 21,
           "grade": "高三",
           "quarter": "秋季",
@@ -26584,7 +26404,7 @@ export const annualCourseLibrary = {
           "annualNo": 21
         },
         {
-          "id": "uploaded-live-130",
+          "id": "uploaded-live-132",
           "no": 22,
           "grade": "高三",
           "quarter": "秋季",
@@ -26599,7 +26419,7 @@ export const annualCourseLibrary = {
           "annualNo": 22
         },
         {
-          "id": "uploaded-live-131",
+          "id": "uploaded-live-133",
           "no": 23,
           "grade": "高三",
           "quarter": "秋季",
@@ -26614,7 +26434,7 @@ export const annualCourseLibrary = {
           "annualNo": 23
         },
         {
-          "id": "uploaded-live-132",
+          "id": "uploaded-live-134",
           "no": 24,
           "grade": "高三",
           "quarter": "秋季",
@@ -26629,7 +26449,7 @@ export const annualCourseLibrary = {
           "annualNo": 24
         },
         {
-          "id": "uploaded-live-133",
+          "id": "uploaded-live-135",
           "no": 25,
           "grade": "高三",
           "quarter": "秋季",
@@ -26644,7 +26464,7 @@ export const annualCourseLibrary = {
           "annualNo": 25
         },
         {
-          "id": "uploaded-live-134",
+          "id": "uploaded-live-136",
           "no": 26,
           "grade": "高三",
           "quarter": "秋季",
@@ -26659,7 +26479,7 @@ export const annualCourseLibrary = {
           "annualNo": 26
         },
         {
-          "id": "uploaded-live-136",
+          "id": "uploaded-live-137",
           "no": 27,
           "grade": "高三",
           "quarter": "寒假",
@@ -26674,7 +26494,7 @@ export const annualCourseLibrary = {
           "annualNo": 27
         },
         {
-          "id": "uploaded-live-137",
+          "id": "uploaded-live-138",
           "no": 28,
           "grade": "高三",
           "quarter": "寒假",
@@ -26689,7 +26509,7 @@ export const annualCourseLibrary = {
           "annualNo": 28
         },
         {
-          "id": "uploaded-live-138",
+          "id": "uploaded-live-139",
           "no": 29,
           "grade": "高三",
           "quarter": "寒假",
@@ -26704,7 +26524,7 @@ export const annualCourseLibrary = {
           "annualNo": 29
         },
         {
-          "id": "uploaded-live-139",
+          "id": "uploaded-live-140",
           "no": 30,
           "grade": "高三",
           "quarter": "寒假",
@@ -26719,7 +26539,7 @@ export const annualCourseLibrary = {
           "annualNo": 30
         },
         {
-          "id": "uploaded-live-140",
+          "id": "uploaded-live-141",
           "no": 31,
           "grade": "高三",
           "quarter": "寒假",
@@ -26734,7 +26554,7 @@ export const annualCourseLibrary = {
           "annualNo": 31
         },
         {
-          "id": "uploaded-live-141",
+          "id": "uploaded-live-142",
           "no": 32,
           "grade": "高三",
           "quarter": "寒假",
@@ -26749,7 +26569,7 @@ export const annualCourseLibrary = {
           "annualNo": 32
         },
         {
-          "id": "uploaded-live-142",
+          "id": "uploaded-live-143",
           "no": 33,
           "grade": "高三",
           "quarter": "寒假",
@@ -26764,7 +26584,7 @@ export const annualCourseLibrary = {
           "annualNo": 33
         },
         {
-          "id": "uploaded-live-143",
+          "id": "uploaded-live-144",
           "no": 34,
           "grade": "高三",
           "quarter": "寒假",
@@ -26779,7 +26599,7 @@ export const annualCourseLibrary = {
           "annualNo": 34
         },
         {
-          "id": "uploaded-live-144",
+          "id": "uploaded-live-145",
           "no": 35,
           "grade": "高三",
           "quarter": "寒假",
@@ -26794,7 +26614,7 @@ export const annualCourseLibrary = {
           "annualNo": 35
         },
         {
-          "id": "uploaded-live-145",
+          "id": "uploaded-live-146",
           "no": 36,
           "grade": "高三",
           "quarter": "寒假",
@@ -26809,7 +26629,7 @@ export const annualCourseLibrary = {
           "annualNo": 36
         },
         {
-          "id": "uploaded-live-146",
+          "id": "uploaded-live-147",
           "no": 37,
           "grade": "高三",
           "quarter": "春季",
@@ -26824,7 +26644,7 @@ export const annualCourseLibrary = {
           "annualNo": 37
         },
         {
-          "id": "uploaded-live-147",
+          "id": "uploaded-live-148",
           "no": 38,
           "grade": "高三",
           "quarter": "春季",
@@ -26839,7 +26659,7 @@ export const annualCourseLibrary = {
           "annualNo": 38
         },
         {
-          "id": "uploaded-live-148",
+          "id": "uploaded-live-149",
           "no": 39,
           "grade": "高三",
           "quarter": "春季",
@@ -26854,7 +26674,7 @@ export const annualCourseLibrary = {
           "annualNo": 39
         },
         {
-          "id": "uploaded-live-149",
+          "id": "uploaded-live-150",
           "no": 40,
           "grade": "高三",
           "quarter": "春季",
@@ -26869,7 +26689,7 @@ export const annualCourseLibrary = {
           "annualNo": 40
         },
         {
-          "id": "uploaded-live-150",
+          "id": "uploaded-live-151",
           "no": 41,
           "grade": "高三",
           "quarter": "春季",
@@ -26884,7 +26704,7 @@ export const annualCourseLibrary = {
           "annualNo": 41
         },
         {
-          "id": "uploaded-live-151",
+          "id": "uploaded-live-152",
           "no": 42,
           "grade": "高三",
           "quarter": "春季",
@@ -26899,7 +26719,7 @@ export const annualCourseLibrary = {
           "annualNo": 42
         },
         {
-          "id": "uploaded-live-152",
+          "id": "uploaded-live-153",
           "no": 43,
           "grade": "高三",
           "quarter": "春季",
@@ -26914,7 +26734,7 @@ export const annualCourseLibrary = {
           "annualNo": 43
         },
         {
-          "id": "uploaded-live-153",
+          "id": "uploaded-live-154",
           "no": 44,
           "grade": "高三",
           "quarter": "春季",
@@ -26931,7 +26751,7 @@ export const annualCourseLibrary = {
       ],
       "数学": [
         {
-          "id": "uploaded-live-108",
+          "id": "uploaded-live-111",
           "no": 1,
           "grade": "高三",
           "quarter": "暑期",
@@ -26946,7 +26766,7 @@ export const annualCourseLibrary = {
           "annualNo": 1
         },
         {
-          "id": "uploaded-live-109",
+          "id": "uploaded-live-112",
           "no": 2,
           "grade": "高三",
           "quarter": "暑期",
@@ -26961,7 +26781,7 @@ export const annualCourseLibrary = {
           "annualNo": 2
         },
         {
-          "id": "uploaded-live-110",
+          "id": "uploaded-live-113",
           "no": 3,
           "grade": "高三",
           "quarter": "暑期",
@@ -26976,7 +26796,7 @@ export const annualCourseLibrary = {
           "annualNo": 3
         },
         {
-          "id": "uploaded-live-111",
+          "id": "uploaded-live-114",
           "no": 4,
           "grade": "高三",
           "quarter": "暑期",
@@ -26991,7 +26811,7 @@ export const annualCourseLibrary = {
           "annualNo": 4
         },
         {
-          "id": "uploaded-live-112",
+          "id": "uploaded-live-115",
           "no": 5,
           "grade": "高三",
           "quarter": "暑期",
@@ -27006,7 +26826,7 @@ export const annualCourseLibrary = {
           "annualNo": 5
         },
         {
-          "id": "uploaded-live-113",
+          "id": "uploaded-live-116",
           "no": 6,
           "grade": "高三",
           "quarter": "暑期",
@@ -27021,7 +26841,7 @@ export const annualCourseLibrary = {
           "annualNo": 6
         },
         {
-          "id": "uploaded-live-114",
+          "id": "uploaded-live-117",
           "no": 7,
           "grade": "高三",
           "quarter": "暑期",
@@ -27036,7 +26856,7 @@ export const annualCourseLibrary = {
           "annualNo": 7
         },
         {
-          "id": "uploaded-live-115",
+          "id": "uploaded-live-118",
           "no": 8,
           "grade": "高三",
           "quarter": "暑期",
@@ -27051,7 +26871,7 @@ export const annualCourseLibrary = {
           "annualNo": 8
         },
         {
-          "id": "uploaded-live-116",
+          "id": "uploaded-live-119",
           "no": 9,
           "grade": "高三",
           "quarter": "暑期",
@@ -27066,7 +26886,7 @@ export const annualCourseLibrary = {
           "annualNo": 9
         },
         {
-          "id": "uploaded-live-117",
+          "id": "uploaded-live-120",
           "no": 10,
           "grade": "高三",
           "quarter": "暑期",
@@ -27081,7 +26901,7 @@ export const annualCourseLibrary = {
           "annualNo": 10
         },
         {
-          "id": "uploaded-live-118",
+          "id": "uploaded-live-121",
           "no": 11,
           "grade": "高三",
           "quarter": "秋季",
@@ -27096,7 +26916,7 @@ export const annualCourseLibrary = {
           "annualNo": 11
         },
         {
-          "id": "uploaded-live-119",
+          "id": "uploaded-live-122",
           "no": 12,
           "grade": "高三",
           "quarter": "秋季",
@@ -27111,7 +26931,7 @@ export const annualCourseLibrary = {
           "annualNo": 12
         },
         {
-          "id": "uploaded-live-120",
+          "id": "uploaded-live-123",
           "no": 13,
           "grade": "高三",
           "quarter": "秋季",
@@ -27126,7 +26946,7 @@ export const annualCourseLibrary = {
           "annualNo": 13
         },
         {
-          "id": "uploaded-live-121",
+          "id": "uploaded-live-124",
           "no": 14,
           "grade": "高三",
           "quarter": "秋季",
@@ -27141,7 +26961,7 @@ export const annualCourseLibrary = {
           "annualNo": 14
         },
         {
-          "id": "uploaded-live-122",
+          "id": "uploaded-live-125",
           "no": 15,
           "grade": "高三",
           "quarter": "秋季",
@@ -27156,7 +26976,7 @@ export const annualCourseLibrary = {
           "annualNo": 15
         },
         {
-          "id": "uploaded-live-123",
+          "id": "uploaded-live-126",
           "no": 16,
           "grade": "高三",
           "quarter": "秋季",
@@ -27171,7 +26991,7 @@ export const annualCourseLibrary = {
           "annualNo": 16
         },
         {
-          "id": "uploaded-live-124",
+          "id": "uploaded-live-127",
           "no": 17,
           "grade": "高三",
           "quarter": "秋季",
@@ -27186,7 +27006,7 @@ export const annualCourseLibrary = {
           "annualNo": 17
         },
         {
-          "id": "uploaded-live-125",
+          "id": "uploaded-live-128",
           "no": 18,
           "grade": "高三",
           "quarter": "秋季",
@@ -27201,7 +27021,7 @@ export const annualCourseLibrary = {
           "annualNo": 18
         },
         {
-          "id": "uploaded-live-126",
+          "id": "uploaded-live-129",
           "no": 19,
           "grade": "高三",
           "quarter": "秋季",
@@ -27216,7 +27036,7 @@ export const annualCourseLibrary = {
           "annualNo": 19
         },
         {
-          "id": "uploaded-live-127",
+          "id": "uploaded-live-130",
           "no": 20,
           "grade": "高三",
           "quarter": "秋季",
@@ -27231,7 +27051,7 @@ export const annualCourseLibrary = {
           "annualNo": 20
         },
         {
-          "id": "uploaded-live-128",
+          "id": "uploaded-live-131",
           "no": 21,
           "grade": "高三",
           "quarter": "秋季",
@@ -27246,7 +27066,7 @@ export const annualCourseLibrary = {
           "annualNo": 21
         },
         {
-          "id": "uploaded-live-129",
+          "id": "uploaded-live-132",
           "no": 22,
           "grade": "高三",
           "quarter": "秋季",
@@ -27261,7 +27081,7 @@ export const annualCourseLibrary = {
           "annualNo": 22
         },
         {
-          "id": "uploaded-live-130",
+          "id": "uploaded-live-133",
           "no": 23,
           "grade": "高三",
           "quarter": "秋季",
@@ -27276,7 +27096,7 @@ export const annualCourseLibrary = {
           "annualNo": 23
         },
         {
-          "id": "uploaded-live-131",
+          "id": "uploaded-live-134",
           "no": 24,
           "grade": "高三",
           "quarter": "秋季",
@@ -27291,7 +27111,7 @@ export const annualCourseLibrary = {
           "annualNo": 24
         },
         {
-          "id": "uploaded-live-132",
+          "id": "uploaded-live-135",
           "no": 25,
           "grade": "高三",
           "quarter": "秋季",
@@ -27306,7 +27126,7 @@ export const annualCourseLibrary = {
           "annualNo": 25
         },
         {
-          "id": "uploaded-live-133",
+          "id": "uploaded-live-136",
           "no": 26,
           "grade": "高三",
           "quarter": "秋季",
@@ -27321,7 +27141,7 @@ export const annualCourseLibrary = {
           "annualNo": 26
         },
         {
-          "id": "uploaded-live-135",
+          "id": "uploaded-live-137",
           "no": 27,
           "grade": "高三",
           "quarter": "寒假",
@@ -27336,7 +27156,7 @@ export const annualCourseLibrary = {
           "annualNo": 27
         },
         {
-          "id": "uploaded-live-136",
+          "id": "uploaded-live-138",
           "no": 28,
           "grade": "高三",
           "quarter": "寒假",
@@ -27351,7 +27171,7 @@ export const annualCourseLibrary = {
           "annualNo": 28
         },
         {
-          "id": "uploaded-live-137",
+          "id": "uploaded-live-139",
           "no": 29,
           "grade": "高三",
           "quarter": "寒假",
@@ -27366,7 +27186,7 @@ export const annualCourseLibrary = {
           "annualNo": 29
         },
         {
-          "id": "uploaded-live-138",
+          "id": "uploaded-live-140",
           "no": 30,
           "grade": "高三",
           "quarter": "寒假",
@@ -27381,7 +27201,7 @@ export const annualCourseLibrary = {
           "annualNo": 30
         },
         {
-          "id": "uploaded-live-139",
+          "id": "uploaded-live-141",
           "no": 31,
           "grade": "高三",
           "quarter": "寒假",
@@ -27396,7 +27216,7 @@ export const annualCourseLibrary = {
           "annualNo": 31
         },
         {
-          "id": "uploaded-live-140",
+          "id": "uploaded-live-142",
           "no": 32,
           "grade": "高三",
           "quarter": "寒假",
@@ -27411,7 +27231,7 @@ export const annualCourseLibrary = {
           "annualNo": 32
         },
         {
-          "id": "uploaded-live-141",
+          "id": "uploaded-live-143",
           "no": 33,
           "grade": "高三",
           "quarter": "寒假",
@@ -27426,7 +27246,7 @@ export const annualCourseLibrary = {
           "annualNo": 33
         },
         {
-          "id": "uploaded-live-142",
+          "id": "uploaded-live-144",
           "no": 34,
           "grade": "高三",
           "quarter": "寒假",
@@ -27441,7 +27261,7 @@ export const annualCourseLibrary = {
           "annualNo": 34
         },
         {
-          "id": "uploaded-live-143",
+          "id": "uploaded-live-145",
           "no": 35,
           "grade": "高三",
           "quarter": "寒假",
@@ -27456,7 +27276,7 @@ export const annualCourseLibrary = {
           "annualNo": 35
         },
         {
-          "id": "uploaded-live-144",
+          "id": "uploaded-live-146",
           "no": 36,
           "grade": "高三",
           "quarter": "寒假",
@@ -27471,7 +27291,7 @@ export const annualCourseLibrary = {
           "annualNo": 36
         },
         {
-          "id": "uploaded-live-145",
+          "id": "uploaded-live-147",
           "no": 37,
           "grade": "高三",
           "quarter": "春季",
@@ -27486,7 +27306,7 @@ export const annualCourseLibrary = {
           "annualNo": 37
         },
         {
-          "id": "uploaded-live-146",
+          "id": "uploaded-live-148",
           "no": 38,
           "grade": "高三",
           "quarter": "春季",
@@ -27501,7 +27321,7 @@ export const annualCourseLibrary = {
           "annualNo": 38
         },
         {
-          "id": "uploaded-live-147",
+          "id": "uploaded-live-149",
           "no": 39,
           "grade": "高三",
           "quarter": "春季",
@@ -27516,7 +27336,7 @@ export const annualCourseLibrary = {
           "annualNo": 39
         },
         {
-          "id": "uploaded-live-148",
+          "id": "uploaded-live-150",
           "no": 40,
           "grade": "高三",
           "quarter": "春季",
@@ -27531,7 +27351,7 @@ export const annualCourseLibrary = {
           "annualNo": 40
         },
         {
-          "id": "uploaded-live-149",
+          "id": "uploaded-live-151",
           "no": 41,
           "grade": "高三",
           "quarter": "春季",
@@ -27546,7 +27366,7 @@ export const annualCourseLibrary = {
           "annualNo": 41
         },
         {
-          "id": "uploaded-live-150",
+          "id": "uploaded-live-152",
           "no": 42,
           "grade": "高三",
           "quarter": "春季",
@@ -27561,7 +27381,7 @@ export const annualCourseLibrary = {
           "annualNo": 42
         },
         {
-          "id": "uploaded-live-151",
+          "id": "uploaded-live-153",
           "no": 43,
           "grade": "高三",
           "quarter": "春季",
@@ -27576,7 +27396,7 @@ export const annualCourseLibrary = {
           "annualNo": 43
         },
         {
-          "id": "uploaded-live-152",
+          "id": "uploaded-live-154",
           "no": 44,
           "grade": "高三",
           "quarter": "春季",
@@ -27593,7 +27413,7 @@ export const annualCourseLibrary = {
       ],
       "英语": [
         {
-          "id": "uploaded-live-106",
+          "id": "uploaded-live-111",
           "no": 1,
           "grade": "高三",
           "quarter": "暑期",
@@ -27608,7 +27428,7 @@ export const annualCourseLibrary = {
           "annualNo": 1
         },
         {
-          "id": "uploaded-live-107",
+          "id": "uploaded-live-112",
           "no": 2,
           "grade": "高三",
           "quarter": "暑期",
@@ -27623,7 +27443,7 @@ export const annualCourseLibrary = {
           "annualNo": 2
         },
         {
-          "id": "uploaded-live-108",
+          "id": "uploaded-live-113",
           "no": 3,
           "grade": "高三",
           "quarter": "暑期",
@@ -27638,7 +27458,7 @@ export const annualCourseLibrary = {
           "annualNo": 3
         },
         {
-          "id": "uploaded-live-109",
+          "id": "uploaded-live-114",
           "no": 4,
           "grade": "高三",
           "quarter": "暑期",
@@ -27653,7 +27473,7 @@ export const annualCourseLibrary = {
           "annualNo": 4
         },
         {
-          "id": "uploaded-live-110",
+          "id": "uploaded-live-115",
           "no": 5,
           "grade": "高三",
           "quarter": "暑期",
@@ -27668,7 +27488,7 @@ export const annualCourseLibrary = {
           "annualNo": 5
         },
         {
-          "id": "uploaded-live-111",
+          "id": "uploaded-live-116",
           "no": 6,
           "grade": "高三",
           "quarter": "暑期",
@@ -27683,7 +27503,7 @@ export const annualCourseLibrary = {
           "annualNo": 6
         },
         {
-          "id": "uploaded-live-112",
+          "id": "uploaded-live-117",
           "no": 7,
           "grade": "高三",
           "quarter": "暑期",
@@ -27698,7 +27518,7 @@ export const annualCourseLibrary = {
           "annualNo": 7
         },
         {
-          "id": "uploaded-live-113",
+          "id": "uploaded-live-118",
           "no": 8,
           "grade": "高三",
           "quarter": "暑期",
@@ -27713,7 +27533,7 @@ export const annualCourseLibrary = {
           "annualNo": 8
         },
         {
-          "id": "uploaded-live-114",
+          "id": "uploaded-live-119",
           "no": 9,
           "grade": "高三",
           "quarter": "暑期",
@@ -27728,7 +27548,7 @@ export const annualCourseLibrary = {
           "annualNo": 9
         },
         {
-          "id": "uploaded-live-115",
+          "id": "uploaded-live-120",
           "no": 10,
           "grade": "高三",
           "quarter": "暑期",
@@ -27743,7 +27563,7 @@ export const annualCourseLibrary = {
           "annualNo": 10
         },
         {
-          "id": "uploaded-live-116",
+          "id": "uploaded-live-121",
           "no": 11,
           "grade": "高三",
           "quarter": "秋季",
@@ -27758,7 +27578,7 @@ export const annualCourseLibrary = {
           "annualNo": 11
         },
         {
-          "id": "uploaded-live-117",
+          "id": "uploaded-live-122",
           "no": 12,
           "grade": "高三",
           "quarter": "秋季",
@@ -27773,7 +27593,7 @@ export const annualCourseLibrary = {
           "annualNo": 12
         },
         {
-          "id": "uploaded-live-118",
+          "id": "uploaded-live-123",
           "no": 13,
           "grade": "高三",
           "quarter": "秋季",
@@ -27788,7 +27608,7 @@ export const annualCourseLibrary = {
           "annualNo": 13
         },
         {
-          "id": "uploaded-live-119",
+          "id": "uploaded-live-124",
           "no": 14,
           "grade": "高三",
           "quarter": "秋季",
@@ -27803,7 +27623,7 @@ export const annualCourseLibrary = {
           "annualNo": 14
         },
         {
-          "id": "uploaded-live-120",
+          "id": "uploaded-live-125",
           "no": 15,
           "grade": "高三",
           "quarter": "秋季",
@@ -27818,7 +27638,7 @@ export const annualCourseLibrary = {
           "annualNo": 15
         },
         {
-          "id": "uploaded-live-121",
+          "id": "uploaded-live-126",
           "no": 16,
           "grade": "高三",
           "quarter": "秋季",
@@ -27833,7 +27653,7 @@ export const annualCourseLibrary = {
           "annualNo": 16
         },
         {
-          "id": "uploaded-live-122",
+          "id": "uploaded-live-127",
           "no": 17,
           "grade": "高三",
           "quarter": "秋季",
@@ -27848,7 +27668,7 @@ export const annualCourseLibrary = {
           "annualNo": 17
         },
         {
-          "id": "uploaded-live-123",
+          "id": "uploaded-live-128",
           "no": 18,
           "grade": "高三",
           "quarter": "秋季",
@@ -27863,7 +27683,7 @@ export const annualCourseLibrary = {
           "annualNo": 18
         },
         {
-          "id": "uploaded-live-124",
+          "id": "uploaded-live-129",
           "no": 19,
           "grade": "高三",
           "quarter": "秋季",
@@ -27878,7 +27698,7 @@ export const annualCourseLibrary = {
           "annualNo": 19
         },
         {
-          "id": "uploaded-live-125",
+          "id": "uploaded-live-130",
           "no": 20,
           "grade": "高三",
           "quarter": "秋季",
@@ -27893,7 +27713,7 @@ export const annualCourseLibrary = {
           "annualNo": 20
         },
         {
-          "id": "uploaded-live-126",
+          "id": "uploaded-live-131",
           "no": 21,
           "grade": "高三",
           "quarter": "秋季",
@@ -27908,7 +27728,7 @@ export const annualCourseLibrary = {
           "annualNo": 21
         },
         {
-          "id": "uploaded-live-127",
+          "id": "uploaded-live-132",
           "no": 22,
           "grade": "高三",
           "quarter": "秋季",
@@ -27923,7 +27743,7 @@ export const annualCourseLibrary = {
           "annualNo": 22
         },
         {
-          "id": "uploaded-live-128",
+          "id": "uploaded-live-133",
           "no": 23,
           "grade": "高三",
           "quarter": "秋季",
@@ -27938,7 +27758,7 @@ export const annualCourseLibrary = {
           "annualNo": 23
         },
         {
-          "id": "uploaded-live-129",
+          "id": "uploaded-live-134",
           "no": 24,
           "grade": "高三",
           "quarter": "秋季",
@@ -27953,7 +27773,7 @@ export const annualCourseLibrary = {
           "annualNo": 24
         },
         {
-          "id": "uploaded-live-130",
+          "id": "uploaded-live-135",
           "no": 25,
           "grade": "高三",
           "quarter": "秋季",
@@ -27968,7 +27788,7 @@ export const annualCourseLibrary = {
           "annualNo": 25
         },
         {
-          "id": "uploaded-live-131",
+          "id": "uploaded-live-136",
           "no": 26,
           "grade": "高三",
           "quarter": "秋季",
@@ -27983,23 +27803,8 @@ export const annualCourseLibrary = {
           "annualNo": 26
         },
         {
-          "id": "uploaded-live-132",
+          "id": "uploaded-live-137",
           "no": 27,
-          "grade": "高三",
-          "quarter": "寒假",
-          "date": "/",
-          "time": "",
-          "early": "/",
-          "phase1": "",
-          "phase2": "/",
-          "phase3": "/",
-          "title": "2027年1-6月高考英语学习指南",
-          "live": "2027年1-6月高考英语学习指南",
-          "annualNo": 27
-        },
-        {
-          "id": "uploaded-live-133",
-          "no": 28,
           "grade": "高三",
           "quarter": "寒假",
           "date": "",
@@ -28010,11 +27815,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "写作·造句能力筑基+迷你语法·定从特殊词",
           "live": "写作·造句能力筑基+迷你语法·定从特殊词",
-          "annualNo": 28
+          "annualNo": 27
         },
         {
-          "id": "uploaded-live-134",
-          "no": 29,
+          "id": "uploaded-live-138",
+          "no": 28,
           "grade": "高三",
           "quarter": "寒假",
           "date": "",
@@ -28025,11 +27830,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "写作·造句亮点强化+迷你语法·定从关代",
           "live": "写作·造句亮点强化+迷你语法·定从关代",
-          "annualNo": 29
+          "annualNo": 28
         },
         {
-          "id": "uploaded-live-135",
-          "no": 30,
+          "id": "uploaded-live-139",
+          "no": 29,
           "grade": "高三",
           "quarter": "寒假",
           "date": "",
@@ -28040,11 +27845,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "应用文·邮件书信类1+迷你语法·定从关副",
           "live": "应用文·邮件书信类1+迷你语法·定从关副",
-          "annualNo": 30
+          "annualNo": 29
         },
         {
-          "id": "uploaded-live-136",
-          "no": 31,
+          "id": "uploaded-live-140",
+          "no": 30,
           "grade": "高三",
           "quarter": "寒假",
           "date": "",
@@ -28055,11 +27860,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "应用文·邮件书信类2+迷你语法·定从特殊考点",
           "live": "应用文·邮件书信类2+迷你语法·定从特殊考点",
-          "annualNo": 31
+          "annualNo": 30
         },
         {
-          "id": "uploaded-live-137",
-          "no": 32,
+          "id": "uploaded-live-141",
+          "no": 31,
           "grade": "高三",
           "quarter": "寒假",
           "date": "",
@@ -28070,11 +27875,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "应用文·邮件书信类3+迷你语法·时间状从基本点",
           "live": "应用文·邮件书信类3+迷你语法·时间状从基本点",
-          "annualNo": 32
+          "annualNo": 31
         },
         {
-          "id": "uploaded-live-138",
-          "no": 33,
+          "id": "uploaded-live-142",
+          "no": 32,
           "grade": "高三",
           "quarter": "寒假",
           "date": "",
@@ -28085,11 +27890,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "应用文·邮件书信类4+迷你语法·时间状从易错点",
           "live": "应用文·邮件书信类4+迷你语法·时间状从易错点",
-          "annualNo": 33
+          "annualNo": 32
         },
         {
-          "id": "uploaded-live-139",
-          "no": 34,
+          "id": "uploaded-live-143",
+          "no": 33,
           "grade": "高三",
           "quarter": "寒假",
           "date": "",
@@ -28100,11 +27905,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "写作新题型1+迷你语法·地点/条件/让步/比较状从",
           "live": "写作新题型1+迷你语法·地点/条件/让步/比较状从",
-          "annualNo": 34
+          "annualNo": 33
         },
         {
-          "id": "uploaded-live-140",
-          "no": 35,
+          "id": "uploaded-live-144",
+          "no": 34,
           "grade": "高三",
           "quarter": "寒假",
           "date": "",
@@ -28115,11 +27920,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "写作新题型2+迷你语法·原因/结果/方式/目的状从",
           "live": "写作新题型2+迷你语法·原因/结果/方式/目的状从",
-          "annualNo": 35
+          "annualNo": 34
         },
         {
-          "id": "uploaded-live-141",
-          "no": 36,
+          "id": "uploaded-live-145",
+          "no": 35,
           "grade": "高三",
           "quarter": "寒假",
           "date": "",
@@ -28130,11 +27935,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "写作新题型3+迷你语法·倒装句/强调句",
           "live": "写作新题型3+迷你语法·倒装句/强调句",
-          "annualNo": 36
+          "annualNo": 35
         },
         {
-          "id": "uploaded-live-142",
-          "no": 37,
+          "id": "uploaded-live-146",
+          "no": 36,
           "grade": "高三",
           "quarter": "寒假",
           "date": "",
@@ -28145,11 +27950,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "写作新题型4+迷你语法·省略句/祈使句/感叹句",
           "live": "写作新题型4+迷你语法·省略句/祈使句/感叹句",
-          "annualNo": 37
+          "annualNo": 36
         },
         {
-          "id": "uploaded-live-143",
-          "no": 38,
+          "id": "uploaded-live-147",
+          "no": 37,
           "grade": "高三",
           "quarter": "春季",
           "date": "",
@@ -28160,11 +27965,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "阅读理解·精度跃升+应用文·征文投稿类1",
           "live": "阅读理解·精度跃升+应用文·征文投稿类1",
-          "annualNo": 38
+          "annualNo": 37
         },
         {
-          "id": "uploaded-live-144",
-          "no": 39,
+          "id": "uploaded-live-148",
+          "no": 38,
           "grade": "高三",
           "quarter": "春季",
           "date": "",
@@ -28175,11 +27980,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "阅读理解·速率突破+应用文·征文投稿类2",
           "live": "阅读理解·速率突破+应用文·征文投稿类2",
-          "annualNo": 39
+          "annualNo": 38
         },
         {
-          "id": "uploaded-live-145",
-          "no": 40,
+          "id": "uploaded-live-149",
+          "no": 39,
           "grade": "高三",
           "quarter": "春季",
           "date": "",
@@ -28190,11 +27995,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "七选五·逻辑提准+应用文·活动通知类1",
           "live": "七选五·逻辑提准+应用文·活动通知类1",
-          "annualNo": 40
+          "annualNo": 39
         },
         {
-          "id": "uploaded-live-146",
-          "no": 41,
+          "id": "uploaded-live-150",
+          "no": 40,
           "grade": "高三",
           "quarter": "春季",
           "date": "",
@@ -28205,11 +28010,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "七选五·避坑秒杀+应用文·创新融合类1",
           "live": "七选五·避坑秒杀+应用文·创新融合类1",
-          "annualNo": 41
+          "annualNo": 40
         },
         {
-          "id": "uploaded-live-147",
-          "no": 42,
+          "id": "uploaded-live-151",
+          "no": 41,
           "grade": "高三",
           "quarter": "春季",
           "date": "",
@@ -28220,11 +28025,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "完形填空·思维解码+应用文·创新融合类2",
           "live": "完形填空·思维解码+应用文·创新融合类2",
-          "annualNo": 42
+          "annualNo": 41
         },
         {
-          "id": "uploaded-live-148",
-          "no": 43,
+          "id": "uploaded-live-152",
+          "no": 42,
           "grade": "高三",
           "quarter": "春季",
           "date": "",
@@ -28235,11 +28040,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "完形填空·得分转化+写作新题型5",
           "live": "完形填空·得分转化+写作新题型5",
-          "annualNo": 43
+          "annualNo": 42
         },
         {
-          "id": "uploaded-live-149",
-          "no": 44,
+          "id": "uploaded-live-153",
+          "no": 43,
           "grade": "高三",
           "quarter": "春季",
           "date": "",
@@ -28250,11 +28055,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "语法填空·提速补缺+写作新题型6",
           "live": "语法填空·提速补缺+写作新题型6",
-          "annualNo": 44
+          "annualNo": 43
         },
         {
-          "id": "uploaded-live-150",
-          "no": 45,
+          "id": "uploaded-live-154",
+          "no": 44,
           "grade": "高三",
           "quarter": "春季",
           "date": "",
@@ -28265,12 +28070,12 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "语法填空·决胜收官+写作新题型7",
           "live": "语法填空·决胜收官+写作新题型7",
-          "annualNo": 45
+          "annualNo": 44
         }
       ],
       "物理": [
         {
-          "id": "uploaded-live-109",
+          "id": "uploaded-live-111",
           "no": 1,
           "grade": "高三",
           "quarter": "暑期",
@@ -28285,7 +28090,7 @@ export const annualCourseLibrary = {
           "annualNo": 1
         },
         {
-          "id": "uploaded-live-110",
+          "id": "uploaded-live-112",
           "no": 2,
           "grade": "高三",
           "quarter": "暑期",
@@ -28300,7 +28105,7 @@ export const annualCourseLibrary = {
           "annualNo": 2
         },
         {
-          "id": "uploaded-live-111",
+          "id": "uploaded-live-113",
           "no": 3,
           "grade": "高三",
           "quarter": "暑期",
@@ -28315,7 +28120,7 @@ export const annualCourseLibrary = {
           "annualNo": 3
         },
         {
-          "id": "uploaded-live-112",
+          "id": "uploaded-live-114",
           "no": 4,
           "grade": "高三",
           "quarter": "暑期",
@@ -28330,7 +28135,7 @@ export const annualCourseLibrary = {
           "annualNo": 4
         },
         {
-          "id": "uploaded-live-113",
+          "id": "uploaded-live-115",
           "no": 5,
           "grade": "高三",
           "quarter": "暑期",
@@ -28345,7 +28150,7 @@ export const annualCourseLibrary = {
           "annualNo": 5
         },
         {
-          "id": "uploaded-live-114",
+          "id": "uploaded-live-116",
           "no": 6,
           "grade": "高三",
           "quarter": "暑期",
@@ -28360,7 +28165,7 @@ export const annualCourseLibrary = {
           "annualNo": 6
         },
         {
-          "id": "uploaded-live-115",
+          "id": "uploaded-live-117",
           "no": 7,
           "grade": "高三",
           "quarter": "暑期",
@@ -28375,7 +28180,7 @@ export const annualCourseLibrary = {
           "annualNo": 7
         },
         {
-          "id": "uploaded-live-116",
+          "id": "uploaded-live-118",
           "no": 8,
           "grade": "高三",
           "quarter": "暑期",
@@ -28390,7 +28195,7 @@ export const annualCourseLibrary = {
           "annualNo": 8
         },
         {
-          "id": "uploaded-live-117",
+          "id": "uploaded-live-119",
           "no": 9,
           "grade": "高三",
           "quarter": "暑期",
@@ -28405,7 +28210,7 @@ export const annualCourseLibrary = {
           "annualNo": 9
         },
         {
-          "id": "uploaded-live-118",
+          "id": "uploaded-live-120",
           "no": 10,
           "grade": "高三",
           "quarter": "暑期",
@@ -28420,7 +28225,7 @@ export const annualCourseLibrary = {
           "annualNo": 10
         },
         {
-          "id": "uploaded-live-119",
+          "id": "uploaded-live-121",
           "no": 11,
           "grade": "高三",
           "quarter": "秋季",
@@ -28435,7 +28240,7 @@ export const annualCourseLibrary = {
           "annualNo": 11
         },
         {
-          "id": "uploaded-live-120",
+          "id": "uploaded-live-122",
           "no": 12,
           "grade": "高三",
           "quarter": "秋季",
@@ -28450,7 +28255,7 @@ export const annualCourseLibrary = {
           "annualNo": 12
         },
         {
-          "id": "uploaded-live-121",
+          "id": "uploaded-live-123",
           "no": 13,
           "grade": "高三",
           "quarter": "秋季",
@@ -28465,7 +28270,7 @@ export const annualCourseLibrary = {
           "annualNo": 13
         },
         {
-          "id": "uploaded-live-122",
+          "id": "uploaded-live-124",
           "no": 14,
           "grade": "高三",
           "quarter": "秋季",
@@ -28480,7 +28285,7 @@ export const annualCourseLibrary = {
           "annualNo": 14
         },
         {
-          "id": "uploaded-live-123",
+          "id": "uploaded-live-125",
           "no": 15,
           "grade": "高三",
           "quarter": "秋季",
@@ -28495,7 +28300,7 @@ export const annualCourseLibrary = {
           "annualNo": 15
         },
         {
-          "id": "uploaded-live-124",
+          "id": "uploaded-live-126",
           "no": 16,
           "grade": "高三",
           "quarter": "秋季",
@@ -28510,7 +28315,7 @@ export const annualCourseLibrary = {
           "annualNo": 16
         },
         {
-          "id": "uploaded-live-125",
+          "id": "uploaded-live-127",
           "no": 17,
           "grade": "高三",
           "quarter": "秋季",
@@ -28525,7 +28330,7 @@ export const annualCourseLibrary = {
           "annualNo": 17
         },
         {
-          "id": "uploaded-live-126",
+          "id": "uploaded-live-128",
           "no": 18,
           "grade": "高三",
           "quarter": "秋季",
@@ -28540,7 +28345,7 @@ export const annualCourseLibrary = {
           "annualNo": 18
         },
         {
-          "id": "uploaded-live-127",
+          "id": "uploaded-live-129",
           "no": 19,
           "grade": "高三",
           "quarter": "秋季",
@@ -28555,7 +28360,7 @@ export const annualCourseLibrary = {
           "annualNo": 19
         },
         {
-          "id": "uploaded-live-128",
+          "id": "uploaded-live-130",
           "no": 20,
           "grade": "高三",
           "quarter": "秋季",
@@ -28570,7 +28375,7 @@ export const annualCourseLibrary = {
           "annualNo": 20
         },
         {
-          "id": "uploaded-live-129",
+          "id": "uploaded-live-131",
           "no": 21,
           "grade": "高三",
           "quarter": "秋季",
@@ -28585,7 +28390,7 @@ export const annualCourseLibrary = {
           "annualNo": 21
         },
         {
-          "id": "uploaded-live-130",
+          "id": "uploaded-live-132",
           "no": 22,
           "grade": "高三",
           "quarter": "秋季",
@@ -28600,7 +28405,7 @@ export const annualCourseLibrary = {
           "annualNo": 22
         },
         {
-          "id": "uploaded-live-131",
+          "id": "uploaded-live-133",
           "no": 23,
           "grade": "高三",
           "quarter": "秋季",
@@ -28615,7 +28420,7 @@ export const annualCourseLibrary = {
           "annualNo": 23
         },
         {
-          "id": "uploaded-live-132",
+          "id": "uploaded-live-134",
           "no": 24,
           "grade": "高三",
           "quarter": "秋季",
@@ -28630,7 +28435,7 @@ export const annualCourseLibrary = {
           "annualNo": 24
         },
         {
-          "id": "uploaded-live-133",
+          "id": "uploaded-live-135",
           "no": 25,
           "grade": "高三",
           "quarter": "秋季",
@@ -28645,7 +28450,7 @@ export const annualCourseLibrary = {
           "annualNo": 25
         },
         {
-          "id": "uploaded-live-134",
+          "id": "uploaded-live-136",
           "no": 26,
           "grade": "高三",
           "quarter": "秋季",
@@ -28660,7 +28465,7 @@ export const annualCourseLibrary = {
           "annualNo": 26
         },
         {
-          "id": "uploaded-live-136",
+          "id": "uploaded-live-137",
           "no": 27,
           "grade": "高三",
           "quarter": "寒假",
@@ -28675,7 +28480,7 @@ export const annualCourseLibrary = {
           "annualNo": 27
         },
         {
-          "id": "uploaded-live-137",
+          "id": "uploaded-live-138",
           "no": 28,
           "grade": "高三",
           "quarter": "寒假",
@@ -28690,7 +28495,7 @@ export const annualCourseLibrary = {
           "annualNo": 28
         },
         {
-          "id": "uploaded-live-138",
+          "id": "uploaded-live-139",
           "no": 29,
           "grade": "高三",
           "quarter": "寒假",
@@ -28705,7 +28510,7 @@ export const annualCourseLibrary = {
           "annualNo": 29
         },
         {
-          "id": "uploaded-live-139",
+          "id": "uploaded-live-140",
           "no": 30,
           "grade": "高三",
           "quarter": "寒假",
@@ -28720,7 +28525,7 @@ export const annualCourseLibrary = {
           "annualNo": 30
         },
         {
-          "id": "uploaded-live-140",
+          "id": "uploaded-live-141",
           "no": 31,
           "grade": "高三",
           "quarter": "寒假",
@@ -28735,7 +28540,7 @@ export const annualCourseLibrary = {
           "annualNo": 31
         },
         {
-          "id": "uploaded-live-141",
+          "id": "uploaded-live-142",
           "no": 32,
           "grade": "高三",
           "quarter": "寒假",
@@ -28750,7 +28555,7 @@ export const annualCourseLibrary = {
           "annualNo": 32
         },
         {
-          "id": "uploaded-live-142",
+          "id": "uploaded-live-143",
           "no": 33,
           "grade": "高三",
           "quarter": "寒假",
@@ -28765,7 +28570,7 @@ export const annualCourseLibrary = {
           "annualNo": 33
         },
         {
-          "id": "uploaded-live-143",
+          "id": "uploaded-live-144",
           "no": 34,
           "grade": "高三",
           "quarter": "寒假",
@@ -28780,7 +28585,7 @@ export const annualCourseLibrary = {
           "annualNo": 34
         },
         {
-          "id": "uploaded-live-144",
+          "id": "uploaded-live-145",
           "no": 35,
           "grade": "高三",
           "quarter": "寒假",
@@ -28795,7 +28600,7 @@ export const annualCourseLibrary = {
           "annualNo": 35
         },
         {
-          "id": "uploaded-live-145",
+          "id": "uploaded-live-146",
           "no": 36,
           "grade": "高三",
           "quarter": "寒假",
@@ -28810,7 +28615,7 @@ export const annualCourseLibrary = {
           "annualNo": 36
         },
         {
-          "id": "uploaded-live-146",
+          "id": "uploaded-live-147",
           "no": 37,
           "grade": "高三",
           "quarter": "春季",
@@ -28825,7 +28630,7 @@ export const annualCourseLibrary = {
           "annualNo": 37
         },
         {
-          "id": "uploaded-live-147",
+          "id": "uploaded-live-148",
           "no": 38,
           "grade": "高三",
           "quarter": "春季",
@@ -28840,7 +28645,7 @@ export const annualCourseLibrary = {
           "annualNo": 38
         },
         {
-          "id": "uploaded-live-148",
+          "id": "uploaded-live-149",
           "no": 39,
           "grade": "高三",
           "quarter": "春季",
@@ -28855,7 +28660,7 @@ export const annualCourseLibrary = {
           "annualNo": 39
         },
         {
-          "id": "uploaded-live-149",
+          "id": "uploaded-live-150",
           "no": 40,
           "grade": "高三",
           "quarter": "春季",
@@ -28870,7 +28675,7 @@ export const annualCourseLibrary = {
           "annualNo": 40
         },
         {
-          "id": "uploaded-live-150",
+          "id": "uploaded-live-151",
           "no": 41,
           "grade": "高三",
           "quarter": "春季",
@@ -28885,7 +28690,7 @@ export const annualCourseLibrary = {
           "annualNo": 41
         },
         {
-          "id": "uploaded-live-151",
+          "id": "uploaded-live-152",
           "no": 42,
           "grade": "高三",
           "quarter": "春季",
@@ -28900,7 +28705,7 @@ export const annualCourseLibrary = {
           "annualNo": 42
         },
         {
-          "id": "uploaded-live-152",
+          "id": "uploaded-live-153",
           "no": 43,
           "grade": "高三",
           "quarter": "春季",
@@ -28915,7 +28720,7 @@ export const annualCourseLibrary = {
           "annualNo": 43
         },
         {
-          "id": "uploaded-live-153",
+          "id": "uploaded-live-154",
           "no": 44,
           "grade": "高三",
           "quarter": "春季",
@@ -28932,7 +28737,7 @@ export const annualCourseLibrary = {
       ],
       "化学": [
         {
-          "id": "uploaded-live-107",
+          "id": "uploaded-live-111",
           "no": 1,
           "grade": "高三",
           "quarter": "暑期",
@@ -28947,7 +28752,7 @@ export const annualCourseLibrary = {
           "annualNo": 1
         },
         {
-          "id": "uploaded-live-108",
+          "id": "uploaded-live-112",
           "no": 2,
           "grade": "高三",
           "quarter": "暑期",
@@ -28962,7 +28767,7 @@ export const annualCourseLibrary = {
           "annualNo": 2
         },
         {
-          "id": "uploaded-live-109",
+          "id": "uploaded-live-113",
           "no": 3,
           "grade": "高三",
           "quarter": "暑期",
@@ -28977,7 +28782,7 @@ export const annualCourseLibrary = {
           "annualNo": 3
         },
         {
-          "id": "uploaded-live-110",
+          "id": "uploaded-live-114",
           "no": 4,
           "grade": "高三",
           "quarter": "暑期",
@@ -28992,7 +28797,7 @@ export const annualCourseLibrary = {
           "annualNo": 4
         },
         {
-          "id": "uploaded-live-111",
+          "id": "uploaded-live-115",
           "no": 5,
           "grade": "高三",
           "quarter": "暑期",
@@ -29007,7 +28812,7 @@ export const annualCourseLibrary = {
           "annualNo": 5
         },
         {
-          "id": "uploaded-live-112",
+          "id": "uploaded-live-116",
           "no": 6,
           "grade": "高三",
           "quarter": "暑期",
@@ -29022,7 +28827,7 @@ export const annualCourseLibrary = {
           "annualNo": 6
         },
         {
-          "id": "uploaded-live-113",
+          "id": "uploaded-live-117",
           "no": 7,
           "grade": "高三",
           "quarter": "暑期",
@@ -29037,7 +28842,7 @@ export const annualCourseLibrary = {
           "annualNo": 7
         },
         {
-          "id": "uploaded-live-114",
+          "id": "uploaded-live-118",
           "no": 8,
           "grade": "高三",
           "quarter": "暑期",
@@ -29052,7 +28857,7 @@ export const annualCourseLibrary = {
           "annualNo": 8
         },
         {
-          "id": "uploaded-live-115",
+          "id": "uploaded-live-119",
           "no": 9,
           "grade": "高三",
           "quarter": "暑期",
@@ -29067,7 +28872,7 @@ export const annualCourseLibrary = {
           "annualNo": 9
         },
         {
-          "id": "uploaded-live-116",
+          "id": "uploaded-live-120",
           "no": 10,
           "grade": "高三",
           "quarter": "暑期",
@@ -29082,7 +28887,7 @@ export const annualCourseLibrary = {
           "annualNo": 10
         },
         {
-          "id": "uploaded-live-117",
+          "id": "uploaded-live-121",
           "no": 11,
           "grade": "高三",
           "quarter": "秋季",
@@ -29097,7 +28902,7 @@ export const annualCourseLibrary = {
           "annualNo": 11
         },
         {
-          "id": "uploaded-live-118",
+          "id": "uploaded-live-122",
           "no": 12,
           "grade": "高三",
           "quarter": "秋季",
@@ -29112,7 +28917,7 @@ export const annualCourseLibrary = {
           "annualNo": 12
         },
         {
-          "id": "uploaded-live-119",
+          "id": "uploaded-live-123",
           "no": 13,
           "grade": "高三",
           "quarter": "秋季",
@@ -29127,7 +28932,7 @@ export const annualCourseLibrary = {
           "annualNo": 13
         },
         {
-          "id": "uploaded-live-120",
+          "id": "uploaded-live-124",
           "no": 14,
           "grade": "高三",
           "quarter": "秋季",
@@ -29142,7 +28947,7 @@ export const annualCourseLibrary = {
           "annualNo": 14
         },
         {
-          "id": "uploaded-live-121",
+          "id": "uploaded-live-125",
           "no": 15,
           "grade": "高三",
           "quarter": "秋季",
@@ -29157,7 +28962,7 @@ export const annualCourseLibrary = {
           "annualNo": 15
         },
         {
-          "id": "uploaded-live-122",
+          "id": "uploaded-live-126",
           "no": 16,
           "grade": "高三",
           "quarter": "秋季",
@@ -29172,7 +28977,7 @@ export const annualCourseLibrary = {
           "annualNo": 16
         },
         {
-          "id": "uploaded-live-123",
+          "id": "uploaded-live-127",
           "no": 17,
           "grade": "高三",
           "quarter": "秋季",
@@ -29187,7 +28992,7 @@ export const annualCourseLibrary = {
           "annualNo": 17
         },
         {
-          "id": "uploaded-live-124",
+          "id": "uploaded-live-128",
           "no": 18,
           "grade": "高三",
           "quarter": "秋季",
@@ -29202,7 +29007,7 @@ export const annualCourseLibrary = {
           "annualNo": 18
         },
         {
-          "id": "uploaded-live-125",
+          "id": "uploaded-live-129",
           "no": 19,
           "grade": "高三",
           "quarter": "秋季",
@@ -29217,7 +29022,7 @@ export const annualCourseLibrary = {
           "annualNo": 19
         },
         {
-          "id": "uploaded-live-126",
+          "id": "uploaded-live-130",
           "no": 20,
           "grade": "高三",
           "quarter": "秋季",
@@ -29232,7 +29037,7 @@ export const annualCourseLibrary = {
           "annualNo": 20
         },
         {
-          "id": "uploaded-live-127",
+          "id": "uploaded-live-131",
           "no": 21,
           "grade": "高三",
           "quarter": "秋季",
@@ -29247,7 +29052,7 @@ export const annualCourseLibrary = {
           "annualNo": 21
         },
         {
-          "id": "uploaded-live-128",
+          "id": "uploaded-live-132",
           "no": 22,
           "grade": "高三",
           "quarter": "秋季",
@@ -29262,7 +29067,7 @@ export const annualCourseLibrary = {
           "annualNo": 22
         },
         {
-          "id": "uploaded-live-129",
+          "id": "uploaded-live-133",
           "no": 23,
           "grade": "高三",
           "quarter": "秋季",
@@ -29277,7 +29082,7 @@ export const annualCourseLibrary = {
           "annualNo": 23
         },
         {
-          "id": "uploaded-live-130",
+          "id": "uploaded-live-134",
           "no": 24,
           "grade": "高三",
           "quarter": "秋季",
@@ -29292,7 +29097,7 @@ export const annualCourseLibrary = {
           "annualNo": 24
         },
         {
-          "id": "uploaded-live-131",
+          "id": "uploaded-live-135",
           "no": 25,
           "grade": "高三",
           "quarter": "秋季",
@@ -29307,7 +29112,7 @@ export const annualCourseLibrary = {
           "annualNo": 25
         },
         {
-          "id": "uploaded-live-132",
+          "id": "uploaded-live-136",
           "no": 26,
           "grade": "高三",
           "quarter": "秋季",
@@ -29322,7 +29127,7 @@ export const annualCourseLibrary = {
           "annualNo": 26
         },
         {
-          "id": "uploaded-live-134",
+          "id": "uploaded-live-137",
           "no": 27,
           "grade": "高三",
           "quarter": "寒假",
@@ -29337,7 +29142,7 @@ export const annualCourseLibrary = {
           "annualNo": 27
         },
         {
-          "id": "uploaded-live-135",
+          "id": "uploaded-live-138",
           "no": 28,
           "grade": "高三",
           "quarter": "寒假",
@@ -29352,7 +29157,7 @@ export const annualCourseLibrary = {
           "annualNo": 28
         },
         {
-          "id": "uploaded-live-136",
+          "id": "uploaded-live-139",
           "no": 29,
           "grade": "高三",
           "quarter": "寒假",
@@ -29367,7 +29172,7 @@ export const annualCourseLibrary = {
           "annualNo": 29
         },
         {
-          "id": "uploaded-live-137",
+          "id": "uploaded-live-140",
           "no": 30,
           "grade": "高三",
           "quarter": "寒假",
@@ -29382,7 +29187,7 @@ export const annualCourseLibrary = {
           "annualNo": 30
         },
         {
-          "id": "uploaded-live-138",
+          "id": "uploaded-live-141",
           "no": 31,
           "grade": "高三",
           "quarter": "寒假",
@@ -29397,7 +29202,7 @@ export const annualCourseLibrary = {
           "annualNo": 31
         },
         {
-          "id": "uploaded-live-139",
+          "id": "uploaded-live-142",
           "no": 32,
           "grade": "高三",
           "quarter": "寒假",
@@ -29412,7 +29217,7 @@ export const annualCourseLibrary = {
           "annualNo": 32
         },
         {
-          "id": "uploaded-live-140",
+          "id": "uploaded-live-143",
           "no": 33,
           "grade": "高三",
           "quarter": "寒假",
@@ -29427,7 +29232,7 @@ export const annualCourseLibrary = {
           "annualNo": 33
         },
         {
-          "id": "uploaded-live-141",
+          "id": "uploaded-live-144",
           "no": 34,
           "grade": "高三",
           "quarter": "寒假",
@@ -29442,7 +29247,7 @@ export const annualCourseLibrary = {
           "annualNo": 34
         },
         {
-          "id": "uploaded-live-142",
+          "id": "uploaded-live-145",
           "no": 35,
           "grade": "高三",
           "quarter": "寒假",
@@ -29457,7 +29262,7 @@ export const annualCourseLibrary = {
           "annualNo": 35
         },
         {
-          "id": "uploaded-live-143",
+          "id": "uploaded-live-146",
           "no": 36,
           "grade": "高三",
           "quarter": "寒假",
@@ -29472,7 +29277,7 @@ export const annualCourseLibrary = {
           "annualNo": 36
         },
         {
-          "id": "uploaded-live-144",
+          "id": "uploaded-live-147",
           "no": 37,
           "grade": "高三",
           "quarter": "春季",
@@ -29487,7 +29292,7 @@ export const annualCourseLibrary = {
           "annualNo": 37
         },
         {
-          "id": "uploaded-live-145",
+          "id": "uploaded-live-148",
           "no": 38,
           "grade": "高三",
           "quarter": "春季",
@@ -29502,7 +29307,7 @@ export const annualCourseLibrary = {
           "annualNo": 38
         },
         {
-          "id": "uploaded-live-146",
+          "id": "uploaded-live-149",
           "no": 39,
           "grade": "高三",
           "quarter": "春季",
@@ -29517,7 +29322,7 @@ export const annualCourseLibrary = {
           "annualNo": 39
         },
         {
-          "id": "uploaded-live-147",
+          "id": "uploaded-live-150",
           "no": 40,
           "grade": "高三",
           "quarter": "春季",
@@ -29532,7 +29337,7 @@ export const annualCourseLibrary = {
           "annualNo": 40
         },
         {
-          "id": "uploaded-live-148",
+          "id": "uploaded-live-151",
           "no": 41,
           "grade": "高三",
           "quarter": "春季",
@@ -29547,7 +29352,7 @@ export const annualCourseLibrary = {
           "annualNo": 41
         },
         {
-          "id": "uploaded-live-149",
+          "id": "uploaded-live-152",
           "no": 42,
           "grade": "高三",
           "quarter": "春季",
@@ -29562,7 +29367,7 @@ export const annualCourseLibrary = {
           "annualNo": 42
         },
         {
-          "id": "uploaded-live-150",
+          "id": "uploaded-live-153",
           "no": 43,
           "grade": "高三",
           "quarter": "春季",
@@ -29577,7 +29382,7 @@ export const annualCourseLibrary = {
           "annualNo": 43
         },
         {
-          "id": "uploaded-live-151",
+          "id": "uploaded-live-154",
           "no": 44,
           "grade": "高三",
           "quarter": "春季",
@@ -29594,7 +29399,7 @@ export const annualCourseLibrary = {
       ],
       "生物": [
         {
-          "id": "uploaded-live-109",
+          "id": "uploaded-live-111",
           "no": 1,
           "grade": "高三",
           "quarter": "暑期",
@@ -29609,7 +29414,7 @@ export const annualCourseLibrary = {
           "annualNo": 1
         },
         {
-          "id": "uploaded-live-110",
+          "id": "uploaded-live-112",
           "no": 2,
           "grade": "高三",
           "quarter": "暑期",
@@ -29624,7 +29429,7 @@ export const annualCourseLibrary = {
           "annualNo": 2
         },
         {
-          "id": "uploaded-live-111",
+          "id": "uploaded-live-113",
           "no": 3,
           "grade": "高三",
           "quarter": "暑期",
@@ -29639,7 +29444,7 @@ export const annualCourseLibrary = {
           "annualNo": 3
         },
         {
-          "id": "uploaded-live-112",
+          "id": "uploaded-live-114",
           "no": 4,
           "grade": "高三",
           "quarter": "暑期",
@@ -29654,7 +29459,7 @@ export const annualCourseLibrary = {
           "annualNo": 4
         },
         {
-          "id": "uploaded-live-113",
+          "id": "uploaded-live-115",
           "no": 5,
           "grade": "高三",
           "quarter": "暑期",
@@ -29669,7 +29474,7 @@ export const annualCourseLibrary = {
           "annualNo": 5
         },
         {
-          "id": "uploaded-live-114",
+          "id": "uploaded-live-116",
           "no": 6,
           "grade": "高三",
           "quarter": "暑期",
@@ -29684,7 +29489,7 @@ export const annualCourseLibrary = {
           "annualNo": 6
         },
         {
-          "id": "uploaded-live-115",
+          "id": "uploaded-live-117",
           "no": 7,
           "grade": "高三",
           "quarter": "暑期",
@@ -29699,7 +29504,7 @@ export const annualCourseLibrary = {
           "annualNo": 7
         },
         {
-          "id": "uploaded-live-116",
+          "id": "uploaded-live-118",
           "no": 8,
           "grade": "高三",
           "quarter": "暑期",
@@ -29714,7 +29519,7 @@ export const annualCourseLibrary = {
           "annualNo": 8
         },
         {
-          "id": "uploaded-live-117",
+          "id": "uploaded-live-119",
           "no": 9,
           "grade": "高三",
           "quarter": "暑期",
@@ -29729,7 +29534,7 @@ export const annualCourseLibrary = {
           "annualNo": 9
         },
         {
-          "id": "uploaded-live-118",
+          "id": "uploaded-live-120",
           "no": 10,
           "grade": "高三",
           "quarter": "暑期",
@@ -29744,7 +29549,7 @@ export const annualCourseLibrary = {
           "annualNo": 10
         },
         {
-          "id": "uploaded-live-119",
+          "id": "uploaded-live-121",
           "no": 11,
           "grade": "高三",
           "quarter": "秋季",
@@ -29759,7 +29564,7 @@ export const annualCourseLibrary = {
           "annualNo": 11
         },
         {
-          "id": "uploaded-live-120",
+          "id": "uploaded-live-122",
           "no": 12,
           "grade": "高三",
           "quarter": "秋季",
@@ -29774,7 +29579,7 @@ export const annualCourseLibrary = {
           "annualNo": 12
         },
         {
-          "id": "uploaded-live-121",
+          "id": "uploaded-live-123",
           "no": 13,
           "grade": "高三",
           "quarter": "秋季",
@@ -29789,7 +29594,7 @@ export const annualCourseLibrary = {
           "annualNo": 13
         },
         {
-          "id": "uploaded-live-122",
+          "id": "uploaded-live-124",
           "no": 14,
           "grade": "高三",
           "quarter": "秋季",
@@ -29804,7 +29609,7 @@ export const annualCourseLibrary = {
           "annualNo": 14
         },
         {
-          "id": "uploaded-live-123",
+          "id": "uploaded-live-125",
           "no": 15,
           "grade": "高三",
           "quarter": "秋季",
@@ -29819,7 +29624,7 @@ export const annualCourseLibrary = {
           "annualNo": 15
         },
         {
-          "id": "uploaded-live-124",
+          "id": "uploaded-live-126",
           "no": 16,
           "grade": "高三",
           "quarter": "秋季",
@@ -29834,7 +29639,7 @@ export const annualCourseLibrary = {
           "annualNo": 16
         },
         {
-          "id": "uploaded-live-125",
+          "id": "uploaded-live-127",
           "no": 17,
           "grade": "高三",
           "quarter": "秋季",
@@ -29849,7 +29654,7 @@ export const annualCourseLibrary = {
           "annualNo": 17
         },
         {
-          "id": "uploaded-live-126",
+          "id": "uploaded-live-128",
           "no": 18,
           "grade": "高三",
           "quarter": "秋季",
@@ -29864,7 +29669,7 @@ export const annualCourseLibrary = {
           "annualNo": 18
         },
         {
-          "id": "uploaded-live-127",
+          "id": "uploaded-live-129",
           "no": 19,
           "grade": "高三",
           "quarter": "秋季",
@@ -29879,7 +29684,7 @@ export const annualCourseLibrary = {
           "annualNo": 19
         },
         {
-          "id": "uploaded-live-128",
+          "id": "uploaded-live-130",
           "no": 20,
           "grade": "高三",
           "quarter": "秋季",
@@ -29894,7 +29699,7 @@ export const annualCourseLibrary = {
           "annualNo": 20
         },
         {
-          "id": "uploaded-live-129",
+          "id": "uploaded-live-131",
           "no": 21,
           "grade": "高三",
           "quarter": "秋季",
@@ -29909,7 +29714,7 @@ export const annualCourseLibrary = {
           "annualNo": 21
         },
         {
-          "id": "uploaded-live-130",
+          "id": "uploaded-live-132",
           "no": 22,
           "grade": "高三",
           "quarter": "秋季",
@@ -29924,7 +29729,7 @@ export const annualCourseLibrary = {
           "annualNo": 22
         },
         {
-          "id": "uploaded-live-131",
+          "id": "uploaded-live-133",
           "no": 23,
           "grade": "高三",
           "quarter": "秋季",
@@ -29939,7 +29744,7 @@ export const annualCourseLibrary = {
           "annualNo": 23
         },
         {
-          "id": "uploaded-live-132",
+          "id": "uploaded-live-134",
           "no": 24,
           "grade": "高三",
           "quarter": "秋季",
@@ -29954,7 +29759,7 @@ export const annualCourseLibrary = {
           "annualNo": 24
         },
         {
-          "id": "uploaded-live-133",
+          "id": "uploaded-live-135",
           "no": 25,
           "grade": "高三",
           "quarter": "秋季",
@@ -29969,7 +29774,7 @@ export const annualCourseLibrary = {
           "annualNo": 25
         },
         {
-          "id": "uploaded-live-134",
+          "id": "uploaded-live-136",
           "no": 26,
           "grade": "高三",
           "quarter": "秋季",
@@ -29984,7 +29789,7 @@ export const annualCourseLibrary = {
           "annualNo": 26
         },
         {
-          "id": "uploaded-live-136",
+          "id": "uploaded-live-137",
           "no": 27,
           "grade": "高三",
           "quarter": "寒假",
@@ -29999,7 +29804,7 @@ export const annualCourseLibrary = {
           "annualNo": 27
         },
         {
-          "id": "uploaded-live-137",
+          "id": "uploaded-live-138",
           "no": 28,
           "grade": "高三",
           "quarter": "寒假",
@@ -30014,7 +29819,7 @@ export const annualCourseLibrary = {
           "annualNo": 28
         },
         {
-          "id": "uploaded-live-138",
+          "id": "uploaded-live-139",
           "no": 29,
           "grade": "高三",
           "quarter": "寒假",
@@ -30029,7 +29834,7 @@ export const annualCourseLibrary = {
           "annualNo": 29
         },
         {
-          "id": "uploaded-live-139",
+          "id": "uploaded-live-140",
           "no": 30,
           "grade": "高三",
           "quarter": "寒假",
@@ -30044,7 +29849,7 @@ export const annualCourseLibrary = {
           "annualNo": 30
         },
         {
-          "id": "uploaded-live-140",
+          "id": "uploaded-live-141",
           "no": 31,
           "grade": "高三",
           "quarter": "寒假",
@@ -30059,7 +29864,7 @@ export const annualCourseLibrary = {
           "annualNo": 31
         },
         {
-          "id": "uploaded-live-141",
+          "id": "uploaded-live-142",
           "no": 32,
           "grade": "高三",
           "quarter": "寒假",
@@ -30074,7 +29879,7 @@ export const annualCourseLibrary = {
           "annualNo": 32
         },
         {
-          "id": "uploaded-live-142",
+          "id": "uploaded-live-143",
           "no": 33,
           "grade": "高三",
           "quarter": "寒假",
@@ -30089,7 +29894,7 @@ export const annualCourseLibrary = {
           "annualNo": 33
         },
         {
-          "id": "uploaded-live-143",
+          "id": "uploaded-live-144",
           "no": 34,
           "grade": "高三",
           "quarter": "寒假",
@@ -30104,7 +29909,7 @@ export const annualCourseLibrary = {
           "annualNo": 34
         },
         {
-          "id": "uploaded-live-144",
+          "id": "uploaded-live-145",
           "no": 35,
           "grade": "高三",
           "quarter": "寒假",
@@ -30119,7 +29924,7 @@ export const annualCourseLibrary = {
           "annualNo": 35
         },
         {
-          "id": "uploaded-live-145",
+          "id": "uploaded-live-146",
           "no": 36,
           "grade": "高三",
           "quarter": "寒假",
@@ -30134,7 +29939,7 @@ export const annualCourseLibrary = {
           "annualNo": 36
         },
         {
-          "id": "uploaded-live-146",
+          "id": "uploaded-live-147",
           "no": 37,
           "grade": "高三",
           "quarter": "春季",
@@ -30149,7 +29954,7 @@ export const annualCourseLibrary = {
           "annualNo": 37
         },
         {
-          "id": "uploaded-live-147",
+          "id": "uploaded-live-148",
           "no": 38,
           "grade": "高三",
           "quarter": "春季",
@@ -30164,7 +29969,7 @@ export const annualCourseLibrary = {
           "annualNo": 38
         },
         {
-          "id": "uploaded-live-148",
+          "id": "uploaded-live-149",
           "no": 39,
           "grade": "高三",
           "quarter": "春季",
@@ -30179,7 +29984,7 @@ export const annualCourseLibrary = {
           "annualNo": 39
         },
         {
-          "id": "uploaded-live-149",
+          "id": "uploaded-live-150",
           "no": 40,
           "grade": "高三",
           "quarter": "春季",
@@ -30194,7 +29999,7 @@ export const annualCourseLibrary = {
           "annualNo": 40
         },
         {
-          "id": "uploaded-live-150",
+          "id": "uploaded-live-151",
           "no": 41,
           "grade": "高三",
           "quarter": "春季",
@@ -30209,7 +30014,7 @@ export const annualCourseLibrary = {
           "annualNo": 41
         },
         {
-          "id": "uploaded-live-151",
+          "id": "uploaded-live-152",
           "no": 42,
           "grade": "高三",
           "quarter": "春季",
@@ -30224,7 +30029,7 @@ export const annualCourseLibrary = {
           "annualNo": 42
         },
         {
-          "id": "uploaded-live-152",
+          "id": "uploaded-live-153",
           "no": 43,
           "grade": "高三",
           "quarter": "春季",
@@ -30239,7 +30044,7 @@ export const annualCourseLibrary = {
           "annualNo": 43
         },
         {
-          "id": "uploaded-live-153",
+          "id": "uploaded-live-154",
           "no": 44,
           "grade": "高三",
           "quarter": "春季",
@@ -30256,7 +30061,7 @@ export const annualCourseLibrary = {
       ],
       "历史": [
         {
-          "id": "uploaded-live-109",
+          "id": "uploaded-live-111",
           "no": 1,
           "grade": "高三",
           "quarter": "暑期",
@@ -30271,7 +30076,7 @@ export const annualCourseLibrary = {
           "annualNo": 1
         },
         {
-          "id": "uploaded-live-110",
+          "id": "uploaded-live-112",
           "no": 2,
           "grade": "高三",
           "quarter": "暑期",
@@ -30286,7 +30091,7 @@ export const annualCourseLibrary = {
           "annualNo": 2
         },
         {
-          "id": "uploaded-live-111",
+          "id": "uploaded-live-113",
           "no": 3,
           "grade": "高三",
           "quarter": "暑期",
@@ -30301,7 +30106,7 @@ export const annualCourseLibrary = {
           "annualNo": 3
         },
         {
-          "id": "uploaded-live-112",
+          "id": "uploaded-live-114",
           "no": 4,
           "grade": "高三",
           "quarter": "暑期",
@@ -30316,7 +30121,7 @@ export const annualCourseLibrary = {
           "annualNo": 4
         },
         {
-          "id": "uploaded-live-113",
+          "id": "uploaded-live-115",
           "no": 5,
           "grade": "高三",
           "quarter": "暑期",
@@ -30331,7 +30136,7 @@ export const annualCourseLibrary = {
           "annualNo": 5
         },
         {
-          "id": "uploaded-live-114",
+          "id": "uploaded-live-116",
           "no": 6,
           "grade": "高三",
           "quarter": "暑期",
@@ -30346,7 +30151,7 @@ export const annualCourseLibrary = {
           "annualNo": 6
         },
         {
-          "id": "uploaded-live-115",
+          "id": "uploaded-live-117",
           "no": 7,
           "grade": "高三",
           "quarter": "暑期",
@@ -30361,7 +30166,7 @@ export const annualCourseLibrary = {
           "annualNo": 7
         },
         {
-          "id": "uploaded-live-116",
+          "id": "uploaded-live-118",
           "no": 8,
           "grade": "高三",
           "quarter": "暑期",
@@ -30376,7 +30181,7 @@ export const annualCourseLibrary = {
           "annualNo": 8
         },
         {
-          "id": "uploaded-live-117",
+          "id": "uploaded-live-119",
           "no": 9,
           "grade": "高三",
           "quarter": "暑期",
@@ -30391,7 +30196,7 @@ export const annualCourseLibrary = {
           "annualNo": 9
         },
         {
-          "id": "uploaded-live-118",
+          "id": "uploaded-live-120",
           "no": 10,
           "grade": "高三",
           "quarter": "暑期",
@@ -30406,7 +30211,7 @@ export const annualCourseLibrary = {
           "annualNo": 10
         },
         {
-          "id": "uploaded-live-119",
+          "id": "uploaded-live-121",
           "no": 11,
           "grade": "高三",
           "quarter": "秋季",
@@ -30421,7 +30226,7 @@ export const annualCourseLibrary = {
           "annualNo": 11
         },
         {
-          "id": "uploaded-live-120",
+          "id": "uploaded-live-122",
           "no": 12,
           "grade": "高三",
           "quarter": "秋季",
@@ -30436,7 +30241,7 @@ export const annualCourseLibrary = {
           "annualNo": 12
         },
         {
-          "id": "uploaded-live-121",
+          "id": "uploaded-live-123",
           "no": 13,
           "grade": "高三",
           "quarter": "秋季",
@@ -30451,7 +30256,7 @@ export const annualCourseLibrary = {
           "annualNo": 13
         },
         {
-          "id": "uploaded-live-122",
+          "id": "uploaded-live-124",
           "no": 14,
           "grade": "高三",
           "quarter": "秋季",
@@ -30466,7 +30271,7 @@ export const annualCourseLibrary = {
           "annualNo": 14
         },
         {
-          "id": "uploaded-live-123",
+          "id": "uploaded-live-125",
           "no": 15,
           "grade": "高三",
           "quarter": "秋季",
@@ -30481,7 +30286,7 @@ export const annualCourseLibrary = {
           "annualNo": 15
         },
         {
-          "id": "uploaded-live-124",
+          "id": "uploaded-live-126",
           "no": 16,
           "grade": "高三",
           "quarter": "秋季",
@@ -30496,7 +30301,7 @@ export const annualCourseLibrary = {
           "annualNo": 16
         },
         {
-          "id": "uploaded-live-125",
+          "id": "uploaded-live-127",
           "no": 17,
           "grade": "高三",
           "quarter": "秋季",
@@ -30511,7 +30316,7 @@ export const annualCourseLibrary = {
           "annualNo": 17
         },
         {
-          "id": "uploaded-live-126",
+          "id": "uploaded-live-128",
           "no": 18,
           "grade": "高三",
           "quarter": "秋季",
@@ -30526,7 +30331,7 @@ export const annualCourseLibrary = {
           "annualNo": 18
         },
         {
-          "id": "uploaded-live-127",
+          "id": "uploaded-live-129",
           "no": 19,
           "grade": "高三",
           "quarter": "秋季",
@@ -30541,7 +30346,7 @@ export const annualCourseLibrary = {
           "annualNo": 19
         },
         {
-          "id": "uploaded-live-128",
+          "id": "uploaded-live-130",
           "no": 20,
           "grade": "高三",
           "quarter": "秋季",
@@ -30556,7 +30361,7 @@ export const annualCourseLibrary = {
           "annualNo": 20
         },
         {
-          "id": "uploaded-live-129",
+          "id": "uploaded-live-131",
           "no": 21,
           "grade": "高三",
           "quarter": "秋季",
@@ -30571,7 +30376,7 @@ export const annualCourseLibrary = {
           "annualNo": 21
         },
         {
-          "id": "uploaded-live-130",
+          "id": "uploaded-live-132",
           "no": 22,
           "grade": "高三",
           "quarter": "秋季",
@@ -30586,7 +30391,7 @@ export const annualCourseLibrary = {
           "annualNo": 22
         },
         {
-          "id": "uploaded-live-131",
+          "id": "uploaded-live-133",
           "no": 23,
           "grade": "高三",
           "quarter": "秋季",
@@ -30601,7 +30406,7 @@ export const annualCourseLibrary = {
           "annualNo": 23
         },
         {
-          "id": "uploaded-live-132",
+          "id": "uploaded-live-134",
           "no": 24,
           "grade": "高三",
           "quarter": "秋季",
@@ -30616,7 +30421,7 @@ export const annualCourseLibrary = {
           "annualNo": 24
         },
         {
-          "id": "uploaded-live-133",
+          "id": "uploaded-live-135",
           "no": 25,
           "grade": "高三",
           "quarter": "秋季",
@@ -30631,7 +30436,7 @@ export const annualCourseLibrary = {
           "annualNo": 25
         },
         {
-          "id": "uploaded-live-134",
+          "id": "uploaded-live-136",
           "no": 26,
           "grade": "高三",
           "quarter": "秋季",
@@ -30646,7 +30451,7 @@ export const annualCourseLibrary = {
           "annualNo": 26
         },
         {
-          "id": "uploaded-live-136",
+          "id": "uploaded-live-137",
           "no": 27,
           "grade": "高三",
           "quarter": "寒假",
@@ -30661,7 +30466,7 @@ export const annualCourseLibrary = {
           "annualNo": 27
         },
         {
-          "id": "uploaded-live-137",
+          "id": "uploaded-live-138",
           "no": 28,
           "grade": "高三",
           "quarter": "寒假",
@@ -30676,7 +30481,7 @@ export const annualCourseLibrary = {
           "annualNo": 28
         },
         {
-          "id": "uploaded-live-138",
+          "id": "uploaded-live-139",
           "no": 29,
           "grade": "高三",
           "quarter": "寒假",
@@ -30691,7 +30496,7 @@ export const annualCourseLibrary = {
           "annualNo": 29
         },
         {
-          "id": "uploaded-live-139",
+          "id": "uploaded-live-140",
           "no": 30,
           "grade": "高三",
           "quarter": "寒假",
@@ -30706,7 +30511,7 @@ export const annualCourseLibrary = {
           "annualNo": 30
         },
         {
-          "id": "uploaded-live-140",
+          "id": "uploaded-live-141",
           "no": 31,
           "grade": "高三",
           "quarter": "寒假",
@@ -30721,7 +30526,7 @@ export const annualCourseLibrary = {
           "annualNo": 31
         },
         {
-          "id": "uploaded-live-141",
+          "id": "uploaded-live-142",
           "no": 32,
           "grade": "高三",
           "quarter": "寒假",
@@ -30736,7 +30541,7 @@ export const annualCourseLibrary = {
           "annualNo": 32
         },
         {
-          "id": "uploaded-live-142",
+          "id": "uploaded-live-143",
           "no": 33,
           "grade": "高三",
           "quarter": "寒假",
@@ -30751,7 +30556,7 @@ export const annualCourseLibrary = {
           "annualNo": 33
         },
         {
-          "id": "uploaded-live-143",
+          "id": "uploaded-live-144",
           "no": 34,
           "grade": "高三",
           "quarter": "寒假",
@@ -30766,7 +30571,7 @@ export const annualCourseLibrary = {
           "annualNo": 34
         },
         {
-          "id": "uploaded-live-144",
+          "id": "uploaded-live-145",
           "no": 35,
           "grade": "高三",
           "quarter": "寒假",
@@ -30781,7 +30586,7 @@ export const annualCourseLibrary = {
           "annualNo": 35
         },
         {
-          "id": "uploaded-live-145",
+          "id": "uploaded-live-146",
           "no": 36,
           "grade": "高三",
           "quarter": "寒假",
@@ -30796,7 +30601,7 @@ export const annualCourseLibrary = {
           "annualNo": 36
         },
         {
-          "id": "uploaded-live-146",
+          "id": "uploaded-live-147",
           "no": 37,
           "grade": "高三",
           "quarter": "春季",
@@ -30811,7 +30616,7 @@ export const annualCourseLibrary = {
           "annualNo": 37
         },
         {
-          "id": "uploaded-live-147",
+          "id": "uploaded-live-148",
           "no": 38,
           "grade": "高三",
           "quarter": "春季",
@@ -30826,7 +30631,7 @@ export const annualCourseLibrary = {
           "annualNo": 38
         },
         {
-          "id": "uploaded-live-148",
+          "id": "uploaded-live-149",
           "no": 39,
           "grade": "高三",
           "quarter": "春季",
@@ -30841,7 +30646,7 @@ export const annualCourseLibrary = {
           "annualNo": 39
         },
         {
-          "id": "uploaded-live-149",
+          "id": "uploaded-live-150",
           "no": 40,
           "grade": "高三",
           "quarter": "春季",
@@ -30856,7 +30661,7 @@ export const annualCourseLibrary = {
           "annualNo": 40
         },
         {
-          "id": "uploaded-live-150",
+          "id": "uploaded-live-151",
           "no": 41,
           "grade": "高三",
           "quarter": "春季",
@@ -30871,7 +30676,7 @@ export const annualCourseLibrary = {
           "annualNo": 41
         },
         {
-          "id": "uploaded-live-151",
+          "id": "uploaded-live-152",
           "no": 42,
           "grade": "高三",
           "quarter": "春季",
@@ -30886,7 +30691,7 @@ export const annualCourseLibrary = {
           "annualNo": 42
         },
         {
-          "id": "uploaded-live-152",
+          "id": "uploaded-live-153",
           "no": 43,
           "grade": "高三",
           "quarter": "春季",
@@ -30901,7 +30706,7 @@ export const annualCourseLibrary = {
           "annualNo": 43
         },
         {
-          "id": "uploaded-live-153",
+          "id": "uploaded-live-154",
           "no": 44,
           "grade": "高三",
           "quarter": "春季",
@@ -30918,7 +30723,7 @@ export const annualCourseLibrary = {
       ],
       "地理": [
         {
-          "id": "uploaded-live-107",
+          "id": "uploaded-live-111",
           "no": 1,
           "grade": "高三",
           "quarter": "暑期",
@@ -30933,7 +30738,7 @@ export const annualCourseLibrary = {
           "annualNo": 1
         },
         {
-          "id": "uploaded-live-108",
+          "id": "uploaded-live-112",
           "no": 2,
           "grade": "高三",
           "quarter": "暑期",
@@ -30948,7 +30753,7 @@ export const annualCourseLibrary = {
           "annualNo": 2
         },
         {
-          "id": "uploaded-live-109",
+          "id": "uploaded-live-113",
           "no": 3,
           "grade": "高三",
           "quarter": "暑期",
@@ -30963,7 +30768,7 @@ export const annualCourseLibrary = {
           "annualNo": 3
         },
         {
-          "id": "uploaded-live-110",
+          "id": "uploaded-live-114",
           "no": 4,
           "grade": "高三",
           "quarter": "暑期",
@@ -30978,7 +30783,7 @@ export const annualCourseLibrary = {
           "annualNo": 4
         },
         {
-          "id": "uploaded-live-111",
+          "id": "uploaded-live-115",
           "no": 5,
           "grade": "高三",
           "quarter": "暑期",
@@ -30993,7 +30798,7 @@ export const annualCourseLibrary = {
           "annualNo": 5
         },
         {
-          "id": "uploaded-live-112",
+          "id": "uploaded-live-116",
           "no": 6,
           "grade": "高三",
           "quarter": "暑期",
@@ -31008,7 +30813,7 @@ export const annualCourseLibrary = {
           "annualNo": 6
         },
         {
-          "id": "uploaded-live-113",
+          "id": "uploaded-live-117",
           "no": 7,
           "grade": "高三",
           "quarter": "暑期",
@@ -31023,7 +30828,7 @@ export const annualCourseLibrary = {
           "annualNo": 7
         },
         {
-          "id": "uploaded-live-114",
+          "id": "uploaded-live-118",
           "no": 8,
           "grade": "高三",
           "quarter": "暑期",
@@ -31038,7 +30843,7 @@ export const annualCourseLibrary = {
           "annualNo": 8
         },
         {
-          "id": "uploaded-live-115",
+          "id": "uploaded-live-119",
           "no": 9,
           "grade": "高三",
           "quarter": "暑期",
@@ -31053,7 +30858,7 @@ export const annualCourseLibrary = {
           "annualNo": 9
         },
         {
-          "id": "uploaded-live-116",
+          "id": "uploaded-live-120",
           "no": 10,
           "grade": "高三",
           "quarter": "暑期",
@@ -31068,7 +30873,7 @@ export const annualCourseLibrary = {
           "annualNo": 10
         },
         {
-          "id": "uploaded-live-117",
+          "id": "uploaded-live-121",
           "no": 11,
           "grade": "高三",
           "quarter": "秋季",
@@ -31083,7 +30888,7 @@ export const annualCourseLibrary = {
           "annualNo": 11
         },
         {
-          "id": "uploaded-live-118",
+          "id": "uploaded-live-122",
           "no": 12,
           "grade": "高三",
           "quarter": "秋季",
@@ -31098,7 +30903,7 @@ export const annualCourseLibrary = {
           "annualNo": 12
         },
         {
-          "id": "uploaded-live-119",
+          "id": "uploaded-live-123",
           "no": 13,
           "grade": "高三",
           "quarter": "秋季",
@@ -31113,7 +30918,7 @@ export const annualCourseLibrary = {
           "annualNo": 13
         },
         {
-          "id": "uploaded-live-120",
+          "id": "uploaded-live-124",
           "no": 14,
           "grade": "高三",
           "quarter": "秋季",
@@ -31128,7 +30933,7 @@ export const annualCourseLibrary = {
           "annualNo": 14
         },
         {
-          "id": "uploaded-live-121",
+          "id": "uploaded-live-125",
           "no": 15,
           "grade": "高三",
           "quarter": "秋季",
@@ -31143,7 +30948,7 @@ export const annualCourseLibrary = {
           "annualNo": 15
         },
         {
-          "id": "uploaded-live-122",
+          "id": "uploaded-live-126",
           "no": 16,
           "grade": "高三",
           "quarter": "秋季",
@@ -31158,7 +30963,7 @@ export const annualCourseLibrary = {
           "annualNo": 16
         },
         {
-          "id": "uploaded-live-123",
+          "id": "uploaded-live-127",
           "no": 17,
           "grade": "高三",
           "quarter": "秋季",
@@ -31173,7 +30978,7 @@ export const annualCourseLibrary = {
           "annualNo": 17
         },
         {
-          "id": "uploaded-live-124",
+          "id": "uploaded-live-128",
           "no": 18,
           "grade": "高三",
           "quarter": "秋季",
@@ -31188,7 +30993,7 @@ export const annualCourseLibrary = {
           "annualNo": 18
         },
         {
-          "id": "uploaded-live-125",
+          "id": "uploaded-live-129",
           "no": 19,
           "grade": "高三",
           "quarter": "秋季",
@@ -31203,7 +31008,7 @@ export const annualCourseLibrary = {
           "annualNo": 19
         },
         {
-          "id": "uploaded-live-126",
+          "id": "uploaded-live-130",
           "no": 20,
           "grade": "高三",
           "quarter": "秋季",
@@ -31218,7 +31023,7 @@ export const annualCourseLibrary = {
           "annualNo": 20
         },
         {
-          "id": "uploaded-live-127",
+          "id": "uploaded-live-131",
           "no": 21,
           "grade": "高三",
           "quarter": "秋季",
@@ -31233,7 +31038,7 @@ export const annualCourseLibrary = {
           "annualNo": 21
         },
         {
-          "id": "uploaded-live-128",
+          "id": "uploaded-live-132",
           "no": 22,
           "grade": "高三",
           "quarter": "秋季",
@@ -31248,7 +31053,7 @@ export const annualCourseLibrary = {
           "annualNo": 22
         },
         {
-          "id": "uploaded-live-129",
+          "id": "uploaded-live-133",
           "no": 23,
           "grade": "高三",
           "quarter": "秋季",
@@ -31263,7 +31068,7 @@ export const annualCourseLibrary = {
           "annualNo": 23
         },
         {
-          "id": "uploaded-live-130",
+          "id": "uploaded-live-134",
           "no": 24,
           "grade": "高三",
           "quarter": "秋季",
@@ -31278,7 +31083,7 @@ export const annualCourseLibrary = {
           "annualNo": 24
         },
         {
-          "id": "uploaded-live-131",
+          "id": "uploaded-live-135",
           "no": 25,
           "grade": "高三",
           "quarter": "秋季",
@@ -31293,7 +31098,7 @@ export const annualCourseLibrary = {
           "annualNo": 25
         },
         {
-          "id": "uploaded-live-132",
+          "id": "uploaded-live-136",
           "no": 26,
           "grade": "高三",
           "quarter": "秋季",
@@ -31308,23 +31113,8 @@ export const annualCourseLibrary = {
           "annualNo": 26
         },
         {
-          "id": "uploaded-live-133",
+          "id": "uploaded-live-137",
           "no": 27,
-          "grade": "高三",
-          "quarter": "寒假",
-          "date": "/",
-          "time": "",
-          "early": "/",
-          "phase1": "",
-          "phase2": "/",
-          "phase3": "/",
-          "title": "【高考】2026年1-6月学习指南（地理）",
-          "live": "【高考】2026年1-6月学习指南（地理）",
-          "annualNo": 27
-        },
-        {
-          "id": "uploaded-live-134",
-          "no": 28,
           "grade": "高三",
           "quarter": "寒假",
           "date": "",
@@ -31335,11 +31125,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "读图能力进阶强化训练",
           "live": "读图能力进阶强化训练",
-          "annualNo": 28
+          "annualNo": 27
         },
         {
-          "id": "uploaded-live-135",
-          "no": 29,
+          "id": "uploaded-live-138",
+          "no": 28,
           "grade": "高三",
           "quarter": "寒假",
           "date": "",
@@ -31350,11 +31140,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "空间定位能力进阶强化训练",
           "live": "空间定位能力进阶强化训练",
-          "annualNo": 29
+          "annualNo": 28
         },
         {
-          "id": "uploaded-live-136",
-          "no": 30,
+          "id": "uploaded-live-139",
+          "no": 29,
           "grade": "高三",
           "quarter": "寒假",
           "date": "",
@@ -31365,11 +31155,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "信息获取能力进阶强化训练",
           "live": "信息获取能力进阶强化训练",
-          "annualNo": 30
+          "annualNo": 29
         },
         {
-          "id": "uploaded-live-137",
-          "no": 31,
+          "id": "uploaded-live-140",
+          "no": 30,
           "grade": "高三",
           "quarter": "寒假",
           "date": "",
@@ -31380,11 +31170,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "过程描述能力进阶强化训练",
           "live": "过程描述能力进阶强化训练",
-          "annualNo": 31
+          "annualNo": 30
         },
         {
-          "id": "uploaded-live-138",
-          "no": 32,
+          "id": "uploaded-live-141",
+          "no": 31,
           "grade": "高三",
           "quarter": "寒假",
           "date": "",
@@ -31395,11 +31185,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "材料分析能力进阶强化训练",
           "live": "材料分析能力进阶强化训练",
-          "annualNo": 32
+          "annualNo": 31
         },
         {
-          "id": "uploaded-live-139",
-          "no": 33,
+          "id": "uploaded-live-142",
+          "no": 32,
           "grade": "高三",
           "quarter": "寒假",
           "date": "",
@@ -31410,11 +31200,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "计算能力进阶强化训练",
           "live": "计算能力进阶强化训练",
-          "annualNo": 33
+          "annualNo": 32
         },
         {
-          "id": "uploaded-live-140",
-          "no": 34,
+          "id": "uploaded-live-143",
+          "no": 33,
           "grade": "高三",
           "quarter": "寒假",
           "date": "",
@@ -31425,11 +31215,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "图文转换能力进阶强化训练",
           "live": "图文转换能力进阶强化训练",
-          "annualNo": 34
+          "annualNo": 33
         },
         {
-          "id": "uploaded-live-141",
-          "no": 35,
+          "id": "uploaded-live-144",
+          "no": 34,
           "grade": "高三",
           "quarter": "寒假",
           "date": "",
@@ -31440,11 +31230,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "地图分析能力进阶强化训练",
           "live": "地图分析能力进阶强化训练",
-          "annualNo": 35
+          "annualNo": 34
         },
         {
-          "id": "uploaded-live-142",
-          "no": 36,
+          "id": "uploaded-live-145",
+          "no": 35,
           "grade": "高三",
           "quarter": "寒假",
           "date": "",
@@ -31455,11 +31245,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "原因分析能力进阶强化训练",
           "live": "原因分析能力进阶强化训练",
-          "annualNo": 36
+          "annualNo": 35
         },
         {
-          "id": "uploaded-live-143",
-          "no": 37,
+          "id": "uploaded-live-146",
+          "no": 36,
           "grade": "高三",
           "quarter": "寒假",
           "date": "",
@@ -31470,11 +31260,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "意义总结能力进阶强化训练",
           "live": "意义总结能力进阶强化训练",
-          "annualNo": 37
+          "annualNo": 36
         },
         {
-          "id": "uploaded-live-144",
-          "no": 38,
+          "id": "uploaded-live-147",
+          "no": 37,
           "grade": "高三",
           "quarter": "春季",
           "date": "",
@@ -31485,11 +31275,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "主旨提炼能力进阶强化训练",
           "live": "主旨提炼能力进阶强化训练",
-          "annualNo": 38
+          "annualNo": 37
         },
         {
-          "id": "uploaded-live-145",
-          "no": 39,
+          "id": "uploaded-live-148",
+          "no": 38,
           "grade": "高三",
           "quarter": "春季",
           "date": "",
@@ -31500,11 +31290,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "观点阐述能力进阶强化训练",
           "live": "观点阐述能力进阶强化训练",
-          "annualNo": 39
+          "annualNo": 38
         },
         {
-          "id": "uploaded-live-146",
-          "no": 40,
+          "id": "uploaded-live-149",
+          "no": 39,
           "grade": "高三",
           "quarter": "春季",
           "date": "",
@@ -31515,11 +31305,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "思维延伸能力进阶强化训练",
           "live": "思维延伸能力进阶强化训练",
-          "annualNo": 40
+          "annualNo": 39
         },
         {
-          "id": "uploaded-live-147",
-          "no": 41,
+          "id": "uploaded-live-150",
+          "no": 40,
           "grade": "高三",
           "quarter": "春季",
           "date": "",
@@ -31530,11 +31320,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "对策提出能力进阶强化训练",
           "live": "对策提出能力进阶强化训练",
-          "annualNo": 41
+          "annualNo": 40
         },
         {
-          "id": "uploaded-live-148",
-          "no": 42,
+          "id": "uploaded-live-151",
+          "no": 41,
           "grade": "高三",
           "quarter": "春季",
           "date": "",
@@ -31545,11 +31335,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "现象解读能力进阶强化训练",
           "live": "现象解读能力进阶强化训练",
-          "annualNo": 42
+          "annualNo": 41
         },
         {
-          "id": "uploaded-live-149",
-          "no": 43,
+          "id": "uploaded-live-152",
+          "no": 42,
           "grade": "高三",
           "quarter": "春季",
           "date": "",
@@ -31560,11 +31350,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "理解推导能力进阶强化训练",
           "live": "理解推导能力进阶强化训练",
-          "annualNo": 43
+          "annualNo": 42
         },
         {
-          "id": "uploaded-live-150",
-          "no": 44,
+          "id": "uploaded-live-153",
+          "no": 43,
           "grade": "高三",
           "quarter": "春季",
           "date": "",
@@ -31575,11 +31365,11 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "区域分析能力进阶强化训练",
           "live": "区域分析能力进阶强化训练",
-          "annualNo": 44
+          "annualNo": 43
         },
         {
-          "id": "uploaded-live-151",
-          "no": 45,
+          "id": "uploaded-live-154",
+          "no": 44,
           "grade": "高三",
           "quarter": "春季",
           "date": "",
@@ -31590,12 +31380,12 @@ export const annualCourseLibrary = {
           "phase3": "",
           "title": "综合思维能力进阶强化训练",
           "live": "综合思维能力进阶强化训练",
-          "annualNo": 45
+          "annualNo": 44
         }
       ],
       "政治": [
         {
-          "id": "uploaded-live-103",
+          "id": "uploaded-live-111",
           "no": 1,
           "grade": "高三",
           "quarter": "暑期",
@@ -31610,7 +31400,7 @@ export const annualCourseLibrary = {
           "annualNo": 1
         },
         {
-          "id": "uploaded-live-104",
+          "id": "uploaded-live-112",
           "no": 2,
           "grade": "高三",
           "quarter": "暑期",
@@ -31625,7 +31415,7 @@ export const annualCourseLibrary = {
           "annualNo": 2
         },
         {
-          "id": "uploaded-live-105",
+          "id": "uploaded-live-113",
           "no": 3,
           "grade": "高三",
           "quarter": "暑期",
@@ -31640,7 +31430,7 @@ export const annualCourseLibrary = {
           "annualNo": 3
         },
         {
-          "id": "uploaded-live-106",
+          "id": "uploaded-live-114",
           "no": 4,
           "grade": "高三",
           "quarter": "暑期",
@@ -31655,7 +31445,7 @@ export const annualCourseLibrary = {
           "annualNo": 4
         },
         {
-          "id": "uploaded-live-107",
+          "id": "uploaded-live-115",
           "no": 5,
           "grade": "高三",
           "quarter": "暑期",
@@ -31670,7 +31460,7 @@ export const annualCourseLibrary = {
           "annualNo": 5
         },
         {
-          "id": "uploaded-live-108",
+          "id": "uploaded-live-116",
           "no": 6,
           "grade": "高三",
           "quarter": "暑期",
@@ -31685,7 +31475,7 @@ export const annualCourseLibrary = {
           "annualNo": 6
         },
         {
-          "id": "uploaded-live-109",
+          "id": "uploaded-live-117",
           "no": 7,
           "grade": "高三",
           "quarter": "暑期",
@@ -31700,7 +31490,7 @@ export const annualCourseLibrary = {
           "annualNo": 7
         },
         {
-          "id": "uploaded-live-110",
+          "id": "uploaded-live-118",
           "no": 8,
           "grade": "高三",
           "quarter": "暑期",
@@ -31715,7 +31505,7 @@ export const annualCourseLibrary = {
           "annualNo": 8
         },
         {
-          "id": "uploaded-live-111",
+          "id": "uploaded-live-119",
           "no": 9,
           "grade": "高三",
           "quarter": "暑期",
@@ -31730,7 +31520,7 @@ export const annualCourseLibrary = {
           "annualNo": 9
         },
         {
-          "id": "uploaded-live-112",
+          "id": "uploaded-live-120",
           "no": 10,
           "grade": "高三",
           "quarter": "暑期",
@@ -31745,7 +31535,7 @@ export const annualCourseLibrary = {
           "annualNo": 10
         },
         {
-          "id": "uploaded-live-113",
+          "id": "uploaded-live-121",
           "no": 11,
           "grade": "高三",
           "quarter": "秋季",
@@ -31760,7 +31550,7 @@ export const annualCourseLibrary = {
           "annualNo": 11
         },
         {
-          "id": "uploaded-live-114",
+          "id": "uploaded-live-122",
           "no": 12,
           "grade": "高三",
           "quarter": "秋季",
@@ -31775,7 +31565,7 @@ export const annualCourseLibrary = {
           "annualNo": 12
         },
         {
-          "id": "uploaded-live-115",
+          "id": "uploaded-live-123",
           "no": 13,
           "grade": "高三",
           "quarter": "秋季",
@@ -31790,7 +31580,7 @@ export const annualCourseLibrary = {
           "annualNo": 13
         },
         {
-          "id": "uploaded-live-116",
+          "id": "uploaded-live-124",
           "no": 14,
           "grade": "高三",
           "quarter": "秋季",
@@ -31805,7 +31595,7 @@ export const annualCourseLibrary = {
           "annualNo": 14
         },
         {
-          "id": "uploaded-live-117",
+          "id": "uploaded-live-125",
           "no": 15,
           "grade": "高三",
           "quarter": "秋季",
@@ -31820,7 +31610,7 @@ export const annualCourseLibrary = {
           "annualNo": 15
         },
         {
-          "id": "uploaded-live-118",
+          "id": "uploaded-live-126",
           "no": 16,
           "grade": "高三",
           "quarter": "秋季",
@@ -31835,7 +31625,7 @@ export const annualCourseLibrary = {
           "annualNo": 16
         },
         {
-          "id": "uploaded-live-119",
+          "id": "uploaded-live-127",
           "no": 17,
           "grade": "高三",
           "quarter": "秋季",
@@ -31850,7 +31640,7 @@ export const annualCourseLibrary = {
           "annualNo": 17
         },
         {
-          "id": "uploaded-live-120",
+          "id": "uploaded-live-128",
           "no": 18,
           "grade": "高三",
           "quarter": "秋季",
@@ -31865,7 +31655,7 @@ export const annualCourseLibrary = {
           "annualNo": 18
         },
         {
-          "id": "uploaded-live-121",
+          "id": "uploaded-live-129",
           "no": 19,
           "grade": "高三",
           "quarter": "秋季",
@@ -31880,7 +31670,7 @@ export const annualCourseLibrary = {
           "annualNo": 19
         },
         {
-          "id": "uploaded-live-122",
+          "id": "uploaded-live-130",
           "no": 20,
           "grade": "高三",
           "quarter": "秋季",
@@ -31895,7 +31685,7 @@ export const annualCourseLibrary = {
           "annualNo": 20
         },
         {
-          "id": "uploaded-live-123",
+          "id": "uploaded-live-131",
           "no": 21,
           "grade": "高三",
           "quarter": "秋季",
@@ -31910,7 +31700,7 @@ export const annualCourseLibrary = {
           "annualNo": 21
         },
         {
-          "id": "uploaded-live-124",
+          "id": "uploaded-live-132",
           "no": 22,
           "grade": "高三",
           "quarter": "秋季",
@@ -31925,7 +31715,7 @@ export const annualCourseLibrary = {
           "annualNo": 22
         },
         {
-          "id": "uploaded-live-125",
+          "id": "uploaded-live-133",
           "no": 23,
           "grade": "高三",
           "quarter": "秋季",
@@ -31940,7 +31730,7 @@ export const annualCourseLibrary = {
           "annualNo": 23
         },
         {
-          "id": "uploaded-live-126",
+          "id": "uploaded-live-134",
           "no": 24,
           "grade": "高三",
           "quarter": "秋季",
@@ -31955,7 +31745,7 @@ export const annualCourseLibrary = {
           "annualNo": 24
         },
         {
-          "id": "uploaded-live-127",
+          "id": "uploaded-live-135",
           "no": 25,
           "grade": "高三",
           "quarter": "秋季",
@@ -31970,7 +31760,7 @@ export const annualCourseLibrary = {
           "annualNo": 25
         },
         {
-          "id": "uploaded-live-128",
+          "id": "uploaded-live-136",
           "no": 26,
           "grade": "高三",
           "quarter": "秋季",
@@ -31985,7 +31775,7 @@ export const annualCourseLibrary = {
           "annualNo": 26
         },
         {
-          "id": "uploaded-live-130",
+          "id": "uploaded-live-137",
           "no": 27,
           "grade": "高三",
           "quarter": "寒假",
@@ -32000,7 +31790,7 @@ export const annualCourseLibrary = {
           "annualNo": 27
         },
         {
-          "id": "uploaded-live-131",
+          "id": "uploaded-live-138",
           "no": 28,
           "grade": "高三",
           "quarter": "寒假",
@@ -32015,7 +31805,7 @@ export const annualCourseLibrary = {
           "annualNo": 28
         },
         {
-          "id": "uploaded-live-132",
+          "id": "uploaded-live-139",
           "no": 29,
           "grade": "高三",
           "quarter": "寒假",
@@ -32030,7 +31820,7 @@ export const annualCourseLibrary = {
           "annualNo": 29
         },
         {
-          "id": "uploaded-live-133",
+          "id": "uploaded-live-140",
           "no": 30,
           "grade": "高三",
           "quarter": "寒假",
@@ -32045,7 +31835,7 @@ export const annualCourseLibrary = {
           "annualNo": 30
         },
         {
-          "id": "uploaded-live-134",
+          "id": "uploaded-live-141",
           "no": 31,
           "grade": "高三",
           "quarter": "寒假",
@@ -32060,7 +31850,7 @@ export const annualCourseLibrary = {
           "annualNo": 31
         },
         {
-          "id": "uploaded-live-135",
+          "id": "uploaded-live-142",
           "no": 32,
           "grade": "高三",
           "quarter": "寒假",
@@ -32075,7 +31865,7 @@ export const annualCourseLibrary = {
           "annualNo": 32
         },
         {
-          "id": "uploaded-live-136",
+          "id": "uploaded-live-143",
           "no": 33,
           "grade": "高三",
           "quarter": "寒假",
@@ -32090,7 +31880,7 @@ export const annualCourseLibrary = {
           "annualNo": 33
         },
         {
-          "id": "uploaded-live-137",
+          "id": "uploaded-live-144",
           "no": 34,
           "grade": "高三",
           "quarter": "寒假",
@@ -32105,7 +31895,7 @@ export const annualCourseLibrary = {
           "annualNo": 34
         },
         {
-          "id": "uploaded-live-138",
+          "id": "uploaded-live-145",
           "no": 35,
           "grade": "高三",
           "quarter": "寒假",
@@ -32120,7 +31910,7 @@ export const annualCourseLibrary = {
           "annualNo": 35
         },
         {
-          "id": "uploaded-live-139",
+          "id": "uploaded-live-146",
           "no": 36,
           "grade": "高三",
           "quarter": "寒假",
@@ -32135,7 +31925,7 @@ export const annualCourseLibrary = {
           "annualNo": 36
         },
         {
-          "id": "uploaded-live-140",
+          "id": "uploaded-live-147",
           "no": 37,
           "grade": "高三",
           "quarter": "春季",
@@ -32150,7 +31940,7 @@ export const annualCourseLibrary = {
           "annualNo": 37
         },
         {
-          "id": "uploaded-live-141",
+          "id": "uploaded-live-148",
           "no": 38,
           "grade": "高三",
           "quarter": "春季",
@@ -32165,7 +31955,7 @@ export const annualCourseLibrary = {
           "annualNo": 38
         },
         {
-          "id": "uploaded-live-142",
+          "id": "uploaded-live-149",
           "no": 39,
           "grade": "高三",
           "quarter": "春季",
@@ -32180,7 +31970,7 @@ export const annualCourseLibrary = {
           "annualNo": 39
         },
         {
-          "id": "uploaded-live-143",
+          "id": "uploaded-live-150",
           "no": 40,
           "grade": "高三",
           "quarter": "春季",
@@ -32195,7 +31985,7 @@ export const annualCourseLibrary = {
           "annualNo": 40
         },
         {
-          "id": "uploaded-live-144",
+          "id": "uploaded-live-151",
           "no": 41,
           "grade": "高三",
           "quarter": "春季",
@@ -32210,7 +32000,7 @@ export const annualCourseLibrary = {
           "annualNo": 41
         },
         {
-          "id": "uploaded-live-145",
+          "id": "uploaded-live-152",
           "no": 42,
           "grade": "高三",
           "quarter": "春季",
@@ -32225,7 +32015,7 @@ export const annualCourseLibrary = {
           "annualNo": 42
         },
         {
-          "id": "uploaded-live-146",
+          "id": "uploaded-live-153",
           "no": 43,
           "grade": "高三",
           "quarter": "春季",
@@ -32240,7 +32030,7 @@ export const annualCourseLibrary = {
           "annualNo": 43
         },
         {
-          "id": "uploaded-live-147",
+          "id": "uploaded-live-154",
           "no": 44,
           "grade": "高三",
           "quarter": "春季",
