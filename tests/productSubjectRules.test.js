@@ -33,12 +33,13 @@ test("高三一轮卡全科可售且没有视频禁用覆盖", () => {
   for (const subject of allSubjects) assert.equal(getVideoAvailabilityOverride(product, subject), null);
 });
 
-test("高三产品不继承高一生物的寒假视频限制", () => {
+test("高三文综使用自身的一轮二轮视频规则，不继承高一生物规则", () => {
   const product = publishedProductSnapshot.find((item) => item.grade === "高三");
   assert.ok(product);
   assert.equal(product.subjectVideoPhases?.生物, undefined);
   assert.equal(product.subjectVideoPhaseLimits?.生物, undefined);
-  assert.equal(product.subjectProfiles?.humanities, undefined);
+  assert.deepEqual(product.subjectVideoPhaseLimits?.历史, { 一轮: 30, 二轮: 30 });
+  assert.equal(product.subjectProfiles?.humanities?.knowledgeVideos, 60);
 });
 
 test("高一高二全体系直通卡全科可售", () => {

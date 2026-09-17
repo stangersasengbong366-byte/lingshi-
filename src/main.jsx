@@ -5286,8 +5286,9 @@ function getLessonValue(lesson) {
 }
 
 function getSubjectProfile(product, subject) {
+  const subjectProfile = product.subjectProfiles?.bySubject?.[subject];
   const isHumanities = product.humanitiesSubjects?.includes(subject) || humanitiesSubjects.includes(subject);
-  const profile = isHumanities ? product.subjectProfiles?.humanities : null;
+  const profile = subjectProfile ?? (isHumanities ? product.subjectProfiles?.humanities : null);
   const isG1Autumn = String(product.grade).includes("高一") && `${product.stage}${product.name}`.includes("秋实");
   const { hasVideo: hasKnowledgeVideos } = getSubjectVideoAvailability(product, subject);
   const knowledgeVideos = isG1Autumn && hasKnowledgeVideos

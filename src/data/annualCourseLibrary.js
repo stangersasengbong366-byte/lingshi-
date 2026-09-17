@@ -21424,38 +21424,22 @@ export const annualCourseLibrary = {
         },
         {
           "id": "uploaded-video-3",
-          "title": "【学】宾语从句功能与用途",
+          "title": "【学】宾从/表从功能与用途",
           "outlineCode": "",
           "difficulty": 3,
-          "layered": "目标班",
+          "layered": "通用",
           "quarter": "秋季"
         },
         {
           "id": "uploaded-video-4",
-          "title": "【学】主语从句的功能用途",
+          "title": "【学】主从/同从功能与用途",
           "outlineCode": "",
           "difficulty": 3,
-          "layered": "目标班",
+          "layered": "通用",
           "quarter": "秋季"
         },
         {
           "id": "uploaded-video-5",
-          "title": "【学】表语从句的功能用途",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "精英班",
-          "quarter": "秋季"
-        },
-        {
-          "id": "uploaded-video-6",
-          "title": "【学】同位语从句功能用途",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "精英班",
-          "quarter": "秋季"
-        },
-        {
-          "id": "uploaded-video-7",
           "title": "易混从句区分秘密武器",
           "outlineCode": "",
           "difficulty": 3,
@@ -21463,7 +21447,7 @@ export const annualCourseLibrary = {
           "quarter": "秋季"
         },
         {
-          "id": "uploaded-video-8",
+          "id": "uploaded-video-6",
           "title": "长难句拆解方法",
           "outlineCode": "",
           "difficulty": 2,
@@ -21471,7 +21455,7 @@ export const annualCourseLibrary = {
           "quarter": "秋季"
         },
         {
-          "id": "uploaded-video-9",
+          "id": "uploaded-video-7",
           "title": "长难句中的“and”",
           "outlineCode": "",
           "difficulty": 2,
@@ -21479,7 +21463,7 @@ export const annualCourseLibrary = {
           "quarter": "秋季"
         },
         {
-          "id": "uploaded-video-10",
+          "id": "uploaded-video-8",
           "title": "重要信息识别1",
           "outlineCode": "",
           "difficulty": 3,
@@ -21487,7 +21471,7 @@ export const annualCourseLibrary = {
           "quarter": "秋季"
         },
         {
-          "id": "uploaded-video-11",
+          "id": "uploaded-video-9",
           "title": "重要信息识别2",
           "outlineCode": "",
           "difficulty": 3,
@@ -21495,7 +21479,7 @@ export const annualCourseLibrary = {
           "quarter": "秋季"
         },
         {
-          "id": "uploaded-video-12",
+          "id": "uploaded-video-10",
           "title": "因果题答案定位",
           "outlineCode": "",
           "difficulty": 3,
@@ -21503,7 +21487,7 @@ export const annualCourseLibrary = {
           "quarter": "秋季"
         },
         {
-          "id": "uploaded-video-13",
+          "id": "uploaded-video-11",
           "title": "语意猜测题答案定位1",
           "outlineCode": "",
           "difficulty": 3,
@@ -21511,7 +21495,7 @@ export const annualCourseLibrary = {
           "quarter": "秋季"
         },
         {
-          "id": "uploaded-video-14",
+          "id": "uploaded-video-12",
           "title": "语意猜测题答案定位2",
           "outlineCode": "",
           "difficulty": 3,
@@ -21519,7 +21503,7 @@ export const annualCourseLibrary = {
           "quarter": "秋季"
         },
         {
-          "id": "uploaded-video-15",
+          "id": "uploaded-video-13",
           "title": "例证题解题思路",
           "outlineCode": "",
           "difficulty": 3,
@@ -21527,7 +21511,7 @@ export const annualCourseLibrary = {
           "quarter": "秋季"
         },
         {
-          "id": "uploaded-video-16",
+          "id": "uploaded-video-14",
           "title": "选项设置—同义转换",
           "outlineCode": "",
           "difficulty": 3,
@@ -21535,7 +21519,7 @@ export const annualCourseLibrary = {
           "quarter": "秋季"
         },
         {
-          "id": "uploaded-video-17",
+          "id": "uploaded-video-15",
           "title": "选项设置—原文概括",
           "outlineCode": "",
           "difficulty": 3,
@@ -21543,7 +21527,7 @@ export const annualCourseLibrary = {
           "quarter": "秋季"
         },
         {
-          "id": "uploaded-video-18",
+          "id": "uploaded-video-16",
           "title": "错误选项设置原理1",
           "outlineCode": "",
           "difficulty": 3,
@@ -21551,7 +21535,7 @@ export const annualCourseLibrary = {
           "quarter": "秋季"
         },
         {
-          "id": "uploaded-video-19",
+          "id": "uploaded-video-17",
           "title": "错误选项设置原理2",
           "outlineCode": "",
           "difficulty": 3,
@@ -21559,7 +21543,7 @@ export const annualCourseLibrary = {
           "quarter": "秋季"
         },
         {
-          "id": "uploaded-video-20",
+          "id": "uploaded-video-18",
           "title": "错误选项设置原理3",
           "outlineCode": "",
           "difficulty": 3,
@@ -21567,7 +21551,7 @@ export const annualCourseLibrary = {
           "quarter": "秋季"
         },
         {
-          "id": "uploaded-video-21",
+          "id": "uploaded-video-19",
           "title": "词间关系—主干",
           "outlineCode": "",
           "difficulty": 3,
@@ -21575,7 +21559,7 @@ export const annualCourseLibrary = {
           "quarter": "秋季"
         },
         {
-          "id": "uploaded-video-22",
+          "id": "uploaded-video-20",
           "title": "词间关系—修饰",
           "outlineCode": "",
           "difficulty": 3,
@@ -21583,7 +21567,7 @@ export const annualCourseLibrary = {
           "quarter": "秋季"
         },
         {
-          "id": "uploaded-video-23",
+          "id": "uploaded-video-21",
           "title": "句间关系—逻辑",
           "outlineCode": "",
           "difficulty": 3,
@@ -21591,7 +21575,7 @@ export const annualCourseLibrary = {
           "quarter": "秋季"
         },
         {
-          "id": "uploaded-video-24",
+          "id": "uploaded-video-22",
           "title": "句间关系—解释",
           "outlineCode": "",
           "difficulty": 3,
@@ -21599,55 +21583,31 @@ export const annualCourseLibrary = {
           "quarter": "秋季"
         },
         {
-          "id": "uploaded-video-25",
-          "title": "完形二星难度真题训练1",
+          "id": "uploaded-video-23",
+          "title": "完形星级难度真题训练1",
           "outlineCode": "",
           "difficulty": 4,
-          "layered": "目标班",
+          "layered": "通用",
+          "quarter": "秋季"
+        },
+        {
+          "id": "uploaded-video-24",
+          "title": "完形星级难度真题训练2",
+          "outlineCode": "",
+          "difficulty": 4,
+          "layered": "通用",
+          "quarter": "秋季"
+        },
+        {
+          "id": "uploaded-video-25",
+          "title": "完形星级难度真题训练3",
+          "outlineCode": "",
+          "difficulty": 4,
+          "layered": "通用",
           "quarter": "秋季"
         },
         {
           "id": "uploaded-video-26",
-          "title": "完形二星难度真题训练2",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "目标班",
-          "quarter": "秋季"
-        },
-        {
-          "id": "uploaded-video-27",
-          "title": "完形二星难度真题训练3",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "目标班",
-          "quarter": "秋季"
-        },
-        {
-          "id": "uploaded-video-28",
-          "title": "完形三星难度真题训练1",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "精英班",
-          "quarter": "秋季"
-        },
-        {
-          "id": "uploaded-video-29",
-          "title": "完形三星难度真题训练2",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "精英班",
-          "quarter": "秋季"
-        },
-        {
-          "id": "uploaded-video-30",
-          "title": "完形三星难度真题训练3",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "精英班",
-          "quarter": "秋季"
-        },
-        {
-          "id": "uploaded-video-31",
           "title": "Paraphrase-提炼要点",
           "outlineCode": "",
           "difficulty": 4,
@@ -21655,7 +21615,7 @@ export const annualCourseLibrary = {
           "quarter": "秋季"
         },
         {
-          "id": "uploaded-video-32",
+          "id": "uploaded-video-27",
           "title": "Paraphrase-同词性替换",
           "outlineCode": "",
           "difficulty": 4,
@@ -21663,7 +21623,7 @@ export const annualCourseLibrary = {
           "quarter": "秋季"
         },
         {
-          "id": "uploaded-video-33",
+          "id": "uploaded-video-28",
           "title": "Paraphrase-词性转化",
           "outlineCode": "",
           "difficulty": 4,
@@ -21671,7 +21631,7 @@ export const annualCourseLibrary = {
           "quarter": "秋季"
         },
         {
-          "id": "uploaded-video-34",
+          "id": "uploaded-video-29",
           "title": "Paraphrase-句式结构转化",
           "outlineCode": "",
           "difficulty": 4,
@@ -21679,7 +21639,7 @@ export const annualCourseLibrary = {
           "quarter": "秋季"
         },
         {
-          "id": "uploaded-video-35",
+          "id": "uploaded-video-30",
           "title": "Paraphrase-整合要点/连句成段",
           "outlineCode": "",
           "difficulty": 4,
@@ -21687,167 +21647,87 @@ export const annualCourseLibrary = {
           "quarter": "秋季"
         },
         {
-          "id": "uploaded-video-36",
-          "title": "造句公式=主干+修饰",
+          "id": "uploaded-video-31",
+          "title": "写作内功修炼1",
           "outlineCode": "",
           "difficulty": 3,
-          "layered": "目标班",
+          "layered": "通用",
+          "quarter": "秋季"
+        },
+        {
+          "id": "uploaded-video-32",
+          "title": "写作内功修炼2",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "秋季"
+        },
+        {
+          "id": "uploaded-video-33",
+          "title": "写作内功修炼3",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "秋季"
+        },
+        {
+          "id": "uploaded-video-34",
+          "title": "写作内功修炼4",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "秋季"
+        },
+        {
+          "id": "uploaded-video-35",
+          "title": "写作内功修炼5",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
+          "quarter": "秋季"
+        },
+        {
+          "id": "uploaded-video-36",
+          "title": "写作内功修炼6",
+          "outlineCode": "",
+          "difficulty": 3,
+          "layered": "通用",
           "quarter": "秋季"
         },
         {
           "id": "uploaded-video-37",
-          "title": "定语从句写作1",
+          "title": "写作内功修炼7",
           "outlineCode": "",
-          "difficulty": 3,
-          "layered": "目标班",
+          "difficulty": 4,
+          "layered": "通用",
           "quarter": "秋季"
         },
         {
           "id": "uploaded-video-38",
-          "title": "定语从句写作2",
+          "title": "写作内功修炼8",
           "outlineCode": "",
-          "difficulty": 3,
-          "layered": "目标班",
+          "difficulty": 4,
+          "layered": "通用",
           "quarter": "秋季"
         },
         {
           "id": "uploaded-video-39",
-          "title": "名词性从句写作1",
+          "title": "听口能力储备1",
           "outlineCode": "",
           "difficulty": 3,
-          "layered": "目标班",
+          "layered": "通用",
           "quarter": "秋季"
         },
         {
           "id": "uploaded-video-40",
-          "title": "名词性从句写作2",
+          "title": "听口能力储备2",
           "outlineCode": "",
           "difficulty": 3,
-          "layered": "目标班",
-          "quarter": "秋季"
-        },
-        {
-          "id": "uploaded-video-41",
-          "title": "非谓语写作1",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "目标班",
+          "layered": "通用",
           "quarter": "秋季"
         },
         {
           "id": "uploaded-video-42",
-          "title": "非谓语写作2",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "目标班",
-          "quarter": "秋季"
-        },
-        {
-          "id": "uploaded-video-43",
-          "title": "应用文篇章升级训练",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "目标班",
-          "quarter": "秋季"
-        },
-        {
-          "id": "uploaded-video-44",
-          "title": "【听力入门】变音现象",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "目标班",
-          "quarter": "秋季"
-        },
-        {
-          "id": "uploaded-video-45",
-          "title": "【听力入门】技巧",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "目标班",
-          "quarter": "秋季"
-        },
-        {
-          "id": "uploaded-video-46",
-          "title": "【解题能力】如何扩展名词1",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "精英班",
-          "quarter": "秋季"
-        },
-        {
-          "id": "uploaded-video-47",
-          "title": "【解题能力】如何扩展名词2",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "精英班",
-          "quarter": "秋季"
-        },
-        {
-          "id": "uploaded-video-48",
-          "title": "【解题能力】如何扩展动词1",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "精英班",
-          "quarter": "秋季"
-        },
-        {
-          "id": "uploaded-video-49",
-          "title": "【解题能力】如何扩展动词2",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "精英班",
-          "quarter": "秋季"
-        },
-        {
-          "id": "uploaded-video-50",
-          "title": "【解题能力】如何扩展句式1",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "精英班",
-          "quarter": "秋季"
-        },
-        {
-          "id": "uploaded-video-51",
-          "title": "【解题能力】如何扩展句式2",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "精英班",
-          "quarter": "秋季"
-        },
-        {
-          "id": "uploaded-video-52",
-          "title": "【解题能力】应用文常考要素：过渡词汇",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "精英班",
-          "quarter": "秋季"
-        },
-        {
-          "id": "uploaded-video-53",
-          "title": "【语言能力】如何活用亮点句型外刊篇",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "精英班",
-          "quarter": "秋季"
-        },
-        {
-          "id": "uploaded-video-54",
-          "title": "【听力入门】听力口语技能",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "精英班",
-          "quarter": "秋季"
-        },
-        {
-          "id": "uploaded-video-55",
-          "title": "【听力入门】听力场景词汇",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "精英班",
-          "quarter": "秋季"
-        },
-        {
-          "id": "uploaded-video-57",
           "title": "新高考卷1-阅读A篇-环境保护",
           "outlineCode": "",
           "difficulty": 2,
@@ -21855,7 +21735,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-58",
+          "id": "uploaded-video-43",
           "title": "新高考卷2-阅读A篇-体育活动",
           "outlineCode": "",
           "difficulty": 2,
@@ -21863,7 +21743,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-59",
+          "id": "uploaded-video-44",
           "title": "全国甲卷-阅读A篇-文化交流",
           "outlineCode": "",
           "difficulty": 2,
@@ -21871,7 +21751,7 @@ export const annualCourseLibrary = {
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-60",
+          "id": "uploaded-video-45",
           "title": "新高考卷1-阅读B篇-中国文化",
           "outlineCode": "",
           "difficulty": 3,
@@ -21879,7 +21759,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-61",
+          "id": "uploaded-video-46",
           "title": "北京卷-阅读B篇-个人成长",
           "outlineCode": "",
           "difficulty": 3,
@@ -21887,7 +21767,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-62",
+          "id": "uploaded-video-47",
           "title": "浙江卷-阅读B篇-社会变迁",
           "outlineCode": "",
           "difficulty": 3,
@@ -21895,7 +21775,7 @@ export const annualCourseLibrary = {
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-63",
+          "id": "uploaded-video-48",
           "title": "新高考卷1-阅读C篇-生活与学习",
           "outlineCode": "",
           "difficulty": 3,
@@ -21903,7 +21783,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-64",
+          "id": "uploaded-video-49",
           "title": "新高考卷2-阅读C篇-技术创新",
           "outlineCode": "",
           "difficulty": 3,
@@ -21911,7 +21791,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-65",
+          "id": "uploaded-video-50",
           "title": "全国甲卷-阅读C篇-医疗发展",
           "outlineCode": "",
           "difficulty": 3,
@@ -21919,7 +21799,7 @@ export const annualCourseLibrary = {
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-66",
+          "id": "uploaded-video-51",
           "title": "北京卷-阅读C篇-宇宙探索",
           "outlineCode": "",
           "difficulty": 3,
@@ -21927,7 +21807,7 @@ export const annualCourseLibrary = {
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-67",
+          "id": "uploaded-video-52",
           "title": "新高考卷1-阅读D篇-科学研究",
           "outlineCode": "",
           "difficulty": 4,
@@ -21935,7 +21815,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-68",
+          "id": "uploaded-video-53",
           "title": "新高考卷2-阅读D篇-书籍推荐",
           "outlineCode": "",
           "difficulty": 4,
@@ -21943,7 +21823,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-69",
+          "id": "uploaded-video-54",
           "title": "全国甲卷-阅读D篇-文学素养",
           "outlineCode": "",
           "difficulty": 4,
@@ -21951,7 +21831,7 @@ export const annualCourseLibrary = {
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-70",
+          "id": "uploaded-video-55",
           "title": "北京卷-阅读D篇-人类发展",
           "outlineCode": "",
           "difficulty": 4,
@@ -21959,7 +21839,7 @@ export const annualCourseLibrary = {
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-71",
+          "id": "uploaded-video-56",
           "title": "新高考卷1-七选五-社会现象",
           "outlineCode": "",
           "difficulty": 3,
@@ -21967,7 +21847,7 @@ export const annualCourseLibrary = {
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-72",
+          "id": "uploaded-video-57",
           "title": "新高考卷2-七选五-经验心得",
           "outlineCode": "",
           "difficulty": 3,
@@ -21975,7 +21855,7 @@ export const annualCourseLibrary = {
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-73",
+          "id": "uploaded-video-58",
           "title": "北京卷-七选五-科普知识",
           "outlineCode": "",
           "difficulty": 3,
@@ -21983,7 +21863,7 @@ export const annualCourseLibrary = {
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-74",
+          "id": "uploaded-video-59",
           "title": "浙江卷-七选五-方法指南",
           "outlineCode": "",
           "difficulty": 3,
@@ -21991,7 +21871,7 @@ export const annualCourseLibrary = {
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-75",
+          "id": "uploaded-video-60",
           "title": "新高考卷1-完形填空-哲理感悟1",
           "outlineCode": "",
           "difficulty": 3,
@@ -21999,7 +21879,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-76",
+          "id": "uploaded-video-61",
           "title": "新高考卷1-完形填空-哲理感悟2",
           "outlineCode": "",
           "difficulty": 3,
@@ -22007,7 +21887,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-77",
+          "id": "uploaded-video-62",
           "title": "新高考卷2-完形填空-旅居经历1",
           "outlineCode": "",
           "difficulty": 3,
@@ -22015,7 +21895,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-78",
+          "id": "uploaded-video-63",
           "title": "新高考卷2-完形填空-旅居经历2",
           "outlineCode": "",
           "difficulty": 3,
@@ -22023,7 +21903,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-79",
+          "id": "uploaded-video-64",
           "title": "全国卷-完形填空-亲情故事1",
           "outlineCode": "",
           "difficulty": 3,
@@ -22031,7 +21911,7 @@ export const annualCourseLibrary = {
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-80",
+          "id": "uploaded-video-65",
           "title": "全国卷-完形填空-亲情故事2",
           "outlineCode": "",
           "difficulty": 3,
@@ -22039,7 +21919,7 @@ export const annualCourseLibrary = {
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-81",
+          "id": "uploaded-video-66",
           "title": "北京卷-完形填空-勇于尝新1",
           "outlineCode": "",
           "difficulty": 3,
@@ -22047,7 +21927,7 @@ export const annualCourseLibrary = {
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-82",
+          "id": "uploaded-video-67",
           "title": "北京卷-完形填空-勇于尝新2",
           "outlineCode": "",
           "difficulty": 3,
@@ -22055,135 +21935,71 @@ export const annualCourseLibrary = {
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-83",
-          "title": "时态解题的方法强化",
+          "id": "uploaded-video-68",
+          "title": "语法填空解题-动词/时态",
           "outlineCode": "",
           "difficulty": 3,
-          "layered": "目标班",
+          "layered": "通用",
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-84",
-          "title": "真题里的易混时态1",
+          "id": "uploaded-video-69",
+          "title": "语法填空解题-名词、代词/时态",
           "outlineCode": "",
           "difficulty": 2,
-          "layered": "目标班",
+          "layered": "通用",
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-85",
-          "title": "真题里的易混时态2",
+          "id": "uploaded-video-70",
+          "title": "语法填空解题-形容词、副词/时态",
           "outlineCode": "",
           "difficulty": 3,
-          "layered": "目标班",
+          "layered": "通用",
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-86",
-          "title": "非谓语解题的方法强化",
+          "id": "uploaded-video-71",
+          "title": "语法填空解题-连词/非谓语",
           "outlineCode": "",
           "difficulty": 3,
-          "layered": "目标班",
+          "layered": "通用",
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-87",
-          "title": "“have”在非谓语里的用法",
+          "id": "uploaded-video-72",
+          "title": "语法填空解题-介词、冠词/非谓语",
           "outlineCode": "",
           "difficulty": 3,
-          "layered": "目标班",
+          "layered": "通用",
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-88",
-          "title": "to do结构的特殊用法",
+          "id": "uploaded-video-73",
+          "title": "11选10/非谓语难点1",
           "outlineCode": "",
           "difficulty": 4,
-          "layered": "目标班",
+          "layered": "通用",
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-89",
-          "title": "表语从句",
+          "id": "uploaded-video-74",
+          "title": "11选10/表语从句",
           "outlineCode": "",
           "difficulty": 4,
-          "layered": "目标班",
+          "layered": "通用",
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-90",
-          "title": "同位语从句",
+          "id": "uploaded-video-75",
+          "title": "语法综合运用/同位语从句",
           "outlineCode": "",
           "difficulty": 3,
-          "layered": "目标班",
+          "layered": "通用",
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-91",
-          "title": "Grammar Filling—Verb",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "精英班",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-92",
-          "title": "Grammar Filling—Noun/Pronoun",
-          "outlineCode": "",
-          "difficulty": 2,
-          "layered": "精英班",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-93",
-          "title": "Grammar Filling—Adjective/Adverb",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "精英班",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-94",
-          "title": "Grammar Filling—Conjunction",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "精英班",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-95",
-          "title": "Grammar Filling—Preposition/Article",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "精英班",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-96",
-          "title": "上海卷首考-词性辨析-沟通交流1",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "精英班",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-97",
-          "title": "上海卷首考-词性辨析-沟通交流2",
-          "outlineCode": "",
-          "difficulty": 4,
-          "layered": "精英班",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-98",
-          "title": "天津卷-语法选择",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "精英班",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-99",
+          "id": "uploaded-video-76",
           "title": "浙江卷-语法填空-商业社会",
           "outlineCode": "",
           "difficulty": 3,
@@ -22191,7 +22007,7 @@ export const annualCourseLibrary = {
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-100",
+          "id": "uploaded-video-77",
           "title": "九省联考-语法填空-校园生活",
           "outlineCode": "",
           "difficulty": 3,
@@ -22199,87 +22015,47 @@ export const annualCourseLibrary = {
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-101",
+          "id": "uploaded-video-78",
           "title": "应用文五育话题之德育",
           "outlineCode": "",
           "difficulty": 3,
-          "layered": "目标班",
+          "layered": "通用",
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-102",
+          "id": "uploaded-video-79",
           "title": "应用文五育话题之智育",
           "outlineCode": "",
           "difficulty": 3,
-          "layered": "目标班",
+          "layered": "通用",
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-103",
+          "id": "uploaded-video-80",
           "title": "应用文五育话题之体育",
           "outlineCode": "",
           "difficulty": 3,
-          "layered": "目标班",
+          "layered": "通用",
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-104",
+          "id": "uploaded-video-81",
           "title": "应用文五育话题之美育",
           "outlineCode": "",
           "difficulty": 3,
-          "layered": "目标班",
+          "layered": "通用",
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-105",
+          "id": "uploaded-video-82",
           "title": "应用文五育话题之劳育",
           "outlineCode": "",
           "difficulty": 3,
-          "layered": "目标班",
+          "layered": "通用",
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-106",
-          "title": "应用文五育话题之德育",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "精英班",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-107",
-          "title": "应用文五育话题之智育",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "精英班",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-108",
-          "title": "应用文五育话题之体育",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "精英班",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-109",
-          "title": "应用文五育话题之美育",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "精英班",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-110",
-          "title": "应用文五育话题之劳育",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "精英班",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-111",
+          "id": "uploaded-video-83",
           "title": "应用文介绍类之活动介绍",
           "outlineCode": "",
           "difficulty": 3,
@@ -22287,7 +22063,7 @@ export const annualCourseLibrary = {
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-112",
+          "id": "uploaded-video-84",
           "title": "应用文介绍类之人物介绍",
           "outlineCode": "",
           "difficulty": 3,
@@ -22295,7 +22071,7 @@ export const annualCourseLibrary = {
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-113",
+          "id": "uploaded-video-85",
           "title": "应用文热点话题之人工智能",
           "outlineCode": "",
           "difficulty": 3,
@@ -22303,7 +22079,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-114",
+          "id": "uploaded-video-86",
           "title": "应用文热点话题之移动支付",
           "outlineCode": "",
           "difficulty": 3,
@@ -22311,7 +22087,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-115",
+          "id": "uploaded-video-87",
           "title": "应用文热点话题之新能源汽车",
           "outlineCode": "",
           "difficulty": 3,
@@ -22319,7 +22095,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-116",
+          "id": "uploaded-video-88",
           "title": "应用文热点话题之智能芯片",
           "outlineCode": "",
           "difficulty": 3,
@@ -22327,7 +22103,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-117",
+          "id": "uploaded-video-89",
           "title": "应用文热点话题之航空航天",
           "outlineCode": "",
           "difficulty": 3,
@@ -22335,87 +22111,47 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-118",
-          "title": "读后续写高分要素：动作链",
+          "id": "uploaded-video-90",
+          "title": "读后续写高分：个人成长/动作链",
           "outlineCode": "",
           "difficulty": 4,
-          "layered": "目标班",
+          "layered": "通用",
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-119",
-          "title": "读后续写高分要素：情感结",
+          "id": "uploaded-video-91",
+          "title": "读后续写高分：认知觉醒/情感结",
           "outlineCode": "",
           "difficulty": 4,
-          "layered": "目标班",
+          "layered": "通用",
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-120",
-          "title": "读后续写高分要素：合理过渡",
+          "id": "uploaded-video-92",
+          "title": "读后续写高分：乐于奉献/合理过渡",
           "outlineCode": "",
           "difficulty": 4,
-          "layered": "目标班",
+          "layered": "通用",
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-121",
-          "title": "读后续写高分要素：升华结尾1",
+          "id": "uploaded-video-93",
+          "title": "读后续写高分：野生动物/升华结尾1",
           "outlineCode": "",
           "difficulty": 4,
-          "layered": "目标班",
+          "layered": "通用",
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-122",
-          "title": "读后续写高分要素：升华结尾2",
+          "id": "uploaded-video-94",
+          "title": "读后续写高分：户外遇险/升华结尾2",
           "outlineCode": "",
           "difficulty": 4,
-          "layered": "目标班",
+          "layered": "通用",
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-123",
-          "title": "应用文五育话题之德育",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "精英班",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-124",
-          "title": "应用文五育话题之智育",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "精英班",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-125",
-          "title": "应用文五育话题之体育",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "精英班",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-126",
-          "title": "应用文五育话题之美育",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "精英班",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-127",
-          "title": "应用文五育话题之劳育",
-          "outlineCode": "",
-          "difficulty": 3,
-          "layered": "精英班",
-          "quarter": "春季"
-        },
-        {
-          "id": "uploaded-video-128",
+          "id": "uploaded-video-95",
           "title": "读后续写之幸运得救",
           "outlineCode": "",
           "difficulty": 4,
@@ -22423,7 +22159,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-129",
+          "id": "uploaded-video-96",
           "title": "读后续写之陌生温情",
           "outlineCode": "",
           "difficulty": 4,
@@ -22431,7 +22167,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-130",
+          "id": "uploaded-video-97",
           "title": "读后续写之直面挑战",
           "outlineCode": "",
           "difficulty": 4,
@@ -22439,7 +22175,7 @@ export const annualCourseLibrary = {
           "quarter": "寒假"
         },
         {
-          "id": "uploaded-video-131",
+          "id": "uploaded-video-98",
           "title": "概要写作新题1",
           "outlineCode": "",
           "difficulty": 4,
@@ -22447,7 +22183,7 @@ export const annualCourseLibrary = {
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-132",
+          "id": "uploaded-video-99",
           "title": "概要写作新题2",
           "outlineCode": "",
           "difficulty": 4,
@@ -22455,7 +22191,7 @@ export const annualCourseLibrary = {
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-133",
+          "id": "uploaded-video-100",
           "title": "听力真题训练",
           "outlineCode": "",
           "difficulty": 2,
@@ -22463,7 +22199,7 @@ export const annualCourseLibrary = {
           "quarter": "春季"
         },
         {
-          "id": "uploaded-video-134",
+          "id": "uploaded-video-101",
           "title": "口语真题训练",
           "outlineCode": "",
           "difficulty": 3,

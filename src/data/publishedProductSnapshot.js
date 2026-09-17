@@ -656,6 +656,14 @@ export const publishedProductSnapshot = [
           "学法直播30节",
           "知识视频120节"
         ]
+      },
+      "humanities": {
+        "liveLessons": 30,
+        "knowledgeVideos": 60,
+        "summary": [
+          "学法直播30节",
+          "知识视频60节（一轮30+二轮30）"
+        ]
       }
     },
     "courseSourceMode": "grade",
@@ -1269,7 +1277,8 @@ export const publishedProductSnapshot = [
             "必修3：政治主观题03全面依法治国答题模板应用",
             "必修4：文化主观题01文化功能类主观题应用"
           ]
-        }
+        },
+        "image": "cloud-media:root.giftOverrides.赠课-高考总复习系统补充包.image"
       }
     },
     "salesNote": "",
@@ -1301,6 +1310,20 @@ export const publishedProductSnapshot = [
     },
     "livePhaseOffsets": {
       "秋季": 4
+    },
+    "subjectVideoPhaseLimits": {
+      "历史": {
+        "一轮": 30,
+        "二轮": 30
+      },
+      "地理": {
+        "一轮": 30,
+        "二轮": 30
+      },
+      "政治": {
+        "一轮": 30,
+        "二轮": 30
+      }
     }
   },
   {
@@ -1358,6 +1381,40 @@ export const publishedProductSnapshot = [
           "学法直播42节",
           "知识视频100节"
         ]
+      },
+      "bySubject": {
+        "生物": {
+          "liveLessons": 42,
+          "knowledgeVideos": 60,
+          "summary": [
+            "学法直播42节",
+            "知识视频60节（寒20+春40）"
+          ]
+        },
+        "历史": {
+          "liveLessons": 42,
+          "knowledgeVideos": 30,
+          "summary": [
+            "学法直播42节",
+            "知识视频30节（春季）"
+          ]
+        },
+        "地理": {
+          "liveLessons": 42,
+          "knowledgeVideos": 30,
+          "summary": [
+            "学法直播42节",
+            "知识视频30节（春季）"
+          ]
+        },
+        "政治": {
+          "liveLessons": 42,
+          "knowledgeVideos": 30,
+          "summary": [
+            "学法直播42节",
+            "知识视频30节（春季）"
+          ]
+        }
       }
     },
     "courseSourceMode": "grade",
@@ -1420,7 +1477,44 @@ export const publishedProductSnapshot = [
     "giftPoolDeletedItems": [],
     "physicalGiftPoolItems": [],
     "physicalGiftPoolDeletedItems": [],
-    "annualCourseOrigin": "uploaded"
+    "annualCourseOrigin": "uploaded",
+    "subjectVideoPhases": {
+      "生物": [
+        "寒假",
+        "春季"
+      ],
+      "历史": [
+        "春季"
+      ],
+      "地理": [
+        "春季"
+      ],
+      "政治": [
+        "春季"
+      ]
+    },
+    "subjectVideoPhaseLimits": {
+      "生物": {
+        "秋季": 0,
+        "寒假": 20,
+        "春季": 40
+      },
+      "历史": {
+        "秋季": 0,
+        "寒假": 0,
+        "春季": 30
+      },
+      "地理": {
+        "秋季": 0,
+        "寒假": 0,
+        "春季": 30
+      },
+      "政治": {
+        "秋季": 0,
+        "寒假": 0,
+        "春季": 30
+      }
+    }
   },
   {
     "id": "product-1789391830728-ue61t",
@@ -1475,6 +1569,14 @@ export const publishedProductSnapshot = [
         "summary": [
           "学法直播42节",
           "知识视频100节"
+        ]
+      },
+      "humanities": {
+        "liveLessons": 42,
+        "knowledgeVideos": 50,
+        "summary": [
+          "学法直播42节",
+          "知识视频50节（秋寒春）"
         ]
       }
     },
@@ -1718,6 +1820,36 @@ export const publishedProductSnapshot = [
     "giftPoolItems": [],
     "giftPoolDeletedItems": [],
     "physicalGiftPoolItems": [],
-    "physicalGiftPoolDeletedItems": []
+    "physicalGiftPoolDeletedItems": [],
+    "subjectVideoPhases": {
+      "历史": [
+        "秋季",
+        "寒春"
+      ],
+      "地理": [
+        "秋季",
+        "寒春"
+      ],
+      "政治": [
+        "秋季",
+        "寒假",
+        "春季"
+      ]
+    },
+    "subjectVideoPhaseLimits": {
+      "历史": {
+        "秋季": 20,
+        "寒春": 30
+      },
+      "地理": {
+        "秋季": 20,
+        "寒春": 30
+      },
+      "政治": {
+        "秋季": 20,
+        "寒假": 11,
+        "春季": 19
+      }
+    }
   }
 ];

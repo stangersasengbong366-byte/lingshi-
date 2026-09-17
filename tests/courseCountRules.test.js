@@ -21,6 +21,7 @@ test("产品科目专项视频规则优先于年级通用标准", () => {
   };
   assert.equal(getExpectedProductPhaseCount(product, "video", "生物", "秋季"), 0);
   assert.equal(getExpectedProductPhaseCount(product, "video", "生物", "寒假"), 20);
+  assert.equal(getExpectedProductPhaseCount(product, "video", "生物", "春季"), 0);
 });
 
 test("后台能准确报告课程阶段数量不足或超出", () => {

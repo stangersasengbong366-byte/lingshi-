@@ -20,8 +20,11 @@ export function getExpectedCoursePhaseCount(grade, type, phase) {
 
 export function getExpectedProductPhaseCount(product, type, subject, phase) {
   if (type === "video") {
-    const subjectValue = product?.subjectVideoPhaseLimits?.[subject]?.[phase];
-    if (Number.isFinite(Number(subjectValue))) return Number(subjectValue);
+    const subjectLimits = product?.subjectVideoPhaseLimits?.[subject];
+    if (subjectLimits) {
+      const subjectValue = subjectLimits[phase];
+      return Number.isFinite(Number(subjectValue)) ? Number(subjectValue) : 0;
+    }
   }
   return getExpectedCoursePhaseCount(product?.grade, type, phase);
 }
