@@ -50,9 +50,21 @@ export function getCanonicalProductCourseRules(product) {
   const gradeRules = standardCoursePhaseCounts[product?.grade];
   if (!gradeRules) return product;
   const coveragePhases = product.coveragePhases ?? [];
-  const livePhases = product.grade !== "高三" && coveragePhases.includes("秋季")
-    ? ["暑期", ...coveragePhases]
-    : (product.livePhases?.length ? product.livePhases : coveragePhases);
+  const isBridgeCard = /秋冬衔接/.test(`${product.name ?? ""}${product.stage ?? ""}`);
+  const isFullSystemCard = /全体系直通/.test(`${product.name ?? ""}${product.stage ?? ""}`);
+  const isG3Direct = product.grade === "高三" && /名校直通/.test(`${product.name ?? ""}${product.stage ?? ""}`);
+  // 产品的直播阶段不等于全年课表包含的全部阶段：
+  // 秋冬衔接只取秋16+寒10，全体系取秋16+寒10+春16；
+  // 高三名校直通为一轮 mini 12 + 二轮 18。
+  const presetLiveRules = isBridgeCard
+    ? { phases: ["秋季", "寒假"], limits: { 秋季: 16, 寒假: 10 }, lessons: 26 }
+    : isFullSystemCard
+      ? { phases: ["秋季", "寒假", "春季"], limits: { 秋季: 16, 寒假: 10, 春季: 16 }, lessons: 42 }
+      : isG3Direct
+        ? { phases: ["秋季", "寒假", "春季"], limits: { 秋季: 12, 寒假: 10, 春季: 8 }, lessons: 30 }
+        : null;
+  const livePhases = presetLiveRules?.phases
+    ?? (product.livePhases?.length ? product.livePhases : coveragePhases);
   const videoPhases = product.videoPhases?.length
     ? product.videoPhases
     : product.coveragePhases ?? [];
@@ -62,10 +74,12 @@ export function getCanonicalProductCourseRules(product) {
   const videoPhaseLimits = Object.fromEntries(videoPhases
     .map((phase) => [phase, gradeRules.video[phase]])
     .filter(([, count]) => Number.isFinite(count)));
-  const isG3Direct = product.grade === "高三" && /名校直通/.test(`${product.name ?? ""}${product.stage ?? ""}`);
-  const nextLivePhases = isG3Direct ? ["秋季", "寒假", "春季"] : livePhases;
-  const nextLiveLimits = isG3Direct ? { 秋季: 16, 寒假: 10, 春季: 8 } : livePhaseLimits;
-  const liveLessons = Object.values(nextLiveLimits).reduce((sum, count) => sum + count, 0);
+  const nextLivePhases = presetLiveRules?.phases ?? livePhases;
+  const nextLiveLimits = presetLiveRules?.limits ?? livePhaseLimits;
+  const liveLessons = presetLiveRules?.lessons
+    ?? (Number.isFinite(Number(product.core?.liveLessons)) && Number(product.core.liveLessons) > 0
+      ? Number(product.core.liveLessons)
+      : Object.values(nextLiveLimits).reduce((sum, count) => sum + count, 0));
   const knowledgeVideos = Object.values(videoPhaseLimits).reduce((sum, count) => sum + count, 0);
 
   return {
@@ -80,7 +94,7 @@ export function getCanonicalProductCourseRules(product) {
     },
     ...(isG3Direct ? {
       liveCourseMode: "g3-mini-plus-second-round",
-      liveCourseSegments: { mini: 16, secondRound: 18 },
+      liveCourseSegments: { mini: 12, secondRound: 18 },
     } : {}),
   };
 }

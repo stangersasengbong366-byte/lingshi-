@@ -33,7 +33,7 @@ export const publishedProductSnapshot = [
     },
     "subtitle": "衔接秋季与寒假两阶段课程，连续巩固本学期知识并提前衔接冬季学习。",
     "core": {
-      "liveLessons": 36,
+      "liveLessons": 26,
       "liveDuration": "2h",
       "knowledgeVideos": 60,
       "videoDuration": "30min",
@@ -250,13 +250,11 @@ export const publishedProductSnapshot = [
       }
     },
     "livePhases": [
-      "暑期",
       "秋季",
       "寒假"
     ],
-    "annualCourseVersion": "uploaded-2026-2027-v9",
+    "annualCourseVersion": "uploaded-2026-2027-v10",
     "livePhaseLimits": {
-      "暑期": 10,
       "秋季": 16,
       "寒假": 10
     },
@@ -318,11 +316,7 @@ export const publishedProductSnapshot = [
         "key": "文创单品-自研书"
       }
     ],
-    "annualCourseOrigin": "uploaded",
-    "annualCourseUploadNames": {
-      "live": "学法直播课程表_已删除期末课及空行.xlsx",
-      "video": "销转侧【26-27知识视频大纲】.xlsx"
-    }
+    "annualCourseOrigin": "uploaded"
   },
   {
     "id": "g2-autumn-winter-bridge-card",
@@ -346,7 +340,7 @@ export const publishedProductSnapshot = [
     },
     "subtitle": "衔接秋季与寒假两阶段课程，连续巩固本学期知识并提前衔接冬季学习。",
     "core": {
-      "liveLessons": 36,
+      "liveLessons": 26,
       "liveDuration": "2h",
       "knowledgeVideos": 60,
       "videoDuration": "30min",
@@ -601,13 +595,11 @@ export const publishedProductSnapshot = [
       "video": ""
     },
     "livePhases": [
-      "暑期",
       "秋季",
       "寒假"
     ],
-    "annualCourseVersion": "uploaded-2026-2027-v9",
+    "annualCourseVersion": "uploaded-2026-2027-v10",
     "livePhaseLimits": {
-      "暑期": 10,
       "秋季": 16,
       "寒假": 10
     },
@@ -615,11 +607,7 @@ export const publishedProductSnapshot = [
     "giftPoolDeletedItems": [],
     "physicalGiftPoolItems": [],
     "physicalGiftPoolDeletedItems": [],
-    "annualCourseOrigin": "uploaded",
-    "annualCourseUploadNames": {
-      "live": "学法直播课程表_已删除期末课及空行.xlsx",
-      "video": "销转侧【26-27知识视频大纲】.xlsx"
-    }
+    "annualCourseOrigin": "uploaded"
   },
   {
     "id": "product-1788253872835-ou7xk",
@@ -639,7 +627,7 @@ export const publishedProductSnapshot = [
     ],
     "subtitle": "",
     "core": {
-      "liveLessons": 34,
+      "liveLessons": 30,
       "liveDuration": "2h",
       "knowledgeVideos": 120,
       "videoDuration": "30min",
@@ -1286,7 +1274,7 @@ export const publishedProductSnapshot = [
     },
     "salesNote": "",
     "annualCourseOrigin": "uploaded",
-    "annualCourseVersion": "uploaded-2026-2027-v9",
+    "annualCourseVersion": "uploaded-2026-2027-v10",
     "customPhysicalGiftItems": [],
     "livePhases": [
       "秋季",
@@ -1299,19 +1287,15 @@ export const publishedProductSnapshot = [
     },
     "liveCourseMode": "g3-mini-plus-second-round",
     "liveCourseSegments": {
-      "mini": 16,
+      "mini": 12,
       "secondRound": 18
     },
     "giftPoolItems": [],
     "giftPoolDeletedItems": [],
     "physicalGiftPoolItems": [],
     "physicalGiftPoolDeletedItems": [],
-    "annualCourseUploadNames": {
-      "live": "学法直播课程表_已删除期末课及空行.xlsx",
-      "video": "销转侧【26-27知识视频大纲】.xlsx"
-    },
     "livePhaseLimits": {
-      "秋季": 16,
+      "秋季": 12,
       "寒假": 10,
       "春季": 8
     }
@@ -1341,7 +1325,7 @@ export const publishedProductSnapshot = [
     },
     "subtitle": "",
     "core": {
-      "liveLessons": 52,
+      "liveLessons": 42,
       "liveDuration": "2h",
       "knowledgeVideos": 100,
       "videoDuration": "30min",
@@ -1417,16 +1401,14 @@ export const publishedProductSnapshot = [
       "video": ""
     },
     "salesNote": "",
-    "annualCourseVersion": "uploaded-2026-2027-v9",
+    "annualCourseVersion": "uploaded-2026-2027-v10",
     "customPhysicalGiftItems": [],
     "livePhases": [
-      "暑期",
       "秋季",
       "寒假",
       "春季"
     ],
     "livePhaseLimits": {
-      "暑期": 10,
       "秋季": 16,
       "寒假": 10,
       "春季": 16
@@ -1435,11 +1417,7 @@ export const publishedProductSnapshot = [
     "giftPoolDeletedItems": [],
     "physicalGiftPoolItems": [],
     "physicalGiftPoolDeletedItems": [],
-    "annualCourseOrigin": "uploaded",
-    "annualCourseUploadNames": {
-      "live": "学法直播课程表_已删除期末课及空行.xlsx",
-      "video": "销转侧【26-27知识视频大纲】.xlsx"
-    }
+    "annualCourseOrigin": "uploaded"
   },
   {
     "id": "product-1789391830728-ue61t",
@@ -1466,7 +1444,7 @@ export const publishedProductSnapshot = [
     },
     "subtitle": "",
     "core": {
-      "liveLessons": 52,
+      "liveLessons": 42,
       "liveDuration": "2h",
       "knowledgeVideos": 100,
       "videoDuration": "30min",
@@ -1722,16 +1700,14 @@ export const publishedProductSnapshot = [
     },
     "salesNote": "",
     "annualCourseOrigin": "uploaded",
-    "annualCourseVersion": "uploaded-2026-2027-v9",
+    "annualCourseVersion": "uploaded-2026-2027-v10",
     "customPhysicalGiftItems": [],
     "livePhases": [
-      "暑期",
       "秋季",
       "寒假",
       "春季"
     ],
     "livePhaseLimits": {
-      "暑期": 10,
       "秋季": 16,
       "寒假": 10,
       "春季": 16
@@ -1739,10 +1715,6 @@ export const publishedProductSnapshot = [
     "giftPoolItems": [],
     "giftPoolDeletedItems": [],
     "physicalGiftPoolItems": [],
-    "physicalGiftPoolDeletedItems": [],
-    "annualCourseUploadNames": {
-      "live": "学法直播课程表_已删除期末课及空行.xlsx",
-      "video": "销转侧【26-27知识视频大纲】.xlsx"
-    }
+    "physicalGiftPoolDeletedItems": []
   }
 ];

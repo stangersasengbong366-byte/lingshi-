@@ -76,7 +76,7 @@ test("高三名校直通卡取一轮 mini 12节加完整二轮18节并重新编�
   assert.equal(selected[29].title, "原始第49节");
 });
 
-test("高三名校直通卡按秋16寒10春8精确截取34节", () => {
+test("高三名校直通卡按秋12寒10春8精确截取30节", () => {
   const liveRows = [
     ...Array.from({ length: 16 }, (_, index) => ({ no: index + 1, quarter: "秋季", title: `秋${index + 1}` })),
     ...Array.from({ length: 13 }, (_, index) => ({ no: index + 17, quarter: "寒假", title: `寒${index + 1}` })),
@@ -84,14 +84,14 @@ test("高三名校直通卡按秋16寒10春8精确截取34节", () => {
   ];
   const selected = applyLivePhaseLimits({
     liveCourseMode: "g3-mini-plus-second-round",
-    liveCourseSegments: { mini: 16, secondRound: 18 },
-    livePhaseLimits: { 秋季: 16, 寒假: 10, 春季: 8 },
-  }, liveRows, 34);
-  assert.equal(selected.length, 34);
+    liveCourseSegments: { mini: 12, secondRound: 18 },
+    livePhaseLimits: { 秋季: 12, 寒假: 10, 春季: 8 },
+  }, liveRows, 30);
+  assert.equal(selected.length, 30);
   assert.equal(selected.filter((row) => row.quarter === "寒假").length, 10);
   assert.equal(selected.filter((row) => row.quarter === "春季").length, 8);
   assert.equal(selected[0].no, 1);
-  assert.equal(selected[33].no, 34);
+  assert.equal(selected[29].no, 30);
 });
 
 test("高三后台分别按季节筛选直播、按轮次筛选知识视频", () => {

@@ -38,7 +38,7 @@ test("后台能准确报告课程阶段数量不足或超出", () => {
   ]);
 });
 
-test("高一高二秋季产品直播自动包含暑期10节和秋季16节", () => {
+test("秋冬衔接卡直播只取秋16节和寒10节", () => {
   const product = getCanonicalProductCourseRules({
     grade: "高一",
     name: "高一秋冬衔接卡",
@@ -46,13 +46,13 @@ test("高一高二秋季产品直播自动包含暑期10节和秋季16节", () =
     videoPhases: ["秋季", "寒假"],
     core: {},
   });
-  assert.deepEqual(product.livePhases, ["暑期", "秋季", "寒假"]);
-  assert.deepEqual(product.livePhaseLimits, { 暑期: 10, 秋季: 16, 寒假: 10 });
-  assert.equal(product.core.liveLessons, 36);
+  assert.deepEqual(product.livePhases, ["秋季", "寒假"]);
+  assert.deepEqual(product.livePhaseLimits, { 秋季: 16, 寒假: 10 });
+  assert.equal(product.core.liveLessons, 26);
   assert.equal(product.core.knowledgeVideos, 60);
 });
 
-test("高三名校直通卡固定为一轮16节加二轮18节", () => {
+test("高三名校直通卡固定为一轮 mini 12节加二轮18节", () => {
   const product = getCanonicalProductCourseRules({
     grade: "高三",
     name: "高三名校直通卡",
@@ -61,8 +61,8 @@ test("高三名校直通卡固定为一轮16节加二轮18节", () => {
     core: {},
   });
   assert.deepEqual(product.livePhases, ["秋季", "寒假", "春季"]);
-  assert.deepEqual(product.livePhaseLimits, { 秋季: 16, 寒假: 10, 春季: 8 });
-  assert.deepEqual(product.liveCourseSegments, { mini: 16, secondRound: 18 });
-  assert.equal(product.core.liveLessons, 34);
+  assert.deepEqual(product.livePhaseLimits, { 秋季: 12, 寒假: 10, 春季: 8 });
+  assert.deepEqual(product.liveCourseSegments, { mini: 12, secondRound: 18 });
+  assert.equal(product.core.liveLessons, 30);
   assert.equal(product.core.knowledgeVideos, 120);
 });
