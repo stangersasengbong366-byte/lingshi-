@@ -785,8 +785,10 @@ function App() {
   const [teachingAids, setTeachingAids] = useState(bundledTeachingAids);
   const [usageCount, setUsageCount] = useState(null);
   const [salesFeedback, setSalesFeedback] = useState([]);
+  // 销售端（含分享链接）只展示 Cloudflare 的正式版本。不能先用浏览器
+  // 缓存或链接里的历史快照渲染，否则不同电脑会看到不同的课时数。
   const [cloudLoadState, setCloudLoadState] = useState(() => (
-    (cloudProductsEnabled || cloudConfigEnabled) && isShareEntry ? "loading" : "ready"
+    (cloudProductsEnabled || cloudConfigEnabled) && (isShareEntry || salesOnly) ? "loading" : "ready"
   ));
   const activeProducts = useMemo(() => products.filter((item) => item.status === "在售"), [products]);
   const availableProducts = !publicView && activePage === "admin" ? products : activeProducts;
@@ -861,14 +863,14 @@ function App() {
           setShortLinkStatus("missing");
           return;
         }
-        setShareParams(state);
-        setSelectedProductId(state.productId);
-        setSelectedSubjects(state.subjects);
-        setSelectedBonusSubjects(state.bonusSubjects ?? []);
-        setSelectedVideoTracks(state.videoTracks ?? {});
-        if (Array.isArray(state.products) && state.products.length) {
-          setProducts(state.products.map(migrateStoredProduct));
-        }
+        // 历史短链中可能包含 products 快照。快照只能用于还原选择项，
+        // 绝不能作为销售页产品数据源；它会把已更新的 26/60 回退成旧的 16/40。
+        const { products: _legacyProducts, ...shareSelection } = state;
+        setShareParams(shareSelection);
+        setSelectedProductId(shareSelection.productId);
+        setSelectedSubjects(shareSelection.subjects);
+        setSelectedBonusSubjects(shareSelection.bonusSubjects ?? []);
+        setSelectedVideoTracks(shareSelection.videoTracks ?? {});
         setShortLinkStatus("ready");
       })
       .catch(() => {
@@ -952,7 +954,6 @@ function App() {
   React.useEffect(() => {
     if (!cloudProductsEnabled && !cloudConfigEnabled) return undefined;
     if (shortCode && shortLinkStatus === "loading") return undefined;
-    if (shortCode && Array.isArray(shareParams?.products) && shareParams.products.length) return undefined;
     let cancelled = false;
     const configId = publicView ? CLOUD_PRODUCTS_PUBLISHED_ID : CLOUD_PRODUCTS_DRAFT_ID;
     loadCloudProducts(configId)
@@ -979,6 +980,15 @@ function App() {
       })
       .catch((error) => {
         console.error("云端产品读取失败", error);
+        // 面向销售/家长的页面必须保持唯一数据源：正式配置无法读取时不允许
+        // 回退到随包旧配置或本机缓存，以免把错误课时发给用户。
+        if (publicView) {
+          setProducts([]);
+          setSelectedProductId(undefined);
+          setSyncStatus("Cloudflare正式配置读取失败，请刷新后重试");
+          setCloudLoadState("error");
+          return;
+        }
         // 云端临时不可用时先展示随版本发布的基础配置。运营端仍可编辑；
         // 点击保存时会重新读取云端并按产品 ID 合并，避免覆盖其他电脑的新修改。
         const fallbackProducts = loadBundledFallbackProducts();
@@ -1213,11 +1223,11 @@ function App() {
     }
   };
 
-  if ((cloudProductsEnabled || cloudConfigEnabled) && cloudLoadState === "loading" && !shortCode) {
+  if ((cloudProductsEnabled || cloudConfigEnabled) && cloudLoadState === "loading" && shortLinkStatus !== "loading") {
     return <main className="public-empty-state"><strong>正在同步 {cloudProductsEnabled ? "Cloudflare" : "Supabase"}</strong><span>正在读取最新产品、价格、课时与课程大纲，请稍候。</span></main>;
   }
 
-  if ((cloudProductsEnabled || cloudConfigEnabled) && cloudLoadState === "error" && !shortCode) {
+  if ((cloudProductsEnabled || cloudConfigEnabled) && cloudLoadState === "error" && shortLinkStatus !== "loading") {
     return <main className="public-empty-state"><strong>{cloudProductsEnabled ? "Cloudflare" : "Supabase"} 云端连接失败</strong><span>为避免展示旧数据，当前已停止使用本地缓存，请刷新后重试。</span></main>;
   }
 
