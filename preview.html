@@ -172,7 +172,8 @@
       border: 1px solid #d8e7ff;
       border-radius: 16px;
       box-shadow: var(--shadow);
-      overflow: visible;
+      overflow-x: auto;
+      overflow-y: visible;
       scrollbar-color: #a9c8f8 #edf5ff;
       scrollbar-width: thin;
     }
@@ -183,7 +184,7 @@
       border-spacing: 0;
       min-width: 100%;
       table-layout: fixed;
-      font-size: clamp(14px, .88vw, 17px);
+      font-size: clamp(15px, .9vw, 18px);
     }
 
     th, td {
@@ -191,24 +192,24 @@
       border-bottom: 1px solid var(--line);
       text-align: center;
       vertical-align: middle;
-      padding: 12px 14px;
-      line-height: 1.45;
+      padding: 14px 18px;
+      line-height: 1.55;
       font-weight: 650;
       white-space: pre-line;
       text-wrap: pretty;
     }
 
     .class-name-row td {
-      padding-top: 16px;
-      padding-bottom: 16px;
+      padding-top: 18px;
+      padding-bottom: 18px;
       line-height: 1.55;
       font-size: .96em;
       overflow-wrap: anywhere;
     }
 
     .product-content-row td {
-      padding-top: 22px;
-      padding-bottom: 22px;
+      padding-top: 24px;
+      padding-bottom: 24px;
     }
 
     .product-content-row .row-title {
@@ -216,11 +217,11 @@
     }
 
     .product-content-cell {
-      font-size: clamp(14px, .95vw, 17px);
-      line-height: 1.8;
+      font-size: clamp(15px, .95vw, 18px);
+      line-height: 1.85;
       letter-spacing: 0;
-      word-break: break-word;
-      overflow-wrap: normal;
+      word-break: normal;
+      overflow-wrap: break-word;
     }
 
     .service-period-row td {
@@ -534,7 +535,7 @@
 
     .module-layout {
       display: grid;
-      grid-template-columns: minmax(0, 3.45fr) minmax(320px, 1.1fr);
+      grid-template-columns: minmax(0, 1fr) minmax(620px, 0.28fr);
       gap: 18px;
       margin-top: 14px;
       align-items: stretch;
@@ -548,7 +549,11 @@
 
     .content-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns:
+        minmax(390px, 1.05fr)
+        minmax(430px, 1.18fr)
+        minmax(500px, 1.42fr)
+        minmax(460px, 1.3fr);
       gap: 16px;
       align-items: stretch;
     }
@@ -559,7 +564,9 @@
       border-radius: 14px;
       box-shadow: var(--shadow);
       overflow: hidden;
-      min-height: 210px;
+      min-height: 284px;
+      display: grid;
+      grid-template-rows: auto 1fr;
     }
 
     .panel-title {
@@ -598,21 +605,32 @@
     }
 
     .panel-body {
-      padding: 26px 24px 28px;
+      padding: 18px 22px 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
       text-align: center;
+      min-height: 0;
+    }
+
+    .panel-price .panel-body {
+      justify-content: space-between;
+    }
+
+    .panel-knowledge .panel-body,
+    .panel-live .panel-body {
+      align-items: stretch;
+      justify-content: space-between;
     }
 
     .composition {
-      font-size: clamp(14px, .96vw, 18px);
+      font-size: clamp(15px, 1vw, 19px);
       font-weight: 900;
       color: #0e2a56;
-      margin-bottom: 22px;
+      margin-bottom: 14px;
       text-align: center;
-      line-height: 1.4;
+      line-height: 1.45;
       text-wrap: balance;
       max-width: 92%;
     }
@@ -630,30 +648,30 @@
 
     .mini-card {
       width: 100%;
-      min-height: 244px;
-      height: 244px;
+      min-height: 192px;
+      height: 192px;
       border-radius: 12px;
       background: linear-gradient(180deg, #f8fbff, #ffffff);
       border: 1px solid #e1ebff;
       box-shadow: 0 8px 18px rgba(11, 94, 218, 0.10);
       display: grid;
-      grid-template-rows: 54px 72px 1fr;
+      grid-template-rows: 44px 50px 1fr;
       align-items: center;
       justify-items: center;
-      gap: 10px;
-      padding: 18px 14px 16px;
+      gap: 6px;
+      padding: 12px 10px;
       box-sizing: border-box;
     }
 
     .mini-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       color: #fff;
-      font-size: 23px;
+      font-size: 20px;
       font-weight: 900;
       background: linear-gradient(135deg, #2378ff, #1057df);
       box-shadow: 0 8px 16px rgba(16, 87, 223, .18);
@@ -663,11 +681,11 @@
     .mini-card:nth-child(5) .mini-icon { background: linear-gradient(135deg, #28d37b, #05a955); }
 
     .mini-title {
-      min-height: 72px;
+      min-height: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 950;
       text-align: center;
       line-height: 1.22;
@@ -677,10 +695,10 @@
     .mini-desc {
       width: 100%;
       color: #475b80;
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 650;
       text-align: center;
-      line-height: 1.42;
+      line-height: 1.48;
       text-wrap: balance;
       word-break: break-word;
       display: flex;
@@ -698,10 +716,10 @@
     }
 
     .price-copy {
-      font-size: clamp(18px, 1.28vw, 26px);
+      font-size: clamp(20px, 1.36vw, 28px);
       color: #ff4d00;
       font-weight: 950;
-      line-height: 1.7;
+      line-height: 1.58;
       text-align: center;
       margin: 0 0 14px;
       white-space: pre-line;
@@ -720,9 +738,9 @@
 
     .check-list {
       display: grid;
-      gap: 10px;
-      margin-top: 8px;
-      font-size: clamp(13px, .9vw, 16px);
+      gap: 8px;
+      margin-top: 4px;
+      font-size: clamp(14px, .92vw, 17px);
       color: #263b62;
       font-weight: 750;
       width: 100%;
@@ -756,13 +774,13 @@
 
     .number-list {
       display: grid;
-      gap: 8px;
+      gap: 7px;
       color: #2a3e61;
-      font-size: clamp(12px, .8vw, 15px);
+      font-size: clamp(14px, .88vw, 16px);
       font-weight: 700;
-      line-height: 1.5;
+      line-height: 1.48;
       width: 100%;
-      max-width: 320px;
+      max-width: 410px;
       justify-items: center;
     }
 
@@ -772,6 +790,11 @@
       gap: 8px;
       width: 100%;
       text-align: left;
+    }
+
+    .panel-live .number-list {
+      height: 100%;
+      align-content: space-between;
     }
 
     .circle-no {
@@ -1228,7 +1251,11 @@
     }
 
     body.exporting .content-grid {
-      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      grid-template-columns:
+        minmax(390px, 1.05fr)
+        minmax(430px, 1.18fr)
+        minmax(500px, 1.42fr)
+        minmax(460px, 1.3fr) !important;
     }
 
     body.exporting table {
@@ -1288,7 +1315,7 @@
         <section class="module-layout">
           <div class="left-stack">
             <section class="content-grid">
-              <article class="panel">
+              <article class="panel panel-composition">
                 <div class="panel-title"><span class="label" id="compositionLabel">A</span><span id="compositionTitle">产品组成</span></div>
                 <div class="panel-body">
                   <div class="composition" id="compositionHeadline"></div>
@@ -1296,7 +1323,7 @@
                 </div>
               </article>
 
-              <article class="panel">
+              <article class="panel panel-price">
                 <div class="panel-title orange"><span class="label" id="priceLabel">B</span><span id="priceTitle">价格优势</span></div>
                 <div class="panel-body">
                   <p class="price-copy" id="priceHeadline"></p>
@@ -1304,7 +1331,7 @@
                 </div>
               </article>
 
-              <article class="panel">
+              <article class="panel panel-knowledge">
                 <div class="panel-title"><span class="label" id="videoLabel">C</span><span id="videoTitle">知识视频</span></div>
                 <div class="panel-body">
                   <div class="number-list" id="videoItems"></div>
@@ -1312,7 +1339,7 @@
                 </div>
               </article>
 
-              <article class="panel">
+              <article class="panel panel-live">
                 <div class="panel-title"><span class="label" id="liveLabel">D</span><span id="liveTitle">学法直播</span></div>
                 <div class="panel-body">
                   <div class="number-list" id="liveItems"></div>
@@ -1578,11 +1605,15 @@
       tableRows.push(...buildDynamicRows(products));
 
       const table = document.querySelector(".comparison-card table");
-      const tableWidth = 196 + products.reduce((width, product) => (
-        width + (product.isYoudao ? 218 : 202)
+      const labelColumnWidth = 224;
+      const productColumnWidths = products.map(getProductColumnWidth);
+      const tableWidth = labelColumnWidth + productColumnWidths.reduce((width, columnWidth) => (
+        width + columnWidth
       ), 0);
       if (table) {
-        table.style.width = `max(100%, ${tableWidth}px)`;
+        table.style.width = `${tableWidth}px`;
+        table.querySelector("colgroup")?.remove();
+        table.insertAdjacentHTML("afterbegin", `<colgroup><col style="width:${labelColumnWidth}px">${productColumnWidths.map((columnWidth) => `<col style="width:${columnWidth}px">`).join("")}</colgroup>`);
       }
       const poster = document.querySelector(".poster");
       if (poster) {
@@ -1612,6 +1643,23 @@
         ].filter(Boolean).join(" ");
         return `<tr${rowClasses ? ` class="${rowClasses}"` : ""}><td class="row-title">${escapeHtml(row.label)}</td>${cells.join("")}</tr>`;
       }).join("");
+    }
+
+    function getProductColumnWidth(product) {
+      const textValues = [
+        product.brand,
+        product.className,
+        product.productContent,
+        product.servicePeriod,
+      ];
+      const longestLine = Math.max(...textValues.map((value) => String(value || "")
+        .split(/\\n|\/n|\n/)
+        .reduce((longest, line) => Math.max(longest, line.trim().length), 0)));
+      const contentLineCount = String(product.productContent || "").split(/\\n|\/n|\n/).length;
+      const baseWidth = product.isYoudao ? 292 : 256;
+      const contentWidth = 118 + longestLine * 10;
+      const multiStageWidth = contentLineCount >= 3 ? 298 : 0;
+      return Math.max(baseWidth, Math.min(330, contentWidth), multiStageWidth);
     }
 
     function buildDynamicRows(products) {
