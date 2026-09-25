@@ -785,10 +785,12 @@ function App() {
   const [teachingAids, setTeachingAids] = useState(bundledTeachingAids);
   const [usageCount, setUsageCount] = useState(null);
   const [salesFeedback, setSalesFeedback] = useState([]);
-  // 销售端（含分享链接）只展示 Cloudflare 的正式版本。不能先用浏览器
-  // 缓存或链接里的历史快照渲染，否则不同电脑会看到不同的课时数。
+  // 销售端优先使用 Cloudflare 的正式版本，但首屏先展示随本次发布打包的
+  // 正式快照。这样 Cloudflare 被企业网络拦截或发生区域故障时，销售仍可
+  // 打开页面；云端恢复后会自动用最新配置覆盖快照。
+  // 分享链接仍先等待配置，避免指定产品尚未加载时误展示为默认产品。
   const [cloudLoadState, setCloudLoadState] = useState(() => (
-    (cloudProductsEnabled || cloudConfigEnabled) && (isShareEntry || salesOnly) ? "loading" : "ready"
+    (cloudProductsEnabled || cloudConfigEnabled) && isShareEntry ? "loading" : "ready"
   ));
   const activeProducts = useMemo(() => products.filter((item) => item.status === "在售"), [products]);
   const availableProducts = !publicView && activePage === "admin" ? products : activeProducts;
@@ -980,13 +982,20 @@ function App() {
       })
       .catch((error) => {
         console.error("云端产品读取失败", error);
-        // 面向销售/家长的页面必须保持唯一数据源：正式配置无法读取时不允许
-        // 回退到随包旧配置或本机缓存，以免把错误课时发给用户。
+        // 静态站点中打包的是上次发布时的正式快照。Cloudflare 主备入口同时
+        // 不可达时，使用该快照而非浏览器缓存，保证销售端不会因网络链路
+        // 故障完全无法打开；连接恢复后刷新页面即可获得云端最新正式配置。
         if (publicView) {
-          setProducts([]);
-          setSelectedProductId(undefined);
-          setSyncStatus("Cloudflare正式配置读取失败，请刷新后重试");
-          setCloudLoadState("error");
+          const fallbackProducts = loadBundledFallbackProducts();
+          const selectableProducts = fallbackProducts.filter((product) => product.status === "在售");
+          setProducts(fallbackProducts);
+          setSelectedProductId((current) => (
+            selectableProducts.some((product) => product.id === current)
+              ? current
+              : selectableProducts[0]?.id
+          ));
+          setSyncStatus("Cloudflare 暂时不可用，当前显示随站点发布的正式快照");
+          setCloudLoadState("fallback");
           return;
         }
         // 云端临时不可用时先展示随版本发布的基础配置。运营端仍可编辑；
