@@ -282,8 +282,21 @@ function compactProductCourseData(product) {
 
 const CLOUD_COURSE_LIBRARY_PREFIX = "course_library_";
 const CLOUD_PRODUCT_MEDIA_PREFIX = "product_media_";
+const CLOUD_CONFIG_TIMEOUT_MS = 4_000;
 const cloudCourseLibraryCache = new Map();
 const cloudProductMediaCache = new Map();
+
+// Worker 在部分企业网络或地区会卡在连接阶段而不会立即抛错。所有
+// Cloudflare 请求统一设定短超时，保证页面可以迅速使用静态正式快照降级。
+async function fetchCloudConfig(url, options = {}) {
+  const controller = new AbortController();
+  const timeoutId = window.setTimeout(() => controller.abort(), CLOUD_CONFIG_TIMEOUT_MS);
+  try {
+    return await fetch(url, { ...options, signal: controller.signal });
+  } finally {
+    window.clearTimeout(timeoutId);
+  }
+}
 
 function getCloudCourseLibraryId(grade) {
   return `${CLOUD_COURSE_LIBRARY_PREFIX}${({ 高一: "g1", 高二: "g2", 高三: "g3" })[grade] ?? grade}`;
@@ -330,7 +343,7 @@ async function loadCloudProductMedia(productId) {
     const request = (async () => {
       for (const endpoint of CLOUDFLARE_CONFIG_API_URLS) {
         try {
-          const response = await fetch(`${endpoint}/configs/${getCloudProductMediaId(productId)}?t=${Date.now()}`, { cache: "no-store" });
+          const response = await fetchCloudConfig(`${endpoint}/configs/${getCloudProductMediaId(productId)}?t=${Date.now()}`, { cache: "no-store" });
           if (response.status === 404) continue;
           if (!response.ok) throw await createCloudError(response, "Cloudflare产品图片读取失败");
           const record = await response.json();
@@ -371,7 +384,7 @@ async function saveCloudProductMedia(product) {
     let lastError;
     for (const endpoint of CLOUDFLARE_CONFIG_API_URLS) {
       try {
-        const response = await fetch(`${endpoint}/configs/${getCloudProductMediaId(product.id)}`, {
+        const response = await fetchCloudConfig(`${endpoint}/configs/${getCloudProductMediaId(product.id)}`, {
           method: "POST",
           headers: { "Content-Type": "text/plain;charset=UTF-8" },
           body: JSON.stringify({ productId: product.id, media, version: Date.now(), adminPassword: password }),
@@ -405,7 +418,7 @@ async function loadCloudGradeCourseLibrary(grade) {
     const request = (async () => {
       for (const endpoint of CLOUDFLARE_CONFIG_API_URLS) {
         try {
-          const response = await fetch(`${endpoint}/configs/${getCloudCourseLibraryId(grade)}?t=${Date.now()}`, { cache: "no-store" });
+          const response = await fetchCloudConfig(`${endpoint}/configs/${getCloudCourseLibraryId(grade)}?t=${Date.now()}`, { cache: "no-store" });
           if (response.status === 404) continue;
           if (!response.ok) throw await createCloudError(response, "Cloudflare年级课程库读取失败");
           const record = await response.json();
@@ -453,7 +466,7 @@ async function saveCloudGradeCourseLibrary(product) {
     let lastError;
     for (const endpoint of CLOUDFLARE_CONFIG_API_URLS) {
       try {
-        const response = await fetch(`${endpoint}/configs/${getCloudCourseLibraryId(product.grade)}`, {
+        const response = await fetchCloudConfig(`${endpoint}/configs/${getCloudCourseLibraryId(product.grade)}`, {
           method: "POST",
           headers: { "Content-Type": "text/plain;charset=UTF-8" },
           body: JSON.stringify({ ...payload, adminPassword: password }),
@@ -487,7 +500,7 @@ async function loadCloudProducts(configId) {
     for (const endpoint of CLOUDFLARE_CONFIG_API_URLS) {
       for (let attempt = 0; attempt < 2; attempt += 1) {
         try {
-          response = await fetch(`${endpoint}/configs/${encodeURIComponent(configId)}?t=${Date.now()}`, {
+          response = await fetchCloudConfig(`${endpoint}/configs/${encodeURIComponent(configId)}?t=${Date.now()}`, {
             cache: "no-store",
           });
           if (response.ok || response.status < 500) break;
@@ -543,7 +556,7 @@ async function saveCloudProducts(products, configId = CLOUD_PRODUCTS_DRAFT_ID) {
     for (const endpoint of CLOUDFLARE_CONFIG_API_URLS) {
       for (let attempt = 0; attempt < 2; attempt += 1) {
         try {
-          response = await fetch(`${endpoint}/configs/${encodeURIComponent(configId)}`, {
+          response = await fetchCloudConfig(`${endpoint}/configs/${encodeURIComponent(configId)}`, {
             method: "POST",
             // 使用简单请求，避免部分电脑/企业网络拦截 OPTIONS 预检。
             headers: { "Content-Type": "text/plain;charset=UTF-8" },
@@ -768,16 +781,17 @@ function App() {
   const fallbackShareParams = shortCode ? getShareParams() : null;
   const directShareParams = shortCode ? null : getShareParams();
   const salesOnly = getSalesOnlyMode();
-  // 销售/运营入口可以先用随版本发布的基础配置渲染，再静默获取最新配置；
-  // 只有用户专属分享页必须等待云端，以免短链错误地展示成默认产品。
-  const isShareEntry = Boolean(shortCode || fallbackShareParams || directShareParams);
+  // 销售和参数完整的分享链接均可先用随版本发布的正式快照渲染。
+  // 只有旧短链没有携带产品选择时，才必须等待云端还原选择项。
   const [shareParams, setShareParams] = useState(fallbackShareParams ?? directShareParams);
   const [shortLinkStatus, setShortLinkStatus] = useState(shortCode && !fallbackShareParams ? "loading" : "ready");
   const publicView = Boolean(shareParams || shortCode || salesOnly);
   const [activePage, setActivePage] = useState(() => salesOnly ? "sales" : "admin");
-  const [products, setProducts] = useState(loadStoredProducts);
+  const [products, setProducts] = useState(() => publicView ? loadBundledFallbackProducts() : loadStoredProducts());
   const [syncStatus, setSyncStatus] = useState(cloudProductsEnabled || cloudConfigEnabled ? "正在同步云端配置" : "本地配置");
-  const [selectedProductId, setSelectedProductId] = useState(() => shareParams?.productId ?? loadStoredProducts()[0]?.id ?? initialProducts[0].id);
+  const [selectedProductId, setSelectedProductId] = useState(() => (
+    shareParams?.productId ?? (publicView ? loadBundledFallbackProducts() : loadStoredProducts())[0]?.id ?? initialProducts[0].id
+  ));
   const [selectedSubjects, setSelectedSubjects] = useState(() => shareParams?.subjects ?? [shareParams?.subject ?? "数学"]);
   const [selectedBonusSubjects, setSelectedBonusSubjects] = useState(() => shareParams?.bonusSubjects ?? []);
   const [selectedVideoTracks, setSelectedVideoTracks] = useState(() => shareParams?.videoTracks ?? {});
@@ -788,9 +802,9 @@ function App() {
   // 销售端优先使用 Cloudflare 的正式版本，但首屏先展示随本次发布打包的
   // 正式快照。这样 Cloudflare 被企业网络拦截或发生区域故障时，销售仍可
   // 打开页面；云端恢复后会自动用最新配置覆盖快照。
-  // 分享链接仍先等待配置，避免指定产品尚未加载时误展示为默认产品。
+  // 旧短链没有携带产品选择，仍先等待云端还原；其余公开入口不阻塞首屏。
   const [cloudLoadState, setCloudLoadState] = useState(() => (
-    (cloudProductsEnabled || cloudConfigEnabled) && isShareEntry ? "loading" : "ready"
+    (cloudProductsEnabled || cloudConfigEnabled) && shortCode && !fallbackShareParams ? "loading" : "ready"
   ));
   const activeProducts = useMemo(() => products.filter((item) => item.status === "在售"), [products]);
   const availableProducts = !publicView && activePage === "admin" ? products : activeProducts;
