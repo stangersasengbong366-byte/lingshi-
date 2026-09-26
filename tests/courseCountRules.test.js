@@ -53,6 +53,31 @@ test("秋冬衔接卡直播只取秋16节和寒10节", () => {
   assert.equal(product.core.knowledgeVideos, 60);
 });
 
+test("全体系直通卡会修正旧云端的默认学科权益", () => {
+  const product = getCanonicalProductCourseRules({
+    grade: "高二",
+    name: "高二全体系直通卡",
+    coveragePhases: ["秋季", "寒假"],
+    videoPhases: ["秋季", "寒假"],
+    core: { liveLessons: 16, knowledgeVideos: 80 },
+    subjectProfiles: {
+      default: { liveLessons: 16, knowledgeVideos: 80 },
+      bySubject: {
+        数学: { liveLessons: 16, knowledgeVideos: 80 },
+        生物: { liveLessons: 42, knowledgeVideos: 50 },
+      },
+    },
+  });
+  assert.deepEqual(product.videoPhases, ["秋季", "寒假", "春季"]);
+  assert.equal(product.core.liveLessons, 42);
+  assert.equal(product.core.knowledgeVideos, 100);
+  assert.equal(product.subjectProfiles.default.liveLessons, 42);
+  assert.equal(product.subjectProfiles.default.knowledgeVideos, 100);
+  assert.equal(product.subjectProfiles.bySubject.数学.liveLessons, 42);
+  assert.equal(product.subjectProfiles.bySubject.数学.knowledgeVideos, 100);
+  assert.deepEqual(product.subjectProfiles.bySubject.生物, { liveLessons: 42, knowledgeVideos: 50 });
+});
+
 test("高三名校直通卡固定为一轮 mini 12节加二轮18节", () => {
   const product = getCanonicalProductCourseRules({
     grade: "高三",

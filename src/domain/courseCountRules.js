@@ -55,6 +55,7 @@ export function getCanonicalProductCourseRules(product) {
   const coveragePhases = product.coveragePhases ?? [];
   const isBridgeCard = /秋冬衔接/.test(`${product.name ?? ""}${product.stage ?? ""}`);
   const isFullSystemCard = /全体系直通/.test(`${product.name ?? ""}${product.stage ?? ""}`);
+  const isStandardFullSystemCard = isFullSystemCard && ["高一", "高二"].includes(product.grade);
   const isG3Direct = product.grade === "高三" && /名校直通/.test(`${product.name ?? ""}${product.stage ?? ""}`);
   // 产品的直播阶段不等于全年课表包含的全部阶段：
   // 秋冬衔接只取秋16+寒10，全体系取秋16+寒10+春16；
@@ -68,7 +69,12 @@ export function getCanonicalProductCourseRules(product) {
         : null;
   const livePhases = presetLiveRules?.phases
     ?? (product.livePhases?.length ? product.livePhases : coveragePhases);
-  const videoPhases = product.videoPhases?.length
+  // 高一、高二全体系直通固定覆盖秋、寒、春。旧 Cloudflare 配置曾把
+  // videoPhases / 默认学科权益保留为 16 节直播、80 节视频，导致销售端
+  // 覆盖正确的 42 / 100 正式值。
+  const videoPhases = isStandardFullSystemCard
+    ? ["秋季", "寒假", "春季"]
+    : product.videoPhases?.length
     ? product.videoPhases
     : product.coveragePhases ?? [];
   const livePhaseLimits = Object.fromEntries(livePhases
@@ -84,17 +90,43 @@ export function getCanonicalProductCourseRules(product) {
       ? Number(product.core.liveLessons)
       : Object.values(nextLiveLimits).reduce((sum, count) => sum + count, 0));
   const knowledgeVideos = Object.values(videoPhaseLimits).reduce((sum, count) => sum + count, 0);
+  const fullSystemDefaultProfile = isStandardFullSystemCard ? {
+    ...(product.subjectProfiles?.default ?? {}),
+    liveLessons,
+    knowledgeVideos,
+    summary: [`学法直播${liveLessons}节`, `知识视频${knowledgeVideos}节`],
+  } : null;
+  const fullSystemSubjectProfiles = isStandardFullSystemCard
+    ? Object.fromEntries(Object.entries(product.subjectProfiles?.bySubject ?? {}).map(([subject, profile]) => {
+      // 只修正已确认的历史错误值；保留生物、史地政等有明确专项配置的权益。
+      const isStaleFullSystemProfile = Number(profile?.liveLessons) === 16 && Number(profile?.knowledgeVideos) === 80;
+      return [subject, isStaleFullSystemProfile ? {
+        ...profile,
+        liveLessons,
+        knowledgeVideos,
+        summary: [`学法直播${liveLessons}节`, `知识视频${knowledgeVideos}节`],
+      } : profile];
+    }))
+    : null;
 
   return {
     ...product,
     livePhases: nextLivePhases,
     livePhaseLimits: nextLiveLimits,
+    videoPhases,
     videoPhaseLimits,
     core: {
       ...(product.core ?? {}),
       ...(liveLessons ? { liveLessons } : {}),
       ...(knowledgeVideos || videoPhases.includes("暑期") ? { knowledgeVideos } : {}),
     },
+    ...(fullSystemDefaultProfile ? {
+      subjectProfiles: {
+        ...(product.subjectProfiles ?? {}),
+        default: fullSystemDefaultProfile,
+        ...(fullSystemSubjectProfiles ? { bySubject: fullSystemSubjectProfiles } : {}),
+      },
+    } : {}),
     ...(isG3Direct ? {
       liveCourseMode: "g3-mini-plus-second-round",
       liveCourseSegments: { mini: 12, secondRound: 18 },
