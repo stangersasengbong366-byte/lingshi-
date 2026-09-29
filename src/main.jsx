@@ -29,7 +29,6 @@ import {
   Upload,
 } from "lucide-react";
 import { initialProducts, moduleLibrary } from "./data/products";
-import { publishedProductSnapshot } from "./data/publishedProductSnapshot";
 import { courseCatalog, courseSubjects } from "./data/courseCatalog";
 import { giftCatalog } from "./data/giftCatalog";
 import { teachingAids as bundledTeachingAids } from "./data/teachingAidCatalog";
@@ -59,7 +58,6 @@ import {
   CLOUD_FEEDBACK_PREFIX,
   CLOUD_PRODUCTS_DRAFT_ID,
   CLOUD_PRODUCTS_LEGACY_ID,
-  CLOUD_PRODUCTS_PUBLISHED_ID,
   CLOUD_SHORT_LINK_PREFIX,
   CLOUD_TEACHING_AID_PREFIX,
   CLOUD_VISIT_PREFIX,
@@ -77,7 +75,7 @@ import { collectPoolDeletedKeys, preserveGiftPoolOnProductDelete } from "./domai
 import { isPublicEntrySearch } from "./domain/accessRules";
 import { resolveProductCourseLibrary } from "./domain/courseLibraryRules";
 import { applyLivePhaseLimits, applyVideoPhaseLimits, getAdminCoursePhaseOptions } from "./domain/coursePhaseRules";
-import { getCanonicalProductCourseRules, getCourseCountIssues } from "./domain/courseCountRules";
+import { getCourseCountIssues } from "./domain/courseCountRules";
 import { filterVideoRowsByTrack, normalizeVideoTrack } from "./domain/videoTrackRules";
 import { getSaleableSubjects, getVideoAvailabilityOverride } from "./domain/productSubjectRules";
 import {
@@ -116,11 +114,7 @@ async function refreshStaleAppVersion() {
     }
     if (window.sessionStorage.getItem(VERSION_RELOAD_KEY) === remote.version) return;
     window.sessionStorage.setItem(VERSION_RELOAD_KEY, remote.version);
-    // 只 reload 同一个 URL 仍可能命中企业网络或浏览器保存的旧 HTML。
-    // 为 URL 加入构建版本，让浏览器重新取得带最新 hash 的入口脚本。
-    const url = new URL(window.location.href);
-    url.searchParams.set("v", remote.version);
-    window.location.replace(url.toString());
+    window.location.reload();
   } catch {
     // 离线或弱网时继续使用当前页面，下次回到前台再次校验。
   }
@@ -140,56 +134,16 @@ function loadStoredProducts() {
 }
 
 function loadBundledFallbackProducts() {
-  const products = publishedProductSnapshot.length ? publishedProductSnapshot : initialProducts;
+  const products = initialProducts;
   return products.map((product) => migrateStoredProduct(structuredClone(product)));
 }
 
 function migrateStoredProduct(product) {
-  const isG1Autumn = String(product.grade).includes("高一") && `${product.stage}${product.name}`.includes("秋实");
-  const migrated = isG1Autumn && product.productProfileVersion !== "2026-07-17-authoritative-v1" ? {
-    ...product,
-    name: "新高一秋实卡",
-    term: "26H2 秋季",
-    subtitle: "新高一秋季系统学习，学法直播讲透方法，知识视频分层补足基础。",
-    videoSubjects: ["语文", "数学", "英语", "物理", "化学"],
-    unlayeredVideoSubjects: ["语文"],
-    layeredVideoSubjects: ["数学", "英语", "物理", "化学"],
-    core: {
-      ...product.core,
-      liveLessons: 16,
-      liveDuration: "2h",
-      knowledgeVideos: 40,
-      videoDuration: "30min",
-      servicePeriod: "4个月",
-    },
-    serviceDateRange: "2026.09.01-2026.12.31",
-    courseValidity: "即日起至2029.08.31",
-    salePeriod: "2026.07.26起",
-    pricing: {
-      originalPerSubject: 3600,
-      singlePerSubject: 2780,
-      twoPerSubject: 2680,
-      threePlusPerSubject: 2580,
-    },
-    humanitiesPricing: {
-      originalPerSubject: 2200,
-      fixedPerSubject: 900,
-    },
-    humanitiesSubjects: ["生物", "历史", "地理", "政治"],
-    giftSelections: null,
-    physicalGiftSelections: null,
-    giftOverrides: {},
-    productProfileVersion: "2026-07-17-authoritative-v1",
-    videoReleasePlan: "购买后立即开放3节试听，其余视频自8月起分批释放",
-  } : product;
-  if (isG1Autumn && !migrated.humanitiesSubjects?.includes("生物")) {
-    migrated.humanitiesSubjects = ["生物", "历史", "地理", "政治"];
-  }
-  return normalizeProductShape(hydrateAnnualCourseProduct(migrated));
+  return normalizeProductShape(hydrateAnnualCourseProduct(product));
 }
 
 function normalizeProductShape(product) {
-  return getCanonicalProductCourseRules({
+  return {
     ...product,
     core: {
       liveLessons: 0,
@@ -212,7 +166,7 @@ function normalizeProductShape(product) {
     giftPoolDeletedItems: Array.isArray(product?.giftPoolDeletedItems) ? product.giftPoolDeletedItems : [],
     physicalGiftPoolItems: Array.isArray(product?.physicalGiftPoolItems) ? product.physicalGiftPoolItems : [],
     physicalGiftPoolDeletedItems: Array.isArray(product?.physicalGiftPoolDeletedItems) ? product.physicalGiftPoolDeletedItems : [],
-  });
+  };
 }
 
 function getProductDisplayStage(product) {
@@ -791,10 +745,10 @@ function App() {
   const [shortLinkStatus, setShortLinkStatus] = useState(shortCode && !fallbackShareParams ? "loading" : "ready");
   const publicView = Boolean(shareParams || shortCode || salesOnly);
   const [activePage, setActivePage] = useState(() => salesOnly ? "sales" : "admin");
-  const [products, setProducts] = useState(() => publicView ? loadBundledFallbackProducts() : loadStoredProducts());
+  const [products, setProducts] = useState(() => publicView ? [] : loadStoredProducts());
   const [syncStatus, setSyncStatus] = useState(cloudProductsEnabled || cloudConfigEnabled ? "正在同步云端配置" : "本地配置");
   const [selectedProductId, setSelectedProductId] = useState(() => (
-    shareParams?.productId ?? (publicView ? loadBundledFallbackProducts() : loadStoredProducts())[0]?.id ?? initialProducts[0].id
+    shareParams?.productId ?? loadStoredProducts()[0]?.id ?? initialProducts[0].id
   ));
   const [selectedSubjects, setSelectedSubjects] = useState(() => shareParams?.subjects ?? [shareParams?.subject ?? "数学"]);
   const [selectedBonusSubjects, setSelectedBonusSubjects] = useState(() => shareParams?.bonusSubjects ?? []);
@@ -803,12 +757,10 @@ function App() {
   const [teachingAids, setTeachingAids] = useState(bundledTeachingAids);
   const [usageCount, setUsageCount] = useState(null);
   const [salesFeedback, setSalesFeedback] = useState([]);
-  // 销售端优先使用 Cloudflare 的正式版本，但首屏先展示随本次发布打包的
-  // 正式快照。这样 Cloudflare 被企业网络拦截或发生区域故障时，销售仍可
-  // 打开页面；云端恢复后会自动用最新配置覆盖快照。
-  // 旧短链没有携带产品选择，仍先等待云端还原；其余公开入口不阻塞首屏。
+  // 销售端和运营端只读取同一份云端配置；未完成读取前不展示任何本地或
+  // 静态快照，避免两端因不同数据源出现不一致。
   const [cloudLoadState, setCloudLoadState] = useState(() => (
-    (cloudProductsEnabled || cloudConfigEnabled) && shortCode && !fallbackShareParams ? "loading" : "ready"
+    (cloudProductsEnabled || cloudConfigEnabled) && publicView ? "loading" : "ready"
   ));
   const activeProducts = useMemo(() => products.filter((item) => item.status === "在售"), [products]);
   const availableProducts = !publicView && activePage === "admin" ? products : activeProducts;
@@ -975,7 +927,7 @@ function App() {
     if (!cloudProductsEnabled && !cloudConfigEnabled) return undefined;
     if (shortCode && shortLinkStatus === "loading") return undefined;
     let cancelled = false;
-    const configId = publicView ? CLOUD_PRODUCTS_PUBLISHED_ID : CLOUD_PRODUCTS_DRAFT_ID;
+    const configId = CLOUD_PRODUCTS_DRAFT_ID;
     loadCloudProducts(configId)
       .then((cloudProducts) => {
         if (cancelled) return;
@@ -1000,20 +952,12 @@ function App() {
       })
       .catch((error) => {
         console.error("云端产品读取失败", error);
-        // 静态站点中打包的是上次发布时的正式快照。Cloudflare 主备入口同时
-        // 不可达时，使用该快照而非浏览器缓存，保证销售端不会因网络链路
-        // 故障完全无法打开；连接恢复后刷新页面即可获得云端最新正式配置。
+        // 销售端不能回退到静态快照或本机缓存，否则会与运营端配置分叉。
         if (publicView) {
-          const fallbackProducts = loadBundledFallbackProducts();
-          const selectableProducts = fallbackProducts.filter((product) => product.status === "在售");
-          setProducts(fallbackProducts);
-          setSelectedProductId((current) => (
-            selectableProducts.some((product) => product.id === current)
-              ? current
-              : selectableProducts[0]?.id
-          ));
-          setSyncStatus("Cloudflare 暂时不可用，当前显示随站点发布的正式快照");
-          setCloudLoadState("fallback");
+          setProducts([]);
+          setSelectedProductId(undefined);
+          setSyncStatus("云端配置读取失败，请刷新后重试");
+          setCloudLoadState("error");
           return;
         }
         // 云端临时不可用时先展示随版本发布的基础配置。运营端仍可编辑；
@@ -1167,7 +1111,7 @@ function App() {
     try {
       const mergedProducts = await saveCloudProductChanges(nextProducts, {
         upsertIds: changedProductIds,
-        configIds: [CLOUD_PRODUCTS_DRAFT_ID, CLOUD_PRODUCTS_PUBLISHED_ID],
+        configIds: [CLOUD_PRODUCTS_DRAFT_ID],
       });
       if (mergedProducts) {
         setProducts(mergedProducts);
@@ -1190,7 +1134,7 @@ function App() {
       : products;
     await saveCloudProductChanges(nextProducts, {
       upsertIds: nextProduct ? [nextProduct.id] : nextProducts.map((product) => product.id),
-      configIds: [CLOUD_PRODUCTS_PUBLISHED_ID],
+      configIds: [CLOUD_PRODUCTS_DRAFT_ID],
     });
     setSyncStatus("已发布，销售端将读取最新版本");
   };
@@ -1205,7 +1149,7 @@ function App() {
     try {
       const mergedProducts = await saveCloudProductChanges(nextProducts, {
         upsertIds: [nextProduct.id],
-        configIds: [CLOUD_PRODUCTS_DRAFT_ID, CLOUD_PRODUCTS_PUBLISHED_ID],
+        configIds: [CLOUD_PRODUCTS_DRAFT_ID],
       });
       if (mergedProducts) {
         setProducts(mergedProducts);
@@ -1238,7 +1182,7 @@ function App() {
       const mergedProducts = await saveCloudProductChanges(nextProducts, {
         upsertIds: preserved.carrierId ? [preserved.carrierId] : [],
         deleteIds: [productId],
-        configIds: [CLOUD_PRODUCTS_DRAFT_ID, CLOUD_PRODUCTS_PUBLISHED_ID],
+        configIds: [CLOUD_PRODUCTS_DRAFT_ID],
       });
       if (mergedProducts) {
         setProducts(mergedProducts);
@@ -5151,10 +5095,6 @@ function formatExcelDate(value) {
 
 function resolveCoursePlan(product, subject, forcedPhases, videoTrack = "目标班") {
   const profile = { ...getSubjectProfile(product, subject) };
-  const isG1Autumn = String(product.grade).includes("高一") && `${product.stage}${product.name}`.includes("秋实");
-  if (isG1Autumn && ["语文", "数学", "英语", "物理", "化学"].includes(subject)) {
-    profile.knowledgeVideos = 40;
-  }
   const parsedPlan = resolveParsedCoursePlan(product, subject, profile, forcedPhases, videoTrack);
   if (parsedPlan) return parsedPlan;
 
@@ -5372,11 +5312,8 @@ function getSubjectProfile(product, subject) {
   const subjectProfile = product.subjectProfiles?.bySubject?.[subject];
   const isHumanities = product.humanitiesSubjects?.includes(subject) || humanitiesSubjects.includes(subject);
   const profile = subjectProfile ?? (isHumanities ? product.subjectProfiles?.humanities : null);
-  const isG1Autumn = String(product.grade).includes("高一") && `${product.stage}${product.name}`.includes("秋实");
   const { hasVideo: hasKnowledgeVideos } = getSubjectVideoAvailability(product, subject);
-  const knowledgeVideos = isG1Autumn && hasKnowledgeVideos
-    ? 40
-    : hasKnowledgeVideos ? profile?.knowledgeVideos ?? product.core.knowledgeVideos : 0;
+  const knowledgeVideos = hasKnowledgeVideos ? profile?.knowledgeVideos ?? product.core.knowledgeVideos : 0;
   return {
     liveLessons: profile?.liveLessons ?? product.core.liveLessons,
     knowledgeVideos,
@@ -5390,15 +5327,6 @@ function getSubjectProfile(product, subject) {
 function getSubjectVideoAvailability(product, subject) {
   const specialRule = getVideoAvailabilityOverride(product, subject);
   if (specialRule) return specialRule;
-
-  const isG1Autumn = String(product.grade).includes("高一") && `${product.stage}${product.name}`.includes("秋实");
-  if (isG1Autumn) {
-    const hasVideo = ["语文", "数学", "英语", "物理", "化学"].includes(subject);
-    return {
-      hasVideo,
-      isLayered: hasVideo && ["数学", "英语", "物理", "化学"].includes(subject),
-    };
-  }
 
   const coveragePhases = product.subjectVideoPhases?.[subject]?.length
     ? product.subjectVideoPhases[subject]
@@ -6437,8 +6365,6 @@ function buildDirectShareUrl(shareState) {
   const url = new URL(PUBLIC_SITE_URL);
   url.search = "";
   url.hash = "";
-  // 分享链接带上构建版本，避免销售或家长命中旧版单页应用缓存。
-  url.searchParams.set("v", APP_BUILD_VERSION);
   if (shareState?.productId) {
     url.searchParams.set("share", "1");
     url.searchParams.set("product", shareState.productId);
@@ -6455,8 +6381,6 @@ function buildSalesPortalUrl() {
   url.search = "";
   url.hash = "";
   url.searchParams.set("sales", "1");
-  // 销售入口需要始终请求当前发布版本，不能沿用浏览器对 ?sales=1 的旧缓存。
-  url.searchParams.set("v", APP_BUILD_VERSION);
   return url.toString();
 }
 
