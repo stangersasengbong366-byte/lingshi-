@@ -116,7 +116,11 @@ async function refreshStaleAppVersion() {
     }
     if (window.sessionStorage.getItem(VERSION_RELOAD_KEY) === remote.version) return;
     window.sessionStorage.setItem(VERSION_RELOAD_KEY, remote.version);
-    window.location.reload();
+    // 只 reload 同一个 URL 仍可能命中企业网络或浏览器保存的旧 HTML。
+    // 为 URL 加入构建版本，让浏览器重新取得带最新 hash 的入口脚本。
+    const url = new URL(window.location.href);
+    url.searchParams.set("v", remote.version);
+    window.location.replace(url.toString());
   } catch {
     // 离线或弱网时继续使用当前页面，下次回到前台再次校验。
   }
@@ -6433,6 +6437,8 @@ function buildDirectShareUrl(shareState) {
   const url = new URL(PUBLIC_SITE_URL);
   url.search = "";
   url.hash = "";
+  // 分享链接带上构建版本，避免销售或家长命中旧版单页应用缓存。
+  url.searchParams.set("v", APP_BUILD_VERSION);
   if (shareState?.productId) {
     url.searchParams.set("share", "1");
     url.searchParams.set("product", shareState.productId);
@@ -6449,6 +6455,8 @@ function buildSalesPortalUrl() {
   url.search = "";
   url.hash = "";
   url.searchParams.set("sales", "1");
+  // 销售入口需要始终请求当前发布版本，不能沿用浏览器对 ?sales=1 的旧缓存。
+  url.searchParams.set("v", APP_BUILD_VERSION);
   return url.toString();
 }
 
