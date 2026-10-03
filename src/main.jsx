@@ -241,8 +241,63 @@ function compactProductCourseData(product) {
 const CLOUD_COURSE_LIBRARY_PREFIX = "course_library_";
 const CLOUD_PRODUCT_MEDIA_PREFIX = "product_media_";
 const CLOUD_CONFIG_TIMEOUT_MS = 4_000;
+const CLOUD_LAST_GOOD_STORAGE_KEY = "youdao-benefits-last-good-cloud-v1";
 const cloudCourseLibraryCache = new Map();
 const cloudProductMediaCache = new Map();
+
+function productsFromCloudSnapshot(snapshot) {
+  if (snapshot?.source !== CLOUD_PRODUCTS_DRAFT_ID || !Array.isArray(snapshot.products) || !snapshot.products.length) {
+    return null;
+  }
+  const products = snapshot.products.map((product) => normalizeProductShape({
+    ...product,
+    ...resolveProductCourseLibrary(product, snapshot.courseLibraries?.[product.grade], annualCourseLibrary[product.grade]),
+  }));
+  return { products, syncedAt: snapshot.syncedAt };
+}
+
+async function loadLastGoodCloudProducts() {
+  let localSnapshot = null;
+  try {
+    localSnapshot = JSON.parse(window.localStorage.getItem(CLOUD_LAST_GOOD_STORAGE_KEY) || "null");
+  } catch {
+    // 损坏的浏览器缓存不妨碍读取站点备份。
+  }
+  try {
+    const response = await fetch(`${assetUrl("/cloud-config.json")}?t=${Date.now()}`, { cache: "no-store" });
+    if (response.ok) {
+      const snapshot = await response.json();
+      const result = productsFromCloudSnapshot(snapshot);
+      if (result) {
+        if (Date.parse(localSnapshot?.syncedAt) > Date.parse(snapshot.syncedAt)) {
+          return productsFromCloudSnapshot(localSnapshot);
+        }
+        try {
+          window.localStorage.setItem(CLOUD_LAST_GOOD_STORAGE_KEY, JSON.stringify(snapshot));
+        } catch {
+          // 浏览器存储空间不足时，本次仍可使用站点备份。
+        }
+        return result;
+      }
+    }
+  } catch (error) {
+    console.warn("站点备用配置读取失败", error);
+  }
+  return productsFromCloudSnapshot(localSnapshot);
+}
+
+function rememberCloudProducts(products, courseLibraries) {
+  try {
+    window.localStorage.setItem(CLOUD_LAST_GOOD_STORAGE_KEY, JSON.stringify({
+      source: CLOUD_PRODUCTS_DRAFT_ID,
+      syncedAt: new Date().toISOString(),
+      products,
+      courseLibraries,
+    }));
+  } catch (error) {
+    console.warn("云端配置本机备份失败", error);
+  }
+}
 
 // Worker 在部分企业网络或地区会卡在连接阶段而不会立即抛错。所有
 // Cloudflare 请求统一设定短超时，保证页面可以迅速使用静态正式快照降级。
@@ -477,6 +532,7 @@ async function loadCloudProducts(configId) {
     if (!Array.isArray(products)) return null;
     const sharedLibraries = Object.fromEntries(await Promise.all([...new Set(products.map((product) => product.grade))]
       .map(async (grade) => [grade, await loadCloudGradeCourseLibrary(grade).catch(() => null)])));
+    if (configId === CLOUD_PRODUCTS_DRAFT_ID) rememberCloudProducts(products, sharedLibraries);
     return products.map((product) => normalizeProductShape({
       ...product,
       ...resolveProductCourseLibrary(product, sharedLibraries[product.grade], annualCourseLibrary[product.grade]),
@@ -928,6 +984,16 @@ function App() {
     if (shortCode && shortLinkStatus === "loading") return undefined;
     let cancelled = false;
     const configId = CLOUD_PRODUCTS_DRAFT_ID;
+    let cloudLoaded = false;
+    const backupRequest = publicView ? loadLastGoodCloudProducts().then((backup) => {
+      if (cancelled || cloudLoaded || !backup?.products?.length) return backup;
+      const selectable = backup.products.filter((product) => product.status === "在售");
+      setProducts(backup.products);
+      setSelectedProductId((current) => selectable.some((product) => product.id === current) ? current : selectable[0]?.id);
+      setSyncStatus(`云端暂不可用，显示最近同步配置（${backup.syncedAt ? new Date(backup.syncedAt).toLocaleString("zh-CN") : "时间未知"}）`);
+      setCloudLoadState("fallback");
+      return backup;
+    }) : Promise.resolve(null);
     loadCloudProducts(configId)
       .then((cloudProducts) => {
         if (cancelled) return;
@@ -938,6 +1004,7 @@ function App() {
           setCloudLoadState("ready");
           return;
         }
+        cloudLoaded = true;
         const nextProducts = cloudProducts;
         const selectableProducts = publicView
           ? nextProducts.filter((product) => product.status === "在售")
@@ -950,13 +1017,14 @@ function App() {
           : publicView ? "Supabase正式版已同步" : "Supabase草稿已同步");
         setCloudLoadState("ready");
       })
-      .catch((error) => {
+      .catch(async (error) => {
         console.error("云端产品读取失败", error);
-        // 销售端不能回退到静态快照或本机缓存，否则会与运营端配置分叉。
         if (publicView) {
+          const backup = await backupRequest;
+          if (cancelled || backup?.products?.length) return;
           setProducts([]);
           setSelectedProductId(undefined);
-          setSyncStatus("云端配置读取失败，请刷新后重试");
+          setSyncStatus("云端配置读取失败，且没有成功同步过的备用配置");
           setCloudLoadState("error");
           return;
         }
@@ -979,6 +1047,29 @@ function App() {
       cancelled = true;
     };
   }, [publicView, shortCode, shortLinkStatus, shareParams?.productId]);
+
+  React.useEffect(() => {
+    if (!publicView || cloudLoadState !== "fallback") return undefined;
+    let cancelled = false;
+    const retry = () => {
+      if (document.visibilityState !== "visible") return;
+      loadCloudProducts(CLOUD_PRODUCTS_DRAFT_ID).then((latestProducts) => {
+        if (cancelled || !latestProducts?.length) return;
+        const selectable = latestProducts.filter((product) => product.status === "在售");
+        setProducts(latestProducts);
+        setSelectedProductId((current) => selectable.some((product) => product.id === current) ? current : selectable[0]?.id);
+        setSyncStatus("云端配置已重新同步");
+        setCloudLoadState("ready");
+      }).catch(() => {});
+    };
+    const intervalId = window.setInterval(retry, 60_000);
+    document.addEventListener("visibilitychange", retry);
+    return () => {
+      cancelled = true;
+      window.clearInterval(intervalId);
+      document.removeEventListener("visibilitychange", retry);
+    };
+  }, [publicView, cloudLoadState]);
 
   React.useEffect(() => {
     if (!cloudConfigEnabled || cloudProductsEnabled || !selectedProduct?.grade) return undefined;

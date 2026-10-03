@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+  schedule:
+    - cron: "*/30 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -30,6 +32,9 @@ jobs:
 
       - name: Build
         run: npm run build:pages
+
+      - name: Sync sales backup from operations config
+        run: node scripts/build-public-config-snapshot.mjs
 
       - name: Prepare single page fallback
         run: |
