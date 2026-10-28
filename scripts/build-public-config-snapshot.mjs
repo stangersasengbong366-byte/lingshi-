@@ -26,7 +26,7 @@ async function getConfig(id) {
 
 let snapshot;
 try {
-  const record = await getConfig("products_draft");
+  const record = await getConfig("products_published");
   const products = record?.payload?.products;
   if (!Array.isArray(products) || !products.length) throw new Error("云端产品配置为空");
   const courseLibraries = {};
@@ -41,11 +41,20 @@ try {
       console.warn(`${grade}课程库未同步到快照: ${error.message}`);
     }
   }
-  snapshot = { source: "products_draft", syncedAt: new Date().toISOString(), products, courseLibraries };
+  const productMedia = {};
+  for (const product of products) {
+    try {
+      const record = await getConfig(`product_media_${product.id}`);
+      productMedia[product.id] = record?.payload?.media ?? {};
+    } catch (error) {
+      console.warn(`${product.name}图片备份失败: ${error.message}`);
+    }
+  }
+  snapshot = { source: "products_published", syncedAt: new Date().toISOString(), products, courseLibraries, productMedia };
 } catch (error) {
   console.warn(`云端暂不可达，保留上次成功同步的配置: ${error.message}`);
   snapshot = await getJson(previousSnapshotUrl);
-  if (snapshot?.source !== "products_draft" || !Array.isArray(snapshot.products) || !snapshot.products.length) {
+  if (snapshot?.source !== "products_published" || !Array.isArray(snapshot.products) || !snapshot.products.length) {
     throw new Error("没有可用的运营配置快照");
   }
 }

@@ -248,11 +248,11 @@ const cloudCourseLibraryCache = new Map();
 const cloudProductMediaCache = new Map();
 
 function productsFromCloudSnapshot(snapshot) {
-  if (snapshot?.source !== CLOUD_PRODUCTS_DRAFT_ID || !Array.isArray(snapshot.products) || !snapshot.products.length) {
+  if (snapshot?.source !== CLOUD_PRODUCTS_PUBLISHED_ID || !Array.isArray(snapshot.products) || !snapshot.products.length) {
     return null;
   }
   const products = snapshot.products.map((product) => normalizeProductShape({
-    ...product,
+    ...hydrateProductMedia(product, snapshot.productMedia?.[product.id] ?? {}),
     ...resolveProductCourseLibrary(product, snapshot.courseLibraries?.[product.grade], annualCourseLibrary[product.grade]),
   }));
   return { products, syncedAt: snapshot.syncedAt };
@@ -1023,9 +1023,20 @@ function App() {
           : publicView ? "Supabase正式版已同步" : "Supabase草稿已同步");
         setCloudLoadState("ready");
       })
-      .catch((error) => {
+      .catch(async (error) => {
         console.error("云端产品读取失败", error);
+        if (cancelled) return;
         if (publicView) {
+          const backup = await loadLastGoodCloudProducts();
+          if (cancelled) return;
+          if (backup?.products?.length) {
+            setProducts(backup.products);
+            setSelectedProductId((current) => backup.products.some((product) => product.id === current)
+              ? current : backup.products.find((product) => product.status === "在售")?.id);
+            setSyncStatus(`正式配置备份 · ${backup.syncedAt ?? ""}`);
+            setCloudLoadState("ready");
+            return;
+          }
           setProducts([]);
           setSelectedProductId(undefined);
           setSyncStatus("Cloudflare正式配置读取失败，请刷新后重试");
