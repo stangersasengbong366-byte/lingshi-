@@ -266,7 +266,7 @@ async function loadLastGoodCloudProducts() {
     // 损坏的浏览器缓存不妨碍读取站点备份。
   }
   try {
-    const response = await fetch(`${assetUrl("/cloud-config.json")}?t=${Date.now()}`, { cache: "no-store" });
+    const response = await fetchCloudConfig(`${assetUrl("/cloud-config.json")}?t=${Date.now()}`, { cache: "no-store" });
     if (response.ok) {
       const snapshot = await response.json();
       const result = productsFromCloudSnapshot(snapshot);
@@ -1001,9 +1001,20 @@ function App() {
     if (shortCode && shortLinkStatus === "loading") return undefined;
     let cancelled = false;
     const configId = CLOUD_PRODUCTS_PUBLISHED_ID;
+    let cloudLoaded = false;
+    const backupRequest = loadLastGoodCloudProducts().then((backup) => {
+      if (cancelled || cloudLoaded || !backup?.products?.length) return backup;
+      setProducts(backup.products);
+      setSelectedProductId((current) => backup.products.some((product) => product.id === current)
+        ? current : backup.products.find((product) => product.status === "在售")?.id);
+      setSyncStatus(`已读取正式配置备份 · ${backup.syncedAt ?? ""}；正在检查云端更新`);
+      setCloudLoadState("ready");
+      return backup;
+    });
     loadCloudProducts(configId)
       .then((cloudProducts) => {
         if (cancelled) return;
+        cloudLoaded = true;
         if (!cloudProducts?.length) {
           setProducts([]);
           setSelectedProductId(undefined);
@@ -1026,8 +1037,8 @@ function App() {
       .catch(async (error) => {
         console.error("云端产品读取失败", error);
         if (cancelled) return;
-        if (publicView) {
-          const backup = await loadLastGoodCloudProducts();
+        {
+          const backup = await backupRequest;
           if (cancelled) return;
           if (backup?.products?.length) {
             setProducts(backup.products);
