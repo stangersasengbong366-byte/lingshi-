@@ -307,7 +307,11 @@ async function fetchCloudConfig(url, options = {}) {
   const controller = new AbortController();
   const timeoutId = window.setTimeout(() => controller.abort(), CLOUD_CONFIG_TIMEOUT_MS);
   try {
-    return await fetch(url, { ...options, signal: controller.signal });
+    const response = await fetch(url, { ...options, signal: controller.signal });
+    // fetch 取得响应头即返回；必须等响应体下载完成才能清除超时。
+    // 企业网络可能正常返回响应头，却一直不完成 JSON 下载。
+    const body = await response.arrayBuffer();
+    return new Response(body, { status: response.status, statusText: response.statusText, headers: response.headers });
   } finally {
     window.clearTimeout(timeoutId);
   }
@@ -1267,7 +1271,7 @@ function App() {
   }
 
   if ((cloudProductsEnabled || cloudConfigEnabled) && cloudLoadState === "error" && shortLinkStatus !== "loading") {
-    return <main className="public-empty-state"><strong>{cloudProductsEnabled ? "Cloudflare" : "Supabase"} 云端连接失败</strong><span>为避免展示旧数据，当前已停止使用本地缓存，请刷新后重试。</span></main>;
+    return <main className="public-empty-state"><strong>{cloudProductsEnabled ? "Cloudflare" : "Supabase"} 云端连接失败</strong><span>读取最新配置超时，请检查网络后重试。</span><button type="button" onClick={() => window.location.reload()}>重新连接</button></main>;
   }
 
   if (shortLinkStatus === "loading") {
