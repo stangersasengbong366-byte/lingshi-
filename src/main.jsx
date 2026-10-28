@@ -326,7 +326,18 @@ function externalizeProductMedia(value, media = {}, path = "root") {
     return { value: token, media };
   }
   if (Array.isArray(value)) {
-    return { value: value.map((item, index) => externalizeProductMedia(item, media, `${path}.${index}`).value), media };
+    // 课程卡片过去按数组序号（customGiftItems.0）保存图片。运营新增、
+    // 删除或调整卡片顺序后，序号会变，图片就会错绑到另一张卡片。
+    // 有名称的卡片改用“类型+名称”作为稳定键；没有名称的普通数组继续用序号。
+    return {
+      value: value.map((item, index) => {
+        const stableKey = item && typeof item === "object" && item.name
+          ? `${String(item.type ?? "item").replaceAll(".", "_")}-${String(item.name).replaceAll(".", "_")}`
+          : index;
+        return externalizeProductMedia(item, media, `${path}.${stableKey}`).value;
+      }),
+      media,
+    };
   }
   if (value && typeof value === "object") {
     return {
@@ -2205,6 +2216,16 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onDelete, onUpd
     });
   };
 
+  const updateSubjectPricing = (subject, key, value) => {
+    setDraft({
+      ...draft,
+      subjectPricing: {
+        ...(draft.subjectPricing ?? {}),
+        [subject]: { ...(draft.subjectPricing?.[subject] ?? {}), [key]: Number(value) || 0 },
+      },
+    });
+  };
+
 
   const changeProductGrade = (grade) => {
     if (grade === draft.grade) return;
@@ -2786,6 +2807,14 @@ function AdminPage({ products, selectedProduct, onSelect, onAdd, onDelete, onUpd
             <Field label="文综一口价 / 科">
               <input type="number" min="0" value={draft.humanitiesPricing?.fixedPerSubject ?? 0} onChange={(event) => updateHumanitiesPricing("fixedPerSubject", event.target.value)} />
             </Field>
+            {draft.grade === "高一" && /全体系直通/.test(`${draft.stage ?? ""}${draft.name ?? ""}`) ? <>
+              <Field label="生物原价（特殊）">
+                <input type="number" min="0" value={draft.subjectPricing?.生物?.originalPerSubject ?? 0} onChange={(event) => updateSubjectPricing("生物", "originalPerSubject", event.target.value)} />
+              </Field>
+              <Field label="生物优惠价（特殊）">
+                <input type="number" min="0" value={draft.subjectPricing?.生物?.fixedPerSubject ?? 0} onChange={(event) => updateSubjectPricing("生物", "fixedPerSubject", event.target.value)} />
+              </Field>
+            </> : null}
           </div>
         </AdminPanel> : null}
 

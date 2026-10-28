@@ -38,6 +38,11 @@ export function getProductPricing(product, subjectsOrCount) {
       : threePlusPerSubject;
   const humanitiesOriginal = Number(product.humanitiesPricing?.originalPerSubject) || originalPerSubject;
   const humanitiesCurrent = Number(product.humanitiesPricing?.fixedPerSubject) || selectedPerSubject;
+  // 特殊科目价格属于产品配置，而不是写死在页面。高一全体系直通卡的
+  // 生物即使与文综同属一口价体系，也有自己的 7,800 / 4,880 价格。
+  const getSubjectSpecialPrice = (subject, field, fallback) => (
+    Number(product.subjectPricing?.[subject]?.[field]) || fallback
+  );
 
   if (isG1AutumnWinterBridgeCard(product) && selectedSubjects.length) {
     const standardSubjects = selectedSubjects.filter((subject) => !humanitiesSubjects.has(subject));
@@ -77,13 +82,28 @@ export function getProductPricing(product, subjectsOrCount) {
     };
   }
 
+  const humanitiesOriginalTotal = selectedSubjects.length
+    ? selectedSubjects
+      .filter((subject) => humanitiesSubjects.has(subject))
+      .reduce((total, subject) => total + getSubjectSpecialPrice(subject, "originalPerSubject", humanitiesOriginal), 0)
+    : humanitiesOriginal * humanitiesCount;
+  const humanitiesCurrentTotal = selectedSubjects.length
+    ? selectedSubjects
+      .filter((subject) => humanitiesSubjects.has(subject))
+      .reduce((total, subject) => total + getSubjectSpecialPrice(subject, "fixedPerSubject", humanitiesCurrent), 0)
+    : humanitiesCurrent * humanitiesCount;
+
   return {
     originalPerSubject,
     selectedPerSubject,
-    originalTotal: originalPerSubject * standardCount + humanitiesOriginal * humanitiesCount,
-    currentTotal: selectedPerSubject * standardCount + humanitiesCurrent * humanitiesCount,
-    getSubjectOriginal: (subject) => humanitiesSubjects.has(subject) ? humanitiesOriginal : originalPerSubject,
-    getSubjectCurrent: (subject) => humanitiesSubjects.has(subject) ? humanitiesCurrent : selectedPerSubject,
+    originalTotal: originalPerSubject * standardCount + humanitiesOriginalTotal,
+    currentTotal: selectedPerSubject * standardCount + humanitiesCurrentTotal,
+    getSubjectOriginal: (subject) => humanitiesSubjects.has(subject)
+      ? getSubjectSpecialPrice(subject, "originalPerSubject", humanitiesOriginal)
+      : originalPerSubject,
+    getSubjectCurrent: (subject) => humanitiesSubjects.has(subject)
+      ? getSubjectSpecialPrice(subject, "fixedPerSubject", humanitiesCurrent)
+      : selectedPerSubject,
     tiers: [
       { label: "单科", subjects: 1, perSubject: singlePerSubject, total: singlePerSubject, active: tierSubjectCount <= 1 },
       { label: "联报两科", subjects: 2, perSubject: twoPerSubject, total: twoPerSubject * 2, active: tierSubjectCount === 2 },

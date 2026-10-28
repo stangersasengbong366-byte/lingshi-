@@ -1368,6 +1368,12 @@ export const publishedProductSnapshot = [
       "originalPerSubject": 4200,
       "fixedPerSubject": 2700
     },
+    "subjectPricing": {
+      "生物": {
+        "originalPerSubject": 7800,
+        "fixedPerSubject": 4880
+      }
+    },
     "humanitiesSubjects": [
       "生物",
       "历史",
@@ -1555,8 +1561,8 @@ export const publishedProductSnapshot = [
       "threePlusPerSubject": 6060
     },
     "humanitiesPricing": {
-      "originalPerSubject": 4200,
-      "fixedPerSubject": 2700
+      "originalPerSubject": 5500,
+      "fixedPerSubject": 3900
     },
     "humanitiesSubjects": [
       "历史",

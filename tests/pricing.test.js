@@ -41,6 +41,17 @@ test("高一生物与文综科目统一按一口价", () => {
   assert.equal(pricing.currentTotal, 12860);
 });
 
+test("高一全体系直通卡的生物使用产品配置的独立价格", () => {
+  const product = createProduct("高一", {
+    stage: "全体系直通卡",
+    subjectPricing: { 生物: { originalPerSubject: 7800, fixedPerSubject: 4880 } },
+  });
+  const pricing = getProductPricing(product, ["生物"]);
+  assert.equal(pricing.originalTotal, 7800);
+  assert.equal(pricing.currentTotal, 4880);
+  assert.equal(pricing.getSubjectCurrent("生物"), 4880);
+});
+
 test("非高一生物参与非文综阶梯，兼容旧配置残留", () => {
   const product = createProduct("高三", { humanitiesSubjects: ["生物", "历史", "地理", "政治"] });
   const pricing = getProductPricing(product, ["数学", "生物", "政治"]);
