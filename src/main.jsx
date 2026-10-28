@@ -806,8 +806,8 @@ function App() {
   const fallbackShareParams = shortCode ? getShareParams() : null;
   const directShareParams = shortCode ? null : getShareParams();
   const salesOnly = getSalesOnlyMode();
-  // 销售和参数完整的分享链接均可先用随版本发布的正式快照渲染。
-  // 只有旧短链没有携带产品选择时，才必须等待云端还原选择项。
+  // 销售端和分享链接只能读取 Cloudflare 的 products_published。不能用浏览器
+  // 缓存、站点备份或开发时的 initialProducts 兜底，否则已删除的秋实卡会重新出现。
   const [shareParams, setShareParams] = useState(fallbackShareParams ?? directShareParams);
   const [shortLinkStatus, setShortLinkStatus] = useState(shortCode && !fallbackShareParams ? "loading" : "ready");
   const publicView = Boolean(shareParams || shortCode || salesOnly);
@@ -994,17 +994,7 @@ function App() {
     if (!cloudProductsEnabled && !cloudConfigEnabled) return undefined;
     if (shortCode && shortLinkStatus === "loading") return undefined;
     let cancelled = false;
-    const configId = CLOUD_PRODUCTS_DRAFT_ID;
-    let cloudLoaded = false;
-    const backupRequest = publicView ? loadLastGoodCloudProducts().then((backup) => {
-      if (cancelled || cloudLoaded || !backup?.products?.length) return backup;
-      const selectable = backup.products.filter((product) => product.status === "在售");
-      setProducts(backup.products);
-      setSelectedProductId((current) => selectable.some((product) => product.id === current) ? current : selectable[0]?.id);
-      setSyncStatus(`云端暂不可用，显示最近同步配置（${backup.syncedAt ? new Date(backup.syncedAt).toLocaleString("zh-CN") : "时间未知"}）`);
-      setCloudLoadState("fallback");
-      return backup;
-    }) : Promise.resolve(null);
+    const configId = publicView ? CLOUD_PRODUCTS_PUBLISHED_ID : CLOUD_PRODUCTS_DRAFT_ID;
     loadCloudProducts(configId)
       .then((cloudProducts) => {
         if (cancelled) return;
@@ -1015,7 +1005,6 @@ function App() {
           setCloudLoadState("ready");
           return;
         }
-        cloudLoaded = true;
         const nextProducts = cloudProducts;
         const selectableProducts = publicView
           ? nextProducts.filter((product) => product.status === "在售")
@@ -1028,14 +1017,12 @@ function App() {
           : publicView ? "Supabase正式版已同步" : "Supabase草稿已同步");
         setCloudLoadState("ready");
       })
-      .catch(async (error) => {
+      .catch((error) => {
         console.error("云端产品读取失败", error);
         if (publicView) {
-          const backup = await backupRequest;
-          if (cancelled || backup?.products?.length) return;
           setProducts([]);
           setSelectedProductId(undefined);
-          setSyncStatus("云端配置读取失败，且没有成功同步过的备用配置");
+          setSyncStatus("Cloudflare正式配置读取失败，请刷新后重试");
           setCloudLoadState("error");
           return;
         }
@@ -1058,29 +1045,6 @@ function App() {
       cancelled = true;
     };
   }, [publicView, shortCode, shortLinkStatus, shareParams?.productId]);
-
-  React.useEffect(() => {
-    if (!publicView || cloudLoadState !== "fallback") return undefined;
-    let cancelled = false;
-    const retry = () => {
-      if (document.visibilityState !== "visible") return;
-      loadCloudProducts(CLOUD_PRODUCTS_DRAFT_ID).then((latestProducts) => {
-        if (cancelled || !latestProducts?.length) return;
-        const selectable = latestProducts.filter((product) => product.status === "在售");
-        setProducts(latestProducts);
-        setSelectedProductId((current) => selectable.some((product) => product.id === current) ? current : selectable[0]?.id);
-        setSyncStatus("云端配置已重新同步");
-        setCloudLoadState("ready");
-      }).catch(() => {});
-    };
-    const intervalId = window.setInterval(retry, 60_000);
-    document.addEventListener("visibilitychange", retry);
-    return () => {
-      cancelled = true;
-      window.clearInterval(intervalId);
-      document.removeEventListener("visibilitychange", retry);
-    };
-  }, [publicView, cloudLoadState]);
 
   React.useEffect(() => {
     if (!cloudConfigEnabled || cloudProductsEnabled || !selectedProduct?.grade) return undefined;
