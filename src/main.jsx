@@ -996,7 +996,7 @@ function App() {
     if (!cloudProductsEnabled && !cloudConfigEnabled) return undefined;
     if (shortCode && shortLinkStatus === "loading") return undefined;
     let cancelled = false;
-    const configId = publicView ? CLOUD_PRODUCTS_PUBLISHED_ID : CLOUD_PRODUCTS_DRAFT_ID;
+    const configId = CLOUD_PRODUCTS_PUBLISHED_ID;
     loadCloudProducts(configId)
       .then((cloudProducts) => {
         if (cancelled) return;
@@ -1030,7 +1030,7 @@ function App() {
         }
         // 云端临时不可用时先展示随版本发布的基础配置。运营端仍可编辑；
         // 点击保存时会重新读取云端并按产品 ID 合并，避免覆盖其他电脑的新修改。
-        const fallbackProducts = loadBundledFallbackProducts();
+        const fallbackProducts = [];
         const selectableProducts = publicView
           ? fallbackProducts.filter((product) => product.status === "在售")
           : fallbackProducts;
@@ -1040,8 +1040,8 @@ function App() {
             ? current
             : selectableProducts[0]?.id
         ));
-        setSyncStatus("云端连接暂时异常；当前可继续编辑，保存时将自动重连");
-        setCloudLoadState("fallback");
+        setSyncStatus("正式配置读取失败，请刷新重试");
+        setCloudLoadState("error");
       });
     return () => {
       cancelled = true;
@@ -1179,7 +1179,7 @@ function App() {
     try {
       const mergedProducts = await saveCloudProductChanges(nextProducts, {
         upsertIds: changedProductIds,
-        configIds: [CLOUD_PRODUCTS_DRAFT_ID],
+        configIds: [CLOUD_PRODUCTS_PUBLISHED_ID],
       });
       if (mergedProducts) {
         setProducts(mergedProducts);
@@ -1202,7 +1202,7 @@ function App() {
       : products;
     await saveCloudProductChanges(nextProducts, {
       upsertIds: nextProduct ? [nextProduct.id] : nextProducts.map((product) => product.id),
-      configIds: [CLOUD_PRODUCTS_DRAFT_ID],
+      configIds: [CLOUD_PRODUCTS_PUBLISHED_ID],
     });
     setSyncStatus("已发布，销售端将读取最新版本");
   };
@@ -1217,7 +1217,7 @@ function App() {
     try {
       const mergedProducts = await saveCloudProductChanges(nextProducts, {
         upsertIds: [nextProduct.id],
-        configIds: [CLOUD_PRODUCTS_DRAFT_ID],
+        configIds: [CLOUD_PRODUCTS_PUBLISHED_ID],
       });
       if (mergedProducts) {
         setProducts(mergedProducts);
@@ -1250,7 +1250,7 @@ function App() {
       const mergedProducts = await saveCloudProductChanges(nextProducts, {
         upsertIds: preserved.carrierId ? [preserved.carrierId] : [],
         deleteIds: [productId],
-        configIds: [CLOUD_PRODUCTS_DRAFT_ID],
+        configIds: [CLOUD_PRODUCTS_PUBLISHED_ID],
       });
       if (mergedProducts) {
         setProducts(mergedProducts);
