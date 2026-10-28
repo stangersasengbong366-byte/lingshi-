@@ -638,7 +638,7 @@ async function saveCloudProductChanges(nextProducts, { upsertIds = [], deleteIds
       if (!latestProducts) throw new Error(`${configId} Cloudflare产品配置不存在`);
       const mergedProducts = mergeCloudProductChanges(latestProducts, nextProducts, { upsertIds, deleteIds });
       await saveCloudProducts(mergedProducts, configId);
-      if (configId === CLOUD_PRODUCTS_DRAFT_ID) mergedDraft = mergedProducts;
+      mergedDraft = mergedProducts;
     }
     return mergedDraft;
   }
@@ -656,7 +656,7 @@ async function saveCloudProductChanges(nextProducts, { upsertIds = [], deleteIds
     if (!latestProducts) throw new Error(`${configId} 云端产品配置不存在`);
     const mergedProducts = mergeCloudProductChanges(latestProducts, nextProducts, { upsertIds, deleteIds });
     await saveCloudProducts(mergedProducts, configId);
-    if (configId === CLOUD_PRODUCTS_DRAFT_ID) mergedDraft = mergedProducts;
+    mergedDraft = mergedProducts;
   }
   return mergedDraft;
 }
@@ -814,7 +814,7 @@ function App() {
   const [shortLinkStatus, setShortLinkStatus] = useState(shortCode && !fallbackShareParams ? "loading" : "ready");
   const publicView = Boolean(shareParams || shortCode || salesOnly);
   const [activePage, setActivePage] = useState(() => salesOnly ? "sales" : "admin");
-  const [products, setProducts] = useState(() => publicView ? [] : loadStoredProducts());
+  const [products, setProducts] = useState([]);
   const [syncStatus, setSyncStatus] = useState(cloudProductsEnabled || cloudConfigEnabled ? "正在同步云端配置" : "本地配置");
   const [selectedProductId, setSelectedProductId] = useState(() => (
     shareParams?.productId ?? loadStoredProducts()[0]?.id ?? initialProducts[0].id
@@ -829,7 +829,7 @@ function App() {
   // 销售端和运营端只读取同一份云端配置；未完成读取前不展示任何本地或
   // 静态快照，避免两端因不同数据源出现不一致。
   const [cloudLoadState, setCloudLoadState] = useState(() => (
-    (cloudProductsEnabled || cloudConfigEnabled) && publicView ? "loading" : "ready"
+    (cloudProductsEnabled || cloudConfigEnabled) ? "loading" : "ready"
   ));
   const activeProducts = useMemo(() => products.filter((item) => item.status === "在售"), [products]);
   const availableProducts = !publicView && activePage === "admin" ? products : activeProducts;
