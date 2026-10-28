@@ -10,6 +10,9 @@ export const CLOUDFLARE_CONFIG_API_URLS = [...new Set([
   CLOUDFLARE_CONFIG_API_BACKUP_URL,
 ].filter(Boolean))];
 export const PUBLIC_SITE_URL = import.meta.env.VITE_PUBLIC_SITE_URL || "https://stangersasengbong366-byte.github.io/lingshi-/";
+// 变更销售端数据源或计算规则时同步更新。分享链接携带它以绕过企业网络、
+// 微信内置浏览器等对旧 index.html 的缓存。
+export const PUBLIC_SITE_RELEASE = "2026-10-28-sales-published-v2";
 export const CLOUD_CONFIG_TABLE = "benefit_configs";
 export const CLOUD_PRODUCTS_LEGACY_ID = "products";
 export const CLOUD_PRODUCTS_DRAFT_ID = "products_draft";

@@ -57,6 +57,7 @@ import {
   CLOUD_CONFIG_TABLE,
   CLOUD_FEEDBACK_PREFIX,
   CLOUD_PRODUCTS_DRAFT_ID,
+  CLOUD_PRODUCTS_PUBLISHED_ID,
   CLOUD_PRODUCTS_LEGACY_ID,
   CLOUD_SHORT_LINK_PREFIX,
   CLOUD_TEACHING_AID_PREFIX,
@@ -65,6 +66,7 @@ import {
   cloudProductsEnabled,
   CLOUDFLARE_CONFIG_API_URLS,
   PRODUCTS_STORAGE_KEY,
+  PUBLIC_SITE_RELEASE,
   PUBLIC_SITE_URL,
   SUPABASE_ANON_KEY,
   SUPABASE_URL,
@@ -6450,6 +6452,7 @@ function buildDirectShareUrl(shareState) {
   url.search = "";
   url.hash = "";
   if (shareState?.productId) {
+    url.searchParams.set("v", PUBLIC_SITE_RELEASE);
     url.searchParams.set("share", "1");
     url.searchParams.set("product", shareState.productId);
     url.searchParams.set("subjects", shareState.subjects.join(","));
@@ -6464,6 +6467,7 @@ function buildSalesPortalUrl() {
   const url = new URL(PUBLIC_SITE_URL);
   url.search = "";
   url.hash = "";
+  url.searchParams.set("v", PUBLIC_SITE_RELEASE);
   url.searchParams.set("sales", "1");
   return url.toString();
 }
