@@ -29,34 +29,18 @@ try {
   const record = await getConfig("products_published");
   const products = record?.payload?.products;
   if (!Array.isArray(products) || !products.length) throw new Error("云端产品配置为空");
-  const courseLibraries = {};
-  const grades = [...new Set(products.map((product) => product.grade))];
-  for (const grade of grades) {
-    const id = { 高一: "course_library_g1", 高二: "course_library_g2", 高三: "course_library_g3" }[grade];
-    if (!id) continue;
-    try {
-      const library = await getConfig(id);
-      if (library?.payload?.data) courseLibraries[grade] = library.payload;
-    } catch (error) {
-      console.warn(`${grade}课程库未同步到快照: ${error.message}`);
-    }
-  }
-  const productMedia = {};
-  for (const product of products) {
-    try {
-      const record = await getConfig(`product_media_${product.id}`);
-      productMedia[product.id] = record?.payload?.media ?? {};
-    } catch (error) {
-      console.warn(`${product.name}图片备份失败: ${error.message}`);
-    }
-  }
-  snapshot = { source: "products_published", syncedAt: new Date().toISOString(), products, courseLibraries, productMedia };
+  // 这个文件是销售端首次访问的快速降级通道，不能携带大体积课程库和
+  // base64 图片。课程已随站点打包，当前产品图片会在选中后按需读取。
+  snapshot = { source: "products_published", syncedAt: new Date().toISOString(), products };
 } catch (error) {
   console.warn(`云端暂不可达，保留上次成功同步的配置: ${error.message}`);
   snapshot = await getJson(previousSnapshotUrl);
   if (snapshot?.source !== "products_published" || !Array.isArray(snapshot.products) || !snapshot.products.length) {
     throw new Error("没有可用的运营配置快照");
   }
+  // 旧版快照可能超过 7 MB。云端暂不可达时也只继承其中的产品配置，
+  // 避免定时发布把超大文件原样复制回线上。
+  snapshot = { source: "products_published", syncedAt: snapshot.syncedAt, products: snapshot.products };
 }
 
 await writeFile("dist/cloud-config.json", JSON.stringify(snapshot));
