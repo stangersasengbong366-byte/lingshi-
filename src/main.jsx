@@ -266,7 +266,11 @@ async function loadLastGoodCloudProducts() {
     // 损坏的浏览器缓存不妨碍读取站点备份。
   }
   try {
-    const response = await fetchCloudConfig(`${assetUrl("/cloud-config.json")}?t=${Date.now()}`, { cache: "no-store" });
+    const response = await fetchCloudConfig(
+      `${assetUrl("/cloud-config.json")}?t=${Date.now()}`,
+      { cache: "no-store" },
+      15_000,
+    );
     if (response.ok) {
       const snapshot = await response.json();
       const result = productsFromCloudSnapshot(snapshot);
@@ -303,9 +307,9 @@ function rememberCloudProducts(products, courseLibraries) {
 
 // Worker 在部分企业网络或地区会卡在连接阶段而不会立即抛错。所有
 // Cloudflare 请求统一设定短超时，保证页面可以迅速使用静态正式快照降级。
-async function fetchCloudConfig(url, options = {}) {
+async function fetchCloudConfig(url, options = {}, timeoutMs = CLOUD_CONFIG_TIMEOUT_MS) {
   const controller = new AbortController();
-  const timeoutId = window.setTimeout(() => controller.abort(), CLOUD_CONFIG_TIMEOUT_MS);
+  const timeoutId = window.setTimeout(() => controller.abort(), timeoutMs);
   try {
     const response = await fetch(url, { ...options, signal: controller.signal });
     // fetch 取得响应头即返回；必须等响应体下载完成才能清除超时。
